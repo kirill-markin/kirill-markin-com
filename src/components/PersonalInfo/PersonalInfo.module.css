@@ -104,8 +104,8 @@
 
 @media (max-width: 768px) {
   .nameUnderline {
-    left: -15px;
-    width: calc(100% + 30px);
+    left: -30px;
+    width: calc(100% + 60px);
   }
 }
 
