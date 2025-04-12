@@ -113,4 +113,38 @@ export async function getAllArticles(): Promise<Article[]> {
     });
   
   return articles;
+}
+
+/**
+ * Gets related articles based on tags
+ * @param currentArticleSlug Slug of the current article to exclude from results
+ * @param tags Array of tags to match against
+ * @param limit Maximum number of articles to return
+ * @returns Promise with array of related articles
+ */
+export async function getRelatedArticlesByTags(
+  currentArticleSlug: string,
+  tags: string[],
+  limit: number = 5
+): Promise<Article[]> {
+  const allArticles = await getAllArticles();
+  
+  // Filter out the current article and find articles with matching tags
+  const relatedArticles = allArticles
+    .filter(article => 
+      // Exclude current article
+      article.slug !== currentArticleSlug && 
+      // Must have at least one matching tag
+      article.metadata.tags.some(tag => tags.includes(tag))
+    )
+    // Sort by the number of matching tags (most matches first)
+    .sort((a, b) => {
+      const aMatches = a.metadata.tags.filter(tag => tags.includes(tag)).length;
+      const bMatches = b.metadata.tags.filter(tag => tags.includes(tag)).length;
+      return bMatches - aMatches;
+    })
+    // Limit the number of results
+    .slice(0, limit);
+  
+  return relatedArticles;
 } 
