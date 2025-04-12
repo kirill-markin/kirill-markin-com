@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.mainPageContent}>
       <div className={styles.leftColumn}>
         <div className={styles.personalInfo}>
-          <h1 className={styles.personalName} data-text={personalInfo.name}>
+          <h1 className={styles.personalName}>
             {personalInfo.name}
           </h1>
         </div>
@@ -68,7 +68,7 @@ export default function Home() {
       <div className={styles.rightColumn}>
         <div className={styles.articles}>
           <h2 className={styles.articlesHeading}>
-            Article<span className={styles.glitchLetter}>s</span> and mention<span className={styles.glitchLetter}>s</span>
+            Articles and mentions
           </h2>
 
           <div className={styles.mediaMentions}>

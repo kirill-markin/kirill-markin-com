@@ -5,6 +5,7 @@
   --white: #FFFFFF;
   --dark-gray: #232323;
   --medium-gray: #898989;
+  --light-gray: #e0e0e0;
   --font-size-small: 0.875rem;  /* 14px */
   --font-size-base: 1rem;       /* 16px */
   --font-size-base-plus: 1.125rem; /* 18px */
@@ -12,17 +13,6 @@
   --font-size-large: 2.25rem;   /* 36px */
   --font-size-xlarge: 3.25rem;  /* 52px */
   --font-size-xxlarge: 5.4375rem; /* 87px */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --black: #ededed;
-    --white: #0a0a0a;
-    --dark-gray: #cccccc;
-    --medium-gray: #898989;
-  }
 }
 
 html,
@@ -38,6 +28,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 * {
@@ -56,8 +50,15 @@ table {
   width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+main {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
