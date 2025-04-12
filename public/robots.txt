@@ -1,9 +1,0 @@
----
-layout: none
-sitemap:
-  exclude: 'yes'
----
-User-agent: *
-Sitemap: {{ site.url }}/sitemap.xml
-Host: {{ site.url }}
-Allow: /
