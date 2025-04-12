@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getAllArticles } from '@/lib/articles';
+import { servicesData } from '@/data/services';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
@@ -13,6 +14,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   // Get all articles for dynamic routes
   const articles = await getAllArticles();
+  
+  // Get unique service categories (excluding 'all')
+  const serviceCategories = Array.from(
+    new Set(servicesData.map(service => service.categoryId))
+  ).filter(category => category !== 'all');
   
   // Define common routes with their metadata
   const staticRoutes = [
@@ -28,6 +34,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
+    // Add service category URLs
+    ...serviceCategories.map(category => ({
+      url: `${baseUrl}services/?category=${category}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     {
       url: `${baseUrl}meet/`,
       lastModified: currentDate,
