@@ -4,6 +4,22 @@
 
 This is a modern personal website for Kirill Markin, built with Next.js. The project was migrated from Jekyll to Next.js to improve performance, developer experience, and leverage modern web capabilities.
 
+```
+src/
+├── app/             # Next.js App Router pages
+│   ├── page.tsx     # Home page
+│   ├── services/    # Services section with categories
+│   ├── articles/    # Articles listing page
+│   │   └── [slug]/  # Individual article pages
+│   ├── meet/        # Meeting booking section
+│   ├── layout.tsx   # Root layout
+│   └── not-found.tsx # 404 page
+├── components/      # UI components
+├── data/            # Content data (services, etc.)
+├── styles/          # Global styles
+└── types/           # TypeScript type definitions
+```
+
 ## Core Architecture Principles
 
 ### Static Generation First
