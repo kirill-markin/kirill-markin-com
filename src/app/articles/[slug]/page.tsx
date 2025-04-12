@@ -118,7 +118,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         {/* Related Articles Section */}
         {relatedArticles.length > 0 && (
           <div className={styles.relatedArticlesSection}>
-            <h2 className={styles.relatedArticlesTitle}>Related Articles</h2>
+            <h2 className={styles.relatedArticlesTitle}>
+              {relatedArticles.every(relatedArticle => 
+                relatedArticle.metadata.tags.some(tag => article.metadata.tags.includes(tag))
+              ) 
+                ? 'Related Articles'
+                : 'Related & Recent Articles'
+              }
+            </h2>
             
             <div className={styles.mediaMentions}>
               {relatedArticles.map((relatedArticle, index) => {

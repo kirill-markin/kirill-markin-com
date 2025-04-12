@@ -142,9 +142,30 @@ export async function getRelatedArticlesByTags(
       const aMatches = a.metadata.tags.filter(tag => tags.includes(tag)).length;
       const bMatches = b.metadata.tags.filter(tag => tags.includes(tag)).length;
       return bMatches - aMatches;
-    })
-    // Limit the number of results
-    .slice(0, limit);
+    });
   
-  return relatedArticles;
+  // If we have fewer related articles than the limit, add recent non-related articles
+  if (relatedArticles.length < limit) {
+    // Get non-related articles (excluding the current article and any already-included related articles)
+    const relatedSlugs = new Set([currentArticleSlug, ...relatedArticles.map(article => article.slug)]);
+    
+    const nonRelatedArticles = allArticles
+      .filter(article => !relatedSlugs.has(article.slug))
+      // Sort by date (newest first)
+      .sort((a, b) => {
+        if (a.metadata.date < b.metadata.date) {
+          return 1;
+        } else {
+          return -1;
+        }
+      })
+      // Limit to the number needed to reach the total limit
+      .slice(0, limit - relatedArticles.length);
+      
+    // Combine the related and non-related articles
+    return [...relatedArticles, ...nonRelatedArticles];
+  }
+  
+  // If we have enough or more related articles, just return up to the limit
+  return relatedArticles.slice(0, limit);
 } 
