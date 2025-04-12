@@ -23,7 +23,7 @@ export default function AllMeetingsClient() {
             backgroundColor: 'white' 
           }} 
           width="100%" 
-          height="900" 
+          height="1200" 
           frameBorder="0"
         />
       </div>
