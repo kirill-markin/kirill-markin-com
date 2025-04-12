@@ -164,5 +164,57 @@ export const servicesData: ServiceData[] = [
     promoText: "",
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"
+  },
+  
+  // Category: For Journalists
+  {
+    serviceId: "conference",
+    categoryId: "for_journalists",
+    name: "Conference",
+    description: "Invite Kirill Markin as a speaker for your conference. With his expertise in AI, data science, and technology, Kirill can provide valuable insights and thought-provoking discussions on these topics.",
+    logoUrl: "",
+    promoText: "",
+    buttonText: "Book a call",
+    buttonUrl: "/meet/short/"
+  },
+  {
+    serviceId: "article",
+    categoryId: "for_journalists",
+    name: "Article",
+    description: "Collaborate with Kirill Markin on articles about AI, data science, and technology. Whether you need an expert opinion, a contributor, or a technical review, Kirill can provide valuable input for your publication.",
+    logoUrl: "",
+    promoText: "",
+    buttonText: "Book a call",
+    buttonUrl: "/meet/short/"
+  },
+  {
+    serviceId: "podcast",
+    categoryId: "for_journalists",
+    name: "Podcast",
+    description: "Invite Kirill Markin as a guest for your podcast to discuss topics related to AI, data science, and technology. With his experience and knowledge, Kirill can provide valuable insights and engaging conversation for your audience.",
+    logoUrl: "",
+    promoText: "",
+    buttonText: "Book a call",
+    buttonUrl: "/meet/short/"
+  },
+  {
+    serviceId: "comment_quote",
+    categoryId: "for_journalists",
+    name: "Expert Comment/Quote",
+    description: "Receive expert comments or quotes from Kirill Markin for your articles, podcasts, or reports. Leverage Kirill's extensive knowledge in AI, data, and technology to add valuable insights and credibility to your content.",
+    logoUrl: "",
+    promoText: "",
+    buttonText: "Book a call",
+    buttonUrl: "/meet/short/"
+  },
+  {
+    serviceId: "interview",
+    categoryId: "for_journalists",
+    name: "Interview",
+    description: "Schedule an interview with Kirill Markin to discuss topics related to AI, data science, and technology. Whether for an article, video content, or research, Kirill can provide insightful perspectives and expert knowledge.",
+    logoUrl: "",
+    promoText: "",
+    buttonText: "Book a call",
+    buttonUrl: "/meet/short/"
   }
 ]; 
