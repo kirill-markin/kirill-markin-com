@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,  // Remove X-Powered-By header for security
   env: {
     // Site-wide environment variables
-    SITE_URL: 'https://kirill-markin.com',
+    SITE_URL: 'https://kirill-markin.com/',
     SITE_NAME: 'Kirill Markin',
   },
   // Add optimization settings

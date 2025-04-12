@@ -11,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap: 'https://kirill-markin.com/sitemap.xml',
-    host: 'https://kirill-markin.com',
+    host: 'https://kirill-markin.com/',
   };
 } 

@@ -19,10 +19,10 @@ export default function JsonLdSchema() {
     '@type': 'Person',
     'name': personalInfo.name,
     'jobTitle': [personalInfo.jobTitle, personalInfo.secondaryTitle, personalInfo.tertiaryTitle].filter(Boolean).join(', '),
-    'url': 'https://kirill-markin.com',
+    'url': 'https://kirill-markin.com/',
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
-    'image': `https://kirill-markin.com${personalInfo.image}`,
+    'image': `https://kirill-markin.com/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
     'sameAs': sameAs,
     'knowsAbout': [
       'AI Engineering',
@@ -42,13 +42,13 @@ export default function JsonLdSchema() {
     'name': `${personalInfo.name} - Professional Services`,
     'description': 'Professional services including AI consulting, analytics department audit, startup guidance, and more',
     'url': 'https://kirill-markin.com/services/',
-    'logo': `https://kirill-markin.com${personalInfo.image}`,
+    'logo': `https://kirill-markin.com/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
     'provider': {
       '@type': 'Person',
       'name': personalInfo.name,
-      'url': 'https://kirill-markin.com'
+      'url': 'https://kirill-markin.com/'
     },
     'hasOfferCatalog': {
       '@type': 'OfferCatalog',
@@ -59,7 +59,7 @@ export default function JsonLdSchema() {
           '@type': 'Service',
           'name': service.name,
           'description': service.description.split('\n\n')[0], // Just first paragraph
-          'url': service.buttonUrl.startsWith('http') ? service.buttonUrl : `https://kirill-markin.com${service.buttonUrl}`,
+          'url': service.buttonUrl.startsWith('http') ? service.buttonUrl : `https://kirill-markin.com${service.buttonUrl.startsWith('/') ? service.buttonUrl : '/' + service.buttonUrl}${!service.buttonUrl.endsWith('/') ? '/' : ''}`,
           'provider': {
             '@type': 'Person',
             'name': personalInfo.name
@@ -75,7 +75,7 @@ export default function JsonLdSchema() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'url': 'https://kirill-markin.com',
+    'url': 'https://kirill-markin.com/',
     'name': `${personalInfo.name} - Official Website`,
     'description': 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
     'author': {
@@ -98,7 +98,7 @@ export default function JsonLdSchema() {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://kirill-markin.com'
+        'item': 'https://kirill-markin.com/'
       },
       {
         '@type': 'ListItem',

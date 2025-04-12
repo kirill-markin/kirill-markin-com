@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Kirill Markin - Consultant and Software Architect",
   description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
-  metadataBase: new URL('https://kirill-markin.com'),
+  metadataBase: new URL('https://kirill-markin.com/'),
   icons: {
     icon: [
       { url: '/favicons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://kirill-markin.com',
+    url: 'https://kirill-markin.com/',
     siteName: 'Kirill Markin',
     title: 'Kirill Markin - Consultant and Software Architect',
     description: 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     site: '@kirill_markin_',
   },
   alternates: {
-    canonical: 'https://kirill-markin.com',
+    canonical: 'https://kirill-markin.com/',
   },
 };
 
