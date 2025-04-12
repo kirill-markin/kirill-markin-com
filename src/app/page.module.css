@@ -199,20 +199,22 @@ a.secondary {
   
   .leftColumn {
     display: block;
-    width: 100%;
+    width: 100%!important;
     border-right: none;
-    padding: 15px;
+    padding: 10!important;
     text-align: center;
   }
   
   .rightColumn {
     display: block;
-    width: 100%;
-    padding: 15px;
+    width: 100%!important;
+    padding: 10!important;
   }
   
   .avatarAndTitles {
-    align-items: center;
+    flex-direction: row!important;
+    align-items: center!important;
+    margin-bottom: 0!important;
   }
   
   .personalName {
@@ -220,12 +222,12 @@ a.secondary {
   }
   
   .profileImageContainer {
-    max-width: 180px;
-    margin: 0 auto 1rem;
+    max-width: 100px!important;
+    margin: 0 1rem 1rem;
   }
   
   .personalTitles {
-    text-align: center;
+    text-align: left;
   }
   
   .contactBubbles {
