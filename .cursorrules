@@ -76,6 +76,8 @@ src/
 ├── app/             # Next.js App Router pages
 │   ├── page.tsx     # Home page
 │   ├── services/    # Services section with categories
+│   ├── articles/    # Articles listing page
+│   │   └── [slug]/  # Individual article pages
 │   ├── meet/        # Meeting booking section
 │   ├── layout.tsx   # Root layout
 │   └── not-found.tsx # 404 page
@@ -132,6 +134,15 @@ The services page was reimplemented to follow best practices:
 - Static generation of all category filter variations
 - Dynamic metadata generation based on selected category
 - Client-side scroll position management when changing categories
+
+### Articles Page Implementation
+
+The articles section follows the same architecture principles:
+- Index page (`/articles`) shows a list of all articles with appropriate metadata
+- Individual article pages (`/articles/[slug]`) are statically generated at build time
+- `generateStaticParams` is used to pre-render all known article paths
+- Each article has optimized SEO metadata including title, description, and OpenGraph data
+- Articles are stored as structured data with strong typing
 
 ### SEO Enhancements
 
