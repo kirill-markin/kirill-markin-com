@@ -15,7 +15,7 @@ export default async function ArticlesPage() {
   const articles = await getAllArticles();
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className={styles.articlesHeading}>
         Article<span className={styles.glitchLetter}>s</span>
       </h1>
