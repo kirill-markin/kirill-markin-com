@@ -1,5 +1,5 @@
 .bookingOptionsContainer {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1.25rem;
   min-height: 70vh;
@@ -135,4 +135,33 @@
   .bookingMethodLogo {
     margin-right: 1rem;
   }
+}
+
+.meetContainer {
+  min-height: 80vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .meetContainer {
+    padding: 0;
+  }
+}
+
+.backLinkContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.backLink {
+  color: var(--dark-gray);
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline-block;
 } 
