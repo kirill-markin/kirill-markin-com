@@ -6,12 +6,13 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--dark-gray);
+  border-bottom: 1px solid #232323 !important;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 2.5rem;
+  height: 40px;
+  transform: translateZ(0);
 }
 
 /* Desktop Header */
@@ -22,7 +23,6 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  border-top: 1px solid var(--dark-gray);
 }
 
 .leftColumn, .rightColumn {
@@ -32,7 +32,7 @@
 
 .leftColumn {
   width: 25%;
-  border-right: 1px solid var(--dark-gray);
+  border-right: 1px solid #232323;
 }
 
 .rightColumn {
@@ -49,15 +49,16 @@
   height: 100%;
   margin: 0;
   text-decoration: none;
-  color: var(--dark-gray);
+  color: #232323;
   border-radius: 0;
   text-transform: uppercase;
+  font-size: var(--font-size-medium);
   font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-medium));
   font-weight: 300;
   line-height: 100%;
   position: relative;
   overflow: hidden;
-  border-right: 1px solid var(--dark-gray);
+  border-right: 1px solid #232323;
 }
 
 .headerDesktopButton:last-child {
@@ -132,7 +133,8 @@
 
   .headerMobileContainer {
     display: flex;
-    border-top: 1px solid var(--dark-gray);
+    border-top: none;
+    border-width: 0;
     height: 40px;
     justify-content: space-between;
     align-items: center;
@@ -143,7 +145,7 @@
     width: 40px;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid var(--dark-gray);
+    border-right: 1px solid #232323;
   }
 
   .mobileRightButtonsContainer {
@@ -180,6 +182,7 @@
 
   .mobileButton {
     margin-left: 0.5rem;
+    border-left: 1px solid #232323;
   }
 
   .headerMobileBlogButton {
@@ -218,7 +221,7 @@
 
   .headerMobileMenuSection {
     padding: 1rem 2rem;
-    border-bottom: 1px solid var(--dark-gray);
+    border-bottom: 1px solid #232323;
   }
 
   .headerMobileMenuSection a {

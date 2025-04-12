@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
+  width: 'device-width',
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
 };
 
 export const metadata: Metadata = {

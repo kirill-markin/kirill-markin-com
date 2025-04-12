@@ -166,19 +166,18 @@ a.secondary {
 
 /* Main page layout */
 .mainPageContent {
-  display: table;
-  table-layout: fixed;
+  display: flex;
+  flex-direction: row;
   width: 100%;
   max-width: 100%;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  border-collapse: collapse;
 }
 
 @media (max-width: 768px) {
   .mainPageContent {
-    display: block;
+    flex-direction: column;
   }
   
   .leftColumn {
@@ -227,9 +226,9 @@ a.secondary {
 
 /* Left column - personal info */
 .leftColumn {
-  display: table-cell;
-  vertical-align: top;
+  flex: 0 0 25%;
   width: 25%;
+  vertical-align: top;
   border-right: 1px solid var(--dark-gray);
   padding: 20px;
   background-color: #ffffff;
@@ -340,9 +339,9 @@ a.secondary {
 
 /* Right column - articles */
 .rightColumn {
-  display: table-cell;
-  vertical-align: top;
+  flex: 1;
   width: 75%;
+  vertical-align: top;
   padding: 20px;
   background-color: #ffffff;
 }
