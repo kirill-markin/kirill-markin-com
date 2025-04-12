@@ -1,0 +1,10 @@
+# Node modules
+node_modules/
+
+# Build directories
+.next/
+out/
+build/
+
+# Obsidian vault directory
+obsidian-vault/ 

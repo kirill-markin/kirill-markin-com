@@ -1,0 +1,15 @@
+# Build directories
+.next/
+out/
+build/
+public/
+
+# Dependencies
+node_modules/
+
+# Obsidian vault
+obsidian-vault/
+
+# Generated files
+*.generated.*
+next-env.d.ts 

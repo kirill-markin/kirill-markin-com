@@ -1,0 +1,27 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/obsidian-vault": true,
+    "**/.next": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/obsidian-vault/**": true,
+    "**/.next/**": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.next": true,
+    "**/node_modules": true,
+  },
+  "eslint.workingDirectories": [
+    "."
+  ],
+  "eslint.options": {
+    "ignorePath": ".eslintignore"
+  }
+} 
