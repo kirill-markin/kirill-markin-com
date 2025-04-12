@@ -16,7 +16,7 @@ export const servicesData: ServiceData[] = [
     categoryId: "for_all",
     name: "Free 15-Minute Welcome Meeting",
     description: "Schedule a free 15-minute welcome meeting with me. Choose any convenient time slot, and I will be happy to meet you. Whether we decide to work together or simply get acquainted, this session is a great opportunity to connect.",
-    logoUrl: "/services_thumbnails/welcome.png",
+    logoUrl: "/services/welcome.png",
     promoText: "",
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"
@@ -28,7 +28,7 @@ export const servicesData: ServiceData[] = [
     categoryId: "for_people",
     name: "Startup Launch Guidance",
     description: "Get expert advice and step-by-step guidance to successfully launch your startup. From ideation to execution, we cover all the essential steps.\n\n### Examples of Realized Projects:\n- **Ozma.io**: Kirill Markin, founder of Ozma.io, led the company to success with innovative solutions and strategic planning.\n- **R&D Leadership**: Kirill Markin has headed the R&D departments in several companies, launching new products from scratch, a process very similar to creating a startup.",
-    logoUrl: "/services_thumbnails/startup.png",
+    logoUrl: "/services/startup.png",
     promoText: "",
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"

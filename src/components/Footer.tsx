@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
                 className={styles.socialLink}
               >
                 <Image 
-                  src={link.socialLogoUrlDefault || '/images/social_logos/default.png'} 
+                  src={link.socialLogoUrlDefault || '/social/default.png'} 
                   alt={link.name} 
                   className={styles.iconDefault}
                   width={24}

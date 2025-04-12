@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           />
         ) : (
           <Image 
-            src="/services_thumbnails/default.png" 
+            src="/services/default.png" 
             alt={service.name} 
             className={styles.serviceImage}
             width={300}

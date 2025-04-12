@@ -7,4 +7,3 @@ User-agent: *
 Sitemap: {{ site.url }}/sitemap.xml
 Host: {{ site.url }}
 Allow: /
-Allow: /ru/
