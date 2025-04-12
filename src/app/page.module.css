@@ -305,6 +305,23 @@ a.secondary {
   z-index: 1;
 }
 
+.nameUnderline {
+  width: 100%;
+  height: 1px;
+  background-color: #232323;
+  margin: 1.5rem 0;
+  position: relative;
+  left: -20px;
+  width: calc(100% + 40px);
+}
+
+@media (max-width: 768px) {
+  .nameUnderline {
+    left: -15px;
+    width: calc(100% + 30px);
+  }
+}
+
 .personalContacts {
   margin-top: 1rem;
 }

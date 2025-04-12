@@ -16,6 +16,7 @@ export default function Home() {
           <h1 className={styles.personalName} data-text={personalInfo.name}>
             {personalInfo.name}
           </h1>
+          <div className={styles.nameUnderline}></div>
         </div>
         <div className={styles.personalContacts}>
           <div className={styles.avatarAndTitles}>
