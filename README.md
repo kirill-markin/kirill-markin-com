@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kirill Markin - Personal Website
+
+This is a modern, responsive personal website for Kirill Markin, built with Next.js. The site was migrated from Jekyll to Next.js for improved performance, developer experience, and modern web capabilities.
+
+## Migration Overview
+
+This project is a complete migration from a Jekyll-based static site to a Next.js application. The migration preserves the original design and user experience while adding modern web features:
+
+- Responsive design with improved performance
+- Server-side rendering and static generation capabilities
+- Enhanced SEO with metadata API
+- Improved developer experience with TypeScript
+- Modern asset optimization with Next.js Image component
 
 ## Project Configuration
 
@@ -6,11 +18,37 @@ This project was set up with the following configuration:
 
 - **TypeScript**: Yes - For type safety and improved developer experience
 - **ESLint**: Yes - For code quality and consistency
-- **Tailwind CSS**: No - Custom styling approach used instead
+- **Tailwind CSS**: No - Custom styling approach with CSS Modules
 - **Code organization**: Yes - Code is inside `src/` directory
-- **Router**: Yes - Uses App Router (recommended)
-- **Turbopack**: Yes - Used for `next dev` for faster development experience
-- **Import alias**: No - Using default import alias (`@/*`)
+- **Router**: Yes - Uses App Router for SEO benefits and modern routing
+- **Image Optimization**: Yes - Using Next.js Image component
+- **Metadata API**: Yes - For improved SEO
+- **Import alias**: Yes - Using default import alias (`@/*`)
+
+## Project Structure
+
+```
+website-next-js/
+├── public/           # Static assets (favicons, images)
+│   ├── icons/        # SVG icons
+│   ├── images/       # Website images
+│   └── ...           # Other static assets
+├── src/
+│   ├── app/          # App router pages and layouts
+│   │   ├── page.tsx  # Home page
+│   │   ├── services/ # Services pages
+│   │   ├── meet/     # Meeting pages
+│   │   ├── pay/      # Payment pages
+│   │   ├── login/    # Login page
+│   │   ├── ...       # Other pages
+│   ├── components/   # Reusable UI components
+│   ├── data/         # Data files for content
+│   ├── lib/          # Utility functions
+│   ├── styles/       # Global styles
+│   └── types/        # TypeScript definitions
+├── next.config.ts    # Next.js configuration
+└── ...               # Other configuration files
+```
 
 ## Getting Started
 
@@ -18,31 +56,37 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Migration Details
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The migration from Jekyll to Next.js involved:
 
-## Learn More
+1. Converting Jekyll layouts to Next.js layouts and pages
+2. Converting Jekyll includes to React components
+3. Moving Jekyll data to TypeScript data files
+4. Implementing CSS modules for styling
+5. Setting up proper metadata for SEO
+6. Optimizing assets and routing
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is configured for deployment on Vercel. See the [DEPLOYMENT.md](./DEPLOYMENT.md) file for detailed deployment instructions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- **Next.js**: For server-side rendering and static site generation
+- **React**: For component-based UI development
+- **TypeScript**: For type safety
+- **CSS Modules**: For component-scoped styling
+- **ESLint**: For code quality
+- **Vercel**: For deployment and hosting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Additional Resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Vercel Platform](https://vercel.com)

@@ -1,15 +1,13 @@
-'use client';
-
-import { useEffect } from 'react';
 import Link from 'next/link';
 import styles from './not-found.module.css';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found | Kirill Markin',
+  description: 'Sorry, the page you are looking for doesn\'t exist or has been moved.',
+};
 
 export default function NotFound() {
-  useEffect(() => {
-    // Add title and meta description for SEO
-    document.title = 'Page Not Found | Kirill Markin';
-  }, []);
-
   return (
     <div className={styles.errorPageContainer}>
       <h1 className={styles.errorTitle}>404</h1>

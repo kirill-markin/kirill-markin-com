@@ -1,0 +1,52 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './page.module.css';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Meeting Booking Options with Kirill Markin',
+  description: 'Select your preferred meeting option with Kirill Markin. Choose meeting timing and duration.',
+};
+
+export default function MeetPage() {
+  return (
+    <div className={styles.bookingOptionsContainer}>
+      <h1>BOOKING OPTIONS</h1>
+      <p>Please select your preferred meeting type:</p>
+      
+      <div className={styles.bookingMethods}>
+        <Link href="/meet/short/" className={styles.bookingMethod}>
+          <div className={styles.bookingMethodLogo}>
+            <Image 
+              src="/images/booking/calendar-icon.svg" 
+              alt="Short Meeting" 
+              className={styles.bookingLogo}
+              width={40}
+              height={40}
+            />
+          </div>
+          <div className={styles.bookingMethodDetails}>
+            <h2>15-Minute Welcome Meeting</h2>
+            <p>Free introduction call to discuss your needs and how we can work together</p>
+          </div>
+        </Link>
+        
+        <Link href="/meet/all/" className={styles.bookingMethod}>
+          <div className={styles.bookingMethodLogo}>
+            <Image 
+              src="/images/booking/calendar-full-icon.svg" 
+              alt="All durations" 
+              className={styles.bookingLogo}
+              width={40}
+              height={40}
+            />
+          </div>
+          <div className={styles.bookingMethodDetails}>
+            <h2>All durations</h2>
+            <p>Choose from all available consultation options and time slots</p>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+} 

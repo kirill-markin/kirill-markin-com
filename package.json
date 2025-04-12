@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "analyze": "ANALYZE=true next build",
+    "vercel-build": "next build"
   },
   "dependencies": {
     "react": "^19.0.0",
