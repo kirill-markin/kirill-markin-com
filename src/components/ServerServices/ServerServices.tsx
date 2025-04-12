@@ -123,6 +123,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
           <Link 
             href="/services"
             className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
+            prefetch={false}
           >
             All
           </Link>
@@ -132,6 +133,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
               key={category}
               href={`/services?category=${category}`}
               className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
+              prefetch={false}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </Link>

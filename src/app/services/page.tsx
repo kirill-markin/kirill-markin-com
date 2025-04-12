@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { servicesData } from '@/data/services';
 import PersonalInfo from '@/components/PersonalInfo';
 import ServerServices from '@/components/ServerServices';
+import CategoryScrollManager from '@/components/CategoryScrollManager';
 import styles from './page.module.css';
 
 type Props = {
@@ -13,7 +14,8 @@ export async function generateMetadata(
   { searchParams }: Props
 ): Promise<Metadata> {
   // Get the category from URL parameters
-  const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : 'all';
+  const params = await searchParams;
+  const categoryParam = typeof params.category === 'string' ? params.category : 'all';
   
   // Base metadata
   const baseTitle = 'Services | Kirill Markin';
@@ -80,12 +82,16 @@ export async function generateMetadata(
   };
 }
 
-export default function ServicesPage({ searchParams }: Props) {
+export default async function ServicesPage({ searchParams }: Props) {
   // Get the category from URL parameters
-  const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : 'all';
+  const params = await searchParams;
+  const categoryParam = typeof params.category === 'string' ? params.category : 'all';
 
   return (
     <main className={styles.main}>
+      {/* Client-side component to manage scroll position */}
+      <CategoryScrollManager />
+      
       <div className={styles.content}>
         <aside className={styles.leftColumn}>
           <PersonalInfo />
