@@ -18,7 +18,7 @@ export default function MeetPage() {
         <Link href="/meet/short/" className={styles.bookingMethod}>
           <div className={styles.bookingMethodLogo}>
             <Image 
-              src="/images/booking/calendar-icon.svg" 
+              src="/icons/booking/calendar-icon.svg" 
               alt="Short Meeting" 
               className={styles.bookingLogo}
               width={40}
@@ -34,7 +34,7 @@ export default function MeetPage() {
         <Link href="/meet/all/" className={styles.bookingMethod}>
           <div className={styles.bookingMethodLogo}>
             <Image 
-              src="/images/booking/calendar-full-icon.svg" 
+              src="/icons/booking/calendar-full-icon.svg" 
               alt="All durations" 
               className={styles.bookingLogo}
               width={40}

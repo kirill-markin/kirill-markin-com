@@ -46,11 +46,11 @@ const Footer: React.FC = () => {
                 <div className={styles.footerOrgContactInfo}>
                   <h3>Contact</h3>
                   <a href={`mailto:${personalInfo.email}`} className={styles.footerEmail}>
-                    <Image src="/images/email.svg" alt="Email icon" className={styles.footerIcon} width={16} height={16} />
+                    <Image src="/icons/email.svg" alt="Email icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.email}
                   </a>
                   <a href={`tel:${personalInfo.phone}`} className={styles.footerPhone}>
-                    <Image src="/images/phone.svg" alt="Phone icon" className={styles.footerIcon} width={16} height={16} />
+                    <Image src="/icons/phone.svg" alt="Phone icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.phone}
                   </a>
                 </div>

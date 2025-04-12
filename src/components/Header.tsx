@@ -20,20 +20,13 @@ const Header: React.FC = () => {
         <div className={styles.leftColumn}>
           {pathname !== '/' && (
             <Link href="/" className={`${styles.headerDesktopButton} ${styles.headerLogo}`}>
-              MAIN
+              KIRILL MARKIN
             </Link>
           )}
         </div>
         <div className={styles.rightColumn}>
           <Link className={styles.headerDesktopButton} href="/services">
-            Services
-          </Link>
-          <Link 
-            className={styles.headerDesktopButton}
-            href="/pay" 
-            style={{ display: 'none' }}
-          >
-            Pay
+            SERVICES
           </Link>
           <a 
             className={styles.headerDesktopButton}
@@ -41,14 +34,14 @@ const Header: React.FC = () => {
             target="_blank" 
             rel="noopener noreferrer"
           >
-            Blog
+            BLOG
           </a>
           <Link 
             className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
             href="/meet/short" 
             rel="noopener noreferrer"
           >
-            Talk to Kirill
+            TALK TO KIRILL
           </Link>
         </div>
       </div>
@@ -81,7 +74,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer" 
                 className={styles.headerMobileBlogButton}
               >
-                Blog
+                BLOG
               </a>
             </div>
             <div className={styles.mobileButton}>
@@ -90,7 +83,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer" 
                 className={styles.headerMobileBookAMeetingButton}
               >
-                Talk to Kirill
+                TALK TO KIRILL
               </Link>
             </div>
           </div>
@@ -98,10 +91,10 @@ const Header: React.FC = () => {
         
         <div className={`${styles.headerMobileMenuOpen} ${mobileMenuOpen ? '' : styles.hidden}`}>
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/">Kirill Markin</Link>
+            <Link href="/">KIRILL MARKIN</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/services">Services</Link>
+            <Link href="/services">SERVICES</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <a 
@@ -109,7 +102,7 @@ const Header: React.FC = () => {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              Blog
+              BLOG
             </a>
           </div>
           <div className={styles.headerMobileMenuSection}>
@@ -118,7 +111,7 @@ const Header: React.FC = () => {
               href="/meet/short" 
               rel="noopener noreferrer"
             >
-              Talk to Kirill
+              TALK TO KIRILL
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M4.22559 20L20 4M20 4V17M20 4H7" stroke="#353C2A" strokeWidth="2"/>
               </svg>

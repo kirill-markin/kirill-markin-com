@@ -1,11 +1,12 @@
 /* Header Styles */
 .headerContainer {
-  padding: 1rem 2rem;
+  padding: 0;
   background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Desktop Header */
@@ -23,18 +24,20 @@
 }
 
 .headerDesktopButton {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 0.8rem;
   text-decoration: none;
   color: #232323;
-  border-radius: 4px;
+  border-radius: 0;
   transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .headerDesktopButton:hover {
   background-color: #f5f5f5;
-  transform: translateY(-2px);
+  transform: none;
 }
 
 .headerLogo {
@@ -42,14 +45,14 @@
 }
 
 .headerBookAMeeting {
-  background-color: #353C2A;
+  background-color: #333333;
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 0;
 }
 
 .headerBookAMeeting:hover {
-  background-color: #2a2f21;
+  background-color: #222222;
   color: white;
 }
 
@@ -118,15 +121,19 @@
     font-size: 0.9rem;
     text-decoration: none;
     color: #232323;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   .headerMobileBookAMeetingButton {
-    background-color: #353C2A;
+    background-color: #333333;
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 0;
+    font-size: 0.8rem;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   .headerMobileMenuOpen {
@@ -156,10 +163,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   .headerMobileBookAMeeting {
-    color: #353C2A;
+    color: #232323;
     font-weight: 500;
   }
 

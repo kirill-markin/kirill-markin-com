@@ -18,7 +18,7 @@ export default function PayPage() {
         <Link href="/pay/stripe/" className={styles.paymentMethod}>
           <div className={styles.paymentMethodLogo}>
             <Image 
-              src="/images/payment/stripe-logo.svg" 
+              src="/icons/payment/stripe-logo.svg" 
               alt="Stripe" 
               className={styles.stripeLogo}
               width={60}
