@@ -2,10 +2,10 @@
 .headerContainer {
   padding: 0;
   background-color: #ffffff;
-  box-shadow: none;
-  position: sticky;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-top: 1px solid #232323 !important;
   border-bottom: 1px solid #232323 !important;
   width: 100%;
@@ -216,13 +216,13 @@
   }
 
   .headerMobileMenuOpen {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 40px;
     left: 0;
     right: 0;
     background-color: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 200;
+    z-index: 999;
     transition: all 0.3s ease;
 
     /* first child */
