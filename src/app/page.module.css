@@ -266,6 +266,40 @@ a.secondary {
   line-height: 81%;
   color: #232323;
   position: relative;
+  width: 100%;
+}
+
+/* Responsive font sizes for different viewports */
+@media (max-width: 1300px) {
+  .personalName {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .personalName {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .personalName {
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (max-width: 600px) {
+  .personalName {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .personalName {
+    font-size: 34px;
+  }
 }
 
 /* Add the data-text hover effects from the old site */
