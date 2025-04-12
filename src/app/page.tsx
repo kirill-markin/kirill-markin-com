@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { personalInfo } from '../data/personalInfo';
-import { socialLinks } from '../data/socialLinks';
 import { mediaMentions } from '../data/mediaMentions';
+import SocialContactButtons from '../components/SocialContactButtons';
 
 // Update placeholder image constant
 const PLACEHOLDER_IMAGE = '/articles/articles-screen-saver-1.png';
@@ -36,32 +36,10 @@ export default function Home() {
               <p className={styles.tertiaryTitle}>{personalInfo.tertiaryTitle}</p>
             </div>
           </div>
-          <div className={styles.contactBubbles}>
-            {socialLinks
-              .filter(link => link.avatarContact)
-              .map((link, index) => (
-                <a 
-                  key={index}
-                  href={link.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={styles.contactBubble}
-                >
-                  {link.socialLogoUrlDefault && (
-                    <span className={styles.contactLogo}>
-                      <Image 
-                        src={link.socialLogoUrlDefault} 
-                        alt={`${link.name} logo`} 
-                        className={styles.socialLogo}
-                        width={24}
-                        height={24}
-                      />
-                    </span>
-                  )}
-                  <span className={styles.contactUsername}>{link.username}</span>
-                </a>
-              ))
-            }
+          
+          {/* Replace contact bubbles with SocialContactButtons */}
+          <div className={styles.contactButtonsContainer}>
+            <SocialContactButtons variant="horizontal" showLabels={true} />
           </div>
         </div>
       </div>

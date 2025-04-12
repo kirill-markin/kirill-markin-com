@@ -357,22 +357,46 @@ a.secondary {
 }
 
 .mainTitle {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
   text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: var(--font-size-medium, 1.1rem);
+  color: var(--dark-gray, #232323);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 98.99%;
 }
 
-.secondaryTitle, .tertiaryTitle {
-  font-size: 0.9rem;
-  color: var(--dark-gray);
-  margin-bottom: 0.3rem;
+.secondaryTitle {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: var(--font-size-medium, 0.9rem);
+  color: var(--dark-gray, #232323);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 98.99%;
+}
+
+.tertiaryTitle {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: var(--font-size-medium, 0.9rem);
+  color: var(--dark-gray, #232323);
+  font-weight: 400;
+  line-height: 98.99%;
+  opacity: 0.4;
 }
 
 .contactBubbles {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.contactButtonsContainer {
   margin-top: 1.5rem;
 }
 

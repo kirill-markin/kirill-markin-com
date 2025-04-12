@@ -1,0 +1,60 @@
+.socialContactButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+  background-color: white;
+  border: 1px solid #232323;
+  padding: 2px;
+}
+
+.socialButton:hover {
+  transform: translateY(-2px);
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  padding-right: 5px;
+}
+
+@media (max-width: 768px) {
+  .horizontal {
+    justify-content: center;
+  }
+} 

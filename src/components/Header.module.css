@@ -6,6 +6,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  border-top: 1px solid #232323 !important;
   border-bottom: 1px solid #232323 !important;
   width: 100%;
   display: flex;
