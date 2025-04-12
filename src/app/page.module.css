@@ -13,7 +13,6 @@
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-geist-sans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,7 +34,6 @@
 }
 
 .main ol {
-  font-family: var(--font-geist-mono);
   padding-left: 0;
   margin: 0;
   font-size: 14px;
@@ -49,7 +47,6 @@
 }
 
 .main code {
-  font-family: inherit;
   background: var(--gray-alpha-100);
   padding: 2px 4px;
   border-radius: 4px;
@@ -355,16 +352,49 @@ a.secondary {
 }
 
 .articlesHeading {
-  font-size: 1.8rem;
+  font-size: var(--font-size-large);
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
   letter-spacing: 0.03em;
+  position: relative;
 }
 
 .glitchLetter {
   position: relative;
   display: inline-block;
+}
+
+.articlesHeading:hover .glitchLetter {
+  color: transparent;
+}
+
+.articlesHeading:hover .glitchLetter::before,
+.articlesHeading:hover .glitchLetter::after {
+  content: 's';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--dark-gray);
+}
+
+.articlesHeading:hover .glitchLetter::before {
+  animation: hacker-text-glitch 3s infinite linear alternate;
+  left: 1px;
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
+              -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
+              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+}
+
+.articlesHeading:hover .glitchLetter::after {
+  animation: hacker-text-glitch 2s infinite linear alternate-reverse,
+            glitch-blocks 4s steps(1) infinite;
+  left: -1px;
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
+              -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
+              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
 }
 
 .mediaMentions {
@@ -419,7 +449,7 @@ a.secondary {
 .language, .type {
   position: absolute;
   background-color: var(--white);
-  font-size: 0.75rem;
+  font-size: var(--font-size-small);
   padding: 2px 11px;
   z-index: 2;
   font-weight: 400;
@@ -471,13 +501,13 @@ a.secondary {
 
 .title {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: var(--font-size-base-plus);
   line-height: 1.4;
   margin-bottom: 0.5rem;
 }
 
 .description {
-  font-size: 0.9rem;
+  font-size: var(--font-size-base);
   color: var(--medium-gray);
   line-height: 1.5;
   margin-bottom: 0.5rem;
@@ -541,14 +571,15 @@ a.secondary {
 
 .achievement .value {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: var(--font-size-base);
   color: var(--dark-gray);
   margin-bottom: 2px;
 }
 
 .achievement .label {
-  font-size: 0.7rem;
+  font-size: var(--font-size-small);
   color: var(--dark-gray);
+  text-transform: uppercase;
 }
 
 /* Add the animation keyframes from the old website */
@@ -557,59 +588,201 @@ a.secondary {
     transform: scale(1);
     filter: none;
   }
-
   3% {
     transform: scale(1.004);
     filter: none;
   }
-
   5% {
     transform: scale(1.008);
     filter: brightness(1.05);
   }
-
   10% {
     transform: scale(1.01);
-    filter: brightness(1.05) contrast(1.05);
+    filter: brightness(1.1) contrast(1.15);
   }
-
   15% {
-    transform: scale(1.008);
-    filter: brightness(1.05) contrast(1.05) saturate(1.05);
+    transform: scale(1.01);
+    filter: url('#data-corruption');
   }
-
   20% {
-    transform: scale(1.004);
-    filter: brightness(1.05) contrast(1.05) saturate(1.05) sepia(0.05);
+    transform: scale(1.01);
+    filter: brightness(0.95) contrast(1.2);
   }
-
-  25%, 100% {
-    transform: scale(1);
+  25% {
+    transform: scale(1.01);
+    filter: url('#hacker-digital-corruption');
+  }
+  30% {
+    transform: scale(1.01);
+    filter: brightness(1.05) contrast(1.1);
+  }
+  100% {
+    transform: scale(1.01);
     filter: none;
   }
 }
 
 /* Add keyframes for header animations */
 @keyframes tech-noise-scanlines {
-  0%, 10%, 90%, 100% {
-    opacity: 0;
+  0%, 100% { 
+    opacity: 0; 
+    background-position: 0 0;
+    transform: translateY(0);
   }
-  50% {
-    opacity: 0.3;
+  10% { 
+    opacity: 0.4; 
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+  15% { 
+    opacity: 0.5; 
+    background-position: 0 -5%;
+    transform: translateY(1px);
+  }
+  20% { 
+    opacity: 0.45; 
+    background-position: 0 -10%;
+    transform: translateY(-2px);
+  }
+  25% { 
+    opacity: 0.6; 
+    background-position: 0 20%;
+    transform: translateY(0);
+  }
+  30% { 
+    opacity: 0.4; 
+    background-position: 0 -15%;
+    transform: translateY(1px);
+  }
+  35% { 
+    opacity: 0.5; 
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+  40% { 
+    opacity: 0; 
+    transform: translateY(0);
   }
 }
 
 @keyframes tech-rgb-shift {
-  0%, 100% {
-    opacity: 0;
+  0%, 100% { 
+    opacity: 0; 
   }
-  10%, 90% {
-    opacity: 0.1;
+  10% { 
+    opacity: 0.5;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.1) -10%,
+      transparent 20%,
+      transparent 80%,
+      rgba(0, 0, 255, 0.1) 110%
+    );
   }
-  20%, 80% {
-    opacity: 0.2;
+  15% { 
+    opacity: 0.4;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 255, 0, 0.1) -5%,
+      transparent 30%,
+      transparent 70%,
+      rgba(255, 0, 0, 0.1) 105%
+    );
+  }
+  20% { 
+    opacity: 0.5;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 255, 0.1) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0, 255, 0, 0.1) 100%
+    );
+  }
+  30% { 
+    opacity: 0.3;
+    background: none;
+  }
+  40% { 
+    opacity: 0; 
+  }
+}
+
+@keyframes hacker-text-glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
+                 0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(0, 0) skew(0deg);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
+                 0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(-1px, 0) skew(0deg);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), 0.025em 0.025em 0 rgba(255, 0, 255, 0.75),
+                -0.05em -0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(1px, 0) skew(-5deg);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), 0.025em 0.025em 0 rgba(255, 0, 255, 0.75),
+                -0.05em -0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(0, 0) skew(0deg);
   }
   50% {
-    opacity: 0.3;
+    text-shadow: 0.05em 0.025em 0 rgba(0, 255, 255, 0.75), 0.05em 0 0 rgba(255, 0, 255, 0.75),
+                 0 -0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(-2px, 0) skew(3deg);
+  }
+  74% {
+    text-shadow: 0.05em 0.025em 0 rgba(0, 255, 255, 0.75), 0.05em 0 0 rgba(255, 0, 255, 0.75),
+                 0 -0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(0, 0) skew(0deg);
+  }
+  75% {
+    text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), -0.025em -0.025em 0 rgba(255, 0, 255, 0.75),
+                 -0.025em -0.025em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(1px, -1px) skew(-3deg);
+  }
+  85% {
+    text-shadow: 0.075em 0.035em 0 rgba(0, 255, 255, 0.75), 0 0 0 rgba(255, 0, 255, 0.75),
+                0.075em -0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(-1px, 0) skew(0deg);
+  }
+  100% {
+    text-shadow: 0.075em 0.035em 0 rgba(0, 255, 255, 0.75), 0 0 0 rgba(255, 0, 255, 0.75),
+                0.075em -0.05em 0 rgba(0, 140, 255, 0.75);
+    transform: translate(0, 0) skew(0deg);
+  }
+}
+
+@keyframes glitch-blocks {
+  0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 55%, 
+  60%, 65%, 70%, 75%, 80%, 85%, 90%, 95%, 100% {
+    box-shadow: none;
+  }
+  2% {
+    box-shadow: 0.4em 0 0 rgba(255, 0, 255, 0.75), -0.1em -0.2em 0 rgba(0, 255, 255, 0.75);
+  }
+  13% {
+    box-shadow: -0.1em -0.25em 0 rgba(0, 140, 255, 0.75), 0.4em 0 0 rgba(255, 0, 255, 0.75);
+  }
+  27% {
+    box-shadow: 0.4em 0 0 rgba(255, 0, 255, 0.75), 0.2em 0.1em 0 rgba(0, 255, 255, 0.75);
+  }
+  42% {
+    box-shadow: -0.2em 0 0 rgba(0, 140, 255, 0.75), -0.3em -0.1em 0 rgba(255, 0, 255, 0.75);
+  }
+  58% {
+    box-shadow: 0.3em 0.1em 0 rgba(0, 255, 255, 0.75), 0.4em 0 0 rgba(0, 140, 255, 0.75);
+  }
+  72% {
+    box-shadow: -0.2em -0.1em 0 rgba(255, 0, 255, 0.75), 0.1em 0.2em 0 rgba(0, 255, 255, 0.75);
+  }
+  87% {
+    box-shadow: 0.3em 0.1em 0 rgba(0, 140, 255, 0.75), -0.4em 0 0 rgba(255, 0, 255, 0.75);
+  }
+  93% {
+    box-shadow: 0.1em 0.4em 0 rgba(0, 255, 255, 0.75), -0.4em -0.3em 0 rgba(0, 140, 255, 0.75);
   }
 }

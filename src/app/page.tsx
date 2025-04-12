@@ -68,7 +68,7 @@ export default function Home() {
       <div className={styles.rightColumn}>
         <div className={styles.articles}>
           <h2 className={styles.articlesHeading}>
-            Articles and mentions
+            Article<span className={styles.glitchLetter}>s</span> and mention<span className={styles.glitchLetter}>s</span>
           </h2>
 
           <div className={styles.mediaMentions}>
