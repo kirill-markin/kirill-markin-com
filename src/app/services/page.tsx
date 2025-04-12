@@ -38,7 +38,6 @@ export default function ServicesPage() {
           <PersonalInfo />
         </aside>
         <section className={styles.rightColumn}>
-          <h1 className={styles.visuallyHidden}>Kirill Markin Services</h1>
           <Services services={servicesData} />
         </section>
       </div>

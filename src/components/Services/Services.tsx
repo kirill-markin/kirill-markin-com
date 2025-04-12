@@ -43,9 +43,9 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
     <section className={styles.services}>
       <div className={styles.servicesHeader}>
         <div className={styles.servicesHeaderTitle}>
-          <h2 className={styles.servicesTitle}>
+          <h1 className={styles.servicesTitle}>
             Service<span className={styles.glitchLetter}>s</span>
-          </h2>
+          </h1>
         </div>
         <Link href="/" className={styles.servicesBackButton}>
           <Image src="/icons/arrow.svg" alt="Arrow icon" className={styles.arrowIcon} width={14} height={14} />
