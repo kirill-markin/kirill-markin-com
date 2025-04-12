@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const articlesDirectory = path.join(process.cwd(), 'obsidian-vault/public');
+const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
 export type ArticleMetadata = {
   slug: string;
@@ -13,6 +14,14 @@ export type ArticleMetadata = {
   lastmod?: string;
   related?: string[];
   aliases?: string[];
+  thumbnailUrl?: string;
+  description?: string;
+  type?: string;
+  language?: string;
+  publisher?: string;
+  achievementValue?: string;
+  achievementLabel?: string;
+  isVideo?: boolean;
 };
 
 export type Article = {
@@ -29,6 +38,11 @@ export async function getAllArticleSlugs(): Promise<string[]> {
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  // Skip trying to load image files as articles
+  if (slug.match(/\.(webp|jpg|jpeg|png|gif|svg|ico)$/i)) {
+    return null;
+  }
+
   try {
     const fullPath = path.join(articlesDirectory, `${slug}.md`);
     const fileContents = await fs.readFile(fullPath, 'utf8');
@@ -48,6 +62,14 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       lastmod: data.lastmod ? new Date(data.lastmod).toISOString() : undefined,
       related: data.related || [],
       aliases: data.aliases || [],
+      thumbnailUrl: data.thumbnailUrl || PLACEHOLDER_IMAGE,
+      description: data.description || content.substring(0, 160).replace(/\n/g, ' '),
+      type: data.type || 'Article',
+      language: data.language || 'en',
+      publisher: data.publisher || 'Kirill Markin',
+      achievementValue: data.achievementValue,
+      achievementLabel: data.achievementLabel,
+      isVideo: data.isVideo || false,
     };
     
     return {

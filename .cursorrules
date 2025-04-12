@@ -31,6 +31,30 @@ The application architecture follows the React Server Components pattern:
 - We minimize the amount of JavaScript sent to the browser
 - Client-side state is kept to a minimum
 
+### Dynamic Routes and Params Handling (Next.js 15)
+
+In Next.js 15, params in dynamic routes are asynchronous and must be awaited before use:
+
+- Always define params as a Promise in interface definitions:
+  ```typescript
+  interface PageProps {
+    params: Promise<{ slug: string }>;
+  }
+  ```
+
+- Always await the params object before accessing its properties:
+  ```typescript
+  export default async function Page({ params }: PageProps) {
+    // Correct: await the entire params object first
+    const { slug } = await params;
+    
+    // Incorrect: do not access properties directly
+    // const slug = params.slug; // This will cause errors
+  }
+  ```
+
+- This applies to all route handlers, page components, and metadata functions that use dynamic params
+
 ## Project Structure
 
 ### Root Structure
