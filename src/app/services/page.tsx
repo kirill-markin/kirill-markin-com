@@ -6,8 +6,8 @@ import CategoryScrollManager from '@/components/CategoryScrollManager';
 import styles from './page.module.css';
 
 type Props = {
-  params: Record<string, string>;
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<Record<string, string>>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 // This function generates all possible category routes at build time
