@@ -588,3 +588,28 @@ a.secondary {
     filter: none;
   }
 }
+
+/* Add keyframes for header animations */
+@keyframes tech-noise-scanlines {
+  0%, 10%, 90%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes tech-rgb-shift {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 0.1;
+  }
+  20%, 80% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

@@ -8,86 +8,111 @@
   z-index: 100;
   border-bottom: 1px solid var(--dark-gray);
   width: 100%;
-  display: table;
-  table-layout: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 2.5rem;
 }
 
 /* Desktop Header */
 .headerDesktopContainer {
-  display: table;
-  table-layout: fixed;
+  display: flex;
   width: 100%;
   max-width: 100%;
   margin: 0;
   padding: 0;
-  border-collapse: collapse;
+  height: 100%;
+  border-top: 1px solid var(--dark-gray);
 }
 
 .leftColumn, .rightColumn {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  display: flex;
+  height: 100%;
+}
+
+.leftColumn {
   width: 25%;
+  border-right: 1px solid var(--dark-gray);
 }
 
 .rightColumn {
   width: 75%;
-  text-align: right;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .headerDesktopButton {
-  padding: 10px 20px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   margin: 0;
-  font-size: 0.9rem;
   text-decoration: none;
-  color: #232323;
+  color: var(--dark-gray);
   border-radius: 0;
-  transition: all 0.2s ease;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-medium));
+  font-weight: 300;
+  line-height: 100%;
   position: relative;
-  font-weight: 500;
-  display: inline-block;
+  overflow: hidden;
+  border-right: 1px solid var(--dark-gray);
 }
 
-.headerDesktopButton::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: transparent;
-  transition: background-color 0.2s ease;
-}
-
-.headerDesktopButton:hover::after {
-  background-color: #232323;
+.headerDesktopButton:last-child {
+  border-right: none;
 }
 
 .headerDesktopButton:hover {
+  background-color: var(--dark-gray);
+  color: var(--light-gray);
+  animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.headerDesktopButton:hover::before, 
+.headerDesktopButton:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.headerDesktopButton:hover::before {
+  animation: tech-noise-scanlines 0.8s steps(5) both;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0%, 
+    rgba(32, 128, 32, 0.02) 0.2%, 
+    rgba(0, 255, 0, 0.05) 0.3%,
+    transparent 0.5%
+  );
+  background-size: 100% 2px;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.headerDesktopButton:hover::after {
+  animation: tech-rgb-shift 0.8s steps(3) both;
   background-color: transparent;
-  transform: none;
+  mix-blend-mode: exclusion;
+  opacity: 0;
 }
 
 .headerLogo {
-  font-weight: bold;
-  text-align: center;
   width: 100%;
-  display: block;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   letter-spacing: 0.08em;
 }
 
 .headerBookAMeeting {
-  background-color: transparent;
-  color: #232323;
-  padding: 10px 20px;
-  border-radius: 0;
-}
-
-.headerBookAMeeting:hover {
-  background-color: transparent;
-  color: #232323;
+  color: var(--dark-gray);
 }
 
 /* Mobile Header */
@@ -107,13 +132,18 @@
 
   .headerMobileContainer {
     display: flex;
+    border-top: 1px solid var(--dark-gray);
+    height: 40px;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
   }
 
   .headerMobileButtonContainer {
-    flex: 0 0 auto;
+    display: flex;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--dark-gray);
   }
 
   .mobileRightButtonsContainer {
@@ -155,14 +185,14 @@
   .headerMobileBlogButton {
     font-size: 0.9rem;
     text-decoration: none;
-    color: #232323;
+    color: var(--dark-gray);
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
 
   .headerMobileBookAMeetingButton {
     background-color: transparent;
-    color: #232323;
+    color: var(--dark-gray);
     padding: 10px 20px;
     border-radius: 0;
     font-size: 0.9rem;
@@ -188,12 +218,12 @@
 
   .headerMobileMenuSection {
     padding: 1rem 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--dark-gray);
   }
 
   .headerMobileMenuSection a {
     text-decoration: none;
-    color: #232323;
+    color: var(--dark-gray);
     font-size: 1.1rem;
     display: flex;
     align-items: center;
@@ -203,7 +233,7 @@
   }
 
   .headerMobileBookAMeeting {
-    color: #232323;
+    color: var(--dark-gray);
     font-weight: 500;
   }
 
