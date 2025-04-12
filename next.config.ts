@@ -25,6 +25,8 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Optimize output
+  swcMinify: true, // Use SWC minifier for better performance
 };
 
 export default nextConfig;

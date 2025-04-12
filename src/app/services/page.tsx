@@ -10,6 +10,22 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+// This function generates all possible category routes at build time
+export function generateStaticParams() {
+  // Get unique categories from data
+  const categories = Array.from(
+    new Set(servicesData.map(service => service.categoryId))
+  ).filter(category => category !== 'all');
+  
+  // Generate params for 'all' and each specific category
+  return [
+    { searchParams: {} }, // Default page (all)
+    ...categories.map(category => ({
+      searchParams: { category }
+    }))
+  ];
+}
+
 export async function generateMetadata(
   { searchParams }: Props
 ): Promise<Metadata> {
