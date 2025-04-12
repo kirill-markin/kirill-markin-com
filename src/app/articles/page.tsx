@@ -120,123 +120,118 @@ export default async function ArticlesPage({ searchParams }: Props) {
   };
 
   return (
-    <main className={styles.main}>
-      <div className={styles.content}>
-        <div className={styles.fullWidthColumn}>
-          <div className={styles.articlesHeader}>
-            <div className={styles.articlesHeaderTitle}>
-              <h1 className={styles.articlesTitle}>
-                Article<span className={styles.glitchLetter}>s</span>
-              </h1>
-              <div className={styles.categoryDescription}>
-                <p>{getTagDescription()}</p>
-              </div>
+    <div className={styles.content}>
+      <div className={styles.fullWidthColumn}>
+        <div className={styles.articlesHeader}>
+          <div className={styles.articlesHeaderTitle}>
+            <h1 className={styles.articlesTitle}>
+              Article<span className={styles.glitchLetter}>s</span>
+            </h1>
+            <div className={styles.categoryDescription}>
+              <p>{getTagDescription()}</p>
             </div>
-            <Link href="/" className={styles.backLink}>
-              ← Back to main
-            </Link>
-          </div>
-          
-          <nav className={styles.tagsMenu} aria-label="Article tags">
-            <span>Tags</span>
-            <div className={styles.tagsMenuItems}>
-              <Link 
-                href="/articles"
-                className={`${styles.tagMenuItem} ${tagParam === 'all' ? styles.active : ''}`}
-              >
-                All
-              </Link>
-              
-              {uniqueTags
-                .map(tag => ({
-                  tag,
-                  count: articles.filter(article => 
-                    article.metadata.tags && article.metadata.tags.includes(tag)
-                  ).length
-                }))
-                .sort((a, b) => b.count - a.count)
-                .map(({ tag, count }) => (
-                  <Link 
-                    key={tag}
-                    href={`/articles?tag=${tag}`}
-                    className={`${styles.tagMenuItem} ${tagParam === tag ? styles.active : ''}`}
-                  >
-                    {tag.charAt(0).toUpperCase() + tag.slice(1)} [{count}]
-                  </Link>
-                ))}
-            </div>
-          </nav>
-          
-          <div className={styles.mediaMentions}>
-            {filteredArticles.map((article, index) => {
-              const isLarge = index === 0 || index === 5;
-              const isVideo = article.metadata.isVideo || article.metadata.type?.toLowerCase() === 'video';
-              
-              return (
-                <article 
-                  key={article.slug} 
-                  className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}
-                >
-                  <Link 
-                    href={`/articles/${article.slug}`}
-                    className={styles.mentionLink}
-                  >
-                    <div className={styles.language}>
-                      <div className={styles.text}>[{article.metadata.language || 'en'}]</div>
-                    </div>
-                    
-                    {article.metadata.type && (
-                      <div className={styles.type}>
-                        <div className={styles.text}>[{article.metadata.type}]</div>
-                      </div>
-                    )}
-                    
-                    <div className={styles.thumbnailContainer}>
-                      <Image 
-                        className={styles.thumbnail} 
-                        src={article.metadata.thumbnailUrl || PLACEHOLDER_IMAGE} 
-                        alt={article.metadata.title} 
-                        width={640} 
-                        height={360} 
-                        priority={index < 4}
-                      />
-                    </div>
-                    
-                    <div className={styles.content}>
-                      <h2 className={styles.title}>{article.metadata.title}</h2>
-                      
-                      {article.metadata.description && (
-                        <p className={styles.description}>{article.metadata.description}</p>
-                      )}
-                      
-                      <div className={styles.footer}>
-                        <div className={styles.date}>
-                          {article.metadata.date && (
-                            <time dateTime={article.metadata.date}>
-                              {new Date(article.metadata.date).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric',
-                              })}
-                            </time>
-                          )}
-                        </div>
-                        
-                        {article.metadata.achievementValue && article.metadata.achievementLabel && (
-                          <div className={styles.achievement}>
-                            <div className={styles.value}>{article.metadata.achievementValue}</div>
-                            <div className={styles.label}>{article.metadata.achievementLabel}</div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
-                </article>
-              );
-            })}
           </div>
         </div>
+        
+        <nav className={styles.tagsMenu} aria-label="Article tags">
+          <span>Tags</span>
+          <div className={styles.tagsMenuItems}>
+            <Link 
+              href="/articles"
+              className={`${styles.tagMenuItem} ${tagParam === 'all' ? styles.active : ''}`}
+            >
+              All
+            </Link>
+            
+            {uniqueTags
+              .map(tag => ({
+                tag,
+                count: articles.filter(article => 
+                  article.metadata.tags && article.metadata.tags.includes(tag)
+                ).length
+              }))
+              .sort((a, b) => b.count - a.count)
+              .map(({ tag, count }) => (
+                <Link 
+                  key={tag}
+                  href={`/articles?tag=${tag}`}
+                  className={`${styles.tagMenuItem} ${tagParam === tag ? styles.active : ''}`}
+                >
+                  {tag.charAt(0).toUpperCase() + tag.slice(1)} [{count}]
+                </Link>
+              ))}
+          </div>
+        </nav>
+        
+        <div className={styles.mediaMentions}>
+          {filteredArticles.map((article, index) => {
+            const isLarge = index === 0 || index === 5;
+            const isVideo = article.metadata.isVideo || article.metadata.type?.toLowerCase() === 'video';
+            
+            return (
+              <article 
+                key={article.slug} 
+                className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}
+              >
+                <Link 
+                  href={`/articles/${article.slug}`}
+                  className={styles.mentionLink}
+                >
+                  <div className={styles.language}>
+                    <div className={styles.text}>[{article.metadata.language || 'en'}]</div>
+                  </div>
+                  
+                  {article.metadata.type && (
+                    <div className={styles.type}>
+                      <div className={styles.text}>[{article.metadata.type}]</div>
+                    </div>
+                  )}
+                  
+                  <div className={styles.thumbnailContainer}>
+                    <Image 
+                      className={styles.thumbnail} 
+                      src={article.metadata.thumbnailUrl || PLACEHOLDER_IMAGE} 
+                      alt={article.metadata.title} 
+                      width={640} 
+                      height={360} 
+                      priority={index < 4}
+                    />
+                  </div>
+                  
+                  <div className={styles.content}>
+                    <h2 className={styles.title}>{article.metadata.title}</h2>
+                    
+                    {article.metadata.description && (
+                      <p className={styles.description}>{article.metadata.description}</p>
+                    )}
+                    
+                    <div className={styles.footer}>
+                      <div className={styles.date}>
+                        {article.metadata.date && (
+                          <time dateTime={article.metadata.date}>
+                            {new Date(article.metadata.date).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric',
+                            })}
+                          </time>
+                        )}
+                      </div>
+                      
+                      {article.metadata.achievementValue && article.metadata.achievementLabel && (
+                        <div className={styles.achievement}>
+                          <div className={styles.value}>{article.metadata.achievementValue}</div>
+                          <div className={styles.label}>{article.metadata.achievementLabel}</div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            );
+          })}
+        </div>
       </div>
-    </main>
+    </div>
   );
 } 

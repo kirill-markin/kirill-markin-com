@@ -658,7 +658,6 @@
   background-color: white;
   max-width: 820px;
   margin: 0 auto;
-  border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -697,7 +696,6 @@
   color: #555;
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 2rem;
   display: inline-block;
 }
 

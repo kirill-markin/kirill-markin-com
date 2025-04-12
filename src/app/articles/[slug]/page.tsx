@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { getAllArticleSlugs, getArticleBySlug } from '@/lib/articles';
@@ -57,9 +56,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   return (
     <div className={styles.articlePageContainer}>
       <div className={styles.articleNavigation}>
-        <Link href="/articles" className={styles.backLink}>
-          ← Back to Articles
-        </Link>
       </div>
       
       <article className={styles.articleContainer}>
@@ -76,21 +72,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 })}
               </time>
             )}
-            {article.metadata.lastmod && article.metadata.lastmod !== article.metadata.date && (
-              <span className={styles.updated}> (Updated: {new Date(article.metadata.lastmod).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })})</span>
-            )}
             
             <div className={styles.articleTags}>
               {article.metadata.type && (
                 <span className={styles.tag}>{article.metadata.type}</span>
-              )}
-              
-              {article.metadata.language && (
-                <span className={styles.tag}>[{article.metadata.language}]</span>
               )}
               
               {article.metadata.tags && article.metadata.tags.length > 0 && (

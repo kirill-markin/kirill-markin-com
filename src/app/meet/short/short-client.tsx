@@ -1,17 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import styles from '../page.module.css';
 
 export default function ShortMeetingClient() {
   return (
     <div className={styles.bookingOptionsContainer}>
-      <div className={styles.backLinkContainer}>
-        <Link href="/meet" className={styles.backLink}>
-          ← Back to booking options
-        </Link>
-      </div>
-      
       <h1>15-MINUTE WELCOME MEETING</h1>
       
       <div className={styles.meetContainer}>

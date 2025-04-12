@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import styles from '../page.module.css';
 import Script from 'next/script';
 import { useEffect, useRef } from 'react';
@@ -24,12 +23,6 @@ export default function StripePaymentClient() {
 
   return (
     <div className={styles.paymentOptionsContainer}>
-      <div className={styles.backLinkContainer}>
-        <Link href="/pay" className={styles.backLink}>
-          ← Back to payment options
-        </Link>
-      </div>
-      
       <h1>STRIPE PAYMENT</h1>
       
       <div className={styles.stripeContainer} ref={stripeContainerRef}>

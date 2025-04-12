@@ -237,23 +237,4 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.backLinkContainer {
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem 0;
-}
-
-.backLink {
-  display: inline-block;
-  font-size: 1rem;
-  color: #232323;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.backLink:hover {
-  color: #0070f3;
-  text-decoration: underline;
 } 

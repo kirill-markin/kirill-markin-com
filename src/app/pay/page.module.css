@@ -150,19 +150,3 @@
   background-color: white;
   min-height: 800px;
 }
-
-.backLinkContainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.backLink {
-  color: var(--dark-gray);
-  text-decoration: underline;
-  font-weight: bold;
-  display: inline-block;
-} 
