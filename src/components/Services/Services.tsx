@@ -40,7 +40,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
   }, [searchParams]);
   
   return (
-    <div className={styles.services}>
+    <section className={styles.services}>
       <div className={styles.servicesHeader}>
         <div className={styles.servicesHeaderTitle}>
           <h2 className={styles.servicesTitle}>
@@ -53,7 +53,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
         </Link>
       </div>
       
-      <div className={styles.servicesMenu}>
+      <nav className={styles.servicesMenu} aria-label="Service categories">
         <span>Categories</span>
         <div className={styles.servicesMenuCategories}>
           <button 
@@ -73,14 +73,16 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
             </button>
           ))}
         </div>
-      </div>
+      </nav>
       
-      <div className={styles.servicesList}>
+      <ul className={styles.servicesList}>
         {filteredServices.map(service => (
-          <ServiceCard key={service.serviceId} service={service} />
+          <li key={service.serviceId}>
+            <ServiceCard service={service} />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };
 

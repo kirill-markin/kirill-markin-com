@@ -28,7 +28,7 @@ const Header: React.FC = () => {
             </Link>
           )}
         </div>
-        <div className={styles.rightColumn}>
+        <nav className={styles.rightColumn} aria-label="Main navigation">
           <Link className={styles.headerDesktopButton} href="/services">
             SERVICES
           </Link>
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
           >
             TALK TO KIRILL
           </Link>
-        </div>
+        </nav>
       </div>
       
       <div className={styles.headerMobile}>
@@ -56,6 +56,8 @@ const Header: React.FC = () => {
             <button 
               className={`${styles.headerMobileButton} ${mobileMenuOpen ? styles.open : styles.closed}`}
               onClick={toggleMobileMenu}
+              aria-expanded={mobileMenuOpen}
+              aria-label="Toggle mobile menu"
             >
               <div className={styles.headerMobileButtonClosed}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -93,7 +95,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         
-        <div className={`${styles.headerMobileMenuOpen} ${mobileMenuOpen ? '' : styles.hidden}`}>
+        <nav className={`${styles.headerMobileMenuOpen} ${mobileMenuOpen ? '' : styles.hidden}`} aria-label="Mobile navigation">
           <div className={styles.headerMobileMenuSection}>
             <Link href="/" onClick={closeMobileMenu}>KIRILL MARKIN</Link>
           </div>
@@ -123,7 +125,7 @@ const Header: React.FC = () => {
               </svg>
             </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

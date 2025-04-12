@@ -34,12 +34,13 @@ export default function ServicesPage() {
   return (
     <main className={styles.main}>
       <div className={styles.content}>
-        <div className={styles.leftColumn}>
+        <aside className={styles.leftColumn}>
           <PersonalInfo />
-        </div>
-        <div className={styles.rightColumn}>
+        </aside>
+        <section className={styles.rightColumn}>
+          <h1 className={styles.visuallyHidden}>Kirill Markin Services</h1>
           <Services services={servicesData} />
-        </div>
+        </section>
       </div>
     </main>
   );

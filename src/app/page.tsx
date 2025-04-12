@@ -37,12 +37,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className={styles.mainPageContent}>
-      <div className={styles.leftColumn}>
+      <aside className={styles.leftColumn}>
         <PersonalInfo />
-      </div>
+      </aside>
 
-      <div className={styles.rightColumn}>
-        <div className={styles.articles}>
+      <section className={styles.rightColumn}>
+        <section className={styles.articles}>
           <h2 className={styles.articlesHeading}>
             Article<span className={styles.glitchLetter}>s</span> and mention<span className={styles.glitchLetter}>s</span>
           </h2>
@@ -54,69 +54,65 @@ export default function Home() {
               const displayTitle = mention.language === 'en' ? mention.title : (mention.alternativeTitle || mention.title);
               
               return (
-                <a 
-                  key={index}
-                  href={mention.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}
-                >
-                  <div className={styles.language}>
-                    <div className={styles.text}>[{mention.language}]</div>
-                  </div>
-                  
-                  {mention.type && (
-                    <div className={styles.type}>
-                      <div className={styles.text}>[{mention.type}]</div>
+                <article key={index} className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}>
+                  <a href={mention.url} target="_blank" rel="noopener noreferrer" className={styles.mentionLink}>
+                    <div className={styles.language}>
+                      <div className={styles.text}>[{mention.language}]</div>
                     </div>
-                  )}
-                  
-                  <div className={styles.thumbnailContainer}>
-                    <Image 
-                      className={styles.thumbnail} 
-                      src={mention.thumbnailUrl || PLACEHOLDER_IMAGE} 
-                      alt={displayTitle} 
-                      width={640} 
-                      height={360} 
-                      priority={index < 4}
-                    />
-                  </div>
-                  
-                  <div className={styles.content}>
-                    <div className={styles.title}>{displayTitle}</div>
-                    {mention.description && isLarge && (
-                      <div className={styles.description}>{mention.description}</div>
-                    )}
                     
-                    {mention.websiteLogoUrl && (
-                      <div className={styles.footer}>
-                        <div className={styles.divider} />
-                        <div className={styles.logoContainer}>
-                          <Image 
-                            className={styles.logo} 
-                            src={mention.websiteLogoUrl || PLACEHOLDER_IMAGE} 
-                            alt="Website Logo" 
-                            width={100} 
-                            height={25} 
-                          />
-                          {mention.achievementValue && (
-                            <div className={styles.achievement}>
-                              <div className={styles.value}>{mention.achievementValue}</div>
-                              {mention.achievementLabel && (
-                                <div className={styles.label}>{mention.achievementLabel}</div>
-                              )}
-                            </div>
-                          )}
-                        </div>
+                    {mention.type && (
+                      <div className={styles.type}>
+                        <div className={styles.text}>[{mention.type}]</div>
                       </div>
                     )}
-                  </div>
-                </a>
+                    
+                    <div className={styles.thumbnailContainer}>
+                      <Image 
+                        className={styles.thumbnail} 
+                        src={mention.thumbnailUrl || PLACEHOLDER_IMAGE} 
+                        alt={displayTitle} 
+                        width={640} 
+                        height={360} 
+                        priority={index < 4}
+                      />
+                    </div>
+                    
+                    <div className={styles.content}>
+                      <h3 className={styles.title}>{displayTitle}</h3>
+                      {mention.description && isLarge && (
+                        <div className={styles.description}>{mention.description}</div>
+                      )}
+                      
+                      {mention.websiteLogoUrl && (
+                        <div className={styles.footer}>
+                          <div className={styles.divider} />
+                          <div className={styles.logoContainer}>
+                            <Image 
+                              className={styles.logo} 
+                              src={mention.websiteLogoUrl || PLACEHOLDER_IMAGE} 
+                              alt="Website Logo" 
+                              width={100} 
+                              height={25} 
+                            />
+                            {mention.achievementValue && (
+                              <div className={styles.achievement}>
+                                <div className={styles.value}>{mention.achievementValue}</div>
+                                {mention.achievementLabel && (
+                                  <div className={styles.label}>{mention.achievementLabel}</div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </a>
+                </article>
               );
             })}
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     </div>
   );
 }

@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 
 export default function MeetPage() {
   return (
-    <div className={styles.bookingOptionsContainer}>
+    <section className={styles.bookingOptionsContainer}>
       <h1>BOOKING OPTIONS</h1>
       <p>Please select your preferred meeting type:</p>
       
-      <div className={styles.bookingMethods}>
+      <nav className={styles.bookingMethods} aria-label="Meeting booking options">
         <Link href="/meet/short/" className={styles.bookingMethod}>
           <div className={styles.bookingMethodLogo}>
             <Image 
@@ -67,7 +67,7 @@ export default function MeetPage() {
             <p>Choose from all available consultation options and time slots</p>
           </div>
         </Link>
-      </div>
-    </div>
+      </nav>
+    </section>
   );
 } 
