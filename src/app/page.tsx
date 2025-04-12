@@ -5,6 +5,9 @@ import { personalInfo } from '../data/personalInfo';
 import { socialLinks } from '../data/socialLinks';
 import { mediaMentions } from '../data/mediaMentions';
 
+// Update placeholder image constant
+const PLACEHOLDER_IMAGE = '/articles/articles-screen-saver-1.png';
+
 export default function Home() {
   return (
     <div className={styles.mainPageContent}>
@@ -95,7 +98,7 @@ export default function Home() {
                   <div className={styles.thumbnailContainer}>
                     <Image 
                       className={styles.thumbnail} 
-                      src={mention.thumbnailUrl} 
+                      src={mention.thumbnailUrl || PLACEHOLDER_IMAGE} 
                       alt={displayTitle} 
                       width={640} 
                       height={360} 
@@ -114,7 +117,7 @@ export default function Home() {
                         <div className={styles.logoContainer}>
                           <Image 
                             className={styles.logo} 
-                            src={mention.websiteLogoUrl} 
+                            src={mention.websiteLogoUrl || PLACEHOLDER_IMAGE} 
                             alt="Website Logo" 
                             width={100} 
                             height={25} 

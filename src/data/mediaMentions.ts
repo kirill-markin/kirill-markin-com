@@ -6,11 +6,11 @@ export interface MediaMention {
   date?: string;
   type: string;
   language: string;
-  thumbnailUrl: string;
-  websiteLogoUrl: string;
+  thumbnailUrl?: string | null;
+  websiteLogoUrl?: string | null;
   description?: string;
-  achievementValue?: string;
-  achievementLabel?: string;
+  achievementValue?: string | null;
+  achievementLabel?: string | null;
   isVideo?: boolean;
   event?: string;
   eventUrl?: string;
@@ -39,7 +39,7 @@ export const mediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/openai-2024-04-01.webp",
     websiteLogoUrl: "/logos/openai.png",
     achievementValue: "merged",
-    achievementLabel: ""
+    achievementLabel: null
   },
   {
     title: "AI web\u00A0scraping - Data Collection reimagined",
@@ -149,7 +149,7 @@ export const mediaMentions: MediaMention[] = [
     language: "ru",
     websiteLogoUrl: "/logos/epicgrowth.svg",
     achievementValue: "Moderator",
-    achievementLabel: ""
+    achievementLabel: null
   },
   {
     title: "Как\u00A0прикрутить AI к\u00A0вашему продукту: пример на\u00A0ozma.io",
@@ -188,8 +188,8 @@ export const mediaMentions: MediaMention[] = [
     event: "Матемаркетинг 2023",
     eventUrl: "https://matemarketing.ru/mm23",
     language: "ru",
-    thumbnailUrl: "/articles/matemarketing-2023-11-09.webp",
-    websiteLogoUrl: "/logos/matemarketing.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "ML-гайд: сколько стоит, как\u00A0без ML, что\u00A0учить, если ты\u00A0продакт",
@@ -223,8 +223,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2022-07-12",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/gd-2022-07-12.webp",
-    websiteLogoUrl: "/logos/gd.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Как\u00A0с\u00A0помощью ChatGPT автоматизировать техподдержку за\u00A02 дня",
@@ -246,8 +246,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-07-18",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/comnews-2023-07-18.webp",
-    websiteLogoUrl: "/logos/comnews.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Как\u00A0CRM облегчает жизнь отдела продаж",
@@ -257,8 +257,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-07-19",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/it-world-2023-07-19.webp",
-    websiteLogoUrl: "/logos/it-world.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Инцидент-менеджмент: как\u00A0настроить процесс расследования без\u00A0подключения data-аналитиков",
@@ -268,8 +268,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-06-30",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/itweek-2023-06-30.webp",
-    websiteLogoUrl: "/logos/itweek.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Лекции Технопарка. Программирование в\u00A0управлении. История одного студента Бауманки",
@@ -279,8 +279,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2015-02-15",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/habr-vk-2015-02-15.webp",
-    websiteLogoUrl: "/logos/vk.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Программирование в\u00A0управлении. История одного студента Бауманки",
@@ -314,8 +314,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-06-20",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/digital-report-2023-06-20.webp",
-    websiteLogoUrl: "/logos/digital-report.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Ошибки в\u00A0общении с\u00A0клиентами, которые роняют продажи",
@@ -325,8 +325,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-08-29",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/kom-dir-2023-08-29.webp",
-    websiteLogoUrl: "/logos/kom-dir.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Эволюция названия стартапа: 4 шага к\u00A0идеальному имени",
@@ -336,8 +336,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-07-11",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/itchannel-2023-07-11.webp",
-    websiteLogoUrl: "/logos/itchannel.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "«Жизнь после диплома» — интервью с\u00A0Кириллом Маркиным",
@@ -347,8 +347,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2021-10-28",
     type: "Interview",
     language: "ru",
-    thumbnailUrl: "/articles/vk-bmstu-2021-10-28.webp",
-    websiteLogoUrl: "/logos/bmstu.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Голосовой чат GPT своими руками: пошаговое руководство для\u00A0начинающих",
@@ -358,8 +358,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-06-23",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/vc-2023-06-23.webp",
-    websiteLogoUrl: "/logos/vc.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Создание бота Telegram с\u00A0голосовой поддержкой для\u00A0чата GPT без\u00A0DevOps",
@@ -369,8 +369,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2023-07-18",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/vc-2023-07-18.webp",
-    websiteLogoUrl: "/logos/vc.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "CRM для\u00A0школы актёрского мастерства Gogol School: пример внедрения ozma.io",
@@ -380,7 +380,7 @@ export const mediaMentions: MediaMention[] = [
     date: "2022-02-21",
     type: "Case Study",
     language: "ru",
-    thumbnailUrl: "/articles/ozma-2022-02-21-1.webp",
+    thumbnailUrl: null,
     websiteLogoUrl: "/logos/ozma.svg"
   },
   {
@@ -391,7 +391,7 @@ export const mediaMentions: MediaMention[] = [
     date: "2022-02-21",
     type: "Case Study",
     language: "ru",
-    thumbnailUrl: "/articles/ozma-2022-02-21-2.webp",
+    thumbnailUrl: null,
     websiteLogoUrl: "/logos/ozma.svg"
   },
   {
@@ -414,8 +414,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2021-05-19",
     type: "Video",
     language: "ru",
-    thumbnailUrl: "/articles/facebook-2021-05-19.webp",
-    websiteLogoUrl: "/logos/facebook.png",
+    thumbnailUrl: null,
+    websiteLogoUrl: null,
     isVideo: true
   },
   {
@@ -426,8 +426,8 @@ export const mediaMentions: MediaMention[] = [
     date: "2021-02-24",
     type: "Article",
     language: "ru",
-    thumbnailUrl: "/articles/vc-2021-02-24.webp",
-    websiteLogoUrl: "/logos/vc.png"
+    thumbnailUrl: null,
+    websiteLogoUrl: null
   },
   {
     title: "Creating a\u00A0voice-enabled Telegram Bot for\u00A0GPT Chat without DevOps",
