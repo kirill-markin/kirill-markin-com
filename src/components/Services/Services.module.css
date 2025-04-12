@@ -16,8 +16,51 @@
 }
 
 .servicesTitle {
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin: 0;
+  text-transform: none!important;
+  margin-bottom: 1.5rem;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+.glitchLetter {
+  position: relative;
+  display: inline-block;
+}
+
+.servicesTitle:hover .glitchLetter {
+  color: transparent;
+}
+
+.servicesTitle:hover .glitchLetter::before,
+.servicesTitle:hover .glitchLetter::after {
+  content: 's';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--dark-gray);
+}
+
+.servicesTitle:hover .glitchLetter::before {
+  animation: hacker-text-glitch 3s infinite linear alternate;
+  left: 1px;
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
+              -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
+              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+}
+
+.servicesTitle:hover .glitchLetter::after {
+  animation: hacker-text-glitch 2s infinite linear alternate-reverse,
+            glitch-blocks 4s steps(1) infinite;
+  left: -1px;
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
+              -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
+              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
 }
 
 .serviceDetailTitle {
@@ -36,7 +79,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--dark-gray);
   font-size: 0.9rem;
 }
 
@@ -59,7 +102,7 @@
 .servicesMenu > span {
   font-size: 0.9rem;
   margin-bottom: 10px;
-  color: var(--text-muted);
+  color: var(--medium-gray);
 }
 
 .servicesMenuCategories {
@@ -70,7 +113,7 @@
 
 .servicesMenuCategory {
   background: transparent;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--dark-gray);
   border-radius: 20px;
   padding: 5px 15px;
   cursor: pointer;
@@ -79,42 +122,106 @@
 }
 
 .servicesMenuCategory:hover {
-  background-color: var(--hover-bg);
+  background-color: var(--light-gray);
 }
 
 .servicesMenuCategory.active {
-  background-color: var(--accent-color);
+  background-color: var(--dark-gray);
   color: white;
-  border-color: var(--accent-color);
+  border-color: var(--dark-gray);
 }
 
 .servicesList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .servicesList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .servicesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .servicesList {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .serviceCard {
+  position: relative;
+  border: 1px solid var(--dark-gray);
+  border-radius: 0;
+  overflow: hidden;
+  transition: none;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
   text-decoration: none;
-  color: var(--text-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--dark-gray);
+  background-color: #ffffff;
   height: 100%;
+  max-width: 100%;
 }
 
 .serviceCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.serviceCard:hover::before,
+.serviceCard:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.serviceCard:hover::before {
+  animation: tech-noise-scanlines 0.8s steps(5) both;
+  background: repeating-linear-gradient(0deg,
+          transparent 0%,
+          rgba(32, 128, 32, 0.02) 0.2%,
+          rgba(0, 255, 0, 0.05) 0.3%,
+          transparent 0.5%);
+  background-size: 100% 2px;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.serviceCard:hover::after {
+  animation: tech-rgb-shift 0.8s steps(3) both;
+  background-color: transparent;
+  mix-blend-mode: exclusion;
+  opacity: 0;
 }
 
 .serviceCardCategory {
-  padding: 10px;
-  background-color: var(--bg-light);
-  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--white);
+  padding: 2px 11px;
+  z-index: 10;
+  border-left: 1px solid var(--dark-gray);
+  border-bottom: 1px solid var(--dark-gray);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 13.20px;
 }
 
 .currentCategory {
@@ -122,31 +229,48 @@
 }
 
 .serviceCardImage {
-  height: 160px;
-  background-color: var(--bg-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  max-width: 100%;
 }
 
 .serviceImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 100%;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: none;
+  animation: clean-glitch-image 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .serviceCardContent {
-  padding: 15px;
-  flex-grow: 1;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  z-index: 2;
+  justify-content: space-between;
 }
 
 .serviceCardContent h3 {
+  color: var(--dark-gray);
+  font-size: var(--font-size-medium);
+  font-weight: 400;
+  line-height: 24.20px;
+  word-wrap: break-word;
+  align-self: stretch;
   margin-top: 0;
   margin-bottom: 10px;
-  font-size: 1.2rem;
 }
 
 .serviceDescription {
@@ -154,8 +278,16 @@
 }
 
 .serviceShortDescription {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  color: #646464;
+  font-size: var(--font-size-small);
+  line-height: 17.60px;
+  word-wrap: break-word;
+  align-self: stretch;
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .serviceShortDescription p {
@@ -168,8 +300,8 @@
 
 .serviceDetailContent {
   padding: 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 0;
 }
 
 .serviceDetailDescription {
@@ -188,7 +320,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 15px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--dark-gray);
   padding-bottom: 5px;
 }
 
@@ -208,7 +340,7 @@
 
 .featureDesc {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--medium-gray);
 }
 
 .serviceDetailAction {
@@ -220,16 +352,127 @@
 .serviceDetailButton {
   display: inline-block;
   padding: 10px 30px;
-  background-color: var(--accent-color);
+  background-color: var(--dark-gray);
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 0;
   font-weight: 500;
   transition: background-color 0.2s ease;
 }
 
 .serviceDetailButton:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--medium-gray);
+}
+
+/* Add glitch animation keyframes if they don't exist in the global CSS */
+@keyframes clean-glitch-image {
+  0% {
+    filter: none;
+  }
+  5% {
+    filter: brightness(1.05);
+  }
+  10% {
+    filter: brightness(1.1) contrast(1.15);
+  }
+  15% {
+    filter: url('#data-corruption');
+  }
+  20% {
+    filter: brightness(0.95) contrast(1.2);
+  }
+  25% {
+    filter: url('#hacker-digital-corruption');
+  }
+  100% {
+    filter: none;
+  }
+}
+
+@keyframes clean-glitch-effect {
+  0% {
+    transform: scale(1);
+    filter: none;
+  }
+  3% {
+    transform: scale(1.004);
+    filter: none;
+  }
+  5% {
+    transform: scale(1.008);
+    filter: brightness(1.05);
+  }
+  10% {
+    transform: scale(1.01);
+    filter: brightness(1.1) contrast(1.15);
+  }
+  15% {
+    transform: scale(1.01);
+    filter: url('#data-corruption');
+  }
+  20% {
+    transform: scale(1.01);
+    filter: brightness(0.95) contrast(1.2);
+  }
+  25% {
+    transform: scale(1.01);
+    filter: url('#hacker-digital-corruption');
+  }
+  30% {
+    transform: scale(1.01);
+    filter: brightness(1.05) contrast(1.1);
+  }
+  100% {
+    transform: scale(1.01);
+    filter: none;
+  }
+}
+
+@keyframes tech-noise-scanlines {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes tech-rgb-shift {
+  0% {
+    opacity: 0;
+    background-color: transparent;
+  }
+  10% {
+    opacity: 0.1;
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+  25% {
+    opacity: 0.2;
+    background-color: rgba(0, 255, 0, 0.1);
+  }
+  40% {
+    opacity: 0.1;
+    background-color: rgba(0, 0, 255, 0.1);
+  }
+  100% {
+    opacity: 0;
+    background-color: transparent;
+  }
 }
 
 @media (max-width: 768px) {

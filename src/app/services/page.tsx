@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Services from '@/components/Services';
 import { servicesData } from '@/data/services';
+import PersonalInfo from '@/components/PersonalInfo';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function ServicesPage() {
     <main className={styles.main}>
       <div className={styles.content}>
         <div className={styles.leftColumn}>
-          {/* PersonalInfo component would go here when available */}
+          <PersonalInfo />
         </div>
         <div className={styles.rightColumn}>
           <Services services={servicesData} />

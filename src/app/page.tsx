@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
-import { personalInfo } from '../data/personalInfo';
 import { mediaMentions } from '../data/mediaMentions';
-import SocialContactButtons from '../components/SocialContactButtons';
+import PersonalInfo from '../components/PersonalInfo';
 
 // Update placeholder image constant
 const PLACEHOLDER_IMAGE = '/articles/articles-screen-saver-1.png';
@@ -12,36 +11,7 @@ export default function Home() {
   return (
     <div className={styles.mainPageContent}>
       <div className={styles.leftColumn}>
-        <div className={styles.personalInfo}>
-          <h1 className={styles.personalName} data-text={personalInfo.name}>
-            {personalInfo.name}
-          </h1>
-          <div className={styles.nameUnderline}></div>
-        </div>
-        <div className={styles.personalContacts}>
-          <div className={styles.avatarAndTitles}>
-            <div className={styles.profileImageContainer}>
-              <Image 
-                src={personalInfo.image} 
-                alt={`Picture of ${personalInfo.name}`} 
-                className={styles.profileImage} 
-                width={300} 
-                height={300} 
-                priority
-              />
-            </div>
-            <div className={styles.personalTitles}>
-              <p className={styles.mainTitle}>{personalInfo.jobTitle}</p>
-              <p className={styles.secondaryTitle}>{personalInfo.secondaryTitle}</p>
-              <p className={styles.tertiaryTitle}>{personalInfo.tertiaryTitle}</p>
-            </div>
-          </div>
-          
-          {/* Replace contact bubbles with SocialContactButtons */}
-          <div className={styles.contactButtonsContainer}>
-            <SocialContactButtons variant="horizontal" showLabels={true} />
-          </div>
-        </div>
+        <PersonalInfo />
       </div>
 
       <div className={styles.rightColumn}>
