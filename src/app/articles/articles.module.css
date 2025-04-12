@@ -8,11 +8,11 @@
   border: 1px solid #eaeaea;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  transition: box-shadow 0.2s ease;
+  /* transition: box-shadow 0.2s ease; */
 }
 
 .articleCard:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
 }
 
 .articleLink {
@@ -636,7 +636,7 @@
   max-width: 100%;
   padding: 2rem 1rem;
   margin: 0 auto;
-  background-color: #f8f8f8;
+  background-color: white;
   min-height: calc(100vh - 60px);
 }
 
@@ -661,10 +661,9 @@
 
 /* Article Container */
 .articleContainer {
-  background-color: white;
   max-width: 820px;
   margin: 0 auto;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
   overflow: hidden;
 }
 
