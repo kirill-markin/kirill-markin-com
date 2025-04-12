@@ -126,7 +126,6 @@
 .servicesMenuCategory {
   background: transparent;
   border: 1px solid var(--dark-gray);
-  border-radius: 20px;
   padding: 5px 15px;
   cursor: pointer;
   font-size: 0.9rem;

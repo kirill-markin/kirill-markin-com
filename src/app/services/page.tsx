@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { servicesData } from '@/data/services';
-import PersonalInfo from '@/components/PersonalInfo';
+import Link from 'next/link';
 import ServerServices from '@/components/ServerServices';
 import styles from './page.module.css';
 
@@ -105,10 +105,10 @@ export default async function ServicesPage({ searchParams }: Props) {
   return (
     <main className={styles.main}>
       <div className={styles.content}>
-        <aside className={styles.leftColumn}>
-          <PersonalInfo />
-        </aside>
-        <div className={styles.rightColumn}>
+        <div className={styles.fullWidthColumn}>
+          <div className={styles.backLinkContainer}>
+            <Link href="/" className={styles.backLink}>← Back to main</Link>
+          </div>
           <ServerServices services={servicesData} currentCategory={categoryParam} />
         </div>
       </div>

@@ -852,4 +852,125 @@
     margin: 0 -1.5rem 1.5rem;
     width: calc(100% + 3rem);
   }
+}
+
+/* Article header with title and back link */
+.articlesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.articlesHeaderTitle {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.articlesTitle {
+  font-size: 2.25rem;
+  text-transform: none!important;
+  margin: 0;
+  margin-bottom: 1rem;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.categoryDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+
+.categoryDescription p {
+  margin: 0;
+}
+
+/* Tags menu styles */
+.tagsMenu {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.tagsMenu > span {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: var(--medium-gray);
+}
+
+.tagsMenuItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tagMenuItem {
+  background: transparent;
+  border: 1px solid var(--dark-gray);
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  color: var(--dark-gray);
+  text-decoration: none;
+}
+
+.tagMenuItem:hover {
+  background-color: var(--light-gray);
+}
+
+.tagMenuItem.active {
+  background-color: var(--dark-gray);
+  color: white;
+  border-color: var(--dark-gray);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.fullWidthColumn {
+  width: 100%;
+  vertical-align: top;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .fullWidthColumn {
+    padding: 10px!important;
+  }
 } 
