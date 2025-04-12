@@ -143,6 +143,37 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 0;
+  position: relative;
+}
+
+.calendarLoading {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.calendarLoading p {
+  font-size: var(--font-size-large);
+  color: var(--dark-gray);
+  margin: 0;
+  padding: 1rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 768px) {
