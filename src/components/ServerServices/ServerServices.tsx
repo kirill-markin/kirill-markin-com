@@ -72,13 +72,44 @@ export default function ServerServices({ services, currentCategory }: ServerServ
     ? services 
     : services.filter(service => service.categoryId === currentCategory);
   
+  // SEO-friendly category title
+  const getCategoryTitle = () => {
+    if (currentCategory === 'all') {
+      return 'All Services';
+    }
+    
+    const formattedCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+    return `Services for ${formattedCategory}`;
+  };
+  
+  // Get category description text
+  const getCategoryDescription = () => {
+    if (currentCategory === 'all') {
+      return 'Explore the complete range of services I offer for individuals, businesses, and media professionals. Whether you need personalized career guidance, business analytics support, or expert commentary for your publication, I am ready to help.';
+    }
+    
+    switch (currentCategory) {
+      case 'people':
+        return 'Specialized services designed for individuals seeking professional growth, career guidance, and personalized AI tools. Take your career and skills to the next level with expert support.';
+      case 'business':
+        return 'Comprehensive analytics, AI implementation, and technical consulting services for businesses of all sizes. Optimize your operations and embrace cutting-edge technology with professional guidance.';
+      case 'journalists':
+        return 'Expert resources for media professionals including speaking engagements, interviews, and specialized commentary on AI, data science, and technology trends.';
+      default:
+        return `Specialized services in the ${currentCategory} category tailored to meet your specific needs with expert knowledge and professional support.`;
+    }
+  };
+  
   return (
     <section className={styles.services}>
       <div className={styles.servicesHeader}>
         <div className={styles.servicesHeaderTitle}>
           <h1 className={styles.servicesTitle}>
-            Service<span className={styles.glitchLetter}>s</span>
+            {getCategoryTitle()}
           </h1>
+          <div className={styles.categoryDescription}>
+            <p>{getCategoryDescription()}</p>
+          </div>
         </div>
         <Link href="/" className={styles.servicesBackButton}>
           <Image src="/icons/arrow.svg" alt="Arrow icon" className={styles.arrowIcon} width={14} height={14} />
