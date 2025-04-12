@@ -3,9 +3,36 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import { mediaMentions } from '../data/mediaMentions';
 import PersonalInfo from '../components/PersonalInfo';
+import type { Metadata } from 'next';
 
 // Update placeholder image constant
 const PLACEHOLDER_IMAGE = '/articles/articles-screen-saver-1.png';
+
+export const metadata: Metadata = {
+  title: "Kirill Markin - Consultant and Software Architect",
+  description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
+  openGraph: {
+    title: "Kirill Markin - Consultant and Software Architect",
+    description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
+    url: 'https://kirill-markin.com/',
+    images: [
+      {
+        url: '/avatars/Kirill-Markin.webp',
+        width: 300,
+        height: 300,
+        alt: 'Kirill Markin',
+      }
+    ],
+  },
+  twitter: {
+    title: "Kirill Markin - Consultant and Software Architect",
+    description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
+    images: ['/avatars/Kirill-Markin.webp'],
+  },
+  alternates: {
+    canonical: 'https://kirill-markin.com/',
+  },
+};
 
 export default function Home() {
   return (

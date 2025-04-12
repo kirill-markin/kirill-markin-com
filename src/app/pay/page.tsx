@@ -6,6 +6,27 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Payment Options for Kirill Markin\'s Services',
   description: 'Select your preferred payment method for Kirill Markin\'s professional services. Currently supporting Stripe for secure credit card, Apple Pay and Google Pay payments.',
+  openGraph: {
+    title: 'Payment Options for Kirill Markin\'s Services',
+    description: 'Select your preferred payment method for Kirill Markin\'s professional services. Currently supporting Stripe for secure credit card, Apple Pay and Google Pay payments.',
+    url: 'https://kirill-markin.com/pay/',
+    images: [
+      {
+        url: '/images/payment-options.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Payment options for Kirill Markin\'s services',
+      }
+    ],
+  },
+  twitter: {
+    title: 'Payment Options for Kirill Markin\'s Services',
+    description: 'Select your preferred payment method for Kirill Markin\'s professional services.',
+    images: ['/images/payment-options.webp'],
+  },
+  alternates: {
+    canonical: 'https://kirill-markin.com/pay/',
+  },
 };
 
 export default function PayPage() {

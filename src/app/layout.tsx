@@ -34,6 +34,33 @@ export const metadata: Metadata = {
     title: 'Kirill Markin',
     statusBarStyle: 'black-translucent',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://kirill-markin.com',
+    siteName: 'Kirill Markin',
+    title: 'Kirill Markin - Consultant and Software Architect',
+    description: 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
+    images: [
+      {
+        url: '/avatars/Kirill-Markin.webp',
+        width: 300,
+        height: 300,
+        alt: 'Kirill Markin',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kirill Markin - Consultant and Software Architect',
+    description: 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
+    images: ['/avatars/Kirill-Markin.webp'],
+    creator: '@kirill_markin_',
+    site: '@kirill_markin_',
+  },
+  alternates: {
+    canonical: 'https://kirill-markin.com',
+  },
 };
 
 export default function RootLayout({

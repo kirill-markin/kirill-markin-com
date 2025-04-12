@@ -5,6 +5,28 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Page Not Found | Kirill Markin',
   description: 'Sorry, the page you are looking for doesn\'t exist or has been moved.',
+  openGraph: {
+    title: 'Page Not Found | Kirill Markin',
+    description: 'Sorry, the page you are looking for doesn\'t exist or has been moved.',
+    url: 'https://kirill-markin.com/404/',
+    images: [
+      {
+        url: '/images/404.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Page Not Found',
+      }
+    ],
+  },
+  twitter: {
+    title: 'Page Not Found | Kirill Markin',
+    description: 'Sorry, the page you are looking for doesn\'t exist or has been moved.',
+    images: ['/images/404.webp'],
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function NotFound() {
