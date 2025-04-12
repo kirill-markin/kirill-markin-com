@@ -152,13 +152,12 @@
   .mobileRightButtonsContainer {
     display: flex;
     align-items: center;
-    gap: 1rem;
   }
 
   .headerMobileButton {
     background: none;
     border: none;
-    padding: 0.5rem;
+    padding: 0.4rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -182,8 +181,9 @@
   }
 
   .mobileButton {
-    margin-left: 0.5rem;
     border-left: 1px solid #232323;
+    height: 40px;
+    display: flex;
   }
 
   .headerMobileBlogButton {
@@ -192,17 +192,28 @@
     color: var(--dark-gray);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+
+    height: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
   }
 
   .headerMobileBookAMeetingButton {
     background-color: transparent;
     color: var(--dark-gray);
-    padding: 10px 20px;
     border-radius: 0;
     font-size: 0.9rem;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+
+    height: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
   }
 
   .headerMobileMenuOpen {
@@ -214,6 +225,11 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     z-index: 200;
     transition: all 0.3s ease;
+
+    /* first child */
+    & > :first-child {
+      border-top: 1px solid #232323;
+    }
   }
 
   .headerMobileMenuOpen.hidden {
