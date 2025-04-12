@@ -37,10 +37,14 @@ website-next-js/
 │   ├── app/          # App router pages and layouts
 │   │   ├── page.tsx  # Home page
 │   │   ├── services/ # Services pages
-│   │   ├── meet/     # Meeting pages
+│   │   ├── meet/     # Meeting booking pages
+│   │   │   ├── short/# Short meeting booking
+│   │   │   └── all/  # All meeting options
 │   │   ├── pay/      # Payment pages
-│   │   ├── login/    # Login page
-│   │   ├── ...       # Other pages
+│   │   │   └── stripe/# Stripe payment
+│   │   ├── not-found.tsx # 404 page
+│   │   ├── layout.tsx
+│   │   └── page.module.css
 │   ├── components/   # Reusable UI components
 │   ├── data/         # Data files for content
 │   ├── lib/          # Utility functions

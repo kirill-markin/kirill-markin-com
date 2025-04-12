@@ -1,45 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
-
-// This would normally be fetched from the CMS or API
-const personalInfo = {
-  name: 'Kirill Markin',
-  job_title: 'Consultant at OZMA.IO',
-  secondary_title: 'Senior Software Architect',
-  tertiary_title: 'Tech Consultant',
-  image: '/images/Kirill-Markin.webp'
-};
-
-// Mock social links data
-const socialLinks = [
-  { name: 'GitHub', url: 'https://github.com/username', avatar_contact: true, social_logo_url_default: '/images/github.svg', username: '@username' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/username', avatar_contact: true, social_logo_url_default: '/images/linkedin.svg', username: 'Kirill Markin' },
-  { name: 'Twitter', url: 'https://twitter.com/username', avatar_contact: true, social_logo_url_default: '/images/twitter.svg', username: '@username' },
-  // Add more social links as needed
-];
-
-// Mock media mentions data
-const mediaMentions = [
-  {
-    title: 'How to Build Scalable Applications with Next.js',
-    url: 'https://example.com/article1',
-    language: 'en',
-    thumbnail_url: '/images/articles_thumbnails/article1.png',
-    description: 'Kirill shares insights on building scalable web applications with Next.js and React.',
-    website_logo_url: '/images/website_logos/medium.svg',
-    type: 'article'
-  },
-  {
-    title: 'Software Architecture Best Practices',
-    url: 'https://example.com/article2',
-    language: 'en',
-    thumbnail_url: '/images/articles_thumbnails/article2.png',
-    website_logo_url: '/images/website_logos/dev-to.svg',
-    type: 'tutorial'
-  },
-  // Add more media mentions as needed
-];
+import { personalInfo } from '../data/personalInfo';
+import { socialLinks } from '../data/socialLinks';
+import { mediaMentions } from '../data/mediaMentions';
 
 export default function Home() {
   return (
@@ -63,14 +27,14 @@ export default function Home() {
               />
             </div>
             <div className={styles.personalTitles}>
-              <p className={styles.mainTitle}>{personalInfo.job_title}</p>
-              <p className={styles.secondaryTitle}>{personalInfo.secondary_title}</p>
-              <p className={styles.tertiaryTitle}>{personalInfo.tertiary_title}</p>
+              <p className={styles.mainTitle}>{personalInfo.jobTitle}</p>
+              <p className={styles.secondaryTitle}>{personalInfo.secondaryTitle}</p>
+              <p className={styles.tertiaryTitle}>{personalInfo.tertiaryTitle}</p>
             </div>
           </div>
           <div className={styles.contactBubbles}>
             {socialLinks
-              .filter(link => link.avatar_contact)
+              .filter(link => link.avatarContact)
               .map((link, index) => (
                 <a 
                   key={index}
@@ -79,10 +43,10 @@ export default function Home() {
                   rel="noopener noreferrer" 
                   className={styles.contactBubble}
                 >
-                  {link.social_logo_url_default && (
+                  {link.socialLogoUrlDefault && (
                     <span className={styles.contactLogo}>
                       <Image 
-                        src={link.social_logo_url_default} 
+                        src={link.socialLogoUrlDefault} 
                         alt={`${link.name} logo`} 
                         className={styles.socialLogo}
                         width={24}
@@ -107,7 +71,8 @@ export default function Home() {
           <div className={styles.mediaMentions}>
             {mediaMentions.map((mention, index) => {
               const isLarge = index === 0 || index === 5;
-              const isVideo = mention.type === 'video';
+              const isVideo = mention.isVideo || mention.type.toLowerCase() === 'video';
+              const displayTitle = mention.language === 'en' ? mention.title : (mention.alternativeTitle || mention.title);
               
               return (
                 <a 
@@ -130,30 +95,38 @@ export default function Home() {
                   <div className={styles.thumbnailContainer}>
                     <Image 
                       className={styles.thumbnail} 
-                      src={mention.thumbnail_url} 
-                      alt={mention.title} 
+                      src={mention.thumbnailUrl} 
+                      alt={displayTitle} 
                       width={640} 
                       height={360} 
                     />
                   </div>
                   
                   <div className={styles.content}>
-                    <div className={styles.title}>{mention.title}</div>
+                    <div className={styles.title}>{displayTitle}</div>
                     {mention.description && isLarge && (
                       <div className={styles.description}>{mention.description}</div>
                     )}
                     
-                    {mention.website_logo_url && (
+                    {mention.websiteLogoUrl && (
                       <div className={styles.footer}>
                         <hr className={styles.divider} />
                         <div className={styles.logoContainer}>
                           <Image 
                             className={styles.logo} 
-                            src={mention.website_logo_url} 
+                            src={mention.websiteLogoUrl} 
                             alt="Website Logo" 
                             width={100} 
                             height={25} 
                           />
+                          {mention.achievementValue && (
+                            <div className={styles.achievement}>
+                              <div className={styles.value}>{mention.achievementValue}</div>
+                              {mention.achievementLabel && (
+                                <div className={styles.label}>{mention.achievementLabel}</div>
+                              )}
+                            </div>
+                          )}
                         </div>
                       </div>
                     )}

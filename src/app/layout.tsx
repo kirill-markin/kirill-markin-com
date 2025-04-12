@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -13,6 +13,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: '#800080',
+};
 
 export const metadata: Metadata = {
   title: "Kirill Markin - Consultant and Software Architect",
@@ -32,7 +36,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/site.webmanifest',
-  themeColor: '#800080',
   appleWebApp: {
     title: 'Kirill Markin',
     statusBarStyle: 'black-translucent',

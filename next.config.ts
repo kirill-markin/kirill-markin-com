@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
   // Vercel will handle the deployment - no need for static export
   trailingSlash: true,  // Appends trailing slashes to URLs like Jekyll does
   images: {
-    domains: ['kirill-markin.com'],  // Allowed image domains
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {

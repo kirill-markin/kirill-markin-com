@@ -2,28 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
-
-// This would normally come from a data file or API
-const personalInfo = {
-  name: 'Kirill Markin',
-  email: 'kirill@kirill-markin.com',
-  phone: '+1 555-123-4567',
-  job_title: 'Consultant at OZMA.IO'
-};
-
-// Mock social links data
-const socialLinks = [
-  { name: 'GitHub', url: 'https://github.com/username', footer_bottom_green_line: true, social_logo_url_default: '/images/github.svg', social_logo_url_hover: '/images/github-hover.svg' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/username', footer_bottom_green_line: true, social_logo_url_default: '/images/linkedin.svg', social_logo_url_hover: '/images/linkedin-hover.svg' },
-  { name: 'Twitter', url: 'https://twitter.com/username', footer_bottom_green_line: true, social_logo_url_default: '/images/twitter.svg', social_logo_url_hover: '/images/twitter-hover.svg' },
-  { name: 'Blog', url: 'https://articles.kirill-markin.com/', footer_bottom_green_line: false, social_logo_url_default: '/images/blog.svg', social_logo_url_hover: '/images/blog-hover.svg' },
-  // Add more social links as needed
-];
+import { personalInfo } from '../data/personalInfo';
+import { socialLinks } from '../data/socialLinks';
 
 const Footer: React.FC = () => {
   const renderJobTitle = (title: string): { __html: string } => {
     return {
-      __html: title.replace('OZMA.IO', `<span class="${styles.ozmaAsTitleFooter}">ozma.io</span>`)
+      __html: title.replace('ozma.io', `<span class="${styles.ozmaAsTitleFooter}">ozma.io</span>`)
     };
   };
 
@@ -41,11 +26,10 @@ const Footer: React.FC = () => {
               <div className={styles.footerPersonalTitles}>
                 <p 
                   className={styles.mainTitleFooter}
-                  dangerouslySetInnerHTML={renderJobTitle(personalInfo.job_title)}
+                  dangerouslySetInnerHTML={renderJobTitle(personalInfo.jobTitle)}
                 />
-                {/* Note: These would typically come from data */}
-                <p className={styles.secondaryTitleFooter}>Senior Software Architect</p>
-                <p className={styles.tertiaryTitleFooter}>Tech Consultant</p>
+                <p className={styles.secondaryTitleFooter}>{personalInfo.secondaryTitle}</p>
+                <p className={styles.tertiaryTitleFooter}>{personalInfo.tertiaryTitle}</p>
               </div>
               
               <div className={styles.footerCta}>
@@ -133,7 +117,7 @@ const Footer: React.FC = () => {
       <div className={styles.socialMediaLine}>
         <div className={styles.socialLinks}>
           {socialLinks
-            .filter(link => link.footer_bottom_green_line)
+            .filter(link => link.footerBottomGreenLine)
             .map((link, index) => (
               <a 
                 key={index}
@@ -143,19 +127,21 @@ const Footer: React.FC = () => {
                 className={styles.socialLink}
               >
                 <Image 
-                  src={link.social_logo_url_default} 
+                  src={link.socialLogoUrlDefault || '/images/social_logos/default.png'} 
                   alt={link.name} 
                   className={styles.iconDefault}
                   width={24}
                   height={24}
                 />
-                <Image 
-                  src={link.social_logo_url_hover} 
-                  alt={link.name} 
-                  className={styles.iconHover}
-                  width={24}
-                  height={24}
-                />
+                {link.socialLogoUrlHover && (
+                  <Image 
+                    src={link.socialLogoUrlHover} 
+                    alt={link.name} 
+                    className={styles.iconHover}
+                    width={24}
+                    height={24}
+                  />
+                )}
               </a>
             ))
           }

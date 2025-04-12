@@ -501,3 +501,57 @@ a.secondary {
   width: auto;
   object-fit: contain;
 }
+
+.mediaMention.video::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  z-index: 5;
+  pointer-events: none;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo {
+  height: 25px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+}
+
+.achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #07ff39;
+  padding: 0 6px;
+  height: 25px;
+  margin-left: 8px;
+}
+
+.achievement .value {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: #232323;
+}
+
+.achievement .label {
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1;
+  color: #232323;
+  text-transform: lowercase;
+}
