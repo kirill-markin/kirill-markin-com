@@ -499,14 +499,20 @@
 .articleContent pre {
   background-color: #f5f5f5;
   padding: 1rem;
+  padding-right: 3rem;
   border-radius: 5px;
   overflow-x: auto;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .articleContent pre code {
   background-color: transparent;
   padding: 0;
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .articleContent a {
@@ -790,14 +796,20 @@
 .articleContent pre {
   background-color: #f5f5f5;
   padding: 1rem;
+  padding-right: 3rem;
   border-radius: 5px;
   overflow-x: auto;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .articleContent pre code {
   background-color: transparent;
   padding: 0;
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .articleContent a {

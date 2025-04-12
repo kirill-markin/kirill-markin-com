@@ -1,0 +1,33 @@
+.copyButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  height: 28px;
+  width: 28px;
+}
+
+.copyButton:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+}
+
+.copyButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.copyButton svg {
+  width: 16px;
+  height: 16px;
+} 

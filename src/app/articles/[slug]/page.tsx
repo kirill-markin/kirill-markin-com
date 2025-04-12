@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { getAllArticleSlugs, getArticleBySlug } from '@/lib/articles';
 import { markdownToHtml } from '@/lib/markdown';
 import styles from '../articles.module.css';
+import ArticleContent from '@/components/ArticleContent';
 
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
@@ -102,9 +103,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           )}
         </header>
         
-        <div 
+        <ArticleContent 
+          htmlContent={htmlContent}
           className={styles.articleContent}
-          dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
       </article>
     </div>
