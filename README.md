@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project Configuration
+
+This project was set up with the following configuration:
+
+- **TypeScript**: Yes - For type safety and improved developer experience
+- **ESLint**: Yes - For code quality and consistency
+- **Tailwind CSS**: No - Custom styling approach used instead
+- **Code organization**: Yes - Code is inside `src/` directory
+- **Router**: Yes - Uses App Router (recommended)
+- **Turbopack**: Yes - Used for `next dev` for faster development experience
+- **Import alias**: No - Using default import alias (`@/*`)
+
 ## Getting Started
 
 First, run the development server:

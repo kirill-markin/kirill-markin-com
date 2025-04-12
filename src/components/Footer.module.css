@@ -1,0 +1,201 @@
+/* Footer Styles */
+.footer {
+  background-color: #232323;
+  color: #ffffff;
+  padding: 3rem 2rem;
+}
+
+.footerColumnContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rightColumn {
+  width: 100%;
+}
+
+.singleColumn {
+  width: 100%;
+}
+
+.footerTopSection {
+  margin-bottom: 2rem;
+}
+
+.footerOrgName {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.leftAligned {
+  text-align: left;
+}
+
+.footerWhiteLine {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 1rem 0;
+}
+
+.footerMainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footerMainContent {
+    flex-direction: row;
+  }
+}
+
+.footerRolesSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footerPersonalTitles {
+  margin-bottom: 1.5rem;
+}
+
+.mainTitleFooter {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.ozmaAsTitleFooter {
+  font-style: italic;
+  color: #4CAF50;
+}
+
+.secondaryTitleFooter, .tertiaryTitleFooter {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 0.25rem;
+}
+
+.footerCta {
+  margin-top: 1rem;
+}
+
+.questionButton {
+  margin-top: 1rem;
+}
+
+.footerButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.footerButton:hover {
+  background-color: #3e8e41;
+}
+
+.footerLinksWrapper {
+  flex: 2;
+}
+
+.footerOrgInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footerOrgInfo {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footerOrgContactInfo,
+.footerOrgMoreInfo,
+.footerOrgMedia,
+.footerOrgOther {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerOrgContactInfo h3,
+.footerOrgMoreInfo h3,
+.footerOrgMedia h3,
+.footerOrgOther h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #ddd;
+}
+
+.footerEmail, .footerPhone, .footerLink {
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.footerEmail:hover, .footerPhone:hover, .footerLink:hover {
+  color: #4CAF50;
+}
+
+.footerIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.socialMediaLine {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.socialLink:hover {
+  background-color: #4CAF50;
+}
+
+.iconDefault {
+  transition: opacity 0.2s;
+}
+
+.iconHover {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.socialLink:hover .iconDefault {
+  opacity: 0;
+}
+
+.socialLink:hover .iconHover {
+  opacity: 1;
+} 

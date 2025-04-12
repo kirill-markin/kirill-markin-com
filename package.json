@@ -2,11 +2,15 @@
   "name": "website-next-js",
   "version": "0.1.0",
   "private": true,
+  "description": "Source code for kirill-markin.com website built with Next.js, migrated from Jekyll for improved performance and developer experience",
+  "author": "Kirill Markin",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -21,5 +25,22 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "@eslint/eslintrc": "^3"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kirill-markin/website-next-js"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "static-site",
+    "personal-website",
+    "kirill-markin",
+    "ozma",
+    "data-engineering"
+  ]
 }
