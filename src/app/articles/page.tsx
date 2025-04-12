@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getAllArticles } from '@/lib/articles';
 import { Metadata } from 'next';
 import styles from './articles.module.css';
+import ArticlesListJsonLd from '@/components/ArticlesListJsonLd';
 
 type Props = {
   params: Promise<Record<string, string>>;
@@ -53,6 +54,10 @@ export async function generateMetadata(
     description = `Articles and insights about ${formattedTag} from Kirill Markin - expert analysis and perspectives.`;
   }
   
+  const canonicalUrl = tagParam === 'all' 
+    ? 'https://kirill-markin.com/articles/'
+    : `https://kirill-markin.com/articles/?tag=${tagParam}`;
+  
   // Images and other metadata
   const images = [
     {
@@ -69,20 +74,20 @@ export async function generateMetadata(
     openGraph: {
       title,
       description,
-      url: tagParam === 'all' 
-        ? 'https://kirill-markin.com/articles/'
-        : `https://kirill-markin.com/articles/?tag=${tagParam}`,
+      url: canonicalUrl,
       images,
+      type: 'website',
+      siteName: 'Kirill Markin',
+      locale: 'en_US',
     },
     twitter: {
+      card: 'summary_large_image',
       title,
       description,
       images: ['/articles/articles-hero.webp'],
     },
     alternates: {
-      canonical: tagParam === 'all'
-        ? 'https://kirill-markin.com/articles/'
-        : `https://kirill-markin.com/articles/?tag=${tagParam}`,
+      canonical: canonicalUrl,
     },
   };
 }
@@ -106,6 +111,10 @@ export default async function ArticlesPage({ searchParams }: Props) {
   const allTags = articles.flatMap(article => article.metadata.tags || []);
   const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
 
+  const canonicalUrl = tagParam === 'all' 
+    ? 'https://kirill-markin.com/articles/'
+    : `https://kirill-markin.com/articles/?tag=${tagParam}`;
+
   const getTagDescription = () => {
     if (tagParam === 'all') {
       return 'Browse articles and insights on tech, business, AI, and productivity. Filter by tags to find content on specific topics.';
@@ -121,6 +130,12 @@ export default async function ArticlesPage({ searchParams }: Props) {
 
   return (
     <div className={styles.content}>
+      <ArticlesListJsonLd 
+        articles={filteredArticles} 
+        url={canonicalUrl} 
+        tag={tagParam !== 'all' ? tagParam : undefined} 
+      />
+      
       <div className={styles.fullWidthColumn}>
         <div className={styles.articlesHeader}>
           <div className={styles.articlesHeaderTitle}>

@@ -6,6 +6,7 @@ import { getAllArticleSlugs, getArticleBySlug, getRelatedArticlesByTags } from '
 import { markdownToHtml } from '@/lib/markdown';
 import styles from '../articles.module.css';
 import ArticleContent from '@/components/ArticleContent';
+import ArticleJsonLd from '@/components/ArticleJsonLd';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -22,19 +23,42 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       title: 'Article Not Found',
     };
   }
+
+  const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
   
   return {
     title: `${article.metadata.title} - Kirill Markin`,
     description: article.metadata.description || article.content.slice(0, 160) + '...',
     keywords: article.metadata.tags,
+    authors: [{ name: article.metadata.publisher || 'Kirill Markin' }],
     openGraph: {
       title: article.metadata.title,
       description: article.metadata.description || article.content.slice(0, 160) + '...',
       type: 'article',
+      url: canonicalUrl,
+      images: [
+        {
+          url: article.metadata.thumbnailUrl || '/articles/placeholder.webp',
+          width: 1200,
+          height: 630,
+          alt: article.metadata.title,
+        }
+      ],
+      locale: article.metadata.language === 'ru' ? 'ru_RU' : 'en_US',
       publishedTime: article.metadata.date,
       modifiedTime: article.metadata.lastmod,
       tags: article.metadata.tags,
+      siteName: 'Kirill Markin'
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.metadata.title,
+      description: article.metadata.description || article.content.slice(0, 160) + '...',
+      images: [article.metadata.thumbnailUrl || '/articles/placeholder.webp'],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    }
   };
 }
 
@@ -53,6 +77,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   
   const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
   const htmlContent = await markdownToHtml(article.content);
+  const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
   
   // Get related articles based on tags
   const relatedArticles = await getRelatedArticlesByTags(
@@ -65,6 +90,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     <div className={styles.articlePageContainer}>
       <div className={styles.articleNavigation}>
       </div>
+      
+      <ArticleJsonLd article={article} url={canonicalUrl} />
       
       <article className={styles.articleContainer}>
         <header className={styles.articleHeader}>
