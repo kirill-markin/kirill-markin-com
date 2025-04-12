@@ -14,6 +14,10 @@ const Header: React.FC = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const closeMobileMenu = (): void => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerDesktopContainer}>
@@ -91,16 +95,17 @@ const Header: React.FC = () => {
         
         <div className={`${styles.headerMobileMenuOpen} ${mobileMenuOpen ? '' : styles.hidden}`}>
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/">KIRILL MARKIN</Link>
+            <Link href="/" onClick={closeMobileMenu}>KIRILL MARKIN</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/services">SERVICES</Link>
+            <Link href="/services" onClick={closeMobileMenu}>SERVICES</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <a 
               href="https://articles.kirill-markin.com/" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={closeMobileMenu}
             >
               BLOG
             </a>
@@ -110,6 +115,7 @@ const Header: React.FC = () => {
               className={styles.headerMobileBookAMeeting}
               href="/meet/short" 
               rel="noopener noreferrer"
+              onClick={closeMobileMenu}
             >
               TALK TO KIRILL
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
