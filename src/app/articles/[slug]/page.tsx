@@ -100,12 +100,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             </div>
           )}
-          
-          {article.metadata.description && (
-            <div className={styles.articleDescription}>
-              {article.metadata.description}
-            </div>
-          )}
         </header>
         
         <div 

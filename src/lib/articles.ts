@@ -5,6 +5,16 @@ import matter from 'gray-matter';
 const articlesDirectory = path.join(process.cwd(), 'obsidian-vault/public');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
+/**
+ * Cleans markdown symbols from a description string
+ */
+function cleanDescription(description: string | undefined): string {
+  if (!description) return '';
+  
+  // Remove markdown heading symbols (##)
+  return description.replace(/^#+\s*/g, '');
+}
+
 export type ArticleMetadata = {
   slug: string;
   title: string;
@@ -53,6 +63,10 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       return null;
     }
     
+    // Clean description if it exists by removing markdown symbols
+    const cleanedDescription = cleanDescription(data.description) || 
+      cleanDescription(content.substring(0, 160).replace(/\n/g, ' '));
+    
     const metadata: ArticleMetadata = {
       slug,
       title: data.title || '',
@@ -63,7 +77,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       related: data.related || [],
       aliases: data.aliases || [],
       thumbnailUrl: data.thumbnailUrl || PLACEHOLDER_IMAGE,
-      description: data.description || content.substring(0, 160).replace(/\n/g, ' '),
+      description: cleanedDescription,
       type: data.type || 'Article',
       language: data.language || 'en',
       publisher: data.publisher || 'Kirill Markin',
