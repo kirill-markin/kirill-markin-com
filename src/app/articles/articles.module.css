@@ -1,0 +1,121 @@
+.articlesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.articleCard {
+  border: 1px solid #eaeaea;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.articleCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.articleLink {
+  display: block;
+}
+
+.articleTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.articleDate {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.articleTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.articleTag {
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.articleContent {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.articleContent h1 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.articleContent h2 {
+  font-size: 1.75rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.articleContent h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.articleContent p {
+  margin-bottom: 1.25rem;
+}
+
+.articleContent ul, .articleContent ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.articleContent li {
+  margin-bottom: 0.5rem;
+}
+
+.articleContent blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+}
+
+.articleContent code {
+  background-color: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.articleContent pre {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+
+.articleContent pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.articleContent a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.articleContent a:hover {
+  text-decoration: underline;
+} 

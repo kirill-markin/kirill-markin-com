@@ -32,14 +32,12 @@ const Header: React.FC = () => {
           <Link className={styles.headerDesktopButton} href="/services">
             SERVICES
           </Link>
-          <a 
+          <Link 
             className={styles.headerDesktopButton}
-            href="https://articles.kirill-markin.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
+            href="/articles"
           >
-            BLOG
-          </a>
+            ARTICLES
+          </Link>
           <Link 
             className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
             href="/meet/short" 
@@ -74,14 +72,13 @@ const Header: React.FC = () => {
           </div>
           <div className={styles.mobileRightButtonsContainer}>
             <div className={styles.mobileButton}>
-              <a 
-                href="https://articles.kirill-markin.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/articles"
+                onClick={closeMobileMenu}
                 className={styles.headerMobileBlogButton}
               >
-                BLOG
-              </a>
+                ARTICLES
+              </Link>
             </div>
             <div className={styles.mobileButton}>
               <Link 
@@ -103,14 +100,12 @@ const Header: React.FC = () => {
             <Link href="/services" onClick={closeMobileMenu}>SERVICES</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <a 
-              href="https://articles.kirill-markin.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              href="/articles"
               onClick={closeMobileMenu}
             >
-              BLOG
-            </a>
+              ARTICLES
+            </Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <Link 
