@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { servicesData } from '@/data/services';
 import PersonalInfo from '@/components/PersonalInfo';
 import ServerServices from '@/components/ServerServices';
-import CategoryScrollManager from '@/components/CategoryScrollManager';
 import styles from './page.module.css';
 
 type Props = {
@@ -105,9 +104,6 @@ export default async function ServicesPage({ searchParams }: Props) {
 
   return (
     <main className={styles.main}>
-      {/* Client-side component to manage scroll position */}
-      <CategoryScrollManager />
-      
       <div className={styles.content}>
         <aside className={styles.leftColumn}>
           <PersonalInfo />
