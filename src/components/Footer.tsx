@@ -8,7 +8,7 @@ import { socialLinks } from '../data/socialLinks';
 const Footer: React.FC = () => {
   const renderJobTitle = (title: string): { __html: string } => {
     return {
-      __html: title.replace('ozma.io', `<span class="${styles.ozmaAsTitleFooter}">ozma.io</span>`)
+      __html: title
     };
   };
 
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
       <div className={styles.socialMediaLine}>
         <div className={styles.socialLinks}>
           {socialLinks
-            .filter(link => link.footerBottomGreenLine)
+            .filter(link => (link.footerBottomGreenLine || link.name === "WhatsApp" || link.name === "Telegram" || link.name === "Instagram" || link.name === "Email" || link.name === "Medium" || link.name === "Twitter" || link.name === "Reddit" || link.name === "Bluesky") && link.socialLogoUrlDefault)
             .map((link, index) => (
               <a 
                 key={index}
@@ -130,16 +130,16 @@ const Footer: React.FC = () => {
                   src={link.socialLogoUrlDefault || '/social/default.png'} 
                   alt={link.name} 
                   className={styles.iconDefault}
-                  width={24}
-                  height={24}
+                  width={36}
+                  height={36}
                 />
                 {link.socialLogoUrlHover && (
                   <Image 
                     src={link.socialLogoUrlHover} 
                     alt={link.name} 
                     className={styles.iconHover}
-                    width={24}
-                    height={24}
+                    width={36}
+                    height={36}
                   />
                 )}
               </a>
