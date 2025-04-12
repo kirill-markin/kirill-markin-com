@@ -1,0 +1,154 @@
+# Kirill Markin Website - Project Guide
+
+## Project Overview
+
+This is a modern personal website for Kirill Markin, built with Next.js. The project was migrated from Jekyll to Next.js to improve performance, developer experience, and leverage modern web capabilities.
+
+## Core Architecture Principles
+
+### Static Generation First
+
+The most critical principle of this project is the **"static generation first"** approach:
+
+- All pages should be statically generated at build time when possible
+- Use `generateStaticParams` for dynamic routes to pre-render all known path variations
+- Even for pages with server-side rendering (SSR), apply static optimization when content is predictable
+- The goal is to have zero server-side computation at request time in production
+- All category pages and filtered views should be pre-generated at build time
+
+Benefits:
+- Exceptional page load performance with direct CDN delivery
+- Superior SEO with fully-rendered HTML for search engines
+- Minimal server costs and resource usage
+- Better reliability and offline capabilities
+- Reduced environmental impact
+
+### Server Components with Strategic Client Hydration
+
+The application architecture follows the React Server Components pattern:
+- The majority of UI is rendered as server components for performance
+- Client components ("islands") are used only when interactivity is required
+- We minimize the amount of JavaScript sent to the browser
+- Client-side state is kept to a minimum
+
+## Project Structure
+
+### Root Structure
+
+```
+website-next-js/
+├── public/          # Static assets
+├── src/             # Application source code
+├── next.config.ts   # Next.js configuration
+├── package.json     # Dependencies and scripts
+├── tsconfig.json    # TypeScript configuration
+└── .cursorrules     # This file - project guidelines
+```
+
+### Source Code Structure
+
+```
+src/
+├── app/             # Next.js App Router pages
+│   ├── page.tsx     # Home page
+│   ├── services/    # Services section with categories
+│   ├── meet/        # Meeting booking section
+│   ├── layout.tsx   # Root layout
+│   └── not-found.tsx # 404 page
+├── components/      # UI components
+├── data/            # Content data (services, etc.)
+├── styles/          # Global styles
+└── types/           # TypeScript type definitions
+```
+
+### Component Structure
+
+```
+components/
+├── ServerServices/  # Server components for services page
+│   ├── ServerServices.tsx  # Main server component
+│   └── index.ts            # Export file
+├── Services/        # Client components for services (legacy)
+├── PersonalInfo/    # Personal information component
+├── CategoryScrollManager.tsx  # Client component for scroll position
+└── [Other UI components]      # Various UI elements
+```
+
+## Key Technologies and Patterns
+
+### Next.js App Router & Server Components
+
+The project uses Next.js App Router with React Server Components. This architecture provides:
+- Automatic code splitting
+- Server-side rendering
+- Static site generation
+- SEO optimization through metadata API
+- File-based routing
+
+### TypeScript for Type Safety
+
+All code is written in TypeScript for improved developer experience:
+- Strong typing for props and state
+- Interface definitions for data structures
+- Type utilities for common patterns
+
+### CSS Modules for Styling
+
+The project uses CSS Modules:
+- Scoped CSS for components
+- No CSS-in-JS libraries to reduce bundle size
+- Global variables for consistent theming
+
+## Recent Implementation Details
+
+### Services Page Optimization
+
+The services page was reimplemented to follow best practices:
+- Server-side rendering with `ServerServices` component
+- Static generation of all category filter variations
+- Dynamic metadata generation based on selected category
+- Client-side scroll position management when changing categories
+
+### SEO Enhancements
+
+- Each category page has unique metadata (title, description)
+- Proper canonical URLs for all pages
+- Category-specific descriptions
+- Semantic HTML structure
+
+## Deployment Strategy
+
+The site is deployed on Vercel with these optimizations:
+- Static regeneration at build time
+- Global CDN distribution
+- Edge functions for any dynamic features
+- Analytics and performance monitoring
+
+## Development Practices
+
+When contributing to this project:
+
+1. Follow the "static generation first" principle
+2. Keep client-side JavaScript to a minimum
+3. Add appropriate typing for all components and functions
+4. Ensure new pages have proper metadata for SEO
+5. Use server components by default, client components only when necessary
+6. Check performance metrics before and after changes
+7. Use CSS Modules for styling instead of inline styles or CSS-in-JS
+8. Pre-render all known variations of dynamic pages
+
+## Common Commands
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server locally
+- `npm run lint` - Run ESLint
+
+## Performance Goals
+
+- <1s Time to First Byte (TTFB)
+- <2s First Contentful Paint (FCP)
+- <2.5s Largest Contentful Paint (LCP)
+- <100ms First Input Delay (FID)
+- <0.1 Cumulative Layout Shift (CLS)
+- >90 Lighthouse Performance Score 
