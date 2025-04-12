@@ -116,7 +116,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
     // Get count of articles with this tag
     const tagArticlesCount = filteredArticles.length;
     
-    return `Articles tagged with "${formattedTag}" (${tagArticlesCount}). These posts focus specifically on ${tagParam}-related topics and insights.`;
+    return `Articles tagged with "${formattedTag}" [${tagArticlesCount}]. These posts focus specifically on ${tagParam}-related topics and insights.`;
   };
 
   return (
@@ -125,7 +125,11 @@ export default async function ArticlesPage({ searchParams }: Props) {
         <div className={styles.articlesHeader}>
           <div className={styles.articlesHeaderTitle}>
             <h1 className={styles.articlesTitle}>
-              Article<span className={styles.glitchLetter}>s</span>
+              {tagParam === 'all' ? (
+                <>Article<span className={styles.glitchLetter}>s</span></>
+              ) : (
+                <>{tagParam.charAt(0).toUpperCase() + tagParam.slice(1)} Article<span className={styles.glitchLetter}>s</span></>
+              )}
             </h1>
             <div className={styles.categoryDescription}>
               <p>{getTagDescription()}</p>

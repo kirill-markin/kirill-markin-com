@@ -879,14 +879,16 @@
 }
 
 .articlesTitle {
-  font-size: 2.25rem;
-  text-transform: none!important;
-  margin: 0;
-  margin-bottom: 1rem;
-  position: relative;
-  font-style: normal;
+  font-size: 3rem;
   font-weight: 500;
-  letter-spacing: normal;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .backLink {
@@ -1053,4 +1055,11 @@
   height: 100%;
   text-decoration: none;
   color: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .articlesTitle {
+    font-size: 2.25rem;
+    line-height: 1.3;
+  }
 } 
