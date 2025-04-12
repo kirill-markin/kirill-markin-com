@@ -85,7 +85,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
   // Get category description text
   const getCategoryDescription = () => {
     if (currentCategory === 'all') {
-      return 'Explore the complete range of services I offer for individuals, businesses, and media professionals. Whether you need personalized career guidance, business analytics support, or expert commentary for your publication, I am ready to help.';
+      return 'Explore the complete range of services for individuals, businesses, and media professionals. Whether you need career guidance, analytics support, or expert commentary, I am ready to help.';
     }
     
     switch (currentCategory) {
