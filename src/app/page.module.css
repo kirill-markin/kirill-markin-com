@@ -502,7 +502,9 @@ a.secondary {
   color: var(--dark-gray);
   font-size: var(--font-size-medium);
   font-weight: 400;
-  line-height: 24.20px;
+  line-height: 20px;
+  text-transform: none;
+  letter-spacing: normal;
   word-wrap: break-word;
   align-self: stretch;
 }
