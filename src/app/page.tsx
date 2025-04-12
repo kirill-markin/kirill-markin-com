@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.mainPageContent}>
       <div className={styles.leftColumn}>
         <div className={styles.personalInfo}>
-          <h1 className={styles.personalName}>
+          <h1 className={styles.personalName} data-text={personalInfo.name}>
             {personalInfo.name}
           </h1>
         </div>
@@ -83,7 +83,7 @@ export default function Home() {
                   href={mention.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''}`}
+                  className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}
                 >
                   <div className={styles.language}>
                     <div className={styles.text}>[{mention.language}]</div>
@@ -102,6 +102,7 @@ export default function Home() {
                       alt={displayTitle} 
                       width={640} 
                       height={360} 
+                      priority={index < 4}
                     />
                   </div>
                   
@@ -113,7 +114,7 @@ export default function Home() {
                     
                     {mention.websiteLogoUrl && (
                       <div className={styles.footer}>
-                        <hr className={styles.divider} />
+                        <div className={styles.divider} />
                         <div className={styles.logoContainer}>
                           <Image 
                             className={styles.logo} 
