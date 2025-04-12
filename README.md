@@ -2,6 +2,30 @@
 
 This is a modern, responsive personal website for Kirill Markin, built with Next.js. The site was migrated from Jekyll to Next.js for improved performance, developer experience, and modern web capabilities.
 
+## Key Architecture Principles
+
+### Static Generation First Approach
+
+This project follows a **"static generation first"** approach:
+
+- All pages should be statically generated at build time whenever possible
+- Use `generateStaticParams` for dynamic routes to pre-render all known path variations
+- Even server-side rendered (SSR) pages should use static optimization when the content is predictable
+- Aim for zero server-side computation at request time in production
+
+Benefits of this approach:
+- Blazing fast page loads with content served directly from CDN
+- Excellent SEO as search engines receive complete HTML
+- Reduced server load and hosting costs
+- Better reliability and offline capabilities
+
+### Server Components with Client Islands
+
+The application architecture uses React Server Components with selective client hydration:
+- Most UI is rendered as server components for performance
+- Client components ("islands") are used only when interactivity is required
+- Minimal JavaScript is sent to the browser
+
 ## Migration Overview
 
 This project is a complete migration from a Jekyll-based static site to a Next.js application. The migration preserves the original design and user experience while adding modern web features:
@@ -22,37 +46,9 @@ This project was set up with the following configuration:
 - **Code organization**: Yes - Code is inside `src/` directory
 - **Router**: Yes - Uses App Router for SEO benefits and modern routing
 - **Image Optimization**: Yes - Using Next.js Image component
-- **Metadata API**: Yes - For improved SEO
+- **Metadata API**: Yes - For improved SEO with dynamic metadata generation
 - **Import alias**: Yes - Using default import alias (`@/*`)
-
-## Project Structure
-
-```
-website-next-js/
-├── public/           # Static assets (favicons, images)
-│   ├── icons/        # SVG icons
-│   ├── images/       # Website images
-│   └── ...           # Other static assets
-├── src/
-│   ├── app/          # App router pages and layouts
-│   │   ├── page.tsx  # Home page
-│   │   ├── services/ # Services pages
-│   │   ├── meet/     # Meeting booking pages
-│   │   │   ├── short/# Short meeting booking
-│   │   │   └── all/  # All meeting options
-│   │   ├── pay/      # Payment pages
-│   │   │   └── stripe/# Stripe payment
-│   │   ├── not-found.tsx # 404 page
-│   │   ├── layout.tsx
-│   │   └── page.module.css
-│   ├── components/   # Reusable UI components
-│   ├── data/         # Data files for content
-│   ├── lib/          # Utility functions
-│   ├── styles/       # Global styles
-│   └── types/        # TypeScript definitions
-├── next.config.ts    # Next.js configuration
-└── ...               # Other configuration files
-```
+- **Static Optimization**: Yes - Using `generateStaticParams` for pre-rendering
 
 ## Getting Started
 
@@ -64,20 +60,37 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Migration Details
+## Recent Updates and Features
 
-The migration from Jekyll to Next.js involved:
+- **Server-side Services Page**: Implemented server rendering for the services page with category filters
+- **Static Pre-rendering**: Added `generateStaticParams` to pre-render all category variations
+- **Scroll Position Management**: Added client-side scroll position preservation when changing categories
+- **SEO Optimization**: Implemented dynamic metadata for each category page
+- **Performance Improvements**: Optimized images and CSS for faster loading
+- **Improved UX**: Added descriptive texts for service categories
 
-1. Converting Jekyll layouts to Next.js layouts and pages
-2. Converting Jekyll includes to React components
-3. Moving Jekyll data to TypeScript data files
-4. Implementing CSS modules for styling
-5. Setting up proper metadata for SEO
-6. Optimizing assets and routing
+## Optimization Strategies
+
+### Static Generation
+
+The project uses static generation with `generateStaticParams` to pre-render all category pages at build time. This ensures all variations of the services page (with different category filters) are generated as static HTML during the build process and served directly from CDN.
+
+### Server Components with Client Hydration
+
+The architecture uses a hybrid approach:
+- Server Components handle core rendering and data presentation
+- Client Components provide interactive features like scroll position management
+- This minimizes client-side JavaScript while preserving interactive functionality
 
 ## Deployment
 
 This project is configured for deployment on Vercel. See the [DEPLOYMENT.md](./DEPLOYMENT.md) file for detailed deployment instructions.
+
+The deployment process automatically:
+- Builds and optimizes the application
+- Pre-renders all static pages
+- Deploys to global CDN network
+- Provides analytics and monitoring
 
 ## Technologies Used
 
