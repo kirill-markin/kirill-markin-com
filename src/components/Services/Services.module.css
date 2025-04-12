@@ -1,0 +1,248 @@
+.services {
+  width: 100%;
+  padding: 20px;
+}
+
+.servicesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.servicesHeaderTitle {
+  display: flex;
+  align-items: center;
+}
+
+.servicesTitle {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.serviceDetailTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.serviceName {
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+.servicesBackButton {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.servicesBackButton:hover {
+  text-decoration: underline;
+}
+
+.arrowIcon {
+  transform: rotate(180deg);
+  width: 14px;
+  margin-right: 5px;
+}
+
+.servicesMenu {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.servicesMenu > span {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+
+.servicesMenuCategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.servicesMenuCategory {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.servicesMenuCategory:hover {
+  background-color: var(--hover-bg);
+}
+
+.servicesMenuCategory.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.servicesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.serviceCardCategory {
+  padding: 10px;
+  background-color: var(--bg-light);
+  font-size: 0.8rem;
+}
+
+.currentCategory {
+  text-transform: capitalize;
+}
+
+.serviceCardImage {
+  height: 160px;
+  background-color: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.serviceCardContent {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceCardContent h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.serviceDescription {
+  flex-grow: 1;
+}
+
+.serviceShortDescription {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.serviceShortDescription p {
+  margin-top: 0;
+}
+
+.serviceDetail {
+  margin-top: 20px;
+}
+
+.serviceDetailContent {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.serviceDetailDescription {
+  margin-bottom: 20px;
+}
+
+.serviceDetailFeatures {
+  margin-top: 20px;
+}
+
+.featureSection {
+  margin-bottom: 30px;
+}
+
+.featureSectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.featureItem {
+  margin-bottom: 15px;
+}
+
+.featureItemWithTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureTitle {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.featureDesc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.serviceDetailAction {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.serviceDetailButton {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.serviceDetailButton:hover {
+  background-color: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+  .servicesHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .servicesBackButton {
+    margin-top: 10px;
+  }
+  
+  .servicesList {
+    grid-template-columns: 1fr;
+  }
+} 

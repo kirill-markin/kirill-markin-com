@@ -1,12 +1,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --black: #1A1A1A;
+  --white: #FFFFFF;
+  --dark-gray: #232323;
+  --medium-gray: #898989;
+  --font-size-small: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-base-plus: 1.125rem; /* 18px */
+  --font-size-medium: 1.25rem; /* 20px */
+  --font-size-large: 2.25rem;   /* 36px */
+  --font-size-xlarge: 3.25rem;  /* 52px */
+  --font-size-xxlarge: 5.4375rem; /* 87px */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --black: #ededed;
+    --white: #0a0a0a;
+    --dark-gray: #cccccc;
+    --medium-gray: #898989;
   }
 }
 
