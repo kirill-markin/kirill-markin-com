@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import Services from '@/components/Services';
 import { servicesData } from '@/data/services';
 import PersonalInfo from '@/components/PersonalInfo';
+import ServerServices from '@/components/ServerServices';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -30,7 +30,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function ServicesPage({ searchParams }: Props) {
+  // Get the category from URL parameters
+  const categoryParam = typeof searchParams.category === 'string' ? searchParams.category : 'all';
+
   return (
     <main className={styles.main}>
       <div className={styles.content}>
@@ -38,7 +45,7 @@ export default function ServicesPage() {
           <PersonalInfo />
         </aside>
         <div className={styles.rightColumn}>
-          <Services services={servicesData} />
+          <ServerServices services={servicesData} currentCategory={categoryParam} />
         </div>
       </div>
     </main>
