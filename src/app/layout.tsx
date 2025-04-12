@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import JsonLdSchema from "@/components/JsonLdSchema";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -50,6 +51,7 @@ export default function RootLayout({
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#800080" />
         <meta name="msapplication-TileColor" content="#800080" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        <JsonLdSchema />
       </head>
       <body>
         <Header />
