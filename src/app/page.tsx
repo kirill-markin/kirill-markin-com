@@ -41,7 +41,7 @@ export default function Home() {
         <PersonalInfo />
       </aside>
 
-      <section className={styles.rightColumn}>
+      <div className={styles.rightColumn}>
         <section className={styles.articles}>
           <h2 className={styles.articlesHeading}>
             Article<span className={styles.glitchLetter}>s</span> and mention<span className={styles.glitchLetter}>s</span>
@@ -112,7 +112,7 @@ export default function Home() {
             })}
           </div>
         </section>
-      </section>
+      </div>
     </div>
   );
 }

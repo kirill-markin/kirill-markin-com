@@ -37,9 +37,9 @@ export default function ServicesPage() {
         <aside className={styles.leftColumn}>
           <PersonalInfo />
         </aside>
-        <section className={styles.rightColumn}>
+        <div className={styles.rightColumn}>
           <Services services={servicesData} />
-        </section>
+        </div>
       </div>
     </main>
   );
