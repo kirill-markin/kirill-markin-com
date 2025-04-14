@@ -25,6 +25,26 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Add headers configuration for SEO
+  async headers() {
+    // Set X-Robots-Tag: noindex for all non-production environments
+    // This ensures custom domains used for preview/staging are also not indexed
+    if (process.env.VERCEL_ENV !== 'production') {
+      return [
+        {
+          source: '/:path*',
+          headers: [
+            {
+              key: 'X-Robots-Tag',
+              value: 'noindex',
+            },
+          ],
+        },
+      ];
+    }
+
+    return [];
+  },
   // swcMinify has been removed as it's no longer recognized in Next.js 15.3.0
 };
 
