@@ -32,12 +32,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // Get the tag from URL parameters
   const params = await searchParams;
-  const tagParam = typeof params.tag === 'string' ? params.tag : 'all';
+  const tagParam = typeof params.tag === 'string' ? params.tag.toLowerCase() : 'all';
   
   // Base metadata
   const baseTitle = 'Articles | Kirill Markin';
   let title = baseTitle;
-  let description = 'Articles and insights from Kirill Markin on tech, business, and productivity.';
+  let description = 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system.';
   
   // Tag-specific metadata
   if (tagParam !== 'all') {
@@ -96,7 +96,7 @@ const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
 export default async function ArticlesPage({ searchParams }: Props) {
   const params = await searchParams;
-  const tagParam = typeof params.tag === 'string' ? params.tag : 'all';
+  const tagParam = typeof params.tag === 'string' ? params.tag.toLowerCase() : 'all';
   
   const articles = await getAllArticles();
   
@@ -117,9 +117,10 @@ export default async function ArticlesPage({ searchParams }: Props) {
 
   const getTagDescription = () => {
     if (tagParam === 'all') {
-      return 'Browse articles and insights on tech, business, AI, and productivity. Filter by tags to find content on specific topics.';
+      return 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system, with content organized through natural connections between ideas. Here you\'ll find research notes, technical discoveries, thought processes, and personal workflows. Explore by following the organic connections between topics or filter by tags to discover content that aligns with your interests.';
     }
     
+    // Display tag with first letter capitalized in the description
     const formattedTag = tagParam.charAt(0).toUpperCase() + tagParam.slice(1);
     
     // Get count of articles with this tag
@@ -176,7 +177,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
                   href={`/articles?tag=${tag}`}
                   className={`${styles.tagMenuItem} ${tagParam === tag ? styles.active : ''}`}
                 >
-                  {tag.charAt(0).toUpperCase() + tag.slice(1)} [{count}]
+                  {tag} [{count}]
                 </Link>
               ))}
           </div>

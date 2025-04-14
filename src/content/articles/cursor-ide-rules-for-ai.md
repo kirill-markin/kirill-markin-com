@@ -1,12 +1,14 @@
 ---
-title: "Cursor IDE: Rules for AI"
-date: 2025-02-08
-tags: [productivity, system, ai, cursor]
-aliases: [cursor-ai-rules, cursor-ide-settings]
-related: [development-setup, coding-standards]
+title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
+date: 2025-02-10
+tags: [productivity, cursor, ai]
+aliases: [cursor-ai-rules, cursor-guidelines]
+related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
-lastmod: 2025-04-11
+lastmod: 2025-04-14
 ---
+
+# Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant
 
 Cursor IDE implements three levels of AI rules:
 

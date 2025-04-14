@@ -1,14 +1,14 @@
 ---
-title: Don't charge clients for short breaks when you bill by the hour
-date: 2024-11-04
-tags:
-- post
-aliases:
-- media-posts-archive
+title: "Hourly Billing Without Breaks: The Impact on Quality and Wellbeing"
+date: 2024-12-15
+tags: [work-management, productivity]
+aliases: [hourly-billing, freelancer-breaks]
 related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Hourly Billing Without Breaks: The Impact on Quality and Wellbeing
 
 Many clients are familiar with the Pomodoro Method: 25 minutes of work, then a 5-minute break. Here's a new way to handle these breaks.
 

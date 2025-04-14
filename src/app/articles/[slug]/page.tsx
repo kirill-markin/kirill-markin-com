@@ -95,8 +95,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       
       <article className={styles.articleContainer}>
         <header className={styles.articleHeader}>
-          <h1 className={styles.articleTitle}>{article.metadata.title}</h1>
-          
           <div className={styles.articleMeta}>
             {article.metadata.date && (
               <time dateTime={article.metadata.date}>
@@ -109,15 +107,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             )}
             
             <div className={styles.articleTags}>
-              {article.metadata.type && (
-                <span className={styles.tag}>{article.metadata.type}</span>
-              )}
-              
               {article.metadata.tags && article.metadata.tags.length > 0 && (
                 article.metadata.tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>
-                    {tag}
-                  </span>
+                  <Link key={tag} href={`/articles?tag=${tag}`}>
+                    <span className={styles.tag}>
+                      {tag}
+                    </span>
+                  </Link>
                 ))
               )}
             </div>

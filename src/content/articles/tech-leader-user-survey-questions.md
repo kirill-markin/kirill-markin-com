@@ -1,14 +1,14 @@
 ---
-title: AI Tech Leader User Survey Questions from Journalist
-date: 2025-01-22
-tags:
-- ai
-aliases:
-- tech-leader-ai-survey
+title: "Tech Leader User Survey Questions: Gathering Insights for Product Development"
+date: 2024-08-20
+tags: [ai]
+aliases: [user-survey-questions, product-research]
 related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Tech Leader User Survey Questions: Gathering Insights for Product Development
 
 > What's your take on Gen AI?
 

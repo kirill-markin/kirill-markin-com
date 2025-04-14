@@ -1,13 +1,14 @@
 ---
-title: 'Cursor IDE: Frontend vs Backend Development Experience'
-date: 2025-01-26
-tags: [cursor, ai]
-aliases:
-- cursor-ide-experience
-related: []
+title: "Cursor IDE: Frontend vs Backend Development Experience"
+date: 2025-01-20
+tags: [development, cursor, ai]
+aliases: [cursor-dev-experience, frontend-backend-cursor]
+related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Cursor IDE: Frontend vs Backend Development Experience
 
 After six months of successfully using Cursor IDE for backend applications and data pipelines, I tried it for frontend development today. The difference was striking. While backend development with Cursor IDE has been smooth and efficient, frontend work with an actively maintained library proved to be significantly more challenging.
 

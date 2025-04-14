@@ -21,7 +21,7 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
     'name': tag ? `${tag.charAt(0).toUpperCase() + tag.slice(1)} Articles - Kirill Markin` : 'Articles - Kirill Markin',
     'description': tag 
       ? `Articles tagged with "${tag}" from Kirill Markin - expert analysis and perspectives.`
-      : 'Articles and insights from Kirill Markin on tech, business, and productivity.',
+      : 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system, with content organized through natural connections between ideas.',
     'url': url,
     'author': {
       '@type': 'Person',

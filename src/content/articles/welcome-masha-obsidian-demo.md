@@ -1,14 +1,14 @@
 ---
-title: Surprise! 🎉 A Masha-Only Demo
-date: 2025-01-26
-tags:
-- post
-aliases:
-- masha-surprise
+title: "Welcome to Obsidian: A Comprehensive Demo Guide"
+date: 2024-07-15
+tags: [people]
+aliases: [obsidian-demo, note-taking-guide]
 related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Welcome to Obsidian: A Comprehensive Demo Guide
 
 # Hey Masha, look what I made for you! 😄
 

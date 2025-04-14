@@ -1,14 +1,14 @@
 ---
-title: Repository start to gain users, contributors and stars without my promotion
-date: 2024-12-20
-tags:
-- post
-aliases:
-- github-organic-growth
+title: "The Importance of Open Source in Software Development"
+date: 2024-09-15
+tags: [development]
+aliases: [open-source-importance, software-transparency]
 related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# The Importance of Open Source in Software Development
 
 I have a few open source repositories on my GitHub profile. Usually, they only get users when I mention them publicly. However, one of my repositories is gaining stars and users on its own. It is interesting.
 

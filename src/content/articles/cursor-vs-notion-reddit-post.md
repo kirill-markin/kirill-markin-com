@@ -1,15 +1,14 @@
 ---
-title: Best way to publish a large collection of Markdown files as a searchable, SEO-friendly
-  website?
-date: 2025-01-25
-tags: [cursor, ai]
-aliases:
-- cursor-vs-notion
-- markdown-website
-related: []
+title: "Cursor IDE VS Notion AI: Comparing AI Coding Tools"
+date: 2025-01-15
+tags: [productivity, ai, tools]
+aliases: [cursor-vs-notion, coding-tools-comparison]
+related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Cursor IDE VS Notion AI: Comparing AI Coding Tools
 
 Hey everyone! I'm trying to figure out the best way to put a large collection of markdown content online as a nice, SEO-friendly website, where some stuff would be public and searchable, while other parts would need login access. Anyone found good solutions for handling large collections of interlinked Markdown files with mixed access like this?
 

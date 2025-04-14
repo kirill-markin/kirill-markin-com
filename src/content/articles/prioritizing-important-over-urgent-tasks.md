@@ -1,15 +1,14 @@
 ---
-title: Why Prioritizing Important Tasks Over Urgent Ones Changed My Life
-date: 2025-01-29
-tags:
-- productivity
-aliases:
-- importance-over-urgency
-- task-prioritization-system
+title: "Prioritizing Important Over Urgent Tasks: Strategies for Focus"
+date: 2024-10-20
+tags: [productivity, work-management]
+aliases: [important-over-urgent, focus-strategies]
 related: []
-publish: false
-lastmod: 2025-04-02
+publish: true
+lastmod: 2025-04-14
 ---
+
+# Prioritizing Important Over Urgent Tasks: Strategies for Focus
 
 ![Example of task prioritization in Notion with P0-P3 priority levels](/articles/assets/prioritizing-important-over-urgent-tasks/notion-task-priorities-example.webp)
 

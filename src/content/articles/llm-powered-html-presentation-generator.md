@@ -1,12 +1,14 @@
 ---
-title: "LLM-Powered HTML Presentation Generator"
-date: 2025-03-27
-tags: [product, system, ai]
-aliases: [slides-generator, pdf-presentation-tool, ai-slides]
-related: [Projects/Ideas/web-tools]
+title: "LLM-Powered HTML Presentation Generator: How to Build a Simple Web App"
+date: 2024-11-10
+tags: [development, ai, tutorial]
+aliases: [html-presentation-generator, llm-app-tutorial]
+related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# LLM-Powered HTML Presentation Generator: How to Build a Simple Web App
 
 ## Concept
 

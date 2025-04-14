@@ -1,12 +1,15 @@
 ---
-title: "Cursor IDE: Setup and Practical Workflow for Large-Scale Projects"
+title: "Cursor IDE Setup and Workflow for Large-Scale Projects"
 date: 2025-02-08
-tags: [productivity, system, cursor]
-aliases: [cursor-workflow-guide, cursor-large-projects, cursor-setup-guide]
-related: [cursor-vs-notion-reddit-post, cursor-ide-rules-for-ai]
+tags: [productivity, tools, ai]
+aliases: [cursor-ide, cursor-setup]
+related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
+thumbnailUrl: ""
 ---
+
+# Cursor IDE Setup and Workflow for Large-Scale Projects
 
 Let me share how I organize my development process in Cursor IDE. With over a decade of coding experience, I've recently made Cursor my primary development environment, using it for about 6 hours each workday and additional time on weekends. Here's the approach I've developed.
 

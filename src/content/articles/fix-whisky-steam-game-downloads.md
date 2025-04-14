@@ -1,12 +1,14 @@
 ---
-title: "How to Fix Steam Game Downloads in Whisky on macOS"
-date: 2025-02-11
+title: "How to Fix Steam Game Downloads on the Steam Deck with Whisky on MacOS"
+date: 2025-01-05
 tags: [tutorial]
-aliases: [whisky-steam-fix]
-related: [productivity]
+aliases: [whisky-steam-fix, macos-gaming-fix]
+related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# How to Fix Steam Game Downloads on the Steam Deck with Whisky on MacOS
 
 ## Issue
 

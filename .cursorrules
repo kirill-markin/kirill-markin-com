@@ -249,3 +249,24 @@ When contributing to this project:
 - <100ms First Input Delay (FID)
 - <0.1 Cumulative Layout Shift (CLS)
 - >90 Lighthouse Performance Score 
+
+## Content Management Utilities
+
+### Tag Analysis Script
+
+To extract all tags from article markdown files and count their occurrences, use this command:
+
+```bash
+find src/content/articles -name "*.md" -exec grep -i "tags:" {} \; | cut -d ':' -f 2- | tr ',' '\n' | tr -d '[]"' | tr -d "'" | sed 's/^ *//g' | sort | uniq -c | sort -nr | cat
+```
+
+This script:
+1. Finds all markdown files in the articles directory
+2. Extracts lines containing "tags:"
+3. Separates each tag
+4. Cleans up formatting (removes brackets, quotes, leading spaces)
+5. Sorts tags alphabetically
+6. Counts occurrences
+7. Sorts by frequency (most frequent first)
+
+Use this to maintain consistent tag taxonomy and identify popular content categories. 

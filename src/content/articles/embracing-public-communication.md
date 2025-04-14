@@ -1,13 +1,14 @@
 ---
-title: Could Sharing Everything Publicly Help Your Product's Reach?
-date: 2025-01-26
-tags:
-- marketing
-aliases: []
+title: "Embracing Public Communication: Benefits for Remote Teams"
+date: 2025-02-01
+tags: [people]
+aliases: [public-communication, transparent-teams]
 related: []
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Embracing Public Communication: Benefits for Remote Teams
 
 Here's a thought I've been playing with: what if we shared more of our work publicly? Instead of keeping discussions in private chats, we could talk more on platforms like Reddit and YouTube. These places make it easier for people to find our content through search engines and AI. Sure, not every post will be perfect, but I'm starting to think regular sharing might be more useful than waiting to create the "perfect" content.
 

@@ -1,12 +1,14 @@
 ---
 title: "Content Distribution Strategy for Personal Brand and Business"
 date: 2025-02-11
-tags: [productivity, system]
+tags: [productivity]
 aliases: [content-distribution, social-media-strategy]
 related: [posts/2025-02-08-cursor-ide-setup-and-workflow]
 publish: true
-lastmod: 2025-04-02
+lastmod: 2025-04-14
 ---
+
+# Content Distribution Strategy for Personal Brand and Business
 
 This is my personal standard for distributing content across various platforms. I use this system to maintain consistency in sharing personal insights. While this is my personal workflow, I'm sharing it publicly as it might be useful for others building their content distribution strategy.
 

@@ -71,7 +71,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       slug,
       title: data.title || '',
       date: data.date ? new Date(data.date).toISOString() : '',
-      tags: data.tags || [],
+      tags: (data.tags || []).map((tag: string) => tag.toLowerCase()),
       publish: data.publish || false,
       lastmod: data.lastmod ? new Date(data.lastmod).toISOString() : undefined,
       related: data.related || [],
