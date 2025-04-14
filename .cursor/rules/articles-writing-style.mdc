@@ -1,0 +1,174 @@
+---
+description: 
+globs: src/content/articles/*
+alwaysApply: false
+---
+# Business-Casual-Plus Writing Style Guide
+
+This guide describes my preferred writing style that blends professional business-casual tone with just enough personality to feel authentic and engaging. It's designed to avoid AI-sounding language while maintaining professionalism.
+
+## Core Principles
+
+1. **Professional but human** - Balance clarity and professionalism with natural human expression
+2. **Slightly informal** - Cross the formal business line occasionally for relatability
+3. **Avoid AI patterns** - Eliminate common AI linguistic patterns and overly-structured content
+4. **Personal touches** - Include genuine experiences and light humor without oversharing
+5. **Conversations, not presentations** - Write as if speaking to a respected colleague over coffee
+6. **Globally accessible** - Use clear, straightforward English that non-native speakers can easily understand
+
+## Style Elements
+
+### Voice and Tone
+
+✅ **Do This**:
+- Use first-person perspective frequently ("I've found" rather than "It has been found")
+- Vary sentence length naturally - mix short punchy statements with occasional longer thoughts
+- Include mild colloquialisms that reflect actual speech patterns
+- Express genuine enthusiasm or frustration when relevant
+- Add occasional parenthetical asides (like this one!) to inject personality
+
+❌ **Avoid This**:
+- Hedging language ("perhaps," "it could be argued that")
+- Unnecessary qualifiers ("very," "quite," "extremely")
+- Academic detachment or third-person perspective
+- Overly formal transitions ("Furthermore," "In conclusion")
+- Robotic parallelism in consecutive sentences
+
+### Vocabulary Choices
+
+✅ **Do This**:
+- Use industry jargon when appropriate, but explain it casually
+- Choose colorful verbs over adverb+verb combinations ("rocketed" vs "increased dramatically")
+- Include occasional metaphors that feel natural in conversation
+- Use contractions liberally (I'm, you'll, doesn't, can't)
+- Occasionally reference pop culture or everyday experiences when relevant
+- Prefer simple, widely understood words over obscure or academic alternatives
+
+❌ **Avoid This**:
+- AI-typical phrases ("It is worth noting," "As an expert in")
+- Perfect synonyms in consecutive paragraphs (clear sign of thesaurus usage)
+- Overly complex vocabulary when simpler words would work
+- Generic, non-committal statements ("many people believe")
+- Perfectly balanced opposing viewpoints (too even-handed)
+- SAT vocabulary that forces international readers to use a dictionary
+
+### Structure and Formatting
+
+✅ **Do This**:
+- Start with a hook that feels conversational
+- Use section headings that could work as casual speech
+- Include occasional one-sentence paragraphs for emphasis
+- Embed rhetorical questions that acknowledge the reader
+- Add personal anecdotes that illustrate a point (briefly)
+
+❌ **Avoid This**:
+- Perfectly symmetrical structure throughout (introduction, 3 points, conclusion)
+- Overly parallel section headings (AI loves patterns like "The Power of X, The Impact of Y")
+- Predictable paragraph organization (claim, evidence, reiteration)
+- Unnecessary summaries of what's coming next
+- Formulaic "In this article, we will explore" introductions
+
+### Specific AI Patterns to Avoid
+
+- **Excessive transitions**: "Moreover," "In addition," "Furthermore," "Additionally"
+- **Hedge phrases**: "It is important to note," "It is worth mentioning"
+- **Redundant emphasis**: "Extremely important," "highly significant"
+- **Generic qualifiers**: "Various studies show," "many experts agree"
+- **Overused intensifiers**: "Truly," "deeply," "significantly"
+- **Passive voice prevalence**: "It has been found that" (vs "I found that")
+- **Excessive balance**: Always presenting both sides perfectly equally
+- **Overly comprehensive lists**: AI tries to be exhaustive rather than selective
+- **Perfect paragraph symmetry**: Each paragraph having identical structure
+- **Empty phrasing**: "In today's fast-paced world"
+
+## Accessibility for International Readers
+
+Many of your readers will not be native English speakers. This doesn't mean "dumbing down" your content – it means being thoughtful about language accessibility:
+
+### Do This:
+- **Use straightforward sentence structures** - Subject-verb-object patterns are easier to follow
+- **Explain idioms when you use them** - If you say something is "a piece of cake," briefly clarify it means "easy"
+- **Choose internationally recognized examples** - Reference global brands or widely known concepts
+- **Define industry terms** - Don't assume everyone knows your field's terminology
+- **Use active voice** - "We improved the system" instead of "The system was improved"
+- **Break up long paragraphs** - Shorter text blocks are easier to process in a second language
+- **Include visual aids when possible** - Diagrams and images can cross language barriers
+
+### Avoid This:
+- **Regional slang** - Terms specific to one English-speaking country
+- **Complex clauses with multiple commas** - These create translation challenges
+- **Puns and wordplay** - These rarely translate well across languages
+- **Obscure cultural references** - References that only locals would understand
+- **Unnecessarily fancy synonyms** - Using "utilize" instead of "use" adds no value but increases difficulty
+- **Compound-complex sentences** - Multiple ideas in one long sentence becomes a cognitive burden
+
+### Examples:
+
+**Too Complex**: "The utilization of sophisticated nomenclature invariably precipitates comprehension impediments among diverse international audiences endeavoring to assimilate content in a non-native linguistic context."
+
+**Just Right**: "Using fancy words makes your content harder to read for people who learned English as a second language."
+
+**Too Complex**: "The content dissemination methodology necessitates adequate contemplation vis-à-vis the heterogeneous comprehension capacities of your prospective global readership contingent."
+
+**Just Right**: "When sharing content globally, remember that many readers will be translating your words in their heads. Keep it clear and direct."
+
+Remember: Writing accessibly doesn't mean sacrificing intelligence or insight. It means respecting your readers enough to make your ideas available to them without unnecessary language barriers.
+
+## Practical Examples
+
+### AI-Sounding (Avoid)
+
+"In today's rapidly evolving digital landscape, content distribution has become increasingly important for personal branding. Many experts agree that a strategic approach is necessary. It is worth noting that different platforms serve various purposes. Moreover, the algorithm-based platforms provide significant opportunities for exposure. Additionally, consistency is key for maintaining audience engagement."
+
+### Business-Casual-Plus (Use This)
+
+"I wasted a year posting content nobody saw before realizing most platforms aren't actually designed to help you reach new people. After some painful trial and error, I've sorted my content channels into three buckets: ones that actually bring in new eyeballs, ones that make me look credible when someone Googles me, and ones that just keep me connected with people who already know me. The first group is gold - everything else is just maintenance."
+
+### AI-Sounding (Avoid)
+
+"Multiple methodologies exist for content creation. Some professionals prefer video formats due to their visual engagement capabilities. Others utilize written content for its depth and searchability benefits. Additionally, short-form content has emerged as a significant medium. It is important to consider the unique advantages of each format."
+
+### Business-Casual-Plus (Use This)
+
+"I used to overthink my content format until a mentor gave me simple advice: 'Make what you won't abandon after two weeks.' For me, that's short articles. I've tried YouTube, but editing makes me want to throw my laptop out the window. My colleague Sara is the opposite - she can talk to a camera all day but freezes up with a blank document. Your best format is simply the one you'll stick with long enough to get good at it."
+
+## Word Choice Red Flags (AI Tells)
+
+Words and phrases that scream "AI-generated":
+
+- "Plethora"
+- "Myriad of"
+- "Facilitate"
+- "Optimal/optimize"
+- "Robust"
+- "Leverage" (as a verb)
+- "Utilize" (instead of "use")
+- "In terms of"
+- "It goes without saying"
+- "Needless to say"
+- "Crafting" (unless talking about actual crafts)
+- "Curated" (unless talking about art)
+- "In the realm of"
+- "Synergy"
+- "State-of-the-art"
+- "Engage with" (instead of simpler verbs)
+- "Impactful"
+- "Best practices"
+
+## Examples From My Content
+
+Here's how I apply this style in actual content:
+
+**Original (Too Formal)**: "The distribution of content across various platforms requires strategic consideration of audience demographics and platform-specific algorithms."
+
+**Revised (Business-Casual-Plus)**: "I've stopped posting everywhere just because I can. These days, I ask a simple question first: Will this platform actually show my stuff to people who don't already follow me?"
+
+**Original (Too Academic)**: "Social media platforms predominantly display content to users who have established connections with the content creator, limiting organic discovery by unconnected users."
+
+**Revised (Business-Casual-Plus)**: "What nobody told me was that most social platforms are built to connect you with people you already know, not to help you find new audiences. My follower count basically matched my real-life network size."
+
+## Final Thoughts
+
+This style works because it respects the reader's intelligence while acknowledging our shared humanity. It preserves professionalism but removes the artificial barrier that formal business writing often creates.
+
+The key is balance - maintain credibility through clear, thoughtful content while allowing just enough personality to remind readers there's a real person behind the words. When in doubt, read your writing aloud. If it would sound strange in a conversation with a respected peer, it probably needs adjustment. 
