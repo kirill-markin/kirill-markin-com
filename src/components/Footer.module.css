@@ -132,7 +132,6 @@
   background-color: var(--green);
   color: #232323;
   text-decoration: none;
-  border-radius: 5rem;
   font-weight: 400;
   border: 1px solid var(--green);
   transition: all 0.2s;
