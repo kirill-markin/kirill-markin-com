@@ -1,5 +1,5 @@
 ---
-description: Instructions for adding and managing thumbnails for media mentions and articles in the website
+description: Instructions for adding and managing thumbnails for media mentions and articles in the website. Needed only if work with images.
 globs: 
 alwaysApply: false
 ---
