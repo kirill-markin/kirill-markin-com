@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ServiceData } from '@/types/services';
 import ServiceCard from './ServiceCard';
@@ -15,22 +13,22 @@ interface ServicesProps {
 const Services: React.FC<ServicesProps> = ({ services }) => {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  
+
   // Extract unique categories from services
   const categories = Array.from(
     new Set(services.map(service => service.categoryId))
   ).filter(category => category !== 'for_all');
-  
+
   // Filter services based on active category
-  const filteredServices = activeCategory === 'all' 
-    ? services 
+  const filteredServices = activeCategory === 'all'
+    ? services
     : services.filter(service => service.categoryId === activeCategory);
-  
+
   // Handle category change
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
   };
-  
+
   // Check URL parameters on component mount
   useEffect(() => {
     const categoryParam = searchParams.get('category');
@@ -38,7 +36,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
       setActiveCategory(categoryParam);
     }
   }, [searchParams]);
-  
+
   return (
     <section className={styles.services}>
       <div className={styles.servicesHeader}>
@@ -48,19 +46,19 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
           </h1>
         </div>
       </div>
-      
+
       <nav className={styles.servicesMenu} aria-label="Service categories">
         <span>Categories</span>
         <div className={styles.servicesMenuCategories}>
-          <button 
+          <button
             className={`${styles.servicesMenuCategory} ${activeCategory === 'all' ? styles.active : ''}`}
             onClick={() => handleCategoryChange('all')}
           >
             All
           </button>
-          
+
           {categories.map(category => (
-            <button 
+            <button
               key={category}
               className={`${styles.servicesMenuCategory} ${activeCategory === category ? styles.active : ''}`}
               onClick={() => handleCategoryChange(category)}
@@ -70,7 +68,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
           ))}
         </div>
       </nav>
-      
+
       <ul className={styles.servicesList}>
         {filteredServices.map(service => (
           <li key={service.serviceId}>
