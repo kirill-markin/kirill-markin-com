@@ -2,17 +2,19 @@ import { MetadataRoute } from 'next';
 
 /**
  * Generates robots.txt rules using Next.js Metadata API
+ * This function runs at build time based on the VERCEL_ENV
+ * to determine whether to allow or disallow indexing
  * @returns {MetadataRoute.Robots} Robots configuration
  */
 export default function robots(): MetadataRoute.Robots {
-  const host = 'https://kirill-markin.com';
+  // Default host for production - can be overridden by environment variables
+  const host = process.env.SITE_URL?.replace(/\/$/, '') || 'https://kirill-markin.com';
   
-  // Check for production environment - Vercel sets these variables
-  const isProd = process.env.VERCEL_ENV === 'production' || 
-                 process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ||
-                 (process.env.NODE_ENV === 'production' && process.env.VERCEL_URL?.includes('kirill-markin.com'));
+  // Check for production environment using Vercel's system environment variable
+  // VERCEL_ENV will be 'production' only in the production environment
+  const isProd = process.env.VERCEL_ENV === 'production';
   
-  // For production domain - allow indexing
+  // For production environment - allow indexing
   if (isProd) {
     return {
       rules: {
@@ -24,7 +26,7 @@ export default function robots(): MetadataRoute.Robots {
     };
   }
   
-  // For all other domains (staging, etc.) - block indexing
+  // For all other environments (preview, development) - block indexing
   return {
     rules: {
       userAgent: '*',
