@@ -120,19 +120,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               )}
             </div>
           </div>
-          
-          {article.metadata.thumbnailUrl && (
-            <div className={styles.articleFeaturedImage}>
-              <Image 
-                src={article.metadata.thumbnailUrl || PLACEHOLDER_IMAGE} 
-                alt={article.metadata.title}
-                width={1200}
-                height={675}
-                className={styles.featuredImage}
-                priority
-              />
-            </div>
-          )}
         </header>
         
         <ArticleContent 
