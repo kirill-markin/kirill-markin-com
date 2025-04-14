@@ -106,6 +106,7 @@
   .nameUnderline {
     left: -30px;
     width: calc(100% + 60px);
+    margin: 1rem 0;
   }
 }
 
