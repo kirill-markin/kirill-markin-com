@@ -47,10 +47,6 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
             Service<span className={styles.glitchLetter}>s</span>
           </h1>
         </div>
-        <Link href="/" className={styles.servicesBackButton}>
-          <Image src="/icons/arrow.svg" alt="Arrow icon" className={styles.arrowIcon} width={14} height={14} />
-          <span>Back to main</span>
-        </Link>
       </div>
       
       <nav className={styles.servicesMenu} aria-label="Service categories">
