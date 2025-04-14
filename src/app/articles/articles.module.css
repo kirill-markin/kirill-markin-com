@@ -742,7 +742,6 @@
 
 /* Article Content Styles */
 .articleContent {
-  padding: 0 2rem 3rem;
   width: 100%;
   line-height: 1.6;
   font-size: 1.125rem;
@@ -853,7 +852,7 @@
   }
 
   .articleContent {
-    padding: 0 1.5rem 2rem;
+    padding: 0 1rem 2rem;
   }
 
   .articleTitle {
