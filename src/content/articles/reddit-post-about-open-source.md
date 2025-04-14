@@ -4,7 +4,7 @@ date: 2024-09-15
 tags: [development]
 aliases: [open-source-importance, software-transparency]
 related: []
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 

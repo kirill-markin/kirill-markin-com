@@ -4,7 +4,7 @@ date: 2025-02-10
 tags: [productivity, cursor, ai]
 aliases: [cursor-ai-rules, cursor-guidelines]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 

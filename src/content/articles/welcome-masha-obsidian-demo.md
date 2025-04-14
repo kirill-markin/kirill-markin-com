@@ -4,7 +4,7 @@ date: 2024-07-15
 tags: [people]
 aliases: [obsidian-demo, note-taking-guide]
 related: []
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 

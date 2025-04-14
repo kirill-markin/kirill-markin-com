@@ -4,7 +4,7 @@ date: 2025-02-01
 tags: [people]
 aliases: [public-communication, transparent-teams]
 related: []
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 

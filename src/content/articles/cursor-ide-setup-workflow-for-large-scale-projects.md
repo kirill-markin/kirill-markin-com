@@ -4,7 +4,7 @@ date: 2025-02-08
 tags: [productivity, tools, ai]
 aliases: [cursor-ide, cursor-setup]
 related: []
-publish: true
+publish: false
 lastmod: 2025-04-14
 thumbnailUrl: ""
 ---

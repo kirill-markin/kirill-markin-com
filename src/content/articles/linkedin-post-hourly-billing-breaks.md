@@ -4,7 +4,7 @@ date: 2024-12-15
 tags: [work-management, productivity]
 aliases: [hourly-billing, freelancer-breaks]
 related: []
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 

@@ -4,7 +4,7 @@ date: 2025-01-20
 tags: [development, cursor, ai]
 aliases: [cursor-dev-experience, frontend-backend-cursor]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 

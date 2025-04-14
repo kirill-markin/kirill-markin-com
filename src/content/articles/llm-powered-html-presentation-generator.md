@@ -4,7 +4,7 @@ date: 2024-11-10
 tags: [development, ai, tutorial]
 aliases: [html-presentation-generator, llm-app-tutorial]
 related: []
-publish: true
+publish: false
 lastmod: 2025-04-14
 ---
 
