@@ -27,14 +27,18 @@
 .articleDate {
   font-size: 0.875rem;
   color: #666;
-  margin-bottom: 1rem;
+  margin-left: auto;
+  padding-left: 1rem;
 }
 
 .articleTags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.5rem;
+
+  @media (max-width: 768px) {
+    padding-left: 0.5rem;
+  }
 }
 
 .articleTags a {
@@ -455,10 +459,13 @@
 }
 
 .articleContent h1 {
-  font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--dark-gray);
+  letter-spacing: -0.5px;
 }
 
 .articleContent h2 {
@@ -644,15 +651,10 @@
 /* Article page container */
 .articlePageContainer {
   max-width: 100%;
-  padding: 2rem 1rem;
+  padding: 0 1rem;
   margin: 0 auto;
   background-color: white;
   min-height: calc(100vh - 60px);
-}
-
-.articleNavigation {
-  max-width: 820px;
-  margin: 0 auto 2rem;
 }
 
 .backLink {
@@ -677,10 +679,6 @@
   overflow: hidden;
 }
 
-.articleHeader {
-  padding: 2rem 2rem 0;
-}
-
 .articleTitle {
   font-size: 2.5rem;
   font-weight: 700;
@@ -694,16 +692,16 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #666;
   font-size: 0.9rem;
 }
 
-.articleTags {
+.metaRow {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .tag {
@@ -751,10 +749,13 @@
 }
 
 .articleContent h1 {
-  font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--dark-gray);
+  letter-spacing: -0.5px;
 }
 
 .articleContent h2 {
@@ -843,20 +844,12 @@
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .articlePageContainer {
-    padding: 1rem 0;
-  }
-
-  .articleNavigation {
-    padding: 0 1rem;
+    padding: 0 0;
   }
 
   .articleContainer {
     border-radius: 0;
     box-shadow: none;
-  }
-
-  .articleHeader {
-    padding: 1.5rem 1.5rem 0;
   }
 
   .articleContent {
@@ -870,6 +863,25 @@
   .articleFeaturedImage {
     margin: 0 -1.5rem 1.5rem;
     width: calc(100% + 3rem);
+  }
+
+  .articleContent h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .articleDate {
+    margin-left: 0;
   }
 }
 

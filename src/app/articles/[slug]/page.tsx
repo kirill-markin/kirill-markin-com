@@ -88,35 +88,33 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   
   return (
     <div className={styles.articlePageContainer}>
-      <div className={styles.articleNavigation}>
-      </div>
       
       <ArticleJsonLd article={article} url={canonicalUrl} />
       
       <article className={styles.articleContainer}>
         <header className={styles.articleHeader}>
-          <h1 className={styles.articleTitle}>{article.metadata.title}</h1>
-          
           <div className={styles.articleMeta}>
-            {article.metadata.date && (
-              <time dateTime={article.metadata.date}>
-                {new Date(article.metadata.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-            )}
-            
-            <div className={styles.articleTags}>
-              {article.metadata.tags && article.metadata.tags.length > 0 && (
-                article.metadata.tags.map((tag) => (
-                  <Link key={tag} href={`/articles?tag=${tag}`}>
-                    <span className={styles.tag}>
-                      {tag}
-                    </span>
-                  </Link>
-                ))
+            <div className={styles.metaRow}>
+              <div className={styles.articleTags}>
+                {article.metadata.tags && article.metadata.tags.length > 0 && (
+                  article.metadata.tags.map((tag) => (
+                    <Link key={tag} href={`/articles?tag=${tag}`}>
+                      <span className={styles.tag}>
+                        {tag}
+                      </span>
+                    </Link>
+                  ))
+                )}
+              </div>
+              
+              {article.metadata.date && (
+                <time className={styles.articleDate} dateTime={article.metadata.date}>
+                  {new Date(article.metadata.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
               )}
             </div>
           </div>
