@@ -12,7 +12,11 @@ function cleanDescription(description: string | undefined): string {
   if (!description) return '';
   
   // Remove markdown heading symbols (##)
-  return description.replace(/^#+\s*/g, '');
+  const withoutHeadingMarkers = description.replace(/^#+\s*/g, '');
+  
+  // Check if this is the beginning of the content which typically starts with an H1
+  // And remove the entire H1 line if present
+  return withoutHeadingMarkers.replace(/^(.*?)\n/, '');
 }
 
 export type ArticleMetadata = {
@@ -63,9 +67,13 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       return null;
     }
     
+    // Get first 160 characters of content for description if none exists in frontmatter
+    const contentPreview = content.replace(/^# .*$/m, '').substring(0, 200).replace(/\n/g, ' ').trim();
+    
     // Clean description if it exists by removing markdown symbols
-    const cleanedDescription = cleanDescription(data.description) || 
-      cleanDescription(content.substring(0, 160).replace(/\n/g, ' '));
+    const cleanedDescription = data.description 
+      ? cleanDescription(data.description) 
+      : cleanDescription(contentPreview);
     
     const metadata: ArticleMetadata = {
       slug,

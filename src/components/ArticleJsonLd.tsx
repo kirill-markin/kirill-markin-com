@@ -48,7 +48,7 @@ export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
     '@context': 'https://schema.org',
     '@type': article.metadata.type === 'Video' ? 'VideoObject' : 'Article',
     'headline': article.metadata.title,
-    'description': article.metadata.description || article.content.substring(0, 160).replace(/\n/g, ' ') + '...',
+    'description': article.metadata.description || '',
     'image': article.metadata.thumbnailUrl,
     'datePublished': article.metadata.date,
     'dateModified': article.metadata.lastmod || article.metadata.date,

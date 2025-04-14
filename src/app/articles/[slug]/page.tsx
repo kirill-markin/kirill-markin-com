@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   
   return {
     title: `${article.metadata.title} - Kirill Markin`,
-    description: article.metadata.description || article.content.slice(0, 160) + '...',
+    description: article.metadata.description || '',
     keywords: article.metadata.tags,
     authors: [{ name: article.metadata.publisher || 'Kirill Markin' }],
     openGraph: {
       title: article.metadata.title,
-      description: article.metadata.description || article.content.slice(0, 160) + '...',
+      description: article.metadata.description || '',
       type: 'article',
       url: canonicalUrl,
       images: [
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     twitter: {
       card: 'summary_large_image',
       title: article.metadata.title,
-      description: article.metadata.description || article.content.slice(0, 160) + '...',
+      description: article.metadata.description || '',
       images: [article.metadata.thumbnailUrl || '/articles/placeholder.webp'],
     },
     alternates: {
