@@ -6,7 +6,7 @@
   "author": "Kirill Markin",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "eslint . && next dev  --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

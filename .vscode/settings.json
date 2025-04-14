@@ -21,5 +21,17 @@
   ],
   "eslint.options": {
     "ignorePath": ".eslintignore"
-  }
-} 
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.run": "onType",
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true
+}
