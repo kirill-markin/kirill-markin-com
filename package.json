@@ -11,8 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "vercel-build": "next build",
-    "vercel-install": "chmod +x ./vercel-submodule-setup.sh && ./vercel-submodule-setup.sh && npm install"
+    "vercel-build": "next build"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",

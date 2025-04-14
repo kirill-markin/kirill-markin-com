@@ -12,11 +12,14 @@ src/
 │   ├── articles/    # Articles listing page
 │   │   └── [slug]/  # Individual article pages
 │   ├── meet/        # Meeting booking section
+│   ├── pay/         # Payment section
 │   ├── layout.tsx   # Root layout
 │   └── not-found.tsx # 404 page
 ├── components/      # UI components
-├── data/            # Content data (services, etc.)
-├── styles/          # Global styles
+├── content/         # Content files (articles, etc.)
+│   └── articles/    # Markdown articles
+├── data/            # Structured data (services, media mentions, etc.)
+├── lib/             # Utility functions and helpers
 └── types/           # TypeScript type definitions
 ```
 
@@ -82,6 +85,8 @@ website-next-js/
 ├── next.config.ts   # Next.js configuration
 ├── package.json     # Dependencies and scripts
 ├── tsconfig.json    # TypeScript configuration
+├── README.md        # Project documentation
+├── DEPLOYMENT.md    # Deployment instructions
 └── .cursorrules     # This file - project guidelines
 ```
 
@@ -95,12 +100,36 @@ src/
 │   ├── articles/    # Articles listing page
 │   │   └── [slug]/  # Individual article pages
 │   ├── meet/        # Meeting booking section
+│   ├── pay/         # Payment section
 │   ├── layout.tsx   # Root layout
+│   ├── sitemap.ts   # Sitemap generation
+│   ├── robots.ts    # Robots.txt configuration
+│   ├── globals.css  # Global CSS styles
 │   └── not-found.tsx # 404 page
 ├── components/      # UI components
-├── data/            # Content data (services, etc.)
-├── styles/          # Global styles
+│   ├── ArticleContent.tsx     # Article rendering component
+│   ├── ArticleJsonLd.tsx      # JSON-LD for articles
+│   ├── ArticlesListJsonLd.tsx # JSON-LD for article lists
+│   ├── Footer.tsx             # Site footer
+│   ├── Header.tsx             # Site header
+│   ├── JsonLdSchema.tsx       # Generic JSON-LD component
+│   ├── PersonalInfo/          # Personal information components
+│   ├── ServerServices/        # Server components for services
+│   ├── Services/              # Client components for services (legacy)
+│   └── SocialContactButtons/  # Social media contact buttons
+├── content/         # Content files
+│   └── articles/    # Markdown article content
+├── data/            # Structured data
+│   ├── mediaMentions.ts       # Media mention data
+│   ├── personalInfo.ts        # Personal information
+│   ├── professionalRoles.ts   # Professional roles data
+│   ├── services.ts            # Services data
+│   └── socialLinks.ts         # Social media links
+├── lib/             # Utility functions
+│   ├── articles.ts            # Article processing utilities
+│   └── markdown.ts            # Markdown processing utilities
 └── types/           # TypeScript type definitions
+    └── services.ts            # Service type definitions
 ```
 
 ### Component Structure
@@ -112,8 +141,8 @@ components/
 │   └── index.ts            # Export file
 ├── Services/        # Client components for services (legacy)
 ├── PersonalInfo/    # Personal information component
-├── CategoryScrollManager.tsx  # Client component for scroll position
-└── [Other UI components]      # Various UI elements
+├── SocialContactButtons/ # Social media contact components
+└── Various UI components  # Headers, footers, article components, etc.
 ```
 
 ## Key Technologies and Patterns
@@ -141,6 +170,21 @@ The project uses CSS Modules:
 - No CSS-in-JS libraries to reduce bundle size
 - Global variables for consistent theming
 
+## Content Structure
+
+### Articles
+- Articles are stored as markdown files in the `src/content/articles/` directory
+- Article metadata and processing utilities are in `src/lib/articles.ts`
+- The article renderer component is `src/components/ArticleContent.tsx`
+
+### Services
+- Service data is defined in `src/data/services.ts`
+- Service types are defined in `src/types/services.ts`
+- Services are rendered using server components in `src/components/ServerServices/`
+
+### Media Mentions
+- Media mention data is defined in `src/data/mediaMentions.ts`
+
 ## Recent Implementation Details
 
 ### Services Page Optimization
@@ -166,6 +210,7 @@ The articles section follows the same architecture principles:
 - Proper canonical URLs for all pages
 - Category-specific descriptions
 - Semantic HTML structure
+- JSON-LD structured data for articles and other entities
 
 ## Deployment Strategy
 
@@ -174,6 +219,7 @@ The site is deployed on Vercel with these optimizations:
 - Global CDN distribution
 - Edge functions for any dynamic features
 - Analytics and performance monitoring
+- See DEPLOYMENT.md for detailed deployment instructions
 
 ## Development Practices
 

@@ -1,0 +1,167 @@
+---
+description: Guidelines for optimizing all types of images with proper dimensions and quality for the website
+globs: 
+alwaysApply: false
+---
+# Image Optimization Guide
+
+This guide explains how to optimize images for the website, including general purpose images and specific formats like thumbnails.
+
+## General Image Requirements
+
+- **Location**: 
+  - General images → `public/images/`
+  - Website logos → `public/logos/`
+  - Article assets → `public/articles/assets/[article-slug]/`
+  - Thumbnails → `public/articles/`
+  - Service images → `public/services/`
+  - Avatars → `public/avatars/`
+  - Social icons → `public/social/`
+- **Format**: 
+  - WebP preferred for photos and complex images (best compression/quality ratio)
+  - SVG for logos, icons, and simple graphics (scale without quality loss)
+  - PNG for images requiring transparency
+- **Quality**: 
+  - Photos: 85-90% quality for optimal file size/quality balance
+  - Important visuals: 90-100% quality
+  - UI elements: 80-85% quality
+- **File Size Target**:
+  - Regular images: Keep under 200KB when possible
+  - Hero images: Keep under 500KB
+  - Thumbnails: Keep under 100KB
+
+## General Image Optimization
+
+### 1. Analyze your source image
+
+```bash
+# Check dimensions
+identify -format "%wx%h" source-image.jpg
+
+# Check file size
+ls -la source-image.jpg
+```
+
+### 2. Process general images
+
+```bash
+# Resize to width of 1200px (maintaining aspect ratio)
+magick source-image.jpg -resize 1200x -quality 90 public/images/output-image.webp
+
+# Resize to specific dimensions (non-thumbnail)
+magick source-image.jpg -resize 800x600 -quality 90 public/images/output-image.webp
+
+# Optimize SVG files
+svgo -i source-icon.svg -o public/images/optimized-icon.svg
+```
+
+### 3. Verify the processed image
+
+```bash
+# Check dimensions
+identify -format "%wx%h" public/images/output-image.webp
+
+# Check quality
+identify -verbose public/images/output-image.webp | grep Quality
+
+# Check file size
+ls -la public/images/output-image.webp
+```
+
+## Thumbnail-Specific Optimization
+
+For media mentions and article thumbnails, stricter requirements apply:
+
+- **Dimensions**: Exactly 520×297 pixels (16:9 aspect ratio)
+- **Naming Convention**: `publisher-YYYY-MM-DD.webp` 
+- **Quality**: Use 100% quality for best appearance
+
+### 1. For YouTube videos, fetch the thumbnail
+
+```bash
+# Get thumbnail URL
+curl -s "https://www.youtube.com/watch?v=VIDEO_ID" | grep -o 'og:image" content="[^"]*' | cut -d\" -f3
+
+# Download thumbnail
+curl -s -o /tmp/youtube-thumbnail.jpg "THUMBNAIL_URL"
+```
+
+### 2. Process thumbnail images
+
+```bash
+# Standard resize with proper 16:9 aspect ratio
+magick /tmp/youtube-thumbnail.jpg -resize 520x297^ -gravity center -extent 520x297 -quality 100 public/articles/youtube-YYYY-MM-DD.webp
+```
+
+This command:
+- Resizes the image to fill the 520×297 frame (`^` operator)
+- Centers the content (`-gravity center`)
+- Crops to exact 520×297 dimensions (`-extent`)
+- Sets maximum quality (`-quality 100`)
+- Saves in WebP format
+
+## Troubleshooting
+
+### Background Issues
+
+If the image has unwanted background elements:
+
+```bash
+# Make background transparent (useful for some cases)
+magick source-image.jpg -background none -fuzz 10% -fill none -draw "color 0,0 floodfill" -resize WIDTHxHEIGHT -quality QUALITY output.webp
+
+# Alternative: Force a specific background color
+magick source-image.jpg -background "#000000" -resize WIDTHxHEIGHT -quality QUALITY output.webp
+```
+
+### Image Aspect Ratio Issues
+
+If your source image has a very different aspect ratio than needed:
+
+```bash
+# Extend to proper aspect ratio with padding
+magick source-image.png -gravity center -background "#000000" -extent TARGET_WIDTH_LARGE_RATIOxTARGET_HEIGHT_LARGE_RATIO -resize TARGET_WIDTHxTARGET_HEIGHT -quality QUALITY output.webp
+
+# For thumbnails (16:9 ratio)
+magick source-image.png -gravity center -background "#000000" -extent 1280x720 -resize 520x297 -quality 100 public/articles/output.webp
+```
+
+### Visual Verification
+
+Always check the final result on the website to ensure:
+1. The image displays correctly without stretching/squeezing
+2. Content is centered properly
+3. No unwanted elements appear at the edges
+4. Text remains readable if present in the image
+
+## Example Workflows
+
+### General Image Workflow
+
+```bash
+# Check source image
+identify -format "%wx%h" /Users/kirill/Downloads/source-image.png
+# 1800x1200
+
+# Process image to dimensions for article content
+magick /Users/kirill/Downloads/source-image.png -resize 800x -quality 90 public/articles/assets/article-slug/content-image.webp
+
+# Verify the result
+ls -la public/articles/assets/article-slug/content-image.webp
+identify -verbose public/articles/assets/article-slug/content-image.webp | grep Quality
+```
+
+### Thumbnail Workflow
+
+```bash
+# Check source image
+identify -format "%wx%h" /Users/kirill/Downloads/source-image.png
+# 1252x710
+
+# Process image to exact thumbnail dimensions
+magick /Users/kirill/Downloads/source-image.png -resize 520x297^ -gravity center -extent 520x297 -quality 100 public/articles/publisher-2023-01-01.webp
+
+# Verify the result
+ls -la public/articles/publisher-2023-01-01.webp
+identify -verbose public/articles/publisher-2023-01-01.webp | grep Quality
+``` 

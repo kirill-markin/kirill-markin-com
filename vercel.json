@@ -48,6 +48,5 @@
     }
   ],
   "buildCommand": "npm run vercel-build",
-  "installCommand": "npm run vercel-install",
   "framework": "nextjs"
 } 

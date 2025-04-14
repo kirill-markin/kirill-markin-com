@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 
-const articlesDirectory = path.join(process.cwd(), 'obsidian-vault/public');
+const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
 /**

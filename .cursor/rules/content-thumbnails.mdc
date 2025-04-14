@@ -1,0 +1,131 @@
+---
+description: Instructions for adding and managing thumbnails for media mentions and articles in the website
+globs: 
+alwaysApply: false
+---
+# Adding Thumbnails to Media Mentions and Articles
+
+This guide explains how to add thumbnail references to media mentions and articles on the website.
+
+## Media Mentions Structure
+
+Media mentions are stored in `src/data/mediaMentions.ts` with the following structure:
+
+```typescript
+export interface MediaMention {
+  title: string;
+  alternativeTitle?: string;
+  url: string;
+  publisher?: string;
+  date?: string;
+  type: string;
+  language: string;
+  thumbnailUrl?: string | null;
+  websiteLogoUrl?: string | null;
+  description?: string;
+  achievementValue?: string | null;
+  achievementLabel?: string | null;
+  isVideo?: boolean;
+  event?: string;
+  eventUrl?: string;
+}
+
+export const mediaMentions: MediaMention[] = [
+  {
+    title: "Article Title",
+    url: "https://example.com/article",
+    publisher: "Publisher Name",
+    date: "YYYY-MM-DD",
+    type: "Article/Video/Conference Talk/etc.",
+    language: "en/ru",
+    thumbnailUrl: "/articles/filename.webp",
+    websiteLogoUrl: "/logos/logo.png",
+    achievementValue: "value",
+    achievementLabel: "label",
+    isVideo: true/false
+  },
+  // ...
+]
+```
+
+## File Structure Overview
+
+- **Media Mentions Data**: `src/data/mediaMentions.ts`
+- **Article Content**: `src/content/articles/`
+- **Thumbnail Images**: `public/articles/`
+- **Logo Images**: `public/logos/`
+- **Article Assets**: `public/articles/assets/[article-slug]/`
+
+## Adding Media Mention Thumbnails
+
+### 1. Check the existing thumbnails and logos
+
+```bash
+ls -la public/articles/
+ls -la public/logos/
+```
+
+### 2. Update the TS file
+
+After creating and optimizing the thumbnail image (see image-optimization.mdc), edit `src/data/mediaMentions.ts` to add both the thumbnail and logo URLs:
+
+```typescript
+// For media mentions
+{
+  title: "Your Video Title",
+  // ... other properties ...
+  thumbnailUrl: "/articles/youtube-YYYY-MM-DD.webp",
+  websiteLogoUrl: "/logos/appropriate-logo.png"
+}
+```
+
+## Article Assets Management
+
+For article-specific assets (images, diagrams, etc.):
+
+1. Create a directory for the article if it doesn't exist:
+   ```bash
+   mkdir -p public/articles/assets/[article-slug]/
+   ```
+
+2. Store article assets in that directory:
+   ```bash
+   cp my-image.png public/articles/assets/[article-slug]/
+   ```
+
+3. Reference in markdown content as:
+   ```markdown
+   !](mdc:articles/assets/[article-slug]/my-image.png)
+   ```
+
+4. Articles content is stored in `src/content/articles/`
+
+## Logo Handling
+
+When adding website logos:
+
+1. Use descriptive filenames that indicate the source
+2. Maintain consistent styling with other logos
+3. Ensure proper transparency for non-rectangular logos
+4. Store in `public/logos/` directory
+5. Reference in the media mention as `websiteLogoUrl: "/logos/website-name.png"`
+
+## Example Workflow
+
+1. Prepare the thumbnail image using the techniques in image-optimization.mdc
+2. Add a new entry to `src/data/mediaMentions.ts`:
+
+```typescript
+{
+  title: "My Amazing Article",
+  url: "https://example.com/my-article",
+  publisher: "Example Publisher",
+  date: "2023-12-15",
+  type: "Article",
+  language: "en",
+  thumbnailUrl: "/articles/example-2023-12-15.webp",
+  websiteLogoUrl: "/logos/example-publisher.png",
+  achievementValue: "10,000",
+  achievementLabel: "views"
+}
+``` 

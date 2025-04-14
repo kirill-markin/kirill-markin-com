@@ -5,6 +5,3 @@ node_modules/
 .next/
 out/
 build/
-
-# Obsidian vault directory
-obsidian-vault/ 
