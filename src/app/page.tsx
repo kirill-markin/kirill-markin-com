@@ -116,7 +116,7 @@ export default async function Home() {
             })}
 
             {/* Add articles at the end of media mentions */}
-            {articles.map((article, index) => {
+            {articles.map((article) => {
               const isVideo = article.metadata.isVideo || article.metadata.type?.toLowerCase() === 'video';
 
               return (
