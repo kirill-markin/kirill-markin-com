@@ -30,6 +30,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       disallow: '/',
     },
-    host,
+    // Host is removed for non-production environments
   };
 } 
