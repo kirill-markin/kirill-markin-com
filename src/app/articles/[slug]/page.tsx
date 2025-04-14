@@ -95,6 +95,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       
       <article className={styles.articleContainer}>
         <header className={styles.articleHeader}>
+          <h1 className={styles.articleTitle}>{article.metadata.title}</h1>
+          
           <div className={styles.articleMeta}>
             {article.metadata.date && (
               <time dateTime={article.metadata.date}>
