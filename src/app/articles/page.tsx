@@ -50,7 +50,7 @@ export async function generateMetadata(
     );
     const articlesCount = tagArticles.length;
 
-    title = `${formattedTag} Articles (${articlesCount}) | Expert Insights | Kirill Markin`;
+    title = `${formattedTag} Articles [${articlesCount}] | Expert Insights | Kirill Markin`;
     description = `Explore ${articlesCount} in-depth ${formattedTag} articles with practical insights, analysis, and solutions. Learn from Kirill Markin's expertise and real-world experience in ${tagParam}.`;
   }
 
