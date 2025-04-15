@@ -66,7 +66,7 @@
 /* Media Mentions Style */
 .articlesHeading {
   font-size: var(--font-size-large);
-  text-transform: none!important;
+  text-transform: none !important;
   margin-bottom: 1.5rem;
   position: relative;
   font-style: normal;
@@ -97,18 +97,18 @@
 .articlesHeading:hover .glitchLetter::before {
   animation: hacker-text-glitch 3s infinite linear alternate;
   left: 1px;
-  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
-              -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
-              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75),
+    -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
+    0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
 }
 
 .articlesHeading:hover .glitchLetter::after {
   animation: hacker-text-glitch 2s infinite linear alternate-reverse,
-            glitch-blocks 4s steps(1) infinite;
+    glitch-blocks 4s steps(1) infinite;
   left: -1px;
-  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
-              -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
-              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75),
+    -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
+    0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
 }
 
 .mediaMentions {
@@ -172,10 +172,10 @@
 .mediaMention:hover::before {
   animation: tech-noise-scanlines 0.8s steps(5) both;
   background: repeating-linear-gradient(0deg,
-          transparent 0%,
-          rgba(32, 128, 32, 0.02) 0.2%,
-          rgba(0, 255, 0, 0.05) 0.3%,
-          transparent 0.5%);
+      transparent 0%,
+      rgba(32, 128, 32, 0.02) 0.2%,
+      rgba(0, 255, 0, 0.05) 0.3%,
+      transparent 0.5%);
   background-size: 100% 2px;
   mix-blend-mode: screen;
   opacity: 0;
@@ -202,7 +202,7 @@
   .mediaMention.wide {
     grid-column: span 1;
   }
-  
+
   .mediaMention.wideWithThumbnail {
     padding: 0 !important;
     aspect-ratio: auto;
@@ -213,7 +213,8 @@
   }
 }
 
-.language, .type {
+.language,
+.type {
   position: absolute;
   background-color: var(--white);
   line-height: 13.20px;
@@ -399,6 +400,7 @@
 }
 
 @media screen and (max-width: 768px) {
+
   .mediaMention.wide .thumbnailContainer,
   .mediaMention.wideWithThumbnail .thumbnailContainer {
     position: static;
@@ -486,7 +488,8 @@
   margin-bottom: 1.5rem;
 }
 
-.articleContent ul, .articleContent ol {
+.articleContent ul,
+.articleContent ol {
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -556,15 +559,19 @@
   0% {
     transform: translateY(0);
   }
+
   25% {
     transform: translateY(-2px);
   }
+
   50% {
     transform: translateY(0);
   }
+
   75% {
     transform: translateY(2px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -574,9 +581,11 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.02);
   }
+
   100% {
     transform: scale(1);
   }
@@ -586,9 +595,11 @@
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.2;
   }
+
   100% {
     opacity: 0;
   }
@@ -598,9 +609,11 @@
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.1;
   }
+
   100% {
     opacity: 0;
   }
@@ -610,21 +623,27 @@
   0% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
+
   15% {
     clip-path: polygon(10% 0, 100% 5%, 90% 100%, 0 95%);
   }
+
   30% {
     clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
   }
+
   50% {
     clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
   }
+
   70% {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
+
   85% {
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   }
+
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -634,15 +653,19 @@
   0% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
+
   25% {
     clip-path: polygon(100% 100%, 0 20%, 10% 50%, 70% 0);
   }
+
   50% {
     clip-path: polygon(0 100%, 100% 0, 100% 80%, 0 30%);
   }
+
   75% {
     clip-path: polygon(100% 0, 0 0, 80% 100%, 10% 30%);
   }
+
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -775,7 +798,8 @@
   margin-bottom: 1.5rem;
 }
 
-.articleContent ul, .articleContent ol {
+.articleContent ul,
+.articleContent ol {
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -896,6 +920,10 @@
   display: flex;
   flex-direction: column;
   max-width: 80%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 
 .articlesTitle {
@@ -942,7 +970,7 @@
   margin-bottom: 20px;
 }
 
-.tagsMenu > span {
+.tagsMenu>span {
   font-size: 0.9rem;
   margin-bottom: 10px;
   color: var(--medium-gray);
@@ -1002,7 +1030,7 @@
 
 @media (max-width: 768px) {
   .fullWidthColumn {
-    padding: 10px!important;
+    padding: 10px !important;
   }
 }
 
@@ -1030,7 +1058,7 @@
   .relatedArticlesSection {
     padding: 1.5rem 1.5rem 2rem;
   }
-  
+
   .relatedArticlesSection .mediaMentions {
     grid-template-columns: 1fr;
   }
@@ -1081,4 +1109,4 @@
     font-size: 2.25rem;
     line-height: 1.3;
   }
-} 
+}
