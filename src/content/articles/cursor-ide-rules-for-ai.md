@@ -1,6 +1,7 @@
 ---
 title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
 date: 2025-02-10
+description: "My custom rules configuration for Cursor IDE that improves AI coding assistance. Includes code style preferences, terminal commands, and project planning guidelines."
 tags: [productivity, cursor, ai]
 aliases: [cursor-ai-rules, cursor-guidelines]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]

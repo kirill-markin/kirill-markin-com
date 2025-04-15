@@ -1,6 +1,7 @@
 ---
 title: "Cursor IDE VS Notion AI: Comparing AI Coding Tools"
 date: 2025-01-15
+description: "Why I switched from Notion to Cursor IDE with voice commands for managing markdown content. Comparing these tools for documentation and knowledge management."
 tags: [productivity, ai, tools]
 aliases: [cursor-vs-notion, coding-tools-comparison]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
