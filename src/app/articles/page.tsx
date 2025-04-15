@@ -35,9 +35,9 @@ export async function generateMetadata(
   const tagParam = typeof params.tag === 'string' ? params.tag.toLowerCase() : 'all';
 
   // Base metadata
-  const baseTitle = 'Articles | Kirill Markin';
+  const baseTitle = 'Expert Articles & Digital Garden | Kirill Markin';
   let title = baseTitle;
-  let description = 'Discover expert insights, practical knowledge, and proven solutions in this curated digital garden. Browse my collection of articles on various topics including technology, strategy, and personal development.';
+  let description = 'Browse curated insights on technology, strategy, and personal development. Practical knowledge and proven solutions in this structured digital garden of interconnected ideas.';
 
   // Tag-specific metadata
   if (tagParam !== 'all') {
