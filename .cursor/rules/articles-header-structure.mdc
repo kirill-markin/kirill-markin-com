@@ -1,0 +1,129 @@
+---
+description: 
+globs: src/content/articles/*
+alwaysApply: false
+---
+# Article Header Structure Guide
+
+This guide outlines the standard frontmatter structure for all articles on the website. Consistent frontmatter ensures proper metadata display in search results and optimal SEO performance.
+
+## Required Frontmatter Fields
+
+Every article must include these fields in the frontmatter (between `---` delimiters):
+
+```markdown
+---
+title: "Descriptive Article Title With Key Terms"
+date: YYYY-MM-DD
+description: "Concise summary of the article under 155 characters. Should include key terms and convey the article's value proposition."
+tags: [primary-tag, secondary-tag]
+aliases: [url-friendly-alias, alternative-keyword]
+related: [related-article-slug]
+publish: true|false
+lastmod: YYYY-MM-DD
+---
+```
+
+## Field Guidelines
+
+### `title`
+- **Purpose**: Main heading; appears in browser tabs and search results
+- **Format**: Use title case (capitalize main words)
+- **Length**: 50-60 characters (appears fully in search results)
+- **Content**: Include primary keyword near the beginning
+- **Example**: `"Cursor IDE Setup: Optimizing Workflow for Large Projects"`
+
+### `date`
+- **Purpose**: Original publication date
+- **Format**: YYYY-MM-DD (e.g., `2025-04-14`)
+- **Notes**: Used for sorting and displaying publication date
+
+### `description`
+- **Purpose**: Summary displayed in search results
+- **Format**: Plain text in quotes
+- **Length**: 120-155 characters maximum (crucial to prevent truncation)
+- **Content**: Must include primary keyword and clearly convey value
+- **Notes**: This is the most important field for search result click-through
+- **Example**: `"My practical workflow for using Cursor IDE with large codebases. How I combine test-driven development and voice commands for better productivity."`
+
+### `tags`
+- **Purpose**: Categorization for filtering and related content
+- **Format**: Array of lowercase, hyphenated terms
+- **Example**: `[productivity, ai-tools, development]`
+- **Notes**: First tag is considered primary category
+
+### `aliases`
+- **Purpose**: Alternative URL slugs and keywords
+- **Format**: Array of hyphenated terms
+- **Example**: `[cursor-ide-workflow, ai-coding-setup]`
+
+### `related`
+- **Purpose**: Links to related content
+- **Format**: Array of article slugs or paths
+- **Example**: `[cursor-vs-notion-reddit-post]`
+
+### `publish`
+- **Purpose**: Controls visibility
+- **Format**: Boolean (`true` or `false`)
+- **Notes**: Only published articles appear on the site
+
+### `lastmod`
+- **Purpose**: Last modification date
+- **Format**: YYYY-MM-DD (e.g., `2025-04-14`)
+- **Notes**: Important for search engines to know when content was updated
+
+## Optional Frontmatter Fields
+
+These fields provide additional context but aren't required:
+
+```markdown
+thumbnailUrl: "/path/to/image.webp"
+language: "en"
+type: "Article" | "Tutorial" | "Case Study"
+publisher: "Kirill Markin"
+achievementValue: "55,000"
+achievementLabel: "Views"
+isVideo: false
+```
+
+## Description Field Best Practices
+
+The `description` field is critical for SEO and requires special attention:
+
+1. **Optimal Length**: 120-155 characters (absolute maximum)
+2. **Keywords**: Include primary keyword naturally in the first half
+3. **Value Proposition**: Clearly state what the reader will gain
+4. **Active Voice**: Use active rather than passive voice
+5. **Uniqueness**: Each article needs a unique description
+6. **No Clickbait**: Be accurate about the content
+7. **No Markup**: Plain text only, no markdown formatting
+
+## Examples of Effective Descriptions
+
+✅ **Good**: "My personal framework for distributing content across platforms to maximize reach and engagement for personal branding. A practical system I've refined through experience."
+
+✅ **Good**: "A quick solution for Mac users who can't download certain Steam games using Whisky. Simple steps to fix broken Steam downloads on macOS."
+
+❌ **Too Long**: "In this comprehensive guide, I'll walk you through all the detailed steps of setting up Cursor IDE for large-scale projects, including test-driven development approaches, documentation practices, composer agent usage, and voice-based programming methods I've developed over years of professional coding experience."
+
+❌ **Too Vague**: "Some thoughts about content distribution that might be helpful."
+
+## Implementation Process
+
+1. When creating a new article, copy the frontmatter template
+2. Fill in all required fields
+3. Pay special attention to the description field length
+4. Verify the description would display properly in search results
+
+## Search Result Preview
+
+When properly configured, the article will appear in search results like this:
+
+```
+Title of Your Article - Kirill Markin
+https://kirill-markin.com/articles/article-slug
+
+Your carefully crafted description appears here, complete and not cut off,
+encouraging users to click through to your content because it clearly
+communicates value.
+``` 
