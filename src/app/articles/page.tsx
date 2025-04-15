@@ -13,11 +13,11 @@ type Props = {
 // This function generates all possible tag routes at build time
 export async function generateStaticParams() {
   const articles = await getAllArticles();
-  
+
   // Get unique tags from all articles
   const allTags = articles.flatMap(article => article.metadata.tags || []);
   const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
-  
+
   // Generate params for 'all' and each specific tag
   return [
     { searchParams: {} }, // Default page (all)
@@ -33,31 +33,31 @@ export async function generateMetadata(
   // Get the tag from URL parameters
   const params = await searchParams;
   const tagParam = typeof params.tag === 'string' ? params.tag.toLowerCase() : 'all';
-  
+
   // Base metadata
   const baseTitle = 'Articles | Kirill Markin';
   let title = baseTitle;
-  let description = 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system.';
-  
+  let description = 'Discover expert insights, practical knowledge, and proven solutions in this curated digital garden. Browse my collection of articles on various topics including technology, strategy, and personal development.';
+
   // Tag-specific metadata
   if (tagParam !== 'all') {
     const formattedTag = tagParam.charAt(0).toUpperCase() + tagParam.slice(1);
-    
+
     // Count articles with this tag
     const articles = await getAllArticles();
-    const tagArticles = articles.filter(article => 
+    const tagArticles = articles.filter(article =>
       article.metadata.tags && article.metadata.tags.includes(tagParam)
     );
     const articlesCount = tagArticles.length;
-    
-    title = `${formattedTag} Articles (${articlesCount}) | Kirill Markin`;
-    description = `Articles and insights about ${formattedTag} from Kirill Markin - expert analysis and perspectives.`;
+
+    title = `${formattedTag} Articles (${articlesCount}) | Expert Insights | Kirill Markin`;
+    description = `Explore ${articlesCount} in-depth ${formattedTag} articles with practical insights, analysis, and solutions. Learn from Kirill Markin's expertise and real-world experience in ${tagParam}.`;
   }
-  
-  const canonicalUrl = tagParam === 'all' 
+
+  const canonicalUrl = tagParam === 'all'
     ? 'https://kirill-markin.com/articles/'
     : `https://kirill-markin.com/articles/?tag=${tagParam}`;
-  
+
   // Images and other metadata
   const images = [
     {
@@ -67,7 +67,7 @@ export async function generateMetadata(
       alt: 'Kirill Markin Articles',
     }
   ];
-  
+
   return {
     title,
     description,
@@ -97,21 +97,21 @@ const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 export default async function ArticlesPage({ searchParams }: Props) {
   const params = await searchParams;
   const tagParam = typeof params.tag === 'string' ? params.tag.toLowerCase() : 'all';
-  
+
   const articles = await getAllArticles();
-  
+
   // Filter articles based on tag if provided
-  const filteredArticles = tagParam === 'all' 
-    ? articles 
-    : articles.filter(article => 
-        article.metadata.tags && article.metadata.tags.includes(tagParam)
-      );
-  
+  const filteredArticles = tagParam === 'all'
+    ? articles
+    : articles.filter(article =>
+      article.metadata.tags && article.metadata.tags.includes(tagParam)
+    );
+
   // Get all unique tags for the tag menu
   const allTags = articles.flatMap(article => article.metadata.tags || []);
   const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
 
-  const canonicalUrl = tagParam === 'all' 
+  const canonicalUrl = tagParam === 'all'
     ? 'https://kirill-markin.com/articles/'
     : `https://kirill-markin.com/articles/?tag=${tagParam}`;
 
@@ -119,24 +119,24 @@ export default async function ArticlesPage({ searchParams }: Props) {
     if (tagParam === 'all') {
       return 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system, with content organized through natural connections between ideas. Here you\'ll find research notes, technical discoveries, thought processes, and personal workflows. Explore by following the organic connections between topics or filter by tags to discover content that aligns with your interests.';
     }
-    
+
     // Display tag with first letter capitalized in the description
     const formattedTag = tagParam.charAt(0).toUpperCase() + tagParam.slice(1);
-    
+
     // Get count of articles with this tag
     const tagArticlesCount = filteredArticles.length;
-    
+
     return `Articles tagged with "${formattedTag}" [${tagArticlesCount}]. These posts focus specifically on ${tagParam}-related topics and insights.`;
   };
 
   return (
     <div className={styles.content}>
-      <ArticlesListJsonLd 
-        articles={filteredArticles} 
-        url={canonicalUrl} 
-        tag={tagParam !== 'all' ? tagParam : undefined} 
+      <ArticlesListJsonLd
+        articles={filteredArticles}
+        url={canonicalUrl}
+        tag={tagParam !== 'all' ? tagParam : undefined}
       />
-      
+
       <div className={styles.fullWidthColumn}>
         <div className={styles.articlesHeader}>
           <div className={styles.articlesHeaderTitle}>
@@ -152,27 +152,27 @@ export default async function ArticlesPage({ searchParams }: Props) {
             </div>
           </div>
         </div>
-        
+
         <nav className={styles.tagsMenu} aria-label="Article tags">
           <span>Tags</span>
           <div className={styles.tagsMenuItems}>
-            <Link 
+            <Link
               href="/articles"
               className={`${styles.tagMenuItem} ${tagParam === 'all' ? styles.active : ''}`}
             >
               All
             </Link>
-            
+
             {uniqueTags
               .map(tag => ({
                 tag,
-                count: articles.filter(article => 
+                count: articles.filter(article =>
                   article.metadata.tags && article.metadata.tags.includes(tag)
                 ).length
               }))
               .sort((a, b) => b.count - a.count)
               .map(({ tag, count }) => (
-                <Link 
+                <Link
                   key={tag}
                   href={`/articles?tag=${tag}`}
                   className={`${styles.tagMenuItem} ${tagParam === tag ? styles.active : ''}`}
@@ -182,49 +182,49 @@ export default async function ArticlesPage({ searchParams }: Props) {
               ))}
           </div>
         </nav>
-        
+
         <div className={styles.mediaMentions}>
           {filteredArticles.map((article, index) => {
             const isLarge = index === 0 || index === 5;
             const isVideo = article.metadata.isVideo || article.metadata.type?.toLowerCase() === 'video';
-            
+
             return (
-              <article 
-                key={article.slug} 
+              <article
+                key={article.slug}
                 className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}
               >
-                <Link 
+                <Link
                   href={`/articles/${article.slug}`}
                   className={styles.mentionLink}
                 >
                   <div className={styles.language}>
                     <div className={styles.text}>[{article.metadata.language || 'en'}]</div>
                   </div>
-                  
+
                   {article.metadata.type && (
                     <div className={styles.type}>
                       <div className={styles.text}>[{article.metadata.type}]</div>
                     </div>
                   )}
-                  
+
                   <div className={styles.thumbnailContainer}>
-                    <Image 
-                      className={styles.thumbnail} 
-                      src={article.metadata.thumbnailUrl || PLACEHOLDER_IMAGE} 
-                      alt={article.metadata.title} 
-                      width={640} 
-                      height={360} 
+                    <Image
+                      className={styles.thumbnail}
+                      src={article.metadata.thumbnailUrl || PLACEHOLDER_IMAGE}
+                      alt={article.metadata.title}
+                      width={640}
+                      height={360}
                       priority={index < 4}
                     />
                   </div>
-                  
+
                   <div className={styles.content}>
                     <h2 className={styles.title}>{article.metadata.title}</h2>
-                    
+
                     {article.metadata.description && (
                       <p className={styles.description}>{article.metadata.description}</p>
                     )}
-                    
+
                     <div className={styles.footer}>
                       <div className={styles.date}>
                         {article.metadata.date && (
@@ -237,7 +237,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
                           </time>
                         )}
                       </div>
-                      
+
                       {article.metadata.achievementValue && article.metadata.achievementLabel && (
                         <div className={styles.achievement}>
                           <div className={styles.value}>{article.metadata.achievementValue}</div>
