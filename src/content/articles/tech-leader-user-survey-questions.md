@@ -1,6 +1,7 @@
 ---
 title: "Tech Leader User Survey Questions: Gathering Insights for Product Development"
 date: 2024-08-20
+description: "My candid responses to a user research survey about AI adoption, content consumption, and development priorities. Practical insights on measuring AI success and building solutions."
 tags: [ai]
 aliases: [user-survey-questions, product-research]
 related: []

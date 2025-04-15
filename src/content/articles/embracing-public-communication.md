@@ -1,6 +1,7 @@
 ---
 title: "Embracing Public Communication: Benefits for Remote Teams"
 date: 2025-02-01
+description: "Why sharing work publicly on platforms like Reddit and YouTube benefits remote teams. How consistent public communication improves discoverability and team transparency."
 tags: [people]
 aliases: [public-communication, transparent-teams]
 related: []
