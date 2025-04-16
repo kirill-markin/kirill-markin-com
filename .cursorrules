@@ -50,6 +50,10 @@ The application architecture follows the React Server Components pattern:
 - We minimize the amount of JavaScript sent to the browser
 - Client-side state is kept to a minimum
 
+### Image Optimization
+
+All images in the project must use the Next.js `Image` component with responsive sizes to optimize for different devices. Always specify the `sizes` attribute with appropriate breakpoints (e.g., `sizes="(max-width: 640px) 320px, 640px"`) to ensure smaller images are served to mobile devices.
+
 ### Dynamic Routes and Params Handling (Next.js 15)
 
 In Next.js 15, params in dynamic routes are asynchronous and must be awaited before use:
