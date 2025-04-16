@@ -15,34 +15,38 @@ function ServerServiceCard({ service }: { service: ServiceData }) {
   };
 
   const formattedCategory = service.categoryId.charAt(0).toUpperCase() + service.categoryId.slice(1);
-  
+
   const isExternalLink = service.buttonUrl.startsWith('http://') || service.buttonUrl.startsWith('https://');
-  
+
   return (
     <article className={styles.serviceCard} data-category={service.categoryId}>
-      <Link href={service.buttonUrl} 
-            className={styles.serviceCardLink}
-            target={isExternalLink ? '_blank' : undefined}>
+      <Link href={service.buttonUrl}
+        className={styles.serviceCardLink}
+        target={isExternalLink ? '_blank' : undefined}>
         <div className={styles.serviceCardCategory}>
           <span className={styles.currentCategory}>{formattedCategory}</span>
         </div>
         <div className={styles.serviceCardImage}>
           {service.logoUrl ? (
-            <Image 
-              src={service.logoUrl} 
-              alt={service.name} 
+            <Image
+              src={service.logoUrl}
+              alt={service.name}
               className={styles.serviceImage}
               width={600}
               height={338}
+              sizes="(max-width: 640px) 300px, (max-width: 1024px) 450px, 600px"
+              quality={75}
               priority
             />
           ) : (
-            <Image 
-              src="/services/default.png" 
-              alt={service.name} 
+            <Image
+              src="/services/default.png"
+              alt={service.name}
               className={styles.serviceImage}
               width={600}
               height={338}
+              sizes="(max-width: 640px) 300px, (max-width: 1024px) 450px, 600px"
+              quality={75}
               priority
             />
           )}
@@ -66,28 +70,28 @@ export default function ServerServices({ services, currentCategory }: ServerServ
   const categories = Array.from(
     new Set(services.map(service => service.categoryId))
   ).filter(category => category !== 'all');
-  
+
   // Filter services based on current category
-  const filteredServices = currentCategory === 'all' 
-    ? services 
+  const filteredServices = currentCategory === 'all'
+    ? services
     : services.filter(service => service.categoryId === currentCategory);
-  
+
   // SEO-friendly category title
   const getCategoryTitle = () => {
     if (currentCategory === 'all') {
       return 'All Services';
     }
-    
+
     const formattedCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
     return `Services for ${formattedCategory}`;
   };
-  
+
   // Get category description text
   const getCategoryDescription = () => {
     if (currentCategory === 'all') {
       return 'Explore the complete range of services for individuals, businesses, and media professionals. Whether you need career guidance, analytics support, or expert commentary, I am ready to help.';
     }
-    
+
     switch (currentCategory) {
       case 'people':
         return 'Specialized services designed for individuals seeking professional growth, career guidance, and personalized AI tools. Take your career and skills to the next level with expert support.';
@@ -99,7 +103,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
         return `Specialized services in the ${currentCategory} category tailored to meet your specific needs with expert knowledge and professional support.`;
     }
   };
-  
+
   return (
     <section className={styles.services}>
       <div className={styles.servicesHeader}>
@@ -112,19 +116,19 @@ export default function ServerServices({ services, currentCategory }: ServerServ
           </div>
         </div>
       </div>
-      
+
       <nav className={styles.servicesMenu} aria-label="Service categories">
         <span>Categories</span>
         <div className={styles.servicesMenuCategories}>
-          <Link 
+          <Link
             href="/services"
             className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
           >
             All
           </Link>
-          
+
           {categories.map(category => (
-            <Link 
+            <Link
               key={category}
               href={`/services?category=${category}`}
               className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
@@ -134,7 +138,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
           ))}
         </div>
       </nav>
-      
+
       <ul className={styles.servicesList}>
         {filteredServices.map(service => (
           <li key={service.serviceId}>

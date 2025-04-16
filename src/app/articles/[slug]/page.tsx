@@ -17,7 +17,7 @@ interface ArticlePageProps {
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
-  
+
   if (!article) {
     return {
       title: 'Article Not Found',
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   }
 
   const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
-  
+
   return {
     title: `${article.metadata.title} - Kirill Markin`,
     description: article.metadata.description || '',
@@ -70,27 +70,27 @@ export async function generateStaticParams() {
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
-  
+
   if (!article) {
     notFound();
   }
-  
+
   const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
   const htmlContent = await markdownToHtml(article.content);
   const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
-  
+
   // Get related articles based on tags
   const relatedArticles = await getRelatedArticlesByTags(
     article.slug,
     article.metadata.tags,
     5
   );
-  
+
   return (
     <div className={styles.articlePageContainer}>
-      
+
       <ArticleJsonLd article={article} url={canonicalUrl} />
-      
+
       <article className={styles.articleContainer}>
         <header className={styles.articleHeader}>
           <div className={styles.articleMeta}>
@@ -106,7 +106,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   ))
                 )}
               </div>
-              
+
               {article.metadata.date && (
                 <time className={styles.articleDate} dateTime={article.metadata.date}>
                   {new Date(article.metadata.date).toLocaleDateString('en-US', {
@@ -119,66 +119,68 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           </div>
         </header>
-        
-        <ArticleContent 
+
+        <ArticleContent
           htmlContent={htmlContent}
           className={styles.articleContent}
         />
-        
+
         {/* Related Articles Section */}
         {relatedArticles.length > 0 && (
           <div className={styles.relatedArticlesSection}>
             <h2 className={styles.relatedArticlesTitle}>
-              {relatedArticles.every(relatedArticle => 
+              {relatedArticles.every(relatedArticle =>
                 relatedArticle.metadata.tags.some(tag => article.metadata.tags.includes(tag))
-              ) 
+              )
                 ? 'Related Articles'
                 : 'Related & Recent Articles'
               }
             </h2>
-            
+
             <div className={styles.mediaMentions}>
               {relatedArticles.map((relatedArticle, index) => {
-                const isVideo = relatedArticle.metadata.isVideo || 
+                const isVideo = relatedArticle.metadata.isVideo ||
                   relatedArticle.metadata.type?.toLowerCase() === 'video';
-                
+
                 return (
-                  <article 
-                    key={relatedArticle.slug} 
+                  <article
+                    key={relatedArticle.slug}
                     className={`${styles.mediaMention} ${isVideo ? styles.video : ''}`}
                   >
-                    <Link 
+                    <Link
                       href={`/articles/${relatedArticle.slug}`}
                       className={styles.mentionLink}
                     >
                       <div className={styles.language}>
                         <div className={styles.text}>[{relatedArticle.metadata.language || 'en'}]</div>
                       </div>
-                      
+
                       {relatedArticle.metadata.type && (
                         <div className={styles.type}>
                           <div className={styles.text}>[{relatedArticle.metadata.type}]</div>
                         </div>
                       )}
-                      
+
                       <div className={styles.thumbnailContainer}>
-                        <Image 
-                          className={styles.thumbnail} 
-                          src={relatedArticle.metadata.thumbnailUrl || PLACEHOLDER_IMAGE} 
-                          alt={relatedArticle.metadata.title} 
-                          width={640} 
-                          height={360} 
+                        <Image
+                          className={styles.thumbnail}
+                          src={relatedArticle.metadata.thumbnailUrl || PLACEHOLDER_IMAGE}
+                          alt={relatedArticle.metadata.title}
+                          width={640}
+                          height={360}
+                          sizes="(max-width: 640px) 320px, (max-width: 1200px) 640px, 640px"
+                          quality={75}
                           priority={index < 2}
                         />
                       </div>
-                      
+
                       <div className={styles.content}>
                         <h3 className={styles.title}>{relatedArticle.metadata.title}</h3>
-                        
+
                         {relatedArticle.metadata.description && (
                           <p className={styles.description}>{relatedArticle.metadata.description}</p>
                         )}
-                        
+
                         <div className={styles.footer}>
                           <div className={styles.date}>
                             {relatedArticle.metadata.date && (
@@ -191,7 +193,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                               </time>
                             )}
                           </div>
-                          
+
                           {relatedArticle.metadata.achievementValue && relatedArticle.metadata.achievementLabel && (
                             <div className={styles.achievement}>
                               <div className={styles.value}>{relatedArticle.metadata.achievementValue}</div>

@@ -77,6 +77,8 @@ export default async function Home() {
                         alt={displayTitle}
                         width={640}
                         height={360}
+                        sizes="(max-width: 640px) 320px, (max-width: 1200px) 640px, 640px"
+                        quality={75}
                         priority={index < 4}
                       />
                     </div>
@@ -142,6 +144,8 @@ export default async function Home() {
                         alt={article.metadata.title}
                         width={640}
                         height={360}
+                        sizes="(max-width: 640px) 320px, (max-width: 1200px) 640px, 640px"
+                        quality={75}
                         priority={false}
                       />
                     </div>

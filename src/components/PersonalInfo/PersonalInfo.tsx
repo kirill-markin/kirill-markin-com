@@ -8,8 +8,8 @@ interface PersonalInfoProps {
   showContactButtons?: boolean;
 }
 
-const PersonalInfo: React.FC<PersonalInfoProps> = ({ 
-  showContactButtons = true 
+const PersonalInfo: React.FC<PersonalInfoProps> = ({
+  showContactButtons = true
 }) => {
   return (
     <div className={styles.personalInfoContainer}>
@@ -22,12 +22,14 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
       <div className={styles.personalContacts}>
         <div className={styles.avatarAndTitles}>
           <div className={styles.profileImageContainer}>
-            <Image 
-              src={personalInfo.image} 
-              alt={`Picture of ${personalInfo.name}`} 
-              className={styles.profileImage} 
-              width={300} 
-              height={300} 
+            <Image
+              src={personalInfo.image}
+              alt={`Picture of ${personalInfo.name}`}
+              className={styles.profileImage}
+              width={300}
+              height={300}
+              sizes="(max-width: 768px) 150px, 300px"
+              quality={75}
               priority
             />
           </div>
@@ -37,7 +39,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             <p className={styles.tertiaryTitle}>{personalInfo.tertiaryTitle}</p>
           </div>
         </div>
-        
+
         {showContactButtons && (
           <div className={styles.contactButtonsContainer}>
             <SocialContactButtons variant="horizontal" showLabels={true} />

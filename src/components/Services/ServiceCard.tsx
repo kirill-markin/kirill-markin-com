@@ -15,34 +15,38 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   };
 
   const formattedCategory = service.categoryId.replace('for_', '').charAt(0).toUpperCase() + service.categoryId.replace('for_', '').slice(1);
-  
+
   const isExternalLink = service.buttonUrl.startsWith('http://') || service.buttonUrl.startsWith('https://');
-  
+
   return (
     <article className={styles.serviceCard} data-category={service.categoryId}>
-      <Link href={service.buttonUrl} 
-            className={styles.serviceCardLink}
-            target={isExternalLink ? '_blank' : undefined}>
+      <Link href={service.buttonUrl}
+        className={styles.serviceCardLink}
+        target={isExternalLink ? '_blank' : undefined}>
         <div className={styles.serviceCardCategory}>
           <span className={styles.currentCategory}>{formattedCategory}</span>
         </div>
         <div className={styles.serviceCardImage}>
           {service.logoUrl ? (
-            <Image 
-              src={service.logoUrl} 
-              alt={service.name} 
+            <Image
+              src={service.logoUrl}
+              alt={service.name}
               className={styles.serviceImage}
               width={600}
               height={338}
+              sizes="(max-width: 640px) 300px, (max-width: 1024px) 450px, 600px"
+              quality={75}
               priority
             />
           ) : (
-            <Image 
-              src="/services/default.png" 
-              alt={service.name} 
+            <Image
+              src="/services/default.png"
+              alt={service.name}
               className={styles.serviceImage}
               width={600}
               height={338}
+              sizes="(max-width: 640px) 300px, (max-width: 1024px) 450px, 600px"
+              quality={75}
               priority
             />
           )}
