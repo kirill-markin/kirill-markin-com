@@ -72,7 +72,7 @@ export default function RootLayout({
 }>) {
   // Check if we're in production environment
   const isProd = process.env.VERCEL_ENV === 'production';
-  
+
   return (
     <html lang="en">
       <head>
@@ -86,7 +86,7 @@ export default function RootLayout({
         <JsonLdSchema />
         {/* Google Tag Manager - only loaded in production */}
         {isProd && (
-          <Script id="google-tag-manager" strategy="afterInteractive">
+          <Script id="google-tag-manager" strategy="lazyOnload">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
