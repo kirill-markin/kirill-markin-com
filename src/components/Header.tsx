@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           )}
         </div>
         <nav className={styles.rightColumn} aria-label="Main navigation">
-          <Link className={styles.headerDesktopButton} href="/services">
+          <Link className={styles.headerDesktopButton} href="/services/">
             SERVICES
           </Link>
           <Link
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
             <Link href="/" onClick={closeMobileMenu}>KIRILL MARKIN</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/services" onClick={closeMobileMenu}>SERVICES</Link>
+            <Link href="/services/" onClick={closeMobileMenu}>SERVICES</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <Link

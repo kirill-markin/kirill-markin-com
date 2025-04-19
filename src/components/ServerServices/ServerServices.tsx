@@ -121,7 +121,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
         <span>Categories</span>
         <div className={styles.servicesMenuCategories}>
           <Link
-            href="/services"
+            href="/services/"
             className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
           >
             All
@@ -130,7 +130,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
           {categories.map(category => (
             <Link
               key={category}
-              href={`/services?category=${category}`}
+              href={`/services/?category=${category}`}
               className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
