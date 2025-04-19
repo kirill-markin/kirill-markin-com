@@ -18,6 +18,9 @@ export const metadata: Metadata = {
         alt: 'Payment options for Kirill Markin\'s services',
       }
     ],
+    type: 'website',
+    siteName: 'Kirill Markin',
+    locale: 'en_US',
   },
   twitter: {
     title: 'Payment Options for Kirill Markin\'s Services',
@@ -34,13 +37,13 @@ export default function PayPage() {
     <div className={styles.paymentOptionsContainer}>
       <h1>PAYMENT OPTIONS</h1>
       <p>Please select your preferred payment method:</p>
-      
+
       <div className={styles.paymentMethods}>
         <Link href="/pay/stripe/" className={styles.paymentMethod}>
           <div className={styles.paymentMethodLogo}>
-            <Image 
-              src="/icons/payment/stripe-logo.svg" 
-              alt="Stripe" 
+            <Image
+              src="/icons/payment/stripe-logo.svg"
+              alt="Stripe"
               className={styles.stripeLogo}
               width={60}
               height={40}
@@ -51,7 +54,7 @@ export default function PayPage() {
             <p>Secure payments via credit card, Apple Pay, and Google Pay</p>
           </div>
         </Link>
-        
+
         {/* Additional payment methods can be added here in the future */}
       </div>
     </div>

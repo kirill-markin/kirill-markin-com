@@ -16,6 +16,9 @@ export const metadata: Metadata = {
         alt: 'All meeting options with Kirill Markin',
       }
     ],
+    type: 'website',
+    siteName: 'Kirill Markin',
+    locale: 'en_US',
   },
   twitter: {
     title: 'All Meeting Options | Kirill Markin',

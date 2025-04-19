@@ -16,6 +16,9 @@ export const metadata: Metadata = {
         alt: 'Stripe payment for Kirill Markin\'s services',
       }
     ],
+    type: 'website',
+    siteName: 'Kirill Markin',
+    locale: 'en_US',
   },
   twitter: {
     title: 'Stripe Payment | Kirill Markin',

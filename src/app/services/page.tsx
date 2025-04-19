@@ -82,6 +82,9 @@ export async function generateMetadata(
         ? 'https://kirill-markin.com/services/'
         : `https://kirill-markin.com/services/?category=${categoryParam}`,
       images,
+      type: 'website',
+      siteName: 'Kirill Markin',
+      locale: 'en_US',
     },
     twitter: {
       title,

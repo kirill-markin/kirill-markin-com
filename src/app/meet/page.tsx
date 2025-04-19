@@ -18,6 +18,9 @@ export const metadata: Metadata = {
         alt: 'Schedule a meeting with Kirill Markin',
       }
     ],
+    type: 'website',
+    siteName: 'Kirill Markin',
+    locale: 'en_US',
   },
   twitter: {
     title: 'Meeting Booking Options with Kirill Markin',
@@ -34,13 +37,13 @@ export default function MeetPage() {
     <section className={styles.bookingOptionsContainer}>
       <h1>BOOKING OPTIONS</h1>
       <p>Please select your preferred meeting type:</p>
-      
+
       <nav className={styles.bookingMethods} aria-label="Meeting booking options">
         <Link href="/meet/short/" className={styles.bookingMethod}>
           <div className={styles.bookingMethodLogo}>
-            <Image 
-              src="/icons/booking/calendar-icon.svg" 
-              alt="Short Meeting" 
+            <Image
+              src="/icons/booking/calendar-icon.svg"
+              alt="Short Meeting"
               className={styles.bookingLogo}
               width={40}
               height={40}
@@ -51,12 +54,12 @@ export default function MeetPage() {
             <p>Free introduction call to discuss your needs and how we can work together</p>
           </div>
         </Link>
-        
+
         <Link href="/meet/all/" className={styles.bookingMethod}>
           <div className={styles.bookingMethodLogo}>
-            <Image 
-              src="/icons/booking/calendar-full-icon.svg" 
-              alt="All durations" 
+            <Image
+              src="/icons/booking/calendar-full-icon.svg"
+              alt="All durations"
               className={styles.bookingLogo}
               width={40}
               height={40}

@@ -17,6 +17,9 @@ export const metadata: Metadata = {
         alt: 'Page Not Found',
       }
     ],
+    type: 'website',
+    siteName: 'Kirill Markin',
+    locale: 'en_US',
   },
   twitter: {
     title: 'Page Not Found | Kirill Markin',
