@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: "Kirill Markin - Consultant and Software Architect",
     description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
     url: 'https://kirill-markin.com/',
+    type: 'website',
     images: [
       {
         url: '/avatars/Kirill-Markin.webp',
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
         alt: 'Kirill Markin',
       }
     ],
+    siteName: 'Kirill Markin',
+    locale: 'en_US',
   },
   twitter: {
     title: "Kirill Markin - Consultant and Software Architect",
