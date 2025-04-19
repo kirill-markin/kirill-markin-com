@@ -1,12 +1,13 @@
 ---
 title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
-date: 2025-02-10
+date: 2025-04-19
 description: "My custom rules configuration for Cursor IDE that improves AI coding assistance. Includes code style preferences, terminal commands, and project planning guidelines."
 tags: [productivity, cursor, ai]
 aliases: [cursor-ai-rules, cursor-guidelines]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
-publish: false
-lastmod: 2025-04-14
+publish: true
+lastmod: 2025-04-19
+thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 ---
 
 # Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant
@@ -15,9 +16,9 @@ Cursor IDE implements three levels of AI rules:
 
 1. Rules for AI in Cursor IDE settings - base rules that apply globally to all projects
 2. `.cursorrules` file in repository root - project-specific rules
-3. `.cursor/rules/*.mdc` files - dynamic rules that are only activated when AI performs relevant to related description tasks
+3. `.cursor/rules/*.mdc` files - dynamic rules that only activate when AI tackles tasks relevant to their description
 
-On this page, I'm publishing my base-level rules - the global Rules for AI settings in Cursor IDE. These rules serve as the foundation for all development tasks. Combined with repository-level and dynamic rules, they create an effective system for maintaining code quality and development practices.
+I'm sharing my base-level rules here - the global settings I use in Cursor IDE. These rules form the foundation for all my development work. When combined with repository-level and dynamic rules, they create a powerful system that maintains code quality while keeping my development practices consistent.
 
 ## Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
@@ -62,7 +63,7 @@ On this page, I'm publishing my base-level rules - the global Rules for AI setti
 - User can ask you to create a plan for the feature implementation
 - You MUST create a temp directory
 - You MUST create a markdown file with the feature plan in the temp directory
-- This fiature plan file with contains the following sections:
+- This feature plan file must contain the following sections:
   1. Overview of current state related to the feature
   2. Overview of the final state of the feature
   3. List of all files to change with text description of what to change (not a code)
@@ -87,3 +88,70 @@ On this page, I'm publishing my base-level rules - the global Rules for AI setti
 </cursorrules_instructions_to_the_dialog>
 ```
 
+## Best Practices for Multi-Level Cursor Rules
+
+When working with Cursor IDE's AI features, I've found it's crucial to optimize rules across all three levels. The key insight? Minimize the number of tokens (symbols) sent to the language model in each dialog. Fewer tokens for context means more capacity for generating quality responses.
+
+### Recommended Flow
+
+1. **Start with IDE-Level Settings Only**  
+   I begin with global Cursor IDE settings to establish baseline preferences. This lets me experiment with different rule formulations without cluttering my repositories. I reserve this level for truly universal preferences that apply to all my coding work.
+
+2. **Move Project-Specific Rules to Repository Level**  
+   When I spot patterns specific to a particular codebase or want to share my AI guidance with teammates, I move these rules to a `.cursorrules` file in the repository root. This creates a shared understanding while keeping my global settings lean.
+
+3. **Split into Context-Aware Rules When Necessary**  
+   If my `.cursorrules` file gets bloated, I split it into `.cursor/*.mdc` files. This reduces token usage by only activating relevant rules when needed. It's like giving the language model more mental space to think about my specific task rather than remembering a bunch of irrelevant guidelines.
+
+My goal is simple: in any conversation with the AI assistant, give it just enough context to be helpful without wasting its capacity on information it doesn't need right now.
+
+## Examples From My Repositories
+
+To show how I implement Cursor rules across different projects, here are some real examples:
+
+### Repository-Level Rules (.cursorrules)
+
+My `.cursorrules` files work like a README.md specifically designed for AI assistants. They provide context about the project's purpose, architecture, and coding patterns.
+
+Examples from my public repositories:
+
+1. **[repo-to-text](https://github.com/kirill-markin/repo-to-text/blob/main/.cursorrules)**: This utility for converting repositories to text includes rules explaining the project's purpose, architecture decisions, and code patterns to follow.
+
+2. **[chatgpt-telegram-bot-telegraf](https://github.com/kirill-markin/chatgpt-telegram-bot-telegraf/blob/main/.cursorrules)**: For this Telegram bot, the rules focus on the bot's architecture, API usage patterns, and conventions for handling messages and commands.
+
+### Context-Specific Rules (.cursor/*.mdc)
+
+When repository-level rules get too extensive, I split them into context-specific `.cursor/*.mdc` files that only activate when relevant.
+
+A good example is my personal website repository:
+**[website-next-js/.cursor/rules/](https://github.com/kirill-markin/website-next-js/tree/main/.cursor/rules)**
+
+In this repo, I've created separate rule files for:
+- Content management workflows
+- Image optimization requirements
+- SEO best practices
+- Component architecture patterns
+- Deployment procedures
+
+This approach keeps the AI focused and prevents overwhelming it with irrelevant information when I'm working on specific tasks.
+
+## Evolution of My Cursor IDE Rules
+
+My journey with Cursor IDE rules has evolved through several phases:
+
+### Phase 1: Global Settings First
+I started by dumping everything into Cursor IDE settings. Simple but effective at first. As I identified more patterns in my workflow, these global rules grew. Every new project benefited, but the configuration eventually became unwieldy - too many rules that didn't apply everywhere.
+
+### Phase 2: Repository-Specific Rules
+As my global settings bloated with project-irrelevant information, I shifted to using `.cursorrules` files in repository roots. This became my primary approach, letting me customize rules for each project while maintaining consistent standards. During this time, `.cursorrules` was the only option for repository-level configuration.
+
+### Phase 3: Dynamic Context-Aware Rules
+When Cursor IDE introduced `.cursor/*.mdc` dynamic rules, I restructured everything. These context-aware rules only activate when the AI is doing relevant tasks. This let me:
+
+- Keep global settings minimal and broadly applicable
+- Use `.cursorrules` for project-wide standards
+- Create focused `.cursor/*.mdc` files for specialized tasks
+
+This layered approach gives just-in-time guidance to the AI based on what I'm currently working on, cutting through noise and improving the relevance of its assistance.
+
+The evolution reflects my growing understanding of how to effectively collaborate with AI assistants - starting broad and progressively refining toward context-aware, task-specific instructions that maximize the AI's effectiveness.
