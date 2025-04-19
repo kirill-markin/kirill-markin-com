@@ -17,10 +17,17 @@ export default function robots(): MetadataRoute.Robots {
   // For our custom domain, we protect using the robots.txt file by checking VERCEL_ENV
   if (isProd) {
     return {
-      rules: {
-        userAgent: '*',
-        allow: '/',
-      },
+      rules: [
+        {
+          userAgent: '*',
+          allow: '/',
+          disallow: [
+            '/search*',  // Block any potential search URLs
+            '/*$',       // Block URLs ending with $ character
+            '/$'         // Block URLs ending with $ character alternative format
+          ]
+        }
+      ],
       sitemap: `${host}/sitemap.xml`,
       host,
     };
