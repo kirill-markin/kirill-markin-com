@@ -25,6 +25,26 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Add redirect for /ru/
+  async redirects() {
+    return [
+      {
+        source: '/ru/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ru',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ru/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+    ];
+  },
   // Add headers configuration for SEO
   async headers() {
     // Set X-Robots-Tag: noindex for all non-production environments
