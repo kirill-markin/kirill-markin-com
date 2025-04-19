@@ -22,9 +22,7 @@ export default function robots(): MetadataRoute.Robots {
           userAgent: '*',
           allow: '/',
           disallow: [
-            '/search*',  // Block any potential search URLs
-            '/*$',       // Block URLs ending with $ character
-            '/$'         // Block URLs ending with $ character alternative format
+            '/search*'  // Block any potential search URLs
           ]
         }
       ],
