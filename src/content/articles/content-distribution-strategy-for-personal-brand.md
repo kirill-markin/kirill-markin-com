@@ -6,7 +6,8 @@ tags: [productivity]
 aliases: [content-distribution, social-media-strategy]
 related: [posts/2025-02-08-cursor-ide-setup-and-workflow]
 publish: true
-lastmod: 2025-04-14
+lastmod: 2025-04-19
+thumbnailUrl: "/articles/content-distribution-strategy.webp"
 ---
 
 # Content Distribution Strategy for Personal Brand and Business
