@@ -28,6 +28,8 @@ I'm sharing my base-level rules here - the global settings I use in Cursor IDE. 
 <cursorrules_code_style>
 - Comments in English only
 - Prefer functional programming over OOP
+- Use separate OOP classes only for connectors and interfaces to external systems
+- Write all other logic with pure functions (clear input/output, no hidden state changes)
 - Avoid hidden state changes and magic class variables
 - Make minimal, focused changes
 - Follow DRY, KISS, and YAGNI principles
