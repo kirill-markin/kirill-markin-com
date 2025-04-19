@@ -20,27 +20,27 @@ const Footer: React.FC = () => {
             <h2 className={`${styles.footerOrgName} ${styles.leftAligned}`}>{personalInfo.name}</h2>
             <hr className={styles.footerWhiteLine} />
           </div>
-          
+
           <div className={styles.footerMainContent}>
             <div className={styles.footerRolesSection}>
               <div className={styles.footerPersonalTitles}>
-                <p 
+                <p
                   className={styles.mainTitleFooter}
                   dangerouslySetInnerHTML={renderJobTitle(personalInfo.jobTitle)}
                 />
                 <p className={styles.secondaryTitleFooter}>{personalInfo.secondaryTitle}</p>
                 <p className={styles.tertiaryTitleFooter}>{personalInfo.tertiaryTitle}</p>
               </div>
-              
+
               <div className={styles.footerCta}>
                 <div className={styles.questionButton}>
-                  <Link href="/meet/short" className={styles.footerButton} rel="noopener noreferrer">
+                  <Link href="/meet/short/" className={styles.footerButton} rel="noopener noreferrer">
                     Talk to Kirill
                   </Link>
                 </div>
               </div>
             </div>
-            
+
             <div className={styles.footerLinksWrapper}>
               <div className={styles.footerOrgInfo}>
                 <div className={styles.footerOrgContactInfo}>
@@ -54,17 +54,17 @@ const Footer: React.FC = () => {
                     {personalInfo.phone}
                   </a>
                 </div>
-                
+
                 <div className={styles.footerOrgMoreInfo}>
                   <h3>Social</h3>
                   {socialLinks
                     .filter(link => ['GitHub', 'LinkedIn', 'Twitter', 'Facebook', 'Instagram'].includes(link.name))
                     .map((link, index) => (
-                      <a 
+                      <a
                         key={index}
-                        href={link.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
                         {link.name}
@@ -78,11 +78,11 @@ const Footer: React.FC = () => {
                   {socialLinks
                     .filter(link => ['Blog', 'Medium', 'YouTube', 'Reddit', 'Product Hunt', 'IndieHackers'].includes(link.name))
                     .map((link, index) => (
-                      <a 
+                      <a
                         key={index}
-                        href={link.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
                         {link.name}
@@ -96,11 +96,11 @@ const Footer: React.FC = () => {
                   {socialLinks
                     .filter(link => ['Telegram', 'WhatsApp', 'GitLab', 'Bluesky', 'Email'].includes(link.name))
                     .map((link, index) => (
-                      <a 
+                      <a
                         key={index}
-                        href={link.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
                         {link.name}
@@ -119,24 +119,24 @@ const Footer: React.FC = () => {
           {socialLinks
             .filter(link => (link.footerBottomGreenLine || link.name === "WhatsApp" || link.name === "Telegram" || link.name === "Instagram" || link.name === "Email" || link.name === "Medium" || link.name === "Twitter" || link.name === "Reddit" || link.name === "Bluesky") && link.socialLogoUrlDefault)
             .map((link, index) => (
-              <a 
+              <a
                 key={index}
-                href={link.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={styles.socialLink}
               >
-                <Image 
-                  src={link.socialLogoUrlDefault || '/social/default.png'} 
-                  alt={link.name} 
+                <Image
+                  src={link.socialLogoUrlDefault || '/social/default.png'}
+                  alt={link.name}
                   className={styles.iconDefault}
                   width={36}
                   height={36}
                 />
                 {link.socialLogoUrlHover && (
-                  <Image 
-                    src={link.socialLogoUrlHover} 
-                    alt={link.name} 
+                  <Image
+                    src={link.socialLogoUrlHover}
+                    alt={link.name}
                     className={styles.iconHover}
                     width={36}
                     height={36}

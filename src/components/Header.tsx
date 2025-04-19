@@ -32,26 +32,26 @@ const Header: React.FC = () => {
           <Link className={styles.headerDesktopButton} href="/services">
             SERVICES
           </Link>
-          <Link 
+          <Link
             className={styles.headerDesktopButton}
             href="/articles"
           >
             ARTICLES
           </Link>
-          <Link 
+          <Link
             className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
-            href="/meet/short" 
+            href="/meet/short/"
             rel="noopener noreferrer"
           >
             TALK TO KIRILL
           </Link>
         </nav>
       </div>
-      
+
       <div className={styles.headerMobile}>
         <div className={styles.headerMobileContainer}>
           <div className={styles.headerMobileButtonContainer}>
-            <button 
+            <button
               className={`${styles.headerMobileButton} ${mobileMenuOpen ? styles.open : styles.closed}`}
               onClick={toggleMobileMenu}
               aria-expanded={mobileMenuOpen}
@@ -59,20 +59,20 @@ const Header: React.FC = () => {
             >
               <div className={styles.headerMobileButtonClosed}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M14 12H4M18 17H4M20 7H4" stroke="#232323" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M14 12H4M18 17H4M20 7H4" stroke="#232323" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div className={styles.headerMobileButtonOpen}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 6L18 18" stroke="#232323" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M18 6L6 18" stroke="#232323" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M6 6L18 18" stroke="#232323" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M18 6L6 18" stroke="#232323" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             </button>
           </div>
           <div className={styles.mobileRightButtonsContainer}>
             <div className={styles.mobileButton}>
-              <Link 
+              <Link
                 href="/articles"
                 onClick={closeMobileMenu}
                 className={styles.headerMobileBlogButton}
@@ -81,9 +81,9 @@ const Header: React.FC = () => {
               </Link>
             </div>
             <div className={styles.mobileButton}>
-              <Link 
-                href="/meet/short" 
-                rel="noopener noreferrer" 
+              <Link
+                href="/meet/short/"
+                rel="noopener noreferrer"
                 className={styles.headerMobileBookAMeetingButton}
               >
                 TALK TO KIRILL
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <nav className={`${styles.headerMobileMenuOpen} ${mobileMenuOpen ? '' : styles.hidden}`} aria-label="Mobile navigation">
           <div className={styles.headerMobileMenuSection}>
             <Link href="/" onClick={closeMobileMenu}>KIRILL MARKIN</Link>
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
             <Link href="/services" onClick={closeMobileMenu}>SERVICES</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link 
+            <Link
               href="/articles"
               onClick={closeMobileMenu}
             >
@@ -108,15 +108,15 @@ const Header: React.FC = () => {
             </Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link 
+            <Link
               className={styles.headerMobileBookAMeeting}
-              href="/meet/short" 
+              href="/meet/short/"
               rel="noopener noreferrer"
               onClick={closeMobileMenu}
             >
               TALK TO KIRILL
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M4.22559 20L20 4M20 4V17M20 4H7" stroke="#353C2A" strokeWidth="2"/>
+                <path d="M4.22559 20L20 4M20 4V17M20 4H7" stroke="#353C2A" strokeWidth="2" />
               </svg>
             </Link>
           </div>
