@@ -14,7 +14,7 @@ export function generateStaticParams() {
   const categories = Array.from(
     new Set(servicesData.map(service => service.categoryId))
   ).filter(category => category !== 'all');
-  
+
   // Generate params for 'all' and each specific category
   return [
     { searchParams: {} }, // Default page (all)
@@ -30,22 +30,22 @@ export async function generateMetadata(
   // Get the category from URL parameters
   const params = await searchParams;
   const categoryParam = typeof params.category === 'string' ? params.category : 'all';
-  
+
   // Base metadata
   const baseTitle = 'Services | Kirill Markin';
   let title = baseTitle;
   let description = 'Explore the full range of services offered by Kirill Markin, including AI consulting, analytics department audit, startup guidance, and more.';
-  
+
   // Category-specific metadata
   if (categoryParam !== 'all') {
     const formattedCategory = categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1);
-    
+
     // Count services in this category
     const categoryServices = servicesData.filter(service => service.categoryId === categoryParam);
     const servicesCount = categoryServices.length;
-    
+
     title = `Services for ${formattedCategory} (${servicesCount}) | Kirill Markin`;
-    
+
     // Generate category-specific description
     switch (categoryParam) {
       case 'people':
@@ -61,7 +61,7 @@ export async function generateMetadata(
         description = `Services in the ${formattedCategory} category from Kirill Markin — an expert in AI, data, and technology.`;
     }
   }
-  
+
   // Images and other metadata
   const images = [
     {
@@ -71,14 +71,14 @@ export async function generateMetadata(
       alt: 'Kirill Markin Services',
     }
   ];
-  
+
   return {
     title,
     description,
     openGraph: {
       title,
       description,
-      url: categoryParam === 'all' 
+      url: categoryParam === 'all'
         ? 'https://kirill-markin.com/services/'
         : `https://kirill-markin.com/services/?category=${categoryParam}`,
       images,
@@ -102,12 +102,12 @@ export default async function ServicesPage({ searchParams }: Props) {
   const categoryParam = typeof params.category === 'string' ? params.category : 'all';
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <div className={styles.content}>
         <div className={styles.fullWidthColumn}>
           <ServerServices services={servicesData} currentCategory={categoryParam} />
         </div>
       </div>
-    </main>
+    </div>
   );
 }
