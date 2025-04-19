@@ -45,10 +45,11 @@ export default function JsonLdSchema() {
     'logo': `https://kirill-markin.com/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
-    'provider': {
-      '@type': 'Person',
-      'name': personalInfo.name,
-      'url': 'https://kirill-markin.com/'
+    'address': {
+      '@type': 'PostalAddress',
+      'addressCountry': 'USA',
+      'addressLocality': 'San Francisco',
+      'addressRegion': 'CA'
     },
     'hasOfferCatalog': {
       '@type': 'OfferCatalog',
