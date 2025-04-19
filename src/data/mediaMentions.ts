@@ -26,7 +26,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "54,000",
+    achievementValue: "57,000",
     achievementLabel: "views"
   },
   {
@@ -63,7 +63,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "2,600",
+    achievementValue: "3,500",
     achievementLabel: "views",
     isVideo: true
   },
@@ -86,7 +86,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/kirill-2024-01-21.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "5,000",
+    achievementValue: "5,100",
     achievementLabel: "views",
     isVideo: true
   },
