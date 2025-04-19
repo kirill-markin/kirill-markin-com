@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     };
   }
 
-  const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
+  const canonicalUrl = `https://kirill-markin.com/articles/${slug}/`;
 
   return {
     title: `${article.metadata.title} - Kirill Markin`,
@@ -77,7 +77,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
   const htmlContent = await markdownToHtml(article.content);
-  const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
+  const canonicalUrl = `https://kirill-markin.com/articles/${slug}/`;
 
   // Get related articles based on tags
   const relatedArticles = await getRelatedArticlesByTags(
@@ -98,7 +98,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <div className={styles.articleTags}>
                 {article.metadata.tags && article.metadata.tags.length > 0 && (
                   article.metadata.tags.map((tag) => (
-                    <Link key={tag} href={`/articles?tag=${tag}`}>
+                    <Link key={tag} href={`/articles/?tag=${tag}`}>
                       <span className={styles.tag}>
                         {tag}
                       </span>
@@ -148,7 +148,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     className={`${styles.mediaMention} ${isVideo ? styles.video : ''}`}
                   >
                     <Link
-                      href={`/articles/${relatedArticle.slug}`}
+                      href={`/articles/${relatedArticle.slug}/`}
                       className={styles.mentionLink}
                     >
                       <div className={styles.language}>

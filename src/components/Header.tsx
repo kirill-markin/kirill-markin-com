@@ -34,7 +34,7 @@ const Header: React.FC = () => {
           </Link>
           <Link
             className={styles.headerDesktopButton}
-            href="/articles"
+            href="/articles/"
           >
             ARTICLES
           </Link>
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
           <div className={styles.mobileRightButtonsContainer}>
             <div className={styles.mobileButton}>
               <Link
-                href="/articles"
+                href="/articles/"
                 onClick={closeMobileMenu}
                 className={styles.headerMobileBlogButton}
               >
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
           </div>
           <div className={styles.headerMobileMenuSection}>
             <Link
-              href="/articles"
+              href="/articles/"
               onClick={closeMobileMenu}
             >
               ARTICLES

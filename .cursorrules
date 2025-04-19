@@ -202,8 +202,8 @@ The services page was reimplemented to follow best practices:
 ### Articles Page Implementation
 
 The articles section follows the same architecture principles:
-- Index page (`/articles`) shows a list of all articles with appropriate metadata
-- Individual article pages (`/articles/[slug]`) are statically generated at build time
+- Index page (`/articles/`) shows a list of all articles with appropriate metadata
+- Individual article pages (`/articles/[slug]/`) are statically generated at build time
 - `generateStaticParams` is used to pre-render all known article paths
 - Each article has optimized SEO metadata including title, description, and OpenGraph data
 - Articles are stored as structured data with strong typing

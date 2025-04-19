@@ -126,7 +126,7 @@ export default async function Home() {
                   key={`article-${article.slug}`}
                   className={`${styles.mediaMention} ${isVideo ? styles.video : ''}`}
                 >
-                  <Link href={`/articles/${article.slug}`} className={styles.mentionLink}>
+                  <Link href={`/articles/${article.slug}/`} className={styles.mentionLink}>
                     <div className={styles.language}>
                       <div className={styles.text}>[{article.metadata.language || 'en'}]</div>
                     </div>

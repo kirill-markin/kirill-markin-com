@@ -157,7 +157,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
           <span>Tags</span>
           <div className={styles.tagsMenuItems}>
             <Link
-              href="/articles"
+              href="/articles/"
               className={`${styles.tagMenuItem} ${tagParam === 'all' ? styles.active : ''}`}
             >
               All
@@ -174,7 +174,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
               .map(({ tag, count }) => (
                 <Link
                   key={tag}
-                  href={`/articles?tag=${tag}`}
+                  href={`/articles/?tag=${tag}`}
                   className={`${styles.tagMenuItem} ${tagParam === tag ? styles.active : ''}`}
                 >
                   {tag} [{count}]
@@ -194,7 +194,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
                 className={`${styles.mediaMention} ${isLarge ? styles.wide : ''} ${isVideo ? styles.video : ''} ${isLarge ? styles.wideWithThumbnail : ''}`}
               >
                 <Link
-                  href={`/articles/${article.slug}`}
+                  href={`/articles/${article.slug}/`}
                   className={styles.mentionLink}
                 >
                   <div className={styles.language}>
