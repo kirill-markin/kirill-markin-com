@@ -1114,3 +1114,15 @@
     line-height: 1.3;
   }
 }
+
+/* Add these rules after the articleContent styles to override the global heading text-transform */
+
+.articleContent h1,
+.articleContent h2,
+.articleContent h3,
+.articleContent h4,
+.articleContent h5,
+.articleContent h6 {
+  text-transform: none;
+  letter-spacing: normal;
+}
