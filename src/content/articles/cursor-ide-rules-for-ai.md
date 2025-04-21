@@ -147,6 +147,12 @@ In this repo, I've created separate rule files for:
 
 This approach keeps the AI focused and prevents overwhelming it with irrelevant information when I'm working on specific tasks.
 
+### Mid-Dialog Rule Inclusion: Limitations and Best Practices
+
+An important limitation to be aware of: context-aware `.mdc` rules work best when applied at the start of a new dialog. If you're in the middle of an existing conversation with Cursor IDE and suddenly need to apply a specialized rule (like database querying guidelines), the AI may not automatically access that rule file. This happens because Cursor has already established the context for your conversation and doesn't always re-evaluate which rules to apply mid-dialog.
+
+In these situations, I explicitly mention the rule I need: "Please follow our database querying guidelines for this task." This prompts Cursor to look for and apply the relevant rule. For critical tasks that rely on specific guidelines, I find it's more effective to start a fresh dialog where Cursor will automatically detect and apply all relevant context-aware rules from the beginning.
+
 ## Evolution of Cursor IDE Rules: From Global Settings to Context-Aware Systems
 
 My journey with Cursor IDE rules has evolved through several phases:
