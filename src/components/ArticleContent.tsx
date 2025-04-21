@@ -101,7 +101,7 @@ export default function ArticleContent({ htmlContent, className }: ArticleConten
   return (
     <div
       ref={contentRef}
-      className={`article-content ${className || ''}`}
+      className={`${styles.articleContent} ${className || ''}`}
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
