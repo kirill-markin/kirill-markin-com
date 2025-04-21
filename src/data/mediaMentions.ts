@@ -63,7 +63,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "3,500",
+    achievementValue: "3,700",
     achievementLabel: "views",
     isVideo: true
   },
