@@ -196,25 +196,25 @@ a.secondary {
   .mainPageContent {
     flex-direction: column;
   }
-  
+
   .leftColumn {
     display: block;
-    width: 100%!important;
+    width: 100% !important;
     border-right: none;
-    padding: 10px!important;
+    padding: 10px !important;
     text-align: center;
   }
-  
+
   .rightColumn {
     display: block;
-    width: 100%!important;
-    padding: 10px!important;
+    width: 100% !important;
+    padding: 10px !important;
   }
-  
+
   .mediaMentions {
     grid-template-columns: 1fr;
   }
-  
+
   .mediaMention.wide {
     grid-column: span 1;
   }
@@ -245,11 +245,12 @@ a.secondary {
 
 .articlesHeading {
   font-size: var(--font-size-large);
-  text-transform: none!important;
+  text-transform: none !important;
   margin-bottom: 1.5rem;
   position: relative;
   font-style: normal;
-  font-weight: 500;;
+  font-weight: 500;
+  ;
   letter-spacing: normal;
 }
 
@@ -276,18 +277,18 @@ a.secondary {
 .articlesHeading:hover .glitchLetter::before {
   animation: hacker-text-glitch 3s infinite linear alternate;
   left: 1px;
-  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
-              -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
-              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75),
+    -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
+    0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
 }
 
 .articlesHeading:hover .glitchLetter::after {
   animation: hacker-text-glitch 2s infinite linear alternate-reverse,
-            glitch-blocks 4s steps(1) infinite;
+    glitch-blocks 4s steps(1) infinite;
   left: -1px;
-  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), 
-              -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
-              0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+  text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75),
+    -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
+    0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
 }
 
 .mediaMentions {
@@ -351,10 +352,10 @@ a.secondary {
 .mediaMention:hover::before {
   animation: tech-noise-scanlines 0.8s steps(5) both;
   background: repeating-linear-gradient(0deg,
-          transparent 0%,
-          rgba(32, 128, 32, 0.02) 0.2%,
-          rgba(0, 255, 0, 0.05) 0.3%,
-          transparent 0.5%);
+      transparent 0%,
+      rgba(32, 128, 32, 0.02) 0.2%,
+      rgba(0, 255, 0, 0.05) 0.3%,
+      transparent 0.5%);
   background-size: 100% 2px;
   mix-blend-mode: screen;
   opacity: 0;
@@ -381,7 +382,7 @@ a.secondary {
   .mediaMention.wide {
     grid-column: span 1;
   }
-  
+
   .mediaMention.wideWithThumbnail {
     padding: 0 !important;
     aspect-ratio: auto;
@@ -392,7 +393,8 @@ a.secondary {
   }
 }
 
-.language, .type {
+.language,
+.type {
   position: absolute;
   background-color: var(--white);
   line-height: 13.20px;
@@ -530,21 +532,6 @@ a.secondary {
   object-fit: cover;
 }
 
-.mediaMention.video::after {
-  content: "";
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width: 3rem;
-  height: 3rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
-  z-index: 5;
-  pointer-events: none;
-}
-
 .achievement {
   display: flex;
   flex-direction: column;
@@ -572,6 +559,7 @@ a.secondary {
 }
 
 @media screen and (max-width: 768px) {
+
   .mediaMention.wide .thumbnailContainer,
   .mediaMention.wideWithThumbnail .thumbnailContainer {
     position: static;
@@ -622,21 +610,27 @@ a.secondary {
   0% {
     filter: none;
   }
+
   5% {
     filter: brightness(1.05);
   }
+
   10% {
     filter: brightness(1.1) contrast(1.15);
   }
+
   15% {
     filter: url('#data-corruption');
   }
+
   20% {
     filter: brightness(0.95) contrast(1.2);
   }
+
   25% {
     filter: url('#hacker-digital-corruption');
   }
+
   100% {
     filter: none;
   }
@@ -646,21 +640,27 @@ a.secondary {
   0% {
     filter: none;
   }
+
   5% {
     filter: none;
   }
+
   10% {
     filter: none;
   }
+
   15% {
     filter: none;
   }
+
   20% {
     filter: none;
   }
+
   25% {
     filter: none;
   }
+
   100% {
     filter: none;
   }
@@ -672,34 +672,42 @@ a.secondary {
     transform: scale(1);
     filter: none;
   }
+
   3% {
     transform: scale(1.004);
     filter: none;
   }
+
   5% {
     transform: scale(1.008);
     filter: brightness(1.05);
   }
+
   10% {
     transform: scale(1.01);
     filter: brightness(1.1) contrast(1.15);
   }
+
   15% {
     transform: scale(1.01);
     filter: url('#data-corruption');
   }
+
   20% {
     transform: scale(1.01);
     filter: brightness(0.95) contrast(1.2);
   }
+
   25% {
     transform: scale(1.01);
     filter: url('#hacker-digital-corruption');
   }
+
   30% {
     transform: scale(1.01);
     filter: brightness(1.05) contrast(1.1);
   }
+
   100% {
     transform: scale(1.01);
     filter: none;
@@ -711,21 +719,27 @@ a.secondary {
   0% {
     opacity: 0;
   }
+
   10% {
     opacity: 0.2;
   }
+
   30% {
     opacity: 0.4;
   }
+
   50% {
     opacity: 0.5;
   }
+
   70% {
     opacity: 0.3;
   }
+
   90% {
     opacity: 0.1;
   }
+
   100% {
     opacity: 0;
   }
@@ -736,18 +750,22 @@ a.secondary {
     opacity: 0;
     background-color: transparent;
   }
+
   10% {
     opacity: 0.1;
     background-color: rgba(255, 0, 0, 0.1);
   }
+
   25% {
     opacity: 0.2;
     background-color: rgba(0, 255, 0, 0.1);
   }
+
   40% {
     opacity: 0.1;
     background-color: rgba(0, 0, 255, 0.1);
   }
+
   100% {
     opacity: 0;
     background-color: transparent;
@@ -757,77 +775,113 @@ a.secondary {
 @keyframes hacker-text-glitch {
   0% {
     text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
-                 0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+      0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(0, 0) skew(0deg);
   }
+
   14% {
     text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75), -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
-                 0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
+      0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(-1px, 0) skew(0deg);
   }
+
   15% {
     text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), 0.025em 0.025em 0 rgba(255, 0, 255, 0.75),
-                -0.05em -0.05em 0 rgba(0, 140, 255, 0.75);
+      -0.05em -0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(1px, 0) skew(-5deg);
   }
+
   49% {
     text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), 0.025em 0.025em 0 rgba(255, 0, 255, 0.75),
-                -0.05em -0.05em 0 rgba(0, 140, 255, 0.75);
+      -0.05em -0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(0, 0) skew(0deg);
   }
+
   50% {
     text-shadow: 0.05em 0.025em 0 rgba(0, 255, 255, 0.75), 0.05em 0 0 rgba(255, 0, 255, 0.75),
-                 0 -0.05em 0 rgba(0, 140, 255, 0.75);
+      0 -0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(-2px, 0) skew(3deg);
   }
+
   74% {
     text-shadow: 0.05em 0.025em 0 rgba(0, 255, 255, 0.75), 0.05em 0 0 rgba(255, 0, 255, 0.75),
-                 0 -0.05em 0 rgba(0, 140, 255, 0.75);
+      0 -0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(0, 0) skew(0deg);
   }
+
   75% {
     text-shadow: -0.05em -0.025em 0 rgba(0, 255, 255, 0.75), -0.025em -0.025em 0 rgba(255, 0, 255, 0.75),
-                 -0.025em -0.025em 0 rgba(0, 140, 255, 0.75);
+      -0.025em -0.025em 0 rgba(0, 140, 255, 0.75);
     transform: translate(1px, -1px) skew(-3deg);
   }
+
   85% {
     text-shadow: 0.075em 0.035em 0 rgba(0, 255, 255, 0.75), 0 0 0 rgba(255, 0, 255, 0.75),
-                0.075em -0.05em 0 rgba(0, 140, 255, 0.75);
+      0.075em -0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(-1px, 0) skew(0deg);
   }
+
   100% {
     text-shadow: 0.075em 0.035em 0 rgba(0, 255, 255, 0.75), 0 0 0 rgba(255, 0, 255, 0.75),
-                0.075em -0.05em 0 rgba(0, 140, 255, 0.75);
+      0.075em -0.05em 0 rgba(0, 140, 255, 0.75);
     transform: translate(0, 0) skew(0deg);
   }
 }
 
 @keyframes glitch-blocks {
-  0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%, 45%, 50%, 55%, 
-  60%, 65%, 70%, 75%, 80%, 85%, 90%, 95%, 100% {
+
+  0%,
+  5%,
+  10%,
+  15%,
+  20%,
+  25%,
+  30%,
+  35%,
+  40%,
+  45%,
+  50%,
+  55%,
+  60%,
+  65%,
+  70%,
+  75%,
+  80%,
+  85%,
+  90%,
+  95%,
+  100% {
     box-shadow: none;
   }
+
   2% {
     box-shadow: 0.4em 0 0 rgba(255, 0, 255, 0.75), -0.1em -0.2em 0 rgba(0, 255, 255, 0.75);
   }
+
   13% {
     box-shadow: -0.1em -0.25em 0 rgba(0, 140, 255, 0.75), 0.4em 0 0 rgba(255, 0, 255, 0.75);
   }
+
   27% {
     box-shadow: 0.4em 0 0 rgba(255, 0, 255, 0.75), 0.2em 0.1em 0 rgba(0, 255, 255, 0.75);
   }
+
   42% {
     box-shadow: -0.2em 0 0 rgba(0, 140, 255, 0.75), -0.3em -0.1em 0 rgba(255, 0, 255, 0.75);
   }
+
   58% {
     box-shadow: 0.3em 0.1em 0 rgba(0, 255, 255, 0.75), 0.4em 0 0 rgba(0, 140, 255, 0.75);
   }
+
   72% {
     box-shadow: -0.2em -0.1em 0 rgba(255, 0, 255, 0.75), 0.1em 0.2em 0 rgba(0, 255, 255, 0.75);
   }
+
   87% {
     box-shadow: 0.3em 0.1em 0 rgba(0, 140, 255, 0.75), -0.4em 0 0 rgba(255, 0, 255, 0.75);
   }
+
   93% {
     box-shadow: 0.1em 0.4em 0 rgba(0, 255, 255, 0.75), -0.4em -0.3em 0 rgba(0, 140, 255, 0.75);
   }
@@ -835,27 +889,25 @@ a.secondary {
 
 /* Add name-scan-lines animation for the personalName effect */
 @keyframes name-scan-lines {
-  0%, 100% {
-    background: repeating-linear-gradient(
-      0deg,
-      transparent 0%, 
-      rgba(32, 128, 32, 0.02) 0.2%, 
-      rgba(0, 255, 0, 0.05) 0.3%,
-      transparent 0.5%
-    );
+
+  0%,
+  100% {
+    background: repeating-linear-gradient(0deg,
+        transparent 0%,
+        rgba(32, 128, 32, 0.02) 0.2%,
+        rgba(0, 255, 0, 0.05) 0.3%,
+        transparent 0.5%);
     background-size: 100% 2px;
     mix-blend-mode: screen;
     opacity: 0.5;
   }
-  
+
   50% {
-    background: repeating-linear-gradient(
-      0deg,
-      transparent 0%, 
-      rgba(32, 128, 32, 0.05) 0.2%, 
-      rgba(0, 255, 0, 0.1) 0.3%,
-      transparent 0.5%
-    );
+    background: repeating-linear-gradient(0deg,
+        transparent 0%,
+        rgba(32, 128, 32, 0.05) 0.2%,
+        rgba(0, 255, 0, 0.1) 0.3%,
+        transparent 0.5%);
     background-size: 100% 2px;
     mix-blend-mode: screen;
     opacity: 0.7;
