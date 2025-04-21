@@ -297,7 +297,7 @@ The most immediate benefit has been consistent code quality. By encoding my pref
 - Includes appropriate typing without constant reminders
 - Maintains consistent naming conventions throughout
 
-This translates to fewer review comments and less time spent on style fixes. One project saw a 47% reduction in style-related PRs comments after implementing these rules.
+This translates to fewer review comments and less time spent on style fixes. One project saw a 50% reduction in style-related PRs comments after implementing these rules.
 
 ### Enhanced Team Collaboration with Shared Cursor IDE Rules
 
