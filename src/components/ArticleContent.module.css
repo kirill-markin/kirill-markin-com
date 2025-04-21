@@ -1,3 +1,6 @@
+/* Import global variables */
+@import '../app/globals.css';
+
 .copyButton {
   position: absolute;
   top: 0.5rem;
@@ -45,17 +48,20 @@
 :global(.article-content table td) {
   padding: 0.75rem 1rem;
   text-align: left;
-  border: 1px solid var(--dark-gray);
+  border: 1px solid #232323;
+  /* Hardcoded value instead of var(--dark-gray) */
 }
 
 :global(.article-content table th) {
   background-color: #f5f5f5;
   font-weight: 600;
-  color: var(--dark-gray);
+  color: #232323;
+  /* Hardcoded value instead of var(--dark-gray) */
 }
 
 :global(.article-content table tr) {
-  border-bottom: 1px solid var(--dark-gray);
+  border-bottom: 1px solid #232323;
+  /* Hardcoded value instead of var(--dark-gray) */
 }
 
 :global(.article-content table tr:nth-child(even)) {
