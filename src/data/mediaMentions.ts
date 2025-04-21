@@ -55,15 +55,15 @@ export const mediaMentions: MediaMention[] = [
     isVideo: true
   },
   {
-    title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
-    url: "https://youtu.be/eOSfeBIBzr0?si=kbJlYFZQtdDR8Ipo",
-    publisher: "Youtube",
-    date: "2025-02-18",
+    title: "How to\u00A0write code with\u00A0AI, ChatGPT? From\u00A0scratch to\u00A068 GitHub stars",
+    url: "https://youtu.be/9MyJJRMRCW0?si=T2o6DG8iSBheMFfG",
+    publisher: "Kirill Markin",
+    date: "2024-01-21",
     type: "Video",
     language: "en",
-    thumbnailUrl: "/articles/youtube-2025-02-18.webp",
+    thumbnailUrl: "/articles/kirill-2024-01-21.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "3,700",
+    achievementValue: "5,100",
     achievementLabel: "views",
     isVideo: true
   },
@@ -78,15 +78,15 @@ export const mediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/verigram.png"
   },
   {
-    title: "How to\u00A0write code with\u00A0AI, ChatGPT? From\u00A0scratch to\u00A068 GitHub stars",
-    url: "https://youtu.be/9MyJJRMRCW0?si=T2o6DG8iSBheMFfG",
-    publisher: "Kirill Markin",
-    date: "2024-01-21",
+    title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
+    url: "https://youtu.be/eOSfeBIBzr0?si=kbJlYFZQtdDR8Ipo",
+    publisher: "Youtube",
+    date: "2025-02-18",
     type: "Video",
     language: "en",
-    thumbnailUrl: "/articles/kirill-2024-01-21.webp",
+    thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "5,100",
+    achievementValue: "3,700",
     achievementLabel: "views",
     isVideo: true
   },
