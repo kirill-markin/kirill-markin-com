@@ -92,6 +92,8 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 </cursorrules_instructions_to_the_dialog>
 ```
 
+![Cursor IDE global rules configuration in Settings panel](/articles/cursor-ide-rules-global.webp)
+
 ## Maximizing Efficiency with Multi-Level Cursor IDE Rules Strategy
 
 When working with Cursor IDE's AI features, I've found it's crucial to optimize rules across all three levels. The key insight? Minimize the number of tokens (symbols) sent to the language model in each dialog. Fewer tokens for context means more capacity for generating quality responses.
@@ -117,6 +119,8 @@ To show how I implement Cursor rules across different projects, here are some re
 
 My `.cursorrules` files work like a README.md specifically designed for AI assistants. They provide context about the project's purpose, architecture, and coding patterns.
 
+![Repository-level .cursorrules file example](/articles/cursor-ide-rules-repo.webp)
+
 #### Production Repository Examples with Cursor Rules
 
 1. **[repo-to-text](https://github.com/kirill-markin/repo-to-text/blob/main/.cursorrules)**: This utility for converting repositories to text includes rules explaining the project's purpose, architecture decisions, and code patterns to follow.
@@ -126,6 +130,8 @@ My `.cursorrules` files work like a README.md specifically designed for AI assis
 ### Context-Sensitive .cursor/*.mdc Files: When and How to Use Them
 
 When repository-level rules get too extensive, I split them into context-specific `.cursor/*.mdc` files that only activate when relevant.
+
+![Context-specific rules in the Project Rules section](/articles/cursor-ide-rules-specific.webp)
 
 #### Task-Specific Rules Implementation Example
 
