@@ -20,7 +20,9 @@ Cursor IDE implements three levels of AI rules:
 
 I'm sharing my base-level rules here - the global settings I use in Cursor IDE. These rules form the foundation for all my development work. When combined with repository-level and dynamic rules, they create a powerful system that maintains code quality while keeping my development practices consistent.
 
-## Cursor -> Settings -> Cursor Settings -> Rules for AI:
+## Optimizing AI Coding with Custom Rules Configuration
+
+Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 ```markdown
 <cursorrules_instructions_to_the_dialog>
