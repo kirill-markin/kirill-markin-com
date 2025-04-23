@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import styles from './PersonalInfo.module.css';
 import { personalInfo } from '../../data/personalInfo';
@@ -13,11 +13,30 @@ interface PersonalInfoProps {
 const PersonalInfo: React.FC<PersonalInfoProps> = ({
   showContactButtons = true
 }) => {
-  // State to track the toggle between angel and devil images
-  const [toggleState, setToggleState] = useState(false);
+  // State to track which image to show (false = angel, true = devil)
+  const [showDevil, setShowDevil] = useState(false);
+  // Track hover state
+  const [isHovering, setIsHovering] = useState(false);
+  // Track if this is first hover
+  const isFirstHover = useRef(true);
   
-  const handleToggle = () => {
-    setToggleState(prev => !prev);
+  // Handle mouse enter
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    
+    if (isFirstHover.current) {
+      // First hover always shows angel
+      setShowDevil(false);
+      isFirstHover.current = false;
+    } else {
+      // Subsequent hovers alternate between angel and devil
+      setShowDevil(prev => !prev);
+    }
+  };
+
+  // Handle mouse leave
+  const handleMouseLeave = () => {
+    setIsHovering(false);
   };
 
   return (
@@ -30,8 +49,11 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
       </div>
       <div className={styles.personalContacts}>
         <div className={styles.avatarAndTitles}>
-          <div className={styles.profileImageContainer}>
-            <div className={styles.toggleTrigger} onClick={handleToggle}></div>
+          <div 
+            className={styles.profileImageContainer}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <Image
               src={personalInfo.image}
               alt={`Picture of ${personalInfo.name}`}
@@ -45,7 +67,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             <Image
               src="/avatars/kirill-angel.webp"
               alt="Angel effect"
-              className={`${styles.profileImage} ${styles.angelImage} ${!toggleState ? styles.activeEffect : ''}`}
+              className={`${styles.profileImage} ${styles.angelImage} ${isHovering && !showDevil ? styles.activeEffect : ''}`}
               width={300}
               height={300}
               sizes="(max-width: 768px) 150px, 300px"
@@ -54,7 +76,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             <Image
               src="/avatars/kirill-devil.webp"
               alt="Devil effect"
-              className={`${styles.profileImage} ${styles.devilImage} ${toggleState ? styles.activeEffect : ''}`}
+              className={`${styles.profileImage} ${styles.devilImage} ${isHovering && showDevil ? styles.activeEffect : ''}`}
               width={300}
               height={300}
               sizes="(max-width: 768px) 150px, 300px"
