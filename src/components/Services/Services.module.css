@@ -225,6 +225,21 @@
   opacity: 0;
 }
 
+.serviceCard:hover .serviceImage {
+  transform: none;
+  animation: clean-glitch-image 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.serviceCard:hover .serviceCardContent {
+  animation: tech-text-glitch 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.serviceCard:hover h3,
+.serviceCard:hover .serviceShortDescription {
+  text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+  animation: tech-text-glitch 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
 .serviceCardCategory {
   position: absolute;
   top: 0;
@@ -258,11 +273,6 @@
   height: 100%;
   object-fit: cover;
   max-width: 100%;
-}
-
-.serviceCard:hover .serviceImage {
-  transform: none;
-  animation: clean-glitch-image 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .serviceCardContent {
@@ -382,7 +392,7 @@
   background-color: var(--medium-gray);
 }
 
-/* Add glitch animation keyframes if they don't exist in the global CSS */
+/* Update animation keyframes */
 @keyframes clean-glitch-image {
   0% {
     filter: none;
@@ -392,24 +402,65 @@
     filter: brightness(1.05);
   }
 
-  10% {
-    filter: brightness(1.1) contrast(1.15);
+  8% {
+    filter: url('#scan-lines');
   }
 
   15% {
-    filter: url('#data-corruption');
+    filter: brightness(1.1) contrast(1.2);
   }
 
-  20% {
-    filter: brightness(0.95) contrast(1.2);
+  18% {
+    filter: url('#glitch-filter');
   }
 
   25% {
-    filter: url('#hacker-digital-corruption');
+    filter: brightness(0.95) contrast(1.15) saturate(1.1);
+  }
+
+  30% {
+    filter: url('#profile-noise-filter');
+  }
+
+  40% {
+    filter: brightness(1.05);
   }
 
   100% {
     filter: none;
+  }
+}
+
+@keyframes tech-text-glitch {
+  0%,
+  100% {
+    text-shadow: none;
+    color: var(--dark-gray);
+  }
+
+  10% {
+    text-shadow: 0.5px 0 #00ffaa, -0.5px 0 #ff2222;
+    color: var(--dark-gray);
+  }
+
+  15% {
+    text-shadow: -0.5px 0 #00ffaa, 0.5px 0 #ff2222;
+    color: #323232;
+  }
+
+  18% {
+    text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+    color: #1a1a1a;
+  }
+
+  25% {
+    text-shadow: 0.75px 0 #0088ff, -0.75px 0 #ff0000;
+    color: #0e0e0e;
+  }
+
+  35% {
+    text-shadow: none;
+    color: var(--dark-gray);
   }
 }
 
@@ -461,59 +512,95 @@
 }
 
 @keyframes tech-noise-scanlines {
-  0% {
+  0%,
+  100% {
     opacity: 0;
+    background-position: 0 0;
+    transform: translateY(0);
   }
 
   10% {
-    opacity: 0.2;
+    opacity: 0.4;
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+
+  15% {
+    opacity: 0.5;
+    background-position: 0 -5%;
+    transform: translateY(1px);
+  }
+
+  20% {
+    opacity: 0.45;
+    background-position: 0 -10%;
+    transform: translateY(-2px);
+  }
+
+  25% {
+    opacity: 0.6;
+    background-position: 0 20%;
+    transform: translateY(0);
   }
 
   30% {
     opacity: 0.4;
+    background-position: 0 -15%;
+    transform: translateY(1px);
   }
 
-  50% {
+  35% {
     opacity: 0.5;
+    background-position: 0 10%;
+    transform: translateY(-1px);
   }
 
-  70% {
-    opacity: 0.3;
-  }
-
-  90% {
-    opacity: 0.1;
-  }
-
-  100% {
+  40% {
     opacity: 0;
+    transform: translateY(0);
   }
 }
 
 @keyframes tech-rgb-shift {
-  0% {
+  0%,
+  100% {
     opacity: 0;
-    background-color: transparent;
   }
 
   10% {
-    opacity: 0.1;
-    background-color: rgba(255, 0, 0, 0.1);
+    opacity: 0.5;
+    background: linear-gradient(90deg,
+        rgba(255, 0, 0, 0.1) -10%,
+        transparent 20%,
+        transparent 80%,
+        rgba(0, 0, 255, 0.1) 110%);
   }
 
-  25% {
-    opacity: 0.2;
-    background-color: rgba(0, 255, 0, 0.1);
+  15% {
+    opacity: 0.4;
+    background: linear-gradient(90deg,
+        rgba(0, 255, 0, 0.1) -5%,
+        transparent 30%,
+        transparent 70%,
+        rgba(255, 0, 0, 0.1) 105%);
+  }
+
+  20% {
+    opacity: 0.5;
+    background: linear-gradient(90deg,
+        rgba(0, 0, 255, 0.1) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(0, 255, 0, 0.1) 100%);
+  }
+
+  30% {
+    opacity: 0.3;
+    background: none;
   }
 
   40% {
-    opacity: 0.1;
-    background-color: rgba(0, 0, 255, 0.1);
-  }
-
-  100% {
     opacity: 0;
-    background-color: transparent;
   }
 }
 
