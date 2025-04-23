@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import Script from "next/script";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import EmojiBubbles from "@/components/EmojiBubbles";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -110,6 +111,7 @@ export default function RootLayout({
         <Breadcrumbs />
         <main>{children}</main>
         <Footer />
+        <EmojiBubbles />
       </body>
     </html>
   );
