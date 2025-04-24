@@ -8,7 +8,7 @@ import PersonalInfo from '../components/PersonalInfo';
 import type { Metadata } from 'next';
 
 // Update placeholder image constant
-const PLACEHOLDER_IMAGE = '/articles/articles-screen-saver-1.png';
+const PLACEHOLDER_IMAGE = '/articles/preview-main.webp';
 
 export const metadata: Metadata = {
   title: "Kirill Markin - Consultant and Software Architect",
@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/avatars/Kirill-Markin.webp',
-        width: 300,
-        height: 300,
-        alt: 'Kirill Markin',
+        url: '/articles/preview-main.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Kirill Markin - Consultant and Software Architect',
       }
     ],
     siteName: 'Kirill Markin',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Kirill Markin - Consultant and Software Architect",
     description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
-    images: ['/avatars/Kirill-Markin.webp'],
+    images: ['/articles/preview-main.webp'],
   },
   alternates: {
     canonical: 'https://kirill-markin.com/',
