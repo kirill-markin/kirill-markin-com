@@ -1216,3 +1216,28 @@
   text-transform: none;
   letter-spacing: normal;
 }
+
+/* Mobile social share container */
+.mobileShareContainer {
+  display: none;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border: 1px solid var(--dark-gray);
+  border-radius: 0;
+  text-align: center;
+}
+
+.shareTitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+/* Only show on mobile */
+@media screen and (max-width: 1200px) {
+  .mobileShareContainer {
+    display: block;
+  }
+}

@@ -7,6 +7,7 @@ import { markdownToHtml } from '@/lib/markdown';
 import styles from '../articles.module.css';
 import ArticleContent from '@/components/ArticleContent';
 import ArticleJsonLd from '@/components/ArticleJsonLd';
+import SocialShare from '@/components/SocialShare';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -88,8 +89,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className={styles.articlePageContainer}>
-
       <ArticleJsonLd article={article} url={canonicalUrl} />
+
+      {/* Fixed social share buttons */}
+      <SocialShare url={canonicalUrl} title={article.metadata.title} variant="fixed" />
 
       <article className={styles.articleContainer}>
         <header className={styles.articleHeader}>
@@ -124,6 +127,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           htmlContent={htmlContent}
           className={styles.articleContent}
         />
+
+        {/* Mobile social share buttons */}
+        <div className={styles.mobileShareContainer}>
+          <h3 className={styles.shareTitle}>Share this article</h3>
+          <SocialShare url={canonicalUrl} title={article.metadata.title} variant="inline" />
+        </div>
 
         {/* Related Articles Section */}
         {relatedArticles.length > 0 && (
