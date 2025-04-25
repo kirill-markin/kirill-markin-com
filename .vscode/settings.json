@@ -32,6 +32,5 @@
     "typescriptreact"
   ],
   "eslint.run": "onType",
-  "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true
+  "editor.formatOnSave": true
 }
