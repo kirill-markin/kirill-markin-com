@@ -529,8 +529,6 @@ But the most remarkable visualization was the animated 3D scatter plot we create
 
 This is the power of interactive data visualization—it transforms abstract numbers into intuitive, visceral understanding.
 
-If you're interested in deeper data preprocessing techniques, the [scikit-learn preprocessing documentation](https://scikit-learn.org/stable/modules/preprocessing.html) offers valuable insights into transforming and normalizing your data for optimal analysis.
-
 ## Sharing Our Discoveries: From Analysis to Presentation
 
 After uncovering these insights, I needed to share my findings with colleagues who don't have Python or Jupyter installed. This is where the export capabilities of the Jupyter extension become invaluable.

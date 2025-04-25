@@ -125,6 +125,8 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 When working with Cursor IDE's AI features, I've found it's crucial to optimize rules across all three levels. The key insight? Minimize the number of tokens (symbols) sent to the language model in each dialog. Fewer tokens for context means more capacity for generating quality responses.
 
+For more information on how rules work in Cursor, check out the [official Cursor documentation on Rules for AI](https://docs.cursor.com/context/rules).
+
 ### 3-Step Implementation Flow for Cursor IDE Rules
 
 1. **Start with IDE-Level Settings Only**  
