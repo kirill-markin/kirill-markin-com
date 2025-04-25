@@ -32,12 +32,11 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Prefer functional programming over OOP
 - Use separate OOP classes only for connectors and interfaces to external systems
 - Write all other logic with pure functions (clear input/output, no hidden state changes)
-- Avoid hidden state changes and magic class variables
+- Functions must ONLY modify their return values - never modify input parameters, global state, or any data not explicitly returned
 - Make minimal, focused changes
 - Follow DRY, KISS, and YAGNI principles
 - Use strict typing (function returns, variables) in all languages
 - Use named parameters in function calls when possible
-- Functions should only modify return values, never input parameters
 - No duplicate code; check if some logic is already written before writing it
 - Avoid unnecessary wrapper functions without clear purpose
 - Prefer strongly-typed collections over generic ones when dealing with complex data structures
@@ -49,8 +48,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 <cursorrules_error_handling>
 - Always raise errors explicitly, never silently ignore them
-- If an error occurs in any logical part of code, raise it immediately
-- Do not continue execution after encountering an error condition
+- If an error occurs in any logical part of code, raise it immediately and do not continue execution
 - Use specific error types that clearly indicate what went wrong
 - Avoid catch-all exception handlers that hide the root cause
 - Error messages should be clear and actionable
@@ -63,7 +61,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Use `pyproject.toml` over `requirements.txt` when possible
 - For complex structures, avoid generic collections like `List[Dict[str, Any]]`
 - Raise specific exceptions like `ValueError` or `TypeError` instead of generic `Exception`
-- Create classes (OOP) only for clients that connect to external systems (e.g., `notion_client.py`)
+- Only use classes for clients that connect to external systems (e.g., `NotionClient`)
 - For business logic, use pure functions with client as first parameter: `def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
 </cursorrules_python_specifics>
 
