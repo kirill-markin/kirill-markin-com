@@ -89,7 +89,34 @@
   
   .shareButtons {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 1rem;
+  }
+  
+  .shareButton {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Additional responsive adjustments for very small screens */
+@media (max-width: 400px) {
+  .shareButtons {
+    gap: 0.8rem;
+  }
+  
+  .shareButton {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .iconContainer {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
   }
 } 
