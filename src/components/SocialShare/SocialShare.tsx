@@ -38,6 +38,12 @@ const platforms = [
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
   },
   {
+    name: 'WhatsApp',
+    icon: '/social/svg/whatsapp.svg',
+    shareUrl: (url: string, title: string) => 
+      `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`
+  },
+  {
     name: 'Telegram',
     icon: '/social/svg/telegram.svg',
     shareUrl: (url: string, title: string) => 
