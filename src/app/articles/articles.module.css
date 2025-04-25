@@ -593,6 +593,7 @@
 }
 
 @keyframes tech-text-glitch {
+
   0%,
   100% {
     text-shadow: none;
@@ -673,6 +674,7 @@
 }
 
 @keyframes tech-noise-scanlines {
+
   0%,
   100% {
     opacity: 0;
@@ -723,6 +725,7 @@
 }
 
 @keyframes tech-rgb-shift {
+
   0%,
   100% {
     opacity: 0;
@@ -1239,5 +1242,24 @@
 @media screen and (max-width: 1200px) {
   .mobileShareContainer {
     display: block;
+  }
+}
+
+.desktopAuthorBlock {
+  display: block;
+}
+
+.mobileAuthorBlock {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .desktopAuthorBlock {
+    display: none;
+  }
+
+  .mobileAuthorBlock {
+    display: block;
+    margin: 40px 0 0;
   }
 }

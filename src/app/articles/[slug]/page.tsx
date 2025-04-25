@@ -8,6 +8,7 @@ import styles from '../articles.module.css';
 import ArticleContent from '@/components/ArticleContent';
 import ArticleJsonLd from '@/components/ArticleJsonLd';
 import SocialShare from '@/components/SocialShare';
+import AuthorBlock from '@/components/AuthorBlock';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -128,12 +129,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           className={styles.articleContent}
         />
 
-        {/* Mobile social share buttons */}
-        <div className={styles.mobileShareContainer}>
-          <h3 className={styles.shareTitle}>Share this article</h3>
-          <SocialShare url={canonicalUrl} title={article.metadata.title} variant="inline" />
-        </div>
-
         {/* Related Articles Section */}
         {relatedArticles.length > 0 && (
           <div className={styles.relatedArticlesSection}>
@@ -218,6 +213,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           </div>
         )}
+
+        {/* Single AuthorBlock instance controlled by CSS */}
+        <AuthorBlock />
+
+        {/* Mobile social share buttons */}
+        <div className={styles.mobileShareContainer}>
+          <h3 className={styles.shareTitle}>Share this article</h3>
+          <SocialShare url={canonicalUrl} title={article.metadata.title} variant="inline" />
+        </div>
+
       </article>
     </div>
   );
