@@ -327,23 +327,20 @@ As you become comfortable with basic rule structures, try these advanced techniq
 
 I've found specialized rule files particularly effective for these scenarios:
 
-#### Testing Rules for Cursor IDE AI
+#### Testing Rules (`test-guidelines.mdc`)
 
-**Testing Rules (`test-guidelines.mdc`):**
 - Test naming patterns
 - Mocking strategy guidelines
 - Test coverage expectations
 
-#### API Integration Rules with Cursor IDE
+#### API Integration Rules (`api-standards.mdc`)
 
-**API Integration Rules (`api-standards.mdc`):**
 - Error handling expectations
 - Retry logic patterns
 - Authentication flow standards
 
-#### State Management Rules for Frontend Projects
+#### State Management Rules (`state-patterns.mdc`)
 
-**State Management Rules (`state-patterns.mdc`):**
 - Redux action naming conventions
 - State normalization guidelines
 - Side-effect handling patterns
