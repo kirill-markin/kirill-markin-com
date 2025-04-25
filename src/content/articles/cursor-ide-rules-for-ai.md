@@ -6,7 +6,7 @@ tags: [productivity, cursor-ide, ai]
 aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
-lastmod: 2025-04-25
+lastmod: 2025-04-29
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 ---
 
@@ -40,12 +40,29 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Functions should only modify return values, never input parameters
 - No duplicate code; check if some logic is already written before writing it
 - Avoid unnecessary wrapper functions without clear purpose
+- Prefer strongly-typed collections over generic ones when dealing with complex data structures
+- Consider creating proper type definitions for non-trivial data structures
+- Native types are fine for simple data structures, but use proper models for complex ones
+- Try to avoid using untyped variables and generic types where possible
 
 <cursorrules_python_specifics>
 - Prefer Pydantic over TypedDict
 - Avoid `Any` and `@staticmethod`
 - Use `pyproject.toml` over `requirements.txt` when possible
+- Try to avoid generic collections with Any (e.g., `List[Dict[str, Any]]`, `Dict[str, Any]`) for complex structures
+- Consider creating Pydantic models for non-trivial data (e.g., `class ContactData(BaseModel): ...`)
+- Basic types are fine for simple data structures
+- Use type annotations when they improve code clarity
 </cursorrules_python_specifics>
+
+<cursorrules_typescript_specifics>
+- Prefer interfaces over type aliases for complex object shapes
+- Try to avoid `any` when possible
+- Consider adding types for complex data structures and function parameters
+- Native types are appropriate for simple data
+- Use TypeScript's inference when it provides sufficient clarity
+- Consider typed objects for complex state management
+</cursorrules_typescript_specifics>
 
 </cursorrules_code_style>
 
@@ -53,8 +70,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Install in virtual environments, not globally
 - Add to project configs, not one-off installs
 - Use source code exploration for understanding
-- NEVER install single packages directly (e.g., `pip install pydantic`) 
-- ALWAYS use project-level dependency management:
+- Prefer project-level dependency management over individual package installation:
   - GOOD: `pip install -r requirements.txt`
   - BETTER: Use `pyproject.toml` with modern Python packaging
 - When adding dependencies, update the appropriate project configuration file, not just the environment
