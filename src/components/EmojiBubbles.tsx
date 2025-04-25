@@ -2,16 +2,31 @@
 
 import { useState } from 'react';
 import styles from './EmojiBubbles.module.css';
+import { trackGtmEvent } from '@/lib/gtm';
 
 export default function EmojiBubbles() {
   const [activeEmoji, setActiveEmoji] = useState<'none' | 'angel' | 'devil'>('none');
 
   const handleAngelClick = () => {
-    setActiveEmoji(activeEmoji === 'angel' ? 'none' : 'angel');
+    const newState = activeEmoji === 'angel' ? 'none' : 'angel';
+    setActiveEmoji(newState);
+
+    if (newState === 'angel') {
+      trackGtmEvent({
+        event: 'emoji_click_angel'
+      });
+    }
   };
 
   const handleDevilClick = () => {
-    setActiveEmoji(activeEmoji === 'devil' ? 'none' : 'devil');
+    const newState = activeEmoji === 'devil' ? 'none' : 'devil';
+    setActiveEmoji(newState);
+
+    if (newState === 'devil') {
+      trackGtmEvent({
+        event: 'emoji_click_devil'
+      });
+    }
   };
 
   const handleOverlayClick = () => {
@@ -21,7 +36,7 @@ export default function EmojiBubbles() {
   return (
     <div className={styles.emojiBubbles}>
       {/* Angel Emoji (Right Corner) */}
-      <div 
+      <div
         className={`${styles.emojiContainer} ${styles.angel}`}
         onClick={handleAngelClick}
       >
@@ -30,9 +45,9 @@ export default function EmojiBubbles() {
         </div>
         <span role="img" aria-label="Angel emoji">😇</span>
       </div>
-      
+
       {/* Devil Emoji (Left Corner) */}
-      <div 
+      <div
         className={`${styles.emojiContainer} ${styles.devil}`}
         onClick={handleDevilClick}
       >
@@ -41,10 +56,10 @@ export default function EmojiBubbles() {
         </div>
         <span role="img" aria-label="Devil emoji">😈</span>
       </div>
-      
+
       {/* Overlay for catching clicks outside emojis */}
       {activeEmoji !== 'none' && (
-        <div 
+        <div
           className={styles.emojiOverlay}
           onClick={handleOverlayClick}
         />
