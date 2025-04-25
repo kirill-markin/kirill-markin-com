@@ -6,7 +6,7 @@ tags: [productivity]
 aliases: [content-distribution, social-media-strategy]
 related: [posts/2025-02-08-cursor-ide-setup-and-workflow]
 publish: true
-lastmod: 2025-04-19
+lastmod: 2025-04-25
 thumbnailUrl: "/articles/content-distribution-strategy.webp"
 ---
 
