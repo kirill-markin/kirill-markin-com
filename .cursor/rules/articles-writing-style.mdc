@@ -1,6 +1,6 @@
 ---
 description: 
-globs: src/content/articles/*
+globs: src/content/articles/**
 alwaysApply: false
 ---
 # Business-Casual-Plus Writing Style Guide
