@@ -35,14 +35,57 @@
   margin-bottom: 1rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: none;
   min-height: 100px;
+  position: relative;
+  background-color: #ffffff;
 }
 
 .paymentMethod:hover {
-  background-color: var(--dark-gray);
-  color: var(--light-gray);
-  animation: cleanGlitchEffect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  background-color: var(--white);
+  animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.paymentMethod:hover::before,
+.paymentMethod:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.paymentMethod:hover::before {
+  animation: tech-noise-scanlines 0.8s steps(5) both;
+  background: repeating-linear-gradient(0deg,
+      transparent 0%,
+      rgba(32, 128, 32, 0.02) 0.2%,
+      rgba(0, 255, 0, 0.05) 0.3%,
+      transparent 0.5%);
+  background-size: 100% 2px;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.paymentMethod:hover::after {
+  animation: tech-rgb-shift 0.8s steps(3) both;
+  background-color: transparent;
+  mix-blend-mode: exclusion;
+  opacity: 0;
+}
+
+.paymentMethod:hover .paymentMethodDetails h2,
+.paymentMethod:hover .paymentMethodDetails p {
+  text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+  animation: tech-text-glitch 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.paymentMethod:hover .stripeLogo {
+  filter: none;
+  animation: clean-glitch-image 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .paymentMethodLogo {
@@ -62,19 +105,11 @@
   transition: filter 0.3s ease;
 }
 
-.paymentMethod:hover .stripeLogo {
-  filter: brightness(0) invert(1);
-}
-
 .paymentMethodDetails h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--dark-gray);
-}
-
-.paymentMethod:hover .paymentMethodDetails h2 {
-  color: var(--light-gray);
 }
 
 .paymentMethodDetails p {
@@ -83,43 +118,217 @@
   font-size: var(--font-size-base);
 }
 
-.paymentMethod:hover .paymentMethodDetails p {
-  color: var(--light-gray);
+@keyframes clean-glitch-effect {
+  0% {
+    transform: scale(1);
+    filter: none;
+  }
+
+  3% {
+    transform: scale(1.004);
+    filter: none;
+  }
+
+  5% {
+    transform: scale(1.008);
+    filter: brightness(1.05);
+  }
+
+  10% {
+    transform: scale(1.01);
+    filter: brightness(1.1) contrast(1.15);
+  }
+
+  15% {
+    transform: scale(1.01);
+    filter: url('#data-corruption');
+  }
+
+  20% {
+    transform: scale(1.01);
+    filter: brightness(0.95) contrast(1.2);
+  }
+
+  25% {
+    transform: scale(1.01);
+    filter: url('#hacker-digital-corruption');
+  }
+
+  30% {
+    transform: scale(1.01);
+    filter: brightness(1.05) contrast(1.1);
+  }
+
+  100% {
+    transform: scale(1.01);
+    filter: none;
+  }
 }
 
-@keyframes cleanGlitchEffect {
+@keyframes clean-glitch-image {
   0% {
-    transform: translate(0);
+    filter: none;
   }
-  10% {
-    transform: translate(-2px, -2px);
+
+  5% {
+    filter: brightness(1.05);
   }
-  20% {
-    transform: translate(2px, -2px);
+
+  8% {
+    filter: url('#scan-lines');
   }
+
+  15% {
+    filter: brightness(1.1) contrast(1.2);
+  }
+
+  18% {
+    filter: url('#glitch-filter');
+  }
+
+  25% {
+    filter: brightness(0.95) contrast(1.15) saturate(1.1);
+  }
+
   30% {
-    transform: translate(-2px, 2px);
+    filter: url('#profile-noise-filter');
   }
+
   40% {
-    transform: translate(2px, 2px);
+    filter: brightness(1.05);
   }
-  50% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, -2px);
-  }
-  70% {
-    transform: translate(-2px, 2px);
-  }
-  80% {
-    transform: translate(-2px, -2px);
-  }
-  90% {
-    transform: translate(2px, -2px);
-  }
+
   100% {
-    transform: translate(0);
+    filter: none;
+  }
+}
+
+@keyframes tech-text-glitch {
+
+  0%,
+  100% {
+    text-shadow: none;
+    color: var(--dark-gray);
+  }
+
+  10% {
+    text-shadow: 0.5px 0 #00ffaa, -0.5px 0 #ff2222;
+    color: var(--dark-gray);
+  }
+
+  15% {
+    text-shadow: -0.5px 0 #00ffaa, 0.5px 0 #ff2222;
+    color: #323232;
+  }
+
+  18% {
+    text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+    color: #1a1a1a;
+  }
+
+  25% {
+    text-shadow: 0.75px 0 #0088ff, -0.75px 0 #ff0000;
+    color: #0e0e0e;
+  }
+
+  35% {
+    text-shadow: none;
+    color: var(--dark-gray);
+  }
+}
+
+@keyframes tech-noise-scanlines {
+
+  0%,
+  100% {
+    opacity: 0;
+    background-position: 0 0;
+    transform: translateY(0);
+  }
+
+  10% {
+    opacity: 0.4;
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+
+  15% {
+    opacity: 0.5;
+    background-position: 0 -5%;
+    transform: translateY(1px);
+  }
+
+  20% {
+    opacity: 0.45;
+    background-position: 0 -10%;
+    transform: translateY(-2px);
+  }
+
+  25% {
+    opacity: 0.6;
+    background-position: 0 20%;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 0.4;
+    background-position: 0 -15%;
+    transform: translateY(1px);
+  }
+
+  35% {
+    opacity: 0.5;
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+
+  40% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tech-rgb-shift {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+    background: linear-gradient(90deg,
+        rgba(255, 0, 0, 0.1) -10%,
+        transparent 20%,
+        transparent 80%,
+        rgba(0, 0, 255, 0.1) 110%);
+  }
+
+  15% {
+    opacity: 0.4;
+    background: linear-gradient(90deg,
+        rgba(0, 255, 0, 0.1) -5%,
+        transparent 30%,
+        transparent 70%,
+        rgba(255, 0, 0, 0.1) 105%);
+  }
+
+  20% {
+    opacity: 0.5;
+    background: linear-gradient(90deg,
+        rgba(0, 0, 255, 0.1) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(0, 255, 0, 0.1) 100%);
+  }
+
+  30% {
+    opacity: 0.3;
+    background: none;
+  }
+
+  40% {
+    opacity: 0;
   }
 }
 
@@ -127,11 +336,11 @@
   .paymentOptionsContainer h1 {
     font-size: calc(var(--font-size-large) - 0.3rem);
   }
-  
+
   .paymentMethod {
     padding: 1rem;
   }
-  
+
   .paymentMethodLogo {
     margin-right: 1rem;
   }
