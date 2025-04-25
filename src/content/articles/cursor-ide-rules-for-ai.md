@@ -6,7 +6,7 @@ tags: [productivity, cursor-ide, ai]
 aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
-lastmod: 2025-04-21
+lastmod: 2025-04-25
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 ---
 
@@ -53,6 +53,11 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Install in virtual environments, not globally
 - Add to project configs, not one-off installs
 - Use source code exploration for understanding
+- NEVER install single packages directly (e.g., `pip install pydantic`) 
+- ALWAYS use project-level dependency management:
+  - GOOD: `pip install -r requirements.txt`
+  - BETTER: Use `pyproject.toml` with modern Python packaging
+- When adding dependencies, update the appropriate project configuration file, not just the environment
 </cursorrules_libraries_and_dependencies>
 
 <cursorrules_terminal_usage>
