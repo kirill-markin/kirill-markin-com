@@ -44,6 +44,17 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Consider creating proper type definitions for non-trivial data structures
 - Native types are fine for simple data structures, but use proper models for complex ones
 - Try to avoid using untyped variables and generic types where possible
+- Never use default parameter values in function definitions - make all parameters explicit
+
+<cursorrules_error_handling>
+- Always raise errors explicitly, never silently ignore them
+- If an error occurs in any logical part of code, raise it immediately
+- Do not continue execution after encountering an error condition
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide the root cause
+- Error messages should be clear and actionable
+- Log errors with appropriate context before raising them
+</cursorrules_error_handling>
 
 <cursorrules_python_specifics>
 - Prefer Pydantic over TypedDict
@@ -53,6 +64,8 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Consider creating Pydantic models for non-trivial data (e.g., `class ContactData(BaseModel): ...`)
 - Basic types are fine for simple data structures
 - Use type annotations when they improve code clarity
+- Avoid defaults in function parameters - all arguments should be explicitly passed
+- Raise specific exceptions (not generic Exception) with descriptive messages
 </cursorrules_python_specifics>
 
 <cursorrules_typescript_specifics>
@@ -62,6 +75,8 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Native types are appropriate for simple data
 - Use TypeScript's inference when it provides sufficient clarity
 - Consider typed objects for complex state management
+- No default values for function parameters - require all parameters to be explicitly provided
+- Use Error objects with descriptive messages rather than string-only errors
 </cursorrules_typescript_specifics>
 
 </cursorrules_code_style>
