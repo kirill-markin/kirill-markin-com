@@ -10,10 +10,10 @@ const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
  */
 function cleanDescription(description: string | undefined): string {
   if (!description) return '';
-  
+
   // Remove markdown heading symbols (##)
   const withoutHeadingMarkers = description.replace(/^#+\s*/g, '');
-  
+
   // Check if this is the beginning of the content which typically starts with an H1
   // And remove the entire H1 line if present
   return withoutHeadingMarkers.replace(/^(.*?)\n/, '');
@@ -61,20 +61,20 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     const fullPath = path.join(articlesDirectory, `${slug}.md`);
     const fileContents = await fs.readFile(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
-    
+
     // Validate that this is a published article
     if (data.publish !== true) {
       return null;
     }
-    
+
     // Get first 160 characters of content for description if none exists in frontmatter
     const contentPreview = content.replace(/^# .*$/m, '').substring(0, 200).replace(/\n/g, ' ').trim();
-    
+
     // Clean description if it exists by removing markdown symbols
-    const cleanedDescription = data.description 
-      ? cleanDescription(data.description) 
+    const cleanedDescription = data.description
+      ? cleanDescription(data.description)
       : cleanDescription(contentPreview);
-    
+
     const metadata: ArticleMetadata = {
       slug,
       title: data.title || '',
@@ -93,14 +93,17 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       achievementLabel: data.achievementLabel,
       isVideo: data.isVideo || false,
     };
-    
+
     return {
       slug,
       content,
       metadata,
     };
   } catch (error) {
-    console.error(`Error getting article for slug ${slug}:`, error);
+    // Only log errors that are not related to file not found
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
+      console.error(`Error getting article for slug ${slug}:`, error);
+    }
     return null;
   }
 }
@@ -109,7 +112,7 @@ export async function getAllArticles(): Promise<Article[]> {
   const slugs = await getAllArticleSlugs();
   const articlesPromises = slugs.map((slug) => getArticleBySlug(slug));
   const articlesResults = await Promise.all(articlesPromises);
-  
+
   const articles = articlesResults
     .filter((article): article is Article => article !== null)
     .sort((a, b) => {
@@ -119,7 +122,7 @@ export async function getAllArticles(): Promise<Article[]> {
         return -1;
       }
     });
-  
+
   return articles;
 }
 
@@ -136,12 +139,12 @@ export async function getRelatedArticlesByTags(
   limit: number = 5
 ): Promise<Article[]> {
   const allArticles = await getAllArticles();
-  
+
   // Filter out the current article and find articles with matching tags
   const relatedArticles = allArticles
-    .filter(article => 
+    .filter(article =>
       // Exclude current article
-      article.slug !== currentArticleSlug && 
+      article.slug !== currentArticleSlug &&
       // Must have at least one matching tag
       article.metadata.tags.some(tag => tags.includes(tag))
     )
@@ -151,12 +154,12 @@ export async function getRelatedArticlesByTags(
       const bMatches = b.metadata.tags.filter(tag => tags.includes(tag)).length;
       return bMatches - aMatches;
     });
-  
+
   // If we have fewer related articles than the limit, add recent non-related articles
   if (relatedArticles.length < limit) {
     // Get non-related articles (excluding the current article and any already-included related articles)
     const relatedSlugs = new Set([currentArticleSlug, ...relatedArticles.map(article => article.slug)]);
-    
+
     const nonRelatedArticles = allArticles
       .filter(article => !relatedSlugs.has(article.slug))
       // Sort by date (newest first)
@@ -169,11 +172,11 @@ export async function getRelatedArticlesByTags(
       })
       // Limit to the number needed to reach the total limit
       .slice(0, limit - relatedArticles.length);
-      
+
     // Combine the related and non-related articles
     return [...relatedArticles, ...nonRelatedArticles];
   }
-  
+
   // If we have enough or more related articles, just return up to the limit
   return relatedArticles.slice(0, limit);
 } 
