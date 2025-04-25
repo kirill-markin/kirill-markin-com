@@ -26,6 +26,7 @@
   background-color: white;
   border: 1px solid var(--dark-gray);
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .shareButton:hover, 
@@ -40,6 +41,7 @@
   justify-content: center;
   width: 36px;
   height: 36px;
+  position: relative;
 }
 
 .icon {
@@ -47,6 +49,29 @@
   height: 28px;
   object-fit: contain;
   transition: filter 0.2s ease;
+}
+
+.copyTooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--dark-gray, #333);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Responsive styles */

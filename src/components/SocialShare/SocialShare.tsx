@@ -20,12 +20,6 @@ const platforms = [
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`
   },
   {
-    name: 'Facebook',
-    icon: '/social/svg/facebook.svg',
-    shareUrl: (url: string) => 
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
-  },
-  {
     name: 'LinkedIn',
     icon: '/social/svg/linkedin.svg',
     shareUrl: (url: string) => 
@@ -36,6 +30,12 @@ const platforms = [
     icon: '/social/svg/reddit.svg',
     shareUrl: (url: string, title: string) => 
       `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`
+  },
+  {
+    name: 'Facebook',
+    icon: '/social/svg/facebook.svg',
+    shareUrl: (url: string) => 
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
   },
   {
     name: 'Telegram',
@@ -54,6 +54,7 @@ export default function SocialShare({
   const [currentUrl, setCurrentUrl] = useState<string>(url || '');
   const [pageTitle, setPageTitle] = useState<string>(title || '');
   const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null);
+  const [copySuccess, setCopySuccess] = useState<boolean>(false);
   
   // Get the current URL and title if not provided
   useEffect(() => {
@@ -69,6 +70,16 @@ export default function SocialShare({
   const containerClass = variant === 'fixed' 
     ? `${styles.socialShare} ${styles.fixed} ${className}`
     : `${styles.socialShare} ${className}`;
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(currentUrl);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy link: ', err);
+    }
+  };
 
   if (!currentUrl) {
     return null;
@@ -100,6 +111,25 @@ export default function SocialShare({
             </div>
           </a>
         ))}
+        <button
+          className={`${styles.shareButton} ${hoveredPlatform === 'Copy' ? styles.hovered : ''}`}
+          onClick={copyToClipboard}
+          title="Copy link"
+          aria-label="Copy link to clipboard"
+          onMouseEnter={() => setHoveredPlatform('Copy')}
+          onMouseLeave={() => setHoveredPlatform(null)}
+        >
+          <div className={styles.iconContainer}>
+            <Image
+              src="/social/svg/link.svg"
+              alt="Copy link"
+              width={36}
+              height={36}
+              className={styles.icon}
+            />
+            {copySuccess && <span className={styles.copyTooltip}>Copied!</span>}
+          </div>
+        </button>
       </div>
     </div>
   );
