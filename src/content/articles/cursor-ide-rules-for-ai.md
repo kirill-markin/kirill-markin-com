@@ -45,6 +45,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Native types are fine for simple data structures, but use proper models for complex ones
 - Try to avoid using untyped variables and generic types where possible
 - Never use default parameter values in function definitions - make all parameters explicit
+</cursorrules_code_style>
 
 <cursorrules_error_handling>
 - Always raise errors explicitly, never silently ignore them
@@ -57,29 +58,19 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 </cursorrules_error_handling>
 
 <cursorrules_python_specifics>
-- Prefer Pydantic over TypedDict
+- Prefer Pydantic over TypedDict for data models (e.g., `class ContactData(BaseModel): ...`)
 - Avoid `Any` and `@staticmethod`
 - Use `pyproject.toml` over `requirements.txt` when possible
-- Try to avoid generic collections with Any (e.g., `List[Dict[str, Any]]`, `Dict[str, Any]`) for complex structures
-- Consider creating Pydantic models for non-trivial data (e.g., `class ContactData(BaseModel): ...`)
-- Basic types are fine for simple data structures
-- Use type annotations when they improve code clarity
-- Avoid defaults in function parameters - all arguments should be explicitly passed
-- Raise specific exceptions (not generic Exception) with descriptive messages
+- For complex structures, avoid generic collections like `List[Dict[str, Any]]`
+- Raise specific exceptions like `ValueError` or `TypeError` instead of generic `Exception`
 </cursorrules_python_specifics>
 
 <cursorrules_typescript_specifics>
 - Prefer interfaces over type aliases for complex object shapes
-- Try to avoid `any` when possible
-- Consider adding types for complex data structures and function parameters
-- Native types are appropriate for simple data
-- Use TypeScript's inference when it provides sufficient clarity
-- Consider typed objects for complex state management
-- No default values for function parameters - require all parameters to be explicitly provided
-- Use Error objects with descriptive messages rather than string-only errors
+- Use typed objects for complex state management
+- Use Error objects with descriptive messages: `throw new Error('Specific message')`
+- Leverage discriminated unions for complex type scenarios
 </cursorrules_typescript_specifics>
-
-</cursorrules_code_style>
 
 <cursorrules_libraries_and_dependencies>
 - Install in virtual environments, not globally
