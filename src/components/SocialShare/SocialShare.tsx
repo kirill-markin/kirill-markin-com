@@ -32,6 +32,12 @@ const platforms = [
       `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`
   },
   {
+    name: 'Bluesky',
+    icon: '/social/svg/bluesky.svg',
+    shareUrl: (url: string, title: string) => 
+      `https://bsky.app/intent/compose?text=${encodeURIComponent(`${title} ${url}`)}`
+  },
+  {
     name: 'Facebook',
     icon: '/social/svg/facebook.svg',
     shareUrl: (url: string) => 
