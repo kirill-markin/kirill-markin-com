@@ -63,6 +63,8 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Use `pyproject.toml` over `requirements.txt` when possible
 - For complex structures, avoid generic collections like `List[Dict[str, Any]]`
 - Raise specific exceptions like `ValueError` or `TypeError` instead of generic `Exception`
+- Create classes (OOP) only for clients that connect to external systems (e.g., `notion_client.py`)
+- For business logic, use pure functions with client as first parameter: `def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
 </cursorrules_python_specifics>
 
 <cursorrules_typescript_specifics>
