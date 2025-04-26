@@ -85,7 +85,7 @@ These profiles should contain all content links:
 - LinkedIn Publications section (Personal): [Profile](https://www.linkedin.com/in/kirill-markin/)
 - LinkedIn Services media (Personal): [Services Page](https://www.linkedin.com/services/page/8547333078b9881190/)
 - Professional portfolio (Personal): [Profile](https://pressfeed.ru/profile)
-- Qwoted profile (Personal): [Profile](https://app.qwoted.com/sources/kirill-markin/source_media_items)
+- Qwoted profile (Personal): [Profile](https://app.qwoted.com/sources/kirill-markin/)
 - Publito profile (Personal): [Profile](https://app.publito.co.uk/haj-source-profile/NCbiSRWj07)
 
 ### Short Profiles (only top links)
