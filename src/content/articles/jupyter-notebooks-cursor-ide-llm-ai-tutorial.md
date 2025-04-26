@@ -166,7 +166,7 @@ When an LLM tries to modify this format, it often struggles to maintain the corr
 Create a file called `main.py` and let's add our first cell:
 
 ```python
-#%%
+# %%
 # Import necessary libraries
 import pandas as pd
 import numpy as np
@@ -180,12 +180,12 @@ plt.style.use('ggplot')
 print("Environment ready for data analysis!")
 ```
 
-See that `#%%` at the top? That's the magic marker that tells the Jupyter extension "this is a code cell." When you add this marker, you'll notice run buttons appear next to it. You can execute just this cell, and the results appear directly in your editor.
+See that `# %%` at the top? That's the magic marker that tells the Jupyter extension "this is a code cell." When you add this marker, you'll notice run buttons appear next to it. You can execute just this cell, and the results appear directly in your editor.
 
 Let's add a markdown cell for documentation:
 
 ```python
-#%% [markdown]
+# %% [markdown]
 """
 # Iris Dataset Analysis
 
@@ -204,8 +204,8 @@ Each flower in the dataset belongs to one of three species:
 This is a powerful combination—executable code and rich documentation in the same plain text file. No special file formats, no browser-based editing limitations, just pure text that plays nicely with version control.
 
 As we build our notebook, we'll follow this structure:
-- Use `#%%` for code cells
-- Use `#%% [markdown]` with triple quotes for documentation
+- Use `# %%` for code cells
+- Use `# %% [markdown]` with triple quotes for documentation
 - Keep a logical flow from data loading to exploration to visualization
 - Document our process and findings along the way
 
@@ -230,7 +230,7 @@ Please import the Iris dataset in this notebook format
 The AI generates a complete, executable cell:
 
 ```python
-#%%
+# %%
 # Import necessary libraries
 import pandas as pd
 import numpy as np
@@ -261,7 +261,7 @@ The AI creates a sophisticated 3D visualization with rotation:
 ![3D scatter plot visualization showing Iris dataset clusters](/articles/assets/jupyter-notebooks/jupyter-3d-visualization.webp)
 
 ```python
-#%%
+# %%
 # Create 3D scatter plot
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -332,7 +332,7 @@ For example, I added these rules:
 With these rules in place, the AI began generating type-safe code that followed my preferred patterns:
 
 ```python
-#%%
+# %%
 # Define a Pydantic model for better type safety
 from pydantic import BaseModel
 from typing import List, Optional
@@ -378,7 +378,7 @@ With our environment set up and AI assistant ready, it's time to begin our exped
 We already have our dataset loaded, but let's explore its structure:
 
 ```python
-#%%
+# %%
 # Get basic information about the dataset
 print("Dataset shape:", df.shape)
 print("\nClass distribution:")
@@ -396,7 +396,7 @@ print(df.describe())
 This shows us we have 150 samples (50 of each species) with 4 features measuring different parts of the flowers. Now let's visualize each feature to see how it varies across species:
 
 ```python
-#%%
+# %%
 # Create boxplots for each feature by species
 plt.figure(figsize=(12, 10))
 
@@ -417,7 +417,7 @@ These boxplots reveal fascinating patterns. Setosa has distinctively wide sepals
 To answer this, we need to look at relationships between features:
 
 ```python
-#%%
+# %%
 # Create a pairplot to visualize relationships between features
 sns.pairplot(df, hue='species_name', height=2.5)
 plt.suptitle('Iris Dataset Pairwise Relationships', y=1.02)
@@ -445,7 +445,7 @@ ImportError: Seaborn not valid package style
 This is a common issue with data science libraries: version incompatibilities between packages. To diagnose it, I added a cell to check installed versions:
 
 ```python
-#%%
+# %%
 # Check installed package versions
 import pkg_resources
 print("Installed packages:")
@@ -479,7 +479,7 @@ With our environment working smoothly, I wanted to create visualizations that wo
 I started with a simple scatter plot focusing on petal dimensions:
 
 ```python
-#%%
+# %%
 # Create a scatter plot of petal dimensions
 plt.figure(figsize=(10, 6))
 for species_id, species_name in enumerate(iris.target_names):
@@ -505,7 +505,7 @@ This plot immediately shows how petal measurements separate the species, with Se
 To understand the relationships more deeply, I created a correlation heatmap:
 
 ```python
-#%%
+# %%
 # Calculate correlation matrix
 correlation_matrix = df.drop(columns=['species_name']).corr()
 
