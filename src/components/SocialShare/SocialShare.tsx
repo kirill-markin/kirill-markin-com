@@ -16,50 +16,50 @@ const platforms = [
   {
     name: 'X',
     icon: '/social/svg/twitter.svg',
-    shareUrl: (url: string, title: string) => 
+    shareUrl: (url: string, title: string) =>
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`
   },
   {
     name: 'LinkedIn',
     icon: '/social/svg/linkedin.svg',
-    shareUrl: (url: string) => 
+    shareUrl: (url: string) =>
       `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
   },
   {
     name: 'Reddit',
     icon: '/social/svg/reddit.svg',
-    shareUrl: (url: string, title: string) => 
+    shareUrl: (url: string, title: string) =>
       `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`
   },
   {
     name: 'Bluesky',
     icon: '/social/svg/bluesky.svg',
-    shareUrl: (url: string, title: string) => 
+    shareUrl: (url: string, title: string) =>
       `https://bsky.app/intent/compose?text=${encodeURIComponent(`${title} ${url}`)}`
   },
   {
     name: 'Facebook',
     icon: '/social/svg/facebook.svg',
-    shareUrl: (url: string) => 
+    shareUrl: (url: string) =>
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
   },
   {
     name: 'WhatsApp',
     icon: '/social/svg/whatsapp.svg',
-    shareUrl: (url: string, title: string) => 
+    shareUrl: (url: string, title: string) =>
       `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`
   },
   {
     name: 'Telegram',
     icon: '/social/svg/telegram.svg',
-    shareUrl: (url: string, title: string) => 
+    shareUrl: (url: string, title: string) =>
       `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`
   }
 ];
 
-export default function SocialShare({ 
-  url, 
-  title = '', 
+export default function SocialShare({
+  url,
+  title = '',
   variant = 'fixed',
   className = ''
 }: SocialShareProps) {
@@ -67,19 +67,19 @@ export default function SocialShare({
   const [pageTitle, setPageTitle] = useState<string>(title || '');
   const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null);
   const [copySuccess, setCopySuccess] = useState<boolean>(false);
-  
+
   // Get the current URL and title if not provided
   useEffect(() => {
     if (!url) {
       setCurrentUrl(window.location.href);
     }
-    
+
     if (!title && document.title) {
       setPageTitle(document.title);
     }
   }, [url, title]);
-  
-  const containerClass = variant === 'fixed' 
+
+  const containerClass = variant === 'fixed'
     ? `${styles.socialShare} ${styles.fixed} ${className}`
     : `${styles.socialShare} ${className}`;
 
@@ -106,7 +106,7 @@ export default function SocialShare({
             href={platform.shareUrl(currentUrl, pageTitle)}
             className={`${styles.shareButton} ${hoveredPlatform === platform.name ? styles.hovered : ''}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             title={`Share on ${platform.name}`}
             aria-label={`Share on ${platform.name}`}
             onMouseEnter={() => setHoveredPlatform(platform.name)}
