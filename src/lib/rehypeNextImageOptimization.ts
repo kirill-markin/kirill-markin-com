@@ -2,10 +2,11 @@ import { visit } from 'unist-util-visit';
 import path from 'path';
 import { promisify } from 'util';
 import sizeOf from 'image-size';
+import fs from 'fs';
 import { Node } from 'unist';
 import { ISizeCalculationResult } from 'image-size/dist/types/interface';
 
-const getSizeOf = promisify(sizeOf);
+const readFile = promisify(fs.readFile);
 
 interface ImageDimensions {
     width: number;
@@ -53,9 +54,11 @@ export function rehypeNextImageOptimization(options = { publicDir: './public' })
                 }
 
                 try {
-                    // Type assertion is needed because of the mismatch between the type definition
-                    // and the actual behavior - image-size accepts file paths as string
-                    const dimensions = await getSizeOf(imagePath as unknown as Buffer) as ISizeCalculationResult;
+                    // Read the file as a buffer first
+                    const buffer = await readFile(imagePath);
+
+                    // Use the buffer with image-size
+                    const dimensions = sizeOf(buffer) as ISizeCalculationResult;
 
                     // Create a properly typed result
                     const result: ImageDimensions = {
@@ -84,20 +87,26 @@ export function rehypeNextImageOptimization(options = { publicDir: './public' })
 
                     // Transform src to URL for Next.js Image Optimization API
                     if (process.env.NODE_ENV === 'production') {
-                        // In production use Next.js Image Optimization
-                        node.properties.srcSet = [
-                            `/_next/image?url=${encodeURIComponent(src)}&w=384&q=75 384w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=640&q=75 640w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=750&q=75 750w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=828&q=75 828w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=75 1080w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75 1200w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75 1920w`,
-                            `/_next/image?url=${encodeURIComponent(src)}&w=2048&q=75 2048w`,
-                        ].join(', ');
+                        try {
+                            // In production use Next.js Image Optimization
+                            node.properties.srcSet = [
+                                `/_next/image?url=${encodeURIComponent(src)}&w=384&q=75 384w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=640&q=75 640w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=750&q=75 750w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=828&q=75 828w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=75 1080w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75 1200w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75 1920w`,
+                                `/_next/image?url=${encodeURIComponent(src)}&w=2048&q=75 2048w`,
+                            ].join(', ');
 
-                        // Base src for browsers that don't support srcSet
-                        node.properties.src = `/_next/image?url=${encodeURIComponent(src)}&w=800&q=75`;
+                            // Base src for browsers that don't support srcSet
+                            node.properties.src = `/_next/image?url=${encodeURIComponent(src)}&w=800&q=75`;
+                        } catch (err) {
+                            console.error(`Error setting srcSet for image: ${src}, error: ${err}`);
+                            // Keep original src on error
+                            node.properties.src = src;
+                        }
                     }
                 })
             );

@@ -14,7 +14,20 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      // Add localhost for development
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**',
+      },
     ],
+    // Enable dangerouslyAllowSVG for SVG support
+    dangerouslyAllowSVG: true,
+    // Apply content security policy
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Set unoptimized to false to enable image optimization
+    unoptimized: false,
   },
   reactStrictMode: true,  // Enable React strict mode for better code quality
   poweredByHeader: false,  // Remove X-Powered-By header for security
