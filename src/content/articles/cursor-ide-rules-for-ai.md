@@ -6,7 +6,7 @@ tags: [productivity, cursor-ide, ai, llm]
 aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
-lastmod: 2025-04-25
+lastmod: 2025-04-28
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 ---
 
