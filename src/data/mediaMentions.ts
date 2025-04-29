@@ -26,7 +26,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "57,000",
+    achievementValue: "59,000",
     achievementLabel: "views"
   },
   {
@@ -52,7 +52,9 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/noah-2023-12-14.webp",
     websiteLogoUrl: "/logos/noah-conf.png",
-    isVideo: true
+    isVideo: true,
+    achievementValue: "Zurich",
+    achievementLabel: null
   },
   {
     title: "How to\u00A0write code with\u00A0AI, ChatGPT? From\u00A0scratch to\u00A068 GitHub stars",
@@ -68,14 +70,19 @@ export const mediaMentions: MediaMention[] = [
     isVideo: true
   },
   {
-    title: "How to\u00A0handle a\u00A0billion new\u00A0records per\u00A0day",
-    url: "https://verigram.ai/blog/Kazakhstan-AI-ML-community-is-delighted-with-VeriMeet",
-    publisher: "verigram.ai",
-    date: "2023-09-08",
-    type: "Conference Talk",
-    language: "en",
-    thumbnailUrl: "/articles/verigram-2023-09-08.webp",
-    websiteLogoUrl: "/logos/verigram.png"
+    title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
+    alternativeTitle: "How to\u00A0Motivate Employees to\u00A0Use AI Tools in\u00A0Their Work",
+    url: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
+    publisher: "epicgrowth.io",
+    date: "2024-03-14",
+    type: "Panel Discussion",
+    event: "Epic AI Conference 2024",
+    eventUrl: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
+    thumbnailUrl: "/articles/epicgrowth-2024-03-14.webp",
+    language: "ru",
+    websiteLogoUrl: "/logos/epicgrowth.svg",
+    achievementValue: "Moderator",
+    achievementLabel: null
   },
   {
     title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
@@ -86,9 +93,19 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "3,700",
+    achievementValue: "4,400",
     achievementLabel: "views",
     isVideo: true
+  },
+  {
+    title: "How to\u00A0handle a\u00A0billion new\u00A0records per\u00A0day",
+    url: "https://verigram.ai/blog/Kazakhstan-AI-ML-community-is-delighted-with-VeriMeet",
+    publisher: "verigram.ai",
+    date: "2023-09-08",
+    type: "Conference Talk",
+    language: "en",
+    thumbnailUrl: "/articles/verigram-2023-09-08.webp",
+    websiteLogoUrl: "/logos/verigram.png"
   },
   {
     title: "Build with\u00A0AI Custom ERP and\u00A0CRM - No\u00A0Code Required",
@@ -135,21 +152,6 @@ export const mediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/habr.svg",
     achievementValue: "13,000",
     achievementLabel: "views"
-  },
-  {
-    title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
-    alternativeTitle: "How to\u00A0Motivate Employees to\u00A0Use AI Tools in\u00A0Their Work",
-    url: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
-    publisher: "epicgrowth.io",
-    date: "2024-03-14",
-    type: "Panel Discussion",
-    event: "Epic AI Conference 2024",
-    eventUrl: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
-    thumbnailUrl: "/articles/epicgrowth-2024-03-14.webp",
-    language: "ru",
-    websiteLogoUrl: "/logos/epicgrowth.svg",
-    achievementValue: "Moderator",
-    achievementLabel: null
   },
   {
     title: "Как\u00A0прикрутить AI к\u00A0вашему продукту: пример на\u00A0ozma.io",
