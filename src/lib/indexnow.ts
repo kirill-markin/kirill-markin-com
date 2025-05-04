@@ -7,6 +7,7 @@ const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 const API_KEY = process.env.INDEXNOW_API_KEY || '35116a77dcdf431ab1887d663c7d388f';
 const KEY_LOCATION = `${SITE_URL}/${API_KEY}.txt`;
 const INDEXNOW_API_HOST = 'api.indexnow.org';
+export const DEFAULT_THRESHOLD_MINUTES = 5;
 
 // Define types for sitemap data
 interface SitemapUrlEntry {
@@ -48,7 +49,7 @@ async function fetchSitemap(url: string): Promise<string> {
 /**
  * Filters URLs based on last modification time
  */
-function filterRecentlyModifiedUrls(sitemapData: SitemapData, thresholdMinutes = 3): string[] {
+function filterRecentlyModifiedUrls(sitemapData: SitemapData, thresholdMinutes = DEFAULT_THRESHOLD_MINUTES): string[] {
     if (!sitemapData?.urlset?.url?.length) return [];
 
     const currentTime = new Date();
@@ -112,7 +113,7 @@ async function submitToIndexNow(urls: string[]): Promise<ApiResponse> {
 /**
  * Main function to process and submit URLs
  */
-export async function filterAndSubmitUrls(thresholdMinutes = 3): Promise<ApiResponse> {
+export async function filterAndSubmitUrls(thresholdMinutes = DEFAULT_THRESHOLD_MINUTES): Promise<ApiResponse> {
     try {
         console.warn(`Fetching sitemap from ${SITEMAP_URL}`);
         const xmlData = await fetchSitemap(SITEMAP_URL);
