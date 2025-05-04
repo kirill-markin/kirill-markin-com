@@ -5,7 +5,6 @@ description: "Discover the latest AI coding tools and trends shaping the future 
 tags: [artificial-intelligence, software-development, coding-tools]
 aliases: [ai-coding-tools, ai-coding-trends]
 publish: false
-lastmod: 2025-04-20
 thumbnailUrl: "/articles/ai-coding-revolution.webp"
 ---
 

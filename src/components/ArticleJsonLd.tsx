@@ -51,7 +51,7 @@ export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
     'description': article.metadata.description || '',
     'image': article.metadata.thumbnailUrl,
     'datePublished': article.metadata.date,
-    'dateModified': article.metadata.lastmod || article.metadata.date,
+    'dateModified': article.metadata.lastmod,
     'author': {
       '@type': 'Person',
       'name': personalInfo.name,

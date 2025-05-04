@@ -6,7 +6,6 @@ tags: [people]
 aliases: [obsidian-demo, note-taking-guide]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # Welcome to Obsidian: A Comprehensive Demo Guide

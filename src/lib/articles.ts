@@ -25,7 +25,7 @@ export type ArticleMetadata = {
   date: string;
   tags: string[];
   publish: boolean;
-  lastmod?: string;
+  lastmod: string;
   related?: string[];
   aliases?: string[];
   thumbnailUrl?: string;
@@ -67,6 +67,10 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       return null;
     }
 
+    // Get file's last modification date from the file system
+    const fileStats = await fs.stat(fullPath);
+    const lastModificationDate = fileStats.mtime;
+
     // Get first 160 characters of content for description if none exists in frontmatter
     const contentPreview = content.replace(/^# .*$/m, '').substring(0, 200).replace(/\n/g, ' ').trim();
 
@@ -81,7 +85,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       date: data.date ? new Date(data.date).toISOString() : '',
       tags: (data.tags || []).map((tag: string) => tag.toLowerCase()),
       publish: data.publish || false,
-      lastmod: data.lastmod ? new Date(data.lastmod).toISOString() : undefined,
+      lastmod: lastModificationDate.toISOString(),
       related: data.related || [],
       aliases: data.aliases || [],
       thumbnailUrl: data.thumbnailUrl || PLACEHOLDER_IMAGE,

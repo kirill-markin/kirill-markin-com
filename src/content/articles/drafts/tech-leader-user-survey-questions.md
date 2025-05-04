@@ -6,7 +6,6 @@ tags: [ai]
 aliases: [user-survey-questions, product-research]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # Tech Leader User Survey Questions: Gathering Insights for Product Development

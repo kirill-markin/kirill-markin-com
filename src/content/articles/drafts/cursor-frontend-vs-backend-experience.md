@@ -6,7 +6,6 @@ tags: [development, cursor, ai]
 aliases: [cursor-dev-experience, frontend-backend-cursor]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: false
-lastmod: 2025-04-14
 ---
 
 # Cursor IDE: Frontend vs Backend Development Experience

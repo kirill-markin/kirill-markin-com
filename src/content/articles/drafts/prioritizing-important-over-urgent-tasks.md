@@ -6,7 +6,6 @@ tags: [productivity, work-management]
 aliases: [important-over-urgent, focus-strategies]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # Prioritizing Important Over Urgent Tasks: Strategies for Focus

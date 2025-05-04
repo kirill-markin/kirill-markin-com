@@ -5,7 +5,6 @@ description: "Discover how to integrate Jupyter Notebooks with Cursor IDE using 
 tags: [productivity, cursor-ide, ai, llm]
 aliases: [cursor-jupyter-integration, ai-data-analysis-workflow, jupyter-notebooks-llm, cursor-ide-data-science]
 publish: true
-lastmod: 2025-04-25
 thumbnailUrl: "/articles/jupyter-2025-04-25.webp"
 ---
 

@@ -6,8 +6,6 @@ tags: [productivity, tools, ai]
 aliases: [cursor-ide, cursor-setup]
 related: []
 publish: false
-lastmod: 2025-04-14
-thumbnailUrl: ""
 ---
 
 # Cursor IDE Setup and Workflow for Large-Scale Projects

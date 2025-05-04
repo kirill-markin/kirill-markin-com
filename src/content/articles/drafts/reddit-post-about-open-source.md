@@ -6,7 +6,6 @@ tags: [development]
 aliases: [open-source-importance, software-transparency]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # The Importance of Open Source in Software Development

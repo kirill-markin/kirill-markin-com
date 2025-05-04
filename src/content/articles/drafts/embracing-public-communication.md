@@ -6,7 +6,6 @@ tags: [people]
 aliases: [public-communication, transparent-teams]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # Embracing Public Communication: Benefits for Remote Teams

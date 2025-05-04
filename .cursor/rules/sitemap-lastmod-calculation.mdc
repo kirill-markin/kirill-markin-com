@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Sitemap LastMod Calculation & IndexNow Integration
+
+This document outlines how our website calculates lastmod timestamps in sitemap.xml and integrates with IndexNow for faster search engine indexing.
+
+## LastMod Calculation
+
+The website uses a file-based approach to determine lastmod dates:
+
+1. For articles:
+   - Uses the file's actual modification timestamp from the filesystem
+   - Replaces manual lastmod management in frontmatter
+
+2. For other pages:
+   - Maps each URL to its relevant source files
+   - Calculates lastmod as the most recent modification date across all files
+   - Includes component files, data files, and CSS that affect the page
+
+## IndexNow Integration
+
+We use IndexNow for immediate search engine notification when content changes:
+
+1. After each successful deployment, Vercel triggers a webhook to `/api/indexnow-webhook`
+2. The webhook endpoint:
+   - Fetches the sitemap.xml
+   - Analyzes lastmod timestamps to find recently changed URLs
+   - Submits only changed URLs to IndexNow API
+   - Logs the submission results
+
+## Implementation Files
+
+Key files in the implementation:
+- `lib/fileModification.ts`: Functions to get file modification dates
+- `lib/indexnow.ts`: IndexNow API integration and URL submission
+- `app/api/indexnow-webhook/route.ts`: Webhook endpoint for automated submissions
+- `app/sitemap.ts`: Sitemap generation with dynamic lastmod dates
+
+This approach ensures search engines quickly discover and index changes to the website without requiring manual submission or full site rescanning.

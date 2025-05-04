@@ -6,7 +6,6 @@ tags: [development, ai, tutorial]
 aliases: [html-presentation-generator, llm-app-tutorial]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # LLM-Powered HTML Presentation Generator: How to Build a Simple Web App

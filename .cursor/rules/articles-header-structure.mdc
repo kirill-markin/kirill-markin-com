@@ -20,7 +20,6 @@ tags: [primary-tag, secondary-tag]
 aliases: [url-friendly-alias, alternative-keyword]
 related: [related-article-slug]
 publish: true|false
-lastmod: YYYY-MM-DD
 ---
 ```
 
@@ -67,10 +66,13 @@ lastmod: YYYY-MM-DD
 - **Format**: Boolean (`true` or `false`)
 - **Notes**: Only published articles appear on the site
 
-### `lastmod`
-- **Purpose**: Last modification date
-- **Format**: YYYY-MM-DD (e.g., `2025-04-14`)
-- **Notes**: Important for search engines to know when content was updated
+## Last Modified Date (Automatic)
+
+The `lastmod` date for articles is now determined automatically from the file's last modification date in the filesystem. You no longer need to manually specify this field in the frontmatter.
+
+- **Purpose**: Informs search engines when content was last updated
+- **Implementation**: Automatically set based on the file's last modification timestamp
+- **Benefits**: No need to manually update, always accurate
 
 ## Optional Frontmatter Fields
 

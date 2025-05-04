@@ -6,7 +6,6 @@ tags: [work-management, productivity]
 aliases: [hourly-billing, freelancer-breaks]
 related: []
 publish: false
-lastmod: 2025-04-14
 ---
 
 # Hourly Billing Without Breaks: The Impact on Quality and Wellbeing
