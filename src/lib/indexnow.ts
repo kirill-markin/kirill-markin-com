@@ -1,5 +1,6 @@
 import { parseStringPromise } from 'xml2js';
 import https from 'https';
+import { getChangedFilesSinceLastDeployment, getAffectedPagesByChangedFiles } from './fileModification';
 
 // Configuration
 const SITE_URL = process.env.SITE_URL || 'https://kirill-markin.com';
@@ -16,6 +17,7 @@ interface SitemapUrlEntry {
     priority?: string[];
 }
 
+// This interface is used for parsing the sitemap XML
 interface SitemapData {
     urlset?: {
         url?: SitemapUrlEntry[];
@@ -96,11 +98,6 @@ async function submitToIndexNow(urls: string[]): Promise<ApiResponse> {
  */
 export async function filterAndSubmitChangedUrls(): Promise<ApiResponse> {
     try {
-        const {
-            getChangedFilesSinceLastDeployment,
-            getAffectedPagesByChangedFiles
-        } = require('./fileModification');
-
         console.warn('Getting list of files changed since last deployment');
         const changedFiles = await getChangedFilesSinceLastDeployment();
 
@@ -118,7 +115,7 @@ export async function filterAndSubmitChangedUrls(): Promise<ApiResponse> {
         const xmlData = await fetchSitemap(SITEMAP_URL);
 
         console.warn('Parsing sitemap XML');
-        const sitemap = await parseStringPromise(xmlData);
+        const sitemap = await parseStringPromise(xmlData) as SitemapData;
 
         if (!sitemap?.urlset?.url?.length) {
             return { message: 'No URLs found in sitemap' };

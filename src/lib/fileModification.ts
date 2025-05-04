@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { execSync } from 'child_process';
 
 // Path to the project's working directory
 const workingDir = process.cwd();
@@ -115,9 +116,6 @@ export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
  */
 export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
     try {
-        // Use git to get changed files since the last deployment
-        const { execSync } = require('child_process');
-
         // Get the most recent deployed commit hash from Vercel environment
         const currentDeploymentHash = process.env.VERCEL_GIT_COMMIT_SHA || '';
         // Get the previous successful deployment hash
