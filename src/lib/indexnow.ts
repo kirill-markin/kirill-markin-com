@@ -1,3 +1,5 @@
+// FIXME: Future implementation of IndexNow based on comparing github history from previous and current deployment
+
 import { parseStringPromise } from 'xml2js';
 import https from 'https';
 import { getChangedFilesSinceLastDeployment, getAffectedPagesByChangedFiles } from './vercelDeployment';

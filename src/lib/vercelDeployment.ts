@@ -128,6 +128,7 @@ export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
     }
 }
 
+// FIXME: Future implementation of IndexNow based on comparing github history from previous and current deployment
 /**
  * Gets a list of files changed since the last deployment using GitHub API
  * @returns Array of file paths that have been modified since the last deployment
@@ -205,6 +206,7 @@ export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
     }
 }
 
+// FIXME: Future implementation of IndexNow based on comparing github history from previous and current deployment
 /**
  * Determines which pages were affected by the changed files
  * @param changedFiles List of files that changed in the deployment

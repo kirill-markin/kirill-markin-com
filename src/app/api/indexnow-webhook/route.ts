@@ -1,3 +1,5 @@
+// FIXME: Future implementation of IndexNow based on comparing github history from previous and current deployment
+
 import { NextResponse } from 'next/server';
 import { filterAndSubmitChangedUrls } from '@/lib/indexnow';
 import crypto from 'crypto';
