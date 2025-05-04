@@ -1,11 +1,11 @@
 import { MetadataRoute } from 'next';
 import { getAllArticles } from '@/lib/articles';
 import { servicesData } from '@/data/services';
-import { getPageLastModifiedDate } from '@/lib/vercelDeployment';
+import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/vercelDeployment';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
- * Includes all routes with lastModified dates from Vercel deployment information
+ * Includes all routes with lastModified dates from Git commit history
  * 
  * @returns {MetadataRoute.Sitemap} Sitemap configuration
  */
@@ -38,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...uniqueArticleTags.map(tag => `/articles/?tag=${tag}`)
   ];
 
-  // Generate the routes with their last modified dates from Vercel deployment
+  // Generate the routes with their last modified dates from Git history
   const staticRoutesPromises = routePaths.map(async (routePath) => {
     const url = `${baseUrl}${routePath.startsWith('/') ? routePath.substring(1) : routePath}`;
     const lastModified = await getPageLastModifiedDate(routePath);
@@ -72,13 +72,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Resolve all promises to get the static routes
   const staticRoutes = await Promise.all(staticRoutesPromises);
 
-  // Generate article routes (using article metadata for lastmod)
-  const articleRoutes = articles.map((article) => ({
-    url: `${baseUrl}articles/${article.slug}/`,
-    lastModified: new Date(article.metadata.lastmod),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  // Generate article routes with Git commit dates
+  const articleRoutesPromises = articles.map(async (article) => {
+    const filePath = `src/content/articles/${article.slug}.md`;
+    const lastModified = await getFileLastCommitDate(filePath);
+
+    return {
+      url: `${baseUrl}articles/${article.slug}/`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    };
+  });
+
+  // Resolve all promises to get the article routes
+  const articleRoutes = await Promise.all(articleRoutesPromises);
 
   // Combine static and dynamic routes
   return [...staticRoutes, ...articleRoutes];

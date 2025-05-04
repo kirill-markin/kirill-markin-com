@@ -44,6 +44,82 @@ export const pageFilesMap: Record<string, string[]> = {
 };
 
 /**
+ * Gets the last Git commit date for a file using Vercel API
+ * @param filePath Path to the file
+ * @returns The date of the last commit that modified the file
+ */
+export async function getFileLastCommitDate(filePath: string): Promise<Date> {
+    try {
+        // Get deployment information from Vercel environment
+        const currentDeploymentHash = process.env.VERCEL_GIT_COMMIT_SHA;
+        const token = process.env.VERCEL_TOKEN;
+
+        if (!currentDeploymentHash || !token) {
+            console.warn('Missing Vercel environment variables, using current date');
+            return new Date();
+        }
+
+        // Fetch git commit history from Vercel API
+        const deploymentUrl = `https://api.vercel.com/v13/deployments/${currentDeploymentHash}/git`;
+        const response = await fetch(deploymentUrl, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            console.warn('Failed to fetch git information from Vercel API');
+            return new Date();
+        }
+
+        const gitInfo = await response.json();
+
+        // Find the most recent commit that modified this file
+        const commits = gitInfo.commits || [];
+        for (const commit of commits) {
+            if (commit.files.includes(filePath)) {
+                return new Date(commit.timestamp * 1000); // Convert Unix timestamp to Date
+            }
+        }
+
+        // If no commit found for this file, return deployment date
+        return new Date(gitInfo.createdAt);
+    } catch (error) {
+        console.error('Error getting file last commit date:', error);
+        return new Date();
+    }
+}
+
+/**
+ * Gets the last modification date for a specific page path using Git commit history
+ * @param pagePath The page path to get the modification date for
+ * @returns The last modification date of the page
+ */
+export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
+    try {
+        // Get the files that affect this page
+        const relevantFiles = pageFilesMap[pagePath] || [];
+
+        // If we have no files to check, return current date
+        if (relevantFiles.length === 0) {
+            return new Date();
+        }
+
+        // Get the latest commit date for each file
+        const fileDates = await Promise.all(
+            relevantFiles.map(file => getFileLastCommitDate(file))
+        );
+
+        // Return the most recent date
+        return new Date(Math.max(...fileDates.map(date => date.getTime())));
+    } catch (error) {
+        console.error('Error getting page last modified date:', error);
+        return new Date();
+    }
+}
+
+/**
  * Gets a list of files changed since the last deployment using Vercel deployment information
  * @returns Array of file paths that have been modified since the last deployment
  */
@@ -70,17 +146,15 @@ export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
         }
 
         // Get the list of files from Vercel deployment
-        const teamId = process.env.VERCEL_TEAM_ID;
-        const projectId = process.env.VERCEL_PROJECT_ID;
         const token = process.env.VERCEL_TOKEN;
 
-        if (!teamId || !projectId || !token) {
+        if (!token) {
             console.warn('Missing Vercel credentials, considering all files changed');
             return ['ALL_FILES_CHANGED'];
         }
 
-        // Fetch deployment details from Vercel API
-        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}`;
+        // Fetch git commit information from Vercel API
+        const deploymentUrl = `https://api.vercel.com/v13/deployments/${currentDeploymentHash}/git`;
         const response = await fetch(deploymentUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -89,24 +163,28 @@ export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
         });
 
         if (!response.ok) {
-            console.warn('Failed to fetch deployment details from Vercel API');
+            console.warn('Failed to fetch git information from Vercel API');
             return ['ALL_FILES_CHANGED'];
         }
 
-        const deployment = await response.json();
+        const gitInfo = await response.json();
 
-        // Extract changed files from the deployment
-        const changedFiles = deployment.files?.map((file: { file: string }) => file.file) || [];
+        // Get changed files from the commits
+        const changedFiles = new Set<string>();
+        const commits = gitInfo.commits || [];
 
-        if (changedFiles.length === 0) {
-            console.warn('No changed files found in deployment, considering all files changed');
+        for (const commit of commits) {
+            commit.files.forEach((file: string) => changedFiles.add(file));
+        }
+
+        if (changedFiles.size === 0) {
+            console.warn('No changed files found in git history, considering all files changed');
             return ['ALL_FILES_CHANGED'];
         }
 
-        return changedFiles;
+        return Array.from(changedFiles);
     } catch (error) {
         console.error('Error getting changed files:', error);
-        // If there's an error, consider all files changed
         return ['ALL_FILES_CHANGED'];
     }
 }
@@ -178,65 +256,4 @@ export function getAffectedPagesByChangedFiles(changedFiles: string[]): string[]
     });
 
     return Array.from(affectedPages);
-}
-
-/**
- * Gets the last modification date for a specific page path using Vercel deployment information
- * @param pagePath The page path to get the modification date for
- * @returns The last modification date of the page
- */
-export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
-    try {
-        // Get deployment information from Vercel environment
-        const currentDeploymentHash = process.env.VERCEL_GIT_COMMIT_SHA;
-        const token = process.env.VERCEL_TOKEN;
-
-        if (!currentDeploymentHash || !token) {
-            console.warn('Missing Vercel environment variables, using current date');
-            return new Date();
-        }
-
-        // Fetch deployment details from Vercel API
-        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}`;
-        const response = await fetch(deploymentUrl, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-            console.warn('Failed to fetch deployment details from Vercel API');
-            return new Date();
-        }
-
-        const deployment = await response.json();
-
-        // Get the files that affect this page
-        const relevantFiles = pageFilesMap[pagePath] || [];
-
-        // Get the deployment date for the most recently modified file
-        let latestDate = new Date(deployment.createdAt);
-
-        // If we have no files to check, return the deployment date
-        if (relevantFiles.length === 0) {
-            return latestDate;
-        }
-
-        // Check each file in the deployment
-        const deploymentFiles = deployment.files || [];
-        for (const file of deploymentFiles) {
-            if (relevantFiles.includes(file.name)) {
-                const fileDate = new Date(file.lastModified);
-                if (fileDate > latestDate) {
-                    latestDate = fileDate;
-                }
-            }
-        }
-
-        return latestDate;
-    } catch (error) {
-        console.error('Error getting page last modified date:', error);
-        return new Date();
-    }
 } 
