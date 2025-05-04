@@ -13,7 +13,7 @@ export async function POST(request: Request) {
         let body;
         try {
             body = JSON.parse(rawBody);
-        } catch (parseError) {
+        } catch {
             console.error('Failed to parse request body as JSON');
             return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
         }
@@ -28,25 +28,26 @@ export async function POST(request: Request) {
 
         // Only process successful deployment events
         if (body.type === 'deployment.succeeded') {
-            console.log('Processing successful deployment webhook');
+            console.warn('Processing successful deployment webhook');
 
             try {
                 // Use the Git-based method to determine what changed
                 const result = await filterAndSubmitChangedUrls();
                 return NextResponse.json({ success: true, result });
             } catch (indexError) {
+                // Safe to log XML parsing errors as they don't contain sensitive data
                 console.error('Error in filterAndSubmitChangedUrls:', indexError);
                 return NextResponse.json({
-                    error: indexError instanceof Error ? indexError.message : 'Unknown error in processing'
+                    error: indexError instanceof Error ? indexError.message : 'Error processing sitemap'
                 }, { status: 500 });
             }
         }
 
         return NextResponse.json({ message: 'Event ignored' });
-    } catch (error) {
-        console.error('Error processing webhook:', error);
+    } catch {
+        console.error('Error processing webhook');
         return NextResponse.json({
-            error: error instanceof Error ? error.message : 'Unknown error'
+            error: 'Internal server error'
         }, { status: 500 });
     }
 }
@@ -56,7 +57,7 @@ export async function POST(request: Request) {
  */
 function verifyVercelSignature(signature: string | null, rawBody: string): boolean {
     if (!signature || !WEBHOOK_SECRET) {
-        console.warn('Missing signature or secret');
+        console.warn('Missing signature or webhook secret');
         return false;
     }
 
@@ -68,8 +69,8 @@ function verifyVercelSignature(signature: string | null, rawBody: string): boole
 
         // Vercel uses the raw hex digest without prefix
         return signature === computedSignature;
-    } catch (error) {
-        console.error('Error verifying signature');
+    } catch {
+        console.error('Signature verification failed');
         return false;
     }
 } 
