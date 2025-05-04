@@ -9,10 +9,22 @@ export async function POST(request: Request) {
     try {
         // Get raw body for signature verification
         const rawBody = await request.text();
-        const body = JSON.parse(rawBody);
+
+        console.log('Webhook received with body:', rawBody);
+
+        let body;
+        try {
+            body = JSON.parse(rawBody);
+            console.log('Successfully parsed JSON body:', body);
+        } catch (parseError) {
+            console.error('Failed to parse request body as JSON:', parseError);
+            return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
+        }
 
         // Verify Vercel signature
         const signature = request.headers.get('x-vercel-signature');
+        console.log('Received signature:', signature);
+
         if (!verifyVercelSignature(signature, rawBody)) {
             console.warn('Invalid webhook signature');
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -22,16 +34,25 @@ export async function POST(request: Request) {
         if (body.type === 'deployment.succeeded') {
             console.warn('Processing successful deployment webhook');
 
-            // Use the Git-based method to determine what changed
-            const result = await filterAndSubmitChangedUrls();
-            return NextResponse.json({ success: true, result });
+            try {
+                // Use the Git-based method to determine what changed
+                const result = await filterAndSubmitChangedUrls();
+                return NextResponse.json({ success: true, result });
+            } catch (indexError) {
+                console.error('Error in filterAndSubmitChangedUrls:', indexError);
+                return NextResponse.json({
+                    error: indexError instanceof Error ? indexError.message : 'Unknown error in processing',
+                    stack: indexError instanceof Error ? indexError.stack : undefined
+                }, { status: 500 });
+            }
         }
 
         return NextResponse.json({ message: 'Event ignored' });
     } catch (error) {
         console.error('Error processing webhook:', error);
         return NextResponse.json({
-            error: error instanceof Error ? error.message : 'Unknown error'
+            error: error instanceof Error ? error.message : 'Unknown error',
+            stack: error instanceof Error ? error.stack : undefined
         }, { status: 500 });
     }
 }
@@ -42,6 +63,8 @@ export async function POST(request: Request) {
 function verifyVercelSignature(signature: string | null, rawBody: string): boolean {
     if (!signature || !WEBHOOK_SECRET) {
         console.warn('Missing signature or secret');
+        console.log('Signature:', signature);
+        console.log('Secret available:', !!WEBHOOK_SECRET);
         return false;
     }
 
@@ -51,8 +74,12 @@ function verifyVercelSignature(signature: string | null, rawBody: string): boole
         hmac.update(rawBody);
         const computedSignature = hmac.digest('hex');
 
-        // Compare signatures (Vercel doesn't include sha1= prefix in header)
-        return signature === computedSignature;
+        console.log('Computed signature:', computedSignature);
+
+        // Direct comparison of signatures
+        const isValid = signature === computedSignature;
+        console.log('Signature validation result:', isValid);
+        return isValid;
     } catch (error) {
         console.error('Error verifying signature:', error);
         return false;
