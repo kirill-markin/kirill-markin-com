@@ -3,7 +3,7 @@ import { filterAndSubmitChangedUrls } from '@/lib/indexnow';
 import crypto from 'crypto';
 
 // Vercel signature secret for security (stored in environment variables)
-const VERCEL_SIGNATURE_SECRET = process.env.VERCEL_SIGNATURE_SECRET;
+const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || process.env.VERCEL_SIGNATURE_SECRET;
 
 export async function POST(request: Request) {
     try {
@@ -40,22 +40,19 @@ export async function POST(request: Request) {
  * Verifies the Vercel webhook signature
  */
 function verifyVercelSignature(signature: string | null, rawBody: string): boolean {
-    if (!signature || !VERCEL_SIGNATURE_SECRET) {
+    if (!signature || !WEBHOOK_SECRET) {
         console.warn('Missing signature or secret');
         return false;
     }
 
     try {
         // Create HMAC using the secret
-        const hmac = crypto.createHmac('sha1', VERCEL_SIGNATURE_SECRET);
+        const hmac = crypto.createHmac('sha1', WEBHOOK_SECRET);
         hmac.update(rawBody);
-        const computedSignature = `sha1=${hmac.digest('hex')}`;
+        const computedSignature = hmac.digest('hex');
 
-        // Use constant time comparison to prevent timing attacks
-        return crypto.timingSafeEqual(
-            Buffer.from(signature),
-            Buffer.from(computedSignature)
-        );
+        // Compare signatures (Vercel doesn't include sha1= prefix in header)
+        return signature === computedSignature;
     } catch (error) {
         console.error('Error verifying signature:', error);
         return false;
