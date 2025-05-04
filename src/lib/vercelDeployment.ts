@@ -1,5 +1,13 @@
 /**
- * Utilities for tracking file modifications and affected pages in Vercel environment
+ * Utilities for tracking file modifications and affected pages using GitHub API
+ * 
+ * This module provides functions to:
+ * 1. Determine which files have changed between deployments using GitHub's comparison API
+ * 2. Map changed files to affected pages on the website
+ * 3. Get last modification dates for files using GitHub commit history
+ * 
+ * All API calls use the GitHub API directly rather than Vercel's API for better reliability
+ * and more detailed change information.
  */
 
 // Mapping pages to their corresponding files for analysis
@@ -57,7 +65,6 @@ export async function getFileLastCommitDate(filePath: string): Promise<Date> {
 
         if (!token || !owner || !repo) {
             console.warn('Missing GitHub credentials or repo info, using current date');
-            console.warn('Required env vars:', { owner, repo });
             return new Date();
         }
 
@@ -74,21 +81,21 @@ export async function getFileLastCommitDate(filePath: string): Promise<Date> {
         });
 
         if (!response.ok) {
-            console.warn('Failed to fetch git information from GitHub API:', response.status, await response.text());
+            console.warn(`Failed to fetch git information for ${filePath} from GitHub API: ${response.status} - ${await response.text()}`);
             return new Date();
         }
 
-        const [lastCommit] = await response.json();
+        const commits = await response.json();
 
-        if (!lastCommit) {
+        if (!Array.isArray(commits) || commits.length === 0) {
             console.warn(`No commit history found for ${filePath}`);
             return new Date();
         }
 
         // GitHub API returns ISO date string
-        return new Date(lastCommit.commit.committer.date);
+        return new Date(commits[0].commit.committer.date);
     } catch (error) {
-        console.error('Error getting file last commit date:', error);
+        console.error(`Error getting last commit date for ${filePath}:`, error);
         return new Date();
     }
 }
@@ -122,7 +129,7 @@ export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
 }
 
 /**
- * Gets a list of files changed since the last deployment using Vercel deployment information
+ * Gets a list of files changed since the last deployment using GitHub API
  * @returns Array of file paths that have been modified since the last deployment
  */
 export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
@@ -147,46 +154,53 @@ export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
             return ['ALL_FILES_CHANGED'];
         }
 
-        // Get the list of files from Vercel deployment
-        const token = process.env.VERCEL_TOKEN;
+        // Get GitHub credentials
+        const token = process.env.GITHUB_TOKEN;
+        const owner = process.env.VERCEL_GIT_REPO_OWNER;
+        const repo = process.env.VERCEL_GIT_REPO_SLUG;
 
-        if (!token) {
-            console.warn('Missing Vercel credentials, considering all files changed');
+        if (!token || !owner || !repo) {
+            console.warn('Missing GitHub credentials or repo info, considering all files changed');
             return ['ALL_FILES_CHANGED'];
         }
 
-        // Fetch git commit information from Vercel API
-        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}/git`;
-        const response = await fetch(deploymentUrl, {
+        // Fetch comparison between commits directly from GitHub API
+        const compareUrl = `https://api.github.com/repos/${owner}/${repo}/compare/${previousDeploymentHash}...${currentDeploymentHash}`;
+
+        console.warn(`Fetching GitHub comparison: ${compareUrl}`);
+
+        const response = await fetch(compareUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
+                Accept: 'application/vnd.github.v3+json',
             },
         });
 
         if (!response.ok) {
-            console.warn('Failed to fetch git information from Vercel API');
+            console.warn(`Failed to fetch comparison from GitHub API: ${response.status} - ${await response.text()}`);
             return ['ALL_FILES_CHANGED'];
         }
 
-        const gitInfo = await response.json();
+        const comparison = await response.json();
 
-        // Get changed files from the commits
+        // Extract changed files from the comparison
         const changedFiles = new Set<string>();
-        const commits = gitInfo.commits || [];
 
-        for (const commit of commits) {
-            commit.files.forEach((file: string) => changedFiles.add(file));
+        // GitHub returns files with the status: "added", "modified", "removed", or "renamed"
+        if (comparison.files && Array.isArray(comparison.files)) {
+            for (const file of comparison.files) {
+                changedFiles.add(file.filename);
+            }
         }
 
         if (changedFiles.size === 0) {
-            console.warn('No changed files found in git history, considering all files changed');
+            console.warn('No changed files found in GitHub comparison, considering all files changed');
             return ['ALL_FILES_CHANGED'];
         }
 
         return Array.from(changedFiles);
     } catch (error) {
-        console.error('Error getting changed files:', error);
+        console.error('Error getting changed files from GitHub:', error);
         return ['ALL_FILES_CHANGED'];
     }
 }
