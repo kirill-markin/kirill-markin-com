@@ -178,4 +178,65 @@ export function getAffectedPagesByChangedFiles(changedFiles: string[]): string[]
     });
 
     return Array.from(affectedPages);
+}
+
+/**
+ * Gets the last modification date for a specific page path using Vercel deployment information
+ * @param pagePath The page path to get the modification date for
+ * @returns The last modification date of the page
+ */
+export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
+    try {
+        // Get deployment information from Vercel environment
+        const currentDeploymentHash = process.env.VERCEL_GIT_COMMIT_SHA;
+        const token = process.env.VERCEL_TOKEN;
+
+        if (!currentDeploymentHash || !token) {
+            console.warn('Missing Vercel environment variables, using current date');
+            return new Date();
+        }
+
+        // Fetch deployment details from Vercel API
+        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}`;
+        const response = await fetch(deploymentUrl, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            console.warn('Failed to fetch deployment details from Vercel API');
+            return new Date();
+        }
+
+        const deployment = await response.json();
+
+        // Get the files that affect this page
+        const relevantFiles = pageFilesMap[pagePath] || [];
+
+        // Get the deployment date for the most recently modified file
+        let latestDate = new Date(deployment.createdAt);
+
+        // If we have no files to check, return the deployment date
+        if (relevantFiles.length === 0) {
+            return latestDate;
+        }
+
+        // Check each file in the deployment
+        const deploymentFiles = deployment.files || [];
+        for (const file of deploymentFiles) {
+            if (relevantFiles.includes(file.name)) {
+                const fileDate = new Date(file.lastModified);
+                if (fileDate > latestDate) {
+                    latestDate = fileDate;
+                }
+            }
+        }
+
+        return latestDate;
+    } catch (error) {
+        console.error('Error getting page last modified date:', error);
+        return new Date();
+    }
 } 

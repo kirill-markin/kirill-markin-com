@@ -52,7 +52,7 @@ export async function POST(request: Request) {
         }
 
         return NextResponse.json({ message: 'Event ignored' });
-    } catch (error) {
+    } catch {
         console.error('Error processing webhook');
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }

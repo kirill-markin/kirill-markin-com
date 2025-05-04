@@ -1,11 +1,11 @@
 import { MetadataRoute } from 'next';
 import { getAllArticles } from '@/lib/articles';
 import { servicesData } from '@/data/services';
-import { getPageLastModifiedDate } from '@/lib/fileModification';
+import { getPageLastModifiedDate } from '@/lib/vercelDeployment';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
- * Includes all routes with lastModified dates, changeFrequency, and priority settings
+ * Includes all routes with lastModified dates from Vercel deployment information
  * 
  * @returns {MetadataRoute.Sitemap} Sitemap configuration
  */
@@ -38,11 +38,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...uniqueArticleTags.map(tag => `/articles/?tag=${tag}`)
   ];
 
-  // Generate the routes with their last modified dates
+  // Generate the routes with their last modified dates from Vercel deployment
   const staticRoutesPromises = routePaths.map(async (routePath) => {
-    const relativePath = routePath.startsWith('/') ? routePath : `/${routePath}`;
-    const lastModified = await getPageLastModifiedDate(relativePath);
     const url = `${baseUrl}${routePath.startsWith('/') ? routePath.substring(1) : routePath}`;
+    const lastModified = await getPageLastModifiedDate(routePath);
 
     // Define change frequency and priority based on page type
     let changeFrequency: 'daily' | 'weekly' | 'monthly' | 'yearly' = 'monthly';
@@ -73,7 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Resolve all promises to get the static routes
   const staticRoutes = await Promise.all(staticRoutesPromises);
 
-  // Generate article routes
+  // Generate article routes (using article metadata for lastmod)
   const articleRoutes = articles.map((article) => ({
     url: `${baseUrl}articles/${article.slug}/`,
     lastModified: new Date(article.metadata.lastmod),
