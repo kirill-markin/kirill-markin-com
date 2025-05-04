@@ -8,6 +8,30 @@ const API_KEY = process.env.INDEXNOW_API_KEY || '35116a77dcdf431ab1887d663c7d388
 const KEY_LOCATION = `${SITE_URL}/${API_KEY}.txt`;
 const INDEXNOW_API_HOST = 'api.indexnow.org';
 
+// Define types for sitemap data
+interface SitemapUrlEntry {
+    loc: string[];
+    lastmod?: string[];
+    changefreq?: string[];
+    priority?: string[];
+}
+
+interface SitemapData {
+    urlset?: {
+        url?: SitemapUrlEntry[];
+    };
+}
+
+interface ApiResponse {
+    statusCode?: number;
+    statusMessage?: string;
+    data?: string;
+    message?: string;
+    success?: boolean;
+    recentUrls?: string[];
+    apiResponse?: ApiResponse;
+}
+
 /**
  * Fetches the sitemap.xml content
  */
@@ -24,26 +48,26 @@ async function fetchSitemap(url: string): Promise<string> {
 /**
  * Filters URLs based on last modification time
  */
-function filterRecentlyModifiedUrls(sitemapData: any, thresholdMinutes = 3): string[] {
+function filterRecentlyModifiedUrls(sitemapData: SitemapData, thresholdMinutes = 3): string[] {
     if (!sitemapData?.urlset?.url?.length) return [];
 
     const currentTime = new Date();
     const thresholdMs = thresholdMinutes * 60 * 1000;
 
     return sitemapData.urlset.url
-        .filter((urlEntry: any) => {
+        .filter((urlEntry: SitemapUrlEntry) => {
             if (!urlEntry.lastmod?.[0]) return false;
 
             const lastmodTime = new Date(urlEntry.lastmod[0]);
             return (currentTime.getTime() - lastmodTime.getTime()) <= thresholdMs;
         })
-        .map((urlEntry: any) => urlEntry.loc[0]);
+        .map((urlEntry: SitemapUrlEntry) => urlEntry.loc[0]);
 }
 
 /**
  * Submits URLs to IndexNow API
  */
-async function submitToIndexNow(urls: string[]): Promise<any> {
+async function submitToIndexNow(urls: string[]): Promise<ApiResponse> {
     if (urls.length === 0) {
         return { message: 'No URLs to submit' };
     }
@@ -88,23 +112,23 @@ async function submitToIndexNow(urls: string[]): Promise<any> {
 /**
  * Main function to process and submit URLs
  */
-export async function filterAndSubmitUrls(thresholdMinutes = 3): Promise<any> {
+export async function filterAndSubmitUrls(thresholdMinutes = 3): Promise<ApiResponse> {
     try {
-        console.log(`Fetching sitemap from ${SITEMAP_URL}`);
+        console.warn(`Fetching sitemap from ${SITEMAP_URL}`);
         const xmlData = await fetchSitemap(SITEMAP_URL);
 
-        console.log('Parsing sitemap XML');
+        console.warn('Parsing sitemap XML');
         const sitemap = await parseStringPromise(xmlData);
 
-        console.log(`Filtering URLs modified in the last ${thresholdMinutes} minutes`);
+        console.warn(`Filtering URLs modified in the last ${thresholdMinutes} minutes`);
         const recentUrls = filterRecentlyModifiedUrls(sitemap, thresholdMinutes);
 
-        console.log(`Found ${recentUrls.length} recently modified URLs`);
+        console.warn(`Found ${recentUrls.length} recently modified URLs`);
         if (recentUrls.length === 0) {
             return { message: 'No recent changes found in sitemap' };
         }
 
-        console.log('Submitting URLs to IndexNow');
+        console.warn('Submitting URLs to IndexNow');
         const result = await submitToIndexNow(recentUrls);
 
         return {
