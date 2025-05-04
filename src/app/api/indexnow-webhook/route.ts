@@ -72,14 +72,22 @@ function verifyVercelSignature(signature: string | null, rawBody: string): boole
         // Create HMAC using the secret
         const hmac = crypto.createHmac('sha1', WEBHOOK_SECRET);
         hmac.update(rawBody);
-        const computedSignature = hmac.digest('hex');
+        const rawSignature = hmac.digest('hex');
 
-        console.log('Computed signature:', computedSignature);
+        // Generate both signature formats for comparison
+        const signatureWithPrefix = `sha1=${rawSignature}`;
 
-        // Direct comparison of signatures
-        const isValid = signature === computedSignature;
-        console.log('Signature validation result:', isValid);
-        return isValid;
+        console.log('Computed raw signature:', rawSignature);
+        console.log('Computed signature with prefix:', signatureWithPrefix);
+
+        // Try both formats for maximum compatibility
+        const matchesRaw = signature === rawSignature;
+        const matchesWithPrefix = signature === signatureWithPrefix;
+
+        console.log('Matches raw signature:', matchesRaw);
+        console.log('Matches signature with prefix:', matchesWithPrefix);
+
+        return matchesRaw || matchesWithPrefix;
     } catch (error) {
         console.error('Error verifying signature:', error);
         return false;
