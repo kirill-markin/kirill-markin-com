@@ -60,7 +60,7 @@ export async function getFileLastCommitDate(filePath: string): Promise<Date> {
         }
 
         // Fetch git commit history from Vercel API
-        const deploymentUrl = `https://api.vercel.com/v13/deployments/${currentDeploymentHash}/git`;
+        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}/git`;
         const response = await fetch(deploymentUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -154,7 +154,7 @@ export async function getChangedFilesSinceLastDeployment(): Promise<string[]> {
         }
 
         // Fetch git commit information from Vercel API
-        const deploymentUrl = `https://api.vercel.com/v13/deployments/${currentDeploymentHash}/git`;
+        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}/git`;
         const response = await fetch(deploymentUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
