@@ -1,21 +1,26 @@
 import { NextResponse } from 'next/server';
 import { filterAndSubmitUrls, DEFAULT_THRESHOLD_MINUTES } from '@/lib/indexnow';
+import crypto from 'crypto';
 
-// Webhook secret for security
-const WEBHOOK_SECRET = process.env.INDEXNOW_WEBHOOK_SECRET;
+// Vercel signature secret for security (stored in environment variables)
+const VERCEL_SIGNATURE_SECRET = process.env.VERCEL_SIGNATURE_SECRET;
 
 export async function POST(request: Request) {
     try {
-        const body = await request.json();
+        // Get raw body for signature verification
+        const rawBody = await request.text();
+        const body = JSON.parse(rawBody);
 
-        // Verify webhook secret
-        const authHeader = request.headers.get('authorization');
-        if (!authHeader || authHeader !== `Bearer ${WEBHOOK_SECRET}`) {
+        // Verify Vercel signature
+        const signature = request.headers.get('x-vercel-signature');
+        if (!verifyVercelSignature(signature, rawBody)) {
+            console.warn('Invalid webhook signature');
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
         // Only process successful deployment events
         if (body.type === 'deployment.succeeded') {
+            console.warn('Processing successful deployment webhook');
             const result = await filterAndSubmitUrls(DEFAULT_THRESHOLD_MINUTES);
             return NextResponse.json({ success: true, result });
         }
@@ -26,5 +31,31 @@ export async function POST(request: Request) {
         return NextResponse.json({
             error: error instanceof Error ? error.message : 'Unknown error'
         }, { status: 500 });
+    }
+}
+
+/**
+ * Verifies the Vercel webhook signature
+ */
+function verifyVercelSignature(signature: string | null, rawBody: string): boolean {
+    if (!signature || !VERCEL_SIGNATURE_SECRET) {
+        console.warn('Missing signature or secret');
+        return false;
+    }
+
+    try {
+        // Create HMAC using the secret
+        const hmac = crypto.createHmac('sha1', VERCEL_SIGNATURE_SECRET);
+        hmac.update(rawBody);
+        const computedSignature = `sha1=${hmac.digest('hex')}`;
+
+        // Use constant time comparison to prevent timing attacks
+        return crypto.timingSafeEqual(
+            Buffer.from(signature),
+            Buffer.from(computedSignature)
+        );
+    } catch (error) {
+        console.error('Error verifying signature:', error);
+        return false;
     }
 } 
