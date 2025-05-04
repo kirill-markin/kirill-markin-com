@@ -27,7 +27,7 @@ export default function robots(): MetadataRoute.Robots {
         }
       ],
       sitemap: `${host}/sitemap.xml`,
-      host,
+      // host directive removed as it's only used by Yandex
     };
   }
 
