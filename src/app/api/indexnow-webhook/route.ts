@@ -2,8 +2,11 @@ import { NextResponse } from 'next/server';
 import { filterAndSubmitChangedUrls } from '@/lib/indexnow';
 import crypto from 'crypto';
 
-// Vercel signature secret for security (stored in environment variables)
-const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || process.env.VERCEL_SIGNATURE_SECRET;
+// Vercel deployment webhook secret
+const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+
+// Vercel API token for accessing deployment information
+const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
 
 export async function POST(request: Request) {
     try {
@@ -30,12 +33,17 @@ export async function POST(request: Request) {
         if (body.type === 'deployment.succeeded') {
             console.warn('Processing successful deployment webhook');
 
+            // Verify we have all required Vercel environment variables
+            if (!process.env.VERCEL_GIT_COMMIT_SHA || !VERCEL_TOKEN) {
+                console.error('Missing required Vercel environment variables');
+                return NextResponse.json({ error: 'Missing required configuration' }, { status: 500 });
+            }
+
             try {
-                // Use the Git-based method to determine what changed
+                // Use the Vercel API-based method to determine what changed
                 const result = await filterAndSubmitChangedUrls();
                 return NextResponse.json({ success: true, result });
             } catch (indexError) {
-                // Safe to log XML parsing errors as they don't contain sensitive data
                 console.error('Error in filterAndSubmitChangedUrls:', indexError);
                 return NextResponse.json({
                     error: indexError instanceof Error ? indexError.message : 'Error processing sitemap'
@@ -44,11 +52,9 @@ export async function POST(request: Request) {
         }
 
         return NextResponse.json({ message: 'Event ignored' });
-    } catch {
+    } catch (error) {
         console.error('Error processing webhook');
-        return NextResponse.json({
-            error: 'Internal server error'
-        }, { status: 500 });
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
 

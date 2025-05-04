@@ -1,6 +1,6 @@
 import { parseStringPromise } from 'xml2js';
 import https from 'https';
-import { getChangedFilesSinceLastDeployment, getAffectedPagesByChangedFiles } from './fileModification';
+import { getChangedFilesSinceLastDeployment, getAffectedPagesByChangedFiles } from './vercelDeployment';
 
 // Configuration
 const SITE_URL = process.env.SITE_URL || 'https://kirill-markin.com';
