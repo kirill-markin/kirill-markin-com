@@ -7,7 +7,6 @@ const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 const API_KEY = process.env.INDEXNOW_API_KEY || '35116a77dcdf431ab1887d663c7d388f';
 const KEY_LOCATION = `${SITE_URL}/${API_KEY}.txt`;
 const INDEXNOW_API_HOST = 'api.indexnow.org';
-export const DEFAULT_THRESHOLD_MINUTES = 5;
 
 // Define types for sitemap data
 interface SitemapUrlEntry {
@@ -44,25 +43,6 @@ async function fetchSitemap(url: string): Promise<string> {
             res.on('end', () => { resolve(data); });
         }).on('error', reject);
     });
-}
-
-/**
- * Filters URLs based on last modification time
- */
-function filterRecentlyModifiedUrls(sitemapData: SitemapData, thresholdMinutes = DEFAULT_THRESHOLD_MINUTES): string[] {
-    if (!sitemapData?.urlset?.url?.length) return [];
-
-    const currentTime = new Date();
-    const thresholdMs = thresholdMinutes * 60 * 1000;
-
-    return sitemapData.urlset.url
-        .filter((urlEntry: SitemapUrlEntry) => {
-            if (!urlEntry.lastmod?.[0]) return false;
-
-            const lastmodTime = new Date(urlEntry.lastmod[0]);
-            return (currentTime.getTime() - lastmodTime.getTime()) <= thresholdMs;
-        })
-        .map((urlEntry: SitemapUrlEntry) => urlEntry.loc[0]);
 }
 
 /**
@@ -111,34 +91,76 @@ async function submitToIndexNow(urls: string[]): Promise<ApiResponse> {
 }
 
 /**
- * Main function to process and submit URLs
+ * Filters and submits only URLs affected by the files changed in this deployment
+ * Uses Git to determine which files have changed
  */
-export async function filterAndSubmitUrls(thresholdMinutes = DEFAULT_THRESHOLD_MINUTES): Promise<ApiResponse> {
+export async function filterAndSubmitChangedUrls(): Promise<ApiResponse> {
     try {
+        const {
+            getChangedFilesSinceLastDeployment,
+            getAffectedPagesByChangedFiles
+        } = require('./fileModification');
+
+        console.warn('Getting list of files changed since last deployment');
+        const changedFiles = await getChangedFilesSinceLastDeployment();
+
+        console.warn(`Found ${changedFiles.length} changed files`);
+
+        console.warn('Determining affected pages');
+        const affectedPages = getAffectedPagesByChangedFiles(changedFiles);
+
+        console.warn(`Found ${affectedPages.length} affected pages`);
+        if (affectedPages.length === 0) {
+            return { message: 'No pages affected by the changes' };
+        }
+
         console.warn(`Fetching sitemap from ${SITEMAP_URL}`);
         const xmlData = await fetchSitemap(SITEMAP_URL);
 
         console.warn('Parsing sitemap XML');
         const sitemap = await parseStringPromise(xmlData);
 
-        console.warn(`Filtering URLs modified in the last ${thresholdMinutes} minutes`);
-        const recentUrls = filterRecentlyModifiedUrls(sitemap, thresholdMinutes);
+        if (!sitemap?.urlset?.url?.length) {
+            return { message: 'No URLs found in sitemap' };
+        }
 
-        console.warn(`Found ${recentUrls.length} recently modified URLs`);
-        if (recentUrls.length === 0) {
-            return { message: 'No recent changes found in sitemap' };
+        console.warn('Filtering URLs based on affected pages');
+        const urlsToSubmit = sitemap.urlset.url
+            .filter((urlEntry: SitemapUrlEntry) => {
+                const urlPath = new URL(urlEntry.loc[0]).pathname;
+
+                // Check if this URL path corresponds to any of the affected pages
+                return affectedPages.some((affectedPage: string) => {
+                    // Handle special case for individual articles
+                    if (affectedPage.startsWith('/articles/') &&
+                        affectedPage !== '/articles/' &&
+                        urlPath.startsWith('/articles/')) {
+                        return urlPath.includes(affectedPage);
+                    }
+
+                    // For regular pages, check exact match (with trailing slash handling)
+                    const normalizedUrlPath = urlPath.endsWith('/') ? urlPath : `${urlPath}/`;
+                    const normalizedAffectedPage = affectedPage.endsWith('/') ? affectedPage : `${affectedPage}/`;
+                    return normalizedUrlPath === normalizedAffectedPage;
+                });
+            })
+            .map((urlEntry: SitemapUrlEntry) => urlEntry.loc[0]);
+
+        console.warn(`Found ${urlsToSubmit.length} URLs to submit to IndexNow`);
+        if (urlsToSubmit.length === 0) {
+            return { message: 'No matching URLs found for affected pages' };
         }
 
         console.warn('Submitting URLs to IndexNow');
-        const result = await submitToIndexNow(recentUrls);
+        const result = await submitToIndexNow(urlsToSubmit);
 
         return {
             success: result.statusCode === 200,
-            recentUrls,
+            recentUrls: urlsToSubmit,
             apiResponse: result
         };
     } catch (error) {
-        console.error('Error in filterAndSubmitUrls:', error);
+        console.error('Error in filterAndSubmitChangedUrls:', error);
         throw error;
     }
 } 

@@ -9,34 +9,44 @@ This document outlines how our website calculates lastmod timestamps in sitemap.
 
 ## LastMod Calculation
 
-The website uses a file-based approach to determine lastmod dates:
+The website uses a file-based approach to determine lastmod dates for the sitemap:
 
 1. For articles:
-   - Uses the file's actual modification timestamp from the filesystem
-   - Replaces manual lastmod management in frontmatter
+   - Uses the lastmod date from frontmatter if available
+   - Falls back to current date if not specified
 
 2. For other pages:
    - Maps each URL to its relevant source files
    - Calculates lastmod as the most recent modification date across all files
    - Includes component files, data files, and CSS that affect the page
 
-## IndexNow Integration
+## IndexNow Integration with Git Change Detection
 
-We use IndexNow for immediate search engine notification when content changes:
+We use IndexNow with Git-based change detection for immediate search engine notification when content changes:
 
 1. After each successful deployment, Vercel triggers a webhook to `/api/indexnow-webhook`
-2. The webhook endpoint:
-   - Fetches the sitemap.xml
-   - Analyzes lastmod timestamps to find recently changed URLs
-   - Submits only changed URLs to IndexNow API
-   - Logs the submission results
+2. The webhook endpoint using our Git-based approach:
+   - Retrieves the current commit hash (`VERCEL_GIT_COMMIT_SHA`) and previous successful deployment hash (`VERCEL_GIT_PREVIOUS_SHA`)
+   - Uses Git to determine which files changed between these commits
+   - Maps changed files to affected page URLs
+   - Filters the sitemap.xml to find only URLs for affected pages
+   - Submits only these affected URLs to IndexNow API
+   - Falls back to submitting all URLs if no previous hash exists (first deployment) or if errors occur
 
 ## Implementation Files
 
 Key files in the implementation:
-- `lib/fileModification.ts`: Functions to get file modification dates
-- `lib/indexnow.ts`: IndexNow API integration and URL submission
-- `app/api/indexnow-webhook/route.ts`: Webhook endpoint for automated submissions
-- `app/sitemap.ts`: Sitemap generation with dynamic lastmod dates
+- `lib/fileModification.ts`: 
+  - Functions to get file modification dates for sitemap
+  - Git integration for detecting changed files
+  - Mapping of file paths to page URLs
+- `lib/indexnow.ts`: 
+  - IndexNow API integration and URL submission
+  - Filtering of sitemap URLs based on Git changes
+- `app/api/indexnow-webhook/route.ts`: 
+  - Webhook endpoint for automated submissions
+  - Vercel signature verification
+- `app/sitemap.ts`: 
+  - Sitemap generation with dynamic lastmod dates
 
-This approach ensures search engines quickly discover and index changes to the website without requiring manual submission or full site rescanning.
+This Git-based approach ensures search engines quickly discover and index only the pages that actually changed in each deployment, improving efficiency and reducing unnecessary indexing requests.

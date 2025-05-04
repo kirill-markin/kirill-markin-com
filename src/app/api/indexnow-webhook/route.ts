@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { filterAndSubmitUrls, DEFAULT_THRESHOLD_MINUTES } from '@/lib/indexnow';
+import { filterAndSubmitChangedUrls } from '@/lib/indexnow';
 import crypto from 'crypto';
 
 // Vercel signature secret for security (stored in environment variables)
@@ -21,7 +21,9 @@ export async function POST(request: Request) {
         // Only process successful deployment events
         if (body.type === 'deployment.succeeded') {
             console.warn('Processing successful deployment webhook');
-            const result = await filterAndSubmitUrls(DEFAULT_THRESHOLD_MINUTES);
+
+            // Use the Git-based method to determine what changed
+            const result = await filterAndSubmitChangedUrls();
             return NextResponse.json({ success: true, result });
         }
 
