@@ -44,47 +44,49 @@ export const pageFilesMap: Record<string, string[]> = {
 };
 
 /**
- * Gets the last Git commit date for a file using Vercel API
+ * Gets the last Git commit date for a file using GitHub API
  * @param filePath Path to the file
  * @returns The date of the last commit that modified the file
  */
 export async function getFileLastCommitDate(filePath: string): Promise<Date> {
     try {
-        // Get deployment information from Vercel environment
-        const currentDeploymentHash = process.env.VERCEL_GIT_COMMIT_SHA;
-        const token = process.env.VERCEL_TOKEN;
+        // Get GitHub token and repo info from environment
+        const token = process.env.GITHUB_TOKEN;
+        const owner = process.env.VERCEL_GIT_REPO_OWNER;
+        const repo = process.env.VERCEL_GIT_REPO_SLUG;
 
-        if (!currentDeploymentHash || !token) {
-            console.warn('Missing Vercel environment variables, using current date');
+        if (!token || !owner || !repo) {
+            console.warn('Missing GitHub credentials or repo info, using current date');
+            console.warn('Required env vars:', { owner, repo });
             return new Date();
         }
 
-        // Fetch git commit history from Vercel API
-        const deploymentUrl = `https://api.vercel.com/v6/deployments/${currentDeploymentHash}/git`;
-        const response = await fetch(deploymentUrl, {
+        // Fetch commit history for the file from GitHub API
+        const githubUrl = `https://api.github.com/repos/${owner}/${repo}/commits?path=${filePath}&page=1&per_page=1`;
+
+        console.warn('Fetching GitHub commit info:', { githubUrl, filePath });
+
+        const response = await fetch(githubUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
+                Accept: 'application/vnd.github.v3+json',
             },
         });
 
         if (!response.ok) {
-            console.warn('Failed to fetch git information from Vercel API');
+            console.warn('Failed to fetch git information from GitHub API:', response.status, await response.text());
             return new Date();
         }
 
-        const gitInfo = await response.json();
+        const [lastCommit] = await response.json();
 
-        // Find the most recent commit that modified this file
-        const commits = gitInfo.commits || [];
-        for (const commit of commits) {
-            if (commit.files.includes(filePath)) {
-                return new Date(commit.timestamp * 1000); // Convert Unix timestamp to Date
-            }
+        if (!lastCommit) {
+            console.warn(`No commit history found for ${filePath}`);
+            return new Date();
         }
 
-        // If no commit found for this file, return deployment date
-        return new Date(gitInfo.createdAt);
+        // GitHub API returns ISO date string
+        return new Date(lastCommit.commit.committer.date);
     } catch (error) {
         console.error('Error getting file last commit date:', error);
         return new Date();
