@@ -194,9 +194,10 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
     const { lang, segment, subsegment } = await params;
 
-    // Check language validity
+    // Check if language is valid
     if (!isValidLanguage(lang)) {
-        redirect('/');
+        notFound();
+        return null;
     }
 
     // Get expected segment values
@@ -275,6 +276,7 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
         );
     }
 
-    // If no matching segment/subsegment, redirect to language root
-    redirect(`/${lang}`);
+    // If no matching segment/subsegment, show 404
+    notFound();
+    return null;
 } 

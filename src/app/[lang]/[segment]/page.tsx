@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getAllArticles } from '@/lib/articles';
 import { servicesData } from '@/data/services';
 import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
-import { redirect } from 'next/navigation';
+import { redirect, notFound } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
 import { generateArticlesPageMetadata, generateServicesPageMetadata, generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
@@ -147,7 +147,8 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
 
     // Check if language is valid
     if (!isValidLanguage(lang)) {
-        redirect('/');
+        notFound();
+        return null;
     }
 
     // Determine segment type
@@ -185,6 +186,7 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
         return <PayPage language={lang} />;
     }
 
-    // If segment doesn't match any known type, redirect to home
-    redirect(`/${lang}/`);
+    // If segment doesn't match any known type, show 404
+    notFound();
+    return null;
 }

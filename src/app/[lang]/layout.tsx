@@ -1,5 +1,5 @@
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, isValidLanguage } from '@/lib/localization';
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
 
@@ -24,9 +24,10 @@ export default async function LocaleLayout({
 }) {
     const { lang } = await params;
 
-    // Validate language or redirect to default
+    // Validate language or show 404
     if (!isValidLanguage(lang)) {
-        redirect('/');
+        notFound();
+        return null; // This line won't execute but helps TypeScript understand the flow
     }
 
     return (

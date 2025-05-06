@@ -897,6 +897,33 @@ export const translations = {
             formLoading: 'भुगतान फॉर्म लोड हो रहा है...'
         }
     },
+    notFound: {
+        'en': {
+            title: 'Page Not Found',
+            message: 'The page you\'re looking for doesn\'t exist or has been moved.',
+            backToHome: 'BACK TO HOME'
+        },
+        'es': {
+            title: 'Página No Encontrada',
+            message: 'La página que estás buscando no existe o ha sido movida.',
+            backToHome: 'VOLVER AL INICIO'
+        },
+        'zh': {
+            title: '页面未找到',
+            message: '您正在寻找的页面不存在或已被移动。',
+            backToHome: '返回主页'
+        },
+        'ar': {
+            title: 'الصفحة غير موجودة',
+            message: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.',
+            backToHome: 'العودة إلى الصفحة الرئيسية'
+        },
+        'hi': {
+            title: 'पृष्ठ नहीं मिला',
+            message: 'आप जिस पृष्ठ की तलाश कर रहे हैं वह मौजूद नहीं है या स्थानांतरित कर दिया गया है।',
+            backToHome: 'मुख्य पृष्ठ पर वापस जाएं'
+        }
+    },
 } as const;
 
 /**

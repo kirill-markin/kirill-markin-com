@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { DEFAULT_LANGUAGE, isValidLanguage } from '@/lib/localization';
-import { redirect } from 'next/navigation';
+import { redirect, notFound } from 'next/navigation';
 import HomePageContent from '@/components/pages/HomePageContent';
 import { generateHomePageMetadata } from '@/lib/metadata';
 
@@ -10,14 +10,9 @@ interface HomePageProps {
     }>;
 }
 
-// Generate static parameters for all supported languages
-export function generateStaticParams() {
-    return [
-        { lang: 'es' },
-        { lang: 'zh' },
-        { lang: 'ar' },
-        { lang: 'hi' },
-    ];
+// Generate static params for all supported languages
+export async function generateStaticParams() {
+    return [{ lang: 'es' }, { lang: 'zh' }, { lang: 'ar' }, { lang: 'hi' }];
 }
 
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
@@ -36,7 +31,8 @@ export default async function LocalizedHomePage({ params }: HomePageProps) {
 
     // Check if language is valid
     if (!isValidLanguage(lang)) {
-        redirect('/');
+        notFound();
+        return null;
     }
 
     // For English, redirect to main site
