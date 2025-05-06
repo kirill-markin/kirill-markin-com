@@ -548,13 +548,19 @@ export const translations = {
         'en': {
             title: 'Meeting Booking Options',
             description: 'Please select your preferred meeting type:',
+            metaTitle: 'Book a Meeting with Kirill Markin | AI Strategy Consultation',
+            metaDescription: 'Schedule a meeting with Kirill Markin to discuss AI strategy, implementation, and digital transformation for your business. Choose from various consultation options.',
             shortMeeting: {
                 title: '15-Minute Welcome Meeting',
-                description: 'Free introduction call to discuss your needs and how we can work together'
+                description: 'Free introduction call to discuss your needs and how we can work together',
+                metaTitle: '15-Minute Free Consultation | Kirill Markin',
+                metaDescription: 'Book a free 15-minute introduction call with Kirill Markin to discuss your AI strategy needs and explore potential collaboration opportunities.'
             },
             allMeetings: {
                 title: 'All durations',
-                description: 'Choose from all available consultation options and time slots'
+                description: 'Choose from all available consultation options and time slots',
+                metaTitle: 'All Consultation Options | Kirill Markin',
+                metaDescription: 'View all available meeting durations and time slots for consultations with Kirill Markin on AI strategy and implementation.'
             },
             shortPageTitle: '15-MINUTE WELCOME MEETING',
             allPageTitle: 'ALL MEETING OPTIONS',
@@ -563,13 +569,19 @@ export const translations = {
         'es': {
             title: 'Opciones de Reserva de Reuniones',
             description: 'Por favor, seleccione su tipo de reunión preferido:',
+            metaTitle: 'Reserve una Reunión con Kirill Markin | Consultoría de Estrategia de IA',
+            metaDescription: 'Programe una reunión con Kirill Markin para discutir estrategia de IA, implementación y transformación digital para su empresa. Elija entre varias opciones de consulta.',
             shortMeeting: {
                 title: 'Reunión de Bienvenida de 15 Minutos',
-                description: 'Llamada de introducción gratuita para discutir sus necesidades y cómo podemos trabajar juntos'
+                description: 'Llamada de introducción gratuita para discutir sus necesidades y cómo podemos trabajar juntos',
+                metaTitle: 'Consulta Gratuita de 15 Minutos | Kirill Markin',
+                metaDescription: 'Reserve una llamada de introducción gratuita de 15 minutos con Kirill Markin para discutir sus necesidades de estrategia de IA y explorar oportunidades de colaboración potencial.'
             },
             allMeetings: {
                 title: 'Todas las duraciones',
-                description: 'Elija entre todas las opciones de consulta disponibles y franjas horarias'
+                description: 'Elija entre todas las opciones de consulta disponibles y franjas horarias',
+                metaTitle: 'Todas las Opciones de Consulta | Kirill Markin',
+                metaDescription: 'Vea todas las duraciones de reuniones disponibles y franjas horarias para consultas con Kirill Markin sobre estrategia e implementación de IA.'
             },
             shortPageTitle: 'REUNIÓN DE BIENVENIDA DE 15 MINUTOS',
             allPageTitle: 'TODAS LAS OPCIONES DE REUNIÓN',
@@ -578,13 +590,19 @@ export const translations = {
         'zh': {
             title: '会议预约选项',
             description: '请选择您喜欢的会议类型：',
+            metaTitle: '与Kirill Markin预约会议 | 人工智能战略咨询',
+            metaDescription: '与Kirill Markin预约会议，讨论人工智能战略、实施和企业数字化转型。从各种咨询选项中选择。',
             shortMeeting: {
                 title: '15分钟欢迎会议',
-                description: '免费介绍电话，讨论您的需求以及我们如何合作'
+                description: '免费介绍电话，讨论您的需求以及我们如何合作',
+                metaTitle: '15分钟免费咨询 | Kirill Markin',
+                metaDescription: '预约与Kirill Markin的15分钟免费介绍电话，讨论您的人工智能战略需求并探索潜在的合作机会。'
             },
             allMeetings: {
                 title: '所有时长',
-                description: '从所有可用的咨询选项和时间段中进行选择'
+                description: '从所有可用的咨询选项和时间段中进行选择',
+                metaTitle: '所有咨询选项 | Kirill Markin',
+                metaDescription: '查看与Kirill Markin关于人工智能战略和实施咨询的所有可用会议时长和时间段。'
             },
             shortPageTitle: '15分钟欢迎会议',
             allPageTitle: '所有会议选项',
@@ -593,13 +611,19 @@ export const translations = {
         'ar': {
             title: 'خيارات حجز الاجتماعات',
             description: 'يرجى اختيار نوع الاجتماع المفضل لديك:',
+            metaTitle: 'حجز اجتماع مع كيريل ماركين | استشارات استراتيجية الذكاء الاصطناعي',
+            metaDescription: 'قم بجدولة اجتماع مع كيريل ماركين لمناقشة استراتيجية الذكاء الاصطناعي والتنفيذ والتحول الرقمي لعملك. اختر من بين خيارات الاستشارة المختلفة.',
             shortMeeting: {
                 title: 'اجتماع ترحيبي لمدة 15 دقيقة',
-                description: 'مكالمة تعريفية مجانية لمناقشة احتياجاتك وكيف يمكننا العمل معًا'
+                description: 'مكالمة تعريفية مجانية لمناقشة احتياجاتك وكيف يمكننا العمل معًا',
+                metaTitle: 'استشارة مجانية لمدة 15 دقيقة | كيريل ماركين',
+                metaDescription: 'احجز مكالمة تعريفية مجانية لمدة 15 دقيقة مع كيريل ماركين لمناقشة احتياجات استراتيجية الذكاء الاصطناعي واستكشاف فرص التعاون المحتملة.'
             },
             allMeetings: {
                 title: 'جميع المدد',
-                description: 'اختر من بين جميع خيارات الاستشارة المتاحة والمواعيد'
+                description: 'اختر من بين جميع خيارات الاستشارة المتاحة والمواعيد',
+                metaTitle: 'جميع خيارات الاستشارة | كيريل ماركين',
+                metaDescription: 'اطلع على جميع مدد الاجتماعات المتاحة والمواعيد للاستشارات مع كيريل ماركين حول استراتيجية وتنفيذ الذكاء الاصطناعي.'
             },
             shortPageTitle: 'اجتماع ترحيبي لمدة 15 دقيقة',
             allPageTitle: 'جميع خيارات الاجتماع',
@@ -608,13 +632,19 @@ export const translations = {
         'hi': {
             title: 'मीटिंग बुकिंग विकल्प',
             description: 'कृपया अपनी पसंदीदा मीटिंग प्रकार चुनें:',
+            metaTitle: 'किरिल मार्किन के साथ मीटिंग बुक करें | एआई रणनीति परामर्श',
+            metaDescription: 'अपने व्यवसाय के लिए एआई रणनीति, कार्यान्वयन और डिजिटल परिवर्तन पर चर्चा करने के लिए किरिल मार्किन के साथ बैठक शेड्यूल करें। विभिन्न परामर्श विकल्पों से चुनें।',
             shortMeeting: {
                 title: '15-मिनट का स्वागत मीटिंग',
-                description: 'आपकी जरूरतों और हम कैसे एक साथ काम कर सकते हैं इस पर चर्चा करने के लिए मुफ्त परिचय कॉल'
+                description: 'आपकी जरूरतों और हम कैसे एक साथ काम कर सकते हैं इस पर चर्चा करने के लिए मुफ्त परिचय कॉल',
+                metaTitle: '15-मिनट का निःशुल्क परामर्श | किरिल मार्किन',
+                metaDescription: 'अपनी एआई रणनीति की आवश्यकताओं पर चर्चा करने और संभावित सहयोग के अवसरों का पता लगाने के लिए किरिल मार्किन के साथ 15-मिनट का मुफ्त परिचय कॉल बुक करें।'
             },
             allMeetings: {
                 title: 'सभी अवधियां',
-                description: 'सभी उपलब्ध परामर्श विकल्पों और समय स्लॉट से चुनें'
+                description: 'सभी उपलब्ध परामर्श विकल्पों और समय स्लॉट से चुनें',
+                metaTitle: 'सभी परामर्श विकल्प | किरिल मार्किन',
+                metaDescription: 'एआई रणनीति और कार्यान्वयन पर किरिल मार्किन के साथ परामर्श के लिए सभी उपलब्ध मीटिंग अवधियों और समय स्लॉट देखें।'
             },
             shortPageTitle: '15-मिनट का स्वागत मीटिंग',
             allPageTitle: 'सभी मीटिंग विकल्प',
@@ -625,9 +655,13 @@ export const translations = {
         'en': {
             title: 'PAYMENT OPTIONS',
             description: 'Please select your preferred payment method:',
+            metaTitle: 'Secure Payment Options | Kirill Markin Services',
+            metaDescription: 'Complete your payment for Kirill Markin\'s AI strategy and consulting services. Choose from multiple secure payment methods.',
             stripe: {
                 title: 'Pay with Stripe',
-                description: 'Secure payment with credit or debit card'
+                description: 'Secure payment with credit or debit card',
+                metaTitle: 'Secure Stripe Payment | Kirill Markin',
+                metaDescription: 'Make a secure payment for Kirill Markin\'s services using Stripe\'s protected payment processing with credit or debit card.'
             },
             stripePageTitle: 'PAY WITH STRIPE',
             formLoading: 'Loading payment form...'
@@ -635,9 +669,13 @@ export const translations = {
         'es': {
             title: 'OPCIONES DE PAGO',
             description: 'Por favor, seleccione su método de pago preferido:',
+            metaTitle: 'Opciones de Pago Seguro | Servicios de Kirill Markin',
+            metaDescription: 'Complete su pago por los servicios de estrategia de IA y consultoría de Kirill Markin. Elija entre múltiples métodos de pago seguros.',
             stripe: {
                 title: 'Pagar con Stripe',
-                description: 'Pago seguro con tarjeta de crédito o débito'
+                description: 'Pago seguro con tarjeta de crédito o débito',
+                metaTitle: 'Pago Seguro con Stripe | Kirill Markin',
+                metaDescription: 'Realice un pago seguro por los servicios de Kirill Markin utilizando el procesamiento de pagos protegido de Stripe con tarjeta de crédito o débito.'
             },
             stripePageTitle: 'PAGAR CON STRIPE',
             formLoading: 'Cargando formulario de pago...'
@@ -645,9 +683,13 @@ export const translations = {
         'zh': {
             title: '支付选项',
             description: '请选择您喜欢的支付方式：',
+            metaTitle: '安全支付选项 | Kirill Markin服务',
+            metaDescription: '完成Kirill Markin人工智能战略和咨询服务的付款。从多种安全支付方式中选择。',
             stripe: {
                 title: '使用Stripe支付',
-                description: '使用信用卡或借记卡安全支付'
+                description: '使用信用卡或借记卡安全支付',
+                metaTitle: 'Stripe安全支付 | Kirill Markin',
+                metaDescription: '使用Stripe的受保护支付处理系统，通过信用卡或借记卡为Kirill Markin的服务进行安全支付。'
             },
             stripePageTitle: '使用STRIPE支付',
             formLoading: '加载支付表单...'
@@ -655,9 +697,13 @@ export const translations = {
         'ar': {
             title: 'خيارات الدفع',
             description: 'يرجى اختيار طريقة الدفع المفضلة لديك:',
+            metaTitle: 'خيارات الدفع الآمن | خدمات كيريل ماركين',
+            metaDescription: 'أكمل دفعتك لخدمات استراتيجية الذكاء الاصطناعي والاستشارات من كيريل ماركين. اختر من بين طرق دفع آمنة متعددة.',
             stripe: {
                 title: 'الدفع باستخدام Stripe',
-                description: 'دفع آمن ببطاقة الائتمان أو الخصم'
+                description: 'دفع آمن ببطاقة الائتمان أو الخصم',
+                metaTitle: 'دفع آمن عبر Stripe | كيريل ماركين',
+                metaDescription: 'قم بإجراء دفع آمن لخدمات كيريل ماركين باستخدام معالجة الدفع المحمية من Stripe ببطاقة الائتمان أو الخصم.'
             },
             stripePageTitle: 'الدفع باستخدام STRIPE',
             formLoading: 'جاري تحميل نموذج الدفع...'
@@ -665,9 +711,13 @@ export const translations = {
         'hi': {
             title: 'भुगतान विकल्प',
             description: 'कृपया अपना पसंदीदा भुगतान विधि चुनें:',
+            metaTitle: 'सुरक्षित भुगतान विकल्प | किरिल मार्किन सेवाएं',
+            metaDescription: 'किरिल मार्किन की एआई रणनीति और परामर्श सेवाओं के लिए अपना भुगतान पूरा करें। कई सुरक्षित भुगतान विधियों से चुनें।',
             stripe: {
                 title: 'Stripe से भुगतान करें',
-                description: 'क्रेडिट या डेबिट कार्ड से सुरक्षित भुगतान'
+                description: 'क्रेडिट या डेबिट कार्ड से सुरक्षित भुगतान',
+                metaTitle: 'Stripe से सुरक्षित भुगतान | किरिल मार्किन',
+                metaDescription: 'क्रेडिट या डेबिट कार्ड के साथ Stripe के संरक्षित भुगतान प्रसंस्करण का उपयोग करके किरिल मार्किन की सेवाओं के लिए सुरक्षित भुगतान करें।'
             },
             stripePageTitle: 'STRIPE से भुगतान करें',
             formLoading: 'भुगतान फॉर्म लोड हो रहा है...'
