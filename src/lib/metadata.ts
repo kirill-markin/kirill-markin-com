@@ -140,8 +140,8 @@ export function generateArticlesPageMetadata(
         : getPathSegmentByLanguage('articles', language);
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com/articles${tag ? `?tag=${tag}` : ''}`
-        : `https://kirill-markin.com/${language}/${articlesSegment}${tag ? `?tag=${tag}` : ''}`;
+        ? `https://kirill-markin.com/articles/${tag ? `?tag=${tag}` : ''}`
+        : `https://kirill-markin.com/${language}/${articlesSegment}/${tag ? `?tag=${tag}` : ''}`;
 
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
@@ -158,8 +158,8 @@ export function generateArticlesPageMetadata(
             : getPathSegmentByLanguage('articles', lang);
 
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/articles${tag ? `?tag=${tag}` : ''}`
-            : `https://kirill-markin.com/${lang}/${langArticlesSegment}${tag ? `?tag=${tag}` : ''}`;
+            ? `https://kirill-markin.com/articles/${tag ? `?tag=${tag}` : ''}`
+            : `https://kirill-markin.com/${lang}/${langArticlesSegment}/${tag ? `?tag=${tag}` : ''}`;
 
         languageAlternates[lang] = alternateUrl;
     }
@@ -236,8 +236,8 @@ export function generateServicesPageMetadata(
         : getPathSegmentByLanguage('services', language);
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com/services${category && category !== 'all' ? `?category=${category}` : ''}`
-        : `https://kirill-markin.com/${language}/${servicesSegment}${category && category !== 'all' ? `?category=${category}` : ''}`;
+        ? `https://kirill-markin.com/services/${category && category !== 'all' ? `?category=${category}` : ''}`
+        : `https://kirill-markin.com/${language}/${servicesSegment}/${category && category !== 'all' ? `?category=${category}` : ''}`;
 
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
@@ -254,8 +254,8 @@ export function generateServicesPageMetadata(
             : getPathSegmentByLanguage('services', lang);
 
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/services${category && category !== 'all' ? `?category=${category}` : ''}`
-            : `https://kirill-markin.com/${lang}/${langServicesSegment}${category && category !== 'all' ? `?category=${category}` : ''}`;
+            ? `https://kirill-markin.com/services/${category && category !== 'all' ? `?category=${category}` : ''}`
+            : `https://kirill-markin.com/${lang}/${langServicesSegment}/${category && category !== 'all' ? `?category=${category}` : ''}`;
 
         languageAlternates[lang] = alternateUrl;
     }
