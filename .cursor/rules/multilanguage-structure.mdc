@@ -1,0 +1,133 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Multilanguage Structure
+
+## URL Structure
+
+The website follows a language-in-path approach with translated slugs:
+
+- **English (default)**: Original content with no language prefix
+  ```
+  https://kirill-markin.com/articles/cursor-ide-rules-for-ai/
+  ```
+
+- **Other languages**: Include language code prefix and localized path segments
+  ```
+  https://kirill-markin.com/es/articulos/reglas-cursor-ide-para-ia/
+  https://kirill-markin.com/hi/लेख/cursor-ide-के-लिए-नियम/
+  ```
+
+## Content Organization
+
+### File Structure
+```
+src/
+└── content/
+    └── articles/
+        ├── cursor-ide-rules-for-ai.md       # English original
+        └── translations/                     # Translations folder
+            ├── es/
+            │   └── reglas-cursor-ide-para-ia.md
+            ├── hi/
+            │   └── cursor-ide-ke-liye-niyam.md
+            └── zh/
+                └── cursor-ide-ai-rules.md
+```
+
+### Metadata Format
+
+#### Original (English) Articles:
+```yaml
+---
+title: "Cursor IDE Rules for AI"
+date: "2023-05-04"
+slug: "cursor-ide-rules-for-ai"
+language: "en"
+tags: ["productivity", "cursor-ide", "ai"]
+description: "Learn how to set up AI rules in Cursor IDE..."
+translations:
+  - language: "es"
+    slug: "reglas-cursor-ide-para-ia"
+  - language: "hi"
+    slug: "cursor-ide-ke-liye-niyam"
+---
+
+Content in English...
+```
+
+#### Translated Articles:
+```yaml
+---
+title: "Reglas de Cursor IDE para IA"
+date: "2023-05-10"
+slug: "reglas-cursor-ide-para-ia"
+language: "es"
+tags: ["productividad", "cursor-ide", "ia"]
+description: "Aprende a configurar reglas de IA en Cursor IDE..."
+originalArticle:
+  language: "en"
+  slug: "cursor-ide-rules-for-ai"
+---
+
+Contenido en español...
+```
+
+## SEO Implementation
+
+All pages must include proper hreflang annotations to help search engines understand language relationships:
+
+```html
+<!-- For current page (e.g., Spanish) -->
+<link rel="canonical" href="https://kirill-markin.com/es/articulos/reglas-cursor-ide-para-ia/" />
+
+<!-- For all language alternatives -->
+<link rel="alternate" hreflang="en" href="https://kirill-markin.com/articles/cursor-ide-rules-for-ai/" />
+<link rel="alternate" hreflang="es" href="https://kirill-markin.com/es/articulos/reglas-cursor-ide-para-ia/" />
+<link rel="alternate" hreflang="hi" href="https://kirill-markin.com/hi/लेख/cursor-ide-के-लिए-नियम/" />
+
+<!-- Default version -->
+<link rel="alternate" hreflang="x-default" href="https://kirill-markin.com/articles/cursor-ide-rules-for-ai/" />
+```
+
+## Path Localization
+
+Each supported language has its own localized URL path segments:
+
+| Path Segment | EN | ES | HI | ZH | AR |
+|--------------|----|----|----|----|-----|
+| articles     | articles | articulos | लेख | 文章 | مقالات |
+| services     | services | servicios | सेवाएं | 服务 | خدمات |
+
+## Language Support
+
+The website supports 5 main languages:
+- English (en) - Default/Original
+- Spanish (es)
+- Hindi (hi)
+- Chinese (zh)
+- Arabic (ar)
+
+### Global Language Demographics
+
+| Rank | Language | Native + Non-native Speakers (billions) |
+|------|----------|----------------------------------------|
+| 1    | English  | 1.452                                  |
+| 2    | Chinese (Mandarin) | 1.118                        |
+| 3    | Hindi    | 0.602                                  |
+| 4    | Spanish  | 0.534                                  |
+| 5    | Arabic   | 0.372                                  |
+
+No regional language variants (e.g., en-US, es-MX) are implemented in the URL structure.
+
+## Implementation Guidelines
+
+1. All new content must be created in English first
+2. Translations should maintain the same content structure but can adapt cultural references
+3. URL slugs should be optimized for SEO in each language
+4. The sitemap must include all language variations with proper hreflang references
+5. Language switcher UI should be present on all pages
+6. Always connect translations to originals via metadata
+7. Static generation should be used for all language versions

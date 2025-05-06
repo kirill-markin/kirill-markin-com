@@ -189,6 +189,11 @@ The project uses CSS Modules:
 ### Media Mentions
 - Media mention data is defined in `src/data/mediaMentions.ts`
 
+### Multilanguage Support
+- The website supports multiple languages (en, es, zh, ar, hi)
+- Translations follow language-in-path URL structure with localized slugs
+- See `.cursor/rules/multilanguage-structure.mdc` for detailed implementation guidelines
+
 ## Recent Implementation Details
 
 ### Services Page Optimization
