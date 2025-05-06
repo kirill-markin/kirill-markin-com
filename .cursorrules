@@ -72,6 +72,7 @@ website-next-js/
 ├── tsconfig.json    # TypeScript configuration
 ├── README.md        # Project documentation
 ├── DEPLOYMENT.md    # Deployment instructions
+├── vercel.json      # Vercel-specific configuration
 └── .cursorrules     # This file - project guidelines
 ```
 
@@ -80,63 +81,40 @@ website-next-js/
 ```
 src/
 ├── app/             # Next.js App Router pages
-│   ├── page.tsx     # Home page
-│   ├── [lang]/      # Language-specific routes (es, zh, ar, hi)
-│   │   ├── page.tsx # Language-specific home page
-│   │   ├── layout.tsx # Language-specific layout
-│   │   ├── [segment]/ # Dynamic segment (articles, services)
-│   │   │   ├── page.tsx # Segment index page
-│   │   │   └── [slug]/  # Individual content page
-│   │   │       └── page.tsx
-│   ├── articles/    # Default (en) articles section
-│   │   └── [slug]/  # Individual article pages
-│   ├── services/    # Default (en) services section
-│   ├── meet/        # Meeting booking section
-│   ├── pay/         # Payment section
-│   ├── search/      # Search functionality
-│   ├── layout.tsx   # Root layout
-│   ├── sitemap.ts   # Sitemap generation
-│   ├── robots.ts    # Robots.txt configuration
-│   ├── globals.css  # Global CSS styles
-│   └── not-found.tsx # 404 page
+│   ├── Core pages (page.tsx, layout.tsx, not-found.tsx)
+│   ├── Static routes (articles, services, meet, pay, search)
+│   ├── Dynamic routes ([lang], [segment], [subsegment])
+│   ├── Configuration files (sitemap.ts, robots.ts)
+│   └── API routes
 ├── components/      # UI components
-│   ├── ArticleContent.tsx     # Article rendering component
-│   ├── ArticleJsonLd.tsx      # JSON-LD for articles
-│   ├── ArticlesListJsonLd.tsx # JSON-LD for article lists
-│   ├── Footer.tsx             # Site footer
-│   ├── Header.tsx             # Site header
-│   ├── JsonLdSchema.tsx       # Generic JSON-LD component
-│   ├── PersonalInfo/          # Personal information components
-│   ├── ServerServices/        # Server components for services
-│   ├── Services/              # Client components for services (legacy)
-│   └── SocialContactButtons/  # Social media contact buttons
+│   ├── Article components (ArticleContent, ArticleJsonLd, etc.)
+│   ├── Layout components (Header, Footer, Breadcrumbs)
+│   ├── Service components (ServerServices, Services)
+│   ├── UI components (EmojiBubbles, GlitchFilters)
+│   ├── Language components (LanguageSwitcher)
+│   ├── Social components (SocialContactButtons, SocialShare)
+│   └── Feature-specific component directories (AuthorBlock, PersonalInfo)
 ├── content/         # Content files
-│   └── articles/    # Markdown article content
-├── data/            # Structured data
-│   ├── mediaMentions.ts       # Media mention data
-│   ├── personalInfo.ts        # Personal information
-│   ├── professionalRoles.ts   # Professional roles data
-│   ├── services.ts            # Services data
-│   └── socialLinks.ts         # Social media links
+│   ├── articles/    # Markdown article content (with translations)
+│   └── README.md    # Content guidelines
+├── data/            # Structured data (mediaMentions, services, etc.)
 ├── lib/             # Utility functions
-│   ├── articles.ts            # Article processing utilities
-│   └── markdown.ts            # Markdown processing utilities
-└── types/           # TypeScript type definitions
-    └── services.ts            # Service type definitions
+│   ├── Content processing (articles, markdown, localization)
+│   ├── SEO utilities (metadata, JSON-LD)
+│   ├── Asset optimization
+│   └── Infrastructure utilities
+├── types/           # TypeScript type definitions
+└── middleware.ts    # Next.js middleware for request handling
 ```
 
-### Component Structure
+### Component Organization
 
-```
-components/
-├── ServerServices/  # Server components for services page
-│   ├── ServerServices.tsx  # Main server component
-│   └── index.ts            # Export file
-├── Services/        # Client components for services (legacy)
-├── PersonalInfo/    # Personal information component
-├── SocialContactButtons/ # Social media contact components
-└── Various UI components  # Headers, footers, article components, etc.
-```
+Components are organized by feature and responsibility:
+- **Layout components**: Header, Footer, Breadcrumbs
+- **Content components**: Article rendering, JSON-LD generation
+- **Feature components**: Services, PersonalInfo
+- **Utility components**: Language switchers, social buttons
+- **Visual components**: Animations, filters, decorative elements
 
 ## Key Technologies and Patterns
 
@@ -166,81 +144,69 @@ The project uses CSS Modules:
 ## Content Structure
 
 ### Articles
-- Articles are stored as markdown files in the `src/content/articles/` directory
-- Article metadata and processing utilities are in `src/lib/articles.ts`
-- The article renderer component is `src/components/ArticleContent.tsx`
+- Markdown files stored in `src/content/articles/` with translations in subfolders
+- Processed through utility functions in `lib/articles.ts`
+- Support for frontmatter metadata (title, date, description, tags, etc.)
+- Bidirectional references between original and translated articles
+- Rendered with optimized components with proper SEO handling
 
 ### Services
-- Service data is defined in `src/data/services.ts`
-- Service types are defined in `src/types/services.ts`
-- Services are rendered using server components in `src/components/ServerServices/`
+- Structured data defined in `src/data/services.ts`
+- Category-based filtering with URL parameters
+- Server Components approach for optimal performance
 
 ### Media Mentions
-- Media mention data is defined in `src/data/mediaMentions.ts`
+- Structured data for press and media appearances
 
 ### Multilanguage Support
-- The website supports multiple languages (en, es, zh, ar, hi)
-- Multilanguage routing follows the [lang]/[segment]/[slug] URL pattern:
-  - `/[lang]/` - Language-specific home page (e.g., `/es/`)
-  - `/[lang]/[segment]/` - Localized section pages (e.g., `/es/articulos/`)
-  - `/[lang]/[segment]/[slug]/` - Individual content pages (e.g., `/es/articulos/mi-articulo/`)
-- Default language (en) uses traditional paths without language prefix:
-  - `/` - Home page
-  - `/articles/` - Articles index
-  - `/services/` - Services index
-- Non-default languages get the appropriate localized segment names (e.g., "articles" becomes "articulos" in Spanish)
-- All routes are statically generated at build time using `generateStaticParams`
-- The system uses `getPathSegmentByLanguage()` utility to map between language and segment names
-- See `.cursor/rules/multilanguage-structure.mdc` for detailed implementation guidelines
+- Support for multiple languages (en, es, zh, ar, hi)
+- Path structure:
+  - Default language: `/path/` (e.g., `/articles/slug/`)
+  - Localized: `/[lang]/[segment]/[subsegment]/` (e.g., `/es/articulos/mi-articulo/`)
+- Localization system maps segments between languages
+- All routes pre-generated at build time with `generateStaticParams`
+- Content translation handled through file structure and metadata
 
-## Recent Implementation Details
+## Key Functionality
 
-### Services Page Optimization
+### Sitemap Generation
+- Dynamic generation with GitHub API integration for file modification dates
+- Comprehensive coverage of all routes and languages
+- Intelligent priority assignment based on content importance
 
-The services page was reimplemented to follow best practices:
-- Server-side rendering with `ServerServices` component
-- Static generation of all category filter variations
-- Dynamic metadata generation based on selected category
-- Client-side scroll position management when changing categories
+### SEO Optimization
+- Comprehensive metadata generation (title, description, OpenGraph)
+- Proper canonical URLs and language variants with hreflang
+- Structured data (JSON-LD) for articles and other entities
+- Semantic HTML structure throughout
 
-### Articles Page Implementation
-
-The articles section follows the same architecture principles:
-- Index page (`/articles/`) shows a list of all articles with appropriate metadata
-- Individual article pages (`/articles/[slug]/`) are statically generated at build time
-- `generateStaticParams` is used to pre-render all known article paths
-- Each article has optimized SEO metadata including title, description, and OpenGraph data
-- Articles are stored as structured data with strong typing
-
-### SEO Enhancements
-
-- Each category page has unique metadata (title, description)
-- Proper canonical URLs for all pages
-- Category-specific descriptions
-- Semantic HTML structure
-- JSON-LD structured data for articles and other entities
+### Article Processing
+- Markdown processing with remark/rehype plugins
+- Image optimization for article content
+- Tag-based navigation and related content suggestions
 
 ## Deployment Strategy
 
-The site is deployed on Vercel with these optimizations:
-- Static regeneration at build time
-- Global CDN distribution
-- Edge functions for any dynamic features
-- Analytics and performance monitoring
-- See DEPLOYMENT.md for detailed deployment instructions
+- Platform: Vercel with global CDN distribution
+- Approach: Static generation at build time with zero runtime computation
+- Configuration: Environment variables for API access and optimization settings
+- Analytics: Built-in performance monitoring and usage statistics
+- Details: See DEPLOYMENT.md for complete deployment instructions
 
 ## Development Practices
 
-When contributing to this project:
+### Core Principles
+- "Static generation first" - pre-render everything possible at build time
+- Minimal client-side JavaScript - use only where interactivity is required
+- Type safety throughout - proper TypeScript types for all components and data
+- SEO-driven development - metadata for all pages and routes
+- Performance-first approach - optimize for core web vitals
 
-1. Follow the "static generation first" principle
-2. Keep client-side JavaScript to a minimum
-3. Add appropriate typing for all components and functions
-4. Ensure new pages have proper metadata for SEO
-5. Use server components by default, client components only when necessary
-6. Check performance metrics before and after changes
-7. Use CSS Modules for styling instead of inline styles or CSS-in-JS
-8. Pre-render all known variations of dynamic pages
+### Best Practices
+- Use Server Components by default, Client Components only when necessary
+- Follow established multilanguage patterns for new content
+- Use CSS Modules for component styling to avoid style conflicts
+- Update sitemap file mappings when adding new pages
 
 ## Common Commands
 
