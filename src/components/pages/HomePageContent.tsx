@@ -37,7 +37,7 @@ export default async function HomePageContent({ language }: HomePageContentProps
         <>
             <div className={styles.mainPageContent}>
                 <aside className={styles.leftColumn}>
-                    <PersonalInfo />
+                    <PersonalInfo language={language} />
                 </aside>
 
                 <div className={styles.rightColumn}>

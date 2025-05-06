@@ -184,7 +184,7 @@ export default function ArticlePageContent({
                     )}
 
                     {/* Single AuthorBlock instance controlled by CSS */}
-                    <AuthorBlock />
+                    <AuthorBlock language={language} />
 
                     {/* Mobile social share buttons */}
                     <div className={styles.mobileShareContainer}>

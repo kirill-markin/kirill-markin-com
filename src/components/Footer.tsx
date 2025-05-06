@@ -27,6 +27,9 @@ const Footer: React.FC<FooterProps> = ({
   // Get footer translations
   const footerTranslations = getTranslation('footer', language);
 
+  // Get personal info translations
+  const personalInfoTranslations = getTranslation('personalInfo', language);
+
   const renderJobTitle = (title: string): { __html: string } => {
     return {
       __html: title
@@ -53,10 +56,10 @@ const Footer: React.FC<FooterProps> = ({
               <div className={styles.footerPersonalTitles}>
                 <p
                   className={styles.mainTitleFooter}
-                  dangerouslySetInnerHTML={renderJobTitle(personalInfo.jobTitle)}
+                  dangerouslySetInnerHTML={renderJobTitle(personalInfoTranslations.jobTitle)}
                 />
-                <p className={styles.secondaryTitleFooter}>{personalInfo.secondaryTitle}</p>
-                <p className={styles.tertiaryTitleFooter}>{personalInfo.tertiaryTitle}</p>
+                <p className={styles.secondaryTitleFooter}>{personalInfoTranslations.secondaryTitle}</p>
+                <p className={styles.tertiaryTitleFooter}>{personalInfoTranslations.tertiaryTitle}</p>
               </div>
 
               <div className={styles.footerCta}>

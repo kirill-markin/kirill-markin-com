@@ -5,8 +5,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './AuthorBlock.module.css';
 import { personalInfo } from '../../data/personalInfo';
+import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
-const AuthorBlock: React.FC = () => {
+interface AuthorBlockProps {
+    language?: string;
+}
+
+const AuthorBlock: React.FC<AuthorBlockProps> = ({
+    language = DEFAULT_LANGUAGE
+}) => {
+    // Get personal info translations
+    const personalInfoTranslations = getTranslation('personalInfo', language);
+
     return (
         <Link href="/" className={styles.authorBlock}>
             <div className={styles.authorContent}>
@@ -23,9 +33,9 @@ const AuthorBlock: React.FC = () => {
                 </div>
                 <div className={styles.authorInfo}>
                     <p className={styles.authorName}>{personalInfo.name}</p>
-                    <p className={styles.authorTitle}>{personalInfo.jobTitle}</p>
-                    <p className={styles.authorSecondaryTitle}>{personalInfo.secondaryTitle}</p>
-                    <p className={styles.authorTertiaryTitle}>{personalInfo.tertiaryTitle}</p>
+                    <p className={styles.authorTitle}>{personalInfoTranslations.jobTitle}</p>
+                    <p className={styles.authorSecondaryTitle}>{personalInfoTranslations.secondaryTitle}</p>
+                    <p className={styles.authorTertiaryTitle}>{personalInfoTranslations.tertiaryTitle}</p>
                 </div>
             </div>
         </Link>

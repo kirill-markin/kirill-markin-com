@@ -95,7 +95,7 @@ export default async function RootLayout({
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#800080" />
         <meta name="msapplication-TileColor" content="#800080" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <JsonLdSchema />
+        <JsonLdSchema language={lang} />
         {/* Google Tag Manager - only loaded in production */}
         {isProd && (
           <Script id="google-tag-manager" strategy="lazyOnload">
@@ -121,7 +121,7 @@ export default async function RootLayout({
             </iframe>
           </noscript>
         )}
-        <Header />
+        <Header language={lang} />
         <Breadcrumbs />
         <main>{children}</main>
         <GlitchFilters />

@@ -428,6 +428,33 @@ export const translations = {
             language: 'हिन्दी'
         },
     },
+    personalInfo: {
+        'en': {
+            jobTitle: 'Founder of ozma.io',
+            secondaryTitle: 'Director of R&D',
+            tertiaryTitle: 'AI & Data Engineer'
+        },
+        'es': {
+            jobTitle: 'Fundador de ozma.io',
+            secondaryTitle: 'Director de I+D',
+            tertiaryTitle: 'Ingeniero de IA y Datos'
+        },
+        'zh': {
+            jobTitle: 'ozma.io 创始人',
+            secondaryTitle: '研发总监',
+            tertiaryTitle: '人工智能与数据工程师'
+        },
+        'ar': {
+            jobTitle: 'مؤسس ozma.io',
+            secondaryTitle: 'مدير البحث والتطوير',
+            tertiaryTitle: 'مهندس الذكاء الاصطناعي والبيانات'
+        },
+        'hi': {
+            jobTitle: 'ozma.io के संस्थापक',
+            secondaryTitle: 'अनुसंधान एवं विकास निदेशक',
+            tertiaryTitle: 'एआई और डेटा इंजीनियर'
+        }
+    },
     footer: {
         'en': {
             contact: 'Contact',

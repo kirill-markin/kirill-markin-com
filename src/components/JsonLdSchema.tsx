@@ -3,13 +3,21 @@
 import { personalInfo } from '@/data/personalInfo';
 import { socialLinks } from '@/data/socialLinks';
 import { servicesData } from '@/data/services';
+import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
+
+interface JsonLdSchemaProps {
+  language?: string;
+}
 
 /**
  * Component that renders JSON-LD structured data for better SEO
  * This provides search engines with structured information about the website, person, 
  * and services
  */
-export default function JsonLdSchema() {
+export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSchemaProps) {
+  // Get personal info translations
+  const personalInfoTranslations = getTranslation('personalInfo', language);
+
   // Include all social media links for comprehensive coverage
   const sameAs = socialLinks.map(link => link.url);
 
@@ -18,7 +26,11 @@ export default function JsonLdSchema() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     'name': personalInfo.name,
-    'jobTitle': [personalInfo.jobTitle, personalInfo.secondaryTitle, personalInfo.tertiaryTitle].filter(Boolean).join(', '),
+    'jobTitle': [
+      personalInfoTranslations.jobTitle,
+      personalInfoTranslations.secondaryTitle,
+      personalInfoTranslations.tertiaryTitle
+    ].filter(Boolean).join(', '),
     'url': 'https://kirill-markin.com/',
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
