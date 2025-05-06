@@ -4,12 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 export const dynamic = 'force-static';
 export const revalidate = false; // Never revalidate
 
-interface RouteParams {
-    params: {
-        indexnowKey: string;
-    };
-}
-
 // Function for pre-generating static routes
 export async function generateStaticParams() {
     const indexnowKey = process.env.INDEXNOW_API_KEY;
@@ -26,9 +20,10 @@ export async function generateStaticParams() {
 
 export async function GET(
     request: NextRequest,
-    { params }: RouteParams
+    context: { params: Promise<{ indexnowKey: string }> }
 ): Promise<NextResponse> {
-    const { indexnowKey } = params;
+    // В Next.js 15 параметры являются асинхронными и требуют await
+    const { indexnowKey } = await context.params;
     const expectedKey = process.env.INDEXNOW_API_KEY;
 
     // Check if the file is requested with the correct key name
