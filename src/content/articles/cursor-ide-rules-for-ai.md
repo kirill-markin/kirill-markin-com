@@ -7,6 +7,10 @@ aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-r
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
+language: "en"
+translations:
+  - language: "es"
+    slug: "reglas-cursor-ide-para-ia"
 ---
 
 # Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant

@@ -40,6 +40,28 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Add rewrites for IndexNow to avoid conflict with language routes
+  async rewrites() {
+    return [
+      // Rewrite for IndexNow key file to internal route
+      {
+        source: '/:key(\\w+[.]txt$)',
+        destination: '/api/indexnow/:key',
+      },
+      // Rewrite for IndexNow key without .txt extension
+      {
+        source: '/:key(\\w+$)',
+        has: [
+          {
+            type: 'query',
+            key: '_indexnow',
+            value: 'true',
+          },
+        ],
+        destination: '/api/indexnow/:key',
+      },
+    ];
+  },
   // Add redirect for /ru/
   async redirects() {
     return [

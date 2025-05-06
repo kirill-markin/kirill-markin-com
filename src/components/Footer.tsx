@@ -4,8 +4,21 @@ import Image from 'next/image';
 import styles from './Footer.module.css';
 import { personalInfo } from '../data/personalInfo';
 import { socialLinks } from '../data/socialLinks';
+import LanguageSwitcher from './LanguageSwitcher';
+import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { Translation } from '@/types/article';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  language?: string;
+  currentPath: string;
+  translations?: Translation[];
+}
+
+const Footer: React.FC<FooterProps> = ({
+  language = DEFAULT_LANGUAGE,
+  currentPath,
+  translations
+}) => {
   const renderJobTitle = (title: string): { __html: string } => {
     return {
       __html: title
@@ -146,6 +159,19 @@ const Footer: React.FC = () => {
             ))
           }
         </div>
+      </div>
+
+      {/* Language switcher at the bottom of the footer */}
+      <div className={styles.footerBottom}>
+        <div className={styles.copyright}>
+          © {new Date().getFullYear()} Kirill Markin
+        </div>
+        <LanguageSwitcher
+          currentLanguage={language}
+          currentPath={currentPath}
+          translations={translations}
+          className={styles.footerLanguageSwitcher}
+        />
       </div>
     </div>
   );

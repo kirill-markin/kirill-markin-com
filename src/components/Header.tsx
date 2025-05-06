@@ -5,10 +5,31 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import styles from './Header.module.css';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage } from '@/lib/localization';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  language?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+
+  // Get localized path segments
+  const servicesPath = language === DEFAULT_LANGUAGE
+    ? '/services/'
+    : `/${language}/${getPathSegmentByLanguage('services', language)}/`;
+
+  const articlesPath = language === DEFAULT_LANGUAGE
+    ? '/articles/'
+    : `/${language}/${getPathSegmentByLanguage('articles', language)}/`;
+
+  const meetPath = language === DEFAULT_LANGUAGE
+    ? '/meet/short/'
+    : `/${language}/${getPathSegmentByLanguage('meet', language)}/short/`;
+
+  // Get localized home path
+  const homePath = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
 
   const toggleMobileMenu = (): void => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -22,25 +43,25 @@ const Header: React.FC = () => {
     <header className={styles.headerContainer}>
       <div className={styles.headerDesktopContainer}>
         <div className={styles.leftColumn}>
-          {pathname !== '/' && (
-            <Link href="/" className={`${styles.headerDesktopButton} ${styles.headerLogo}`}>
+          {pathname !== homePath && (
+            <Link href={homePath} className={`${styles.headerDesktopButton} ${styles.headerLogo}`}>
               KIRILL MARKIN
             </Link>
           )}
         </div>
         <nav className={styles.rightColumn} aria-label="Main navigation">
-          <Link className={styles.headerDesktopButton} href="/services/">
+          <Link className={styles.headerDesktopButton} href={servicesPath}>
             SERVICES
           </Link>
           <Link
             className={styles.headerDesktopButton}
-            href="/articles/"
+            href={articlesPath}
           >
             ARTICLES
           </Link>
           <Link
             className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
-            href="/meet/short/"
+            href={meetPath}
             rel="noopener noreferrer"
           >
             TALK TO KIRILL
@@ -73,7 +94,7 @@ const Header: React.FC = () => {
           <div className={styles.mobileRightButtonsContainer}>
             <div className={styles.mobileButton}>
               <Link
-                href="/articles/"
+                href={articlesPath}
                 onClick={closeMobileMenu}
                 className={styles.headerMobileBlogButton}
               >
@@ -82,7 +103,7 @@ const Header: React.FC = () => {
             </div>
             <div className={styles.mobileButton}>
               <Link
-                href="/meet/short/"
+                href={meetPath}
                 rel="noopener noreferrer"
                 className={styles.headerMobileBookAMeetingButton}
               >
@@ -94,14 +115,14 @@ const Header: React.FC = () => {
 
         <nav className={`${styles.headerMobileMenuOpen} ${mobileMenuOpen ? '' : styles.hidden}`} aria-label="Mobile navigation">
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/" onClick={closeMobileMenu}>KIRILL MARKIN</Link>
+            <Link href={homePath} onClick={closeMobileMenu}>KIRILL MARKIN</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link href="/services/" onClick={closeMobileMenu}>SERVICES</Link>
+            <Link href={servicesPath} onClick={closeMobileMenu}>SERVICES</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <Link
-              href="/articles/"
+              href={articlesPath}
               onClick={closeMobileMenu}
             >
               ARTICLES
@@ -110,7 +131,7 @@ const Header: React.FC = () => {
           <div className={styles.headerMobileMenuSection}>
             <Link
               className={styles.headerMobileBookAMeeting}
-              href="/meet/short/"
+              href={meetPath}
               rel="noopener noreferrer"
               onClick={closeMobileMenu}
             >

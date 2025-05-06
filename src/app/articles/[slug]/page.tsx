@@ -85,6 +85,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const relatedArticles = await getRelatedArticlesByTags(
     article.slug,
     article.metadata.tags,
+    article.metadata.language || 'en',
     5
   );
 

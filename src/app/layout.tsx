@@ -9,6 +9,7 @@ import EmojiBubbles from "@/components/EmojiBubbles";
 import GlitchFilters from "@/components/GlitchFilters";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { headers } from "next/headers";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -69,13 +70,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   // Check if we're in production environment
   const isProd = process.env.VERCEL_ENV === 'production';
+
+  // Get current URL path from headers added by middleware
+  const headersList = await headers();
+  const currentPath = headersList.get('x-url') || '/';
 
   return (
     <html lang="en">
@@ -113,7 +118,7 @@ export default function RootLayout({
         <Header />
         <Breadcrumbs />
         <main>{children}</main>
-        <Footer />
+        <Footer currentPath={currentPath} />
         <EmojiBubbles />
         <GlitchFilters />
         <Analytics debug={process.env.NODE_ENV !== 'production'} />
