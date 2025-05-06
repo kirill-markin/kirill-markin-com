@@ -87,6 +87,36 @@ export const SUB_PATH_SEGMENTS: Record<string, Record<string, Record<string, str
             'ar': 'stripe',
             'hi': 'stripe'
         }
+    },
+    'services': {
+        'all': {
+            'en': 'all',
+            'es': 'todos',
+            'zh': 'quanbu',
+            'ar': 'jamia',
+            'hi': 'sabhi'
+        },
+        'people': {
+            'en': 'people',
+            'es': 'personas',
+            'zh': 'renyuan',
+            'ar': 'ashkhas',
+            'hi': 'log'
+        },
+        'business': {
+            'en': 'business',
+            'es': 'negocios',
+            'zh': 'shangye',
+            'ar': 'aamal',
+            'hi': 'vyapaar'
+        },
+        'journalists': {
+            'en': 'journalists',
+            'es': 'periodistas',
+            'zh': 'jizhe',
+            'ar': 'sahafieen',
+            'hi': 'patrakar'
+        }
     }
 };
 
@@ -455,11 +485,11 @@ export const translations = {
             metaDescription: 'Expert AI strategy consulting and implementation services. I help businesses integrate artificial intelligence to drive growth and efficiency.',
             serviceCategories: {
                 all: 'All Services',
-                strategy: 'AI Strategy',
-                implementation: 'Implementation',
-                training: 'Training',
-                audit: 'AI Audit',
+                people: 'People',
+                business: 'Business',
+                journalists: 'Journalists'
             },
+            categoriesLabel: 'Categories',
         },
         'es': {
             title: 'Servicios',
@@ -468,11 +498,11 @@ export const translations = {
             metaDescription: 'Servicios expertos de consultoría e implementación de estrategia de IA. Ayudo a las empresas a integrar la inteligencia artificial para impulsar el crecimiento y la eficiencia.',
             serviceCategories: {
                 all: 'Todos los Servicios',
-                strategy: 'Estrategia de IA',
-                implementation: 'Implementación',
-                training: 'Formación',
-                audit: 'Auditoría de IA',
+                people: 'Personas',
+                business: 'Negocios',
+                journalists: 'Periodistas'
             },
+            categoriesLabel: 'Categorías',
         },
         'zh': {
             title: '服务',
@@ -481,11 +511,11 @@ export const translations = {
             metaDescription: '专业人工智能战略咨询和实施服务。我帮助企业集成人工智能以推动增长和效率。',
             serviceCategories: {
                 all: '所有服务',
-                strategy: '人工智能战略',
-                implementation: '实施',
-                training: '培训',
-                audit: '人工智能审计',
+                people: '个人服务',
+                business: '企业服务',
+                journalists: '媒体服务'
             },
+            categoriesLabel: '类别',
         },
         'ar': {
             title: 'الخدمات',
@@ -494,11 +524,11 @@ export const translations = {
             metaDescription: 'خدمات استشارية وتنفيذية متخصصة في استراتيجية الذكاء الاصطناعي. أساعد الشركات على دمج الذكاء الاصطناعي لدفع النمو والكفاءة.',
             serviceCategories: {
                 all: 'جميع الخدمات',
-                strategy: 'استراتيجية الذكاء الاصطناعي',
-                implementation: 'التنفيذ',
-                training: 'التدريب',
-                audit: 'تدقيق الذكاء الاصطناعي',
+                people: 'خدمات الأفراد',
+                business: 'خدمات الأعمال',
+                journalists: 'خدمات الإعلام'
             },
+            categoriesLabel: 'الفئات',
         },
         'hi': {
             title: 'सेवाएं',
@@ -507,11 +537,11 @@ export const translations = {
             metaDescription: 'विशेषज्ञ एआई रणनीति परामर्श और कार्यान्वयन सेवाएं। मैं व्यवसायों को विकास और दक्षता बढ़ाने के लिए कृत्रिम बुद्धिमत्ता एकीकृत करने में मदद करता हूं।',
             serviceCategories: {
                 all: 'सभी सेवाएं',
-                strategy: 'एआई रणनीति',
-                implementation: 'कार्यान्वयन',
-                training: 'प्रशिक्षण',
-                audit: 'एआई ऑडिट',
+                people: 'व्यक्तिगत सेवाएं',
+                business: 'व्यापारिक सेवाएं',
+                journalists: 'मीडिया सेवाएं'
             },
+            categoriesLabel: 'श्रेणियां',
         },
     },
     meet: {

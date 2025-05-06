@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { servicesData } from '@/data/services';
-import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { generateServicesPageMetadata } from '@/lib/metadata';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
 
@@ -20,7 +20,8 @@ export function generateStaticParams() {
   return [
     { searchParams: {} }, // Default page (all)
     ...categories.map(category => ({
-      searchParams: { category }
+      // Use the English category name in the URL (which is the same as the internal ID)
+      searchParams: { category: getSubPathSegmentByLanguage('services', category, DEFAULT_LANGUAGE) }
     }))
   ];
 }

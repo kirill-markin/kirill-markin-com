@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceData } from '@/types/services';
-import { getTranslation } from '@/lib/localization';
+import { getTranslation, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import styles from '../Services/Services.module.css';
 
 interface ServerServicesProps {
@@ -11,12 +11,22 @@ interface ServerServicesProps {
 }
 
 // Server component for ServiceCard
-function ServerServiceCard({ service }: { service: ServiceData }) {
+function ServerServiceCard({ service, language }: { service: ServiceData; language: string }) {
   const getFirstParagraph = (description: string): string => {
     return description.split('\n\n')[0];
   };
 
-  const formattedCategory = service.categoryId.charAt(0).toUpperCase() + service.categoryId.slice(1);
+  // Get translations for service categories
+  const t = getTranslation('services', language);
+
+  // Get localized category name
+  const getLocalizedCategoryName = (categoryId: string): string => {
+    return (t.serviceCategories?.[categoryId as keyof typeof t.serviceCategories]) ||
+      categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+  };
+
+  // Get formatted category for display
+  const formattedCategory = getLocalizedCategoryName(service.categoryId);
 
   const isExternalLink = service.buttonUrl.startsWith('http://') || service.buttonUrl.startsWith('https://');
 
@@ -92,6 +102,34 @@ export default function ServerServices({ services, currentCategory, language }: 
     return categoryLabel;
   };
 
+  // Helper to get the localized category URL
+  const getCategoryUrl = (category: string) => {
+    const servicesSegment = getPathSegmentByLanguage('services', language);
+    const localizedCategory = getSubPathSegmentByLanguage('services', category, language);
+
+    // Form the base services path based on language
+    const basePath = language === 'en'
+      ? '/services'
+      : `/${language}/${servicesSegment}`;
+
+    // For "all" category, just return the base path
+    if (category === 'all') {
+      return basePath;
+    }
+
+    // Otherwise add the category parameter with localized value
+    return `${basePath}/?category=${localizedCategory}`;
+  };
+
+  // Helper to get translated category name
+  const getCategoryName = (category: string) => {
+    if (category === 'all') {
+      return t.serviceCategories?.all || 'All Services';
+    }
+    return (t.serviceCategories?.[category as keyof typeof t.serviceCategories]) ||
+      category.charAt(0).toUpperCase() + category.slice(1);
+  };
+
   return (
     <section className={styles.services}>
       <div className={styles.servicesHeader}>
@@ -106,25 +144,24 @@ export default function ServerServices({ services, currentCategory, language }: 
       </div>
 
       <nav className={styles.servicesMenu} aria-label="Service categories">
-        <span>Categories</span>
+        <span>{t.categoriesLabel || 'Categories'}</span>
         <div className={styles.servicesMenuCategories}>
           <Link
-            href="/services/"
+            href={getCategoryUrl('all')}
             className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
             scroll={false}
           >
-            {t.serviceCategories?.all || 'All'}
+            {getCategoryName('all')}
           </Link>
 
           {categories.map(category => (
             <Link
               key={category}
-              href={`/services/?category=${category}`}
+              href={getCategoryUrl(category)}
               className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
               scroll={false}
             >
-              {(t.serviceCategories?.[category as keyof typeof t.serviceCategories]) ||
-                category.charAt(0).toUpperCase() + category.slice(1)}
+              {getCategoryName(category)}
             </Link>
           ))}
         </div>
@@ -133,7 +170,7 @@ export default function ServerServices({ services, currentCategory, language }: 
       <ul className={styles.servicesList}>
         {filteredServices.map(service => (
           <li key={service.serviceId}>
-            <ServerServiceCard service={service} />
+            <ServerServiceCard service={service} language={language} />
           </li>
         ))}
       </ul>

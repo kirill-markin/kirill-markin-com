@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getAllArticles } from '@/lib/articles';
 import { servicesData } from '@/data/services';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { redirect } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
@@ -66,10 +66,13 @@ export function generateStaticParams() {
         ).filter(category => category !== 'all');
 
         for (const category of categories) {
+            // Use the localized category name in the URL
+            const localizedCategoryName = getSubPathSegmentByLanguage('services', category, lang);
+
             params.push({
                 lang,
                 segment: servicesSegment,
-                searchParams: { category }
+                searchParams: { category: localizedCategoryName }
             });
         }
     }
