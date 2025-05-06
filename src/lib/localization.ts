@@ -229,7 +229,39 @@ export function getUrlForLanguage(
         // Create the new path with the translated segment
         const newSegment = PATH_SEGMENTS[segmentType][targetLanguage];
 
-        // Keep the remaining path segments after the matched one
+        // Handle subsegments if they exist
+        if (basePath.length > segmentIndex + 1 && SUB_PATH_SEGMENTS[segmentType]) {
+            const currentSubsegment = basePath[segmentIndex + 1];
+
+            // Find which subsegment this matches
+            let subsegmentKey: string | undefined;
+
+            for (const subKey of Object.keys(SUB_PATH_SEGMENTS[segmentType])) {
+                const subValues = SUB_PATH_SEGMENTS[segmentType][subKey];
+                if (Object.values(subValues).some(val => val === currentSubsegment)) {
+                    subsegmentKey = subKey;
+                    break;
+                }
+            }
+
+            if (subsegmentKey) {
+                // We found a matching subsegment, translate it
+                const newSubsegment = getSubPathSegmentByLanguage(segmentType, subsegmentKey, targetLanguage);
+
+                // Get remaining path segments (for future nested paths)
+                const remainingPath = basePath.slice(segmentIndex + 2).join('/');
+                const remainingWithSlash = remainingPath ? `/${remainingPath}` : '';
+
+                // Form the new path with both translated segment and subsegment
+                const newPath = targetLanguage === DEFAULT_LANGUAGE
+                    ? `/${newSegment}/${newSubsegment}${remainingWithSlash}/`
+                    : `/${targetLanguage}/${newSegment}/${newSubsegment}${remainingWithSlash}/`;
+
+                return newPath + query;
+            }
+        }
+
+        // No subsegment found or no match, just use the remaining path as is
         const restOfPath = basePath.slice(segmentIndex + 1).join('/');
         const restWithSlash = restOfPath ? `/${restOfPath}` : '';
 
@@ -241,8 +273,8 @@ export function getUrlForLanguage(
         return newPath + query;
     }
 
-    // If we can't determine the path structure, fallback to home page in target language
-    return targetLanguage === DEFAULT_LANGUAGE ? '/' : `/${targetLanguage}/`;
+    // If we can't determine the path structure, return null to show 404 rather than redirecting
+    return null;
 }
 
 /**

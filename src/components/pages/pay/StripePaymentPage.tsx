@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 import styles from '@/app/pay/page.module.css';
 import Script from 'next/script';
-import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, getTranslation } from '@/lib/localization';
+import Footer from '@/components/Footer';
 
 interface StripePaymentPageProps {
     language?: string;
@@ -13,6 +14,11 @@ export default function StripePaymentPage({ language = DEFAULT_LANGUAGE }: Strip
     // Get translated texts
     const translations = getTranslation('pay', language);
     const stripeContainerRef = useRef<HTMLDivElement>(null);
+
+    // Form current path for footer
+    const currentPath = language === DEFAULT_LANGUAGE
+        ? '/pay/stripe/'
+        : `/${language}/${getPathSegmentByLanguage('pay', language)}/${getSubPathSegmentByLanguage('pay', 'stripe', language)}/`;
 
     useEffect(() => {
         if (stripeContainerRef.current) {
@@ -29,17 +35,20 @@ export default function StripePaymentPage({ language = DEFAULT_LANGUAGE }: Strip
     }, []);
 
     return (
-        <div className={styles.paymentOptionsContainer}>
-            <h1>{translations.stripePageTitle}</h1>
+        <>
+            <div className={styles.paymentOptionsContainer}>
+                <h1>{translations.stripePageTitle}</h1>
 
-            <div className={styles.stripeContainer} ref={stripeContainerRef}>
-                {/* Stripe pricing table will be rendered here */}
-                <div className={styles.stripeLoading}>
-                    <p>{translations.formLoading}</p>
+                <div className={styles.stripeContainer} ref={stripeContainerRef}>
+                    {/* Stripe pricing table will be rendered here */}
+                    <div className={styles.stripeLoading}>
+                        <p>{translations.formLoading}</p>
+                    </div>
                 </div>
-            </div>
 
-            <Script src="https://js.stripe.com/v3/pricing-table.js" strategy="afterInteractive" />
-        </div>
+                <Script src="https://js.stripe.com/v3/pricing-table.js" strategy="afterInteractive" />
+            </div>
+            <Footer language={language} currentPath={currentPath} />
+        </>
     );
 } 
