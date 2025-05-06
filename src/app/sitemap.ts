@@ -92,14 +92,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const localizedRoutes = [
         `/${lang}/`,
         `/${lang}/${getPathSegmentByLanguage('services', lang)}/`,
-        // Skip service categories for now
+      ];
+
+      // Add service category routes for each non-default language
+      const servicesSegment = getPathSegmentByLanguage('services', lang);
+      for (const category of serviceCategories) {
+        const localizedCategory = getSubPathSegmentByLanguage('services', category, lang);
+        localizedRoutes.push(`/${lang}/${servicesSegment}/?category=${localizedCategory}`);
+      }
+
+      // Add other routes
+      localizedRoutes.push(
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('articles', lang)}/`,
-      ];
+      );
 
       // Add tag pages for this language
       if (tagsByLanguage[lang]) {
@@ -121,6 +131,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           .replace(`/${getPathSegmentByLanguage('meet', lang)}/`, '/meet/')
           .replace(`/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`, '/pay/stripe/')
           .replace(`/${getPathSegmentByLanguage('pay', lang)}/`, '/pay/');
+
+        // Handle service category pages
+        for (const category of serviceCategories) {
+          const localizedCategory = getSubPathSegmentByLanguage('services', category, lang);
+          englishPath.replace(`/?category=${localizedCategory}`, `/?category=${category}`);
+        }
 
         const lastModified = await getPageLastModifiedDate(englishPath);
 
