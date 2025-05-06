@@ -349,6 +349,7 @@ export const translations = {
                 month: 'long',
                 day: 'numeric',
             },
+            aboutAuthor: 'About Author',
         },
         'es': {
             siteName: 'Kirill Markin',
@@ -359,6 +360,7 @@ export const translations = {
                 month: 'long',
                 day: 'numeric',
             },
+            aboutAuthor: 'Sobre el Autor',
         },
         'zh': {
             siteName: 'Kirill Markin',
@@ -369,6 +371,7 @@ export const translations = {
                 month: 'long',
                 day: 'numeric',
             },
+            aboutAuthor: '关于作者',
         },
         'ar': {
             siteName: 'Kirill Markin',
@@ -379,6 +382,7 @@ export const translations = {
                 month: 'long',
                 day: 'numeric',
             },
+            aboutAuthor: 'عن المؤلف',
         },
         'hi': {
             siteName: 'Kirill Markin',
@@ -389,6 +393,7 @@ export const translations = {
                 month: 'long',
                 day: 'numeric',
             },
+            aboutAuthor: 'लेखक के बारे में',
         },
     },
     navigation: {

@@ -14,13 +14,17 @@ interface AuthorBlockProps {
 const AuthorBlock: React.FC<AuthorBlockProps> = ({
     language = DEFAULT_LANGUAGE
 }) => {
-    // Get personal info translations
+    // Get translations
     const personalInfoTranslations = getTranslation('personalInfo', language);
+    const commonTranslations = getTranslation('common', language);
+
+    // Create the correct home link based on the language
+    const homeLink = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
 
     return (
-        <Link href="/" className={styles.authorBlock}>
+        <Link href={homeLink} className={styles.authorBlock}>
             <div className={styles.authorContent}>
-                <h3 className={styles.authorHeading}>About Author</h3>
+                <h3 className={styles.authorHeading}>{commonTranslations.aboutAuthor}</h3>
                 <div className={styles.imageContainer}>
                     <Image
                         src={personalInfo.image}
