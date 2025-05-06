@@ -1,20 +1,32 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceData } from '@/types/services';
+import { getTranslation, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import styles from '../Services/Services.module.css';
 
 interface ServerServicesProps {
   services: ServiceData[];
   currentCategory: string;
+  language: string;
 }
 
 // Server component for ServiceCard
-function ServerServiceCard({ service }: { service: ServiceData }) {
+function ServerServiceCard({ service, language }: { service: ServiceData; language: string }) {
   const getFirstParagraph = (description: string): string => {
     return description.split('\n\n')[0];
   };
 
-  const formattedCategory = service.categoryId.charAt(0).toUpperCase() + service.categoryId.slice(1);
+  // Get translations for service categories
+  const t = getTranslation('services', language);
+
+  // Get localized category name
+  const getLocalizedCategoryName = (categoryId: string): string => {
+    return (t.serviceCategories?.[categoryId as keyof typeof t.serviceCategories]) ||
+      categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+  };
+
+  // Get formatted category for display
+  const formattedCategory = getLocalizedCategoryName(service.categoryId);
 
   const isExternalLink = service.buttonUrl.startsWith('http://') || service.buttonUrl.startsWith('https://');
 
@@ -65,7 +77,10 @@ function ServerServiceCard({ service }: { service: ServiceData }) {
 }
 
 // Main server component
-export default function ServerServices({ services, currentCategory }: ServerServicesProps) {
+export default function ServerServices({ services, currentCategory, language }: ServerServicesProps) {
+  // Get translations
+  const t = getTranslation('services', language);
+
   // Extract unique categories from services
   const categories = Array.from(
     new Set(services.map(service => service.categoryId))
@@ -79,29 +94,40 @@ export default function ServerServices({ services, currentCategory }: ServerServ
   // SEO-friendly category title
   const getCategoryTitle = () => {
     if (currentCategory === 'all') {
-      return 'All Services';
+      return t.serviceCategories?.all || 'All Services';
     }
 
     const formattedCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
-    return `Services for ${formattedCategory}`;
+    const categoryLabel = t.serviceCategories?.[currentCategory as keyof typeof t.serviceCategories] || formattedCategory;
+    return categoryLabel;
   };
 
-  // Get category description text
-  const getCategoryDescription = () => {
-    if (currentCategory === 'all') {
-      return 'Explore the complete range of services for individuals, businesses, and media professionals. Whether you need career guidance, analytics support, or expert commentary, I am ready to help.';
+  // Helper to get the localized category URL
+  const getCategoryUrl = (category: string) => {
+    const servicesSegment = getPathSegmentByLanguage('services', language);
+    const localizedCategory = getSubPathSegmentByLanguage('services', category, language);
+
+    // Form the base services path based on language
+    const basePath = language === 'en'
+      ? '/services'
+      : `/${language}/${servicesSegment}`;
+
+    // For "all" category, just return the base path
+    if (category === 'all') {
+      return basePath;
     }
 
-    switch (currentCategory) {
-      case 'people':
-        return 'Specialized services designed for individuals seeking professional growth, career guidance, and personalized AI tools. Take your career and skills to the next level with expert support.';
-      case 'business':
-        return 'Comprehensive analytics, AI implementation, and technical consulting services for businesses of all sizes. Optimize your operations and embrace cutting-edge technology with professional guidance.';
-      case 'journalists':
-        return 'Expert resources for media professionals including speaking engagements, interviews, and specialized commentary on AI, data science, and technology trends.';
-      default:
-        return `Specialized services in the ${currentCategory} category tailored to meet your specific needs with expert knowledge and professional support.`;
+    // Otherwise add the category parameter with localized value
+    return `${basePath}/?category=${localizedCategory}`;
+  };
+
+  // Helper to get translated category name
+  const getCategoryName = (category: string) => {
+    if (category === 'all') {
+      return t.serviceCategories?.all || 'All Services';
     }
+    return (t.serviceCategories?.[category as keyof typeof t.serviceCategories]) ||
+      category.charAt(0).toUpperCase() + category.slice(1);
   };
 
   return (
@@ -112,28 +138,30 @@ export default function ServerServices({ services, currentCategory }: ServerServ
             {getCategoryTitle()}
           </h1>
           <div className={styles.categoryDescription}>
-            <p>{getCategoryDescription()}</p>
+            <p>{t.description}</p>
           </div>
         </div>
       </div>
 
       <nav className={styles.servicesMenu} aria-label="Service categories">
-        <span>Categories</span>
+        <span>{t.categoriesLabel || 'Categories'}</span>
         <div className={styles.servicesMenuCategories}>
           <Link
-            href="/services/"
+            href={getCategoryUrl('all')}
             className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
+            scroll={false}
           >
-            All
+            {getCategoryName('all')}
           </Link>
 
           {categories.map(category => (
             <Link
               key={category}
-              href={`/services/?category=${category}`}
+              href={getCategoryUrl(category)}
               className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
+              scroll={false}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {getCategoryName(category)}
             </Link>
           ))}
         </div>
@@ -142,7 +170,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
       <ul className={styles.servicesList}>
         {filteredServices.map(service => (
           <li key={service.serviceId}>
-            <ServerServiceCard service={service} />
+            <ServerServiceCard service={service} language={language} />
           </li>
         ))}
       </ul>

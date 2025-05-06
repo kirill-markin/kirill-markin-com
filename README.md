@@ -26,6 +26,15 @@ The application architecture uses React Server Components with selective client 
 - Client components ("islands") are used only when interactivity is required
 - Minimal JavaScript is sent to the browser
 
+### Multilingual Support
+
+The website supports multiple languages with a language-in-path approach:
+- English (default) - no language prefix in URL: `/articles/slug/`
+- Non-default languages - language prefix with localized segments: `/es/articulos/slug/`
+- Content is organized with translations in dedicated subdirectories
+- Path segments are localized for each language using a mapping system
+- All routes are pre-rendered at build time for all supported languages
+
 ## Migration Overview
 
 This project is a complete migration from a Jekyll-based static site to a Next.js application. The migration preserves the original design and user experience while adding modern web features:
@@ -38,17 +47,14 @@ This project is a complete migration from a Jekyll-based static site to a Next.j
 
 ## Project Configuration
 
-This project was set up with the following configuration:
+This project uses:
 
-- **TypeScript**: Yes - For type safety and improved developer experience
-- **ESLint**: Yes - For code quality and consistency
-- **Tailwind CSS**: No - Custom styling approach with CSS Modules
-- **Code organization**: Yes - Code is inside `src/` directory
-- **Router**: Yes - Uses App Router for SEO benefits and modern routing
-- **Image Optimization**: Yes - Using Next.js Image component
-- **Metadata API**: Yes - For improved SEO with dynamic metadata generation
-- **Import alias**: Yes - Using default import alias (`@/*`)
-- **Static Optimization**: Yes - Using `generateStaticParams` for pre-rendering
+- **TypeScript**: For type safety and improved developer experience
+- **Next.js App Router**: For file-based routing and metadata API
+- **CSS Modules**: For component-scoped styling
+- **Markdown**: For content management with frontmatter
+- **Image Optimization**: Using Next.js Image component
+- **Static Optimization**: Using `generateStaticParams` for pre-rendering all routes
 
 ## Getting Started
 
@@ -60,26 +66,26 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Recent Updates and Features
+## Key Features
 
-- **Server-side Services Page**: Implemented server rendering for the services page with category filters
-- **Static Pre-rendering**: Added `generateStaticParams` to pre-render all category variations
-- **Scroll Position Management**: Added client-side scroll position preservation when changing categories
-- **SEO Optimization**: Implemented dynamic metadata for each category page
-- **Performance Improvements**: Optimized images and CSS for faster loading
-- **Improved UX**: Added descriptive texts for service categories
+- **Multilingual Support**: Full localization with 5 supported languages
+- **Server Components**: Optimized rendering with minimal client-side JavaScript
+- **Static Pre-rendering**: All routes and variations pre-rendered at build time
+- **SEO Optimization**: Dynamic metadata generation and structured data
+- **Content Management**: Markdown-based article system with translations
+- **Responsive Design**: Optimized for all device sizes
 
 ## Optimization Strategies
 
 ### Static Generation
 
-The project uses static generation with `generateStaticParams` to pre-render all category pages at build time. This ensures all variations of the services page (with different category filters) are generated as static HTML during the build process and served directly from CDN.
+The project uses static generation with `generateStaticParams` to pre-render all path variations at build time. This ensures all pages (including filtered views and translations) are generated as static HTML and served directly from CDN.
 
 ### Server Components with Client Hydration
 
 The architecture uses a hybrid approach:
 - Server Components handle core rendering and data presentation
-- Client Components provide interactive features like scroll position management
+- Client Components provide interactive features only where needed
 - This minimizes client-side JavaScript while preserving interactive functionality
 
 ## Deployment

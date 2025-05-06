@@ -171,4 +171,117 @@ Here's how I apply this style in actual content:
 
 This style works because it respects the reader's intelligence while acknowledging our shared humanity. It preserves professionalism but removes the artificial barrier that formal business writing often creates.
 
-The key is balance - maintain credibility through clear, thoughtful content while allowing just enough personality to remind readers there's a real person behind the words. When in doubt, read your writing aloud. If it would sound strange in a conversation with a respected peer, it probably needs adjustment. 
+The key is balance - maintain credibility through clear, thoughtful content while allowing just enough personality to remind readers there's a real person behind the words. When in doubt, read your writing aloud. If it would sound strange in a conversation with a respected peer, it probably needs adjustment.
+
+## Multilingual Content Guidelines
+
+As a multilingual website supporting multiple languages (English, Spanish, Chinese, Arabic, Hindi), content must maintain consistent quality and style across all languages while respecting linguistic and cultural differences.
+
+### Translation Principles
+
+1. **Consistent Style Across Languages** - The Business-Casual-Plus style described in this guide applies to all languages
+2. **Cultural Adaptation** - Adapt examples and idioms to resonate with each language's cultural context
+3. **Technical Accuracy** - Maintain precise technical meaning when translating specialized content
+4. **Natural Language** - Translations should sound natural to native speakers, not like translated text
+5. **Appropriate Formality Level** - Maintain the slightly informal but professional tone in each language
+
+### Technical Term Translation Rules
+
+#### Terms to Keep in Latin/English Script
+
+Some technical terms should NOT be translated and should remain in their original Latin script form:
+
+- **Programming languages**: JavaScript, Python, TypeScript, etc.
+- **Framework names**: React, Next.js, etc.
+- **Technical abbreviations**: API, SEO, CSS, HTML, etc.
+- **Brand names**: GitHub, Vercel, etc.
+- **Established technical terms**: Commonly used terms that local developers know by their English names (e.g., "debugging", "frontend", "backend")
+
+#### Terms That Should Be Translated
+
+Other terms should be translated into the target language:
+
+- **User-facing features**: Features that users interact with
+- **Concept explanations**: Explanations of how technologies work
+- **Benefits descriptions**: Descriptions of what users gain
+- **User actions**: Actions that users take when using a product
+- **Error messages**: Messages that explain what went wrong
+
+### Code Examples and Comments
+
+When presenting code examples in translated content:
+
+- **Code Remains in English**: The actual code (variables, functions, etc.) should ALWAYS remain in English
+- **Comments Should Be Translated**: Translate code comments into the target language
+- **String Literals in Code**: Text within quotes that would appear to users should be translated
+
+Example of proper code translation in Spanish article:
+
+```typescript
+// Original English
+function calculateTotalPrice(items: CartItem[]): number {
+  // Calculate sum of all items with tax
+  return items.reduce((total, item) => {
+    return total + (item.price * item.quantity * (1 + TAX_RATE));
+  }, 0);
+}
+
+// Spanish Translation
+function calculateTotalPrice(items: CartItem[]): number {
+  // Calcular la suma de todos los artículos con impuestos
+  return items.reduce((total, item) => {
+    return total + (item.price * item.quantity * (1 + TAX_RATE));
+  }, 0);
+}
+```
+
+Notice how the code remains identical while only the comments are translated.
+
+### Regional Term Adaptation
+
+Each language has its own set of technical terms that may differ by region. Consider these examples:
+
+- **Spanish**: 
+  - Some regions prefer "computadora" while others use "ordenador"
+  - "Sitio web" vs "página web"
+  - "Servidor" is universally understood
+  
+- **Chinese**:
+  - Most technical terms have standard Chinese translations
+  - Some newer terms may be better left in English with Chinese explanation
+  - Many developers prefer seeing English technical terms in parentheses after the Chinese translation
+
+- **Arabic** and **Hindi**:
+  - Technical IT terminology often remains in English
+  - UI elements and user-facing concepts should be translated
+  - Code-related terms usually remain in English
+
+### Language-Specific Style Adjustments
+
+While maintaining the core Business-Casual-Plus style, each language requires specific adjustments:
+
+- **Spanish**: Spanish tends to use longer sentences than English. Break up very long sentences while keeping the slightly formal but warm tone.
+  
+- **Chinese**: Chinese writing is typically more concise. Focus on clarity with fewer idioms and more direct statements.
+  
+- **Arabic**: Arabic uses more formal honorifics and politeness structures. Maintain respect while keeping the approachable tone.
+  
+- **Hindi**: Hindi can vary between very formal and informal. Aim for middle ground with clear explanations of technical concepts.
+
+### Translation Review Process
+
+All translated content should undergo this review process:
+
+1. Initial translation by a fluent technical writer
+2. Technical review by a developer who speaks the target language
+3. Cultural/style review to ensure the writing feels natural and maintains the right tone
+4. Final check against the original to ensure no meaning was lost
+
+### Key Takeaways for Multilingual Content
+
+- Apply the Business-Casual-Plus style to all languages
+- Be conscious of which terms to translate and which to keep in English
+- Translate code comments but never the code itself
+- Adapt examples to be culturally relevant
+- Maintain consistent voice and terminology across all translations
+- Remember that clear, approachable content is our priority in every language 

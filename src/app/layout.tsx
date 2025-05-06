@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import Script from "next/script";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import EmojiBubbles from "@/components/EmojiBubbles";
 import GlitchFilters from "@/components/GlitchFilters";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { DEFAULT_LANGUAGE } from "@/lib/localization";
+import { headers } from 'next/headers';
+import LanguageAttributeUpdater from "@/components/LanguageAttributeUpdater";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -77,8 +78,15 @@ export default function RootLayout({
   // Check if we're in production environment
   const isProd = process.env.VERCEL_ENV === 'production';
 
+  // Get language from headers
+  const headersList = await headers();
+  const langWithRegion = headersList.has('x-language') ? headersList.get('x-language') as string : DEFAULT_LANGUAGE;
+
+  // Extract just the language part (first two letters) without the region
+  const lang = langWithRegion.split('-')[0];
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
@@ -87,7 +95,7 @@ export default function RootLayout({
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#800080" />
         <meta name="msapplication-TileColor" content="#800080" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <JsonLdSchema />
+        <JsonLdSchema language={lang} />
         {/* Google Tag Manager - only loaded in production */}
         {isProd && (
           <Script id="google-tag-manager" strategy="lazyOnload">
@@ -102,6 +110,9 @@ export default function RootLayout({
         )}
       </head>
       <body>
+        {/* Компонент для обновления атрибута lang при изменении пути */}
+        <LanguageAttributeUpdater />
+
         {/* Google Tag Manager (noscript) - only loaded in production */}
         {isProd && (
           <noscript>
@@ -110,11 +121,9 @@ export default function RootLayout({
             </iframe>
           </noscript>
         )}
-        <Header />
+        <Header language={lang} />
         <Breadcrumbs />
         <main>{children}</main>
-        <Footer />
-        <EmojiBubbles />
         <GlitchFilters />
         <Analytics debug={process.env.NODE_ENV !== 'production'} />
         <SpeedInsights debug={process.env.NODE_ENV !== 'production'} />

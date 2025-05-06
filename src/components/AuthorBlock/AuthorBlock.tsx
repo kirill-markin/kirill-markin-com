@@ -5,12 +5,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './AuthorBlock.module.css';
 import { personalInfo } from '../../data/personalInfo';
+import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
-const AuthorBlock: React.FC = () => {
+interface AuthorBlockProps {
+    language?: string;
+}
+
+const AuthorBlock: React.FC<AuthorBlockProps> = ({
+    language = DEFAULT_LANGUAGE
+}) => {
+    // Get translations
+    const personalInfoTranslations = getTranslation('personalInfo', language);
+    const commonTranslations = getTranslation('common', language);
+
+    // Create the correct home link based on the language
+    const homeLink = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
+
     return (
-        <Link href="/" className={styles.authorBlock}>
+        <Link href={homeLink} className={styles.authorBlock}>
             <div className={styles.authorContent}>
-                <h3 className={styles.authorHeading}>About Author</h3>
+                <h3 className={styles.authorHeading}>{commonTranslations.aboutAuthor}</h3>
                 <div className={styles.imageContainer}>
                     <Image
                         src={personalInfo.image}
@@ -23,9 +37,9 @@ const AuthorBlock: React.FC = () => {
                 </div>
                 <div className={styles.authorInfo}>
                     <p className={styles.authorName}>{personalInfo.name}</p>
-                    <p className={styles.authorTitle}>{personalInfo.jobTitle}</p>
-                    <p className={styles.authorSecondaryTitle}>{personalInfo.secondaryTitle}</p>
-                    <p className={styles.authorTertiaryTitle}>{personalInfo.tertiaryTitle}</p>
+                    <p className={styles.authorTitle}>{personalInfoTranslations.jobTitle}</p>
+                    <p className={styles.authorSecondaryTitle}>{personalInfoTranslations.secondaryTitle}</p>
+                    <p className={styles.authorTertiaryTitle}>{personalInfoTranslations.tertiaryTitle}</p>
                 </div>
             </div>
         </Link>

@@ -5,25 +5,31 @@ import Image from 'next/image';
 import styles from './PersonalInfo.module.css';
 import { personalInfo } from '../../data/personalInfo';
 import SocialContactButtons from '../SocialContactButtons';
+import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
 interface PersonalInfoProps {
   showContactButtons?: boolean;
+  language?: string;
 }
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({
-  showContactButtons = true
+  showContactButtons = true,
+  language = DEFAULT_LANGUAGE
 }) => {
+  // Get personal info translations
+  const personalInfoTranslations = getTranslation('personalInfo', language);
+
   // State to track which image to show (false = angel, true = devil)
   const [showDevil, setShowDevil] = useState(false);
   // Track hover state
   const [isHovering, setIsHovering] = useState(false);
   // Track if this is first hover
   const isFirstHover = useRef(true);
-  
+
   // Handle mouse enter
   const handleMouseEnter = () => {
     setIsHovering(true);
-    
+
     if (isFirstHover.current) {
       // First hover always shows angel
       setShowDevil(false);
@@ -49,7 +55,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
       </div>
       <div className={styles.personalContacts}>
         <div className={styles.avatarAndTitles}>
-          <div 
+          <div
             className={styles.profileImageContainer}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -84,9 +90,9 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             />
           </div>
           <div className={styles.personalTitles}>
-            <p className={styles.mainTitle}>{personalInfo.jobTitle}</p>
-            <p className={styles.secondaryTitle}>{personalInfo.secondaryTitle}</p>
-            <p className={styles.tertiaryTitle}>{personalInfo.tertiaryTitle}</p>
+            <p className={styles.mainTitle}>{personalInfoTranslations.jobTitle}</p>
+            <p className={styles.secondaryTitle}>{personalInfoTranslations.secondaryTitle}</p>
+            <p className={styles.tertiaryTitle}>{personalInfoTranslations.tertiaryTitle}</p>
           </div>
         </div>
 

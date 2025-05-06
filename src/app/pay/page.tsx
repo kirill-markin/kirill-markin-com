@@ -1,62 +1,22 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from './page.module.css';
-import type { Metadata } from 'next';
+import { PayPage } from '@/components/pages/pay';
+import { Metadata } from 'next';
+import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { generatePayPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Payment Options for Kirill Markin\'s Services',
-  description: 'Select your preferred payment method for Kirill Markin\'s professional services. Currently supporting Stripe for secure credit card, Apple Pay and Google Pay payments.',
-  openGraph: {
-    title: 'Payment Options for Kirill Markin\'s Services',
-    description: 'Select your preferred payment method for Kirill Markin\'s professional services. Currently supporting Stripe for secure credit card, Apple Pay and Google Pay payments.',
-    url: 'https://kirill-markin.com/pay/',
-    images: [
-      {
-        url: '/images/payment-options.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Payment options for Kirill Markin\'s services',
-      }
-    ],
-    type: 'website',
-    siteName: 'Kirill Markin',
-    locale: 'en_US',
-  },
-  twitter: {
-    title: 'Payment Options for Kirill Markin\'s Services',
-    description: 'Select your preferred payment method for Kirill Markin\'s professional services.',
-    images: ['/images/payment-options.webp'],
-  },
-  alternates: {
-    canonical: 'https://kirill-markin.com/pay/',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePayPageMetadata({
+    language: DEFAULT_LANGUAGE,
+    type: 'index'
+  });
+}
 
-export default function PayPage() {
-  return (
-    <div className={styles.paymentOptionsContainer}>
-      <h1>PAYMENT OPTIONS</h1>
-      <p>Please select your preferred payment method:</p>
+interface PageProps {
+  params: Promise<{ lang?: string }>;
+}
 
-      <div className={styles.paymentMethods}>
-        <Link href="/pay/stripe/" className={styles.paymentMethod}>
-          <div className={styles.paymentMethodLogo}>
-            <Image
-              src="/icons/payment/stripe-logo.svg"
-              alt="Stripe"
-              className={styles.stripeLogo}
-              width={60}
-              height={40}
-            />
-          </div>
-          <div className={styles.paymentMethodDetails}>
-            <h2>Pay with Stripe</h2>
-            <p>Secure payments via credit card, Apple Pay, and Google Pay</p>
-          </div>
-        </Link>
+export default async function Page({ params }: PageProps) {
+  // Get language from params, default to English if not provided
+  const { lang = DEFAULT_LANGUAGE } = await params || {};
 
-        {/* Additional payment methods can be added here in the future */}
-      </div>
-    </div>
-  );
+  return <PayPage language={lang} />;
 } 

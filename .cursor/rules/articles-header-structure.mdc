@@ -20,6 +20,8 @@ tags: [primary-tag, secondary-tag]
 aliases: [url-friendly-alias, alternative-keyword]
 related: [related-article-slug]
 publish: true|false
+thumbnailUrl: "/articles/article-image.webp"
+language: "en"
 ---
 ```
 
@@ -66,6 +68,48 @@ publish: true|false
 - **Format**: Boolean (`true` or `false`)
 - **Notes**: Only published articles appear on the site
 
+### `thumbnailUrl`
+- **Purpose**: Featured image for the article
+- **Format**: Path to the image file in public directory
+- **Example**: `"/articles/cursor-ide-rules-for-ai.webp"`
+- **Notes**: Should be a webp format image for optimal performance
+
+### `language`
+- **Purpose**: Specifies the article's language
+- **Format**: ISO language code (en, es, zh, ar, hi)
+- **Example**: `"en"` (English), `"es"` (Spanish)
+- **Notes**: Must be one of the supported languages
+
+## Multilanguage Content Fields
+
+For translated articles, these additional fields must be specified:
+
+### For Original Articles (in English)
+
+```markdown
+translations:
+  - language: "es"
+    slug: "spanish-article-slug"
+  - language: "zh"
+    slug: "chinese-article-slug"
+```
+
+- **Purpose**: Lists all available translations of this article
+- **Format**: Array of objects with language and slug properties
+- **Notes**: This enables language switching and cross-linking between translations
+
+### For Translated Articles (non-English)
+
+```markdown
+originalArticle:
+  language: "en"
+  slug: "original-english-slug"
+```
+
+- **Purpose**: Links back to the original article
+- **Format**: Object with language and slug of the original article
+- **Notes**: Creates bidirectional relationship with the original content
+
 ## Last Modified Date (Automatic)
 
 The `lastmod` date for articles is now determined automatically from the file's last modification date in the filesystem. You no longer need to manually specify this field in the frontmatter.
@@ -74,13 +118,11 @@ The `lastmod` date for articles is now determined automatically from the file's 
 - **Implementation**: Automatically set based on the file's last modification timestamp
 - **Benefits**: No need to manually update, always accurate
 
-## Optional Frontmatter Fields
+## Additional Optional Fields
 
 These fields provide additional context but aren't required:
 
 ```markdown
-thumbnailUrl: "/path/to/image.webp"
-language: "en"
 type: "Article" | "Tutorial" | "Case Study"
 publisher: "Kirill Markin"
 achievementValue: "55,000"
@@ -110,12 +152,73 @@ The `description` field is critical for SEO and requires special attention:
 
 ❌ **Too Vague**: "Some thoughts about content distribution that might be helpful."
 
+## Complete Frontmatter Examples
+
+### Original Article (English)
+
+```markdown
+---
+title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
+date: 2025-04-19
+description: "My battle-tested IDE Cursor rules configuration that improves AI coding performance with tailored code style preferences and workflow patterns."
+tags: [productivity, cursor-ide, ai, llm]
+aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
+related: [cursor-ide-setup-workflow-for-large-scale-projects]
+publish: true
+thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
+language: "en"
+translations:
+  - language: "es"
+    slug: "reglas-cursor-ide-para-ia"
+  - language: "zh"
+    slug: "cursor-ide-guize"
+---
+```
+
+### Translated Article (Spanish)
+
+```markdown
+---
+title: "Reglas de Cursor IDE para IA: Directrices para Asistente de IA Especializado"
+date: 2025-04-19
+description: "Mi configuración de reglas de Cursor IDE probada en batalla que mejora el rendimiento de codificación de IA con preferencias de estilo de código y patrones de flujo de trabajo personalizados."
+tags: [productividad, cursor-ide, ia, llm]
+aliases: [reglas-cursor-ia, directrices-cursor, configuracion-cursor-ide]
+related: [configuracion-cursor-ide-flujo-trabajo-proyectos-grandes]
+publish: true
+thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
+language: "es"
+originalArticle:
+  language: "en"
+  slug: "cursor-ide-rules-for-ai"
+---
+```
+
+## File Storage Structure
+
+For proper translation organization, follow this file structure:
+
+- English articles: `src/content/articles/article-slug.md`
+- Translated articles: `src/content/articles/translations/[lang]/translated-slug.md`
+
+Example:
+```
+src/content/articles/
+├── cursor-ide-rules-for-ai.md                  # Original English
+└── translations/
+    ├── es/
+    │   └── reglas-cursor-ide-para-ia.md        # Spanish translation
+    └── zh/
+        └── cursor-ide-guize.md                 # Chinese translation
+```
+
 ## Implementation Process
 
 1. When creating a new article, copy the frontmatter template
 2. Fill in all required fields
 3. Pay special attention to the description field length
-4. Verify the description would display properly in search results
+4. For translations, ensure proper bidirectional references
+5. Verify the files are placed in the correct directories
 
 ## Search Result Preview
 

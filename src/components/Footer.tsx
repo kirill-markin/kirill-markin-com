@@ -4,12 +4,42 @@ import Image from 'next/image';
 import styles from './Footer.module.css';
 import { personalInfo } from '../data/personalInfo';
 import { socialLinks } from '../data/socialLinks';
+import LanguageSwitcher from './LanguageSwitcher';
+import {
+  DEFAULT_LANGUAGE,
+  getPathSegmentByLanguage,
+  getSubPathSegmentByLanguage,
+  getTranslation
+} from '@/lib/localization';
+import { Translation } from '@/types/article';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  language?: string;
+  currentPath: string;
+  translations?: Translation[];
+}
+
+const Footer: React.FC<FooterProps> = ({
+  language = DEFAULT_LANGUAGE,
+  currentPath,
+  translations
+}) => {
+  // Get footer translations
+  const footerTranslations = getTranslation('footer', language);
+
+  // Get personal info translations
+  const personalInfoTranslations = getTranslation('personalInfo', language);
+
   const renderJobTitle = (title: string): { __html: string } => {
     return {
       __html: title
     };
+  };
+
+  // Function to get localized social network name
+  const getLocalizedSocialName = (originalName: string): string => {
+    const key = originalName as keyof typeof footerTranslations.socialNetworks;
+    return footerTranslations.socialNetworks[key] || originalName;
   };
 
   return (
@@ -26,16 +56,22 @@ const Footer: React.FC = () => {
               <div className={styles.footerPersonalTitles}>
                 <p
                   className={styles.mainTitleFooter}
-                  dangerouslySetInnerHTML={renderJobTitle(personalInfo.jobTitle)}
+                  dangerouslySetInnerHTML={renderJobTitle(personalInfoTranslations.jobTitle)}
                 />
-                <p className={styles.secondaryTitleFooter}>{personalInfo.secondaryTitle}</p>
-                <p className={styles.tertiaryTitleFooter}>{personalInfo.tertiaryTitle}</p>
+                <p className={styles.secondaryTitleFooter}>{personalInfoTranslations.secondaryTitle}</p>
+                <p className={styles.tertiaryTitleFooter}>{personalInfoTranslations.tertiaryTitle}</p>
               </div>
 
               <div className={styles.footerCta}>
                 <div className={styles.questionButton}>
-                  <Link href="/meet/short/" className={styles.footerButton} rel="noopener noreferrer">
-                    Talk to Kirill
+                  <Link
+                    href={language === DEFAULT_LANGUAGE
+                      ? "/meet/short/"
+                      : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'short', language)}/`}
+                    className={styles.footerButton}
+                    rel="noopener noreferrer"
+                  >
+                    {footerTranslations.talkToKirill}
                   </Link>
                 </div>
               </div>
@@ -44,7 +80,7 @@ const Footer: React.FC = () => {
             <div className={styles.footerLinksWrapper}>
               <div className={styles.footerOrgInfo}>
                 <div className={styles.footerOrgContactInfo}>
-                  <h3>Contact</h3>
+                  <h3>{footerTranslations.contact}</h3>
                   <a href={`mailto:${personalInfo.email}`} className={styles.footerEmail}>
                     <Image src="/icons/email.svg" alt="Email icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.email}
@@ -56,7 +92,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className={styles.footerOrgMoreInfo}>
-                  <h3>Social</h3>
+                  <h3>{footerTranslations.social}</h3>
                   {socialLinks
                     .filter(link => ['GitHub', 'LinkedIn', 'Twitter', 'Facebook', 'Instagram'].includes(link.name))
                     .map((link, index) => (
@@ -67,14 +103,14 @@ const Footer: React.FC = () => {
                         rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
-                        {link.name}
+                        {getLocalizedSocialName(link.name)}
                       </a>
                     ))
                   }
                 </div>
 
                 <div className={styles.footerOrgMedia}>
-                  <h3>Media</h3>
+                  <h3>{footerTranslations.media}</h3>
                   {socialLinks
                     .filter(link => ['Blog', 'Medium', 'YouTube', 'Reddit', 'Product Hunt', 'IndieHackers'].includes(link.name))
                     .map((link, index) => (
@@ -85,14 +121,14 @@ const Footer: React.FC = () => {
                         rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
-                        {link.name}
+                        {getLocalizedSocialName(link.name)}
                       </a>
                     ))
                   }
                 </div>
 
                 <div className={styles.footerOrgOther}>
-                  <h3>Other</h3>
+                  <h3>{footerTranslations.other}</h3>
                   {socialLinks
                     .filter(link => ['Telegram', 'WhatsApp', 'GitLab', 'Bluesky', 'Email'].includes(link.name))
                     .map((link, index) => (
@@ -103,7 +139,7 @@ const Footer: React.FC = () => {
                         rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
-                        {link.name}
+                        {getLocalizedSocialName(link.name)}
                       </a>
                     ))
                   }
@@ -128,7 +164,7 @@ const Footer: React.FC = () => {
               >
                 <Image
                   src={link.socialLogoUrlDefault || '/social/default.png'}
-                  alt={link.name}
+                  alt={getLocalizedSocialName(link.name)}
                   className={styles.iconDefault}
                   width={36}
                   height={36}
@@ -136,7 +172,7 @@ const Footer: React.FC = () => {
                 {link.socialLogoUrlHover && (
                   <Image
                     src={link.socialLogoUrlHover}
-                    alt={link.name}
+                    alt={getLocalizedSocialName(link.name)}
                     className={styles.iconHover}
                     width={36}
                     height={36}
@@ -146,6 +182,19 @@ const Footer: React.FC = () => {
             ))
           }
         </div>
+      </div>
+
+      {/* Language switcher at the bottom of the footer */}
+      <div className={styles.footerBottom}>
+        <div className={styles.copyright}>
+          {footerTranslations.copyright.replace('{year}', new Date().getFullYear().toString())}
+        </div>
+        <LanguageSwitcher
+          currentLanguage={language}
+          currentPath={currentPath}
+          translations={translations}
+          className={styles.footerLanguageSwitcher}
+        />
       </div>
     </div>
   );
