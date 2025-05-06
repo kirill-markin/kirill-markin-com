@@ -5,7 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import styles from './Header.module.css';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import {
+  DEFAULT_LANGUAGE,
+  getPathSegmentByLanguage,
+  getSubPathSegmentByLanguage,
+  getTranslation
+} from '@/lib/localization';
 
 interface HeaderProps {
   language?: string;
@@ -14,6 +19,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+
+  // Get translations for navigation items
+  const navigationTranslations = getTranslation('navigation', language);
 
   // Get localized path segments
   const servicesPath = language === DEFAULT_LANGUAGE
@@ -51,20 +59,20 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
         </div>
         <nav className={styles.rightColumn} aria-label="Main navigation">
           <Link className={styles.headerDesktopButton} href={servicesPath}>
-            SERVICES
+            {navigationTranslations.services}
           </Link>
           <Link
             className={styles.headerDesktopButton}
             href={articlesPath}
           >
-            ARTICLES
+            {navigationTranslations.articles}
           </Link>
           <Link
             className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
             href={meetPath}
             rel="noopener noreferrer"
           >
-            TALK TO KIRILL
+            {navigationTranslations.talkToKirill}
           </Link>
         </nav>
       </div>
@@ -98,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
                 onClick={closeMobileMenu}
                 className={styles.headerMobileBlogButton}
               >
-                ARTICLES
+                {navigationTranslations.articles}
               </Link>
             </div>
             <div className={styles.mobileButton}>
@@ -107,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
                 rel="noopener noreferrer"
                 className={styles.headerMobileBookAMeetingButton}
               >
-                TALK TO KIRILL
+                {navigationTranslations.talkToKirill}
               </Link>
             </div>
           </div>
@@ -118,14 +126,14 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             <Link href={homePath} onClick={closeMobileMenu}>KIRILL MARKIN</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link href={servicesPath} onClick={closeMobileMenu}>SERVICES</Link>
+            <Link href={servicesPath} onClick={closeMobileMenu}>{navigationTranslations.services}</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <Link
               href={articlesPath}
               onClick={closeMobileMenu}
             >
-              ARTICLES
+              {navigationTranslations.articles}
             </Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
@@ -135,7 +143,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
               rel="noopener noreferrer"
               onClick={closeMobileMenu}
             >
-              TALK TO KIRILL
+              {navigationTranslations.talkToKirill}
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M4.22559 20L20 4M20 4V17M20 4H7" stroke="#353C2A" strokeWidth="2" />
               </svg>
