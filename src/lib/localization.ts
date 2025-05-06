@@ -177,7 +177,9 @@ export function getUrlForLanguage(
         currentPath.includes(`/${segment}/`) && !currentPath.endsWith(`/${segment}/`));
 
     if (isArticlePage && translations) {
+        // Find the translation for the target language
         const targetTranslation = translations.find(t => t.language === targetLanguage);
+
         if (targetTranslation) {
             // Article has translation for target language
             const articlesSegment = targetLanguage === DEFAULT_LANGUAGE

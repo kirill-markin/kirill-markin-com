@@ -146,6 +146,25 @@ export async function getArticleBySlug(
       originalArticle: data.originalArticle,
     };
 
+    // For non-English articles with original article reference, add the original English
+    // article to translations for bidirectional language switching
+    if (language !== DEFAULT_LANGUAGE && metadata.originalArticle) {
+      // Add original English article to translations if not already there
+      const hasEnglishTranslation = metadata.translations?.some(
+        t => t.language === DEFAULT_LANGUAGE
+      );
+
+      if (!hasEnglishTranslation) {
+        metadata.translations = [
+          ...(metadata.translations || []),
+          {
+            language: DEFAULT_LANGUAGE,
+            slug: metadata.originalArticle.slug
+          }
+        ];
+      }
+    }
+
     return {
       slug,
       content,
@@ -179,7 +198,7 @@ async function getEnglishArticles(): Promise<Article[]> {
   const articlesPromises = slugs.map((slug) => getArticleBySlug(slug, DEFAULT_LANGUAGE));
   const articlesResults = await Promise.all(articlesPromises);
 
-  return articlesResults
+  const filteredArticles = articlesResults
     .filter((article): article is Article => article !== null)
     .sort((a, b) => {
       if (a.metadata.date < b.metadata.date) {
@@ -188,6 +207,9 @@ async function getEnglishArticles(): Promise<Article[]> {
         return -1;
       }
     });
+
+  // Apply bidirectional connections
+  return buildArticleConnections(filteredArticles);
 }
 
 /**
@@ -213,7 +235,7 @@ async function getTranslatedArticles(language: string): Promise<Article[]> {
     const articlesPromises = slugs.map((slug) => getArticleBySlug(slug, language));
     const articlesResults = await Promise.all(articlesPromises);
 
-    return articlesResults
+    const filteredArticles = articlesResults
       .filter((article): article is Article => article !== null)
       .sort((a, b) => {
         if (a.metadata.date < b.metadata.date) {
@@ -222,6 +244,9 @@ async function getTranslatedArticles(language: string): Promise<Article[]> {
           return -1;
         }
       });
+
+    // Apply bidirectional connections
+    return buildArticleConnections(filteredArticles);
   } catch (error) {
     console.error(`Error reading translations for ${language}:`, error);
     return [];
@@ -238,6 +263,9 @@ export async function buildArticleConnections(
   // Group articles by their "real" slugs (original or translated)
   const articleGroups = new Map<string, Article[]>();
 
+  // Map to track translated articles by their language and slug for reverse lookup
+  const translationMap = new Map<string, Article>();
+
   // First pass: group original articles with their translations
   for (const article of articles) {
     const { metadata } = article;
@@ -253,6 +281,10 @@ export async function buildArticleConnections(
       const group = articleGroups.get(originalSlug) || [];
       group.push(article);
       articleGroups.set(originalSlug, group);
+
+      // Add to translation map for reverse lookup
+      const key = `${metadata.language}:${article.slug}`;
+      translationMap.set(key, article);
     }
   }
 
@@ -280,8 +312,35 @@ export async function buildArticleConnections(
           }
         };
       }
+    } else {
+      // For non-English articles: Include the original article in translations if it exists
+      if (metadata.originalArticle) {
+        // Find the original English article to include in translations
+        const originalArticle = {
+          language: DEFAULT_LANGUAGE,
+          slug: metadata.originalArticle.slug
+        };
+
+        // Create translations array if it doesn't exist, or add to existing
+        const translations = metadata.translations || [];
+
+        // Check if the English version is already included in translations
+        const englishAlreadyIncluded = translations.some(
+          t => t.language === DEFAULT_LANGUAGE
+        );
+
+        if (!englishAlreadyIncluded) {
+          // Add the English version to translations
+          return {
+            ...article,
+            metadata: {
+              ...metadata,
+              translations: [...translations, originalArticle]
+            }
+          };
+        }
+      }
     }
-    // Nothing to update for translated articles as they already have originalArticle
 
     return article;
   });
@@ -337,7 +396,10 @@ export async function getRelatedArticlesByTags(
       .slice(0, limit - relatedArticles.length);
 
     // Combine the related and non-related articles
-    return [...relatedArticles, ...nonRelatedArticles];
+    const combinedResults = [...relatedArticles, ...nonRelatedArticles];
+
+    // Return combined results with limit applied
+    return combinedResults.slice(0, limit);
   }
 
   // If we have enough or more related articles, just return up to the limit
