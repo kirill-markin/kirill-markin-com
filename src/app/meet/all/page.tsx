@@ -1,35 +1,14 @@
 import { Metadata } from 'next';
 import { AllMeetingsPage } from '@/components/pages/meet';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { generateMeetPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'All Meeting Options | Kirill Markin',
-  description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
-  openGraph: {
-    title: 'All Meeting Options | Kirill Markin',
-    description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
-    url: 'https://kirill-markin.com/meet/all/',
-    images: [
-      {
-        url: '/images/meeting-booking.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Schedule a meeting with Kirill Markin',
-      }
-    ],
-    type: 'website',
-    siteName: 'Kirill Markin',
-    locale: 'en_US',
-  },
-  twitter: {
-    title: 'All Meeting Options | Kirill Markin',
-    description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
-    images: ['/images/meeting-booking.webp'],
-  },
-  alternates: {
-    canonical: 'https://kirill-markin.com/meet/all/',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generateMeetPageMetadata({
+    language: DEFAULT_LANGUAGE,
+    type: 'all'
+  });
+}
 
 interface PageProps {
   params: Promise<{ lang?: string }>;

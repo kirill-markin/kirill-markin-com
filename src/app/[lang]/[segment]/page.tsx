@@ -5,7 +5,7 @@ import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage, getSubPath
 import { redirect } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
-import { generateArticlesPageMetadata, generateServicesPageMetadata } from '@/lib/metadata';
+import { generateArticlesPageMetadata, generateServicesPageMetadata, generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
 import { MeetPage } from '@/components/pages/meet';
 import { PayPage } from '@/components/pages/pay';
 
@@ -127,21 +127,15 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
             category: category
         });
     } else if (segment === meetSegment) {
-        return {
-            title: 'Meeting Booking Options with Kirill Markin',
-            description: 'Select your preferred meeting option with Kirill Markin. Choose meeting timing and duration.',
-            alternates: {
-                canonical: `https://kirill-markin.com/${lang}/${segment}/`,
-            },
-        };
+        return generateMeetPageMetadata({
+            language: lang,
+            type: 'index'
+        });
     } else if (segment === paySegment) {
-        return {
-            title: 'Payment Options | Kirill Markin',
-            description: 'Choose your preferred payment method for Kirill Markin\'s services.',
-            alternates: {
-                canonical: `https://kirill-markin.com/${lang}/${segment}/`,
-            },
-        };
+        return generatePayPageMetadata({
+            language: lang,
+            type: 'index'
+        });
     }
 
     // If segment doesn't match any known type

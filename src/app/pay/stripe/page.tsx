@@ -1,35 +1,14 @@
 import { StripePaymentPage } from '@/components/pages/pay';
 import { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { generatePayPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Pay with Stripe | Kirill Markin',
-  description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
-  openGraph: {
-    title: 'Pay with Stripe | Kirill Markin',
-    description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
-    url: 'https://kirill-markin.com/pay/stripe/',
-    images: [
-      {
-        url: '/images/stripe-payment.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Pay with Stripe for Kirill Markin\'s services',
-      }
-    ],
-    type: 'website',
-    siteName: 'Kirill Markin',
-    locale: 'en_US',
-  },
-  twitter: {
-    title: 'Pay with Stripe | Kirill Markin',
-    description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
-    images: ['/images/stripe-payment.webp'],
-  },
-  alternates: {
-    canonical: 'https://kirill-markin.com/pay/stripe/',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePayPageMetadata({
+    language: DEFAULT_LANGUAGE,
+    type: 'stripe'
+  });
+}
 
 interface PageProps {
   params: Promise<{ lang?: string }>;

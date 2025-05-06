@@ -1,11 +1,12 @@
 import { ShortMeetingPage, AllMeetingsPage } from '@/components/pages/meet';
 import { StripePaymentPage } from '@/components/pages/pay';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, isValidLanguage, SUPPORTED_LANGUAGES } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, isValidLanguage } from '@/lib/localization';
 import { redirect, notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getAllArticles, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
 import { markdownToHtml } from '@/lib/markdown';
+import { generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
 
 interface SubsegmentPageProps {
     params: Promise<{
@@ -86,119 +87,26 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 
     // For short meetings
     if (segment === meetSegment && subsegment === shortSubsegment) {
-        const canonicalUrl = `https://kirill-markin.com/${lang}/${segment}/${subsegment}`;
-
-        // Generate language alternates for all supported languages
-        const languageAlternates: Record<string, string> = {};
-
-        // Add current language alternate
-        languageAlternates[lang] = canonicalUrl;
-
-        // Add alternates for other languages
-        for (const otherLang of SUPPORTED_LANGUAGES) {
-            if (otherLang === lang) continue;
-
-            const otherMeetSegment = otherLang === DEFAULT_LANGUAGE
-                ? 'meet'
-                : getPathSegmentByLanguage('meet', otherLang);
-
-            const otherShortSubsegment = otherLang === DEFAULT_LANGUAGE
-                ? 'short'
-                : getSubPathSegmentByLanguage('meet', 'short', otherLang);
-
-            const alternateUrl = otherLang === DEFAULT_LANGUAGE
-                ? `https://kirill-markin.com/meet/short`
-                : `https://kirill-markin.com/${otherLang}/${otherMeetSegment}/${otherShortSubsegment}`;
-
-            languageAlternates[otherLang] = alternateUrl;
-        }
-
-        return {
-            title: '15-Minute Welcome Meeting | Kirill Markin',
-            description: 'Schedule a free 15-minute introduction call with Kirill Markin to discuss your needs and how we can work together.',
-            alternates: {
-                canonical: canonicalUrl,
-                languages: languageAlternates
-            },
-        };
+        return generateMeetPageMetadata({
+            language: lang,
+            type: 'short'
+        });
     }
 
     // For all meetings
     if (segment === meetSegment && subsegment === allSubsegment) {
-        const canonicalUrl = `https://kirill-markin.com/${lang}/${segment}/${subsegment}`;
-
-        // Generate language alternates for all supported languages
-        const languageAlternates: Record<string, string> = {};
-
-        // Add current language alternate
-        languageAlternates[lang] = canonicalUrl;
-
-        // Add alternates for other languages
-        for (const otherLang of SUPPORTED_LANGUAGES) {
-            if (otherLang === lang) continue;
-
-            const otherMeetSegment = otherLang === DEFAULT_LANGUAGE
-                ? 'meet'
-                : getPathSegmentByLanguage('meet', otherLang);
-
-            const otherAllSubsegment = otherLang === DEFAULT_LANGUAGE
-                ? 'all'
-                : getSubPathSegmentByLanguage('meet', 'all', otherLang);
-
-            const alternateUrl = otherLang === DEFAULT_LANGUAGE
-                ? `https://kirill-markin.com/meet/all`
-                : `https://kirill-markin.com/${otherLang}/${otherMeetSegment}/${otherAllSubsegment}`;
-
-            languageAlternates[otherLang] = alternateUrl;
-        }
-
-        return {
-            title: 'All Meeting Options | Kirill Markin',
-            description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
-            alternates: {
-                canonical: canonicalUrl,
-                languages: languageAlternates
-            },
-        };
+        return generateMeetPageMetadata({
+            language: lang,
+            type: 'all'
+        });
     }
 
     // For Stripe payment
     if (segment === paySegment && subsegment === stripeSubsegment) {
-        const canonicalUrl = `https://kirill-markin.com/${lang}/${segment}/${subsegment}`;
-
-        // Generate language alternates for all supported languages
-        const languageAlternates: Record<string, string> = {};
-
-        // Add current language alternate
-        languageAlternates[lang] = canonicalUrl;
-
-        // Add alternates for other languages
-        for (const otherLang of SUPPORTED_LANGUAGES) {
-            if (otherLang === lang) continue;
-
-            const otherPaySegment = otherLang === DEFAULT_LANGUAGE
-                ? 'pay'
-                : getPathSegmentByLanguage('pay', otherLang);
-
-            const otherStripeSubsegment = otherLang === DEFAULT_LANGUAGE
-                ? 'stripe'
-                : getSubPathSegmentByLanguage('pay', 'stripe', otherLang);
-
-            const alternateUrl = otherLang === DEFAULT_LANGUAGE
-                ? `https://kirill-markin.com/pay/stripe`
-                : `https://kirill-markin.com/${otherLang}/${otherPaySegment}/${otherStripeSubsegment}`;
-
-            languageAlternates[otherLang] = alternateUrl;
-        }
-
-        return {
-            title: 'Pay with Stripe | Kirill Markin',
-            description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
-            alternates: {
-                canonical: canonicalUrl,
-                languages: languageAlternates
-            },
-        };
+        return generatePayPageMetadata({
+            language: lang,
+            type: 'stripe'
+        });
     }
 
     // For articles

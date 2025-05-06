@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getLocaleForLanguage, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getPathSegmentByLanguage, getTranslation } from '@/lib/localization';
+import { getLocaleForLanguage, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getPathSegmentByLanguage, getTranslation, getSubPathSegmentByLanguage } from '@/lib/localization';
 
 /**
  * Generate base metadata for all pages
@@ -124,14 +124,14 @@ export function generateArticlesPageMetadata(
     const baseMetadata = getBaseMetadata(language);
 
     // Create title and description
-    let title = `${articlesTranslations.title} | Kirill Markin`;
-    let description = String(articlesTranslations.description);
+    let title: string = articlesTranslations.metaTitle || `${articlesTranslations.title} | Kirill Markin`;
+    let description: string = articlesTranslations.metaDescription || String(articlesTranslations.description);
 
     // Customize for tags
     if (tag) {
         const formattedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
         title = `${formattedTag} ${articlesTranslations.title} | Kirill Markin`;
-        description = `${tag}. ${description}`;
+        description = `${tag}. ${articlesTranslations.description}`;
     }
 
     // Create canonical URL
@@ -211,13 +211,23 @@ export function generateServicesPageMetadata(
     const baseMetadata = getBaseMetadata(language);
 
     // Create title and description
-    let title = `${servicesTranslations.title} | Kirill Markin`;
-    const description = servicesTranslations.description;
+    let title: string = servicesTranslations.metaTitle || `${servicesTranslations.title} | Kirill Markin`;
+    const description: string = servicesTranslations.metaDescription || String(servicesTranslations.description);
 
     // Customize for categories
     if (category && category !== 'all' && servicesTranslations.serviceCategories) {
-        const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
-        title = `${formattedCategory} ${servicesTranslations.title} | Kirill Markin`;
+        // Get category display name from translation
+        let categoryDisplay: string = category.charAt(0).toUpperCase() + category.slice(1);
+
+        // Use type assertion to safely access the category display name
+        if (servicesTranslations.serviceCategories &&
+            typeof servicesTranslations.serviceCategories === 'object' &&
+            category in servicesTranslations.serviceCategories) {
+            const categoryKey = category as keyof typeof servicesTranslations.serviceCategories;
+            categoryDisplay = String(servicesTranslations.serviceCategories[categoryKey]);
+        }
+
+        title = `${categoryDisplay} ${servicesTranslations.title} | Kirill Markin`;
     }
 
     // Create canonical URL
@@ -273,6 +283,237 @@ export function generateServicesPageMetadata(
             title,
             description,
             images: ['/services/services-hero.webp'],
+        },
+        alternates: {
+            canonical: canonicalUrl,
+            languages: languageAlternates
+        },
+    };
+}
+
+/**
+ * Generate metadata for meeting booking pages
+ * @param options Parameters for metadata generation
+ * @returns Metadata object
+ */
+export function generateMeetPageMetadata(
+    options: {
+        language: string;
+        type?: 'index' | 'short' | 'all';
+    }
+): Metadata {
+    const { language, type = 'index' } = options;
+    const meetTranslations = getTranslation('meet', language);
+    const baseMetadata = getBaseMetadata(language);
+
+    // Create title and description based on page type
+    let title: string;
+    let description: string;
+    const imagePath: string = '/images/meeting-booking.webp';
+    let canonicalPath: string;
+
+    if (type === 'short') {
+        // Use localized titles and descriptions
+        title = `${meetTranslations.shortMeeting?.title || '15-Minute Welcome Meeting'} | Kirill Markin`;
+        description = String(meetTranslations.shortMeeting?.description ||
+            'Schedule a free 15-minute introduction call with Kirill Markin to discuss your needs and how we can work together.');
+        canonicalPath = '/meet/short/';
+    } else if (type === 'all') {
+        title = `${meetTranslations.allMeetings?.title || 'All Meeting Options'} | Kirill Markin`;
+        description = String(meetTranslations.allMeetings?.description ||
+            'Choose from all available consultation options and time slots with Kirill Markin.');
+        canonicalPath = '/meet/all/';
+    } else {
+        title = `${meetTranslations.title || 'Meeting Booking Options'} | Kirill Markin`;
+        description = String(meetTranslations.description ||
+            'Select your preferred meeting option with Kirill Markin. Choose meeting timing and duration.');
+        canonicalPath = '/meet/';
+    }
+
+    // Create canonical URL
+    const meetSegment = language === DEFAULT_LANGUAGE
+        ? 'meet'
+        : getPathSegmentByLanguage('meet', language);
+
+    let meetTypeSegment = '';
+    if (type === 'short') {
+        meetTypeSegment = language === DEFAULT_LANGUAGE
+            ? '/short'
+            : `/${getSubPathSegmentByLanguage('meet', 'short', language)}`;
+    } else if (type === 'all') {
+        meetTypeSegment = language === DEFAULT_LANGUAGE
+            ? '/all'
+            : `/${getSubPathSegmentByLanguage('meet', 'all', language)}`;
+    }
+
+    const canonicalUrl = language === DEFAULT_LANGUAGE
+        ? `https://kirill-markin.com${canonicalPath}`
+        : `https://kirill-markin.com/${language}/${meetSegment}${meetTypeSegment}/`;
+
+    // Generate hreflang alternates for all supported languages
+    const languageAlternates: Record<string, string> = {};
+
+    // Add current language to alternates
+    languageAlternates[language] = canonicalUrl;
+
+    // Generate alternates for other languages
+    for (const lang of SUPPORTED_LANGUAGES) {
+        if (lang === language) continue;
+
+        const langMeetSegment = lang === DEFAULT_LANGUAGE
+            ? 'meet'
+            : getPathSegmentByLanguage('meet', lang);
+
+        let langMeetTypeSegment = '';
+        if (type === 'short') {
+            langMeetTypeSegment = lang === DEFAULT_LANGUAGE
+                ? '/short'
+                : `/${getSubPathSegmentByLanguage('meet', 'short', lang)}`;
+        } else if (type === 'all') {
+            langMeetTypeSegment = lang === DEFAULT_LANGUAGE
+                ? '/all'
+                : `/${getSubPathSegmentByLanguage('meet', 'all', lang)}`;
+        }
+
+        const alternateUrl = lang === DEFAULT_LANGUAGE
+            ? `https://kirill-markin.com/meet${langMeetTypeSegment}/`
+            : `https://kirill-markin.com/${lang}/${langMeetSegment}${langMeetTypeSegment}/`;
+
+        languageAlternates[lang] = alternateUrl;
+    }
+
+    return {
+        ...baseMetadata,
+        title,
+        description,
+        openGraph: {
+            ...baseMetadata.openGraph,
+            title,
+            description,
+            url: canonicalUrl,
+            images: [
+                {
+                    url: imagePath,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                }
+            ],
+        },
+        twitter: {
+            ...baseMetadata.twitter,
+            title,
+            description,
+            images: [imagePath],
+        },
+        alternates: {
+            canonical: canonicalUrl,
+            languages: languageAlternates
+        },
+    };
+}
+
+/**
+ * Generate metadata for payment pages
+ * @param options Parameters for metadata generation
+ * @returns Metadata object
+ */
+export function generatePayPageMetadata(
+    options: {
+        language: string;
+        type?: 'index' | 'stripe';
+    }
+): Metadata {
+    const { language, type = 'index' } = options;
+    const payTranslations = getTranslation('pay', language);
+    const baseMetadata = getBaseMetadata(language);
+
+    // Create title and description based on page type
+    let title: string;
+    let description: string;
+    const imagePath: string = '/images/payment.webp';
+    let canonicalPath: string;
+
+    if (type === 'stripe') {
+        // Use localized titles and descriptions
+        title = `${payTranslations.stripe?.title || 'Pay with Stripe'} | Kirill Markin`;
+        description = String(payTranslations.stripe?.description ||
+            'Secure payment with credit or debit card through Stripe payment system.');
+        canonicalPath = '/pay/stripe/';
+    } else {
+        title = `${payTranslations.title || 'Payment Options'} | Kirill Markin`;
+        description = String(payTranslations.description ||
+            'Select your preferred payment method for services with Kirill Markin.');
+        canonicalPath = '/pay/';
+    }
+
+    // Create canonical URL
+    const paySegment = language === DEFAULT_LANGUAGE
+        ? 'pay'
+        : getPathSegmentByLanguage('pay', language);
+
+    let payTypeSegment = '';
+    if (type === 'stripe') {
+        payTypeSegment = language === DEFAULT_LANGUAGE
+            ? '/stripe'
+            : `/${getSubPathSegmentByLanguage('pay', 'stripe', language)}`;
+    }
+
+    const canonicalUrl = language === DEFAULT_LANGUAGE
+        ? `https://kirill-markin.com${canonicalPath}`
+        : `https://kirill-markin.com/${language}/${paySegment}${payTypeSegment}/`;
+
+    // Generate hreflang alternates for all supported languages
+    const languageAlternates: Record<string, string> = {};
+
+    // Add current language to alternates
+    languageAlternates[language] = canonicalUrl;
+
+    // Generate alternates for other languages
+    for (const lang of SUPPORTED_LANGUAGES) {
+        if (lang === language) continue;
+
+        const langPaySegment = lang === DEFAULT_LANGUAGE
+            ? 'pay'
+            : getPathSegmentByLanguage('pay', lang);
+
+        let langPayTypeSegment = '';
+        if (type === 'stripe') {
+            langPayTypeSegment = lang === DEFAULT_LANGUAGE
+                ? '/stripe'
+                : `/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}`;
+        }
+
+        const alternateUrl = lang === DEFAULT_LANGUAGE
+            ? `https://kirill-markin.com/pay${langPayTypeSegment}/`
+            : `https://kirill-markin.com/${lang}/${langPaySegment}${langPayTypeSegment}/`;
+
+        languageAlternates[lang] = alternateUrl;
+    }
+
+    return {
+        ...baseMetadata,
+        title,
+        description,
+        openGraph: {
+            ...baseMetadata.openGraph,
+            title,
+            description,
+            url: canonicalUrl,
+            images: [
+                {
+                    url: imagePath,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                }
+            ],
+        },
+        twitter: {
+            ...baseMetadata.twitter,
+            title,
+            description,
+            images: [imagePath],
         },
         alternates: {
             canonical: canonicalUrl,
