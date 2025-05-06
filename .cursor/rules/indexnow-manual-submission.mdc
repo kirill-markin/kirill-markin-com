@@ -1,0 +1,124 @@
+---
+description: To send url when content changed via IndexNow
+globs: 
+alwaysApply: false
+---
+# IndexNow Manual Submission
+
+This document provides instructions for manually submitting URLs to search engines using the IndexNow API.
+
+## What is IndexNow?
+
+IndexNow is a protocol that allows website owners to instantly notify search engines about new or updated content. It's supported by:
+- Microsoft Bing
+- Yandex
+- Seznam.cz (Czech search engine)
+- Naver (Korean search engine)
+- DuckDuckGo (partially, via Bing)
+
+Note that Google doesn't directly support IndexNow, but typically indexes new content through its standard crawling process.
+
+## Setting up the API Key
+
+The IndexNow API key is stored in the environment variable `INDEXNOW_API_KEY`. There are several ways to set it:
+
+1. Using the `.env.local` file in the project root:
+   ```
+   # In .env.local file
+   INDEXNOW_API_KEY=your_api_key
+   ```
+
+2. For a single terminal session:
+   ```bash
+   export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
+   ```
+
+3. To read the key directly from `.env.local` for a single command:
+   ```bash
+   INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2) curl -X POST ...
+   ```
+
+## Submitting URLs to IndexNow
+
+### Basic Command
+
+```bash
+curl -X POST https://api.indexnow.org/indexnow \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -d '{
+    "host": "kirill-markin.com",
+    "key": "'${INDEXNOW_API_KEY}'",
+    "keyLocation": "https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt",
+    "urlList": [
+      "https://kirill-markin.com/articles/example-article/",
+      "https://kirill-markin.com/services/"
+    ]
+  }'
+```
+
+### Single URL Submission (GET Method)
+
+For a single URL, you can use a simple GET request:
+
+```bash
+curl "https://api.indexnow.org/indexnow?url=https://kirill-markin.com/articles/example-article/&key=${INDEXNOW_API_KEY}"
+```
+
+## Common Use Cases
+
+### 1. Submit a newly published article
+
+```bash
+export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
+curl -X POST https://api.indexnow.org/indexnow \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -d '{
+    "host": "kirill-markin.com",
+    "key": "'${INDEXNOW_API_KEY}'",
+    "keyLocation": "https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt",
+    "urlList": [
+      "https://kirill-markin.com/articles/new-article-slug/"
+    ]
+  }'
+```
+
+### 2. Submit multiple pages after a significant update
+
+```bash
+export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
+curl -X POST https://api.indexnow.org/indexnow \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -d '{
+    "host": "kirill-markin.com",
+    "key": "'${INDEXNOW_API_KEY}'",
+    "keyLocation": "https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt",
+    "urlList": [
+      "https://kirill-markin.com/",
+      "https://kirill-markin.com/services/",
+      "https://kirill-markin.com/articles/"
+    ]
+  }'
+```
+
+## API Response Codes
+
+IndexNow API returns the following status codes:
+
+- **200 OK**: URLs successfully accepted for processing
+- **400 Bad Request**: Invalid request (check JSON format and parameters)
+- **403 Forbidden**: Key not found at the specified keyLocation
+- **422 Unprocessable Entity**: URL doesn't belong to the specified host or other validation error
+
+## Important Notes
+
+### Limits
+- You can submit up to 10,000 URLs in a single request
+- It's recommended not to submit more than 10,000 URLs per day
+
+### Key File Verification
+- The API verifies that the key file exists at the URL specified in the request
+- Make sure the file `${INDEXNOW_API_KEY}.txt` is accessible at `https://kirill-markin.com/${INDEXNOW_API_KEY}.txt`
+
+### Usage Guidelines
+- Only submit URLs for pages that were actually created or modified
+- Don't repeatedly submit the same URLs without changes

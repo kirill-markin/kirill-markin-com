@@ -3,50 +3,51 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Sitemap LastMod Calculation & IndexNow Integration
+# Sitemap LastMod Calculation
 
-This document outlines how our website calculates lastmod timestamps in sitemap.xml and integrates with IndexNow for faster search engine indexing.
+This document describes how the sitemap.xml lastmod timestamps are calculated using GitHub commit history.
 
-## LastMod Calculation
+## LastMod Calculation Process
 
-The website uses a file-based approach to determine lastmod dates for the sitemap:
+The website uses a Git-based approach to determine lastmod dates for the sitemap:
 
 1. For articles:
    - Uses the lastmod date from frontmatter if available
-   - Falls back to current date if not specified
+   - If not available, retrieves the last commit date for the article's markdown file
 
 2. For other pages:
-   - Maps each URL to its relevant source files
-   - Calculates lastmod as the most recent modification date across all files
-   - Includes component files, data files, and CSS that affect the page
+   - Maps each URL to its relevant source files (components, data files, CSS)
+   - Retrieves the last commit date for each file using GitHub API
+   - Uses the most recent date among all relevant files
 
-## IndexNow Integration with Git Change Detection
+## Implementation Details
 
-We use IndexNow with Git-based change detection for immediate search engine notification when content changes:
+The implementation uses GitHub API to fetch commit history:
 
-1. After each successful deployment, Vercel triggers a webhook to `/api/indexnow-webhook`
-2. The webhook endpoint using our Git-based approach:
-   - Retrieves the current commit hash (`VERCEL_GIT_COMMIT_SHA`) and previous successful deployment hash (`VERCEL_GIT_PREVIOUS_SHA`)
-   - Uses Git to determine which files changed between these commits
-   - Maps changed files to affected page URLs
-   - Filters the sitemap.xml to find only URLs for affected pages
-   - Submits only these affected URLs to IndexNow API
-   - Falls back to submitting all URLs if no previous hash exists (first deployment) or if errors occur
+```typescript
+// Getting last commit date for a file
+async function getFileLastCommitDate(filePath: string): Promise<Date> {
+  // GitHub credentials from environment variables
+  const token = process.env.GITHUB_TOKEN;
+  const owner = process.env.VERCEL_GIT_REPO_OWNER;
+  const repo = process.env.VERCEL_GIT_REPO_SLUG;
+  
+  // API call to GitHub
+  const githubUrl = `https://api.github.com/repos/${owner}/${repo}/commits?path=${filePath}&page=1&per_page=1`;
+  
+  // Return the date from the most recent commit
+  // Falls back to current date if API call fails
+}
+```
 
-## Implementation Files
+## Key Files in Implementation
 
-Key files in the implementation:
 - `lib/fileModification.ts`: 
-  - Functions to get file modification dates for sitemap
-  - Git integration for detecting changed files
-  - Mapping of file paths to page URLs
-- `lib/indexnow.ts`: 
-  - IndexNow API integration and URL submission
-  - Filtering of sitemap URLs based on Git changes
-- `app/api/indexnow-webhook/route.ts`: 
-  - Webhook endpoint for automated submissions
-  - Vercel signature verification
-- `app/sitemap.ts`: 
-  - Sitemap generation with dynamic lastmod dates
+  - Contains the core functions for getting file modification dates
+  - Defines mapping between page URLs and their source files
+  - Implements GitHub API integration
 
-This Git-based approach ensures search engines quickly discover and index only the pages that actually changed in each deployment, improving efficiency and reducing unnecessary indexing requests.
+- `app/sitemap.ts`: 
+  - Uses the file modification utilities to generate sitemap
+  - Applies appropriate changefreq and priority values
+  - Handles both static routes and dynamic article routes

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllArticles } from '@/lib/articles';
 import { servicesData } from '@/data/services';
-import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/vercelDeployment';
+import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
