@@ -27,8 +27,10 @@ const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   const hasLanguagePrefix = pathSegments.length > 0 && SUPPORTED_LANGUAGES.includes(pathSegments[0]);
   const language = hasLanguagePrefix ? pathSegments[0] : 'en';
 
-  // Add Home link with proper language handling using the localization system
-  const homeLabel = getTranslation('navigation', language).home;
+  // Add Home link with proper language handling
+  // For non-English languages, use "English" as the label for the root path
+  // to clearly indicate that clicking will change the language to English
+  const homeLabel = hasLanguagePrefix ? 'English' : getTranslation('navigation', language).home;
   breadcrumbs.push({ path: '/', label: homeLabel, id: 'home' });
 
   // Add language as a breadcrumb
