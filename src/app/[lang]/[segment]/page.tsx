@@ -15,8 +15,15 @@ interface SegmentPageProps {
 }
 
 // Generate static parameters for all supported languages
-export function generateStaticParams() {
+export async function generateStaticParams() {
     const params = [];
+
+    // Get articles for tag generation
+    const articles = await getAllArticles();
+
+    // Get unique tags from all articles
+    const allTags = articles.flatMap(article => article.metadata.tags || []);
+    const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
 
     // Create routes for each non-default language
     for (const lang of ['es', 'zh', 'ar', 'hi']) {
@@ -75,26 +82,8 @@ export function generateStaticParams() {
                 searchParams: { category: localizedCategoryName }
             });
         }
-    }
 
-    return params;
-}
-
-// Get parameters for article tag paths
-export async function generateStaticParamsArticlesTags() {
-    const articles = await getAllArticles();
-
-    // Get unique tags from all articles
-    const allTags = articles.flatMap(article => article.metadata.tags || []);
-    const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
-
-    const params = [];
-
-    // For each non-default language, create entries for all tags
-    for (const lang of ['es', 'zh', 'ar', 'hi']) {
-        const articlesSegment = getPathSegmentByLanguage('articles', lang);
-
-        // Pages for each tag
+        // Add routes for article tags
         for (const tag of uniqueTags) {
             params.push({
                 lang,
