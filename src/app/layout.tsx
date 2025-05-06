@@ -7,6 +7,7 @@ import Script from "next/script";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import EmojiBubbles from "@/components/EmojiBubbles";
 import GlitchFilters from "@/components/GlitchFilters";
+import { Analytics } from "@vercel/analytics/react";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -114,6 +115,7 @@ export default function RootLayout({
         <Footer />
         <EmojiBubbles />
         <GlitchFilters />
+        <Analytics debug={process.env.NODE_ENV !== 'production'} />
       </body>
     </html>
   );
