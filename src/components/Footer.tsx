@@ -5,7 +5,12 @@ import styles from './Footer.module.css';
 import { personalInfo } from '../data/personalInfo';
 import { socialLinks } from '../data/socialLinks';
 import LanguageSwitcher from './LanguageSwitcher';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import {
+  DEFAULT_LANGUAGE,
+  getPathSegmentByLanguage,
+  getSubPathSegmentByLanguage,
+  getTranslation
+} from '@/lib/localization';
 import { Translation } from '@/types/article';
 
 interface FooterProps {
@@ -19,10 +24,19 @@ const Footer: React.FC<FooterProps> = ({
   currentPath,
   translations
 }) => {
+  // Get footer translations
+  const footerTranslations = getTranslation('footer', language);
+
   const renderJobTitle = (title: string): { __html: string } => {
     return {
       __html: title
     };
+  };
+
+  // Function to get localized social network name
+  const getLocalizedSocialName = (originalName: string): string => {
+    const key = originalName as keyof typeof footerTranslations.socialNetworks;
+    return footerTranslations.socialNetworks[key] || originalName;
   };
 
   return (
@@ -54,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({
                     className={styles.footerButton}
                     rel="noopener noreferrer"
                   >
-                    Talk to Kirill
+                    {footerTranslations.talkToKirill}
                   </Link>
                 </div>
               </div>
@@ -63,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({
             <div className={styles.footerLinksWrapper}>
               <div className={styles.footerOrgInfo}>
                 <div className={styles.footerOrgContactInfo}>
-                  <h3>Contact</h3>
+                  <h3>{footerTranslations.contact}</h3>
                   <a href={`mailto:${personalInfo.email}`} className={styles.footerEmail}>
                     <Image src="/icons/email.svg" alt="Email icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.email}
@@ -75,7 +89,7 @@ const Footer: React.FC<FooterProps> = ({
                 </div>
 
                 <div className={styles.footerOrgMoreInfo}>
-                  <h3>Social</h3>
+                  <h3>{footerTranslations.social}</h3>
                   {socialLinks
                     .filter(link => ['GitHub', 'LinkedIn', 'Twitter', 'Facebook', 'Instagram'].includes(link.name))
                     .map((link, index) => (
@@ -86,14 +100,14 @@ const Footer: React.FC<FooterProps> = ({
                         rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
-                        {link.name}
+                        {getLocalizedSocialName(link.name)}
                       </a>
                     ))
                   }
                 </div>
 
                 <div className={styles.footerOrgMedia}>
-                  <h3>Media</h3>
+                  <h3>{footerTranslations.media}</h3>
                   {socialLinks
                     .filter(link => ['Blog', 'Medium', 'YouTube', 'Reddit', 'Product Hunt', 'IndieHackers'].includes(link.name))
                     .map((link, index) => (
@@ -104,14 +118,14 @@ const Footer: React.FC<FooterProps> = ({
                         rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
-                        {link.name}
+                        {getLocalizedSocialName(link.name)}
                       </a>
                     ))
                   }
                 </div>
 
                 <div className={styles.footerOrgOther}>
-                  <h3>Other</h3>
+                  <h3>{footerTranslations.other}</h3>
                   {socialLinks
                     .filter(link => ['Telegram', 'WhatsApp', 'GitLab', 'Bluesky', 'Email'].includes(link.name))
                     .map((link, index) => (
@@ -122,7 +136,7 @@ const Footer: React.FC<FooterProps> = ({
                         rel="noopener noreferrer"
                         className={styles.footerLink}
                       >
-                        {link.name}
+                        {getLocalizedSocialName(link.name)}
                       </a>
                     ))
                   }
@@ -147,7 +161,7 @@ const Footer: React.FC<FooterProps> = ({
               >
                 <Image
                   src={link.socialLogoUrlDefault || '/social/default.png'}
-                  alt={link.name}
+                  alt={getLocalizedSocialName(link.name)}
                   className={styles.iconDefault}
                   width={36}
                   height={36}
@@ -155,7 +169,7 @@ const Footer: React.FC<FooterProps> = ({
                 {link.socialLogoUrlHover && (
                   <Image
                     src={link.socialLogoUrlHover}
-                    alt={link.name}
+                    alt={getLocalizedSocialName(link.name)}
                     className={styles.iconHover}
                     width={36}
                     height={36}
@@ -170,7 +184,7 @@ const Footer: React.FC<FooterProps> = ({
       {/* Language switcher at the bottom of the footer */}
       <div className={styles.footerBottom}>
         <div className={styles.copyright}>
-          © {new Date().getFullYear()} Kirill Markin
+          {footerTranslations.copyright.replace('{year}', new Date().getFullYear().toString())}
         </div>
         <LanguageSwitcher
           currentLanguage={language}
