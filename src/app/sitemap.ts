@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllArticles, buildArticleConnections } from '@/lib/articles';
 import { servicesData } from '@/data/services';
 import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
-import { SUPPORTED_LANGUAGES, getPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
+import { SUPPORTED_LANGUAGES, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
@@ -94,9 +94,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         `/${lang}/${getPathSegmentByLanguage('services', lang)}/`,
         // Skip service categories for now
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/`,
-        `/${lang}/${getPathSegmentByLanguage('meet', lang)}/short/`,
-        `/${lang}/${getPathSegmentByLanguage('meet', lang)}/all/`,
+        `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`,
+        `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/`,
+        `/${lang}/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('articles', lang)}/`,
       ];
 
@@ -115,7 +116,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           .replace(`/${lang}/`, '/')
           .replace(`/${getPathSegmentByLanguage('services', lang)}/`, '/services/')
           .replace(`/${getPathSegmentByLanguage('articles', lang)}/`, '/articles/')
+          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`, '/meet/short/')
+          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`, '/meet/all/')
           .replace(`/${getPathSegmentByLanguage('meet', lang)}/`, '/meet/')
+          .replace(`/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`, '/pay/stripe/')
           .replace(`/${getPathSegmentByLanguage('pay', lang)}/`, '/pay/');
 
         const lastModified = await getPageLastModifiedDate(englishPath);

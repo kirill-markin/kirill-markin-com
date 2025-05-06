@@ -1,19 +1,20 @@
+import { StripePaymentPage } from '@/components/pages/pay';
 import { Metadata } from 'next';
-import StripePaymentClient from './stripe-client';
+import { DEFAULT_LANGUAGE } from '@/lib/localization';
 
 export const metadata: Metadata = {
-  title: 'Stripe Payment | Kirill Markin',
-  description: 'Secure payment via Stripe for Kirill Markin\'s professional services. Pay using credit card, Apple Pay, or Google Pay.',
+  title: 'Pay with Stripe | Kirill Markin',
+  description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
   openGraph: {
-    title: 'Stripe Payment | Kirill Markin',
-    description: 'Secure payment via Stripe for Kirill Markin\'s professional services. Pay using credit card, Apple Pay, or Google Pay.',
+    title: 'Pay with Stripe | Kirill Markin',
+    description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
     url: 'https://kirill-markin.com/pay/stripe/',
     images: [
       {
         url: '/images/stripe-payment.webp',
         width: 1200,
         height: 630,
-        alt: 'Stripe payment for Kirill Markin\'s services',
+        alt: 'Pay with Stripe for Kirill Markin\'s services',
       }
     ],
     type: 'website',
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
   },
   twitter: {
-    title: 'Stripe Payment | Kirill Markin',
-    description: 'Secure payment via Stripe for Kirill Markin\'s professional services.',
+    title: 'Pay with Stripe | Kirill Markin',
+    description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
     images: ['/images/stripe-payment.webp'],
   },
   alternates: {
@@ -30,6 +31,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function StripePaymentPage() {
-  return <StripePaymentClient />;
+interface PageProps {
+  params: Promise<{ lang?: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  // Get language from params, default to English if not provided
+  const { lang = DEFAULT_LANGUAGE } = await params || {};
+
+  return <StripePaymentPage language={lang} />;
 } 

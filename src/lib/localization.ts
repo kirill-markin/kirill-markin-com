@@ -60,6 +60,37 @@ export const PATH_SEGMENTS: Record<string, Record<string, string>> = {
 };
 
 /**
+ * Sub-path segment mapping for URLs in different languages
+ */
+export const SUB_PATH_SEGMENTS: Record<string, Record<string, Record<string, string>>> = {
+    'meet': {
+        'short': {
+            'en': 'short',
+            'es': 'corto',
+            'zh': 'duanzan',
+            'ar': 'qasir',
+            'hi': 'sankshipt'
+        },
+        'all': {
+            'en': 'all',
+            'es': 'todo',
+            'zh': 'quanbu',
+            'ar': 'kul',
+            'hi': 'sabhi'
+        }
+    },
+    'pay': {
+        'stripe': {
+            'en': 'stripe',
+            'es': 'stripe',
+            'zh': 'stripe',
+            'ar': 'stripe',
+            'hi': 'stripe'
+        }
+    }
+};
+
+/**
  * Get the localized path segment for a specific language
  * @param segment Original segment in English
  * @param language Target language code
@@ -75,6 +106,28 @@ export function getPathSegmentByLanguage(
     }
 
     return PATH_SEGMENTS[segment]?.[language] || segment;
+}
+
+/**
+ * Get the localized sub-path segment for a specific language
+ * @param mainSegment Original main segment in English (e.g. 'meet')
+ * @param subSegment Original sub-segment in English (e.g. 'short')
+ * @param language Target language code
+ * @returns Localized sub-path segment
+ */
+export function getSubPathSegmentByLanguage(
+    mainSegment: string,
+    subSegment: string,
+    language: string
+): string {
+    // Return original sub-segment for English or if mapping doesn't exist
+    if (language === DEFAULT_LANGUAGE ||
+        !SUB_PATH_SEGMENTS[mainSegment] ||
+        !SUB_PATH_SEGMENTS[mainSegment][subSegment]) {
+        return subSegment;
+    }
+
+    return SUB_PATH_SEGMENTS[mainSegment][subSegment][language] || subSegment;
 }
 
 /**
@@ -399,6 +452,135 @@ export const translations = {
                 audit: 'एआई ऑडिट',
             },
         },
+    },
+    meet: {
+        'en': {
+            title: 'Meeting Booking Options',
+            description: 'Please select your preferred meeting type:',
+            shortMeeting: {
+                title: '15-Minute Welcome Meeting',
+                description: 'Free introduction call to discuss your needs and how we can work together'
+            },
+            allMeetings: {
+                title: 'All durations',
+                description: 'Choose from all available consultation options and time slots'
+            },
+            shortPageTitle: '15-MINUTE WELCOME MEETING',
+            allPageTitle: 'ALL MEETING OPTIONS',
+            calendarLoading: 'Calendar loading...'
+        },
+        'es': {
+            title: 'Opciones de Reserva de Reuniones',
+            description: 'Por favor, seleccione su tipo de reunión preferido:',
+            shortMeeting: {
+                title: 'Reunión de Bienvenida de 15 Minutos',
+                description: 'Llamada de introducción gratuita para discutir sus necesidades y cómo podemos trabajar juntos'
+            },
+            allMeetings: {
+                title: 'Todas las duraciones',
+                description: 'Elija entre todas las opciones de consulta disponibles y franjas horarias'
+            },
+            shortPageTitle: 'REUNIÓN DE BIENVENIDA DE 15 MINUTOS',
+            allPageTitle: 'TODAS LAS OPCIONES DE REUNIÓN',
+            calendarLoading: 'Cargando calendario...'
+        },
+        'zh': {
+            title: '会议预约选项',
+            description: '请选择您喜欢的会议类型：',
+            shortMeeting: {
+                title: '15分钟欢迎会议',
+                description: '免费介绍电话，讨论您的需求以及我们如何合作'
+            },
+            allMeetings: {
+                title: '所有时长',
+                description: '从所有可用的咨询选项和时间段中进行选择'
+            },
+            shortPageTitle: '15分钟欢迎会议',
+            allPageTitle: '所有会议选项',
+            calendarLoading: '日历加载中...'
+        },
+        'ar': {
+            title: 'خيارات حجز الاجتماعات',
+            description: 'يرجى اختيار نوع الاجتماع المفضل لديك:',
+            shortMeeting: {
+                title: 'اجتماع ترحيبي لمدة 15 دقيقة',
+                description: 'مكالمة تعريفية مجانية لمناقشة احتياجاتك وكيف يمكننا العمل معًا'
+            },
+            allMeetings: {
+                title: 'جميع المدد',
+                description: 'اختر من بين جميع خيارات الاستشارة المتاحة والمواعيد'
+            },
+            shortPageTitle: 'اجتماع ترحيبي لمدة 15 دقيقة',
+            allPageTitle: 'جميع خيارات الاجتماع',
+            calendarLoading: 'جاري تحميل التقويم...'
+        },
+        'hi': {
+            title: 'मीटिंग बुकिंग विकल्प',
+            description: 'कृपया अपनी पसंदीदा मीटिंग प्रकार चुनें:',
+            shortMeeting: {
+                title: '15-मिनट का स्वागत मीटिंग',
+                description: 'आपकी जरूरतों और हम कैसे एक साथ काम कर सकते हैं इस पर चर्चा करने के लिए मुफ्त परिचय कॉल'
+            },
+            allMeetings: {
+                title: 'सभी अवधियां',
+                description: 'सभी उपलब्ध परामर्श विकल्पों और समय स्लॉट से चुनें'
+            },
+            shortPageTitle: '15-मिनट का स्वागत मीटिंग',
+            allPageTitle: 'सभी मीटिंग विकल्प',
+            calendarLoading: 'कैलेंडर लोड हो रहा है...'
+        }
+    },
+    pay: {
+        'en': {
+            title: 'PAYMENT OPTIONS',
+            description: 'Please select your preferred payment method:',
+            stripe: {
+                title: 'Pay with Stripe',
+                description: 'Secure payment with credit or debit card'
+            },
+            stripePageTitle: 'PAY WITH STRIPE',
+            formLoading: 'Loading payment form...'
+        },
+        'es': {
+            title: 'OPCIONES DE PAGO',
+            description: 'Por favor, seleccione su método de pago preferido:',
+            stripe: {
+                title: 'Pagar con Stripe',
+                description: 'Pago seguro con tarjeta de crédito o débito'
+            },
+            stripePageTitle: 'PAGAR CON STRIPE',
+            formLoading: 'Cargando formulario de pago...'
+        },
+        'zh': {
+            title: '支付选项',
+            description: '请选择您喜欢的支付方式：',
+            stripe: {
+                title: '使用Stripe支付',
+                description: '使用信用卡或借记卡安全支付'
+            },
+            stripePageTitle: '使用STRIPE支付',
+            formLoading: '加载支付表单...'
+        },
+        'ar': {
+            title: 'خيارات الدفع',
+            description: 'يرجى اختيار طريقة الدفع المفضلة لديك:',
+            stripe: {
+                title: 'الدفع باستخدام Stripe',
+                description: 'دفع آمن ببطاقة الائتمان أو الخصم'
+            },
+            stripePageTitle: 'الدفع باستخدام STRIPE',
+            formLoading: 'جاري تحميل نموذج الدفع...'
+        },
+        'hi': {
+            title: 'भुगतान विकल्प',
+            description: 'कृपया अपना पसंदीदा भुगतान विधि चुनें:',
+            stripe: {
+                title: 'Stripe से भुगतान करें',
+                description: 'क्रेडिट या डेबिट कार्ड से सुरक्षित भुगतान'
+            },
+            stripePageTitle: 'STRIPE से भुगतान करें',
+            formLoading: 'भुगतान फॉर्म लोड हो रहा है...'
+        }
     },
 } as const;
 

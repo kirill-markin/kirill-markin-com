@@ -6,6 +6,8 @@ import { redirect } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
 import { generateArticlesPageMetadata, generateServicesPageMetadata } from '@/lib/metadata';
+import { MeetPage } from '@/components/pages/meet';
+import { PayPage } from '@/components/pages/pay';
 
 interface SegmentPageProps {
     params: Promise<{ lang: string; segment: string }>;
@@ -24,6 +26,12 @@ export function generateStaticParams() {
         // Segment for services
         const servicesSegment = getPathSegmentByLanguage('services', lang);
 
+        // Segment for meet
+        const meetSegment = getPathSegmentByLanguage('meet', lang);
+
+        // Segment for pay
+        const paySegment = getPathSegmentByLanguage('pay', lang);
+
         // Add base route for articles
         params.push({
             lang,
@@ -35,6 +43,20 @@ export function generateStaticParams() {
         params.push({
             lang,
             segment: servicesSegment,
+            searchParams: {}
+        });
+
+        // Add base route for meet
+        params.push({
+            lang,
+            segment: meetSegment,
+            searchParams: {}
+        });
+
+        // Add base route for pay
+        params.push({
+            lang,
+            segment: paySegment,
             searchParams: {}
         });
 
@@ -93,6 +115,8 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
     // Determine segment type
     const articlesSegment = getPathSegmentByLanguage('articles', lang);
     const servicesSegment = getPathSegmentByLanguage('services', lang);
+    const meetSegment = getPathSegmentByLanguage('meet', lang);
+    const paySegment = getPathSegmentByLanguage('pay', lang);
 
     // Get parameters from URL
     const searchParamsData = await searchParams;
@@ -110,6 +134,22 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
             language: lang,
             category: category
         });
+    } else if (segment === meetSegment) {
+        return {
+            title: 'Meeting Booking Options with Kirill Markin',
+            description: 'Select your preferred meeting option with Kirill Markin. Choose meeting timing and duration.',
+            alternates: {
+                canonical: `https://kirill-markin.com/${lang}/${segment}/`,
+            },
+        };
+    } else if (segment === paySegment) {
+        return {
+            title: 'Payment Options | Kirill Markin',
+            description: 'Choose your preferred payment method for Kirill Markin\'s services.',
+            alternates: {
+                canonical: `https://kirill-markin.com/${lang}/${segment}/`,
+            },
+        };
     }
 
     // If segment doesn't match any known type
@@ -127,6 +167,8 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
     // Determine segment type
     const articlesSegment = getPathSegmentByLanguage('articles', lang);
     const servicesSegment = getPathSegmentByLanguage('services', lang);
+    const meetSegment = getPathSegmentByLanguage('meet', lang);
+    const paySegment = getPathSegmentByLanguage('pay', lang);
 
     // Get parameters from URL
     const searchParamsData = await searchParams;
@@ -139,6 +181,10 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
             redirect(tag ? `/articles/?tag=${tag}` : '/articles/');
         } else if (segment === servicesSegment) {
             redirect(category ? `/services/?category=${category}` : '/services/');
+        } else if (segment === meetSegment) {
+            redirect('/meet/');
+        } else if (segment === paySegment) {
+            redirect('/pay/');
         }
     }
 
@@ -147,6 +193,10 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
         return <ArticlesPageContent language={lang} tag={tag} />;
     } else if (segment === servicesSegment) {
         return <ServicesPageContent language={lang} category={category} />;
+    } else if (segment === meetSegment) {
+        return <MeetPage language={lang} />;
+    } else if (segment === paySegment) {
+        return <PayPage language={lang} />;
     }
 
     // If segment doesn't match any known type, redirect to home

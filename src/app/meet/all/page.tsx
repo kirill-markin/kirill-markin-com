@@ -1,19 +1,20 @@
 import { Metadata } from 'next';
-import AllMeetingsClient from './all-client';
+import { AllMeetingsPage } from '@/components/pages/meet';
+import { DEFAULT_LANGUAGE } from '@/lib/localization';
 
 export const metadata: Metadata = {
   title: 'All Meeting Options | Kirill Markin',
-  description: 'Choose from all available consultation options and time slots for meetings with Kirill Markin.',
+  description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
   openGraph: {
     title: 'All Meeting Options | Kirill Markin',
-    description: 'Choose from all available consultation options and time slots for meetings with Kirill Markin.',
+    description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
     url: 'https://kirill-markin.com/meet/all/',
     images: [
       {
-        url: '/images/meeting-all-options.webp',
+        url: '/images/meeting-booking.webp',
         width: 1200,
         height: 630,
-        alt: 'All meeting options with Kirill Markin',
+        alt: 'Schedule a meeting with Kirill Markin',
       }
     ],
     type: 'website',
@@ -22,14 +23,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'All Meeting Options | Kirill Markin',
-    description: 'Choose from all available consultation options and time slots for meetings with Kirill Markin.',
-    images: ['/images/meeting-all-options.webp'],
+    description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
+    images: ['/images/meeting-booking.webp'],
   },
   alternates: {
     canonical: 'https://kirill-markin.com/meet/all/',
   },
 };
 
-export default function AllMeetingsPage() {
-  return <AllMeetingsClient />;
+interface PageProps {
+  params: Promise<{ lang?: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  // Get language from params, default to English if not provided
+  const { lang = DEFAULT_LANGUAGE } = await params || {};
+
+  return <AllMeetingsPage language={lang} />;
 } 

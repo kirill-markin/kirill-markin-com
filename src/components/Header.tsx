@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import styles from './Header.module.css';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 
 interface HeaderProps {
   language?: string;
@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
 
   const meetPath = language === DEFAULT_LANGUAGE
     ? '/meet/short/'
-    : `/${language}/${getPathSegmentByLanguage('meet', language)}/short/`;
+    : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'short', language)}/`;
 
   // Get localized home path
   const homePath = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;

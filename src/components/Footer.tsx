@@ -5,7 +5,7 @@ import styles from './Footer.module.css';
 import { personalInfo } from '../data/personalInfo';
 import { socialLinks } from '../data/socialLinks';
 import LanguageSwitcher from './LanguageSwitcher';
-import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { Translation } from '@/types/article';
 
 interface FooterProps {
@@ -47,7 +47,13 @@ const Footer: React.FC<FooterProps> = ({
 
               <div className={styles.footerCta}>
                 <div className={styles.questionButton}>
-                  <Link href="/meet/short/" className={styles.footerButton} rel="noopener noreferrer">
+                  <Link
+                    href={language === DEFAULT_LANGUAGE
+                      ? "/meet/short/"
+                      : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'short', language)}/`}
+                    className={styles.footerButton}
+                    rel="noopener noreferrer"
+                  >
                     Talk to Kirill
                   </Link>
                 </div>
