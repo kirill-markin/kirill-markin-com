@@ -1,8 +1,24 @@
 import { NextResponse } from 'next/server';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '@/lib/localization';
+import type { NextRequest } from 'next/server';
 
-export function middleware() {
-    // Просто возвращаем ответ без модификаций
-    return NextResponse.next();
+export function middleware(request: NextRequest) {
+    // Extract language from the URL path
+    const { pathname } = request.nextUrl;
+    const pathParts = pathname.split('/').filter(Boolean);
+
+    let lang = DEFAULT_LANGUAGE;
+
+    // If the first part of the path is a supported language, use it
+    if (pathParts.length > 0 && SUPPORTED_LANGUAGES.includes(pathParts[0])) {
+        lang = pathParts[0];
+    }
+
+    // Create a new response and add the language header
+    const response = NextResponse.next();
+    response.headers.set('x-language', lang);
+
+    return response;
 }
 
 export const config = {

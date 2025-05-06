@@ -7,6 +7,9 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import GlitchFilters from "@/components/GlitchFilters";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { DEFAULT_LANGUAGE } from "@/lib/localization";
+import { headers } from 'next/headers';
+import LanguageAttributeUpdater from "@/components/LanguageAttributeUpdater";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -75,8 +78,15 @@ export default async function RootLayout({
   // Check if we're in production environment
   const isProd = process.env.VERCEL_ENV === 'production';
 
+  // Get language from headers
+  const headersList = await headers();
+  const langWithRegion = headersList.has('x-language') ? headersList.get('x-language') as string : DEFAULT_LANGUAGE;
+
+  // Extract just the language part (first two letters) without the region
+  const lang = langWithRegion.split('-')[0];
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head>
         <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
@@ -100,6 +110,9 @@ export default async function RootLayout({
         )}
       </head>
       <body>
+        {/* Компонент для обновления атрибута lang при изменении пути */}
+        <LanguageAttributeUpdater />
+
         {/* Google Tag Manager (noscript) - only loaded in production */}
         {isProd && (
           <noscript>
