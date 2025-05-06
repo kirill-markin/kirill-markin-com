@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Breadcrumbs.module.css';
-import { SUPPORTED_LANGUAGES } from '@/lib/localization';
+import { SUPPORTED_LANGUAGES, getTranslation } from '@/lib/localization';
 
 type BreadcrumbItem = {
   path: string;
   label: string;
+  id: string;
 };
 
 const formatLabel = (segment: string): string => {
@@ -20,11 +21,25 @@ const formatLabel = (segment: string): string => {
 
 const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   const pathSegments = pathname.split('/').filter(Boolean);
-  const breadcrumbs: BreadcrumbItem[] = [{ path: '/', label: 'Home' }];
+  const breadcrumbs: BreadcrumbItem[] = [];
 
   // Check if the first segment is a language code
   const hasLanguagePrefix = pathSegments.length > 0 && SUPPORTED_LANGUAGES.includes(pathSegments[0]);
   const language = hasLanguagePrefix ? pathSegments[0] : 'en';
+
+  // Add Home link with proper language handling using the localization system
+  const homeLabel = getTranslation('navigation', language).home;
+  breadcrumbs.push({ path: '/', label: homeLabel, id: 'home' });
+
+  // Add language as a breadcrumb
+  if (hasLanguagePrefix) {
+    const languageLabel = getTranslation('navigation', language).language;
+    breadcrumbs.push({
+      path: `/${language}`,
+      label: languageLabel,
+      id: `language-${language}`
+    });
+  }
 
   // If there's a language prefix, adjust the segments we process
   const segmentsToProcess = hasLanguagePrefix ? pathSegments.slice(1) : pathSegments;
@@ -47,13 +62,15 @@ const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
         nextSegment === 'sankshipt';
 
       if (isShortMeeting) {
-        label = 'Talk to Kirill';
+        // Use the localized version of "Talk to Kirill"
+        label = getTranslation('navigation', language).talkToKirill;
       }
     }
 
     breadcrumbs.push({
       path: currentPath,
-      label
+      label,
+      id: `segment-${index}-${segment}`
     });
   });
 
@@ -72,18 +89,32 @@ const Breadcrumbs = () => {
 
   return (
     <nav className={styles.breadcrumbsContainer} aria-label="Breadcrumbs">
-      <ol className={styles.breadcrumbsList}>
+      <ol className={styles.breadcrumbsList} itemScope itemType="https://schema.org/BreadcrumbList">
         {breadcrumbs.map((breadcrumb, index) => (
-          <li key={breadcrumb.path} className={styles.breadcrumbItem}>
+          <li
+            key={breadcrumb.id}
+            className={styles.breadcrumbItem}
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+          >
             {index < breadcrumbs.length - 1 ? (
               <>
-                <Link href={breadcrumb.path} className={styles.breadcrumbLink}>
-                  {breadcrumb.label}
+                <Link
+                  href={breadcrumb.path}
+                  className={styles.breadcrumbLink}
+                  itemProp="item"
+                >
+                  <span itemProp="name">{breadcrumb.label}</span>
                 </Link>
+                <meta itemProp="position" content={`${index + 1}`} />
                 <span className={styles.separator}>/</span>
               </>
             ) : (
-              <span className={styles.currentPage}>{breadcrumb.label}</span>
+              <>
+                <span className={styles.currentPage} itemProp="name">{breadcrumb.label}</span>
+                <meta itemProp="position" content={`${index + 1}`} />
+              </>
             )}
           </li>
         ))}

@@ -327,6 +327,33 @@ export const translations = {
             },
         },
     },
+    navigation: {
+        'en': {
+            home: 'Home',
+            talkToKirill: 'Talk to Kirill',
+            language: 'English'
+        },
+        'es': {
+            home: 'Inicio',
+            talkToKirill: 'Hablar con Kirill',
+            language: 'Español'
+        },
+        'zh': {
+            home: '首页',
+            talkToKirill: '与Kirill交流',
+            language: '中文'
+        },
+        'ar': {
+            home: 'الرئيسية',
+            talkToKirill: 'تحدث مع كيريل',
+            language: 'العربية'
+        },
+        'hi': {
+            home: 'होम',
+            talkToKirill: 'किरिल से बात करें',
+            language: 'हिन्दी'
+        },
+    },
     home: {
         'en': {
             title: 'Kirill Markin - AI Strategy Advisor',
