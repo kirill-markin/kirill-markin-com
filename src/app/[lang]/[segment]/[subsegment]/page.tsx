@@ -1,6 +1,6 @@
 import { ShortMeetingPage, AllMeetingsPage } from '@/components/pages/meet';
 import { StripePaymentPage } from '@/components/pages/pay';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, isValidLanguage } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, isValidLanguage, SUPPORTED_LANGUAGES } from '@/lib/localization';
 import { redirect, notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getAllArticles, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
@@ -86,33 +86,117 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 
     // For short meetings
     if (segment === meetSegment && subsegment === shortSubsegment) {
+        const canonicalUrl = `https://kirill-markin.com/${lang}/${segment}/${subsegment}`;
+
+        // Generate language alternates for all supported languages
+        const languageAlternates: Record<string, string> = {};
+
+        // Add current language alternate
+        languageAlternates[lang] = canonicalUrl;
+
+        // Add alternates for other languages
+        for (const otherLang of SUPPORTED_LANGUAGES) {
+            if (otherLang === lang) continue;
+
+            const otherMeetSegment = otherLang === DEFAULT_LANGUAGE
+                ? 'meet'
+                : getPathSegmentByLanguage('meet', otherLang);
+
+            const otherShortSubsegment = otherLang === DEFAULT_LANGUAGE
+                ? 'short'
+                : getSubPathSegmentByLanguage('meet', 'short', otherLang);
+
+            const alternateUrl = otherLang === DEFAULT_LANGUAGE
+                ? `https://kirill-markin.com/meet/short`
+                : `https://kirill-markin.com/${otherLang}/${otherMeetSegment}/${otherShortSubsegment}`;
+
+            languageAlternates[otherLang] = alternateUrl;
+        }
+
         return {
             title: '15-Minute Welcome Meeting | Kirill Markin',
             description: 'Schedule a free 15-minute introduction call with Kirill Markin to discuss your needs and how we can work together.',
             alternates: {
-                canonical: `https://kirill-markin.com/${lang}/${segment}/${subsegment}/`,
+                canonical: canonicalUrl,
+                languages: languageAlternates
             },
         };
     }
 
     // For all meetings
     if (segment === meetSegment && subsegment === allSubsegment) {
+        const canonicalUrl = `https://kirill-markin.com/${lang}/${segment}/${subsegment}`;
+
+        // Generate language alternates for all supported languages
+        const languageAlternates: Record<string, string> = {};
+
+        // Add current language alternate
+        languageAlternates[lang] = canonicalUrl;
+
+        // Add alternates for other languages
+        for (const otherLang of SUPPORTED_LANGUAGES) {
+            if (otherLang === lang) continue;
+
+            const otherMeetSegment = otherLang === DEFAULT_LANGUAGE
+                ? 'meet'
+                : getPathSegmentByLanguage('meet', otherLang);
+
+            const otherAllSubsegment = otherLang === DEFAULT_LANGUAGE
+                ? 'all'
+                : getSubPathSegmentByLanguage('meet', 'all', otherLang);
+
+            const alternateUrl = otherLang === DEFAULT_LANGUAGE
+                ? `https://kirill-markin.com/meet/all`
+                : `https://kirill-markin.com/${otherLang}/${otherMeetSegment}/${otherAllSubsegment}`;
+
+            languageAlternates[otherLang] = alternateUrl;
+        }
+
         return {
             title: 'All Meeting Options | Kirill Markin',
             description: 'Schedule a consultation with Kirill Markin. Choose from all available meeting options and time slots.',
             alternates: {
-                canonical: `https://kirill-markin.com/${lang}/${segment}/${subsegment}/`,
+                canonical: canonicalUrl,
+                languages: languageAlternates
             },
         };
     }
 
     // For Stripe payment
     if (segment === paySegment && subsegment === stripeSubsegment) {
+        const canonicalUrl = `https://kirill-markin.com/${lang}/${segment}/${subsegment}`;
+
+        // Generate language alternates for all supported languages
+        const languageAlternates: Record<string, string> = {};
+
+        // Add current language alternate
+        languageAlternates[lang] = canonicalUrl;
+
+        // Add alternates for other languages
+        for (const otherLang of SUPPORTED_LANGUAGES) {
+            if (otherLang === lang) continue;
+
+            const otherPaySegment = otherLang === DEFAULT_LANGUAGE
+                ? 'pay'
+                : getPathSegmentByLanguage('pay', otherLang);
+
+            const otherStripeSubsegment = otherLang === DEFAULT_LANGUAGE
+                ? 'stripe'
+                : getSubPathSegmentByLanguage('pay', 'stripe', otherLang);
+
+            const alternateUrl = otherLang === DEFAULT_LANGUAGE
+                ? `https://kirill-markin.com/pay/stripe`
+                : `https://kirill-markin.com/${otherLang}/${otherPaySegment}/${otherStripeSubsegment}`;
+
+            languageAlternates[otherLang] = alternateUrl;
+        }
+
         return {
             title: 'Pay with Stripe | Kirill Markin',
             description: 'Secure payment with credit or debit card for Kirill Markin\'s services.',
             alternates: {
-                canonical: `https://kirill-markin.com/${lang}/${segment}/${subsegment}/`,
+                canonical: canonicalUrl,
+                languages: languageAlternates
             },
         };
     }
@@ -127,8 +211,43 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 
         // Create canonical URL
         const canonicalUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/articles/${subsegment}/`
-            : `https://kirill-markin.com/${lang}/${articlesSegment}/${subsegment}/`;
+            ? `https://kirill-markin.com/articles/${subsegment}`
+            : `https://kirill-markin.com/${lang}/${articlesSegment}/${subsegment}`;
+
+        // Создаем объект для языковых альтернатив
+        const languageAlternates: Record<string, string> = {};
+
+        // Добавляем текущую страницу в альтернативы
+        languageAlternates[lang] = canonicalUrl;
+
+        // Добавляем все доступные переводы
+        if (article.metadata.translations && article.metadata.translations.length > 0) {
+            for (const translation of article.metadata.translations) {
+                const translatedSegment = translation.language === DEFAULT_LANGUAGE
+                    ? 'articles'
+                    : getPathSegmentByLanguage('articles', translation.language);
+
+                const translatedUrl = translation.language === DEFAULT_LANGUAGE
+                    ? `https://kirill-markin.com/articles/${translation.slug}`
+                    : `https://kirill-markin.com/${translation.language}/${translatedSegment}/${translation.slug}`;
+
+                languageAlternates[translation.language] = translatedUrl;
+            }
+        }
+
+        // Если это перевод, добавляем ссылку на оригинальную статью
+        if (article.metadata.originalArticle) {
+            const { language, slug: originalSlug } = article.metadata.originalArticle;
+            const originalSegment = language === DEFAULT_LANGUAGE
+                ? 'articles'
+                : getPathSegmentByLanguage('articles', language);
+
+            const originalUrl = language === DEFAULT_LANGUAGE
+                ? `https://kirill-markin.com/articles/${originalSlug}`
+                : `https://kirill-markin.com/${language}/${originalSegment}/${originalSlug}`;
+
+            languageAlternates[language] = originalUrl;
+        }
 
         return {
             title: `${article.metadata.title} | Kirill Markin`,
@@ -155,6 +274,7 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
             },
             alternates: {
                 canonical: canonicalUrl,
+                languages: languageAlternates
             },
         };
     }
@@ -185,14 +305,14 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
     if (lang === DEFAULT_LANGUAGE) {
         if (segment === meetSegment) {
             if (subsegment === shortSubsegment) {
-                redirect('/meet/short/');
+                redirect('/meet/short');
             } else if (subsegment === allSubsegment) {
-                redirect('/meet/all/');
+                redirect('/meet/all');
             }
         } else if (segment === paySegment && subsegment === stripeSubsegment) {
-            redirect('/pay/stripe/');
+            redirect('/pay/stripe');
         } else if (segment === articlesSegment) {
-            redirect(`/articles/${subsegment}/`);
+            redirect(`/articles/${subsegment}`);
         }
     }
 
@@ -225,8 +345,8 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
 
         // Create URL for JSON-LD
         const canonicalUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/articles/${subsegment}/`
-            : `https://kirill-markin.com/${lang}/${articlesSegment}/${subsegment}/`;
+            ? `https://kirill-markin.com/articles/${subsegment}`
+            : `https://kirill-markin.com/${lang}/${articlesSegment}/${subsegment}`;
 
         // Get related articles
         const relatedArticles = await getRelatedArticlesByTags(
@@ -248,5 +368,5 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
     }
 
     // If no matching segment/subsegment, redirect to language root
-    redirect(`/${lang}/`);
+    redirect(`/${lang}`);
 } 

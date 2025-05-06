@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { getAllArticleSlugs, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
 import { markdownToHtml } from '@/lib/markdown';
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
+import { getPathSegmentByLanguage } from '@/lib/localization';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -20,7 +21,34 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     };
   }
 
-  const canonicalUrl = `https://kirill-markin.com/articles/${slug}/`;
+  const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
+
+  // Создаем объект для языковых альтернатив
+  const languageAlternates: Record<string, string> = {};
+
+  // Добавляем текущую страницу в альтернативы
+  languageAlternates[article.metadata.language] = canonicalUrl;
+
+  // Добавляем все доступные переводы
+  if (article.metadata.translations && article.metadata.translations.length > 0) {
+    for (const translation of article.metadata.translations) {
+      const translatedUrl = translation.language === 'en'
+        ? `https://kirill-markin.com/articles/${translation.slug}`
+        : `https://kirill-markin.com/${translation.language}/${getPathSegmentByLanguage('articles', translation.language)}/${translation.slug}`;
+
+      languageAlternates[translation.language] = translatedUrl;
+    }
+  }
+
+  // Если это перевод, добавляем ссылку на оригинальную статью
+  if (article.metadata.originalArticle) {
+    const { language, slug: originalSlug } = article.metadata.originalArticle;
+    const originalUrl = language === 'en'
+      ? `https://kirill-markin.com/articles/${originalSlug}`
+      : `https://kirill-markin.com/${language}/${getPathSegmentByLanguage('articles', language)}/${originalSlug}`;
+
+    languageAlternates[language] = originalUrl;
+  }
 
   return {
     title: `${article.metadata.title} - Kirill Markin`,
@@ -54,6 +82,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     },
     alternates: {
       canonical: canonicalUrl,
+      languages: languageAlternates
     }
   };
 }
@@ -72,7 +101,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const htmlContent = await markdownToHtml(article.content);
-  const canonicalUrl = `https://kirill-markin.com/articles/${slug}/`;
+  const canonicalUrl = `https://kirill-markin.com/articles/${slug}`;
 
   // Get related articles based on tags
   const relatedArticles = await getRelatedArticlesByTags(
