@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import EmojiBubbles from "@/components/EmojiBubbles";
 import GlitchFilters from "@/components/GlitchFilters";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -116,6 +117,7 @@ export default function RootLayout({
         <EmojiBubbles />
         <GlitchFilters />
         <Analytics debug={process.env.NODE_ENV !== 'production'} />
+        <SpeedInsights debug={process.env.NODE_ENV !== 'production'} />
       </body>
     </html>
   );
