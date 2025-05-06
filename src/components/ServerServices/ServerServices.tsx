@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceData } from '@/types/services';
+import { getTranslation } from '@/lib/localization';
 import styles from '../Services/Services.module.css';
 
 interface ServerServicesProps {
   services: ServiceData[];
   currentCategory: string;
+  language: string;
 }
 
 // Server component for ServiceCard
@@ -65,7 +67,10 @@ function ServerServiceCard({ service }: { service: ServiceData }) {
 }
 
 // Main server component
-export default function ServerServices({ services, currentCategory }: ServerServicesProps) {
+export default function ServerServices({ services, currentCategory, language }: ServerServicesProps) {
+  // Get translations
+  const t = getTranslation('services', language);
+
   // Extract unique categories from services
   const categories = Array.from(
     new Set(services.map(service => service.categoryId))
@@ -79,29 +84,12 @@ export default function ServerServices({ services, currentCategory }: ServerServ
   // SEO-friendly category title
   const getCategoryTitle = () => {
     if (currentCategory === 'all') {
-      return 'All Services';
+      return t.serviceCategories?.all || 'All Services';
     }
 
     const formattedCategory = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
-    return `Services for ${formattedCategory}`;
-  };
-
-  // Get category description text
-  const getCategoryDescription = () => {
-    if (currentCategory === 'all') {
-      return 'Explore the complete range of services for individuals, businesses, and media professionals. Whether you need career guidance, analytics support, or expert commentary, I am ready to help.';
-    }
-
-    switch (currentCategory) {
-      case 'people':
-        return 'Specialized services designed for individuals seeking professional growth, career guidance, and personalized AI tools. Take your career and skills to the next level with expert support.';
-      case 'business':
-        return 'Comprehensive analytics, AI implementation, and technical consulting services for businesses of all sizes. Optimize your operations and embrace cutting-edge technology with professional guidance.';
-      case 'journalists':
-        return 'Expert resources for media professionals including speaking engagements, interviews, and specialized commentary on AI, data science, and technology trends.';
-      default:
-        return `Specialized services in the ${currentCategory} category tailored to meet your specific needs with expert knowledge and professional support.`;
-    }
+    const categoryLabel = t.serviceCategories?.[currentCategory as keyof typeof t.serviceCategories] || formattedCategory;
+    return categoryLabel;
   };
 
   return (
@@ -112,7 +100,7 @@ export default function ServerServices({ services, currentCategory }: ServerServ
             {getCategoryTitle()}
           </h1>
           <div className={styles.categoryDescription}>
-            <p>{getCategoryDescription()}</p>
+            <p>{t.description}</p>
           </div>
         </div>
       </div>
@@ -123,8 +111,9 @@ export default function ServerServices({ services, currentCategory }: ServerServ
           <Link
             href="/services/"
             className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
+            scroll={false}
           >
-            All
+            {t.serviceCategories?.all || 'All'}
           </Link>
 
           {categories.map(category => (
@@ -132,8 +121,10 @@ export default function ServerServices({ services, currentCategory }: ServerServ
               key={category}
               href={`/services/?category=${category}`}
               className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
+              scroll={false}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {(t.serviceCategories?.[category as keyof typeof t.serviceCategories]) ||
+                category.charAt(0).toUpperCase() + category.slice(1)}
             </Link>
           ))}
         </div>

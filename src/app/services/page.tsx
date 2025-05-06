@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { servicesData } from '@/data/services';
-import ServerServices from '@/components/ServerServices';
-import styles from './page.module.css';
+import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { generateServicesPageMetadata } from '@/lib/metadata';
+import ServicesPageContent from '@/components/pages/ServicesPageContent';
 
 type Props = {
   params: Promise<Record<string, string>>;
@@ -29,88 +30,18 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // Get the category from URL parameters
   const params = await searchParams;
-  const categoryParam = typeof params.category === 'string' ? params.category : 'all';
+  const categoryParam = typeof params.category === 'string' ? params.category : undefined;
 
-  // Base metadata
-  const baseTitle = 'Services | Kirill Markin';
-  let title = baseTitle;
-  let description = 'Explore the full range of services offered by Kirill Markin, including AI consulting, analytics department audit, startup guidance, and more.';
-
-  // Category-specific metadata
-  if (categoryParam !== 'all') {
-    const formattedCategory = categoryParam.charAt(0).toUpperCase() + categoryParam.slice(1);
-
-    // Count services in this category
-    const categoryServices = servicesData.filter(service => service.categoryId === categoryParam);
-    const servicesCount = categoryServices.length;
-
-    title = `Services for ${formattedCategory} (${servicesCount}) | Kirill Markin`;
-
-    // Generate category-specific description
-    switch (categoryParam) {
-      case 'people':
-        description = 'Personal consultations, career coaching, and services for individuals. Get personalized support from an expert in AI and data.';
-        break;
-      case 'business':
-        description = 'Professional services for businesses — from analytics department audits to AI product development and database optimization.';
-        break;
-      case 'journalists':
-        description = 'Services for journalists and media — conference appearances, interviews, expert comments on AI, data, and technology topics.';
-        break;
-      default:
-        description = `Services in the ${formattedCategory} category from Kirill Markin — an expert in AI, data, and technology.`;
-    }
-  }
-
-  // Images and other metadata
-  const images = [
-    {
-      url: '/services/services-hero.webp',
-      width: 1200,
-      height: 630,
-      alt: 'Kirill Markin Services',
-    }
-  ];
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: categoryParam === 'all'
-        ? 'https://kirill-markin.com/services/'
-        : `https://kirill-markin.com/services/?category=${categoryParam}`,
-      images,
-      type: 'website',
-      siteName: 'Kirill Markin',
-      locale: 'en_US',
-    },
-    twitter: {
-      title,
-      description,
-      images: ['/services/services-hero.webp'],
-    },
-    alternates: {
-      canonical: categoryParam === 'all'
-        ? 'https://kirill-markin.com/services/'
-        : `https://kirill-markin.com/services/?category=${categoryParam}`,
-    },
-  };
+  return generateServicesPageMetadata({
+    language: DEFAULT_LANGUAGE,
+    category: categoryParam
+  });
 }
 
 export default async function ServicesPage({ searchParams }: Props) {
   // Get the category from URL parameters
   const params = await searchParams;
-  const categoryParam = typeof params.category === 'string' ? params.category : 'all';
+  const categoryParam = typeof params.category === 'string' ? params.category : undefined;
 
-  return (
-    <div className={styles.main}>
-      <div className={styles.content}>
-        <div className={styles.fullWidthColumn}>
-          <ServerServices services={servicesData} currentCategory={categoryParam} />
-        </div>
-      </div>
-    </div>
-  );
+  return <ServicesPageContent language={DEFAULT_LANGUAGE} category={categoryParam} />;
 }

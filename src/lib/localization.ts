@@ -78,88 +78,117 @@ export function getPathSegmentByLanguage(
 }
 
 /**
+ * Check if translation exists for a specific section
+ * @param section Section name (e.g. 'articles', 'services')
+ * @param language Target language
+ * @returns True if translation exists
+ */
+export function hasTranslation(
+    section: string,
+    language: string
+): boolean {
+    // Base sections are always translated
+    if (Object.keys(PATH_SEGMENTS).includes(section)) {
+        return true;
+    }
+
+    // For other sections, check in translations object
+    if (translations[section as keyof typeof translations]) {
+        const sectionTranslations = translations[section as keyof typeof translations];
+        return language in sectionTranslations;
+    }
+
+    return false;
+}
+
+/**
  * Get URL for the current page in a different language
  * @param targetLanguage Language to translate URL to
  * @param currentLanguage Current language
  * @param currentPath Current path
  * @param translations Available translations (for articles)
- * @returns URL for the current page in the target language
+ * @returns URL for the current page in the target language or null if translation not available
  */
 export function getUrlForLanguage(
     targetLanguage: string,
     currentLanguage: string,
     currentPath: string,
     translations?: Translation[]
-): string {
-    // For default language
-    if (targetLanguage === DEFAULT_LANGUAGE) {
-        // If we're on a specific article page with translations
-        if (currentPath.includes('/articulos/') ||
-            currentPath.includes('/wenzhang/') ||
-            currentPath.includes('/maqalat/') ||
-            currentPath.includes('/lekh/')) {
+): string | null {
+    // Extract query parameters
+    const [pathWithoutQuery, queryString] = currentPath.split('?');
+    const query = queryString ? `?${queryString}` : '';
 
-            if (translations) {
-                const defaultTranslation = translations.find(t => t.language === DEFAULT_LANGUAGE);
-                if (defaultTranslation) {
-                    return `/articles/${defaultTranslation.slug}/`;
-                }
-            }
+    // For specific article pages with translations
+    const isArticlePage = Object.values(PATH_SEGMENTS['articles']).some(segment =>
+        currentPath.includes(`/${segment}/`) && !currentPath.endsWith(`/${segment}/`));
+
+    if (isArticlePage && translations) {
+        const targetTranslation = translations.find(t => t.language === targetLanguage);
+        if (targetTranslation) {
+            // Article has translation for target language
+            const articlesSegment = targetLanguage === DEFAULT_LANGUAGE
+                ? 'articles'
+                : PATH_SEGMENTS['articles'][targetLanguage];
+
+            return targetLanguage === DEFAULT_LANGUAGE
+                ? `/articles/${targetTranslation.slug}/`
+                : `/${targetLanguage}/${articlesSegment}/${targetTranslation.slug}/`;
+        } else {
+            // Article doesn't have translation for target language
+            return null; // Return null to hide this language option
         }
-
-        // For other pages, remove language prefix and replace segments
-        let path = currentPath;
-
-        // Remove language prefix if present
-        if (currentLanguage !== DEFAULT_LANGUAGE) {
-            path = path.replace(`/${currentLanguage}`, '');
-        }
-
-        // Replace all localized segments with English ones
-        Object.keys(PATH_SEGMENTS).forEach(englishSegment => {
-            const localizedSegments = Object.values(PATH_SEGMENTS[englishSegment]);
-            localizedSegments.forEach(localizedSegment => {
-                path = path.replace(`/${localizedSegment}/`, `/${englishSegment}/`);
-            });
-        });
-
-        return path.startsWith('/') ? path : `/${path}`;
     }
 
-    // For non-default languages
-    else {
-        // If we're on a specific article page with translations
-        if (currentPath.includes('/articles/')) {
-            if (translations) {
-                const targetTranslation = translations.find(t => t.language === targetLanguage);
-                if (targetTranslation) {
-                    const articlesSegment = getPathSegmentByLanguage('articles', targetLanguage);
-                    return `/${targetLanguage}/${articlesSegment}/${targetTranslation.slug}/`;
-                }
-            }
-        }
+    // For index pages and other sections
+    const pathSegments = pathWithoutQuery.split('/').filter(Boolean);
 
-        // For other pages, add language prefix and localize segments
-        let path = currentPath;
+    // Check if the first segment is a language prefix
+    const firstSegment = pathSegments[0];
+    const hasLanguagePrefix = SUPPORTED_LANGUAGES.includes(firstSegment);
 
-        // Remove existing language prefix if any
-        if (currentLanguage !== DEFAULT_LANGUAGE) {
-            path = path.replace(`/${currentLanguage}`, '');
-        }
+    // Determine base path without language prefix
+    const basePath = hasLanguagePrefix ? pathSegments.slice(1) : pathSegments;
 
-        // Replace all English segments with localized ones
-        Object.keys(PATH_SEGMENTS).forEach(englishSegment => {
-            if (path.includes(`/${englishSegment}/`)) {
-                const localizedSegment = getPathSegmentByLanguage(englishSegment, targetLanguage);
-                path = path.replace(`/${englishSegment}/`, `/${localizedSegment}/`);
-            }
-        });
-
-        // Add language prefix for non-default languages
-        return `/${targetLanguage}${path}`;
+    if (basePath.length === 0) {
+        // This is the home page
+        return targetLanguage === DEFAULT_LANGUAGE ? '/' : `/${targetLanguage}/`;
     }
 
-    // Fallback to homepage in target language
+    // Find the segment type by checking all possible localized segments
+    let segmentType: string | undefined;
+    let segmentIndex = -1;
+
+    for (let i = 0; i < basePath.length; i++) {
+        const segment = basePath[i];
+        const foundSegmentType = Object.keys(PATH_SEGMENTS).find(key => {
+            return Object.values(PATH_SEGMENTS[key]).some(val => val === segment);
+        });
+
+        if (foundSegmentType) {
+            segmentType = foundSegmentType;
+            segmentIndex = i;
+            break;
+        }
+    }
+
+    if (segmentType) {
+        // Create the new path with the translated segment
+        const newSegment = PATH_SEGMENTS[segmentType][targetLanguage];
+
+        // Keep the remaining path segments after the matched one
+        const restOfPath = basePath.slice(segmentIndex + 1).join('/');
+        const restWithSlash = restOfPath ? `/${restOfPath}` : '';
+
+        // Form the new path
+        const newPath = targetLanguage === DEFAULT_LANGUAGE
+            ? `/${newSegment}${restWithSlash}/`
+            : `/${targetLanguage}/${newSegment}${restWithSlash}/`;
+
+        return newPath + query;
+    }
+
+    // If we can't determine the path structure, fallback to home page in target language
     return targetLanguage === DEFAULT_LANGUAGE ? '/' : `/${targetLanguage}/`;
 }
 
@@ -187,4 +216,211 @@ export function getLocaleForLanguage(language: string): string {
     };
 
     return localeMap[language] || 'en_US';
+}
+
+/**
+ * All translations for the website
+ */
+export const translations = {
+    common: {
+        'en': {
+            siteName: 'Kirill Markin',
+            language: 'English',
+            viewAllLink: 'View All',
+            dateFormat: {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            },
+        },
+        'es': {
+            siteName: 'Kirill Markin',
+            language: 'Español',
+            viewAllLink: 'Ver Todo',
+            dateFormat: {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            },
+        },
+        'zh': {
+            siteName: 'Kirill Markin',
+            language: '中文',
+            viewAllLink: '查看全部',
+            dateFormat: {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            },
+        },
+        'ar': {
+            siteName: 'Kirill Markin',
+            language: 'العربية',
+            viewAllLink: 'عرض الكل',
+            dateFormat: {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            },
+        },
+        'hi': {
+            siteName: 'Kirill Markin',
+            language: 'हिन्दी',
+            viewAllLink: 'सभी देखें',
+            dateFormat: {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            },
+        },
+    },
+    home: {
+        'en': {
+            title: 'Kirill Markin - AI Strategy Advisor',
+            description: 'I help businesses with AI implementation strategy. Learn about my services, read my articles on AI and tech.',
+        },
+        'es': {
+            title: 'Kirill Markin - Asesor de Estrategia de IA',
+            description: 'Ayudo a las empresas con la estrategia de implementación de IA. Conozca mis servicios, lea mis artículos sobre IA y tecnología.',
+        },
+        'zh': {
+            title: 'Kirill Markin - 人工智能战略顾问',
+            description: '我帮助企业实施人工智能战略。了解我的服务，阅读我关于人工智能和技术的文章。',
+        },
+        'ar': {
+            title: 'كيريل ماركين - مستشار استراتيجية الذكاء الاصطناعي',
+            description: 'أساعد الشركات في استراتيجية تنفيذ الذكاء الاصطناعي. تعرف على خدماتي، اقرأ مقالاتي عن الذكاء الاصطناعي والتكنولوجيا.',
+        },
+        'hi': {
+            title: 'किरिल मार्किन - एआई रणनीति सलाहकार',
+            description: 'मैं व्यवसायों को एआई कार्यान्वयन रणनीति के साथ मदद करता हूं। मेरी सेवाओं के बारे में जानें, एआई और तकनीक पर मेरे लेख पढ़ें।',
+        },
+    },
+    articles: {
+        'en': {
+            title: 'Articles',
+            description: 'Articles on AI, technology, and business strategy',
+            metaTitle: 'Articles on AI and Tech | Kirill Markin',
+            metaDescription: 'Read my articles on artificial intelligence, technology trends, and business strategy. Insights on AI implementation and digital transformation.',
+            readTimeText: 'min read',
+        },
+        'es': {
+            title: 'Artículos',
+            description: 'Artículos sobre IA, tecnología y estrategia empresarial',
+            metaTitle: 'Artículos sobre IA y Tecnología | Kirill Markin',
+            metaDescription: 'Lea mis artículos sobre inteligencia artificial, tendencias tecnológicas y estrategia empresarial. Información sobre implementación de IA y transformación digital.',
+            readTimeText: 'min de lectura',
+        },
+        'zh': {
+            title: '文章',
+            description: '关于人工智能、技术和商业策略的文章',
+            metaTitle: '人工智能和技术文章 | Kirill Markin',
+            metaDescription: '阅读我关于人工智能、技术趋势和商业策略的文章。关于人工智能实施和数字化转型的见解。',
+            readTimeText: '分钟阅读',
+        },
+        'ar': {
+            title: 'المقالات',
+            description: 'مقالات عن الذكاء الاصطناعي والتكنولوجيا واستراتيجية الأعمال',
+            metaTitle: 'مقالات عن الذكاء الاصطناعي والتكنولوجيا | كيريل ماركين',
+            metaDescription: 'اقرأ مقالاتي عن الذكاء الاصطناعي واتجاهات التكنولوجيا واستراتيجية الأعمال. رؤى حول تنفيذ الذكاء الاصطناعي والتحول الرقمي.',
+            readTimeText: 'دقيقة قراءة',
+        },
+        'hi': {
+            title: 'लेख',
+            description: 'एआई, प्रौद्योगिकी, और व्यापार रणनीति पर लेख',
+            metaTitle: 'एआई और टेक पर लेख | किरिल मार्किन',
+            metaDescription: 'कृत्रिम बुद्धिमत्ता, प्रौद्योगिकी रुझान, और व्यापार रणनीति पर मेरे लेख पढ़ें। एआई कार्यान्वयन और डिजिटल परिवर्तन पर अंतर्दृष्टि।',
+            readTimeText: 'मिनट पढ़ें',
+        },
+    },
+    services: {
+        'en': {
+            title: 'Services',
+            description: 'Explore the complete range of services for individuals, businesses, and media professionals. Whether you need career guidance, analytics support, or expert commentary, I am ready to help.',
+            metaTitle: 'AI Strategy & Implementation Services | Kirill Markin',
+            metaDescription: 'Expert AI strategy consulting and implementation services. I help businesses integrate artificial intelligence to drive growth and efficiency.',
+            serviceCategories: {
+                all: 'All Services',
+                strategy: 'AI Strategy',
+                implementation: 'Implementation',
+                training: 'Training',
+                audit: 'AI Audit',
+            },
+        },
+        'es': {
+            title: 'Servicios',
+            description: 'Explore la gama completa de servicios para individuos, empresas y profesionales de los medios. Ya sea que necesite orientación profesional, soporte analítico o comentarios de expertos, estoy listo para ayudar.',
+            metaTitle: 'Servicios de Estrategia e Implementación de IA | Kirill Markin',
+            metaDescription: 'Servicios expertos de consultoría e implementación de estrategia de IA. Ayudo a las empresas a integrar la inteligencia artificial para impulsar el crecimiento y la eficiencia.',
+            serviceCategories: {
+                all: 'Todos los Servicios',
+                strategy: 'Estrategia de IA',
+                implementation: 'Implementación',
+                training: 'Formación',
+                audit: 'Auditoría de IA',
+            },
+        },
+        'zh': {
+            title: '服务',
+            description: '探索适用于个人、企业和媒体专业人士的完整服务范围。无论您需要职业指导、分析支持还是专家评论，我都随时准备提供帮助。',
+            metaTitle: '人工智能战略与实施服务 | Kirill Markin',
+            metaDescription: '专业人工智能战略咨询和实施服务。我帮助企业集成人工智能以推动增长和效率。',
+            serviceCategories: {
+                all: '所有服务',
+                strategy: '人工智能战略',
+                implementation: '实施',
+                training: '培训',
+                audit: '人工智能审计',
+            },
+        },
+        'ar': {
+            title: 'الخدمات',
+            description: 'استكشف المجموعة الكاملة من الخدمات للأفراد والشركات ومحترفي الإعلام. سواء كنت بحاجة إلى إرشادات مهنية أو دعم تحليلي أو تعليقات خبيرة، فأنا مستعد للمساعدة.',
+            metaTitle: 'خدمات استراتيجية وتنفيذ الذكاء الاصطناعي | كيريل ماركين',
+            metaDescription: 'خدمات استشارية وتنفيذية متخصصة في استراتيجية الذكاء الاصطناعي. أساعد الشركات على دمج الذكاء الاصطناعي لدفع النمو والكفاءة.',
+            serviceCategories: {
+                all: 'جميع الخدمات',
+                strategy: 'استراتيجية الذكاء الاصطناعي',
+                implementation: 'التنفيذ',
+                training: 'التدريب',
+                audit: 'تدقيق الذكاء الاصطناعي',
+            },
+        },
+        'hi': {
+            title: 'सेवाएं',
+            description: 'व्यक्तियों, व्यवसायों और मीडिया पेशेवरों के लिए सेवाओं की पूरी श्रृंखला का अन्वेषण करें। चाहे आपको करियर मार्गदर्शन, विश्लेषण समर्थन, या विशेषज्ञ टिप्पणी की आवश्यकता हो, मैं मदद के लिए तैयार हूं।',
+            metaTitle: 'एआई रणनीति और कार्यान्वयन सेवाएं | किरिल मार्किन',
+            metaDescription: 'विशेषज्ञ एआई रणनीति परामर्श और कार्यान्वयन सेवाएं। मैं व्यवसायों को विकास और दक्षता बढ़ाने के लिए कृत्रिम बुद्धिमत्ता एकीकृत करने में मदद करता हूं।',
+            serviceCategories: {
+                all: 'सभी सेवाएं',
+                strategy: 'एआई रणनीति',
+                implementation: 'कार्यान्वयन',
+                training: 'प्रशिक्षण',
+                audit: 'एआई ऑडिट',
+            },
+        },
+    },
+} as const;
+
+/**
+ * Type for translation section keys
+ */
+export type TranslationSection = keyof typeof translations;
+
+/**
+ * Get translations for a specific section and language
+ * @param section Section name (e.g. 'common', 'home', 'articles')
+ * @param language Language code
+ * @returns Translation object for the requested section, falling back to default language
+ */
+export function getTranslation<T extends TranslationSection>(section: T, language: string): typeof translations[T][typeof DEFAULT_LANGUAGE] {
+    if (!translations[section]) {
+        // If section doesn't exist, return empty object
+        // Using explicit type casting with as unknown for safe conversion
+        return {} as unknown as typeof translations[T][typeof DEFAULT_LANGUAGE];
+    }
+
+    const sectionTranslations = translations[section];
+    return (sectionTranslations[language as keyof typeof sectionTranslations] ||
+        sectionTranslations[DEFAULT_LANGUAGE]) as typeof translations[T][typeof DEFAULT_LANGUAGE];
 } 

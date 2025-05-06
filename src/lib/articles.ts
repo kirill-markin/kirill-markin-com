@@ -197,6 +197,14 @@ async function getTranslatedArticles(language: string): Promise<Article[]> {
   const translationDir = path.join(articlesDirectory, 'translations', language);
 
   try {
+    // Check if directory exists before attempting to read it
+    try {
+      await fs.access(translationDir);
+    } catch {
+      // Directory doesn't exist, return empty array instead of throwing error
+      return [];
+    }
+
     const fileNames = await fs.readdir(translationDir);
     const slugs = fileNames
       .filter((fileName) => fileName.endsWith('.md'))

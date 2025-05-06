@@ -4,25 +4,6 @@
 
 This is a modern personal website for Kirill Markin, built with Next.js. The project was migrated from Jekyll to Next.js to improve performance, developer experience, and leverage modern web capabilities.
 
-```
-src/
-├── app/             # Next.js App Router pages
-│   ├── page.tsx     # Home page
-│   ├── services/    # Services section with categories
-│   ├── articles/    # Articles listing page
-│   │   └── [slug]/  # Individual article pages
-│   ├── meet/        # Meeting booking section
-│   ├── pay/         # Payment section
-│   ├── layout.tsx   # Root layout
-│   └── not-found.tsx # 404 page
-├── components/      # UI components
-├── content/         # Content files (articles, etc.)
-│   └── articles/    # Markdown articles
-├── data/            # Structured data (services, media mentions, etc.)
-├── lib/             # Utility functions and helpers
-└── types/           # TypeScript type definitions
-```
-
 ## Core Architecture Principles
 
 ### Static Generation First
@@ -100,11 +81,19 @@ website-next-js/
 src/
 ├── app/             # Next.js App Router pages
 │   ├── page.tsx     # Home page
-│   ├── services/    # Services section with categories
-│   ├── articles/    # Articles listing page
+│   ├── [lang]/      # Language-specific routes (es, zh, ar, hi)
+│   │   ├── page.tsx # Language-specific home page
+│   │   ├── layout.tsx # Language-specific layout
+│   │   ├── [segment]/ # Dynamic segment (articles, services)
+│   │   │   ├── page.tsx # Segment index page
+│   │   │   └── [slug]/  # Individual content page
+│   │   │       └── page.tsx
+│   ├── articles/    # Default (en) articles section
 │   │   └── [slug]/  # Individual article pages
+│   ├── services/    # Default (en) services section
 │   ├── meet/        # Meeting booking section
 │   ├── pay/         # Payment section
+│   ├── search/      # Search functionality
 │   ├── layout.tsx   # Root layout
 │   ├── sitemap.ts   # Sitemap generation
 │   ├── robots.ts    # Robots.txt configuration
@@ -191,7 +180,17 @@ The project uses CSS Modules:
 
 ### Multilanguage Support
 - The website supports multiple languages (en, es, zh, ar, hi)
-- Translations follow language-in-path URL structure with localized slugs
+- Multilanguage routing follows the [lang]/[segment]/[slug] URL pattern:
+  - `/[lang]/` - Language-specific home page (e.g., `/es/`)
+  - `/[lang]/[segment]/` - Localized section pages (e.g., `/es/articulos/`)
+  - `/[lang]/[segment]/[slug]/` - Individual content pages (e.g., `/es/articulos/mi-articulo/`)
+- Default language (en) uses traditional paths without language prefix:
+  - `/` - Home page
+  - `/articles/` - Articles index
+  - `/services/` - Services index
+- Non-default languages get the appropriate localized segment names (e.g., "articles" becomes "articulos" in Spanish)
+- All routes are statically generated at build time using `generateStaticParams`
+- The system uses `getPathSegmentByLanguage()` utility to map between language and segment names
 - See `.cursor/rules/multilanguage-structure.mdc` for detailed implementation guidelines
 
 ## Recent Implementation Details

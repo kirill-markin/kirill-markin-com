@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import Script from "next/script";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -9,7 +8,6 @@ import EmojiBubbles from "@/components/EmojiBubbles";
 import GlitchFilters from "@/components/GlitchFilters";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { headers } from "next/headers";
 
 export const viewport: Viewport = {
   themeColor: '#800080',
@@ -78,10 +76,6 @@ export default async function RootLayout({
   // Check if we're in production environment
   const isProd = process.env.VERCEL_ENV === 'production';
 
-  // Get current URL path from headers added by middleware
-  const headersList = await headers();
-  const currentPath = headersList.get('x-url') || '/';
-
   return (
     <html lang="en">
       <head>
@@ -118,7 +112,6 @@ export default async function RootLayout({
         <Header />
         <Breadcrumbs />
         <main>{children}</main>
-        <Footer currentPath={currentPath} />
         <EmojiBubbles />
         <GlitchFilters />
         <Analytics debug={process.env.NODE_ENV !== 'production'} />

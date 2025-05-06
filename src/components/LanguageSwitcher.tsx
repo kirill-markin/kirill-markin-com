@@ -33,6 +33,10 @@ export default function LanguageSwitcher({
 
                 const url = getUrlForLanguage(lang, currentLanguage, currentPath, translations);
 
+                if (url === null) {
+                    return null;
+                }
+
                 return (
                     <Link
                         key={lang}

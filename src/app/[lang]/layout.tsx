@@ -1,9 +1,7 @@
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, isValidLanguage } from '@/lib/localization';
 import { redirect } from 'next/navigation';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
     title: 'Kirill Markin',
@@ -31,15 +29,10 @@ export default async function LocaleLayout({
         redirect('/');
     }
 
-    // Get current URL path from headers added by middleware
-    const headersList = await headers();
-    const currentPath = headersList.get('x-url') || `/${lang}/`;
-
     return (
         <>
             <Header language={lang} />
             <main>{children}</main>
-            <Footer language={lang} currentPath={currentPath} />
         </>
     );
 } 
