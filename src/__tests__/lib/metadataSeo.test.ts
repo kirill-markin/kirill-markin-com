@@ -10,7 +10,7 @@ import { validateMetadata } from '@/lib/seoValidation';
 // Mock the translations to avoid dependencies
 jest.mock('@/lib/localization', () => ({
     getTranslation: jest.fn((section, language) => {
-        const mockTranslations: Record<string, Record<string, any>> = {
+        const mockTranslations: Record<string, Record<string, Record<string, string | Record<string, string>>>> = {
             home: {
                 en: {
                     title: 'A'.repeat(65),

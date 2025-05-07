@@ -212,7 +212,7 @@ export function generateServicesPageMetadata(
 
     // Create title and description - prioritize SEO-optimized fields
     let title: string = servicesTranslations.metaTitle || servicesTranslations.title;
-    const description: string = servicesTranslations.metaDescription || String(servicesTranslations.description);
+    let description: string = servicesTranslations.metaDescription || String(servicesTranslations.description);
 
     // Customize for categories
     if (category && category !== 'all' && servicesTranslations.serviceCategories) {
@@ -227,7 +227,28 @@ export function generateServicesPageMetadata(
             categoryDisplay = String(servicesTranslations.serviceCategories[categoryKey]);
         }
 
-        title = `${categoryDisplay} ${servicesTranslations.title}`;
+        // Check if we have specific metadata for this category
+        if (servicesTranslations.categoryMetadata &&
+            typeof servicesTranslations.categoryMetadata === 'object' &&
+            category in servicesTranslations.categoryMetadata) {
+
+            // Use category-specific metadata if available
+            const categoryMetadata = (servicesTranslations.categoryMetadata as Record<string, { metaTitle?: string; metaDescription?: string; }>)[category];
+
+            if (categoryMetadata.metaTitle) {
+                title = categoryMetadata.metaTitle;
+            } else {
+                // Fallback to generated title
+                title = `${categoryDisplay} ${servicesTranslations.title}`;
+            }
+
+            if (categoryMetadata.metaDescription) {
+                description = categoryMetadata.metaDescription;
+            }
+        } else {
+            // Fallback to generated title if no specific metadata
+            title = `${categoryDisplay} ${servicesTranslations.title}`;
+        }
     }
 
     // Create canonical URL

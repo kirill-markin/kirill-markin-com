@@ -44,7 +44,7 @@ export function validateTitle(title: string | undefined | null): {
     const tooLong = length > SEO_CONSTRAINTS.TITLE.MAX_LENGTH;
     const valid = !tooShort && !tooLong;
 
-    let message = valid
+    const message = valid
         ? `Title is valid (${length} characters)`
         : tooShort
             ? `Title is too short (${length}/${SEO_CONSTRAINTS.TITLE.MIN_LENGTH} characters)`
@@ -87,7 +87,7 @@ export function validateDescription(description: string | undefined | null): {
     const tooLong = length > SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH;
     const valid = !tooShort && !tooLong;
 
-    let message = valid
+    const message = valid
         ? `Description is valid (${length} characters)`
         : tooShort
             ? `Description is too short (${length}/${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH} characters)`

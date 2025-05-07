@@ -27,6 +27,13 @@ const eslintConfig = [
       "react/no-unescaped-entities": "off",
       "@next/next/no-img-element": "off"
     }
+  },
+  // Allow console.log in scripts and tests
+  {
+    files: ["scripts/**/*.ts", "scripts/**/*.js", "src/__tests__/**/*.ts", "src/__tests__/**/*.js"],
+    rules: {
+      "no-console": "off"
+    }
   }
 ];
 

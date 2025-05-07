@@ -666,6 +666,20 @@ export const translations = {
                 journalists: 'For Media'
             },
             categoriesLabel: 'Service Categories',
+            categoryMetadata: {
+                people: {
+                    metaTitle: 'AI Services for Individuals | Personal AI Strategy | Kirill Markin',
+                    metaDescription: 'Personalized AI strategy consulting for individuals. Career guidance, technical skill development, and AI implementation for personal projects. Schedule a consultation today.'
+                },
+                business: {
+                    metaTitle: 'AI Services for Businesses | Enterprise AI Strategy | Kirill Markin',
+                    metaDescription: 'Comprehensive AI strategy and implementation services for businesses of all sizes. Data analytics solutions, AI integration, and digital transformation expertise for your company.'
+                },
+                journalists: {
+                    metaTitle: 'AI Services for Media | Tech Consultation for Journalists | Kirill Markin',
+                    metaDescription: 'Expert AI consultation for media professionals, journalists, and content creators. Accurate technical information, speaking engagements, and article collaboration on AI and technology topics.'
+                }
+            }
         },
         'es': {
             title: 'Servicios',
@@ -679,6 +693,20 @@ export const translations = {
                 journalists: 'Para Medios'
             },
             categoriesLabel: 'Categorías de Servicios',
+            categoryMetadata: {
+                people: {
+                    metaTitle: 'Servicios de IA para Individuos | Estrategia Personal de IA | Kirill Markin',
+                    metaDescription: 'Consultoría personalizada de estrategia de IA para individuos. Orientación profesional, desarrollo de habilidades técnicas e implementación de IA para proyectos personales. Agenda una consulta hoy.'
+                },
+                business: {
+                    metaTitle: 'Servicios de IA para Empresas | Estrategia Empresarial de IA | Kirill Markin',
+                    metaDescription: 'Servicios completos de estrategia e implementación de IA para empresas de todos los tamaños. Soluciones de análisis de datos, integración de IA y experiencia en transformación digital para su compañía.'
+                },
+                journalists: {
+                    metaTitle: 'Servicios de IA para Medios | Consulta Técnica para Periodistas | Kirill Markin',
+                    metaDescription: 'Consultoría experta de IA para profesionales de medios, periodistas y creadores de contenido. Información técnica precisa, conferencias y colaboración en artículos sobre IA y tecnología.'
+                }
+            }
         },
         'zh': {
             title: '服务',
@@ -692,6 +720,20 @@ export const translations = {
                 journalists: '媒体服务'
             },
             categoriesLabel: '服务类别',
+            categoryMetadata: {
+                people: {
+                    metaTitle: '个人人工智能服务 | 个人AI战略 | Kirill Markin',
+                    metaDescription: '为个人提供定制化人工智能战略咨询。职业指导、技术技能发展和个人项目的AI实施。今天就预约咨询。'
+                },
+                business: {
+                    metaTitle: '企业人工智能服务 | 企业AI战略 | Kirill Markin',
+                    metaDescription: '为各种规模的企业提供全面的人工智能战略和实施服务。为您的公司提供数据分析解决方案、AI集成和数字化转型专业知识。'
+                },
+                journalists: {
+                    metaTitle: '媒体人工智能服务 | 记者技术咨询 | Kirill Markin',
+                    metaDescription: '为媒体专业人士、记者和内容创作者提供专业的AI咨询。提供有关AI和技术主题的准确技术信息、演讲活动和文章合作。'
+                }
+            }
         },
         'ar': {
             title: 'الخدمات',
@@ -705,6 +747,20 @@ export const translations = {
                 journalists: 'للإعلام'
             },
             categoriesLabel: 'فئات الخدمات',
+            categoryMetadata: {
+                people: {
+                    metaTitle: 'خدمات الذكاء الاصطناعي للأفراد | استراتيجية الذكاء الاصطناعي الشخصية | كيريل ماركين',
+                    metaDescription: 'استشارات استراتيجية ذكاء اصطناعي مخصصة للأفراد. توجيه مهني، وتطوير المهارات التقنية، وتنفيذ الذكاء الاصطناعي للمشاريع الشخصية. احجز استشارة اليوم.'
+                },
+                business: {
+                    metaTitle: 'خدمات الذكاء الاصطناعي للشركات | استراتيجية الذكاء الاصطناعي للمؤسسات | كيريل ماركين',
+                    metaDescription: 'خدمات شاملة لاستراتيجية وتنفيذ الذكاء الاصطناعي للشركات بمختلف أحجامها. حلول تحليل البيانات، وتكامل الذكاء الاصطناعي، وخبرة التحول الرقمي لشركتك.'
+                },
+                journalists: {
+                    metaTitle: 'خدمات الذكاء الاصطناعي للإعلام | استشارات تقنية للصحفيين | كيريل ماركين',
+                    metaDescription: 'استشارات خبيرة في الذكاء الاصطناعي للمحترفين في مجال الإعلام والصحفيين ومنشئي المحتوى. معلومات تقنية دقيقة، ومشاركات في التحدث، وتعاون في المقالات حول مواضيع الذكاء الاصطناعي والتكنولوجيا.'
+                }
+            }
         },
         'hi': {
             title: 'सेवाएं',
@@ -718,6 +774,20 @@ export const translations = {
                 journalists: 'मीडिया के लिए'
             },
             categoriesLabel: 'सेवा श्रेणियां',
+            categoryMetadata: {
+                people: {
+                    metaTitle: 'व्यक्तियों के लिए एआई सेवाएं | व्यक्तिगत एआई रणनीति | किरिल मार्किन',
+                    metaDescription: 'व्यक्तियों के लिए व्यक्तिगत एआई रणनीति परामर्श। करियर मार्गदर्शन, तकनीकी कौशल विकास, और व्यक्तिगत परियोजनाओं के लिए एआई कार्यान्वयन। आज ही परामर्श शेड्यूल करें।'
+                },
+                business: {
+                    metaTitle: 'व्यवसायों के लिए एआई सेवाएं | एंटरप्राइज एआई रणनीति | किरिल मार्किन',
+                    metaDescription: 'सभी आकारों के व्यवसायों के लिए व्यापक एआई रणनीति और कार्यान्वयन सेवाएं। आपकी कंपनी के लिए डेटा विश्लेषण समाधान, एआई एकीकरण, और डिजिटल परिवर्तन विशेषज्ञता।'
+                },
+                journalists: {
+                    metaTitle: 'मीडिया के लिए एआई सेवाएं | पत्रकारों के लिए तकनीकी परामर्श | किरिल मार्किन',
+                    metaDescription: 'मीडिया पेशेवरों, पत्रकारों और सामग्री निर्माताओं के लिए विशेषज्ञ एआई परामर्श। एआई और प्रौद्योगिकी विषयों पर सटीक तकनीकी जानकारी, वक्तव्य, और लेख सहयोग।'
+                }
+            }
         },
     },
     meet: {
