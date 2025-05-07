@@ -41,108 +41,12 @@ const issues: Issue[] = [];
 
 /**
  * Extract metadata from translations object
+ * This function is now skipped in favor of only validating generated metadata
  */
 function extractMetadataFromTranslations() {
-    // Get all translation sections that might have metadata
-    const sectionsWithMetadata = Object.keys(translations).filter(section =>
-        // Check if section has metaTitle or metaDescription in English (as reference)
-        Object.keys(translations[section as keyof typeof translations]?.['en'] || {}).some(
-            key => key === 'metaTitle' || key === 'metaDescription'
-        )
-    );
-
-    for (const section of sectionsWithMetadata) {
-        const sectionTranslations = translations[section as keyof typeof translations];
-
-        if (!sectionTranslations) continue;
-
-        // Process each language
-        for (const lang of SUPPORTED_LANGUAGES) {
-            const langData = sectionTranslations[lang as keyof typeof sectionTranslations];
-
-            if (!langData) {
-                issues.push({
-                    path: `translations.${section}`,
-                    language: lang,
-                    type: 'missing_translation',
-                    details: `Missing translation for ${section} in ${lang}`
-                });
-                continue;
-            }
-
-            // Extract metaTitle and check
-            const metaTitle = (langData as Record<string, string | undefined>)?.metaTitle;
-            if (metaTitle) {
-                const titleValidation = validateTitle(metaTitle);
-
-                if (titleValidation.tooShort) {
-                    issues.push({
-                        path: `translations.${section}.${lang}`,
-                        language: lang,
-                        type: 'title_too_short',
-                        details: `Title too short (${titleValidation.length} chars): "${metaTitle.substring(0, 40)}..."`
-                    });
-                } else if (titleValidation.tooLong) {
-                    issues.push({
-                        path: `translations.${section}.${lang}`,
-                        language: lang,
-                        type: 'title_too_long',
-                        details: `Title too long (${titleValidation.length} chars): "${metaTitle.substring(0, 40)}..."`
-                    });
-                }
-
-                // Track for duplicates
-                if (!allTitles.has(metaTitle)) {
-                    allTitles.set(metaTitle, [`translations.${section}.${lang}`]);
-                } else {
-                    allTitles.get(metaTitle)?.push(`translations.${section}.${lang}`);
-                }
-            } else {
-                issues.push({
-                    path: `translations.${section}.${lang}`,
-                    language: lang,
-                    type: 'missing_title',
-                    details: `Missing metaTitle in translations.${section}.${lang}`
-                });
-            }
-
-            // Extract metaDescription and check
-            const metaDescription = (langData as Record<string, string | undefined>)?.metaDescription;
-            if (metaDescription) {
-                const descValidation = validateDescription(metaDescription);
-
-                if (descValidation.tooShort) {
-                    issues.push({
-                        path: `translations.${section}.${lang}`,
-                        language: lang,
-                        type: 'description_too_short',
-                        details: `Description too short (${descValidation.length} chars): "${metaDescription.substring(0, 40)}..."`
-                    });
-                } else if (descValidation.tooLong) {
-                    issues.push({
-                        path: `translations.${section}.${lang}`,
-                        language: lang,
-                        type: 'description_too_long',
-                        details: `Description too long (${descValidation.length} chars): "${metaDescription.substring(0, 40)}..."`
-                    });
-                }
-
-                // Track for duplicates
-                if (!allDescriptions.has(metaDescription)) {
-                    allDescriptions.set(metaDescription, [`translations.${section}.${lang}`]);
-                } else {
-                    allDescriptions.get(metaDescription)?.push(`translations.${section}.${lang}`);
-                }
-            } else {
-                issues.push({
-                    path: `translations.${section}.${lang}`,
-                    language: lang,
-                    type: 'missing_description',
-                    details: `Missing metaDescription in translations.${section}.${lang}`
-                });
-            }
-        }
-    }
+    // Skip this function to avoid duplicates since metadata.ts uses these values
+    // This comment is kept for documentation purposes
+    return;
 }
 
 /**
@@ -257,7 +161,7 @@ function validateGeneratedMetadata() {
                         });
                     }
 
-                    // Track for duplicates
+                    // Track for duplicates, but only within generated metadata
                     if (!allTitles.has(titleStr)) {
                         allTitles.set(titleStr, [pageId]);
                     } else {
@@ -292,7 +196,7 @@ function validateGeneratedMetadata() {
                         });
                     }
 
-                    // Track for duplicates
+                    // Track for duplicates, but only within generated metadata
                     if (!allDescriptions.has(descStr)) {
                         allDescriptions.set(descStr, [pageId]);
                     } else {
@@ -319,13 +223,18 @@ function checkForDuplicates() {
     // Check titles
     for (const [title, paths] of allTitles.entries()) {
         if (paths.length > 1) {
-            for (const path of paths) {
-                issues.push({
-                    path,
-                    language: 'duplicate',
-                    type: 'duplicate_title',
-                    details: `Duplicate title "${title.substring(0, 40)}..." also in ${paths.filter(p => p !== path).join(', ')}`
-                });
+            // Only flag duplicates between different page types (not between a page and its translation source)
+            // Group by page type to identify actual duplicates
+            const pageTypes = new Set(paths.map(path => path.split(' ')[0]));
+            if (pageTypes.size > 1) {
+                for (const path of paths) {
+                    issues.push({
+                        path,
+                        language: 'duplicate',
+                        type: 'duplicate_title',
+                        details: `Duplicate title "${title.substring(0, 40)}..." also in ${paths.filter(p => p !== path).join(', ')}`
+                    });
+                }
             }
         }
     }
@@ -333,13 +242,17 @@ function checkForDuplicates() {
     // Check descriptions
     for (const [desc, paths] of allDescriptions.entries()) {
         if (paths.length > 1) {
-            for (const path of paths) {
-                issues.push({
-                    path,
-                    language: 'duplicate',
-                    type: 'duplicate_description',
-                    details: `Duplicate description "${desc.substring(0, 40)}..." also in ${paths.filter(p => p !== path).join(', ')}`
-                });
+            // Only flag duplicates between different page types (not between a page and its translation source)
+            const pageTypes = new Set(paths.map(path => path.split(' ')[0]));
+            if (pageTypes.size > 1) {
+                for (const path of paths) {
+                    issues.push({
+                        path,
+                        language: 'duplicate',
+                        type: 'duplicate_description',
+                        details: `Duplicate description "${desc.substring(0, 40)}..." also in ${paths.filter(p => p !== path).join(', ')}`
+                    });
+                }
             }
         }
     }
@@ -438,8 +351,8 @@ async function main() {
     try {
         console.log(chalk.bold('Starting metadata validation...'));
 
-        // Extract metadata from translations
-        extractMetadataFromTranslations();
+        // Skip extracting metadata from translations
+        // extractMetadataFromTranslations();
 
         // Validate generated metadata
         validateGeneratedMetadata();

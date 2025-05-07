@@ -123,11 +123,12 @@ export function generateArticlesPageMetadata(
     const articlesTranslations = getTranslation('articles', language);
     const baseMetadata = getBaseMetadata(language);
 
-    // Create title and description - prioritize SEO-optimized fields
+    // Create title and description - strictly use the values from translations
+    // without modifying them to prevent duplication
     let title: string = articlesTranslations.metaTitle || articlesTranslations.title;
     let description: string = articlesTranslations.metaDescription || String(articlesTranslations.description);
 
-    // Customize for tags
+    // Only customize for tags, otherwise use exact translation strings
     if (tag) {
         const formattedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
         title = `${formattedTag} ${articlesTranslations.title}`;
@@ -210,11 +211,12 @@ export function generateServicesPageMetadata(
     const servicesTranslations = getTranslation('services', language);
     const baseMetadata = getBaseMetadata(language);
 
-    // Create title and description - prioritize SEO-optimized fields
+    // Create title and description - strictly use the values from translations
+    // without modifying them to prevent duplication
     let title: string = servicesTranslations.metaTitle || servicesTranslations.title;
     let description: string = servicesTranslations.metaDescription || String(servicesTranslations.description);
 
-    // Customize for categories
+    // Only customize for specific categories, otherwise use exact translation strings
     if (category && category !== 'all' && servicesTranslations.serviceCategories) {
         // Get category display name from translation
         let categoryDisplay: string = category.charAt(0).toUpperCase() + category.slice(1);
@@ -328,13 +330,14 @@ export function generateMeetPageMetadata(
     const baseMetadata = getBaseMetadata(language);
 
     // Create title and description based on page type
+    // Strictly use the exact values from translations when possible
     let title: string;
     let description: string;
     const imagePath: string = '/images/meeting-booking.webp';
     let canonicalPath: string;
 
     if (type === 'short') {
-        // Use localized titles and descriptions optimized for SEO
+        // Use exact localized titles and descriptions from translations
         title = meetTranslations.shortMeeting?.metaTitle ||
             meetTranslations.shortMeeting?.title || '15-Minute Welcome Meeting';
         description = String(meetTranslations.shortMeeting?.metaDescription ||
@@ -349,6 +352,7 @@ export function generateMeetPageMetadata(
             'Choose from all available consultation options and time slots with Kirill Markin.');
         canonicalPath = '/meet/all/';
     } else {
+        // For the main meet page, use the exact translations
         title = meetTranslations.metaTitle ||
             meetTranslations.title || 'Meeting Booking Options';
         description = String(meetTranslations.metaDescription ||
@@ -456,13 +460,14 @@ export function generatePayPageMetadata(
     const baseMetadata = getBaseMetadata(language);
 
     // Create title and description based on page type
+    // Strictly use the exact values from translations when possible
     let title: string;
     let description: string;
     const imagePath: string = '/images/payment.webp';
     let canonicalPath: string;
 
     if (type === 'stripe') {
-        // Use localized titles and descriptions optimized for SEO
+        // Use exact localized titles and descriptions from translations
         title = payTranslations.stripe?.metaTitle ||
             payTranslations.stripe?.title || 'Pay with Stripe';
         description = String(payTranslations.stripe?.metaDescription ||
@@ -470,6 +475,7 @@ export function generatePayPageMetadata(
             'Secure payment with credit or debit card through Stripe payment system.');
         canonicalPath = '/pay/stripe/';
     } else {
+        // For the main pay page, use the exact translations
         title = payTranslations.metaTitle ||
             payTranslations.title || 'Payment Options';
         description = String(payTranslations.metaDescription ||
