@@ -2,248 +2,99 @@
 
 ## Project Overview
 
-This is a modern personal website for Kirill Markin, built with Next.js. The project was migrated from Jekyll to Next.js to improve performance, developer experience, and leverage modern web capabilities.
+Modern personal website built with Next.js, migrated from Jekyll for improved performance.
 
 ## Core Architecture Principles
 
 ### Static Generation First
 
-The most critical principle of this project is the **"static generation first"** approach:
-
-- All pages should be statically generated at build time when possible
-- Use `generateStaticParams` for dynamic routes to pre-render all known path variations
-- Even for pages with server-side rendering (SSR), apply static optimization when content is predictable
-- The goal is to have zero server-side computation at request time in production
-- All category pages and filtered views should be pre-generated at build time
-
-Benefits:
-- Exceptional page load performance with direct CDN delivery
-- Superior SEO with fully-rendered HTML for search engines
-- Minimal server costs and resource usage
-- Better reliability and offline capabilities
-- Reduced environmental impact
+Pre-render all possible content at build time:
+- Use `generateStaticParams` for dynamic routes
+- Optimize SSR pages when content is predictable
+- Zero server-side computation at request time
+- Pre-generate all category pages and filtered views
 
 ### Server Components with Strategic Client Hydration
 
-The application architecture follows the React Server Components pattern:
-- The majority of UI is rendered as server components for performance
-- Client components ("islands") are used only when interactivity is required
-- We minimize the amount of JavaScript sent to the browser
-- Client-side state is kept to a minimum
-
-### Image Optimization
-
-All images in the project must use the Next.js `Image` component with responsive sizes to optimize for different devices. Always specify the `sizes` attribute with appropriate breakpoints (e.g., `sizes="(max-width: 640px) 320px, 640px"`) to ensure smaller images are served to mobile devices.
+- Server components for performance
+- Client components only where interactivity required 
+- Minimal JavaScript to browser
+- Limited client-side state
 
 ### Dynamic Routes and Params Handling (Next.js 15)
 
-In Next.js 15, params in dynamic routes are asynchronous and must be awaited before use:
+Params in dynamic routes are asynchronous:
+```typescript
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-- Always define params as a Promise in interface definitions:
-  ```typescript
-  interface PageProps {
-    params: Promise<{ slug: string }>;
-  }
-  ```
-
-- Always await the params object before accessing its properties:
-  ```typescript
-  export default async function Page({ params }: PageProps) {
-    // Correct: await the entire params object first
-    const { slug } = await params;
-    
-    // Incorrect: do not access properties directly
-    // const slug = params.slug; // This will cause errors
-  }
-  ```
-
-- This applies to all route handlers, page components, and metadata functions that use dynamic params
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+}
+```
 
 ## Project Structure
-
-### Root Structure
 
 ```
 website-next-js/
 ├── public/          # Static assets
 ├── src/             # Application source code
+│   ├── app/         # Next.js App Router pages
+│   ├── components/  # UI components
+│   ├── content/     # Content files
+│   ├── data/        # Structured data
+│   ├── lib/         # Utility functions
+│   └── types/       # TypeScript type definitions
 ├── next.config.ts   # Next.js configuration
-├── package.json     # Dependencies and scripts
-├── tsconfig.json    # TypeScript configuration
-├── README.md        # Project documentation
-├── DEPLOYMENT.md    # Deployment instructions
-├── vercel.json      # Vercel-specific configuration
-└── .cursorrules     # This file - project guidelines
+└── package.json     # Dependencies and scripts
 ```
-
-### Source Code Structure
-
-```
-src/
-├── app/             # Next.js App Router pages
-│   ├── Core pages (page.tsx, layout.tsx, not-found.tsx)
-│   ├── Static routes (articles, services, meet, pay, search)
-│   ├── Dynamic routes ([lang], [segment], [subsegment])
-│   ├── Configuration files (sitemap.ts, robots.ts)
-│   └── API routes
-├── components/      # UI components
-│   ├── Article components (ArticleContent, ArticleJsonLd, etc.)
-│   ├── Layout components (Header, Footer, Breadcrumbs)
-│   ├── Service components (ServerServices, Services)
-│   ├── UI components (EmojiBubbles, GlitchFilters)
-│   ├── Language components (LanguageSwitcher)
-│   ├── Social components (SocialContactButtons, SocialShare)
-│   └── Feature-specific component directories (AuthorBlock, PersonalInfo)
-├── content/         # Content files
-│   ├── articles/    # Markdown article content (with translations)
-│   └── README.md    # Content guidelines
-├── data/            # Structured data (mediaMentions, services, etc.)
-├── lib/             # Utility functions
-│   ├── Content processing (articles, markdown, localization)
-│   ├── SEO utilities (metadata, JSON-LD)
-│   ├── Asset optimization
-│   └── Infrastructure utilities
-├── types/           # TypeScript type definitions
-└── middleware.ts    # Next.js middleware for request handling
-```
-
-### Component Organization
-
-Components are organized by feature and responsibility:
-- **Layout components**: Header, Footer, Breadcrumbs
-- **Content components**: Article rendering, JSON-LD generation
-- **Feature components**: Services, PersonalInfo
-- **Utility components**: Language switchers, social buttons
-- **Visual components**: Animations, filters, decorative elements
-
-## Key Technologies and Patterns
-
-### Next.js App Router & Server Components
-
-The project uses Next.js App Router with React Server Components. This architecture provides:
-- Automatic code splitting
-- Server-side rendering
-- Static site generation
-- SEO optimization through metadata API
-- File-based routing
-
-### TypeScript for Type Safety
-
-All code is written in TypeScript for improved developer experience:
-- Strong typing for props and state
-- Interface definitions for data structures
-- Type utilities for common patterns
-
-### CSS Modules for Styling
-
-The project uses CSS Modules:
-- Scoped CSS for components
-- No CSS-in-JS libraries to reduce bundle size
-- Global variables for consistent theming
 
 ## Content Structure
 
 ### Articles
-- Markdown files stored in `src/content/articles/` with translations in subfolders
-- Processed through utility functions in `lib/articles.ts`
-- Support for frontmatter metadata (title, date, description, tags, etc.)
-- Bidirectional references between original and translated articles
-- Rendered with optimized components with proper SEO handling
+- Markdown in `src/content/articles/` with translations
+- Frontmatter metadata (title, date, description, tags)
+- Bidirectional references between translations
 
 ### Services
-- Structured data defined in `src/data/services.ts`
+- Structured data in `src/data/services.ts`
 - Category-based filtering with URL parameters
-- Server Components approach for optimal performance
-
-### Media Mentions
-- Structured data for press and media appearances
 
 ### Multilanguage Support
-- Support for multiple languages (en, es, zh, ar, hi)
+- Multiple languages (en, es, zh, ar, hi)
 - Path structure:
-  - Default language: `/path/` (e.g., `/articles/slug/`)
-  - Localized: `/[lang]/[segment]/[subsegment]/` (e.g., `/es/articulos/mi-articulo/`)
-- Localization system maps segments between languages
-- All routes pre-generated at build time with `generateStaticParams`
-- Content translation handled through file structure and metadata
+  - Default: `/path/` 
+  - Localized: `/[lang]/[segment]/[subsegment]/`
+- Pre-generated routes with `generateStaticParams`
 
 ## Key Functionality
 
 ### Sitemap Generation
-- Dynamic generation with GitHub API integration for file modification dates
-- Comprehensive coverage of all routes and languages
-- Intelligent priority assignment based on content importance
+- GitHub API integration for file modification dates
+- Comprehensive coverage of all routes
 
 ### SEO Optimization
-- Comprehensive metadata generation (title, description, OpenGraph)
-- Proper canonical URLs and language variants with hreflang
-- Structured data (JSON-LD) for articles and other entities
-- Semantic HTML structure throughout
-
-### Article Processing
-- Markdown processing with remark/rehype plugins
-- Image optimization for article content
-- Tag-based navigation and related content suggestions
-
-## Deployment Strategy
-
-- Platform: Vercel with global CDN distribution
-- Approach: Static generation at build time with zero runtime computation
-- Configuration: Environment variables for API access and optimization settings
-- Analytics: Built-in performance monitoring and usage statistics
-- Details: See DEPLOYMENT.md for complete deployment instructions
+- Metadata generation (title, description, OpenGraph)
+- Canonical URLs and language variants
+- Structured data (JSON-LD)
 
 ## Development Practices
 
 ### Core Principles
-- "Static generation first" - pre-render everything possible at build time
-- Minimal client-side JavaScript - use only where interactivity is required
-- Type safety throughout - proper TypeScript types for all components and data
-- SEO-driven development - metadata for all pages and routes
-- Performance-first approach - optimize for core web vitals
+- "Static generation first"
+- Minimal client-side JavaScript
+- Type safety throughout
+- SEO-driven development
 
 ### Best Practices
-- Use Server Components by default, Client Components only when necessary
-- Follow established multilanguage patterns for new content
-- Use CSS Modules for component styling to avoid style conflicts
-- Update sitemap file mappings when adding new pages
+- Server Components by default
+- CSS Modules for component styling
+- Update sitemap file mappings for new pages
 
 ## Common Commands
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server locally
+- `npm run dev` - Development server
+- `npm run build` - Production build
 - `npm run lint` - Run ESLint
-- `npm test` - Run Jest unit tests
-- `npm run test:watch` - Run tests in watch mode
-- `npm run test:coverage` - Run tests with coverage report
-
-## Performance Goals
-
-- <1s Time to First Byte (TTFB)
-- <2s First Contentful Paint (FCP)
-- <2.5s Largest Contentful Paint (LCP)
-- <100ms First Input Delay (FID)
-- <0.1 Cumulative Layout Shift (CLS)
-- >90 Lighthouse Performance Score 
-
-## Content Management Utilities
-
-### Tag Analysis Script
-
-To extract all tags from article markdown files and count their occurrences, use this command:
-
-```bash
-find src/content/articles -name "*.md" -exec grep -i "tags:" {} \; | cut -d ':' -f 2- | tr ',' '\n' | tr -d '[]"' | tr -d "'" | sed 's/^ *//g' | sort | uniq -c | sort -nr | cat
-```
-
-This script:
-1. Finds all markdown files in the articles directory
-2. Extracts lines containing "tags:"
-3. Separates each tag
-4. Cleans up formatting (removes brackets, quotes, leading spaces)
-5. Sorts tags alphabetically
-6. Counts occurrences
-7. Sorts by frequency (most frequent first)
-
-Use this to maintain consistent tag taxonomy and identify popular content categories. 
+- `npm test` - Run tests 
