@@ -127,3 +127,11 @@ The deployment process automatically:
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [Vercel Platform](https://vercel.com)
+
+## Common Commands
+
+- `npm run dev` - Development server
+- `npm run build` - Production build
+- `npm run lint` - Run ESLint
+- `npm test` - Run tests
+- `npm run validate-metadata` - Validate SEO metadata across all pages
