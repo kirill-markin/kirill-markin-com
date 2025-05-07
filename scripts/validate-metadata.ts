@@ -14,6 +14,7 @@
 import chalk from 'chalk';
 import {
     SUPPORTED_LANGUAGES,
+    DEFAULT_LANGUAGE,
 } from '../src/lib/localization';
 import { SEO_CONSTRAINTS, validateTitle, validateDescription } from '../src/lib/seoValidation';
 import {
@@ -23,6 +24,12 @@ import {
     generateMeetPageMetadata,
     generatePayPageMetadata
 } from '../src/lib/metadata';
+import {
+    getAllArticles,
+    getAllArticleSlugs,
+    getAllArticleSlugsByLanguage,
+    Article,
+} from '../src/lib/articles';
 
 // Track all metadata for duplicate detection
 const allTitles = new Map<string, string[]>();
@@ -206,6 +213,185 @@ function validateGeneratedMetadata() {
 }
 
 /**
+ * Validate article metadata for all articles and their translations
+ */
+async function validateArticleMetadata() {
+    console.log(chalk.blue('Validating article metadata...'));
+
+    // Process articles for each language
+    for (const language of SUPPORTED_LANGUAGES) {
+        // Get all articles for this language
+        const articles = await getAllArticles(language);
+
+        for (const article of articles) {
+            validateSingleArticle(article, language);
+        }
+    }
+
+    console.log(chalk.blue(`Processed ${allTitles.size} unique article titles and ${allDescriptions.size} unique descriptions`));
+}
+
+/**
+ * Validate a single article's metadata
+ */
+function validateSingleArticle(article: Article, language: string) {
+    const { metadata, slug } = article;
+    const isTranslation = language !== DEFAULT_LANGUAGE;
+
+    // Create identifier for this article
+    const articlePath = isTranslation
+        ? `Article: translations/${language}/${slug}.md`
+        : `Article: ${slug}.md`;
+
+    // Validate title
+    if (!metadata.title) {
+        issues.push({
+            path: articlePath,
+            language,
+            type: 'missing_title',
+            details: 'Article is missing a title in frontmatter'
+        });
+    } else {
+        const titleValidation = validateTitle(metadata.title);
+
+        if (titleValidation.tooShort) {
+            issues.push({
+                path: articlePath,
+                language,
+                type: 'title_too_short',
+                details: `Title too short (${titleValidation.length} chars): "${metadata.title.substring(0, 40)}..."`
+            });
+        } else if (titleValidation.tooLong) {
+            issues.push({
+                path: articlePath,
+                language,
+                type: 'title_too_long',
+                details: `Title too long (${titleValidation.length} chars): "${metadata.title.substring(0, 40)}..."`
+            });
+        }
+
+        // Track titles for duplicate detection
+        if (!allTitles.has(metadata.title)) {
+            allTitles.set(metadata.title, [articlePath]);
+        } else {
+            allTitles.get(metadata.title)?.push(articlePath);
+        }
+    }
+
+    // Validate description
+    if (!metadata.description) {
+        issues.push({
+            path: articlePath,
+            language,
+            type: 'missing_description',
+            details: 'Article is missing a description in frontmatter'
+        });
+    } else {
+        const descValidation = validateDescription(metadata.description);
+
+        if (descValidation.tooShort) {
+            issues.push({
+                path: articlePath,
+                language,
+                type: 'description_too_short',
+                details: `Description too short (${descValidation.length} chars): "${metadata.description.substring(0, 40)}..."`
+            });
+        } else if (descValidation.tooLong) {
+            issues.push({
+                path: articlePath,
+                language,
+                type: 'description_too_long',
+                details: `Description too long (${descValidation.length} chars): "${metadata.description.substring(0, 40)}..."`
+            });
+        }
+
+        // Track descriptions for duplicate detection
+        if (!allDescriptions.has(metadata.description)) {
+            allDescriptions.set(metadata.description, [articlePath]);
+        } else {
+            allDescriptions.get(metadata.description)?.push(articlePath);
+        }
+    }
+
+    // For translations, check if they have proper references to the original article
+    if (isTranslation && !metadata.originalArticle) {
+        issues.push({
+            path: articlePath,
+            language,
+            type: 'missing_translation',
+            details: 'Translated article is missing originalArticle reference in frontmatter'
+        });
+    }
+
+    // For original articles, check if they properly list their translations
+    if (!isTranslation && metadata.translations && metadata.translations.length > 0) {
+        // This validation will be handled by the cross-reference check function
+    }
+}
+
+/**
+ * Validate bidirectional references between original articles and translations
+ */
+async function validateTranslationReferences() {
+    console.log(chalk.blue('Validating translation references...'));
+
+    // Get all original (English) articles
+    const englishArticles = await getAllArticles(DEFAULT_LANGUAGE);
+    const englishArticleMap = new Map<string, Article>();
+
+    // Create a map of English articles by slug for quick lookup
+    for (const article of englishArticles) {
+        englishArticleMap.set(article.slug, article);
+    }
+
+    // Check every language other than English for proper references
+    for (const language of SUPPORTED_LANGUAGES.filter(lang => lang !== DEFAULT_LANGUAGE)) {
+        const translatedArticles = await getAllArticles(language);
+
+        for (const translatedArticle of translatedArticles) {
+            // Check if the translation has a reference to the original
+            if (!translatedArticle.metadata.originalArticle) {
+                issues.push({
+                    path: `Article: translations/${language}/${translatedArticle.slug}.md`,
+                    language,
+                    type: 'missing_translation',
+                    details: 'Translated article is missing originalArticle reference in frontmatter'
+                });
+                continue;
+            }
+
+            // Check if the referenced original article exists
+            const originalSlug = translatedArticle.metadata.originalArticle.slug;
+            const originalArticle = englishArticleMap.get(originalSlug);
+
+            if (!originalArticle) {
+                issues.push({
+                    path: `Article: translations/${language}/${translatedArticle.slug}.md`,
+                    language,
+                    type: 'missing_translation',
+                    details: `Referenced original article '${originalSlug}' does not exist`
+                });
+                continue;
+            }
+
+            // Check if the original article has a reference back to this translation
+            const hasBackReference = originalArticle.metadata.translations?.some(
+                t => t.language === language && t.slug === translatedArticle.slug
+            );
+
+            if (!hasBackReference) {
+                issues.push({
+                    path: `Article: ${originalSlug}.md`,
+                    language: DEFAULT_LANGUAGE,
+                    type: 'missing_translation',
+                    details: `Original article is missing reference to ${language} translation '${translatedArticle.slug}'`
+                });
+            }
+        }
+    }
+}
+
+/**
  * Check for duplicate titles and descriptions
  */
 function checkForDuplicates() {
@@ -341,11 +527,14 @@ async function main() {
     try {
         console.log(chalk.bold('Starting metadata validation...'));
 
-        // Skip extracting metadata from translations
-        // extractMetadataFromTranslations();
-
         // Validate generated metadata
         validateGeneratedMetadata();
+
+        // Validate article metadata
+        await validateArticleMetadata();
+
+        // Validate translation references
+        await validateTranslationReferences();
 
         // Check for duplicates
         checkForDuplicates();
