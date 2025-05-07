@@ -146,14 +146,14 @@ function validateGeneratedMetadata() {
                             path: pageId,
                             language: lang,
                             type: 'title_too_short',
-                            details: `Title too short (${titleValidation.length} chars): "${titleStr.substring(0, 40)}..."`
+                            details: `Title too short (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MIN_LENGTH} chars): "${titleStr.substring(0, 40)}..."`
                         });
                     } else if (titleValidation.tooLong) {
                         issues.push({
                             path: pageId,
                             language: lang,
                             type: 'title_too_long',
-                            details: `Title too long (${titleValidation.length} chars): "${titleStr.substring(0, 40)}..."`
+                            details: `Title too long (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars): "${titleStr.substring(0, 40)}..."`
                         });
                     }
 
@@ -181,14 +181,14 @@ function validateGeneratedMetadata() {
                             path: pageId,
                             language: lang,
                             type: 'description_too_short',
-                            details: `Description too short (${descValidation.length} chars): "${descStr.substring(0, 40)}..."`
+                            details: `Description too short (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH} chars): "${descStr.substring(0, 40)}..."`
                         });
                     } else if (descValidation.tooLong) {
                         issues.push({
                             path: pageId,
                             language: lang,
                             type: 'description_too_long',
-                            details: `Description too long (${descValidation.length} chars): "${descStr.substring(0, 40)}..."`
+                            details: `Description too long (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH} chars): "${descStr.substring(0, 40)}..."`
                         });
                     }
 
@@ -259,14 +259,14 @@ function validateSingleArticle(article: Article, language: string) {
                 path: articlePath,
                 language,
                 type: 'title_too_short',
-                details: `Title too short (${titleValidation.length} chars): "${metadata.title.substring(0, 40)}..."`
+                details: `Title too short (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MIN_LENGTH} chars): "${metadata.title.substring(0, 40)}..."`
             });
         } else if (titleValidation.tooLong) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'title_too_long',
-                details: `Title too long (${titleValidation.length} chars): "${metadata.title.substring(0, 40)}..."`
+                details: `Title too long (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars): "${metadata.title.substring(0, 40)}..."`
             });
         }
 
@@ -294,14 +294,14 @@ function validateSingleArticle(article: Article, language: string) {
                 path: articlePath,
                 language,
                 type: 'description_too_short',
-                details: `Description too short (${descValidation.length} chars): "${metadata.description.substring(0, 40)}..."`
+                details: `Description too short (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH} chars): "${metadata.description.substring(0, 40)}..."`
             });
         } else if (descValidation.tooLong) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'description_too_long',
-                details: `Description too long (${descValidation.length} chars): "${metadata.description.substring(0, 40)}..."`
+                details: `Description too long (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH} chars): "${metadata.description.substring(0, 40)}..."`
             });
         }
 
