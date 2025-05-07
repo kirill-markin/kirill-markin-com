@@ -26,8 +26,6 @@ import {
 } from '../src/lib/metadata';
 import {
     getAllArticles,
-    getAllArticleSlugs,
-    getAllArticleSlugsByLanguage,
     Article,
 } from '../src/lib/articles';
 
