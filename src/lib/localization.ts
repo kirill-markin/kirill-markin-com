@@ -581,7 +581,7 @@ export const translations = {
                 Facebook: 'फेसबुक',
                 Instagram: 'इंस्टाग्राम',
                 Medium: 'मीडियम',
-                YouTube: 'यूट्यूब',
+                YouTube: 'यूटीउब',
                 Reddit: 'रेडिट',
                 ProductHunt: 'प्रोडक्ट हंट',
                 IndieHackers: 'इंडी हैकर्स',
@@ -685,7 +685,7 @@ export const translations = {
             title: 'Servicios',
             description: 'Servicios especializados de estrategia e implementación de IA para individuos, empresas y profesionales de los medios. Desde orientación profesional hasta transformación empresarial con IA, ofrezco soluciones expertas adaptadas a sus necesidades.',
             metaTitle: 'Servicios de Estrategia de IA | Transformación Digital | Kirill Markin',
-            metaDescription: 'Servicios profesionales de consultoría e implementación de IA para empresas. Integrando inteligencia artificial y ciencia de datos para innovación.',
+            metaDescription: 'Servicios profesionales de consultoría e implementación de IA para empresas. Integrando inteligencia artificial y ciencia de datos para impulsar la innovación y eficiencia empresarial.',
             serviceCategories: {
                 all: 'Todos los Servicios',
                 people: 'Para Individuos',
@@ -712,7 +712,7 @@ export const translations = {
             title: '服务',
             description: '为个人、企业和媒体专业人士提供专业人工智能战略和实施服务。从职业指导到企业AI转型，我提供量身定制的专家解决方案，满足您的需求。',
             metaTitle: '人工智能战略与实施服务 | 数字化转型专家 | Kirill Markin',
-            metaDescription: '为企业提供专业人工智能战略咨询服务。在人工智能和数据分析领域提供专家指导，帮助提高业务增长和创新能力。',
+            metaDescription: '为企业提供专业人工智能战略咨询服务。在人工智能和数据分析领域提供专家指导，帮助提高业务增长和创新能力，实现数字化转型和运营效率提升。',
             serviceCategories: {
                 all: '所有服务',
                 people: '个人服务',
@@ -723,7 +723,7 @@ export const translations = {
             categoryMetadata: {
                 people: {
                     metaTitle: '个人人工智能服务 | 个人AI战略 | 职业发展 | Kirill Markin',
-                    metaDescription: '为个人提供定制化人工智能战略咨询。职业指导、技术技能发展和个人项目AI实施。预约专业咨询。'
+                    metaDescription: '为个人提供定制化人工智能战略咨询。职业指导、技术技能发展和个人项目AI实施，帮助您在数字时代获得竞争优势和职业发展机会。'
                 },
                 business: {
                     metaTitle: '企业人工智能服务 | 企业AI战略 | 数据分析 | Kirill Markin',
@@ -739,7 +739,7 @@ export const translations = {
             title: 'الخدمات',
             description: 'خدمات متخصصة في استراتيجية وتنفيذ الذكاء الاصطناعي للأفراد والشركات ومحترفي الإعلام. من التوجيه المهني إلى تحول الشركات باستخدام الذكاء الاصطناعي، أقدم حلولًا خبيرة مصممة لتلبية احتياجاتك.',
             metaTitle: 'خدمات استراتيجية الذكاء الاصطناعي | خبير التحول الرقمي | كيريل ماركين',
-            metaDescription: 'خدمات استشارية احترافية لاستراتيجية الذكاء الاصطناعي للشركات. إرشادات حول دمج الذكاء الاصطناعي وعلوم البيانات لدفع النمو والابتكار.',
+            metaDescription: 'خدمات استشارية احترافية لاستراتيجية الذكاء الاصطناعي للشركات. إرشادات حول دمج الذكاء الاصطناعي وعلوم البيانات لدفع النمو والابتكار وتحسين الكفاءة التشغيلية.',
             serviceCategories: {
                 all: 'جميع الخدمات',
                 people: 'للأفراد',
@@ -750,7 +750,7 @@ export const translations = {
             categoryMetadata: {
                 people: {
                     metaTitle: 'خدمات الذكاء الاصطناعي للأفراد | استراتيجية شخصية | كيريل ماركين',
-                    metaDescription: 'استشارات استراتيجية ذكاء اصطناعي مخصصة للأفراد. توجيه مهني وتطوير المهارات التقنية للمشاريع الشخصية.'
+                    metaDescription: 'استشارات استراتيجية ذكاء اصطناعي مخصصة للأفراد. توجيه مهني وتطوير المهارات التقنية للمشاريع الشخصية وتحسين المسار الوظيفي باستخدام تقنيات الذكاء الاصطناعي.'
                 },
                 business: {
                     metaTitle: 'خدمات الذكاء الاصطناعي للشركات | استراتيجية مؤسسية | كيريل ماركين',
@@ -777,7 +777,7 @@ export const translations = {
             categoryMetadata: {
                 people: {
                     metaTitle: 'व्यक्तियों के लिए एआई सेवाएं | व्यक्तिगत रणनीति | किरिल मार्किन',
-                    metaDescription: 'व्यक्तियों के लिए व्यक्तिगत एआई रणनीति परामर्श। करियर मार्गदर्शन और तकनीकी कौशल विकास के लिए विशेषज्ञ सेवाएं।'
+                    metaDescription: 'व्यक्तियों के लिए व्यक्तिगत एआई रणनीति परामर्श। करियर मार्गदर्शन और तकनीकी कौशल विकास के लिए विशेषज्ञ सेवाएं। भारतीय प्रौद्योगिकी उद्योग के लिए अनुकूलित एआई समाधान।'
                 },
                 business: {
                     metaTitle: 'व्यवसायों के लिए एआई सेवाएं | उद्यम रणनीति | किरिल मार्किन',
@@ -816,18 +816,18 @@ export const translations = {
             title: 'Opciones de Reserva de Reuniones',
             description: 'Programe una reunión con el experto en estrategia de IA Kirill Markin. Seleccione su tipo de reunión preferido:',
             metaTitle: 'Reserve una Consulta con Experto en IA Kirill Markin | Estrategia',
-            metaDescription: 'Agende una reunión con el experto en estrategia de IA Kirill Markin. Analice implementación de IA y transformación digital para su empresa.',
+            metaDescription: 'Agende una reunión personalizada con el experto en estrategia de IA Kirill Markin. Analice implementación de inteligencia artificial y transformación digital para su empresa.',
             shortMeeting: {
                 title: 'Reunión de Bienvenida de 15 Minutos',
                 description: 'Consulta introductoria gratuita para discutir sus necesidades de IA y explorar posibles oportunidades de colaboración',
                 metaTitle: 'Consulta Gratuita de Estrategia de IA (15 Min) | Kirill Markin',
-                metaDescription: 'Reserve una llamada gratuita de 15 minutos con el experto en IA Kirill Markin. Discuta sus necesidades de estrategia y explore oportunidades.'
+                metaDescription: 'Reserve una llamada gratuita de 15 minutos con el experto en IA Kirill Markin. Discuta sus necesidades de estrategia y explore oportunidades de colaboración futura.',
             },
             allMeetings: {
                 title: 'Todas las Opciones de Consulta',
                 description: 'Vea todas las duraciones de consulta disponibles y reserve un horario que se adapte a su agenda',
                 metaTitle: 'Opciones de Consulta de Estrategia de IA | Kirill Markin',
-                metaDescription: 'Explore las opciones de consulta con el experto en IA Kirill Markin. Programe una sesión sobre implementación de IA y transformación digital.'
+                metaDescription: 'Explore todas las opciones de consulta disponibles con el experto en IA Kirill Markin. Programe una sesión personalizada sobre implementación de IA y transformación digital.',
             },
             shortPageTitle: 'REUNIÓN DE BIENVENIDA DE 15 MINUTOS',
             allPageTitle: 'TODAS LAS OPCIONES DE CONSULTA',
@@ -837,18 +837,18 @@ export const translations = {
             title: '会议预约选项',
             description: '与人工智能战略专家Kirill Markin安排会议。请选择您偏好的会议类型：',
             metaTitle: '预约人工智能专家Kirill Markin咨询 | AI战略顾问服务 | 专业咨询',
-            metaDescription: '与AI战略专家Kirill Markin安排一对一会议。讨论人工智能实施与数字化转型，为您的企业或项目提供专业技术战略。',
+            metaDescription: '与AI战略专家Kirill Markin安排一对一会议。讨论人工智能实施与数字化转型，为您的企业或项目提供专业技术战略与实施路径规划。中文服务支持。',
             shortMeeting: {
                 title: '15分钟欢迎会议',
                 description: '免费介绍性咨询，讨论您的AI需求并探索潜在的合作机会',
                 metaTitle: '15分钟免费AI战略咨询 | 人工智能专家 | Kirill Markin',
-                metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。中文服务支持。'
+                metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案。'
             },
             allMeetings: {
                 title: '所有咨询选项',
                 description: '查看所有可用的咨询时长，并预约适合您日程的时间',
                 metaTitle: 'AI战略咨询选项 | 人工智能实施 | Kirill Markin',
-                metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议。中文服务。'
+                metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议，获取专业技术解决方案和战略建议。中文服务。'
             },
             shortPageTitle: '15分钟欢迎会议',
             allPageTitle: '所有咨询选项',
@@ -858,18 +858,18 @@ export const translations = {
             title: 'خيارات حجز الاجتماعات',
             description: 'جدولة اجتماع مع خبير استراتيجية الذكاء الاصطناعي كيريل ماركين. اختر نوع الاجتماع المفضل لديك:',
             metaTitle: 'احجز استشارة مع خبير الذكاء الاصطناعي كيريل ماركين | استراتيجية',
-            metaDescription: 'جدولة اجتماع مع خبير استراتيجية الذكاء الاصطناعي كيريل ماركين. ناقش تنفيذ الذكاء الاصطناعي والتحول الرقمي لمشروعك.',
+            metaDescription: 'جدولة اجتماع مع خبير استراتيجية الذكاء الاصطناعي كيريل ماركين. ناقش تنفيذ الذكاء الاصطناعي والتحول الرقمي لمشروعك التجاري أو مبادرتك التقنية باللغة العربية.',
             shortMeeting: {
                 title: 'اجتماع ترحيبي لمدة 15 دقيقة',
                 description: 'استشارة تعريفية مجانية لمناقشة احتياجاتك من الذكاء الاصطناعي واستكشاف فرص التعاون المحتملة',
                 metaTitle: 'استشارة مجانية لاستراتيجية الذكاء الاصطناعي (15 دقيقة) | كيريل ماركين',
-                metaDescription: 'احجز مكالمة تعريفية مجانية مع خبير الذكاء الاصطناعي كيريل ماركين. ناقش احتياجاتك واستكشف فرص التعاون باللغة العربية.'
+                metaDescription: 'احجز مكالمة تعريفية مجانية مع خبير الذكاء الاصطناعي كيريل ماركين. ناقش احتياجاتك التقنية واستكشف فرص التعاون المستقبلية في مجال الذكاء الاصطناعي باللغة العربية.'
             },
             allMeetings: {
                 title: 'جميع خيارات الاستشارة',
                 description: 'اطلع على جميع مدد الاستشارة المتاحة واحجز وقتًا يناسب جدولك',
                 metaTitle: 'خيارات استشارة استراتيجية الذكاء الاصطناعي | كيريل ماركين',
-                metaDescription: 'تصفح خيارات الاستشارة مع خبير الذكاء الاصطناعي كيريل ماركين. جدولة جلسة حول تنفيذ الذكاء الاصطناعي والتحول الرقمي.'
+                metaDescription: 'تصفح خيارات الاستشارة المتنوعة مع خبير الذكاء الاصطناعي كيريل ماركين. جدولة جلسة مخصصة حول تنفيذ الذكاء الاصطناعي والتحول الرقمي لمشروعك أو شركتك.'
             },
             shortPageTitle: 'اجتماع ترحيبي لمدة 15 دقيقة',
             allPageTitle: 'جميع خيارات الاستشارة',
@@ -878,19 +878,19 @@ export const translations = {
         'hi': {
             title: 'मीटिंग बुकिंग विकल्प',
             description: 'एआई रणनीति विशेषज्ञ किरिल मार्किन के साथ मीटिंग शेड्यूल करें। अपना पसंदीदा मीटिंग प्रकार चुनें:',
-            metaTitle: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श बुक करें | रणनीति',
-            metaDescription: 'एआई रणनीति विशेषज्ञ किरिल मार्किन के साथ मीटिंग शेड्यूल करें। एआई कार्यान्वयन और डिजिटल परिवर्तन पर चर्चा करें। हिंदी में उपलब्ध।',
+            metaTitle: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श बुक करें | एआई रणनीति',
+            metaDescription: 'एआई रणनीति विशेषज्ञ किरिल मार्किन के साथ मीटिंग शेड्यूल करें। एआई कार्यान्वयन, डिजिटल परिवर्तन और तकनीकी समाधानों पर चर्चा करें। हिंदी में उपलब्ध सेवाएं।',
             shortMeeting: {
                 title: '15-मिनट का स्वागत मीटिंग',
-                description: 'आपकी एआई आवश्यकताओं पर चर्चा करने और संभावित सहयोग के अवसरों का पता लगाने के लिए निःशुल्क परिचयात्मक परामर्श',
-                metaTitle: '15-मिनट का निःशुल्क एआई रणनीति परामर्श | किरिल मार्किन',
-                metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ 15-मिनट का निःशुल्क परिचय कॉल बुक करें। अपनी रणनीति जरूरतों पर चर्चा करें। हिंदी में उपलब्ध।'
+                description: 'आपकी एआई आवश्यकताओं पर चर्चा करने और संभावित सहयोग के अवसरों का पता लगाने के लिए मुफ्त परिचयात्मक परामर्श',
+                metaTitle: 'मुफ्त 15-मिनट एआई रणनीति परामर्श | किरिल मार्किन',
+                metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ 15-मिनट का मुफ्त परिचयात्मक कॉल बुक करें। अपनी रणनीति आवश्यकताओं पर चर्चा करें और भारतीय व्यवसायों के लिए एआई समाधान की खोज करें।'
             },
             allMeetings: {
                 title: 'सभी परामर्श विकल्प',
                 description: 'सभी उपलब्ध परामर्श अवधियों को देखें और अपनी समय-सारिणी के अनुसार एक समय बुक करें',
                 metaTitle: 'एआई रणनीति परामर्श विकल्प | विशेषज्ञ सलाह | किरिल मार्किन',
-                metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श विकल्प देखें। कृत्रिम बुद्धिमत्ता कार्यान्वयन पर व्यक्तिगत सत्र शेड्यूल करें। हिंदी में उपलब्ध।'
+                metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श विकल्प देखें। कृत्रिम बुद्धिमत्ता कार्यान्वयन पर व्यक्तिगत सत्र शेड्यूल करें। भारतीय व्यवसायों के लिए अनुकूलित सेवाएं।'
             },
             shortPageTitle: '15-मिनट का स्वागत मीटिंग',
             allPageTitle: 'सभी परामर्श विकल्प',
@@ -916,12 +916,12 @@ export const translations = {
             title: 'OPCIONES DE PAGO',
             description: 'Métodos de pago seguros para servicios de consultoría de estrategia de IA. Por favor, seleccione su método de pago preferido:',
             metaTitle: 'Opciones de Pago Seguro | Consultoría de IA | Kirill Markin',
-            metaDescription: 'Métodos de pago seguros para los servicios de estrategia de IA de Kirill Markin. Complete su transacción de forma segura con múltiples opciones.',
+            metaDescription: 'Métodos de pago seguros para los servicios de estrategia de IA de Kirill Markin. Complete su transacción de forma segura con múltiples opciones de pago internacional.',
             stripe: {
                 title: 'Pagar con Stripe',
                 description: 'Procesamiento de pago rápido y seguro con tarjetas de crédito o débito a través de Stripe',
                 metaTitle: 'Pago Seguro con Stripe | Consultoría de IA | Kirill Markin',
-                metaDescription: 'Realice un pago seguro por los servicios de consultoría de IA utilizando Stripe. Pague con tarjeta de crédito u otros métodos compatibles.'
+                metaDescription: 'Realice un pago seguro por los servicios de consultoría de IA utilizando Stripe. Pague con tarjeta de crédito u otros métodos de pago internacionales compatibles.',
             },
             stripePageTitle: 'PAGO SEGURO CON STRIPE',
             formLoading: 'Cargando formulario de pago seguro...'
@@ -930,12 +930,12 @@ export const translations = {
             title: '支付选项',
             description: 'AI战略咨询服务的安全支付方式。请选择您偏好的支付方式：',
             metaTitle: '安全支付选项 | 人工智能咨询服务 | Kirill Markin',
-            metaDescription: 'Kirill Markin人工智能战略咨询服务的安全支付方式。通过多种支付选项安全完成您的AI咨询服务交易。',
+            metaDescription: 'Kirill Markin人工智能战略咨询服务的安全支付方式。通过多种支付选项安全完成您的AI咨询服务交易，支持国际信用卡和主流电子支付方式。',
             stripe: {
                 title: '使用Stripe支付',
                 description: '通过Stripe使用信用卡或借记卡进行快速安全的支付处理',
                 metaTitle: 'Stripe安全支付 | 人工智能咨询服务 | Kirill Markin',
-                metaDescription: '使用Stripe的安全支付系统为AI咨询服务付款。可使用信用卡、借记卡或其他支持的支付方式进行安全交易。'
+                metaDescription: '使用Stripe的安全支付系统为AI咨询服务付款。可使用国际信用卡、借记卡或其他支持的支付方式进行安全交易，保障您的支付信息安全。'
             },
             stripePageTitle: '使用STRIPE安全支付',
             formLoading: '正在加载安全支付表单...'
@@ -944,12 +944,12 @@ export const translations = {
             title: 'خيارات الدفع',
             description: 'طرق دفع آمنة لخدمات استشارات استراتيجية الذكاء الاصطناعي. يرجى اختيار طريقة الدفع المفضلة لديك:',
             metaTitle: 'خيارات الدفع الآمن | خدمات استشارات الذكاء الاصطناعي | كيريل ماركين',
-            metaDescription: 'طرق دفع آمنة لخدمات استراتيجية الذكاء الاصطناعي من كيريل ماركين. أكمل معاملتك بأمان مع خيارات دفع متعددة.',
+            metaDescription: 'طرق دفع آمنة لخدمات استراتيجية الذكاء الاصطناعي من كيريل ماركين. أكمل معاملتك بأمان مع خيارات دفع متعددة مدعومة بأحدث تقنيات الحماية وتشفير البيانات.',
             stripe: {
                 title: 'الدفع باستخدام Stripe',
                 description: 'معالجة دفع سريعة وآمنة باستخدام بطاقات الائتمان أو الخصم عبر Stripe',
                 metaTitle: 'دفع آمن عبر Stripe | خدمات الذكاء الاصطناعي | كيريل ماركين',
-                metaDescription: 'قم بإجراء دفع آمن مقابل خدمات الذكاء الاصطناعي باستخدام معالجة الدفع من Stripe. ادفع ببطاقة الائتمان أو طرق الدفع الأخرى.'
+                metaDescription: 'قم بإجراء دفع آمن مقابل خدمات الذكاء الاصطناعي باستخدام معالجة الدفع المحمية من Stripe. ادفع ببطاقة الائتمان أو طرق الدفع الأخرى مع ضمان أمان بياناتك المالية.'
             },
             stripePageTitle: 'دفع آمن باستخدام STRIPE',
             formLoading: 'جاري تحميل نموذج الدفع الآمن...'
@@ -958,12 +958,12 @@ export const translations = {
             title: 'भुगतान विकल्प',
             description: 'एआई रणनीति परामर्श सेवाओं के लिए सुरक्षित भुगतान विधियां। कृपया अपनी पसंदीदा भुगतान विधि चुनें:',
             metaTitle: 'सुरक्षित भुगतान विकल्प | एआई परामर्श सेवाएं | किरिल मार्किन',
-            metaDescription: 'किरिल मार्किन की एआई रणनीति सेवाओं के लिए सुरक्षित भुगतान विधियां। कई भुगतान विकल्पों के साथ अपना लेनदेन सुरक्षित रूप से पूरा करें।',
+            metaDescription: 'किरिल मार्किन की एआई रणनीति सेवाओं के लिए सुरक्षित भुगतान विधियां। कई भुगतान विकल्पों के साथ अपना लेनदेन सुरक्षित रूप से पूरा करें। भारतीय और अंतरराष्ट्रीय विकल्प उपलब्ध।',
             stripe: {
                 title: 'Stripe से भुगतान करें',
                 description: 'Stripe के माध्यम से क्रेडिट या डेबिट कार्ड से तेज़ और सुरक्षित भुगतान प्रक्रिया',
                 metaTitle: 'Stripe से सुरक्षित भुगतान | एआई परामर्श सेवाएं | किरिल मार्किन',
-                metaDescription: 'Stripe के सुरक्षित भुगतान प्रसंस्करण का उपयोग करके एआई परामर्श सेवाओं के लिए भुगतान करें। क्रेडिट कार्ड या अन्य विधियों से भुगतान करें।'
+                metaDescription: 'Stripe के सुरक्षित भुगतान प्रसंस्करण का उपयोग करके एआई परामर्श सेवाओं के लिए भुगतान करें। क्रेडिट कार्ड या अन्य भुगतान विधियों से सुरक्षित लेनदेन प्रोसेस करें।'
             },
             stripePageTitle: 'STRIPE से सुरक्षित भुगतान करें',
             formLoading: 'सुरक्षित भुगतान फॉर्म लोड हो रहा है...'
