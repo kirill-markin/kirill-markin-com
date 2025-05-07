@@ -131,8 +131,11 @@ export function generateArticlesPageMetadata(
     // Only customize for tags, otherwise use exact translation strings
     if (tag) {
         const formattedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-        title = `${formattedTag} ${articlesTranslations.title}`;
-        description = `${tag}. ${articlesTranslations.metaDescription || articlesTranslations.description}`;
+        // Create SEO-optimized title for tag pages with proper length (60-70 chars)
+        title = `${formattedTag} Articles | AI & Technology Insights | Kirill Markin`;
+
+        // Create SEO-optimized description for tag pages with proper length (150-160 chars)
+        description = `Expert articles and guides about ${tag} in artificial intelligence and technology. Industry insights and implementation strategies by Kirill Markin.`;
     }
 
     // Create canonical URL
