@@ -1,7 +1,7 @@
 ---
 title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
 date: 2025-04-19
-description: "My battle-tested IDE Cursor rules configuration that improves AI coding performance with tailored code style preferences and workflow patterns."
+description: "My battle-tested Cursor IDE rules configuration that improves AI coding performance with tailored code style preferences and workflow patterns."
 tags: [productivity, cursor-ide, ai, llm]
 aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]
@@ -189,7 +189,7 @@ In these situations, I explicitly mention the rule I need: "Please follow our da
 
 My journey with cursor rules has evolved through several phases:
 
-### Phase 1: Global IDE Settings for Universal Cursor Rules
+### Phase 1: Global Cursor IDE Settings for Universal Rules
 
 I started by dumping everything into Cursor IDE settings. Simple but effective at first. As I identified more patterns in my workflow, these global cursor rules grew. Every new project benefited, but the configuration eventually became unwieldy - too many rules that didn't apply everywhere.
 
@@ -285,7 +285,7 @@ For more advanced configuration:
 4. Keep each file focused on one specific concern
 5. Include a brief description at the top of each file to help the AI understand when to apply these rules
 
-#### Creating Cursor Rules: Manual vs IDE Interface Methods
+#### Creating Rules: Manual vs Cursor IDE Interface Methods
 
 You can create these files manually, or use the Cursor IDE interface:
 1. Go to Settings > Rules
