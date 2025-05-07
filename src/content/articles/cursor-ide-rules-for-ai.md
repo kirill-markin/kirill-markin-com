@@ -1,7 +1,7 @@
 ---
 title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
 date: 2025-04-19
-description: "My battle-tested Cursor IDE rules configuration that improves AI coding performance with tailored code style preferences, error handling strategies, and efficient workflow patterns."
+description: "My battle-tested Cursor IDE rules that enhance AI coding with tailored style, error handling, and workflow patterns for consistent, quality results."
 tags: [productivity, cursor-ide, ai, llm]
 aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
 related: [cursor-ide-setup-workflow-for-large-scale-projects]

@@ -1,5 +1,5 @@
 ---
-title: "How to Work with Jupyter Notebooks via LLM in Cursor IDE? AI-Powered Data Analysis Workflow"
+title: "Jupyter Notebooks with LLM in Cursor IDE: AI-Powered Data Analysis"
 date: 2025-04-25
 description: "Learn how to integrate Jupyter Notebooks with Cursor IDE using AI for streamlined data analysis, visualization, and documentation with minimal tool switching."
 tags: [productivity, cursor-ide, ai, llm]

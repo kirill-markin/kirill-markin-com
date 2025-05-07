@@ -934,8 +934,8 @@ export const translations = {
             stripe: {
                 title: '使用Stripe支付',
                 description: '通过Stripe使用信用卡或借记卡进行快速安全的支付处理',
-                metaTitle: 'Stripe安全支付 | 人工智能咨询服务 | 全球支付解决方案 | Kirill Markin',
-                metaDescription: '使用Stripe的安全支付系统为AI咨询服务付款。可使用国际信用卡、借记卡或其他支持的支付方式进行安全交易，保障您的支付信息安全。支持多币种结算，便捷高效。'
+                metaTitle: 'Stripe安全支付系统 | 人工智能咨询服务 | 全球支付解决方案 | Kirill Markin',
+                metaDescription: '使用Stripe的安全支付系统为AI咨询服务付款。可使用国际信用卡、借记卡或其他支持的支付方式进行安全交易，保障您的支付信息安全。支持多币种结算，便捷高效。全程数据加密保护，确保交易安全可靠。我们提供专业的发票和收据，满足企业和个人需求。Kirill Markin的AI咨询服务值得您的信任与投资。'
             },
             stripePageTitle: '使用STRIPE安全支付',
             formLoading: '正在加载安全支付表单...'
@@ -948,7 +948,7 @@ export const translations = {
             stripe: {
                 title: 'الدفع باستخدام Stripe',
                 description: 'معالجة دفع سريعة وآمنة باستخدام بطاقات الائتمان أو الخصم عبر Stripe',
-                metaTitle: 'دفع آمن عبر Stripe | خدمات الذكاء الاصطناعي | كيريل ماركين',
+                metaTitle: 'دفع آمن عبر Stripe | خدمات استشارات الذكاء الاصطناعي | كيريل ماركين',
                 metaDescription: 'قم بإجراء دفع آمن مقابل خدمات الذكاء الاصطناعي باستخدام معالجة الدفع المحمية من Stripe. ادفع ببطاقة الائتمان أو طرق الدفع الأخرى مع ضمان أمان بياناتك المالية.'
             },
             stripePageTitle: 'دفع آمن باستخدام STRIPE',
