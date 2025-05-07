@@ -7,7 +7,7 @@
  */
 export const SEO_CONSTRAINTS = {
     TITLE: {
-        MIN_LENGTH: 60, // Minimum recommended title length
+        MIN_LENGTH: 50, // Minimum recommended title length
         MAX_LENGTH: 70, // Maximum recommended title length before truncation
     },
     DESCRIPTION: {
