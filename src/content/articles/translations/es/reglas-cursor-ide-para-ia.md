@@ -1,9 +1,9 @@
 ---
-title: "Reglas de Cursor IDE para IA: Guías para un Asistente de IA Especializado"
+title: "Reglas de Cursor IDE para IA: Guías para un Asistente Especializado"
 date: 2025-05-06
 slug: "reglas-cursor-ide-para-ia"
 language: "es"
-description: "Mi configuración de reglas de Cursor IDE probada en batalla que mejora el rendimiento de codificación con IA con preferencias de estilo de código personalizadas y patrones de flujo de trabajo."
+description: "Reglas personalizadas para Cursor IDE que mejoran la codificación con IA mediante preferencias de estilo y patrones de flujo de trabajo optimizados."
 tags: ["productividad", "cursor-ide", "ia", "llm"]
 aliases: ["reglas-cursor-ia", "directrices-cursor", "configuracion-cursor-ide", "configuracion-reglas-cursor"]
 related: ["configuracion-cursor-ide-flujo-trabajo-proyectos-grandes"]

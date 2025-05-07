@@ -601,19 +601,19 @@ export const translations = {
         },
         'es': {
             title: 'Kirill Markin - Asesor de Estrategia de IA | Transformación Digital',
-            description: 'Experto en estrategia de implementación de IA para empresas. Especializado en aprendizaje automático, ciencia de datos y transformación digital.',
+            description: 'Experto en estrategia de implementación de IA para empresas. Especializado en aprendizaje automático, ciencia de datos y transformación digital para innovación.',
         },
         'zh': {
-            title: 'Kirill Markin - 人工智能战略顾问 | 数字化转型专家 | 企业AI解决方案',
-            description: '企业人工智能实施战略专家，提供机器学习、大数据分析和数字化转型服务。专为中国企业打造的AI解决方案和战略咨询服务。',
+            title: 'Kirill Markin - 人工智能战略顾问 | 数字化转型专家',
+            description: '企业人工智能实施战略专家，专注于机器学习、大数据分析和数字化转型。为中国企业提供AI解决方案和战略咨询服务，助力创新与业务优化，提升市场竞争力，实现数字化升级与持续发展。',
         },
         'ar': {
             title: 'كيريل ماركين - مستشار استراتيجية الذكاء الاصطناعي | خبير التحول الرقمي',
-            description: 'خبير في استراتيجية تنفيذ الذكاء الاصطناعي للشركات. متخصص في التعلم الآلي وعلوم البيانات والتحول الرقمي لدفع الابتكار والنمو.',
+            description: 'خبير في استراتيجية تنفيذ الذكاء الاصطناعي للشركات. متخصص في التعلم الآلي وعلوم البيانات والتحول الرقمي لدفع الابتكار والنمو. حلول مبتكرة لتحسين كفاءة الشركات.',
         },
         'hi': {
             title: 'किरिल मार्किन - एआई रणनीति सलाहकार | डिजिटल परिवर्तन विशेषज्ञ',
-            description: 'व्यवसायों के लिए एआई कार्यान्वयन रणनीति में विशेषज्ञ। मशीन लर्निंग, डेटा विज्ञान और डिजिटल परिवर्तन में विशेषज्ञता के साथ नवाचार को बढ़ावा देता है।',
+            description: 'व्यवसायों के लिए एआई कार्यान्वयन रणनीति में विशेषज्ञ। मशीन लर्निंग, डेटा विज्ञान और डिजिटल परिवर्तन में विशेषज्ञता के साथ नवाचार और विकास के लिए समाधान।',
         },
     },
     articles: {
@@ -634,22 +634,22 @@ export const translations = {
         'zh': {
             title: '文章',
             description: '关于人工智能、技术和商业策略的专业文章',
-            metaTitle: '人工智能与科技文章 | Kirill Markin | 数字化转型与机器学习',
-            metaDescription: '关于人工智能、机器学习和数字化转型的专业文章。为中国企业提供AI实施见解、商业策略分析和新兴技术评估，助力企业数字化转型。',
+            metaTitle: '人工智能与科技文章 | Kirill Markin | 数字化转型与机器学习专家 | 企业AI策略专家',
+            metaDescription: '关于人工智能、机器学习和数字化转型的专业文章。为中国企业提供AI实施见解、商业策略分析和新兴技术评估，助力企业数字化转型和提升竞争力，实现持续创新和业务增长。',
             readTimeText: '分钟阅读',
         },
         'ar': {
             title: 'المقالات',
             description: 'مقالات متخصصة في الذكاء الاصطناعي والتكنولوجيا واستراتيجية الأعمال',
             metaTitle: 'مقالات الذكاء الاصطناعي والتقنية | كيريل ماركين | خبير التعلم الآلي',
-            metaDescription: 'مقالات متخصصة حول الذكاء الاصطناعي والتعلم الآلي والتحول الرقمي. رؤى حول تنفيذ الذكاء الاصطناعي واستراتيجيات الأعمال في العالم العربي.',
+            metaDescription: 'مقالات متخصصة حول الذكاء الاصطناعي والتعلم الآلي والتحول الرقمي. رؤى حول تنفيذ الذكاء الاصطناعي واستراتيجيات الأعمال في العالم العربي والشرق الأوسط.',
             readTimeText: 'دقيقة قراءة',
         },
         'hi': {
             title: 'लेख',
             description: 'कृत्रिम बुद्धिमत्ता, प्रौद्योगिकी, और व्यापार रणनीति पर विशेषज्ञ लेख',
             metaTitle: 'एआई और प्रौद्योगिकी लेख | किरिल मार्किन | मशीन लर्निंग विशेषज्ञ',
-            metaDescription: 'कृत्रिम बुद्धिमत्ता, मशीन लर्निंग और डिजिटल परिवर्तन पर विशेषज्ञ लेख। भारतीय व्यवसायों के लिए एआई कार्यान्वयन पर अंतर्दृष्टि।',
+            metaDescription: 'कृत्रिम बुद्धिमत्ता, मशीन लर्निंग और डिजिटल परिवर्तन पर विशेषज्ञ लेख। भारतीय व्यवसायों के लिए एआई कार्यान्वयन रणनीति पर अंतर्दृष्टि और नवीन तकनीकों का विश्लेषण।',
             readTimeText: 'मिनट पढ़ें',
         },
     },
@@ -711,7 +711,7 @@ export const translations = {
         'zh': {
             title: '服务',
             description: '为个人、企业和媒体专业人士提供专业人工智能战略和实施服务。从职业指导到企业AI转型，我提供量身定制的专家解决方案，满足您的需求。',
-            metaTitle: '人工智能战略与实施服务 | 数字化转型专家 | Kirill Markin',
+            metaTitle: '人工智能战略与实施服务 | 数字化转型专家 | 企业AI咨询 | Kirill Markin',
             metaDescription: '为企业提供专业人工智能战略咨询服务。在人工智能和数据分析领域提供专家指导，帮助提高业务增长和创新能力，实现数字化转型和运营效率提升。',
             serviceCategories: {
                 all: '所有服务',
@@ -722,8 +722,8 @@ export const translations = {
             categoriesLabel: '服务类别',
             categoryMetadata: {
                 people: {
-                    metaTitle: '个人人工智能服务 | 个人AI战略 | 职业发展 | Kirill Markin',
-                    metaDescription: '为个人提供定制化人工智能战略咨询。职业指导、技术技能发展和个人项目AI实施，帮助您在数字时代获得竞争优势和职业发展机会。'
+                    metaTitle: '个人人工智能服务 | 个人AI战略指导 | 职业发展规划 | Kirill Markin',
+                    metaDescription: '为个人提供定制化人工智能战略咨询。职业指导、技术技能发展和个人项目AI实施，帮助您在数字时代获得竞争优势和职业发展机会。专业技术培训与顾问服务。'
                 },
                 business: {
                     metaTitle: '企业人工智能服务 | 企业AI战略 | 数据分析 | Kirill Markin',
@@ -836,19 +836,19 @@ export const translations = {
         'zh': {
             title: '会议预约选项',
             description: '与人工智能战略专家Kirill Markin安排会议。请选择您偏好的会议类型：',
-            metaTitle: '预约人工智能专家Kirill Markin咨询 | AI战略顾问服务 | 专业咨询',
-            metaDescription: '与AI战略专家Kirill Markin安排一对一会议。讨论人工智能实施与数字化转型，为您的企业或项目提供专业技术战略与实施路径规划。中文服务支持。',
+            metaTitle: '预约人工智能专家Kirill Markin咨询 | AI战略顾问服务 | 个性化数字化转型咨询',
+            metaDescription: '与AI战略专家Kirill Markin安排一对一会议。讨论人工智能实施与数字化转型，为您的企业或项目提供专业技术战略与实施路径规划。中文服务支持，助力中国企业数字创新。',
             shortMeeting: {
                 title: '15分钟欢迎会议',
                 description: '免费介绍性咨询，讨论您的AI需求并探索潜在的合作机会',
-                metaTitle: '15分钟免费AI战略咨询 | 人工智能专家 | Kirill Markin',
-                metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案。'
+                metaTitle: '15分钟免费AI战略咨询 | 人工智能专家服务 | 数字化转型 | Kirill Markin',
+                metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案，帮助企业实现数字化转型。'
             },
             allMeetings: {
                 title: '所有咨询选项',
                 description: '查看所有可用的咨询时长，并预约适合您日程的时间',
-                metaTitle: 'AI战略咨询选项 | 人工智能实施 | Kirill Markin',
-                metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议，获取专业技术解决方案和战略建议。中文服务。'
+                metaTitle: 'AI战略咨询选项 | 人工智能实施规划 | 数字化转型服务 | Kirill Markin',
+                metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议，获取专业技术解决方案和战略建议。中文服务，专为中国企业设计。'
             },
             shortPageTitle: '15分钟欢迎会议',
             allPageTitle: '所有咨询选项',
@@ -929,13 +929,13 @@ export const translations = {
         'zh': {
             title: '支付选项',
             description: 'AI战略咨询服务的安全支付方式。请选择您偏好的支付方式：',
-            metaTitle: '安全支付选项 | 人工智能咨询服务 | Kirill Markin',
-            metaDescription: 'Kirill Markin人工智能战略咨询服务的安全支付方式。通过多种支付选项安全完成您的AI咨询服务交易，支持国际信用卡和主流电子支付方式。',
+            metaTitle: '安全支付选项 | 人工智能咨询服务 | 数据加密保护 | Kirill Markin',
+            metaDescription: 'Kirill Markin人工智能战略咨询服务的安全支付方式。通过多种支付选项安全完成您的AI咨询服务交易，支持国际信用卡和主流电子支付方式。全程数据加密保护，保障交易安全。',
             stripe: {
                 title: '使用Stripe支付',
                 description: '通过Stripe使用信用卡或借记卡进行快速安全的支付处理',
-                metaTitle: 'Stripe安全支付 | 人工智能咨询服务 | Kirill Markin',
-                metaDescription: '使用Stripe的安全支付系统为AI咨询服务付款。可使用国际信用卡、借记卡或其他支持的支付方式进行安全交易，保障您的支付信息安全。'
+                metaTitle: 'Stripe安全支付 | 人工智能咨询服务 | 全球支付解决方案 | Kirill Markin',
+                metaDescription: '使用Stripe的安全支付系统为AI咨询服务付款。可使用国际信用卡、借记卡或其他支持的支付方式进行安全交易，保障您的支付信息安全。支持多币种结算，便捷高效。'
             },
             stripePageTitle: '使用STRIPE安全支付',
             formLoading: '正在加载安全支付表单...'
