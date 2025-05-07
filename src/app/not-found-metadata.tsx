@@ -13,10 +13,10 @@ export function generateNotFoundMetadata(language: string = 'en'): Metadata {
     const locale = getLocaleForLanguage(language);
 
     return {
-        title: `${translations.title} | Kirill Markin`,
+        title: translations.title,
         description: translations.message,
         openGraph: {
-            title: `${translations.title} | Kirill Markin`,
+            title: translations.title,
             description: translations.message,
             url: 'https://kirill-markin.com/404/',
             images: [
@@ -32,7 +32,7 @@ export function generateNotFoundMetadata(language: string = 'en'): Metadata {
             locale: locale,
         },
         twitter: {
-            title: `${translations.title} | Kirill Markin`,
+            title: translations.title,
             description: translations.message,
             images: ['/images/404.webp'],
         },

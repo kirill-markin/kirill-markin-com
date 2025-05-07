@@ -214,6 +214,9 @@ The project uses CSS Modules:
 - `npm run build` - Build for production
 - `npm run start` - Start production server locally
 - `npm run lint` - Run ESLint
+- `npm test` - Run Jest unit tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
 
 ## Performance Goals
 

@@ -66,6 +66,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+To run tests:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate test coverage report
+npm run test:coverage
+```
+
 ## Key Features
 
 - **Multilingual Support**: Full localization with 5 supported languages
@@ -105,6 +118,7 @@ The deployment process automatically:
 - **TypeScript**: For type safety
 - **CSS Modules**: For component-scoped styling
 - **ESLint**: For code quality
+- **Jest**: For unit testing and SEO validation
 - **Vercel**: For deployment and hosting
 
 ## Additional Resources

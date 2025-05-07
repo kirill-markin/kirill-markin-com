@@ -157,8 +157,9 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
             languageAlternates[language] = originalUrl;
         }
 
+        // Generate metadata for article
         return {
-            title: `${article.metadata.title} | Kirill Markin`,
+            title: article.metadata.title,
             description: article.metadata.description || '',
             openGraph: {
                 title: article.metadata.title,

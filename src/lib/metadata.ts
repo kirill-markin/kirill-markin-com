@@ -124,13 +124,13 @@ export function generateArticlesPageMetadata(
     const baseMetadata = getBaseMetadata(language);
 
     // Create title and description - prioritize SEO-optimized fields
-    let title: string = articlesTranslations.metaTitle || `${articlesTranslations.title} | Kirill Markin`;
+    let title: string = articlesTranslations.metaTitle || articlesTranslations.title;
     let description: string = articlesTranslations.metaDescription || String(articlesTranslations.description);
 
     // Customize for tags
     if (tag) {
         const formattedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-        title = `${formattedTag} ${articlesTranslations.title} | Kirill Markin`;
+        title = `${formattedTag} ${articlesTranslations.title}`;
         description = `${tag}. ${articlesTranslations.metaDescription || articlesTranslations.description}`;
     }
 
@@ -211,7 +211,7 @@ export function generateServicesPageMetadata(
     const baseMetadata = getBaseMetadata(language);
 
     // Create title and description - prioritize SEO-optimized fields
-    let title: string = servicesTranslations.metaTitle || `${servicesTranslations.title} | Kirill Markin`;
+    let title: string = servicesTranslations.metaTitle || servicesTranslations.title;
     const description: string = servicesTranslations.metaDescription || String(servicesTranslations.description);
 
     // Customize for categories
@@ -227,7 +227,7 @@ export function generateServicesPageMetadata(
             categoryDisplay = String(servicesTranslations.serviceCategories[categoryKey]);
         }
 
-        title = `${categoryDisplay} ${servicesTranslations.title} | Kirill Markin`;
+        title = `${categoryDisplay} ${servicesTranslations.title}`;
     }
 
     // Create canonical URL
@@ -315,21 +315,21 @@ export function generateMeetPageMetadata(
     if (type === 'short') {
         // Use localized titles and descriptions optimized for SEO
         title = meetTranslations.shortMeeting?.metaTitle ||
-            `${meetTranslations.shortMeeting?.title || '15-Minute Welcome Meeting'} | Kirill Markin`;
+            meetTranslations.shortMeeting?.title || '15-Minute Welcome Meeting';
         description = String(meetTranslations.shortMeeting?.metaDescription ||
             meetTranslations.shortMeeting?.description ||
             'Schedule a free 15-minute introduction call with Kirill Markin to discuss your needs and how we can work together.');
         canonicalPath = '/meet/short/';
     } else if (type === 'all') {
         title = meetTranslations.allMeetings?.metaTitle ||
-            `${meetTranslations.allMeetings?.title || 'All Meeting Options'} | Kirill Markin`;
+            meetTranslations.allMeetings?.title || 'All Meeting Options';
         description = String(meetTranslations.allMeetings?.metaDescription ||
             meetTranslations.allMeetings?.description ||
             'Choose from all available consultation options and time slots with Kirill Markin.');
         canonicalPath = '/meet/all/';
     } else {
         title = meetTranslations.metaTitle ||
-            `${meetTranslations.title || 'Meeting Booking Options'} | Kirill Markin`;
+            meetTranslations.title || 'Meeting Booking Options';
         description = String(meetTranslations.metaDescription ||
             meetTranslations.description ||
             'Select your preferred meeting option with Kirill Markin. Choose meeting timing and duration.');
@@ -443,14 +443,14 @@ export function generatePayPageMetadata(
     if (type === 'stripe') {
         // Use localized titles and descriptions optimized for SEO
         title = payTranslations.stripe?.metaTitle ||
-            `${payTranslations.stripe?.title || 'Pay with Stripe'} | Kirill Markin`;
+            payTranslations.stripe?.title || 'Pay with Stripe';
         description = String(payTranslations.stripe?.metaDescription ||
             payTranslations.stripe?.description ||
             'Secure payment with credit or debit card through Stripe payment system.');
         canonicalPath = '/pay/stripe/';
     } else {
         title = payTranslations.metaTitle ||
-            `${payTranslations.title || 'Payment Options'} | Kirill Markin`;
+            payTranslations.title || 'Payment Options';
         description = String(payTranslations.metaDescription ||
             payTranslations.description ||
             'Select your preferred payment method for services with Kirill Markin.');
