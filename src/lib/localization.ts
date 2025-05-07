@@ -841,7 +841,7 @@ export const translations = {
             shortMeeting: {
                 title: '15分钟欢迎会议',
                 description: '免费介绍性咨询，讨论您的AI需求并探索潜在的合作机会',
-                metaTitle: '15分钟免费AI战略咨询 | 人工智能专家服务 | 数字化转型 | Kirill Markin',
+                metaTitle: '15分钟免费AI战略咨询 | 人工智能专家服务 | 数字化转型解决方案 | Kirill Markin',
                 metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案，帮助企业实现数字化转型。'
             },
             allMeetings: {
