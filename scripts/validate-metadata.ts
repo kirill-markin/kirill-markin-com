@@ -345,6 +345,7 @@ function printReport() {
     }
 
     console.log(chalk.bold('\n=== End of Report ===\n'));
+    console.log(chalk.bold.red(`🔍 Metadata validation found ${totalIssues} issues that need to be fixed.`));
 }
 
 async function main() {
