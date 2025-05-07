@@ -14,7 +14,6 @@
 import chalk from 'chalk';
 import {
     SUPPORTED_LANGUAGES,
-    translations,
 } from '../src/lib/localization';
 import { SEO_CONSTRAINTS, validateTitle, validateDescription } from '../src/lib/seoValidation';
 import {
@@ -38,16 +37,6 @@ interface Issue {
 }
 
 const issues: Issue[] = [];
-
-/**
- * Extract metadata from translations object
- * This function is now skipped in favor of only validating generated metadata
- */
-function extractMetadataFromTranslations() {
-    // Skip this function to avoid duplicates since metadata.ts uses these values
-    // This comment is kept for documentation purposes
-    return;
-}
 
 /**
  * Get a descriptive identifier for a page
