@@ -11,7 +11,7 @@ export const SEO_CONSTRAINTS = {
         MAX_LENGTH: 70, // Maximum recommended title length before truncation
     },
     DESCRIPTION: {
-        MIN_LENGTH: 150, // Minimum recommended description length
+        MIN_LENGTH: 140, // Minimum recommended description length
         MAX_LENGTH: 160, // Maximum recommended description length before truncation
     }
 };
