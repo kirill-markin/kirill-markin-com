@@ -11,6 +11,8 @@ language: "en"
 translations:
   - language: "es"
     slug: "reglas-cursor-ide-para-ia"
+  - language: "zh"
+    slug: "cursor-ide-ai-bianma-guize-youhua"
 ---
 
 # Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant
