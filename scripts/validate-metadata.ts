@@ -151,19 +151,21 @@ function validateGeneratedMetadata() {
                     const titleStr = String(metadata.title);
                     const titleValidation = validateTitle(titleStr);
 
+                    const titleLabelString = `${SEO_CONSTRAINTS.TITLE.MIN_LENGTH}-${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars`;
+
                     if (titleValidation.tooShort) {
                         issues.push({
                             path: pageId,
                             language: lang,
                             type: 'title_too_short',
-                            details: `Title too short (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MIN_LENGTH} chars): "${titleStr.substring(0, 40)}..."`
+                            details: `Title too short (${titleValidation.length} of ${titleLabelString}): "${titleStr.substring(0, 40)}..."`
                         });
                     } else if (titleValidation.tooLong) {
                         issues.push({
                             path: pageId,
                             language: lang,
                             type: 'title_too_long',
-                            details: `Title too long (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars): "${titleStr.substring(0, 40)}..."`
+                            details: `Title too long (${titleValidation.length} of ${titleLabelString}): "${titleStr.substring(0, 40)}..."`
                         });
                     }
 
@@ -186,19 +188,21 @@ function validateGeneratedMetadata() {
                     const descStr = String(metadata.description);
                     const descValidation = validateDescription(descStr);
 
+                    const descLabelString = `${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH}-${SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH} chars`;
+
                     if (descValidation.tooShort) {
                         issues.push({
                             path: pageId,
                             language: lang,
                             type: 'description_too_short',
-                            details: `Description too short (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH} chars): "${descStr.substring(0, 40)}..."`
+                            details: `Description too short (${descValidation.length} of ${descLabelString}): "${descStr.substring(0, 40)}..."`
                         });
                     } else if (descValidation.tooLong) {
                         issues.push({
                             path: pageId,
                             language: lang,
                             type: 'description_too_long',
-                            details: `Description too long (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH} chars): "${descStr.substring(0, 40)}..."`
+                            details: `Description too long (${descValidation.length} of ${descLabelString}): "${descStr.substring(0, 40)}..."`
                         });
                     }
 
@@ -264,19 +268,20 @@ function validateSingleArticle(article: Article, language: string) {
     } else {
         const titleValidation = validateTitle(metadata.title);
 
+        const titleLabelString = `${SEO_CONSTRAINTS.TITLE.MIN_LENGTH}-${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars`;
         if (titleValidation.tooShort) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'title_too_short',
-                details: `Title too short (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MIN_LENGTH} chars): "${metadata.title.substring(0, 40)}..."`
+                details: `Title too short (${titleValidation.length} of ${titleLabelString}): "${metadata.title.substring(0, 40)}..."`
             });
         } else if (titleValidation.tooLong) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'title_too_long',
-                details: `Title too long (${titleValidation.length} of ${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars): "${metadata.title.substring(0, 40)}..."`
+                details: `Title too long (${titleValidation.length} of ${titleLabelString}): "${metadata.title.substring(0, 40)}..."`
             });
         }
 
@@ -299,19 +304,21 @@ function validateSingleArticle(article: Article, language: string) {
     } else {
         const descValidation = validateDescription(metadata.description);
 
+        const descLabelString = `${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH}-${SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH} chars`;
+
         if (descValidation.tooShort) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'description_too_short',
-                details: `Description too short (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH} chars): "${metadata.description.substring(0, 40)}..."`
+                details: `Description too short (${descValidation.length} of ${descLabelString}): "${metadata.description.substring(0, 40)}..."`
             });
         } else if (descValidation.tooLong) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'description_too_long',
-                details: `Description too long (${descValidation.length} of ${SEO_CONSTRAINTS.DESCRIPTION.MAX_LENGTH} chars): "${metadata.description.substring(0, 40)}..."`
+                details: `Description too long (${descValidation.length} of ${descLabelString}): "${metadata.description.substring(0, 40)}..."`
             });
         }
 
