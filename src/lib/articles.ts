@@ -28,7 +28,6 @@ export type ArticleMetadata = {
   tags: string[];
   publish: boolean;
   lastmod: string;
-  related?: string[];
   thumbnailUrl?: string;
   description?: string;
   type?: string;

@@ -51,11 +51,6 @@ language: "en"
 - **Example**: `[productivity, ai-tools, development]`
 - **Notes**: First tag is considered primary category
 
-### `related`
-- **Purpose**: Links to related content
-- **Format**: Array of article slugs or paths
-- **Example**: `[cursor-vs-notion-reddit-post]`
-
 ### `publish`
 - **Purpose**: Controls visibility
 - **Format**: Boolean (`true` or `false`)
