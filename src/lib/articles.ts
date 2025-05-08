@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import { Translation } from '@/types/article';
+import { ArticleMetadata } from '@/types/article';
 import { DEFAULT_LANGUAGE } from './localization';
 
 const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
@@ -20,25 +20,6 @@ function cleanDescription(description: string | undefined): string {
   // And remove the entire H1 line if present
   return withoutHeadingMarkers.replace(/^(.*?)\n/, '');
 }
-
-export type ArticleMetadata = {
-  slug: string;
-  title: string;
-  date: string;
-  tags: string[];
-  publish: boolean;
-  lastmod: string;
-  thumbnailUrl?: string;
-  description?: string;
-  type?: string;
-  language: string;
-  publisher?: string;
-  achievementValue?: string;
-  achievementLabel?: string;
-  isVideo?: boolean;
-  translations?: Translation[];
-  originalArticle?: Translation;
-};
 
 export type Article = {
   slug: string;
