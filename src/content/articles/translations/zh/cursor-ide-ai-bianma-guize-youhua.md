@@ -128,6 +128,9 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 - 在建议更改前，你必须先阅读相关文件和代码库
 </cursorrules_code_changes>
 
+</cursorrules_instructions_to_the_dialog>
+```
+
 ![Cursor IDE全局规则设置面板](/articles/cursor-ide-rules-global.webp)
 
 ## Cursor规则配置演进史
@@ -194,6 +197,24 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
    - OpenAI API安全集成
 
 ### 动态规则应用：注意事项与最佳实践
+
+当仓库级规则变得过于庞大时，我将它们拆分为特定上下文的`.cursor/*.mdc`文件，这些文件仅在相关时激活。
+
+![项目规则区中的特定上下文规则](/articles/cursor-ide-rules-specific.webp)
+
+#### 专项任务规则实现示例
+
+我个人网站仓库是很好的例子：
+**[website-next-js/.cursor/rules/](https://github.com/kirill-markin/website-next-js/tree/main/.cursor/rules)**
+
+在这个仓库中，我创建了多个针对不同任务的规则文件：
+- 内容管理工作流程
+- 图像优化要求
+- SEO最佳实践
+- 组件架构模式
+- 部署流程
+
+这种方法使AI保持专注，避免在处理特定任务时被不相关的信息干扰。
 
 ### 对话中期规则激活的限制
 
