@@ -7,7 +7,7 @@ import { Translation } from '@/types/article';
 /**
  * List of all supported languages
  */
-export const SUPPORTED_LANGUAGES = ['en', 'es', 'zh', 'ar', 'hi'];
+export const SUPPORTED_LANGUAGES = ['en', 'zh', 'hi', 'es', 'ar'];
 
 /**
  * Default language (used for fallbacks)
