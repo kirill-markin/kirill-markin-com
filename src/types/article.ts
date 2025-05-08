@@ -11,7 +11,6 @@ export type ArticleMetadata = {
     publish: boolean;
     lastmod: string;
     related?: string[];
-    aliases?: string[];
     thumbnailUrl?: string;
     description?: string;
     type?: string;

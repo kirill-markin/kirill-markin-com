@@ -32,7 +32,6 @@ title: Your Article Title
 date: 2023-09-15
 description: A concise description (120-155 chars) for SEO
 tags: [tag1, tag2]
-aliases: [alternative-slug, another-slug]
 publish: true
 thumbnailUrl: /articles/your-article-slug.webp
 language: en
@@ -54,7 +53,6 @@ title: Tu Título del Artículo
 date: 2023-09-15
 description: Una descripción concisa (120-155 caracteres) para SEO
 tags: [etiqueta1, etiqueta2]
-aliases: [slug-alternativo, otro-slug]
 publish: true
 thumbnailUrl: /articles/your-article-slug.webp
 language: es

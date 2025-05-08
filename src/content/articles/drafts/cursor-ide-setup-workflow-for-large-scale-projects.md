@@ -3,7 +3,6 @@ title: "Cursor IDE Setup and Workflow for Large-Scale Projects"
 date: 2025-02-08
 description: "My practical workflow for using Cursor IDE with large codebases. How I combine test-driven development, voice commands, and documentation to maximize AI coding efficiency."
 tags: [productivity, tools, ai]
-aliases: [cursor-ide, cursor-setup]
 publish: false
 ---
 

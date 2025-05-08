@@ -3,7 +3,6 @@ title: "Cursor IDE AI编码规则深度优化：提升开发效率与代码质�
 date: 2025-05-08
 description: "经过实战检验的Cursor IDE AI编码规则配置，通过定制代码风格和错误处理模式提升AI编程效率，实现高质量代码输出。本文详细解析了如何通过三级规则体系优化开发流程，提升代码质量与团队协作效率，适合专业开发者参考。了解如何通过最佳实践提升开发效率与代码质量，并优化日常开发流程。"
 tags: [生产效率, cursor-ide, ai, 人工智能]
-aliases: [cursor-ai规则优化, cursor-ide配置指南]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 language: "zh"

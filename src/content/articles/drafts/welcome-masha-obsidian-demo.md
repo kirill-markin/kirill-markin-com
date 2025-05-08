@@ -3,7 +3,6 @@ title: "Welcome to Obsidian: A Comprehensive Demo Guide"
 date: 2024-07-15
 description: "A personalized demonstration of how Obsidian works as a digital garden. This fun, hidden message shows the basics of digital content sharing."
 tags: [people]
-aliases: [obsidian-demo, note-taking-guide]
 publish: false
 ---
 

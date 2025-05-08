@@ -3,7 +3,6 @@ title: "10 Top AI Coding Tools Transforming Software Development in 2025"
 date: 2025-04-20
 description: "Discover the latest AI coding tools and trends shaping the future of software development in 2025. Explore how AI is transforming coding practices and boosting productivity."
 tags: [artificial-intelligence, software-development, coding-tools]
-aliases: [ai-coding-tools, ai-coding-trends]
 publish: false
 thumbnailUrl: "/articles/ai-coding-revolution.webp"
 ---

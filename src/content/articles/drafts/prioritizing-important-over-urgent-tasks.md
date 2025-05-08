@@ -3,7 +3,6 @@ title: "Prioritizing Important Over Urgent Tasks: Strategies for Focus"
 date: 2024-10-20
 description: "Practical strategies for focusing on tasks that truly matter. How to distinguish between important and merely urgent tasks to achieve meaningful long-term goals."
 tags: [productivity, work-management]
-aliases: [important-over-urgent, focus-strategies]
 publish: false
 ---
 

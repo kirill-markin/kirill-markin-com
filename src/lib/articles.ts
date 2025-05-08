@@ -29,7 +29,6 @@ export type ArticleMetadata = {
   publish: boolean;
   lastmod: string;
   related?: string[];
-  aliases?: string[];
   thumbnailUrl?: string;
   description?: string;
   type?: string;
@@ -132,7 +131,6 @@ export async function getArticleBySlug(
       tags: (data.tags || []).map((tag: string) => tag.toLowerCase()),
       publish: data.publish || false,
       lastmod: lastModificationDate.toISOString(),
-      aliases: data.aliases || [],
       thumbnailUrl: data.thumbnailUrl || PLACEHOLDER_IMAGE,
       description: cleanedDescription,
       type: data.type || 'Article',

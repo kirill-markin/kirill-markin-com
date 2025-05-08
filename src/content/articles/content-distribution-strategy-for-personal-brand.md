@@ -3,7 +3,6 @@ title: "Content Distribution Strategy for Personal Brand and Business"
 date: 2025-04-14
 description: "My framework for distributing content across platforms to maximize reach for personal branding. A practical system refined through experience."
 tags: [productivity]
-aliases: [content-distribution, social-media-strategy]
 publish: true
 thumbnailUrl: "/articles/content-distribution-strategy.webp"
 ---

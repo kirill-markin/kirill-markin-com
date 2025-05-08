@@ -3,7 +3,6 @@ title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
 date: 2025-04-19
 description: "My battle-tested Cursor IDE rules that enhance AI coding with tailored style, error handling, and workflow patterns for consistent, quality results."
 tags: [productivity, cursor-ide, ai, llm]
-aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 language: "en"
