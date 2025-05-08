@@ -132,7 +132,6 @@ export async function getArticleBySlug(
       tags: (data.tags || []).map((tag: string) => tag.toLowerCase()),
       publish: data.publish || false,
       lastmod: lastModificationDate.toISOString(),
-      related: data.related || [],
       aliases: data.aliases || [],
       thumbnailUrl: data.thumbnailUrl || PLACEHOLDER_IMAGE,
       description: cleanedDescription,

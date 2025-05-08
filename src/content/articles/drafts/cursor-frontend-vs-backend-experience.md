@@ -4,7 +4,6 @@ date: 2025-01-20
 description: "My contrasting experiences using Cursor IDE for backend versus frontend development. Why AI coding assistants excel with backend tasks but struggle with complex frontend libraries."
 tags: [development, cursor, ai]
 aliases: [cursor-dev-experience, frontend-backend-cursor]
-related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: false
 ---
 

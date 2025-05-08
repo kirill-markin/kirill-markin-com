@@ -4,7 +4,6 @@ date: 2025-01-05
 description: "A quick solution for Mac users who can't download certain Steam games using Whisky. Simple steps to fix broken Steam downloads on macOS."
 tags: [tutorial]
 aliases: [whisky-steam-fix, macos-gaming-fix]
-related: []
 publish: false
 ---
 

@@ -4,7 +4,6 @@ date: 2024-09-15
 description: "My experience with an open source repository that suddenly gained traction without promotion. Exploring how organic discovery works in the open source ecosystem."
 tags: [development]
 aliases: [open-source-importance, software-transparency]
-related: []
 publish: false
 ---
 

@@ -18,7 +18,6 @@ date: YYYY-MM-DD
 description: "Concise summary of the article under 155 characters. Should include key terms and convey the article's value proposition."
 tags: [primary-tag, secondary-tag]
 aliases: [url-friendly-alias, alternative-keyword]
-related: [related-article-slug]
 publish: true|false
 thumbnailUrl: "/articles/article-image.webp"
 language: "en"
@@ -163,7 +162,6 @@ date: 2025-04-19
 description: "My battle-tested IDE Cursor rules configuration that improves AI coding performance with tailored code style preferences and workflow patterns."
 tags: [productivity, cursor-ide, ai, llm]
 aliases: [cursor-ai-rules, cursor-guidelines, cursor-ide-configuration, cursor-rules-setup]
-related: [cursor-ide-setup-workflow-for-large-scale-projects]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 language: "en"
@@ -184,7 +182,6 @@ date: 2025-04-19
 description: "Mi configuración de reglas de Cursor IDE probada en batalla que mejora el rendimiento de codificación de IA con preferencias de estilo de código y patrones de flujo de trabajo personalizados."
 tags: [productividad, cursor-ide, ia, llm]
 aliases: [reglas-cursor-ia, directrices-cursor, configuracion-cursor-ide]
-related: [configuracion-cursor-ide-flujo-trabajo-proyectos-grandes]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 language: "es"

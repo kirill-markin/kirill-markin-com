@@ -4,7 +4,6 @@ date: 2024-11-10
 description: "A guide to creating an AI-powered HTML presentation tool using Cursor IDE. Build a minimalist, developer-friendly alternative to PowerPoint with version control."
 tags: [development, ai, tutorial]
 aliases: [html-presentation-generator, llm-app-tutorial]
-related: []
 publish: false
 ---
 

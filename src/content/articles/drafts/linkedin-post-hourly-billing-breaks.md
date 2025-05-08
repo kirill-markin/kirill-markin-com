@@ -4,7 +4,6 @@ date: 2024-12-15
 description: "A practical approach to handling breaks when billing clients hourly. Why not charging for short breaks improves quality, wellbeing, and client relationships."
 tags: [work-management, productivity]
 aliases: [hourly-billing, freelancer-breaks]
-related: []
 publish: false
 ---
 

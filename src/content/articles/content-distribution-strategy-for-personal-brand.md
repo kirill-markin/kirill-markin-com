@@ -4,7 +4,6 @@ date: 2025-04-14
 description: "My framework for distributing content across platforms to maximize reach for personal branding. A practical system refined through experience."
 tags: [productivity]
 aliases: [content-distribution, social-media-strategy]
-related: [posts/2025-02-08-cursor-ide-setup-and-workflow]
 publish: true
 thumbnailUrl: "/articles/content-distribution-strategy.webp"
 ---

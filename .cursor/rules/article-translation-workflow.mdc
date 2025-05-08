@@ -82,7 +82,6 @@ date: YYYY-MM-DD  # Same as original
 description: "Translated description under 155 characters"
 tags: [translated-tag-1, translated-tag-2]
 aliases: [translated-alias-1, translated-alias-2]
-related: [related-translated-article-slugs-if-they-exist]
 publish: true|false  # Same as original
 thumbnailUrl: "/articles/image-filename.webp"  # Usually same as original
 language: "target-language-code"  # e.g., "es" for Spanish
