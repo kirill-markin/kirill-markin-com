@@ -38,6 +38,30 @@ The IndexNow API key is stored in the environment variable `INDEXNOW_API_KEY`. T
    INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2) curl -X POST ...
    ```
 
+## Understanding Multilingual URL Structure
+
+The website uses a localized URL structure that varies by language. To correctly submit URLs, you need to understand this structure:
+
+1. **URL Format by Language:**
+   - English (default): `/articles/article-slug/`
+   - Non-English: `/[language-code]/[localized-articles-segment]/article-slug/`
+
+2. **Localized Segments Mapping:**
+   The word "articles" is translated differently in each language:
+   - English: `articles`
+   - Spanish: `articulos`
+   - Chinese: `zhishi`
+   - Arabic: `maqalat`
+   - Hindi: `gyan`
+
+3. **Finding the Correct URL:**
+   - Check the article's markdown file location in `src/content/articles/` or its translations folder
+   - Look at the `language` field in the frontmatter to determine which language URL structure to use
+   - Use the `PATH_SEGMENTS` mapping in `src/lib/localization.ts` to find the correct localized segment
+
+For example, if submitting a Chinese article with slug "cursor-ide-ai-bianma-guize-youhua", the URL would be:
+`https://kirill-markin.com/zh/zhishi/cursor-ide-ai-bianma-guize-youhua/`
+
 ## Pre-Submission URL Verification
 
 IMPORTANT: Before submitting any URL to IndexNow, always verify that it's publicly accessible:
@@ -57,22 +81,14 @@ This verification step prevents wasting your daily submission quota on non-exist
 
 ## Submitting URLs to IndexNow
 
-### Basic Command
+### Basic Command (Single-Line Format)
 
-Always use the `-v` (verbose) flag to see the full API response including status codes:
+Always use the `-v` (verbose) flag to see the full API response including status codes.
+
+IMPORTANT: When using terminal tools in Cursor IDE, all commands must be in a single line without line breaks:
 
 ```bash
-curl -v -X POST https://api.indexnow.org/indexnow \
-  -H "Content-Type: application/json; charset=utf-8" \
-  -d '{
-    "host": "kirill-markin.com",
-    "key": "'${INDEXNOW_API_KEY}'",
-    "keyLocation": "https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt",
-    "urlList": [
-      "https://kirill-markin.com/articles/example-article/",
-      "https://kirill-markin.com/services/"
-    ]
-  }'
+curl -v -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" -d '{"host":"kirill-markin.com","key":"'${INDEXNOW_API_KEY}'","keyLocation":"https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt","urlList":["https://kirill-markin.com/articles/example-article/"]}'
 ```
 
 Always verify the response code in the terminal output. A successful submission will show `HTTP/2 200`.
@@ -93,21 +109,23 @@ curl -v "https://api.indexnow.org/indexnow?url=https://kirill-markin.com/article
 # First verify the URL is accessible
 curl -I https://kirill-markin.com/articles/new-article-slug/
 
-# Then submit to IndexNow
+# Then submit to IndexNow (single-line format for Cursor IDE)
 export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
-curl -v -X POST https://api.indexnow.org/indexnow \
-  -H "Content-Type: application/json; charset=utf-8" \
-  -d '{
-    "host": "kirill-markin.com",
-    "key": "'${INDEXNOW_API_KEY}'",
-    "keyLocation": "https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt",
-    "urlList": [
-      "https://kirill-markin.com/articles/new-article-slug/"
-    ]
-  }'
+curl -v -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" -d '{"host":"kirill-markin.com","key":"'${INDEXNOW_API_KEY}'","keyLocation":"https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt","urlList":["https://kirill-markin.com/articles/new-article-slug/"]}'
 ```
 
-### 2. Submit multiple pages after a significant update
+### 2. Submit multilingual article example
+
+```bash
+# First verify the URL is accessible (Chinese article example)
+curl -I https://kirill-markin.com/zh/zhishi/cursor-ide-ai-bianma-guize-youhua/
+
+# Then submit to IndexNow (single-line format for Cursor IDE)
+export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
+curl -v -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" -d '{"host":"kirill-markin.com","key":"'${INDEXNOW_API_KEY}'","keyLocation":"https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt","urlList":["https://kirill-markin.com/zh/zhishi/cursor-ide-ai-bianma-guize-youhua/"]}'
+```
+
+### 3. Submit multiple pages after a significant update
 
 ```bash
 # First verify all URLs
@@ -115,20 +133,9 @@ curl -I https://kirill-markin.com/
 curl -I https://kirill-markin.com/services/
 curl -I https://kirill-markin.com/articles/
 
-# Then submit to IndexNow
+# Then submit to IndexNow (single-line format for Cursor IDE)
 export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
-curl -v -X POST https://api.indexnow.org/indexnow \
-  -H "Content-Type: application/json; charset=utf-8" \
-  -d '{
-    "host": "kirill-markin.com",
-    "key": "'${INDEXNOW_API_KEY}'",
-    "keyLocation": "https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt",
-    "urlList": [
-      "https://kirill-markin.com/",
-      "https://kirill-markin.com/services/",
-      "https://kirill-markin.com/articles/"
-    ]
-  }'
+curl -v -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" -d '{"host":"kirill-markin.com","key":"'${INDEXNOW_API_KEY}'","keyLocation":"https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt","urlList":["https://kirill-markin.com/","https://kirill-markin.com/services/","https://kirill-markin.com/articles/"]}'
 ```
 
 ## API Response Codes
@@ -149,6 +156,7 @@ Always check for the `HTTP/2 200` response in your terminal output to confirm su
 - Always use the POST method with JSON payload rather than the GET method
 - Do not use both methods for the same URL - the POST method is sufficient and preferred
 - Always use the `-v` flag to verify the response code
+- When using Cursor IDE terminal tools, always format commands as a single line without any line breaks
 
 ### Limits
 - You can submit up to 10,000 URLs in a single request
@@ -163,3 +171,4 @@ Always check for the `HTTP/2 200` response in your terminal output to confirm su
 - Don't repeatedly submit the same URLs without changes
 - Always verify URLs are publicly accessible before submitting
 - Check response codes to confirm successful submission
+- Use the correct URL structure for multilingual content by checking the localization.ts file
