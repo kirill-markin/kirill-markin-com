@@ -38,12 +38,31 @@ The IndexNow API key is stored in the environment variable `INDEXNOW_API_KEY`. T
    INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2) curl -X POST ...
    ```
 
+## Pre-Submission URL Verification
+
+IMPORTANT: Before submitting any URL to IndexNow, always verify that it's publicly accessible:
+
+1. Check each URL manually in a browser to confirm it exists and displays correctly
+2. Verify URLs with curl to ensure they return a successful status code:
+   ```bash
+   curl -I https://kirill-markin.com/path/to/verify/
+   ```
+3. Only submit URLs that return 200 OK status codes
+4. Pay special attention to:
+   - Localized URLs with language prefixes
+   - URLs with special characters or URL encoding
+   - Recently deployed content that might not be live yet
+
+This verification step prevents wasting your daily submission quota on non-existent pages and avoids negative impact on your site's indexing reputation.
+
 ## Submitting URLs to IndexNow
 
 ### Basic Command
 
+Always use the `-v` (verbose) flag to see the full API response including status codes:
+
 ```bash
-curl -X POST https://api.indexnow.org/indexnow \
+curl -v -X POST https://api.indexnow.org/indexnow \
   -H "Content-Type: application/json; charset=utf-8" \
   -d '{
     "host": "kirill-markin.com",
@@ -56,12 +75,14 @@ curl -X POST https://api.indexnow.org/indexnow \
   }'
 ```
 
+Always verify the response code in the terminal output. A successful submission will show `HTTP/2 200`.
+
 ### Single URL Submission (GET Method)
 
-For a single URL, you can use a simple GET request:
+For a single URL, you can use a simple GET request (still include the `-v` flag):
 
 ```bash
-curl "https://api.indexnow.org/indexnow?url=https://kirill-markin.com/articles/example-article/&key=${INDEXNOW_API_KEY}"
+curl -v "https://api.indexnow.org/indexnow?url=https://kirill-markin.com/articles/example-article/&key=${INDEXNOW_API_KEY}"
 ```
 
 ## Common Use Cases
@@ -69,8 +90,12 @@ curl "https://api.indexnow.org/indexnow?url=https://kirill-markin.com/articles/e
 ### 1. Submit a newly published article
 
 ```bash
+# First verify the URL is accessible
+curl -I https://kirill-markin.com/articles/new-article-slug/
+
+# Then submit to IndexNow
 export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
-curl -X POST https://api.indexnow.org/indexnow \
+curl -v -X POST https://api.indexnow.org/indexnow \
   -H "Content-Type: application/json; charset=utf-8" \
   -d '{
     "host": "kirill-markin.com",
@@ -85,8 +110,14 @@ curl -X POST https://api.indexnow.org/indexnow \
 ### 2. Submit multiple pages after a significant update
 
 ```bash
+# First verify all URLs
+curl -I https://kirill-markin.com/
+curl -I https://kirill-markin.com/services/
+curl -I https://kirill-markin.com/articles/
+
+# Then submit to IndexNow
 export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
-curl -X POST https://api.indexnow.org/indexnow \
+curl -v -X POST https://api.indexnow.org/indexnow \
   -H "Content-Type: application/json; charset=utf-8" \
   -d '{
     "host": "kirill-markin.com",
@@ -102,18 +133,22 @@ curl -X POST https://api.indexnow.org/indexnow \
 
 ## API Response Codes
 
-IndexNow API returns the following status codes:
+IndexNow API returns the following status codes (which you'll see in the `-v` output):
 
 - **200 OK**: URLs successfully accepted for processing
 - **400 Bad Request**: Invalid request (check JSON format and parameters)
 - **403 Forbidden**: Key not found at the specified keyLocation
 - **422 Unprocessable Entity**: URL doesn't belong to the specified host or other validation error
+- **429 Too Many Requests**: You're sending too many requests (potential spam)
+
+Always check for the `HTTP/2 200` response in your terminal output to confirm success.
 
 ## Important Notes
 
 ### Preferred Submission Method
 - Always use the POST method with JSON payload rather than the GET method
 - Do not use both methods for the same URL - the POST method is sufficient and preferred
+- Always use the `-v` flag to verify the response code
 
 ### Limits
 - You can submit up to 10,000 URLs in a single request
@@ -126,3 +161,5 @@ IndexNow API returns the following status codes:
 ### Usage Guidelines
 - Only submit URLs for pages that were actually created or modified
 - Don't repeatedly submit the same URLs without changes
+- Always verify URLs are publicly accessible before submitting
+- Check response codes to confirm successful submission
