@@ -51,7 +51,7 @@ For each distributed video, create a high-quality article version of the content
 - Reddit personal posts: [Profile](https://www.reddit.com/user/Kirmark)
   - Remember to approve after publication
 - LinkedIn Articles: [Newsletter](https://www.linkedin.com/newsletters/articles-from-kirill-markin-7072862354891255810/)
-- Personal website articles: [Articles](https://articles.kirill-markin.com)
+- Personal website articles: [Articles](/articles/)
 
 **Content Republishing Strategy:**
 When content is published in media outlets, keep it exclusive to respect the journalist's work and maintain good relationships. However, for content originally posted on Reddit or other platforms, always cross-post to LinkedIn Articles to maximize reach and engagement.

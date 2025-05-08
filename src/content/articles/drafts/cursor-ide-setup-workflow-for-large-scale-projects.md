@@ -101,7 +101,7 @@ This approach gives us the benefits of test-driven development (clear requiremen
 ### Q: Could you share some of your design docs and prompts?
 
 Here are my cursor rules:  
-<https://articles.kirill-markin.com/cursor-ide-rules-for-ai>
+<https://kirill-markin.com/articles/cursor-ide-rules-for-ai/>
 
 But honestly, there isn't much specific about this process in the rules yet. The workflow I described in this article is still mostly manual - for some reason, I haven't stored it in cursor rules. I probably should try to do that, but right now I just use voice commands to guide Cursor through each step of our process.
 
