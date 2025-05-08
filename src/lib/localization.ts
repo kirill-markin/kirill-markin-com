@@ -415,9 +415,9 @@ export const translations = {
         },
         'zh': {
             home: '首页',
-            services: '服务',
-            articles: '文章',
-            talkToKirill: '与KIRILL交流',
+            services: '服务项目',
+            articles: '专业文章',
+            talkToKirill: '预约咨询',
             language: '中文'
         },
         'ar': {
@@ -449,7 +449,7 @@ export const translations = {
         'zh': {
             jobTitle: 'ozma.io 创始人',
             secondaryTitle: '研发总监',
-            tertiaryTitle: '人工智能与数据工程师'
+            tertiaryTitle: '人工智能与数据工程专家'
         },
         'ar': {
             jobTitle: 'مؤسس ozma.io',
@@ -563,7 +563,7 @@ export const translations = {
                 Telegram: 'تيليجرام',
                 WhatsApp: 'واتساب',
                 GitLab: 'جيتلاب',
-                Bluesky: 'بلوسكाई',
+                Bluesky: 'بلوسكاى',
                 Email: 'البريد الإلكتروني'
             }
         },
@@ -835,18 +835,18 @@ export const translations = {
         },
         'zh': {
             title: '会议预约选项',
-            description: '与人工智能战略专家Kirill Markin安排会议。请选择您偏好的会议类型：从免费的介绍性咨询到深入的战略规划会议，我们提供灵活多样的选择，满足您的不同需求和时间安排。',
-            metaTitle: '预约人工智能专家Kirill Markin咨询 | AI战略顾问服务 | 个性化数字化转型咨询 | 免费介绍会议',
-            metaDescription: '与AI战略专家Kirill Markin安排一对一会议。讨论人工智能实施与数字化转型，为您的企业或项目提供专业技术战略与实施路径规划。中文服务支持，助力中国企业数字创新。我们根据您的具体需求和问题提供个性化建议，帮助您规划AI发展路线和实施步骤。通过专业咨询，提升您企业的技术竞争力，实现可持续的数字化增长。',
+            description: '与人工智能战略专家Kirill Markin安排会议。选择适合的咨询类型，获取定制化解决方案，推动业务创新与技术实施。',
+            metaTitle: '预约人工智能专家咨询 | 定制化AI战略规划与实施服务 | Kirill Markin 专业顾问服务',
+            metaDescription: '与AI专家Kirill Markin一对一会议，深入探讨人工智能实施策略与数字化转型方案。专业咨询服务涵盖技术评估、战略规划与实施路径，助力企业实现技术升级与竞争力提升。获取定制化AI解决方案，推动业务创新与可持续发展。我们提供从技术咨询到实施落地的全流程服务，帮助企业构建智能化运营体系，实现降本增效与业务增长。',
             shortMeeting: {
                 title: '15分钟欢迎会议',
-                description: '免费介绍性咨询，讨论您的AI需求并探索潜在的合作机会。这是了解我们服务和专业领域的理想起点，无需任何财务承诺。我们将评估您的需求，并提供关于如何最有效利用AI技术的初步建议。',
+                description: '15分钟免费咨询，评估AI需求并探索合作机会。初步技术建议助力明确实施方向。',
                 metaTitle: '15分钟免费AI战略咨询 | 人工智能专家服务 | 数字化转型解决方案 | Kirill Markin',
                 metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案，帮助企业实现数字化转型。了解如何将AI技术应用到您的业务中，无需前期投入。我们将评估您的需求，提供针对性建议，助力企业保持竞争优势。'
             },
             allMeetings: {
                 title: '所有咨询选项',
-                description: '查看所有可用的咨询时长，并预约适合您日程的时间',
+                description: '多种咨询时长选择，深度技术讨论与战略规划，满足不同阶段需求。',
                 metaTitle: 'AI战略咨询选项 | 人工智能实施规划 | 数字化转型服务 | 专业技术顾问预约 | Kirill Markin',
                 metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议，获取专业技术解决方案和战略建议。中文服务，专为中国企业设计。我们提供15分钟免费介绍会议，以及30分钟、60分钟和90分钟不同深度的付费咨询服务，满足您从初步了解到深入战略规划的各类需求。'
             },
@@ -928,7 +928,7 @@ export const translations = {
         },
         'zh': {
             title: '支付选项',
-            description: 'AI战略咨询服务的安全支付方式。请选择您偏好的支付方式：我们支持多种国际支付选项，确保交易安全和便捷。所有支付渠道均采用高级加密技术，保护您的财务信息。支付完成后，您将立即收到确认邮件和电子收据。',
+            description: '安全便捷的支付方式，支持国际信用卡与主流电子支付。全程数据加密保障交易安全，即时确认与电子票据服务。',
             metaTitle: '安全支付选项 | 人工智能咨询服务 | 数据加密保护 | 多种支付方式支持 | Kirill Markin',
             metaDescription: 'Kirill Markin人工智能战略咨询服务的安全支付方式。通过多种支付选项安全完成您的AI咨询服务交易，支持国际信用卡和主流电子支付方式。全程数据加密保护，保障交易安全。我们提供清晰透明的定价和详细的电子收据，确保您的支付体验简单便捷。选择我们值得信赖的支付系统，立即获取专业AI咨询服务。',
             stripe: {
@@ -982,8 +982,8 @@ export const translations = {
         },
         'zh': {
             title: '页面未找到',
-            message: '您正在寻找的页面不存在或已被移动。您可能想要浏览我们的人工智能战略文章或查看我们的服务。',
-            backToHome: '返回主页'
+            message: '请求的页面不存在或已移动。推荐浏览最新人工智能战略文章或查看专业服务方案。',
+            backToHome: '返回首页'
         },
         'ar': {
             title: 'الصفحة غير موجودة',
