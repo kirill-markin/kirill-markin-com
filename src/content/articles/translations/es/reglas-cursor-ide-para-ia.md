@@ -90,7 +90,7 @@ Cursor -> Configuración -> Configuración de Cursor -> Reglas para IA:
 - Ejecutar `date` para tareas relacionadas con fechas
 - Usar GitHub CLI con `printf` para texto multilínea:
   `git commit -m "$(printf "Título\n\n- Punto 1\n- Punto 2")"`
-- Siempre usar comandos git diff no interactivos con: `git diff --no-pager` o `git diff | cat`. NO `git diff` o `git diff --cached`.
+- Siempre usar comandos git diff no interactivos con: `git --no-pager diff` o `git diff | cat`. NO `git diff` o `git diff --cached`.
 - Siempre preferir comandos con parámetros que no requieran interacción del usuario sobre los interactivos (usar flags, variables de entorno o archivos de configuración para evitar prompts)
 </cursorrules_terminal_usage>
 

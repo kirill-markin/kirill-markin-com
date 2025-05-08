@@ -95,7 +95,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 - 对于日期相关任务运行`date`
 - 使用GitHub CLI搭配`printf`处理多行文本：
   `git commit -m "$(printf "标题\n\n- 要点1\n- 要点2")"`
-- 始终使用非交互式git diff命令：`git diff --no-pager`或`git diff | cat`。禁止使用`git diff`或`git diff --cached`
+- 始终使用非交互式git diff命令：`git --no-pager diff`或`git diff | cat`。禁止使用`git diff`或`git diff --cached`
 - 始终优先使用不需要用户交互的命令参数（使用标志、环境变量或配置文件避免提示）
 </cursorrules_terminal_usage>
 
