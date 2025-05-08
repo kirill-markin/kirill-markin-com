@@ -97,7 +97,7 @@ export async function generateStaticParams() {
 }
 
 // Helper function to resolve localized category name to internal category ID
-function resolveInternalCategoryId(localizedCategory: string | undefined, language: string): string | undefined {
+function resolveInternalCategoryId(localizedCategory: string | undefined, language: string): string | null {
     if (!localizedCategory || localizedCategory === 'all' ||
         localizedCategory === getSubPathSegmentByLanguage('services', 'all', language)) {
         return 'all';
@@ -106,12 +106,12 @@ function resolveInternalCategoryId(localizedCategory: string | undefined, langua
     // Check against known categories
     const knownCategories = ['people', 'business', 'journalists'];
 
-    // First check if it's already a known internal category
-    if (knownCategories.includes(localizedCategory)) {
+    // First check if it's already a known internal category (only for English)
+    if (language === 'en' && knownCategories.includes(localizedCategory)) {
         return localizedCategory;
     }
 
-    // Otherwise, find the internal category ID that matches this localized category name
+    // Otherwise, check if it's a valid localized category for the CURRENT language only
     for (const internalCategory of knownCategories) {
         const localizedCategoryName = getSubPathSegmentByLanguage('services', internalCategory, language);
         if (localizedCategory === localizedCategoryName) {
@@ -119,8 +119,11 @@ function resolveInternalCategoryId(localizedCategory: string | undefined, langua
         }
     }
 
-    // If not found, default to 'all'
-    return 'all';
+    // If we get here, the category is either:
+    // 1. Not a valid category at all
+    // 2. A valid category but from the wrong language
+    // Either way, we should return null to trigger a 404
+    return null;
 }
 
 export async function generateMetadata({ params, searchParams }: SegmentPageProps): Promise<Metadata> {
@@ -151,6 +154,11 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
     } else if (segment === servicesSegment) {
         // Translate localized category name to internal category ID
         const internalCategoryId = resolveInternalCategoryId(categoryParam, lang);
+
+        // If category is invalid, return empty metadata
+        if (internalCategoryId === null) {
+            return {};
+        }
 
         return generateServicesPageMetadata({
             language: lang,
@@ -209,6 +217,12 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
     if (segment === articlesSegment) {
         return <ArticlesPageContent language={lang} tag={tag} />;
     } else if (segment === servicesSegment) {
+        // If category is invalid, show 404
+        if (category && resolveInternalCategoryId(category, lang) === null) {
+            notFound();
+            return null;
+        }
+
         return <ServicesPageContent language={lang} category={category} />;
     } else if (segment === meetSegment) {
         return <MeetPage language={lang} />;

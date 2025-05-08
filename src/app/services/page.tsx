@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { servicesData } from '@/data/services';
 import { DEFAULT_LANGUAGE, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { generateServicesPageMetadata } from '@/lib/metadata';
@@ -26,12 +27,29 @@ export function generateStaticParams() {
   ];
 }
 
+// Helper function to validate category parameter
+function isValidCategory(category: string | undefined): boolean {
+  if (!category || category === 'all') {
+    return true;
+  }
+
+  const knownCategories = ['people', 'business', 'journalists'];
+
+  // For English page, the category must be an internal category ID
+  return knownCategories.includes(category);
+}
+
 export async function generateMetadata(
   { searchParams }: Props
 ): Promise<Metadata> {
   // Get the category from URL parameters
   const params = await searchParams;
   const categoryParam = typeof params.category === 'string' ? params.category : undefined;
+
+  // If category is invalid, return empty metadata
+  if (categoryParam && !isValidCategory(categoryParam)) {
+    return {};
+  }
 
   return generateServicesPageMetadata({
     language: DEFAULT_LANGUAGE,
@@ -43,6 +61,11 @@ export default async function ServicesPage({ searchParams }: Props) {
   // Get the category from URL parameters
   const params = await searchParams;
   const categoryParam = typeof params.category === 'string' ? params.category : undefined;
+
+  // If category is invalid, return 404
+  if (categoryParam && !isValidCategory(categoryParam)) {
+    notFound();
+  }
 
   return <ServicesPageContent language={DEFAULT_LANGUAGE} category={categoryParam} />;
 }
