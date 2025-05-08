@@ -200,7 +200,46 @@ export function getUrlForLanguage(
 ): string | null {
     // Extract query parameters
     const [pathWithoutQuery, queryString] = currentPath.split('?');
-    const query = queryString ? `?${queryString}` : '';
+
+    // Parse query parameters if they exist
+    const queryParams: Record<string, string> = {};
+    if (queryString) {
+        queryString.split('&').forEach(param => {
+            const [key, value] = param.split('=');
+            if (key && value) {
+                queryParams[key] = decodeURIComponent(value);
+            }
+        });
+    }
+
+    // Handle category parameter translation if present
+    if (queryParams.category) {
+        // Known categories in English
+        const knownCategories = ['all', 'people', 'business', 'journalists'];
+
+        // Try to find which category this represents in the current language
+        let categoryInternalName: string | undefined;
+
+        for (const categoryKey of knownCategories) {
+            const localizedCategory = getSubPathSegmentByLanguage('services', categoryKey, currentLanguage);
+            if (localizedCategory === queryParams.category) {
+                categoryInternalName = categoryKey;
+                break;
+            }
+        }
+
+        // If we found the internal name, translate to target language
+        if (categoryInternalName) {
+            queryParams.category = getSubPathSegmentByLanguage('services', categoryInternalName, targetLanguage);
+        }
+    }
+
+    // Rebuild query string with potentially translated parameters
+    const newQueryString = Object.keys(queryParams).length > 0
+        ? '?' + Object.entries(queryParams)
+            .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+            .join('&')
+        : '';
 
     // For specific article pages with translations
     const isArticlePage = Object.values(PATH_SEGMENTS['articles']).some(segment =>
@@ -289,7 +328,7 @@ export function getUrlForLanguage(
                     ? `/${newSegment}/${newSubsegment}${remainingWithSlash}/`
                     : `/${targetLanguage}/${newSegment}/${newSubsegment}${remainingWithSlash}/`;
 
-                return newPath + query;
+                return newPath + newQueryString;
             }
         }
 
@@ -302,7 +341,7 @@ export function getUrlForLanguage(
             ? `/${newSegment}${restWithSlash}/`
             : `/${targetLanguage}/${newSegment}${restWithSlash}/`;
 
-        return newPath + query;
+        return newPath + newQueryString;
     }
 
     // If we can't determine the path structure, return null to show 404 rather than redirecting
