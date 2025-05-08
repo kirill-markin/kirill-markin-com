@@ -90,6 +90,18 @@ function validateGeneratedMetadata() {
             generator: (lang: string) => generateServicesPageMetadata({ language: lang, category: 'people' }),
         },
         {
+            name: 'Services for Businesses',
+            type: 'services',
+            subType: 'business',
+            generator: (lang: string) => generateServicesPageMetadata({ language: lang, category: 'business' }),
+        },
+        {
+            name: 'Services for Media',
+            type: 'services',
+            subType: 'journalists',
+            generator: (lang: string) => generateServicesPageMetadata({ language: lang, category: 'journalists' }),
+        },
+        {
             name: 'Meet',
             type: 'meet',
             subType: null,

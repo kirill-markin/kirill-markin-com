@@ -96,6 +96,33 @@ export async function generateStaticParams() {
     return params;
 }
 
+// Helper function to resolve localized category name to internal category ID
+function resolveInternalCategoryId(localizedCategory: string | undefined, language: string): string | undefined {
+    if (!localizedCategory || localizedCategory === 'all' ||
+        localizedCategory === getSubPathSegmentByLanguage('services', 'all', language)) {
+        return 'all';
+    }
+
+    // Check against known categories
+    const knownCategories = ['people', 'business', 'journalists'];
+
+    // First check if it's already a known internal category
+    if (knownCategories.includes(localizedCategory)) {
+        return localizedCategory;
+    }
+
+    // Otherwise, find the internal category ID that matches this localized category name
+    for (const internalCategory of knownCategories) {
+        const localizedCategoryName = getSubPathSegmentByLanguage('services', internalCategory, language);
+        if (localizedCategory === localizedCategoryName) {
+            return internalCategory;
+        }
+    }
+
+    // If not found, default to 'all'
+    return 'all';
+}
+
 export async function generateMetadata({ params, searchParams }: SegmentPageProps): Promise<Metadata> {
     const { lang, segment } = await params;
 
@@ -113,7 +140,7 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
     // Get parameters from URL
     const searchParamsData = await searchParams;
     const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
-    const category = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
+    const categoryParam = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
 
     // Generate metadata based on segment type
     if (segment === articlesSegment) {
@@ -122,9 +149,12 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
             tag: tag
         });
     } else if (segment === servicesSegment) {
+        // Translate localized category name to internal category ID
+        const internalCategoryId = resolveInternalCategoryId(categoryParam, lang);
+
         return generateServicesPageMetadata({
             language: lang,
-            category: category
+            category: internalCategoryId
         });
     } else if (segment === meetSegment) {
         return generateMeetPageMetadata({
