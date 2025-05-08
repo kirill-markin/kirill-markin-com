@@ -1,0 +1,178 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Article Translation Workflow
+
+This rule outlines the structured process for translating articles from English to other supported languages (es, zh, ar, hi).
+
+## Key Principles
+
+- Maintain consistent SEO-friendly URLs with relevant keywords in the target language
+- Translate incrementally in manageable sections
+- Preserve the original writing style while adapting to target language conventions
+- Ensure proper bidirectional references between language versions
+- Follow all structural requirements for multilingual content
+- Use DeepSeek model specifically for Chinese (zh) translations
+- Discuss and agree on key terms and phrases in the target language before beginning translation
+
+## Step 1: Key Term Discussion
+
+Before beginning the actual translation, discuss key terms and phrases that will appear throughout the article:
+
+- Identify 1-3 word phrases that are central to the article's topic
+- Propose appropriate translations in the target language
+- Focus on terminology that might have multiple possible translations
+- Confirm technical terms that should remain in English
+- Get agreement on consistent translations for these terms
+
+Example discussion:
+```
+AI: Before we start translating, let's agree on key terms in Spanish:
+- "Cursor IDE Rules" → "Reglas de Cursor IDE"
+- "AI assistant" → "Asistente de IA"
+- "Code style" → "Estilo de código"
+- Technical terms like "repository", "commit", and ".cursorrules" will remain in English
+
+Do these translations work for you, or would you prefer different terminology?
+
+User: Those look good, but let's use "Asistente de Inteligencia Artificial" the first time it appears, then "Asistente de IA" after that.
+```
+
+## Step 2: Filename and URL Planning
+
+After agreeing on key terms, discuss with the user:
+
+- The proposed filename/slug for the translated article
+- Ensure it contains agreed-upon keywords in the target language
+- Confirm it follows URL-friendly formatting (lowercase, hyphens between words)
+- Get explicit confirmation before proceeding
+
+Example discussion:
+```
+AI: Based on our key terms discussion, for the Spanish translation of "Cursor IDE Rules for AI", I recommend using "reglas-cursor-ide-para-ia" as the filename. This includes the key terms we agreed on: "reglas" (rules), "cursor-ide", and "para-ia" (for AI). Does this work for you?
+
+User: Yes, that looks good.
+```
+
+## Step 3: File Creation in Proper Location
+
+Create the new markdown file in the translations directory following this structure:
+```
+src/content/articles/
+└── translations/
+    └── [lang]/
+        └── [translated-slug].md
+```
+
+Where:
+- `[lang]` is the ISO language code (es, zh, ar, hi)
+- `[translated-slug]` is the agreed-upon filename from Step 2
+
+## Step 4: Frontmatter Translation and Bidirectional References
+
+First, transfer and translate the frontmatter with proper bidirectional references:
+
+```markdown
+---
+title: "Translated Title in Target Language"
+date: YYYY-MM-DD  # Same as original
+description: "Translated description under 155 characters"
+tags: [translated-tag-1, translated-tag-2]
+aliases: [translated-alias-1, translated-alias-2]
+related: [related-translated-article-slugs-if-they-exist]
+publish: true|false  # Same as original
+thumbnailUrl: "/articles/image-filename.webp"  # Usually same as original
+language: "target-language-code"  # e.g., "es" for Spanish
+originalArticle:
+  language: "en"
+  slug: "original-english-slug"
+---
+```
+
+Then, update the original article's frontmatter to include this new translation:
+
+```markdown
+translations:
+  - language: "target-language-code"
+    slug: "translated-slug"
+```
+
+## Step 5: Incremental Content Translation
+
+Translate content section by section rather than all at once:
+
+1. Start with the main title and introduction
+2. Process one logical section at a time
+3. Handle any code blocks, images, or special formatting elements
+4. Apply each translated section to the file before moving to the next
+
+For code examples and comments:
+- Code remains in English
+- Only translate comments, strings, and text meant for end-users
+
+Example:
+```typescript
+// Original English
+function calculatePrice(items) {
+  // Calculate total with tax
+  return items.reduce((sum, item) => sum + item.price, 0) * TAX_RATE;
+}
+
+// Spanish Translation
+function calculatePrice(items) {
+  // Calcular el total con impuestos
+  return items.reduce((sum, item) => sum + item.price, 0) * TAX_RATE;
+}
+```
+
+## Step 6: Writing Style Adaptation
+
+Follow the Business-Casual-Plus style (from articles-writing-style rule) while adapting to target language conventions:
+
+- Maintain the slightly informal but professional tone
+- Adapt examples to be culturally relevant to target language readers
+- Adjust sentence structure as needed for natural flow in the target language
+- Keep technical terms that should remain in English (programming languages, frameworks, etc.)
+- Use the agreed-upon translations for key terms consistently throughout the article
+
+## Step 7: Language-Specific Considerations
+
+### Chinese (zh) Translations
+
+For Chinese translations, DeepSeek model must be used:
+
+- If not currently using DeepSeek, recommend that the user switch to DeepSeek model before proceeding
+- DeepSeek provides significantly better quality for Chinese translations
+- Example prompt: "I notice we're translating to Chinese. For optimal quality, I recommend switching to the DeepSeek model. Would you like to do that before we proceed?"
+- Only continue with the translation after confirming the model switch or user acknowledgment
+
+Key considerations for Chinese content:
+- Chinese writing is typically more concise than English
+- Technical terms often benefit from having the English term in parentheses after the Chinese translation
+- Character choice between Traditional and Simplified should be confirmed with user
+- Pay special attention to key terms discussion, as technical terminology translation varies widely in Chinese
+
+## Step 8: Final Review and Validation
+
+Upon completing the translation:
+1. Prompt the user to review the finished article
+2. Check for consistent terminology throughout
+3. Verify all links, images, and formatting work properly
+4. Confirm bidirectional references are in place
+
+## Checklist for Completed Translations
+
+- [ ] Key terms and phrases discussed and agreed upon
+- [ ] SEO-friendly filename with target language keywords
+- [ ] Proper file location in translations directory
+- [ ] Complete, translated frontmatter
+- [ ] Bidirectional references between original and translation
+- [ ] All content sections fully translated
+- [ ] Code examples with translated comments only
+- [ ] Consistent terminology throughout
+- [ ] Adaptation to target language conventions
+- [ ] All formatting and special elements preserved
+- [ ] DeepSeek model used for Chinese translations
+- [ ] Final user review completed
