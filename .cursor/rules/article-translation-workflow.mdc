@@ -9,12 +9,13 @@ This rule outlines the structured process for translating articles from English 
 
 ## Key Principles
 
+- All initial translations are done with Claude 3.7 Sonnet or another powerful AI model
+- Chinese translations receive additional review with DeepSeek V3 for optimal quality
 - Maintain consistent SEO-friendly URLs with relevant keywords in the target language
 - Translate incrementally in manageable sections
 - Preserve the original writing style while adapting to target language conventions
 - Ensure proper bidirectional references between language versions
 - Follow all structural requirements for multilingual content
-- Use DeepSeek model specifically for Chinese (zh) translations
 - Discuss and agree on key terms and phrases in the target language before beginning translation
 
 ## Step 1: Key Term Discussion
@@ -137,26 +138,39 @@ Follow the Business-Casual-Plus style (from articles-writing-style rule) while a
 - Keep technical terms that should remain in English (programming languages, frameworks, etc.)
 - Use the agreed-upon translations for key terms consistently throughout the article
 
-## Step 7: Language-Specific Considerations
+## Step 7: Translation Process and Language-Specific Considerations
 
-### Chinese (zh) Translations
+### General Translation Process
 
-For Chinese translations, DeepSeek model must be used:
+All initial translations for any language are performed using Claude 3.7 Sonnet or another powerful AI model:
+- Follow the structured approach outlined in the previous steps
+- Maintain the original document's structure and formatting
+- Ensure consistent terminology throughout the translation
+- Preserve the original writing style while adapting to target language conventions
 
-- If not currently using DeepSeek, recommend that the user switch to DeepSeek model before proceeding
-- DeepSeek provides significantly better quality for Chinese translations
-- Example prompt: "I notice we're translating to Chinese. For optimal quality, I recommend switching to the DeepSeek model. Would you like to do that before we proceed?"
-- Only continue with the translation after confirming the model switch or user acknowledgment
+### Chinese (zh) Translations - Additional Review
+
+For Chinese translations specifically, a two-step process is required:
+
+1. **Initial Translation**: Complete the full translation using Claude 3.7 Sonnet or another powerful AI model
+2. **DeepSeek V3 Review**: After completing the initial translation, use DeepSeek V3 through Cursor IDE to review and patch the translation for optimal quality
+
+DeepSeek V3 review process:
+- Use Cursor IDE to open the completed Chinese translation
+- Request DeepSeek V3 model to review the content section by section
+- Apply improvements to terminology, phrasing, and cultural adaptation
+- Focus on technical terms that may need refinement
+- Ensure natural flow and readability for native Chinese speakers
 
 Key considerations for Chinese content:
 - Chinese writing is typically more concise than English
 - Technical terms often benefit from having the English term in parentheses after the Chinese translation
 - Character choice between Traditional and Simplified should be confirmed with user
-- Pay special attention to key terms discussion, as technical terminology translation varies widely in Chinese
+- Pay special attention to key terms during the DeepSeek V3 review process
 
 ## Step 8: Final Review and Validation
 
-Upon completing the translation:
+Upon completing the translation (including DeepSeek V3 review for Chinese):
 1. Prompt the user to review the finished article
 2. Check for consistent terminology throughout
 3. Verify all links, images, and formatting work properly
@@ -169,10 +183,10 @@ Upon completing the translation:
 - [ ] Proper file location in translations directory
 - [ ] Complete, translated frontmatter
 - [ ] Bidirectional references between original and translation
-- [ ] All content sections fully translated
+- [ ] All content sections fully translated with Claude 3.7 Sonnet or similar model
+- [ ] DeepSeek V3 review completed (for Chinese translations only)
 - [ ] Code examples with translated comments only
 - [ ] Consistent terminology throughout
 - [ ] Adaptation to target language conventions
 - [ ] All formatting and special elements preserved
-- [ ] DeepSeek model used for Chinese translations
 - [ ] Final user review completed
