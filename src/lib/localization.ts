@@ -676,7 +676,7 @@ export const translations = {
                     metaDescription: 'Comprehensive AI strategy services for businesses. Data analytics solutions, AI integration, and digital transformation expertise for your company.'
                 },
                 journalists: {
-                    metaTitle: 'AI Services for Media | Tech Consultation for Journalists | Kirill Markin',
+                    metaTitle: 'AI Services for Media | Tech Consultation for Journalists | Kirill',
                     metaDescription: 'Expert AI consultation for media professionals and journalists. Technical information, speaking engagements, and article collaboration on AI topics.'
                 }
             }
@@ -700,11 +700,11 @@ export const translations = {
                 },
                 business: {
                     metaTitle: 'Servicios de IA para Empresas | Estrategia Empresarial | Kirill Markin',
-                    metaDescription: 'Servicios de estrategia e implementación de IA para empresas. Soluciones de análisis de datos y transformación digital para su compañía.'
+                    metaDescription: 'Servicios de estrategia e implementación de IA para empresas. Soluciones de análisis de datos y transformación digital para optimizar procesos empresariales.'
                 },
                 journalists: {
                     metaTitle: 'Servicios de IA para Medios | Consulta Técnica | Kirill Markin',
-                    metaDescription: 'Consultoría experta de IA para medios y periodistas. Información técnica precisa y colaboración en artículos sobre IA y tecnología.'
+                    metaDescription: 'Consultoría experta de IA para medios y periodistas. Información técnica precisa y colaboración en artículos sobre IA y tecnología avanzada.'
                 }
             }
         },
@@ -726,12 +726,12 @@ export const translations = {
                     metaDescription: '为个人提供定制化人工智能战略咨询。职业指导、技术技能发展和个人项目AI实施，帮助您在数字时代获得竞争优势和职业发展机会。我们的专家顾问提供一对一指导，根据您的背景和目标设计个性化学习和发展路径，实现技术和职业双重提升。专业技术培训与顾问服务，助您掌握AI时代必备能力和知识，提升未来竞争力。'
                 },
                 business: {
-                    metaTitle: '企业人工智能服务 | 企业AI战略 | 数据分析 | Kirill Markin',
-                    metaDescription: '为企业提供全面的AI战略和实施服务。数据分析解决方案、AI集成和数字化转型专业知识，促进业务创新。'
+                    metaTitle: '企业人工智能服务 | 企业AI战略与数字化转型 | 数据分析解决方案 | Kirill Markin',
+                    metaDescription: '为企业提供全面的AI战略和实施服务，涵盖需求分析、系统设计到落地实施的全流程。专注于数据分析解决方案、AI集成和数字化转型，结合机器学习、自然语言处理等前沿技术，帮助企业提升运营效率，实现数据驱动决策。通过行业定制化解决方案和持续优化服务，促进业务创新和可持续增长，确保技术投资转化为可衡量的商业成果。'
                 },
                 journalists: {
-                    metaTitle: '媒体人工智能服务 | 技术咨询 | 内容合作 | Kirill Markin',
-                    metaDescription: '为媒体专业人士和记者提供AI咨询。提供关于AI和技术主题的准确信息、专业演讲和文章合作服务。'
+                    metaTitle: '媒体人工智能服务 | 技术咨询与内容合作 | 专业技术解读与深度分析 | Kirill Markin',
+                    metaDescription: '为媒体专业人士和记者提供专业AI咨询服务。我们提供关于人工智能和前沿技术的准确专业信息，支持媒体报道和内容创作，提供技术解读、专家观点和深度分析。同时提供专业演讲、技术顾问和文章合作服务，帮助媒体准确传达复杂技术概念，提升内容质量和专业性。我们致力于成为媒体行业值得信赖的技术合作伙伴，为您的报道提供权威支持。'
                 }
             }
         },
@@ -754,11 +754,11 @@ export const translations = {
                 },
                 business: {
                     metaTitle: 'خدمات الذكاء الاصطناعي للشركات | استراتيجية مؤسسية | كيريل ماركين',
-                    metaDescription: 'خدمات استراتيجية وتنفيذ الذكاء الاصطناعي للشركات. حلول تحليل البيانات وتكامل الذكاء الاصطناعي لتعزيز الابتكار.'
+                    metaDescription: 'خدمات استراتيجية وتنفيذ الذكاء الاصطناعي للشركات. حلول تحليل البيانات وتكامل الذكاء الاصطناعي لتعزيز الابتكار وتحسين الكفاءة التشغيلية في العصر الرقمي.'
                 },
                 journalists: {
                     metaTitle: 'خدمات الذكاء الاصطناعي للإعلام | استشارات تقنية | كيريل ماركين',
-                    metaDescription: 'استشارات خبيرة في الذكاء الاصطناعي للمحترفين في الإعلام والصحفيين. معلومات تقنية دقيقة حول مواضيع الذكاء الاصطناعي.'
+                    metaDescription: 'استشارات خبيرة في الذكاء الاصطناعي للإعلاميين والصحفيين. معلومات تقنية دقيقة حول التكنولوجيا المتقدمة وتعاون في المحتوى المتخصص لتقديم رؤى عن التطورات التقنية.'
                 }
             }
         },
@@ -781,11 +781,11 @@ export const translations = {
                 },
                 business: {
                     metaTitle: 'व्यवसायों के लिए एआई सेवाएं | उद्यम रणनीति | किरिल मार्किन',
-                    metaDescription: 'व्यवसायों के लिए एआई रणनीति और कार्यान्वयन सेवाएं। आपकी कंपनी के लिए डेटा विश्लेषण और डिजिटल परिवर्तन विशेषज्ञता।'
+                    metaDescription: 'व्यवसायों के लिए एआई रणनीति और कार्यान्वयन सेवाएं। आपकी कंपनी के लिए डेटा विश्लेषण और डिजिटल परिवर्तन विशेषज्ञता जो प्रतिस्पर्धात्मक लाभ प्रदान करती है।'
                 },
                 journalists: {
                     metaTitle: 'मीडिया के लिए एआई सेवाएं | तकनीकी परामर्श | किरिल मार्किन',
-                    metaDescription: 'मीडिया पेशेवरों और पत्रकारों के लिए विशेषज्ञ एआई परामर्श। एआई और प्रौद्योगिकी विषयों पर सटीक तकनीकी जानकारी।'
+                    metaDescription: 'मीडिया पेशेवरों और पत्रकारों के लिए विशेषज्ञ एआई परामर्श। एआई और प्रौद्योगिकी विषयों पर सटीक तकनीकी जानकारी। विश्वसनीय तकनीकी अंतर्दृष्टि प्राप्त करें।'
                 }
             }
         },
