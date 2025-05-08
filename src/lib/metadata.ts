@@ -261,9 +261,17 @@ export function generateServicesPageMetadata(
         ? 'services'
         : getPathSegmentByLanguage('services', language);
 
+    // Use localized category name in the URL
+    let categoryParam = '';
+    if (category && category !== 'all') {
+        // Get the localized category name for the current language
+        const localizedCategoryName = getSubPathSegmentByLanguage('services', category, language);
+        categoryParam = `?category=${localizedCategoryName}`;
+    }
+
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com/services/${category && category !== 'all' ? `?category=${category}` : ''}`
-        : `https://kirill-markin.com/${language}/${servicesSegment}/${category && category !== 'all' ? `?category=${category}` : ''}`;
+        ? `https://kirill-markin.com/services/${categoryParam}`
+        : `https://kirill-markin.com/${language}/${servicesSegment}/${categoryParam}`;
 
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
@@ -279,9 +287,16 @@ export function generateServicesPageMetadata(
             ? 'services'
             : getPathSegmentByLanguage('services', lang);
 
+        // Use localized category name for each language
+        let langCategoryParam = '';
+        if (category && category !== 'all') {
+            const langLocalizedCategoryName = getSubPathSegmentByLanguage('services', category, lang);
+            langCategoryParam = `?category=${langLocalizedCategoryName}`;
+        }
+
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/services/${category && category !== 'all' ? `?category=${category}` : ''}`
-            : `https://kirill-markin.com/${lang}/${langServicesSegment}/${category && category !== 'all' ? `?category=${category}` : ''}`;
+            ? `https://kirill-markin.com/services/${langCategoryParam}`
+            : `https://kirill-markin.com/${lang}/${langServicesSegment}/${langCategoryParam}`;
 
         languageAlternates[lang] = alternateUrl;
     }
