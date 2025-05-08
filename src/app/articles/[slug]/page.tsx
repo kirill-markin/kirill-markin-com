@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   }
 
   return {
-    title: `${article.metadata.title} - Kirill Markin`,
+    title: `${article.metadata.title}`,
     description: article.metadata.description || '',
     keywords: article.metadata.tags,
     authors: [{ name: article.metadata.publisher || 'Kirill Markin' }],
