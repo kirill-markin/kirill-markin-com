@@ -93,3 +93,17 @@ When adding images:
 - Always use absolute paths starting with `/` for assets
 - Articles are sorted by date (newest first)
 - Set meaningful tags for better categorization 
+
+## Supported Languages
+
+The website supports the following languages that together represent the top 5 most spoken languages in the world:
+
+| Language | Code | Native Name | Approx. Speakers | % of World Population |
+|----------|------|-------------|------------------|------------------------|
+| English  | en   | English     | 1.5 billion      | 18.7%                  |
+| Chinese  | zh   | 中文        | 1.1 billion      | 14.1%                  |
+| Hindi    | hi   | हिन्दी      | 600 million      | 7.5%                   |
+| Spanish  | es   | Español     | 550 million      | 6.9%                   |
+| Arabic   | ar   | العربية     | 420 million      | 5.2%                   |
+
+These five languages allow the website to reach approximately 52% of the world's population, making content accessible to a diverse global audience. All website UI elements and navigation are translated into these languages, with article content being progressively translated as resources permit. 
