@@ -11,6 +11,11 @@ language: "zh"
 originalArticle:
   language: "en"
   slug: "cursor-ide-rules-for-ai"
+translations:
+  - language: "en"
+    slug: "cursor-ide-rules-for-ai"
+  - language: "es"
+    slug: "reglas-cursor-ide-para-ia"
 ---
 
 # Cursor IDE AI编码规则深度优化：提升开发效率的实战指南

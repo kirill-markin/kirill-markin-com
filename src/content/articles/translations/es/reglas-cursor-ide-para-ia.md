@@ -12,6 +12,11 @@ thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 originalArticle:
   language: "en"
   slug: "cursor-ide-rules-for-ai"
+translations:
+  - language: "en"
+    slug: "cursor-ide-rules-for-ai"
+  - language: "zh"
+    slug: "cursor-ide-ai-bianma-guize-youhua"
 ---
 
 # Reglas de Cursor IDE para IA: Guías para un Asistente de IA Especializado
