@@ -13,13 +13,23 @@ Every article must include these fields in the frontmatter (between `---` delimi
 
 ```markdown
 ---
-title: "Descriptive Article Title With Key Terms"
-date: YYYY-MM-DD
-description: "Concise summary of the article under 155 characters. Should include key terms and convey the article's value proposition."
-tags: [primary-tag, secondary-tag]
-publish: true|false
-thumbnailUrl: "/articles/article-image.webp"
-language: "en"
+keywords: [
+  "keyword_1",
+  "keyword_2"
+]
+title: "Translated Title in Target Language"
+date: YYYY-MM-DD  # Same as original
+description: "Translated description under 155 characters"
+tags: [
+    "translated-tag-1", 
+    "translated-tag-2"
+]
+publish: true|false  # Same as original
+thumbnailUrl: "/articles/image-filename.webp"  # Usually same as original
+language: "target-language-code"  # e.g., "es" for Spanish
+originalArticle:
+  language: "en"
+  slug: "original-english-slug"
 ---
 ```
 
@@ -146,12 +156,19 @@ The `description` field is critical for SEO and requires special attention:
 
 ```markdown
 ---
-title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
-date: 2025-04-19
-description: "My battle-tested IDE Cursor rules configuration that improves AI coding performance with tailored code style preferences and workflow patterns."
-tags: [productivity, cursor-ide, ai, llm]
-publish: true
-thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
+keywords: [
+  "keyword_1",
+  "keyword_2"
+]
+title: "Translated Title in Target Language"
+date: YYYY-MM-DD  # Same as original
+description: "Translated description under 155 characters"
+tags: [
+    "translated-tag-1", 
+    "translated-tag-2"
+]
+publish: true|false  # Same as original
+thumbnailUrl: "/articles/image-filename.webp"
 language: "en"
 translations:
   - language: "es"
@@ -165,6 +182,10 @@ translations:
 
 ```markdown
 ---
+keywords: [
+  "keyword_1",
+  "keyword_2"
+]
 title: "Reglas de Cursor IDE para IA: Directrices para Asistente de IA Especializado"
 date: 2025-04-19
 description: "Mi configuración de reglas de Cursor IDE probada en batalla que mejora el rendimiento de codificación de IA con preferencias de estilo de código y patrones de flujo de trabajo personalizados."

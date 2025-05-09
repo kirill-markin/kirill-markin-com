@@ -77,10 +77,17 @@ First, transfer and translate the frontmatter with proper bidirectional referenc
 
 ```markdown
 ---
+keywords: [
+  "keyword_1",
+  "keyword_2"
+]
 title: "Translated Title in Target Language"
 date: YYYY-MM-DD  # Same as original
 description: "Translated description under 155 characters"
-tags: [translated-tag-1, translated-tag-2]
+tags: [
+    "translated-tag-1", 
+    "translated-tag-2"
+]
 publish: true|false  # Same as original
 thumbnailUrl: "/articles/image-filename.webp"  # Usually same as original
 language: "target-language-code"  # e.g., "es" for Spanish
