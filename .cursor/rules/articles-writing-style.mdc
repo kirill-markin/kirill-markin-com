@@ -173,6 +173,69 @@ This style works because it respects the reader's intelligence while acknowledgi
 
 The key is balance - maintain credibility through clear, thoughtful content while allowing just enough personality to remind readers there's a real person behind the words. When in doubt, read your writing aloud. If it would sound strange in a conversation with a respected peer, it probably needs adjustment.
 
+## SEO Keyword Optimization
+
+Every article must incorporate strategic SEO optimization while maintaining the natural, human-sounding Business-Casual-Plus style.
+
+### Keyword Integration Requirements
+
+1. **Target Keyword List in Frontmatter** - Each article must include a list of target keywords and key phrases in its frontmatter metadata
+2. **Strategic Placement** - Target keywords must appear in:
+   - Article title
+   - Meta description
+   - H1 headline
+   - H2/H3/H4 subheadings (when relevant)
+   - First 100 words of content
+   - Throughout body text at appropriate density
+   - Image alt text (when applicable)
+   - Conclusion section
+
+### Keyword Implementation Guidelines
+
+✅ **Do This**:
+- Use exact-match keywords naturally within the flow of content
+- Include semantic variations and related terms
+- Prioritize readability over keyword density
+- Create content that genuinely answers questions related to target keywords
+- Incorporate keywords in transitions between sections when it feels natural
+- Use LSI (Latent Semantic Indexing) keywords to enhance topical relevance
+
+❌ **Avoid This**:
+- Keyword stuffing that makes content sound unnatural
+- Forcing keywords where they don't fit contextually
+- Sacrificing the conversational tone for SEO purposes
+- Creating awkward sentences just to include keywords
+- Repeating the same exact keyword phrase too frequently
+- Using keywords in ways that disrupt the flow of reading
+
+### Natural Keyword Integration Examples
+
+**Forced/Unnatural (Avoid)**: "Looking for the best cursor rules for AI? These cursor rules for AI will improve your coding with AI. Using cursor rules for AI has transformed my workflow."
+
+**Natural Integration (Do This)**: "I wasted months wrestling with inconsistent AI coding results until I finally built a set of cursor rules that actually worked. These guidelines transformed my team's experience with AI assistants and saved us countless hours of back-and-forth."
+
+### SEO-Friendly Headings Structure
+
+Structure your article headings to incorporate keywords while maintaining reader engagement:
+
+1. **H1**: Main title with primary keyword (only one per article)
+2. **H2**: Major section headings with secondary keywords
+3. **H3/H4/H5**: Subsection headings with related terms and variations
+
+Keep headings conversational and compelling while naturally incorporating target keywords. Every heading should serve both SEO and reader-value purposes simultaneously.
+
+### Content Creation Process
+
+1. Research target keywords and key phrases before writing
+2. Add these keywords to article frontmatter
+3. Create an outline that strategically incorporates keywords in headings
+4. Write first draft focusing on valuable content
+5. Review and naturally enhance keyword placement
+6. Confirm all target keywords appear in appropriate locations
+7. Check that the content still maintains the Business-Casual-Plus voice
+
+Always remember that valuable, engaging content that satisfies user intent will ultimately perform better than content artificially optimized for keywords alone. The goal is to integrate SEO best practices seamlessly within genuinely helpful, conversational content.
+
 ## Multilingual Content Guidelines
 
 As a multilingual website supporting multiple languages (English, Spanish, Chinese, Arabic, Hindi), content must maintain consistent quality and style across all languages while respecting linguistic and cultural differences.
