@@ -6,6 +6,15 @@
  * 2. Map pages to their source files for lastmod calculation in sitemap
  */
 
+// Common files that affect all pages
+const commonFiles = [
+    'src/app/layout.tsx',
+    'src/app/globals.css',
+    'src/app/not-found.tsx',
+    'src/app/not-found.module.css',
+    'src/app/not-found-metadata.tsx'
+];
+
 // Mapping pages to their corresponding files for analysis
 export const pageFilesMap: Record<string, string[]> = {
     '/': [
@@ -13,37 +22,82 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/app/page.module.css',
         'src/data/personalInfo.ts',
         'src/data/professionalRoles.ts',
-        'src/data/mediaMentions.ts'
+        'src/data/mediaMentions.ts',
+        ...commonFiles
     ],
     '/services/': [
         'src/app/services/page.tsx',
         'src/app/services/page.module.css',
         'src/data/services.ts',
+        ...commonFiles
     ],
     '/meet/': [
         'src/app/meet/page.tsx',
         'src/app/meet/page.module.css',
+        ...commonFiles
     ],
     '/meet/short/': [
         'src/app/meet/short/page.tsx',
         'src/app/meet/page.module.css',
+        ...commonFiles
     ],
     '/meet/all/': [
         'src/app/meet/all/page.tsx',
         'src/app/meet/page.module.css',
+        ...commonFiles
     ],
     '/pay/': [
         'src/app/pay/page.tsx',
         'src/app/pay/page.module.css',
+        ...commonFiles
     ],
     '/pay/stripe/': [
         'src/app/pay/stripe/page.tsx',
         'src/app/pay/page.module.css',
+        ...commonFiles
     ],
     '/articles/': [
         'src/app/articles/page.tsx',
         'src/app/articles/articles.module.css',
-        'src/lib/articles.ts'
+        'src/app/articles/layout.tsx',
+        'src/lib/articles.ts',
+        ...commonFiles
+    ],
+    // Add search page
+    '/search/': [
+        'src/app/search/page.tsx',
+        ...commonFiles
+    ],
+    // Add article slug page (for generic article page template)
+    '/articles/[slug]/': [
+        'src/app/articles/[slug]/page.tsx',
+        'src/app/articles/articles.module.css',
+        'src/app/articles/layout.tsx',
+        'src/lib/articles.ts',
+        ...commonFiles
+    ],
+    // Add localized main page
+    '/[lang]/': [
+        'src/app/[lang]/page.tsx',
+        'src/app/[lang]/layout.tsx',
+        'src/app/page.module.css',
+        'src/data/personalInfo.ts',
+        'src/data/professionalRoles.ts',
+        'src/data/mediaMentions.ts',
+        ...commonFiles
+    ],
+    // Add localized segment page
+    '/[lang]/[segment]/': [
+        'src/app/[lang]/[segment]/page.tsx',
+        'src/app/[lang]/layout.tsx',
+        ...commonFiles
+    ],
+    // Add localized subsegment page
+    '/[lang]/[segment]/[subsegment]/': [
+        'src/app/[lang]/[segment]/[subsegment]/page.tsx',
+        'src/app/[lang]/[segment]/page.tsx',
+        'src/app/[lang]/layout.tsx',
+        ...commonFiles
     ]
 };
 
