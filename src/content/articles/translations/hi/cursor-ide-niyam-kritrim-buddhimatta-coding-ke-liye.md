@@ -33,6 +33,8 @@ translations:
     slug: "reglas-cursor-ide-para-ia"
   - language: "zh"
     slug: "cursor-ide-ai-bianma-guize-youhua"
+  - language: "ar"
+    slug: "qawaid-cursor-ide-lilthakaa-alistinaei-tahseen-barmaja"
 ---
 
 # कर्सर आईडीई नियम: कृत्रिम बुद्धिमत्ता कोडिंग के लिए दिशानिर्देश 

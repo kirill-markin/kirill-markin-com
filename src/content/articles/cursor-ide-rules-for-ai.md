@@ -13,6 +13,8 @@ translations:
     slug: "cursor-ide-ai-bianma-guize-youhua"
   - language: "hi"
     slug: "cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye"
+  - language: "ar"
+    slug: "qawaid-cursor-ide-lilthakaa-alistinaei-tahseen-barmaja"
 ---
 
 # Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant

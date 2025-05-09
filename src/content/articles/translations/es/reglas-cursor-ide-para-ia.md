@@ -17,6 +17,8 @@ translations:
     slug: "cursor-ide-ai-bianma-guize-youhua"
   - language: "hi"
     slug: "cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye"
+  - language: "ar"
+    slug: "qawaid-cursor-ide-lilthakaa-alistinaei-tahseen-barmaja"
 ---
 
 # Reglas de Cursor IDE para IA: Guías para un Asistente de IA Especializado
