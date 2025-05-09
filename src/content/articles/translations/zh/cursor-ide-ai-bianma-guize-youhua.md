@@ -14,6 +14,8 @@ translations:
     slug: "cursor-ide-rules-for-ai"
   - language: "es"
     slug: "reglas-cursor-ide-para-ia"
+  - language: "hi"
+    slug: "cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye"
 ---
 
 # Cursor IDE AI编码规则深度优化：提升开发效率的实战指南
