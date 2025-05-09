@@ -5,346 +5,142 @@ alwaysApply: false
 ---
 # Business-Casual-Plus Writing Style Guide
 
-This guide describes my preferred writing style that blends professional business-casual tone with just enough personality to feel authentic and engaging. It's designed to avoid AI-sounding language while maintaining professionalism.
+Professional business-casual tone with personality. Avoids AI-sounding language while maintaining professionalism.
 
 ## Core Principles
 
-1. **Professional but human** - Balance clarity and professionalism with natural human expression
-2. **Slightly informal** - Cross the formal business line occasionally for relatability
-3. **Avoid AI patterns** - Eliminate common AI linguistic patterns and overly-structured content
-4. **Personal touches** - Include genuine experiences and light humor without oversharing
-5. **Conversations, not presentations** - Write as if speaking to a respected colleague over coffee
-6. **Globally accessible** - Use clear, straightforward English that non-native speakers can easily understand
+1. **Professional but human** - Balance clarity with natural expression
+2. **Slightly informal** - Cross formal lines occasionally for relatability
+3. **Avoid AI patterns** - Eliminate AI linguistic patterns
+4. **Personal touches** - Include experiences and light humor
+5. **Conversational** - Write as if speaking to a respected colleague
+6. **Globally accessible** - Clear English for non-native speakers
 
-## Style Elements
+## Voice and Tone
 
-### Voice and Tone
+✅ **Do**: Use first-person, vary sentence length, include mild colloquialisms, express genuine feelings, add occasional asides.
 
-✅ **Do This**:
-- Use first-person perspective frequently ("I've found" rather than "It has been found")
-- Vary sentence length naturally - mix short punchy statements with occasional longer thoughts
-- Include mild colloquialisms that reflect actual speech patterns
-- Express genuine enthusiasm or frustration when relevant
-- Add occasional parenthetical asides (like this one!) to inject personality
+❌ **Avoid**: Hedging language, unnecessary qualifiers, academic detachment, formal transitions, robotic parallelism.
 
-❌ **Avoid This**:
-- Hedging language ("perhaps," "it could be argued that")
-- Unnecessary qualifiers ("very," "quite," "extremely")
-- Academic detachment or third-person perspective
-- Overly formal transitions ("Furthermore," "In conclusion")
-- Robotic parallelism in consecutive sentences
+## Vocabulary
 
-### Vocabulary Choices
+✅ **Do**: Explain jargon casually, use colorful verbs, natural metaphors, contractions, relevant references, simple words.
 
-✅ **Do This**:
-- Use industry jargon when appropriate, but explain it casually
-- Choose colorful verbs over adverb+verb combinations ("rocketed" vs "increased dramatically")
-- Include occasional metaphors that feel natural in conversation
-- Use contractions liberally (I'm, you'll, doesn't, can't)
-- Occasionally reference pop culture or everyday experiences when relevant
-- Prefer simple, widely understood words over obscure or academic alternatives
+❌ **Avoid**: AI phrases ("It is worth noting"), thesaurus abuse, complex vocabulary, generic statements, perfectly balanced viewpoints.
 
-❌ **Avoid This**:
-- AI-typical phrases ("It is worth noting," "As an expert in")
-- Perfect synonyms in consecutive paragraphs (clear sign of thesaurus usage)
-- Overly complex vocabulary when simpler words would work
-- Generic, non-committal statements ("many people believe")
-- Perfectly balanced opposing viewpoints (too even-handed)
-- SAT vocabulary that forces international readers to use a dictionary
+## Structure
 
-### Structure and Formatting
+✅ **Do**: Start with conversational hooks, casual section headings, one-sentence paragraphs, rhetorical questions, brief anecdotes.
 
-✅ **Do This**:
-- Start with a hook that feels conversational
-- Use section headings that could work as casual speech
-- Include occasional one-sentence paragraphs for emphasis
-- Embed rhetorical questions that acknowledge the reader
-- Add personal anecdotes that illustrate a point (briefly)
+❌ **Avoid**: Symmetrical structure, parallel headings ("The Power of X, The Impact of Y"), predictable organization, unnecessary previews.
 
-❌ **Avoid This**:
-- Perfectly symmetrical structure throughout (introduction, 3 points, conclusion)
-- Overly parallel section headings (AI loves patterns like "The Power of X, The Impact of Y")
-- Predictable paragraph organization (claim, evidence, reiteration)
-- Unnecessary summaries of what's coming next
-- Formulaic "In this article, we will explore" introductions
+## AI Patterns to Avoid
 
-### Specific AI Patterns to Avoid
+- **Transitions**: "Moreover," "Furthermore," "Additionally"
+- **Hedges**: "It is important to note"
+- **Redundancy**: "Extremely important"
+- **Qualifiers**: "Various studies show"
+- **Intensifiers**: "Truly," "deeply"
+- **Passive voice**: "It has been found that"
+- **False balance**: Equal treatment of unequal viewpoints
+- **Perfect symmetry**: Identical paragraph structures
+- **Empty phrases**: "In today's fast-paced world"
 
-- **Excessive transitions**: "Moreover," "In addition," "Furthermore," "Additionally"
-- **Hedge phrases**: "It is important to note," "It is worth mentioning"
-- **Redundant emphasis**: "Extremely important," "highly significant"
-- **Generic qualifiers**: "Various studies show," "many experts agree"
-- **Overused intensifiers**: "Truly," "deeply," "significantly"
-- **Passive voice prevalence**: "It has been found that" (vs "I found that")
-- **Excessive balance**: Always presenting both sides perfectly equally
-- **Overly comprehensive lists**: AI tries to be exhaustive rather than selective
-- **Perfect paragraph symmetry**: Each paragraph having identical structure
-- **Empty phrasing**: "In today's fast-paced world"
+## International Accessibility
 
-## Accessibility for International Readers
+**Do**: Simple sentences, explain idioms, global examples, define terms, active voice, short paragraphs, visual aids.
 
-Many of your readers will not be native English speakers. This doesn't mean "dumbing down" your content – it means being thoughtful about language accessibility:
+**Avoid**: Regional slang, complex clauses, wordplay, obscure references, fancy synonyms, compound-complex sentences.
 
-### Do This:
-- **Use straightforward sentence structures** - Subject-verb-object patterns are easier to follow
-- **Explain idioms when you use them** - If you say something is "a piece of cake," briefly clarify it means "easy"
-- **Choose internationally recognized examples** - Reference global brands or widely known concepts
-- **Define industry terms** - Don't assume everyone knows your field's terminology
-- **Use active voice** - "We improved the system" instead of "The system was improved"
-- **Break up long paragraphs** - Shorter text blocks are easier to process in a second language
-- **Include visual aids when possible** - Diagrams and images can cross language barriers
+**Examples**:
+- **Bad**: "The utilization of sophisticated nomenclature invariably precipitates comprehension impediments."
+- **Good**: "Using fancy words makes your content harder to read for people who learned English as a second language."
 
-### Avoid This:
-- **Regional slang** - Terms specific to one English-speaking country
-- **Complex clauses with multiple commas** - These create translation challenges
-- **Puns and wordplay** - These rarely translate well across languages
-- **Obscure cultural references** - References that only locals would understand
-- **Unnecessarily fancy synonyms** - Using "utilize" instead of "use" adds no value but increases difficulty
-- **Compound-complex sentences** - Multiple ideas in one long sentence becomes a cognitive burden
+## Examples
 
-### Examples:
+**AI-Sounding (Avoid)**:
+"In today's rapidly evolving digital landscape, content distribution has become increasingly important for personal branding. Many experts agree that a strategic approach is necessary."
 
-**Too Complex**: "The utilization of sophisticated nomenclature invariably precipitates comprehension impediments among diverse international audiences endeavoring to assimilate content in a non-native linguistic context."
+**Business-Casual-Plus (Use)**:
+"I wasted a year posting content nobody saw before realizing most platforms aren't actually designed to help you reach new people. After some painful trial and error, I've sorted my content channels into three buckets: ones that actually bring in new eyeballs, ones that make me look credible when someone Googles me, and ones that just keep me connected with people who already know me."
 
-**Just Right**: "Using fancy words makes your content harder to read for people who learned English as a second language."
+## AI Word Red Flags
 
-**Too Complex**: "The content dissemination methodology necessitates adequate contemplation vis-à-vis the heterogeneous comprehension capacities of your prospective global readership contingent."
-
-**Just Right**: "When sharing content globally, remember that many readers will be translating your words in their heads. Keep it clear and direct."
-
-Remember: Writing accessibly doesn't mean sacrificing intelligence or insight. It means respecting your readers enough to make your ideas available to them without unnecessary language barriers.
-
-## Practical Examples
-
-### AI-Sounding (Avoid)
-
-"In today's rapidly evolving digital landscape, content distribution has become increasingly important for personal branding. Many experts agree that a strategic approach is necessary. It is worth noting that different platforms serve various purposes. Moreover, the algorithm-based platforms provide significant opportunities for exposure. Additionally, consistency is key for maintaining audience engagement."
-
-### Business-Casual-Plus (Use This)
-
-"I wasted a year posting content nobody saw before realizing most platforms aren't actually designed to help you reach new people. After some painful trial and error, I've sorted my content channels into three buckets: ones that actually bring in new eyeballs, ones that make me look credible when someone Googles me, and ones that just keep me connected with people who already know me. The first group is gold - everything else is just maintenance."
-
-### AI-Sounding (Avoid)
-
-"Multiple methodologies exist for content creation. Some professionals prefer video formats due to their visual engagement capabilities. Others utilize written content for its depth and searchability benefits. Additionally, short-form content has emerged as a significant medium. It is important to consider the unique advantages of each format."
-
-### Business-Casual-Plus (Use This)
-
-"I used to overthink my content format until a mentor gave me simple advice: 'Make what you won't abandon after two weeks.' For me, that's short articles. I've tried YouTube, but editing makes me want to throw my laptop out the window. My colleague Sara is the opposite - she can talk to a camera all day but freezes up with a blank document. Your best format is simply the one you'll stick with long enough to get good at it."
-
-## Word Choice Red Flags (AI Tells)
-
-Words and phrases that scream "AI-generated":
-
+Words that scream "AI-generated":
 - "Plethora"
 - "Myriad of"
 - "Facilitate"
 - "Optimal/optimize"
 - "Robust"
-- "Leverage" (as a verb)
+- "Leverage" (as verb)
 - "Utilize" (instead of "use")
 - "In terms of"
 - "It goes without saying"
 - "Needless to say"
-- "Crafting" (unless talking about actual crafts)
-- "Curated" (unless talking about art)
+- "Crafting" (unless actual crafts)
+- "Curated" (unless art)
 - "In the realm of"
 - "Synergy"
 - "State-of-the-art"
-- "Engage with" (instead of simpler verbs)
+- "Engage with"
 - "Impactful"
 - "Best practices"
 
-## Examples From My Content
-
-Here's how I apply this style in actual content:
-
-**Original (Too Formal)**: "The distribution of content across various platforms requires strategic consideration of audience demographics and platform-specific algorithms."
-
-**Revised (Business-Casual-Plus)**: "I've stopped posting everywhere just because I can. These days, I ask a simple question first: Will this platform actually show my stuff to people who don't already follow me?"
-
-**Original (Too Academic)**: "Social media platforms predominantly display content to users who have established connections with the content creator, limiting organic discovery by unconnected users."
-
-**Revised (Business-Casual-Plus)**: "What nobody told me was that most social platforms are built to connect you with people you already know, not to help you find new audiences. My follower count basically matched my real-life network size."
-
-## Final Thoughts
-
-This style works because it respects the reader's intelligence while acknowledging our shared humanity. It preserves professionalism but removes the artificial barrier that formal business writing often creates.
-
-The key is balance - maintain credibility through clear, thoughtful content while allowing just enough personality to remind readers there's a real person behind the words. When in doubt, read your writing aloud. If it would sound strange in a conversation with a respected peer, it probably needs adjustment.
-
 ## SEO Keyword Optimization
 
-Every article must incorporate strategic SEO optimization while maintaining the natural, human-sounding Business-Casual-Plus style.
+Every article must incorporate SEO optimization while maintaining natural style.
 
-### Keyword Integration Requirements
+### Keyword Requirements
 
-1. **Target Keyword List in Frontmatter** - Each article must include a list of target keywords and key phrases in its frontmatter metadata
-2. **Strategic Placement** - Target keywords must appear in:
-   - Article title
-   - Meta description
-   - H1 headline
-   - H2/H3/H4 subheadings (when relevant)
-   - First 100 words of content
-   - Throughout body text at appropriate density
-   - Image alt text (when applicable)
-   - Conclusion section
+1. **Frontmatter Keywords** - Include target keywords in frontmatter metadata
+2. **Strategic Placement** - Keywords in: title, meta description, H1, subheadings, first 100 words, body text, image alt text, conclusion
 
-### Keyword Implementation Guidelines
+**Do**: Use natural keyword flows, semantic variations, prioritize readability, answer keyword questions.
 
-✅ **Do This**:
-- Use exact-match keywords naturally within the flow of content
-- Include semantic variations and related terms
-- Prioritize readability over keyword density
-- Create content that genuinely answers questions related to target keywords
-- Incorporate keywords in transitions between sections when it feels natural
-- Use LSI (Latent Semantic Indexing) keywords to enhance topical relevance
+**Avoid**: Keyword stuffing, forced placement, sacrificing tone, awkward sentences, excessive repetition.
 
-❌ **Avoid This**:
-- Keyword stuffing that makes content sound unnatural
-- Forcing keywords where they don't fit contextually
-- Sacrificing the conversational tone for SEO purposes
-- Creating awkward sentences just to include keywords
-- Repeating the same exact keyword phrase too frequently
-- Using keywords in ways that disrupt the flow of reading
+**Example**:
+- **Bad**: "Looking for the best cursor rules for AI? These cursor rules for AI will improve your coding with AI."
+- **Good**: "I wasted months wrestling with inconsistent AI coding results until I finally built a set of cursor rules that actually worked."
 
-### Natural Keyword Integration Examples
+### SEO Headings Structure
+1. **H1**: Main title with primary keyword
+2. **H2**: Major sections with secondary keywords
+3. **H3/H4/H5**: Subsections with related terms
 
-**Forced/Unnatural (Avoid)**: "Looking for the best cursor rules for AI? These cursor rules for AI will improve your coding with AI. Using cursor rules for AI has transformed my workflow."
+**Process**: Research keywords → Add to frontmatter → Create keyword outline → Write value-focused draft → Review keyword placement → Check all locations → Confirm natural style
 
-**Natural Integration (Do This)**: "I wasted months wrestling with inconsistent AI coding results until I finally built a set of cursor rules that actually worked. These guidelines transformed my team's experience with AI assistants and saved us countless hours of back-and-forth."
+## Multilingual Guidelines
 
-### SEO-Friendly Headings Structure
-
-Structure your article headings to incorporate keywords while maintaining reader engagement:
-
-1. **H1**: Main title with primary keyword (only one per article)
-2. **H2**: Major section headings with secondary keywords
-3. **H3/H4/H5**: Subsection headings with related terms and variations
-
-Keep headings conversational and compelling while naturally incorporating target keywords. Every heading should serve both SEO and reader-value purposes simultaneously.
-
-### Content Creation Process
-
-1. Research target keywords and key phrases before writing
-2. Add these keywords to article frontmatter
-3. Create an outline that strategically incorporates keywords in headings
-4. Write first draft focusing on valuable content
-5. Review and naturally enhance keyword placement
-6. Confirm all target keywords appear in appropriate locations
-7. Check that the content still maintains the Business-Casual-Plus voice
-
-Always remember that valuable, engaging content that satisfies user intent will ultimately perform better than content artificially optimized for keywords alone. The goal is to integrate SEO best practices seamlessly within genuinely helpful, conversational content.
-
-## Multilingual Content Guidelines
-
-As a multilingual website supporting multiple languages (English, Spanish, Chinese, Arabic, Hindi), content must maintain consistent quality and style across all languages while respecting linguistic and cultural differences.
+Support multiple languages (English, Spanish, Chinese, Arabic, Hindi) with consistent quality.
 
 ### Translation Principles
+1. **Consistent Style** - Same Business-Casual-Plus style across languages
+2. **Cultural Adaptation** - Adapt examples for cultural context
+3. **Technical Accuracy** - Preserve technical meaning
+4. **Natural Language** - Should sound natural to native speakers
+5. **Appropriate Formality** - Maintain professional but approachable tone
 
-1. **Consistent Style Across Languages** - The Business-Casual-Plus style described in this guide applies to all languages
-2. **Cultural Adaptation** - Adapt examples and idioms to resonate with each language's cultural context
-3. **Technical Accuracy** - Maintain precise technical meaning when translating specialized content
-4. **Natural Language** - Translations should sound natural to native speakers, not like translated text
-5. **Appropriate Formality Level** - Maintain the slightly informal but professional tone in each language
+### Keep in English
+- Programming languages, frameworks, technical abbreviations
+- Brand names, established technical terms developers know in English
 
-### Technical Term Translation Rules
+### Translate
+- User-facing features, concept explanations, benefits
+- User actions, error messages
 
-#### Terms to Keep in Latin/English Script
+### Code Examples
+- Keep code in English
+- Translate only comments and user-visible text
 
-Some technical terms should NOT be translated and should remain in their original Latin script form:
+### Language Adjustments
+- **Spanish**: Break up long sentences, keep warm tone
+- **Chinese**: More concise, clearer, fewer idioms
+- **Arabic**: Respect formal structures while staying approachable
+- **Hindi**: Find middle ground between formal/informal
 
-- **Programming languages**: JavaScript, Python, TypeScript, etc.
-- **Framework names**: React, Next.js, etc.
-- **Technical abbreviations**: API, SEO, CSS, HTML, etc.
-- **Brand names**: GitHub, Vercel, etc.
-- **Established technical terms**: Commonly used terms that local developers know by their English names (e.g., "debugging", "frontend", "backend")
-
-#### Terms That Should Be Translated
-
-Other terms should be translated into the target language:
-
-- **User-facing features**: Features that users interact with
-- **Concept explanations**: Explanations of how technologies work
-- **Benefits descriptions**: Descriptions of what users gain
-- **User actions**: Actions that users take when using a product
-- **Error messages**: Messages that explain what went wrong
-
-### Code Examples and Comments
-
-When presenting code examples in translated content:
-
-- **Code Remains in English**: The actual code (variables, functions, etc.) should ALWAYS remain in English
-- **Comments Should Be Translated**: Translate code comments into the target language
-- **String Literals in Code**: Text within quotes that would appear to users should be translated
-
-Example of proper code translation in Spanish article:
-
-```typescript
-// Original English
-function calculateTotalPrice(items: CartItem[]): number {
-  // Calculate sum of all items with tax
-  return items.reduce((total, item) => {
-    return total + (item.price * item.quantity * (1 + TAX_RATE));
-  }, 0);
-}
-
-// Spanish Translation
-function calculateTotalPrice(items: CartItem[]): number {
-  // Calcular la suma de todos los artículos con impuestos
-  return items.reduce((total, item) => {
-    return total + (item.price * item.quantity * (1 + TAX_RATE));
-  }, 0);
-}
-```
-
-Notice how the code remains identical while only the comments are translated.
-
-### Regional Term Adaptation
-
-Each language has its own set of technical terms that may differ by region. Consider these examples:
-
-- **Spanish**: 
-  - Some regions prefer "computadora" while others use "ordenador"
-  - "Sitio web" vs "página web"
-  - "Servidor" is universally understood
-  
-- **Chinese**:
-  - Most technical terms have standard Chinese translations
-  - Some newer terms may be better left in English with Chinese explanation
-  - Many developers prefer seeing English technical terms in parentheses after the Chinese translation
-
-- **Arabic** and **Hindi**:
-  - Technical IT terminology often remains in English
-  - UI elements and user-facing concepts should be translated
-  - Code-related terms usually remain in English
-
-### Language-Specific Style Adjustments
-
-While maintaining the core Business-Casual-Plus style, each language requires specific adjustments:
-
-- **Spanish**: Spanish tends to use longer sentences than English. Break up very long sentences while keeping the slightly formal but warm tone.
-  
-- **Chinese**: Chinese writing is typically more concise. Focus on clarity with fewer idioms and more direct statements.
-  
-- **Arabic**: Arabic uses more formal honorifics and politeness structures. Maintain respect while keeping the approachable tone.
-  
-- **Hindi**: Hindi can vary between very formal and informal. Aim for middle ground with clear explanations of technical concepts.
-
-### Translation Review Process
-
-All translated content should undergo this review process:
-
-1. Initial translation by a fluent technical writer
-2. Technical review by a developer who speaks the target language
-3. Cultural/style review to ensure the writing feels natural and maintains the right tone
-4. Final check against the original to ensure no meaning was lost
-
-### Key Takeaways for Multilingual Content
-
-- Apply the Business-Casual-Plus style to all languages
-- Be conscious of which terms to translate and which to keep in English
-- Translate code comments but never the code itself
-- Adapt examples to be culturally relevant
-- Maintain consistent voice and terminology across all translations
-- Remember that clear, approachable content is our priority in every language 
+### Review Process
+1. Initial translation by fluent technical writer
+2. Technical review by developer who speaks target language
+3. Cultural/style review for natural tone
+4. Final check against original 
