@@ -5,49 +5,23 @@ alwaysApply: true
 ---
 # Sitemap LastMod Calculation
 
-This document describes how the sitemap.xml lastmod timestamps are calculated using GitHub commit history.
+The sitemap.xml lastmod timestamps are calculated using GitHub commit history.
 
-## LastMod Calculation Process
+## Key Implementation
 
-The website uses a Git-based approach to determine lastmod dates for the sitemap:
+- **For articles**: Uses lastmod from frontmatter or last commit date of the markdown file
+- **For other pages**: Maps URLs to source files and uses the most recent commit date
 
-1. For articles:
-   - Uses the lastmod date from frontmatter if available
-   - If not available, retrieves the last commit date for the article's markdown file
+## Important Files
 
-2. For other pages:
-   - Maps each URL to its relevant source files (components, data files, CSS)
-   - Retrieves the last commit date for each file using GitHub API
-   - Uses the most recent date among all relevant files
+- `lib/fileModification.ts`: Contains `pageFilesMap` (URL paths → source files) and GitHub API functions
+- `app/sitemap.ts`: Generates the sitemap using the file modification utilities
 
-## Implementation Details
+## Maintenance Alert
 
-The implementation uses GitHub API to fetch commit history:
+**When adding new pages or changing file structures:**
+- Update `pageFilesMap` in `fileModification.ts`
+- Add global components to `commonFiles` array
+- Update route-specific file arrays as needed
 
-```typescript
-// Getting last commit date for a file
-async function getFileLastCommitDate(filePath: string): Promise<Date> {
-  // GitHub credentials from environment variables
-  const token = process.env.GITHUB_TOKEN;
-  const owner = process.env.VERCEL_GIT_REPO_OWNER;
-  const repo = process.env.VERCEL_GIT_REPO_SLUG;
-  
-  // API call to GitHub
-  const githubUrl = `https://api.github.com/repos/${owner}/${repo}/commits?path=${filePath}&page=1&per_page=1`;
-  
-  // Return the date from the most recent commit
-  // Falls back to current date if API call fails
-}
-```
-
-## Key Files in Implementation
-
-- `lib/fileModification.ts`: 
-  - Contains the core functions for getting file modification dates
-  - Defines mapping between page URLs and their source files
-  - Implements GitHub API integration
-
-- `app/sitemap.ts`: 
-  - Uses the file modification utilities to generate sitemap
-  - Applies appropriate changefreq and priority values
-  - Handles both static routes and dynamic article routes
+Failure to maintain this mapping will result in incorrect lastmod dates and may affect SEO.
