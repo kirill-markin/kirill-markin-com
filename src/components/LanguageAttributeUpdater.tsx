@@ -8,22 +8,30 @@ export default function LanguageAttributeUpdater() {
     const pathname = usePathname();
 
     useEffect(() => {
-        // Извлекаем языковой код из URL
+        // Extract language code from URL
         const pathParts = pathname.split('/').filter(Boolean);
         let lang = DEFAULT_LANGUAGE;
 
-        // Если первая часть пути - это поддерживаемый язык, используем его
+        // If the first part of the path is a supported language, use it
         if (pathParts.length > 0 && SUPPORTED_LANGUAGES.includes(pathParts[0])) {
             lang = pathParts[0];
         }
 
-        // Берем только основной языковой код (первые 2 буквы) без региона
+        // Take only the main language code (first 2 letters) without region
         const mainLang = lang.split('-')[0];
 
-        // Обновляем атрибут lang на HTML элементе
+        // Update the lang attribute on the HTML element
         document.documentElement.lang = mainLang;
+
+        // Set the dir attribute based on the language
+        // For Arabic language use RTL (right to left)
+        if (mainLang === 'ar') {
+            document.documentElement.dir = 'rtl';
+        } else {
+            document.documentElement.dir = 'ltr';
+        }
     }, [pathname]);
 
-    // Этот компонент не рендерит видимый UI
+    // This component doesn't render any visible UI
     return null;
 } 
