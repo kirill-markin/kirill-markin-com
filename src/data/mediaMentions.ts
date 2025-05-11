@@ -57,17 +57,14 @@ export const mediaMentions: MediaMention[] = [
     achievementLabel: null
   },
   {
-    title: "How to\u00A0write code with\u00A0AI, ChatGPT? From\u00A0scratch to\u00A068 GitHub stars",
-    url: "https://youtu.be/9MyJJRMRCW0?si=T2o6DG8iSBheMFfG",
-    publisher: "Kirill Markin",
-    date: "2024-01-21",
-    type: "Video",
+    title: "Generative AI for 80% Customer Support Automation",
+    url: "https://www.oreilly.com/library/view/generative-ai-for/9781806112791/",
+    publisher: "O'Reilly",
+    date: "2025-05-01",
+    type: "Tech Report",
     language: "en",
-    thumbnailUrl: "/articles/kirill-2024-01-21.webp",
-    websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "5,100",
-    achievementLabel: "views",
-    isVideo: true
+    thumbnailUrl: "/articles/oreilly-2025-05-01.webp",
+    websiteLogoUrl: "/logos/oreilly.png",
   },
   {
     title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
@@ -106,6 +103,19 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/verigram-2023-09-08.webp",
     websiteLogoUrl: "/logos/verigram.png"
+  },
+  {
+    title: "How to\u00A0write code with\u00A0AI, ChatGPT? From\u00A0scratch to\u00A068 GitHub stars",
+    url: "https://youtu.be/9MyJJRMRCW0?si=T2o6DG8iSBheMFfG",
+    publisher: "Kirill Markin",
+    date: "2024-01-21",
+    type: "Video",
+    language: "en",
+    thumbnailUrl: "/articles/kirill-2024-01-21.webp",
+    websiteLogoUrl: "/logos/youtube.png",
+    achievementValue: "5,100",
+    achievementLabel: "views",
+    isVideo: true
   },
   {
     title: "Build with\u00A0AI Custom ERP and\u00A0CRM - No\u00A0Code Required",
