@@ -1,0 +1,33 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Kirill Markin
+N:Markin;Kirill;;;
+EMAIL;TYPE=INTERNET;TYPE=HOME:markinkirill@gmail.com
+item1.TEL:+31 6 253 51137
+item1.X-ABLabel:main
+NOTE:Startup, SMB, SaaS, CRM, ERP, Data Science, Data Engineer
+ADR;TYPE=HOME:;;;Amsterdam;;1054GJ;NL;1054GJ Amsterdam\nNL
+item2.ORG:ozma.io
+item2.X-ABLabel:
+item3.TITLE:Founder
+item3.X-ABLabel:
+BDAY:19930102
+item4.URL:https\://kirill-markin.com
+item4.X-ABLabel:homePage
+item5.URL:https\://ozma.io
+item5.X-ABLabel:Ozma Inc.
+item6.URL:https\://www.linkedin.com/in/kirill-markin
+item6.X-ABLabel:LinkedIn
+item7.URL:https\://www.instagram.com/kirill.markin.kira/
+item7.X-ABLabel:Instagram
+item8.URL:https\://www.facebook.com/kirill.markin.kira
+item8.X-ABLabel:Facebook
+item9.URL:https\://twitter.com/kirill_markin_
+item9.X-ABLabel:Twitter
+item10.URL:https\://t.me/kirmark
+item10.X-ABLabel:Telegram
+item11.URL:https\://api.whatsapp.com/send?phone=31625351137
+item11.X-ABLabel:WhatsApp
+PHOTO:https://kirill-markin.com/data/kirill-200x200.jpg
+CATEGORIES:myContacts
+END:VCARD
