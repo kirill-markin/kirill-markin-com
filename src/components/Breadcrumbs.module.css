@@ -1,9 +1,9 @@
 .breadcrumbsContainer {
   padding: 0.5rem 1rem;
-  max-width: 1470px;
   margin: 0 auto;
   width: 100%;
-  margin-top: 41px; /* Account for 40px header height + 1px border */
+  margin-top: 41px;
+  /* Account for 40px header height + 1px border */
   border-bottom: 1px solid var(--dark-gray);
   background-color: var(--background);
 }
@@ -50,10 +50,11 @@
 @media (max-width: 768px) {
   .breadcrumbsContainer {
     padding: 0.5rem 1rem;
-    margin-top: 41px; /* Same for mobile */
+    margin-top: 41px;
+    /* Same for mobile */
   }
-  
+
   .breadcrumbItem {
     font-size: 0.75rem;
   }
-} 
+}
