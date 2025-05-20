@@ -1,0 +1,43 @@
+---
+description: Instructions for updating the CV PDF file in the website
+globs: 
+alwaysApply: false
+---
+
+# CV File Update Process
+
+## Overview
+
+The website hosts a PDF version of Kirill's resume/CV. This file needs to be updated whenever the CV is modified.
+
+## Source Location
+
+The master copy of the CV is located at:
+```
+/Users/kirill/_my_local/code-local/personal/cv-kirill-markin/data-engineer/cv-kirill-markin-data-engineer.pdf
+```
+
+## Update Process
+
+1. When the CV needs to be updated:
+   - Make changes to the master copy in the source location
+   - Export/save the updated PDF
+   - Copy the new PDF to the website's public directory
+
+2. Update command:
+   ```bash
+   cp /Users/kirill/_my_local/code-local/personal/cv-kirill-markin/data-engineer/cv-kirill-markin-data-engineer.pdf public/data/
+   ```
+
+3. After copying, commit and push the changes:
+   ```bash
+   git add public/data/cv-kirill-markin-data-engineer.pdf
+   git commit -m "Update CV with latest version"
+   git push
+   ```
+
+## Important Notes
+
+- No other changes required - simply replacing the PDF file is sufficient
+- The file name must remain consistent: `cv-kirill-markin-data-engineer.pdf`
+- Ensure the PDF is optimized for web viewing (reasonable file size)
