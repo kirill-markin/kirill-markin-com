@@ -332,132 +332,82 @@ This scales beautifully—never ranking hundreds of tasks globally, just sibling
 
 ### The JTBD Decision Framework for Task Organization
 
-The Jobs to Be Done framework gives me a consistent mental model for making organizational decisions quickly and strategically. Instead of getting bogged down in database administration, I focus on the underlying purpose each task serves in my life. This approach makes inbox processing both faster and more thoughtful.
-
-The framework prevents two common productivity mistakes: random categorization and overthinking. Random categorization happens when you just stick tasks wherever they seem to fit without thinking about why. Overthinking happens when you spend more time organizing tasks than you would actually doing them. JTBD finds the sweet spot—enough strategic thinking to create useful organization, not so much that processing becomes a bottleneck.
-
-What makes this framework particularly powerful in Notion is that the database structure supports the mental model perfectly. Life directions reflect the types of wealth or fulfillment I'm trying to create. Projects represent specific outcomes I'm working toward. Tasks are the jobs I need to hire to make those outcomes happen. The organization mirrors the thinking.
+JTBD prevents random categorization and overthinking. It finds the sweet spot: enough strategic thinking for useful organization, not so much that processing becomes a bottleneck.
 
 #### The Four Key Questions for Every New Task
 
-Every inbox item gets evaluated through the same four-question framework. These questions happen quickly—the whole evaluation usually takes 15-30 seconds per task—but they ensure every organizational decision is intentional rather than arbitrary.
+Quick evaluation (15-30 seconds per task) ensures intentional decisions:
 
-**1. What job am I hiring this task to do?** This is the core JTBD question adapted for personal productivity. Instead of asking where a task goes, I ask what outcome it's supposed to create. "Research standing desks" isn't just a research task—it's a job I'm hiring to improve my physical health and work comfort. This purpose determines everything else.
+**1. What job am I hiring this task to do?** Focus on outcome, not location. "Research standing desks" = improve health/comfort.
 
-**2. Which life direction does this job serve?** Once I understand the underlying purpose, the life direction usually becomes obvious. Health-related jobs serve Body. Learning jobs serve Mental. Efficiency jobs serve Time. The five-direction framework is comprehensive enough to handle anything I throw at it.
+**2. Which life direction does this job serve?** Health → Body. Learning → Mental. Efficiency → Time.
 
-**3. Is this job part of a larger project, or standalone?** This question determines the hierarchical placement. Some jobs are complete in themselves ("schedule dentist appointment"). Others are components of bigger outcomes ("research standing desks" as part of "optimize home office setup"). The hierarchy reflects these natural relationships.
+**3. Standalone job or part of larger project?** "Schedule dentist" = standalone. "Research standing desks" = part of "optimize home office."
 
-**4. How important is this job relative to other jobs in the same area?** This becomes the sort position. I'm not asking how important this task is globally—just how it ranks against other work in the same project or direction. This relative thinking keeps the prioritization manageable and accurate.
+**4. How important relative to other jobs in same area?** Becomes sort position within the container.
 
-These four questions create a decision tree that handles virtually any task I capture. The framework is flexible enough to accommodate different types of work but structured enough to ensure consistent, strategic organization.
+This creates a decision tree that handles virtually any captured task with consistent, strategic organization.
 
-#### Avoiding Action Dates: When and Why
 
-The final crucial element of my JTBD task organization approach is the deliberate avoidance of action dates during processing. This might seem counterintuitive—shouldn't organizing tasks include scheduling them?—but it's essential for maintaining the psychological sustainability of the system.
-
-Here's the key insight: **processing and scheduling are different mental modes that shouldn't be mixed.** When I'm clearing my inbox, I'm in categorization mode—thinking about relationships, priorities, and strategic placement. When I'm planning specific days, I'm in execution mode—thinking about energy, context, and realistic commitments.
-
-Mixing these modes leads to two problems. First, it slows down processing dramatically. Instead of quick strategic decisions about placement and priority, I get bogged down in calendar optimization and time estimation. Second, it creates the artificial deadline problem I've worked so hard to avoid—I end up assigning arbitrary dates just to feel organized, which leads to task avalanches later.
-
-**During processing, sort positions replace action dates.** Instead of deciding when I'll do each task, I decide what order I'll do them when I have capacity for that area. This approach scales infinitely—I can have hundreds of tasks organized by priority without any risk of overwhelming deadline pileups.
-
-**Action dates get assigned later, during daily or weekly planning.** When I'm specifically choosing what to commit to tomorrow or this week, I promote selected tasks from "sort position priority" to "time-specific commitment" by adding action dates. This keeps the number of dated tasks small and manageable.
-
-The psychological difference is enormous. Instead of feeling controlled by a calendar full of arbitrary deadlines, I feel in control of a well-organized system that I can navigate based on my current priorities and energy. The JTBD framework ensures that when I do choose to work on something, it's strategically aligned with my bigger goals rather than just randomly selected from an overwhelming list.
 
 ## Weekly Goal Reviews: Staying on Track with Quarterly Targets
 
-The weekly goal review is what transforms quarterly planning from wishful thinking into actual progress. Without regular check-ins, goals become those January resolutions that get forgotten by March. With weekly reviews, they become living commitments that adapt and evolve while maintaining forward momentum.
+Weekly reviews transform quarterly goals from wishful thinking into actual progress. Without regular check-ins, goals become forgotten January resolutions. With weekly reviews, they become living commitments with forward momentum.
 
-I learned this lesson the hard way after setting ambitious quarterly goals that sounded great in planning sessions but completely disappeared from my daily reality. The problem wasn't the goals themselves—it was the lack of regular connection between daily tasks and quarterly outcomes. Weekly reviews create that connection by forcing me to evaluate progress honestly and adjust course when needed.
-
-The beauty of tracking quarterly goals in Notion is that everything connects. My weekly review isn't happening in isolation—I can see how this week's progress relates to the tasks I've been working on, the projects that support each goal, and the bigger life directions that drive everything. The hierarchy that supports daily task management also supports strategic goal tracking.
+In Notion, everything connects—weekly progress relates to daily tasks, supporting projects, and life directions. The same hierarchy that handles task management supports strategic goal tracking.
 
 ### The 8% Weekly Progress System
 
-The math behind quarterly goal tracking is elegantly simple: 12 weeks per quarter means each week represents roughly 8% progress toward your quarterly goals. This isn't perfect arithmetic—some weeks you'll make more progress, others less—but it provides a concrete benchmark for honest self-evaluation.
+Simple math: 12 weeks per quarter = ~8% progress per week. Every Friday, I ask "Did I make meaningful progress this week?" and update the Progress field accordingly (8% normal, 10-12% exceptional, 3-5% minimal, 0% ignored).
 
-Every Friday, I review each of my five quarterly goals and ask: "Did I make meaningful progress on this goal this week?" If yes, I add roughly 8% to the Progress field in Notion. If I made exceptional progress, maybe 10-12%. If I barely moved the needle, maybe 3-5%. If I completely ignored the goal, 0%.
+**Power is in regular accountability, not perfect measurement.** This quickly reveals which goals are on track versus falling behind. 30% progress in week 8 = problem requiring immediate attention.
 
-**The power isn't in perfect measurement—it's in regular accountability.** The specific percentages matter less than the weekly ritual of honestly evaluating whether I'm actually advancing my most important objectives or just staying busy with random tasks.
+**Friday ritual:** Review what I actually did (not intended), update percentages based on concrete progress.
 
-This system quickly reveals which goals are on track and which are falling behind. If I'm six weeks into a quarter and a goal is sitting at 20% progress, I have a problem. Either I need to dramatically increase focus on that area, or I need to adjust the goal to something more realistic given my other commitments.
-
-The 8% system also prevents the classic goal-setting trap of checking in once at the end of the quarter and realizing you've made no progress. Weekly check-ins mean I'm constantly aware of whether I'm on track, which enables course corrections while there's still time to recover.
-
-Here's how I structure the weekly review in Notion:
-
-**Friday Goal Review Ritual:** I open my Goals view, which shows all five quarterly goals with their current progress percentages. For each goal, I review what I actually did this week that advanced it, not what I planned to do or intended to do. Based on concrete progress, I update the percentage.
-
-**Monday Planning Connection:** When I'm planning the following week, I can see which goals need more attention based on their progress rates. A goal at 60% progress in week 8 is ahead of schedule. A goal at 30% progress in week 8 needs immediate prioritization.
-
-The weekly rhythm creates a natural feedback loop between strategic planning and tactical execution. Goals inform weekly priorities, weekly work creates goal progress, and weekly reviews reveal whether the connection is working.
+**Monday connection:** Goals with low progress rates get prioritized in weekly planning. Creates natural feedback loop between strategic goals and tactical execution.
 
 ### Tracking Quarterly Goal Completion in Notion
 
-The Notion setup for goal tracking builds on the same database structure that handles daily tasks, but with specific properties and views designed for quarterly thinking. Each goal entry has Type = "Goal" and includes additional fields that support the weekly review process.
+Goals use the same database structure as daily tasks, with Type = "Goal" and additional tracking properties:
 
-**Progress Field (Number):** This percentage field gets updated every Friday during my weekly review. It's the central metric that shows whether I'm on track for quarterly completion. I can sort and filter goals by progress to quickly identify which areas need more attention.
+**Progress Field:** Updated weekly, shows quarterly completion percentage  
+**Target Date:** Shared quarter-end date for all goals  
+**Parent Relationship:** Each goal belongs to a life direction  
 
-**Target Date Field:** All my quarterly goals share the same target date—the end of the current quarter. This creates visual unity and reminds me that these are parallel commitments, not sequential projects. When the quarter ends, I can quickly see which goals reached 100% and which fell short.
+**Goal Progress Dashboard:** Custom view showing all five goals with progress percentages and supporting projects. Quick visual of what's thriving versus needing attention.
 
-**Parent Relationship:** Each goal belongs to one of my five life directions, which creates the hierarchical connection between daily tasks and quarterly outcomes. Tasks support projects, projects advance goals, goals serve life directions. The chain of purpose is always visible.
+**Weekly Review Template:** Recurring Friday task with all five goals and space for progress notes. Keeps reviews consistent and prevents skipping harder-to-evaluate goals.
 
-**Supporting Projects View:** I can filter my database to show all projects that belong to each goal, which reveals whether I'm actually working on things that matter for quarterly progress. Sometimes I discover I'm busy with tasks that don't connect to any of my stated quarterly priorities—a clear signal to either adjust my tasks or reconsider my goals.
-
-The magic happens in the interconnections. When I'm processing my daily inbox and assigning parent relationships, some tasks naturally connect to projects that support quarterly goals. Others connect to ongoing maintenance areas that don't have specific quarterly targets. Both are valid, but the distinction is visible.
-
-**Goal Progress Dashboard:** I created a Notion view that shows all five goals with their progress percentages, target dates, and supporting projects. This becomes my quarterly dashboard—I can see at a glance which areas are thriving and which need attention.
-
-**Weekly Review Template:** I have a recurring task (with Status = "Periodic") that appears every Friday called "Weekly Goal Review." This task includes a template with all five goals and space for notes about specific progress made this week. The template keeps the review consistent and ensures I don't skip goals just because they're harder to evaluate.
-
-The system scales beautifully across quarters. At the end of each quarter, I can see exactly which goals reached completion and which didn't. Instead of vague feelings about whether the quarter was "productive," I have concrete data about whether I accomplished what I set out to do. This historical data informs better goal-setting for future quarters.
+At quarter end, concrete data replaces vague "productive" feelings. Historical data informs better future goal-setting.
 
 ## Why This Notion System Beats Traditional Task Managers
 
-After years of cycling through productivity apps and abandoning systems that couldn't handle real-world complexity, I've identified the core problems that make most task managers fail at scale. They're not technical problems—they're fundamental design choices that work fine for simple scenarios but break down when life gets complicated.
+Traditional task managers fail because they're built around two flawed assumptions: all tasks should be treated equally, and scheduling everything creates productivity. My Notion system flips both assumptions.
 
-Traditional task managers are built around two flawed assumptions: that all tasks should be treated equally, and that scheduling everything is the path to productivity. My Notion system flips both assumptions and creates a framework that actually scales with the messy reality of managing hundreds of competing priorities.
-
-The difference isn't just about features or interface design—it's about mental models. Most task managers impose their structure on your work. Notion lets you create structure that matches how your brain actually thinks about getting things done. The result is a system that feels natural rather than constraining, which means you actually use it instead of abandoning it after a few months.
+The difference isn't features—it's mental models. Most task managers impose their structure on your work. Notion lets you create structure matching how your brain thinks about getting things done. Result: natural-feeling system you actually use instead of abandoning after months.
 
 ### No More Task Avalanches: Flexible vs Rigid Structure
 
-The single biggest reason I abandoned every previous task management system was the same: task avalanches. I'd assign due dates to everything, get busy for a few days, then open the app to find 50+ overdue items staring back at me. The psychological weight was crushing, and the obvious solution was to close the app and pretend the tasks didn't exist.
+**My Notion system eliminates task avalanches by treating dates as the exception.** Most tasks live without action dates, organized by sort position. Only genuine deadlines get dates, keeping daily "active" lists to 3-7 manageable items.
 
-Traditional task managers create this problem by design. They're built around the assumption that every task should have a due date, that scheduling is the primary organizational tool, and that overdue tasks should be visually prominent to create urgency. These design choices work great for people with simple, predictable workflows. They're disastrous for anyone managing complex, interconnected work with varying priorities.
+**Flexible hierarchy replaces rigid categories.** Parent-child relationships can be reorganized as understanding evolves. "Research standing desk" moves between health/productivity/office setup as motivation becomes clear.
 
-**My Notion system eliminates task avalanches by treating dates as the exception, not the rule.** Most tasks live happily without action dates, organized by sort position within their parent containers. Only tasks that genuinely need to happen on specific days get action dates. This keeps the daily "active" list manageable (3-7 items) while keeping hundreds of other tasks organized and accessible when needed.
+**Sort positions replace arbitrary deadlines.** Instead of "When should I do this?" (artificial urgency), ask "What order when working on this project?" Positions never pile up like calendar dates do.
 
-**Flexible hierarchy replaces rigid categorization.** Traditional task managers force you to choose categories up front—work, personal, health, finance. But real tasks don't respect these boundaries. "Research standing desk" could be health, productivity, or office setup depending on your motivation. My system uses parent-child relationships that can be reorganized as understanding evolves.
-
-**Sort positions replace arbitrary deadlines.** Instead of asking "When should I do this?" (which creates artificial urgency), I ask "What order should I tackle things when I work on this project?" Sort positions never accumulate into overwhelming piles because they're relative to specific containers, not absolute dates on a calendar.
-
-The flexibility extends to how I interact with the system daily. Some days I work from the active tasks list (items with action dates). Other days I navigate to specific projects and work through sort positions. Sometimes I focus on a particular life direction and see what needs attention. The system adapts to my energy and context rather than forcing me into predetermined workflows.
-
-**Rigid systems demand perfect compliance.** Miss a few days of processing, and you're behind. Assign too many due dates, and you're overwhelmed. Change your priorities, and you need to reorganize everything. My Notion system gracefully handles inconsistency, priority shifts, and periods of neglect without creating guilt or requiring massive cleanup sessions.
+**System adapts to you, not vice versa.** Work from active lists, navigate to projects, or focus on life directions based on energy and context. Gracefully handles inconsistency and priority shifts without guilt or massive cleanup sessions.
 
 ### Context and Hierarchy: What Makes This System Different
 
-The most profound difference between my Notion task management approach and traditional apps is how it handles context. Most task managers treat tasks as isolated items that can be sorted, filtered, and scheduled independently. But tasks aren't isolated—they're part of projects, which serve goals, which advance life directions. This hierarchy isn't just organizational neatness; it's strategic intelligence.
+Traditional task managers treat tasks as isolated items. But tasks are part of projects → goals → life directions. This hierarchy provides strategic intelligence, not just organization.
 
-**Context answers the "why" question that motivates action.** When I see "record video intro" in a traditional task list, it's just another item to check off. When I see it nested under "Cursor IDE Series" → "Training Video Production" → "Upload 7 training videos" → "Mental: Continuous learning and growth," I understand exactly why this task matters and how it connects to my bigger objectives.
+**Context answers "why" and motivates action.** "Record video intro" in isolation = just another checkbox. Nested under "Cursor IDE Series" → "Training Video Production" → "Upload 7 training videos" → "Mental growth" = clear purpose and connection to bigger objectives.
 
-This hierarchical context serves multiple psychological functions:
+**Key benefits:**
+- **Motivation through connection:** See how small tasks serve larger purposes
+- **Smart substitution:** Related tasks visible when plans change  
+- **Natural priority evaluation:** Current goals versus interesting distractions
+- **Flexible focus:** Zoom out (strategy) or in (tactics) as needed
 
-**Motivation through connection:** When a small task feels tedious, I can see how it serves larger purposes that I care about. The connection between daily actions and life directions is always visible, which makes it easier to push through resistance or boredom.
+Traditional managers optimize for task completion. This system optimizes for outcome achievement—progress on things that actually matter. Hierarchy distinguishes busy work from important work.
 
-**Smart substitution when plans change:** If I can't work on the specific task I planned, the hierarchy shows me related tasks within the same project. Instead of feeling stuck or switching to random busywork, I can make strategic substitutions that still advance the same objectives.
-
-**Natural priority evaluation:** When multiple projects compete for attention, I can see which ones support my current quarterly goals and which ones are just interesting distractions. The hierarchy makes these trade-offs explicit rather than intuitive.
-
-**Flexible focus across different time horizons:** I can zoom out to see life directions and quarterly goals for strategic thinking, or zoom in to see specific tasks for tactical execution. Same data, different perspectives, no context switching between apps.
-
-Traditional task managers optimize for task completion—getting things checked off efficiently. My Notion system optimizes for outcome achievement—making progress on things that actually matter. The hierarchy ensures that busy work gets distinguished from important work, and that daily actions serve strategic purposes rather than just filling time.
-
-**The hierarchy also creates natural project boundaries that prevent scope creep.** When everything is nested properly, it's obvious when a new task belongs to an existing project versus when it represents a completely new area of focus. This clarity helps me say no to interesting opportunities that don't serve my current priorities.
-
-**Context preservation during reviews and planning:** When I'm doing weekly reviews or quarterly planning, I'm not starting from scratch—I'm looking at a structured representation of my actual work and how it connects to my stated objectives. The hierarchy becomes a mirror that reflects whether my daily activities align with my expressed values and goals.
-
-This is why the system has survived over a year while previous approaches lasted 2-3 months. It's not just a task manager—it's a strategic framework that happens to include task management. The structure serves the thinking, not the other way around.
+**Why it survives 1+ years while others lasted 2-3 months:** It's a strategic framework that includes task management, not just a task manager. Structure serves thinking, not vice versa.
