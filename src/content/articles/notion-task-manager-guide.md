@@ -34,6 +34,8 @@ What makes it work is embarrassingly simple: everything lives in one database. N
 
 > **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this complete Notion task management system. [Watch Complete Notion Task Manager Guide](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv) to see the entire workflow in action.
 
+![Complete Notion task management system overview showing hierarchical structure and views](/articles/assets/notion-task-manager-guide/notion-system-overview.webp)
+
 ## The Problem and Notion Solution: Why One Table Works
 
 I've tested every productivity system under the sun—Todoist, Things, TickTick, Monday.com, Getting Things Done, bullet journaling. They all eventually failed me for the same reason: **task avalanches.**
@@ -121,6 +123,8 @@ The parent-child system works through Notion's relation property. Every database
 
 This structure eliminates the common productivity problem of working on tasks that feel important but don't actually advance your bigger objectives. Every task in my system has a clear path back to one of my five life directions.
 
+![Notion database structure with properties and field configuration](/articles/assets/notion-task-manager-guide/notion-database-structure.webp)
+
 ## Setting Up the Core Database Structure in Notion
 
 This Notion task database structure runs on a simple database with eight essential properties that handle everything from daily tasks to quarterly goals:
@@ -192,6 +196,8 @@ This scales naturally—whether a project has 5 or 50 tasks, I'm only answering:
 - **sshshshshshsh:** Tasks I really don't want to do
 
 This setup matches tasks to available energy and creates a sophisticated system where every property serves a specific purpose.
+
+![Notion inbox and daily task management workflow demonstration](/articles/assets/notion-task-manager-guide/notion-daily-workflow.webp)
 
 ## My Daily Notion Task Manager Workflow: Inbox Zero Without the Overwhelm
 
