@@ -165,3 +165,77 @@ magick /Users/kirill/Downloads/source-image.png -resize 520x297^ -gravity center
 ls -la public/articles/publisher-2023-01-01.webp
 identify -verbose public/articles/publisher-2023-01-01.webp | grep Quality
 ``` 
+
+## Adding Thumbnails to Media Mentions and Articles
+
+This guide explains how to add thumbnail references to media mentions and articles on the website.
+
+### Media Mentions Structure
+
+Media mentions are stored in `src/data/mediaMentions.ts`.
+### File Structure Overview
+
+- **Media Mentions Data**: `src/data/mediaMentions.ts`
+- **Article Content**: `src/content/articles/`
+- **Thumbnail Images**: `public/articles/`
+- **Logo Images**: `public/logos/`
+- **Article Assets**: `public/articles/assets/[article-slug]/`
+
+### Adding Media Mention Thumbnails
+
+#### 1. Check the existing thumbnails and logos
+
+```bash
+ls -la public/articles/
+ls -la public/logos/
+```
+
+#### 2. Update the TS file
+
+After creating and optimizing the thumbnail image (see image-optimization.mdc), edit `src/data/mediaMentions.ts` to add both the thumbnail and logo URLs:
+
+```typescript
+// For media mentions
+{
+  title: "Your Video Title",
+  // ... other properties ...
+  thumbnailUrl: "/articles/youtube-YYYY-MM-DD.webp",
+  websiteLogoUrl: "/logos/appropriate-logo.png"
+}
+```
+
+### Article Assets Management
+
+For article-specific assets (images, diagrams, etc.):
+
+1. Create a directory for the article if it doesn't exist:
+   ```bash
+   mkdir -p public/articles/assets/[article-slug]/
+   ```
+
+2. Store article assets in that directory:
+   ```bash
+   cp my-image.png public/articles/assets/[article-slug]/
+   ```
+
+3. Reference in markdown content as:
+   ```markdown
+   !](mdc:articles/assets/[article-slug]/my-image.png)
+   ```
+
+4. Articles content is stored in `src/content/articles/`
+
+### Logo Handling
+
+When adding website logos:
+
+1. Use descriptive filenames that indicate the source
+2. Maintain consistent styling with other logos
+3. Ensure proper transparency for non-rectangular logos
+4. Store in `public/logos/` directory
+5. Reference in the media mention as `websiteLogoUrl: "/logos/website-name.png"`
+
+### Example Workflow
+
+1. Prepare the thumbnail image using the techniques in image-optimization.mdc
+2. Add a new entry to `src/data/mediaMentions.ts`.

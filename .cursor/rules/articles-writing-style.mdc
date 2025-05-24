@@ -46,6 +46,32 @@ Professional business-casual tone with personality. Avoids AI-sounding language 
 - **Perfect symmetry**: Identical paragraph structures
 - **Empty phrases**: "In today's fast-paced world"
 
+### Rhetorical Question + Immediate Answer Pattern
+❌ **Avoid**: "The secret? One database rules them all."
+❌ **Avoid**: "What's the solution? Simple task management."
+❌ **Avoid**: "The result? Increased productivity."
+✅ **Good**: "What makes it work is embarrassingly simple: everything lives in one database."
+✅ **Good**: "The solution turned out to be simpler than I expected."
+
+### Short Dramatic Reveals
+❌ **Avoid**: "The answer? Three simple steps."
+❌ **Avoid**: "The key? Consistency."
+❌ **Avoid**: "My approach? Start small."
+✅ **Good**: "I found three steps that actually worked."
+✅ **Good**: "Consistency made all the difference."
+
+### Self-Answering Questions in Same Paragraph
+❌ **Avoid**: "Why does this work? Because it eliminates complexity."
+❌ **Avoid**: "What changed everything? A single Notion table."
+✅ **Good**: "This works because it eliminates unnecessary complexity."
+✅ **Good**: "Everything changed when I moved to a single Notion table."
+
+### Pattern Recognition Rules:
+- If you write a question mark, don't answer it in the next sentence
+- Avoid dramatic one-word answers after questions
+- Don't create artificial suspense with rhetorical questions
+- Let explanations flow naturally without Q&A format
+
 ## International Accessibility
 
 **Do**: Simple sentences, explain idioms, global examples, define terms, active voice, short paragraphs, visual aids.
