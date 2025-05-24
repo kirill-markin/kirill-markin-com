@@ -360,6 +360,8 @@ In Notion, everything connects—weekly progress relates to daily tasks, support
 
 Simple math: 12 weeks per quarter = ~8% progress per week. Every Friday, I ask "Did I make meaningful progress this week?" and update the Progress field accordingly (8% normal, 10-12% exceptional, 3-5% minimal, 0% ignored).
 
+This approach draws inspiration from [The 12 Week Year](https://www.audible.com/pd/The-12-Week-Year-Audiobook/1663702713) methodology, which advocates for shorter execution cycles instead of traditional annual planning. The core insight is that 12 weeks creates natural urgency and focus that annual goals often lack.
+
 **Power is in regular accountability, not perfect measurement.** This quickly reveals which goals are on track versus falling behind. 30% progress in week 8 = problem requiring immediate attention.
 
 **Friday ritual:** Review what I actually did (not intended), update percentages based on concrete progress.
