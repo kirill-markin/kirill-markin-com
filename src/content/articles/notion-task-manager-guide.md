@@ -16,7 +16,7 @@ keywords: [
 title: "Complete Notion Task Manager Guide: One Table for Goals, Projects & Daily Tasks"
 date: 2025-05-24
 description: "My proven system for managing hundreds of tasks in one Notion table. Hierarchical structure, quarterly goals, and zero inbox overwhelm."
-tags: [productivity, notion, task-management, goal-tracking]
+tags: [productivity, notion, task-management]
 publish: true
 thumbnailUrl: "/articles/notion-task-manager-guide.webp"
 language: "en"
