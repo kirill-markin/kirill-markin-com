@@ -248,7 +248,7 @@ My daily command center shows only tasks that genuinely need attention today—u
 
 Simple but powerful. Everything else stays hidden until I deliberately navigate to those projects. This creates psychological focus: a manageable list of real commitments, not an overwhelming pile of possibilities.
 
-#### Tree Structure vs Flat View Options
+#### Notion Tree Structure vs Flat View Options
 
 Toggle between tree and flat views with one click to match your mental state:
 
