@@ -50,7 +50,7 @@ Date-based systems work great for tasks with genuine deadlines—paying bills, s
 
 ### The Notion Solution: One Table for Everything
 
-The breakthrough came when I stopped organizing different types of work in different places. Instead of separate apps for goals, tasks, and projects, I built everything in a single Notion database. Life directions, quarterly goals, project ideas, daily tasks, random thoughts—all of it lives in one table.
+The breakthrough came when I stopped organizing different types of work in different places. Instead of separate apps for goals, tasks, and projects, I built everything in a single Notion task manager. Life directions, quarterly goals, project ideas, daily tasks, random thoughts—all of it lives in one table.
 
 This approach to Notion task organization solves the context-switching problem that kills productivity in traditional systems.
 
@@ -73,7 +73,7 @@ This approach scales because it mirrors how your brain works. You don't think ab
 
 ## Setting Up Your Notion Task Management System
 
-The foundation is a clear hierarchy: Life Directions → Quarterly Goals → Projects → Tasks. Everything starts with big-picture life directions, gets focused into quarterly goals, then breaks down into specific projects and daily tasks.
+The foundation is a flexible hierarchy where bigger containers hold smaller items. You might organize it roughly as Life Directions → Goals → Projects → Tasks, but this isn't a rigid rule—it's just one way to think about how things nest together.
 
 This Notion task management system setup creates a framework that scales naturally from strategic thinking to daily execution.
 
@@ -136,10 +136,10 @@ Different entry types use different combinations of these properties. Directions
 
 #### Task Type and Status Configuration
 
-**Type field** organizes everything in one table:
-- **Direction:** Life areas (Time, Mental, Body, Social, Finances)
-- **Goal:** Quarterly targets with Progress tracking
-- **Task:** Projects, individual tasks, ideas, recurring items
+**Type field** helps organize everything in one table (but these are flexible labels, not rigid categories):
+- **Direction:** Usually life areas (Time, Mental, Body, Social, Finances)
+- **Goal:** Usually quarterly targets with Progress tracking
+- **Task:** Everything else—projects, individual tasks, ideas, recurring items
 
 **Status field** has three states:
 - **Active:** Currently relevant items
@@ -213,7 +213,7 @@ This daily Notion inbox system processing takes 10-15 minutes, even with 20 new 
 
 **1. Which life direction?** Time, Mental, Body, Social, or Finances. 90% of tasks have obvious homes.
 
-**2. Standalone task or project component?** Individual tasks get assigned directly. Project ideas get containers first, then broken down.
+**2. Does this need to be broken down?** Simple items get assigned directly. Bigger ideas become containers that can be broken down later.
 
 **3. What's its priority relative to similar tasks?** Assign sort position (S0-S4) within the parent container.
 
@@ -314,15 +314,17 @@ First decision: Time, Mental, Body, Social, or Finances. 90% have obvious homes 
 
 For ambiguous tasks, JTBD clarifies: "Buy standing desk" for back pain → Body. For work focus → Time. When multiple directions apply, pick primary motivation and move forward. Goal is good enough organization, not perfect categorization.
 
-#### Is This a Standalone Task or Project Component?
+#### Does This Need to Be Broken Down Further?
 
-**Standalone tasks:** Can execute immediately ("schedule dentist," "reply to email"). Assign parent and sort position—done.
+The beauty of this system is that there's no need to worry about whether something is a "task" or "project"—it's all just entries in the same database. The only question is: does this item need to be broken down into smaller pieces?
 
-**Project components:** Need containers ("launch podcast," "redesign website"). Create placeholder project with obvious next steps, save detailed breakdown for project-planning sessions.
+**If it feels manageable:** Assign a parent and sort position. You're done.
 
-Rule of thumb: If I can't visualize doing it in one session, it's probably a project. "Update LinkedIn" = task. "Build personal brand" = project.
+**If it feels too big or complex:** Create it as a container and break it down into smaller items later. You can always reorganize as understanding evolves.
 
-The hierarchical system allows refactoring—tasks can become projects, projects can collapse to tasks as understanding evolves.
+Don't overthink the categories. "Update LinkedIn" might be one item for some people, or broken down into "write new bio," "update experience," "add new skills" for others. The system adapts to however your brain works.
+
+The hierarchical structure is completely flexible—anything can become a parent to other items, and anything can be moved around as your understanding of the work changes.
 
 #### Setting Priority Within Parent Task Hierarchy
 
@@ -348,7 +350,7 @@ Quick evaluation (15-30 seconds per task) ensures intentional decisions:
 
 **2. Which life direction does this job serve?** Health → Body. Learning → Mental. Efficiency → Time.
 
-**3. Standalone job or part of larger project?** "Schedule dentist" = standalone. "Research standing desks" = part of "optimize home office."
+**3. Does this feel like one item or should it be broken down?** "Schedule dentist" might stay as one item. "Research standing desks" might become part of a larger "optimize home office" container.
 
 **4. How important relative to other jobs in same area?** Becomes sort position within the container.
 
