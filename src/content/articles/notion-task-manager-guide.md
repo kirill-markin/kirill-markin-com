@@ -34,7 +34,7 @@ What makes it work is embarrassingly simple: everything lives in one database. N
 
 > **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this complete Notion task management system. [Watch Complete Notion Task Manager Guide](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv) to see the entire workflow in action.
 
-![Complete Notion task management system overview showing hierarchical structure and views](/articles/assets/notion-task-manager-guide/notion-system-overview.webp)
+[![Complete Notion task management system overview showing hierarchical structure and views](/articles/assets/notion-task-manager-guide/notion-system-overview.webp)](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv)
 
 ## The Problem and Notion Solution: Why One Table Works
 
@@ -123,7 +123,7 @@ The parent-child system works through Notion's relation property. Every database
 
 This structure eliminates the common productivity problem of working on tasks that feel important but don't actually advance your bigger objectives. Every task in my system has a clear path back to one of my five life directions.
 
-![Notion database structure with properties and field configuration](/articles/assets/notion-task-manager-guide/notion-database-structure.webp)
+[![Notion database structure with properties and field configuration](/articles/assets/notion-task-manager-guide/notion-database-structure.webp)](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv)
 
 ## Setting Up the Core Database Structure in Notion
 
@@ -197,7 +197,7 @@ This scales naturally—whether a project has 5 or 50 tasks, I'm only answering:
 
 This setup matches tasks to available energy and creates a sophisticated system where every property serves a specific purpose.
 
-![Notion inbox and daily task management workflow demonstration](/articles/assets/notion-task-manager-guide/notion-daily-workflow.webp)
+[![Notion inbox and daily task management workflow demonstration](/articles/assets/notion-task-manager-guide/notion-daily-workflow.webp)](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv)
 
 ## My Daily Notion Task Manager Workflow: Inbox Zero Without the Overwhelm
 
@@ -377,6 +377,8 @@ In Notion, everything connects—weekly progress relates to daily tasks, support
 ### The 8% Weekly Progress System for Notion Productivity
 
 Simple math: 12 weeks per quarter = ~8% progress per week. Every Friday, I ask "Did I make meaningful progress this week?" and update the Progress field accordingly (8% normal, 10-12% exceptional, 3-5% minimal, 0% ignored).
+
+[![Notion weekly goal tracking and progress monitoring system](/articles/assets/notion-task-manager-guide/notion-weekly-goals.webp)](https://www.audible.com/pd/The-12-Week-Year-Audiobook/1663702713)
 
 This approach draws inspiration from [The 12 Week Year](https://www.audible.com/pd/The-12-Week-Year-Audiobook/1663702713) methodology, which advocates for shorter execution cycles instead of traditional annual planning. The core insight is that 12 weeks creates natural urgency and focus that annual goals often lack.
 
