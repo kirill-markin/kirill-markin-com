@@ -1,0 +1,38 @@
+name: Metadata Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-metadata:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run metadata validation
+      run: npm run validate-metadata
+      
+    - name: Report validation results
+      if: failure()
+      run: |
+        echo "❌ Metadata validation failed!"
+        echo "Please check the output above and fix any SEO metadata issues."
+        echo "The following issues were found:"
+        echo "- Title length must be 50-70 characters"
+        echo "- Description length must be 140-160 characters" 
+        echo "- No duplicate titles or descriptions allowed"
+        echo "- All pages must have titles and descriptions" 

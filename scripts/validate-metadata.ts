@@ -559,6 +559,11 @@ async function main() {
         // Print the report
         printReport();
 
+        // Exit with error code if issues were found
+        if (issues.length > 0) {
+            process.exit(1);
+        }
+
     } catch (error) {
         console.error(chalk.red('Error during validation:'), error);
         process.exit(1);
