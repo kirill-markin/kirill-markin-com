@@ -221,7 +221,7 @@ I almost never assign action dates during processing—that's intentional and cr
 
 ### Why I Avoid Due Dates in My Task Management System
 
-This Notion task tracking without due dates approach prevents artificial urgency that trains your brain to ignore the task manager. Most personal tasks ("Update LinkedIn," "Learn Spanish") don't have real deadlines. Assigning arbitrary dates creates guilt when they pass and conditions you to ignore all deadlines.
+This Notion task tracking without due dates approach prevents artificial urgency that trains your brain to ignore the Notion task manager. Most personal tasks ("Update LinkedIn," "Learn Spanish") don't have real deadlines. Assigning arbitrary dates creates guilt when they pass and conditions you to ignore all deadlines.
 
 I only assign action dates to:
 - **Real external deadlines:** Bills, meetings, travel
@@ -422,6 +422,6 @@ Traditional task managers treat tasks as isolated items. But tasks are part of p
 
 Traditional managers optimize for task completion. This system optimizes for outcome achievement—progress on things that actually matter. Hierarchy distinguishes busy work from important work.
 
-**Why it survives 1+ years while others lasted 2-3 months:** It's a strategic framework that includes task management, not just a task manager. Structure serves thinking, not vice versa.
+**Why it survives 1+ years while others lasted 2-3 months:** It's a strategic framework that includes task management, not just another Notion task manager. Structure serves thinking, not vice versa.
 
 If you're looking for a Notion productivity system template to get started, the core principles outlined here provide the foundation you can customize for your specific needs and workflow preferences.
