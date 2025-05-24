@@ -236,177 +236,99 @@ These views auto-sync—complete a task in "Active" view and it disappears from 
 
 ### Active Tasks View Setup
 
-The Active Tasks view is my daily command center—it shows only the tasks that genuinely need my attention today. This is where the disciplined approach to action dates pays off. Instead of 50+ items screaming for attention, I see just 3-7 carefully chosen tasks that represent real deadlines or conscious daily planning decisions.
+My daily command center shows only tasks that genuinely need attention today—usually 3-7 carefully chosen items instead of 50+ overwhelming possibilities.
 
-This view uses a simple but powerful filter: show all tasks where Status = "Active" AND Action Date = Today (or before today, though my daily automation prevents that buildup). Everything else—the hundreds of tasks organized by sort position in their project hierarchies—stays hidden until I deliberately navigate to those projects.
-
-The psychological impact is enormous. I start each day looking at a manageable list of commitments, not an overwhelming pile of possibilities. The view creates focus by hiding everything except what I've explicitly decided needs to happen today.
-
-#### Filtering by Action Date and Status
-
-The filtering logic for the Active Tasks view is deliberately minimal. I want to see tasks that meet these criteria:
-
-**Status equals Active:** This excludes completed tasks (which I keep for reference) and periodic tasks that aren't currently scheduled. Only items marked as active and relevant appear in my working views.
-
-**Action Date is Today or earlier:** The "or earlier" part matters because of my daily automation. If something was scheduled for yesterday but didn't get done, it automatically moves to today's date. No guilt, no accumulation of overdue items—just a clean slate each morning.
-
-**Not filtered by Type:** Unlike some of my other views, Active Tasks includes all types of entries—goals, projects, and individual tasks. If I've assigned today's date to my weekly goal review, it appears alongside specific tasks. This mixing ensures I don't lose sight of bigger objectives in the daily grind.
-
-Here's the Notion filter setup I use:
+**Filter setup:**
 - Status: Active
 - Action Date: Today or earlier
 
-That's it. Simple filters create powerful focus. When I open this view each morning, I know everything visible genuinely deserves my attention today.
+Simple but powerful. Everything else stays hidden until I deliberately navigate to those projects. This creates psychological focus: a manageable list of real commitments, not an overwhelming pile of possibilities.
 
 #### Tree Structure vs Flat View Options
 
-One of Notion's most powerful features for task management is the ability to toggle between tree and flat views of the same data. Both show identical tasks, but the structure completely changes how you process and understand the information.
+Toggle between tree and flat views with one click to match your mental state:
 
-**Tree View shows hierarchy and context.** When I look at my Active Tasks in tree view, I see not just individual tasks but their relationships to bigger projects and goals. A task like "record video intro" appears nested under "Cursor IDE Series" which sits under "Training Video Production" which supports my quarterly YouTube goal. The context is always visible.
+**Tree View:** Shows hierarchy and context. Perfect for understanding why tasks matter and making smart substitutions when plans change.
 
-Tree view is perfect for understanding why I'm doing what I'm doing. When motivation lags, I can see how today's small task connects to this quarter's bigger objectives. It's also great for making smart substitutions—if I can't work on the specific task I planned, I can easily see related tasks within the same project.
+**Flat View:** Simple checklist without nesting. "Execution mode" for knocking out commitments efficiently without distractions.
 
-**Flat View eliminates distractions and creates focus.** Sometimes hierarchy becomes visual clutter. When I just want to knock out today's commitments efficiently, I switch to flat view, which shows the same tasks as a simple list without any nesting or structure.
-
-Flat view is my "execution mode." No context, no relationships, just a clean checklist of what needs to happen today. I can move through items quickly without getting distracted by the bigger picture or tempted to dive into related tasks.
-
-The ability to toggle between these views with a single click means I can match the interface to my mental state. Strategic thinking? Tree view. Focused execution? Flat view. Same data, different cognitive modes.
+Strategic thinking? Tree view. Focused execution? Flat view. Same data, different cognitive modes.
 
 ### Tomorrow Planning View Configuration
 
-Planning tomorrow while finishing today has become one of my most valuable daily rituals. Instead of stumbling into each morning wondering what to work on, I end each day with a deliberate plan for the next day. The Tomorrow views in my Notion task manager make this planning both quick and strategic.
+End each day with deliberate planning instead of stumbling into tomorrow wondering what to work on. I promote 3-7 tasks from "project priority order" to "time-specific commitment."
 
-The key insight is that tomorrow planning isn't about scheduling every minute—it's about making conscious choices about which few items deserve action dates. Remember, most of my tasks live happily without action dates, organized by sort position within their projects. Tomorrow planning is where I promote specific tasks from "project priority order" to "time-specific commitment."
+**Two views with identical filters (Status: Active, Action Date: Tomorrow):**
 
-This approach prevents both under-planning (wandering aimlessly through projects) and over-planning (creating impossible daily lists that breed guilt). I typically assign action dates to 3-7 items for tomorrow: genuine deadlines, periodic maintenance tasks, and 1-3 project tasks I specifically want to tackle.
+**Tomorrow (Tree):** Evening planning with hierarchical context to see how tasks connect to bigger projects.
 
-#### Setting Up Tomorrow and Tomorrow Flat Views
+**Tomorrow Flat:** Morning execution with simple checklist—no hierarchy distractions.
 
-I maintain two separate views for tomorrow planning, each serving a different purpose in my daily workflow:
-
-**Tomorrow (Tree View)** shows all tasks with tomorrow's action date in hierarchical structure. This gives me the context I need during planning—I can see how tomorrow's tasks connect to bigger projects and goals. When I'm deciding whether to work on website improvements or video production tomorrow, the tree structure helps me see which area needs more attention.
-
-**Tomorrow Flat** shows the exact same tasks as a simple list without nesting. This becomes my execution view for tomorrow morning. No hierarchy, no context, just a clean checklist of the specific items I've committed to handle. It's the difference between strategic planning and tactical execution.
-
-The filter setup for both views is identical:
-- Status: Active
-- Action Date: Tomorrow
-
-The only difference is the display structure. I use Tomorrow (Tree) for evening planning sessions and Tomorrow Flat for morning execution. Having both views pre-configured means I never have to rebuild filters or reorganize the interface—just click to the view that matches my current needs.
+This prevents both under-planning (aimless project wandering) and over-planning (impossible guilt-breeding lists).
 
 #### Managing Task Priorities for Next Day
 
-Here's where the Priority field (P0-P4) finally becomes useful. Remember, this field stays empty for most tasks most of the time. Sort Position handles priority within projects. But when I'm planning tomorrow and have multiple tasks competing for attention on the same day, Priority helps me decide the order of execution.
+During evening planning, assign Priority (P0-P4) to tomorrow's tasks for execution order:
 
-During my evening planning session, I look at tomorrow's tasks and assign Priority values based on:
+**P0:** Must happen first (usually one item)  
+**P1:** Should happen early (fresh energy tasks)  
+**P2:** Normal priority (most planned tasks)  
+**P3:** If time permits  
+**P4:** Last resort
 
-**P0: Must happen first—** Usually just one item. Either a genuine time-sensitive deadline or the most important project task that sets up everything else.
-
-**P1: Should happen early—** Tasks that work best with fresh mental energy or that other people are waiting for.
-
-**P2: Normal priority—** The default for most planned tasks. Important enough to schedule, but flexible about timing.
-
-**P3: If time permits—** Nice-to-have tasks that I'd like to tackle if the day goes smoothly.
-
-**P4: Last resort—** Tasks I really don't want to do but should probably handle if I run out of more appealing options.
-
-The beauty of this system is that Priority only matters within the context of a single day. I'm not trying to rank every task in my system—just deciding the order for tomorrow's small list of committed items. This keeps the cognitive load manageable while ensuring I tackle the most important things first when my energy is highest.
-
-When tomorrow arrives, I open Tomorrow Flat view, sort by Priority, and work from P0 down to P4. Simple, clear, and guilt-free.
+Priority only matters within a single day—not ranking every system task, just tomorrow's small committed list. Next morning: open Tomorrow Flat view, sort by Priority, work P0 to P4.
 
 ### Inbox Processing View for New Tasks
 
-The Inbox view is where the capture-and-process workflow comes together. Every idea that pops into my head during the day lands here as a raw, unorganized entry. Then, once per day (usually at the end of the workday), I process everything down to zero by assigning parent tasks, sort positions, and occasionally action dates.
+The Inbox view captures the raw brain dump from daily idea capture, then processes everything to zero once daily (10-15 minutes, even with 15-20 items).
 
-This view is filtered to show only items that haven't been properly organized yet. In my system, that means tasks without a Parent assigned—they're orphaned in the database until I give them a proper home in the hierarchy. Some productivity systems try to be smart about inbox processing with complex rules and automations. I prefer the straightforward approach: if it doesn't have a parent, it needs processing.
+**Filter:** Parent is empty
 
-The daily inbox processing ritual rarely takes more than 10-15 minutes, even with 15-20 new items. Most tasks have obvious homes once you start thinking about them in the context of your existing projects and goals. The few that don't usually reveal themselves once you sit with them for a moment.
+If it doesn't have a parent, it needs processing. When I assign a parent during processing, items automatically disappear from Inbox and appear in appropriate project views.
 
-#### Quick Capture Workflow Setup
+**Additional filter during processing:** Created: Past week
 
-The Inbox view needs to support two completely different workflows: lightning-fast capture during the day, and thoughtful processing at the end of the day. For capture, I keep a browser tab pinned to the "Add New" form of my database. When an idea hits, I type the title and hit Enter. No categorization, no extra fields—just brain dump to database.
-
-On my phone, I use the Notion widget combined with Siri shortcuts for voice capture. The setup takes five minutes but saves hours over the course of a year. I can capture tasks while driving, walking, or in any situation where typing would be awkward. The voice-to-text isn't perfect, but it's good enough to preserve the core idea until I can process it properly later.
-
-The key is removing all friction from the capture moment. When your brain offers up an idea, you have about 10 seconds to externalize it before it gets lost to whatever you were originally doing. Complex capture workflows kill ideas. Simple capture workflows preserve them for later processing when you're in the right mental mode.
-
-#### Notion Database Filters for Unprocessed Items
-
-The Inbox view uses a single, powerful filter that catches everything that needs processing:
-
-**Parent is empty**
-
-That's it. In my hierarchical system, every properly organized task has a parent—either a life direction, a project, or another task. Items without parents are by definition unprocessed inbox items that need attention.
-
-This filter automatically maintains itself. When I assign a parent during processing, the item disappears from the Inbox view and appears in the appropriate project view. When I capture a new idea without categorizing it, it immediately shows up in Inbox for later processing. Zero manual maintenance, perfect accuracy.
-
-I also add a secondary filter during processing sessions:
-
-**Created: Past week**
-
-This ensures I'm only looking at recent inbox items during daily processing. Older items that somehow slipped through the cracks get handled during weekly reviews, not daily processing sessions. This keeps the daily workflow focused on fresh captures rather than getting bogged down in ancient unprocessed items.
-
-The combination creates a self-maintaining system: rapid capture flows into automatic inbox categorization, daily processing clears recent items, and weekly reviews catch anything that falls through the cracks. The database views handle all the organization logic—I just capture ideas and process them systematically.
+This focuses on fresh captures. Older items get handled during weekly reviews, keeping daily processing efficient and focused.
 
 ## The Jobs to Be Done Approach: Processing Tasks Like a Pro
 
-The Jobs to Be Done (JTBD) framework revolutionized how I think about task organization in Notion. Originally developed for understanding customer behavior, JTBD asks: "What job is this person hiring this product to do?" I adapted this thinking for inbox processing: "What job am I hiring this task to do in my life?"
+I adapted the Jobs to Be Done framework for inbox processing: "What job am I hiring this task to do in my life?" This shifts thinking from "Where does this go?" to "What outcome should this create?"
 
-This mental shift transformed my daily processing from arbitrary categorization into strategic thinking. Instead of asking "Where does this task go?" I ask "What outcome is this task supposed to create?" The answer almost always reveals the right place in my hierarchy and the appropriate priority level within that context.
-
-The JTBD approach works because it matches how our brains naturally evaluate importance. When you capture "learn Spanish" in your inbox, your brain isn't thinking about database fields—it's thinking about becoming more culturally connected, advancing your career, or preparing for travel. The JTBD framework makes these implicit motivations explicit, which makes organization decisions obvious.
-
-Most productivity systems treat task processing as an administrative chore. Fill out the fields, pick a category, assign a date. But processing is actually strategic work—you're deciding how to allocate your most valuable resource (attention) across competing priorities. The JTBD approach ensures that every organizational decision serves a larger purpose.
+This transforms processing from administrative chore to strategic work—deciding how to allocate attention across competing priorities. When you capture "learn Spanish," JTBD reveals the real motivation (cultural connection, career, travel), making organization decisions obvious.
 
 ### Assigning Parent Tasks and Sort Positions
 
-When I process my Notion inbox each day, I'm not just filing tasks away—I'm making deliberate choices about how each item fits into my bigger goals and projects. The parent-child relationship and sort position system work together to create a hierarchy that reflects both the logical structure of my work and the relative importance of each piece.
+During processing, I make deliberate choices about how each item fits into bigger goals and projects. Every task serves a larger purpose—"research microphone setups" belongs under YouTube equipment project → training videos goal → Mental life direction.
 
-The key insight is that every task serves a larger purpose, and that purpose determines where it belongs. A task to "research microphone setups" doesn't just live in some generic "learning" category—it belongs under my YouTube equipment project, which supports my quarterly goal of uploading training videos, which serves my Mental life direction. This connection isn't just organizational neatness; it's strategic clarity.
-
-When I assign parents and sort positions, I'm essentially building a decision tree for my future self. When I have time to work on YouTube content, I don't want to re-evaluate what matters most—I want clear guidance about what to tackle first. The hierarchy I build during processing becomes the roadmap I follow during execution.
+This builds a decision tree for future execution. When working on YouTube content, I want clear guidance about priorities, not re-evaluation. The processing hierarchy becomes the execution roadmap.
 
 #### Which Life Direction Does This Task Belong To?
 
-The first decision in my task organization process is always the same: which of my five life directions does this serve? Time, Mental, Body, Social, or Finances. This question immediately narrows the possibilities and provides crucial context for all subsequent decisions.
+First decision: Time, Mental, Body, Social, or Finances. 90% have obvious homes once you think strategically. Work tasks → Time or Finances. Learning → Mental. Health → Body. Relationships → Social.
 
-About 90% of tasks have an obvious life direction once you think about them strategically. Work tasks usually serve either Time (if they're about efficiency and systems) or Finances (if they're about income). Learning tasks go to Mental. Health tasks go to Body. Relationship tasks go to Social. The categories are broad enough to capture everything but specific enough to create meaningful boundaries.
-
-The 10% that aren't immediately obvious usually reveal themselves once I think about the underlying motivation. "Buy a standing desk" could be Body (health) or Time (productivity). The deciding factor is why I want it. If it's about back pain, it's Body. If it's about focus and energy for work, it's Time. The JTBD framework—what job am I hiring this task to do—cuts through the ambiguity.
-
-Sometimes a single task could legitimately serve multiple directions. "Learn Spanish" could be Mental (intellectual growth) or Social (cultural connection). In these cases, I pick the primary motivation and move forward. The goal isn't perfect categorization—it's good enough organization that supports effective action. Overthinking the category assignment defeats the purpose of quick daily processing.
-
-Once I identify the life direction, I navigate to that section of my hierarchy and look for existing projects or goals that this task could support. Most new tasks fit naturally under existing containers rather than creating new ones.
+For ambiguous tasks, JTBD clarifies: "Buy standing desk" for back pain → Body. For work focus → Time. When multiple directions apply, pick primary motivation and move forward. Goal is good enough organization, not perfect categorization.
 
 #### Is This a Standalone Task or Project Component?
 
-The second major decision is whether this inbox item is a complete task that I can just do, or a component of something larger that needs more structure. This distinction determines both where the task goes in my hierarchy and how much additional planning it might need.
+**Standalone tasks:** Can execute immediately ("schedule dentist," "reply to email"). Assign parent and sort position—done.
 
-**Standalone tasks are ready for execution.** These are items like "schedule dentist appointment," "reply to Maria's email," or "order new laptop charger." They have clear outcomes, obvious next steps, and don't require coordination with other tasks. I can assign them a parent (usually a life direction or ongoing project area) and sort position, and they're ready to go.
+**Project components:** Need containers ("launch podcast," "redesign website"). Create placeholder project with obvious next steps, save detailed breakdown for project-planning sessions.
 
-**Project components need containers.** These are items like "launch podcast," "plan vacation to Italy," or "redesign website." They're not tasks—they're outcomes that require multiple steps, research, and planning. When I encounter these in my inbox, I usually create a project container first, then break the original idea into specific tasks underneath it.
+Rule of thumb: If I can't visualize doing it in one session, it's probably a project. "Update LinkedIn" = task. "Build personal brand" = project.
 
-The breakdown process doesn't happen during daily inbox processing—that would slow down the workflow and mix strategic planning with administrative processing. Instead, I create a placeholder project with a few obvious next steps, assign it an appropriate sort position, and mark it for deeper planning later when I'm in project-thinking mode rather than inbox-clearing mode.
-
-Sometimes I'm unsure whether something needs to be broken down. My rule of thumb: if I can't visualize myself actually doing the task in a single session, it's probably a project. "Update LinkedIn profile" is a task. "Build personal brand" is a project. The mental test of "Could I start and finish this next Tuesday afternoon?" usually clarifies the distinction.
-
-The beauty of the hierarchical system is that I can always refactor later. If a task turns out to be more complex than expected, I can convert it to a project container and create subtasks. If a project turns out to be simpler than expected, I can collapse it back to a single task. The structure serves the work, not the other way around.
+The hierarchical system allows refactoring—tasks can become projects, projects can collapse to tasks as understanding evolves.
 
 #### Setting Priority Within Parent Task Hierarchy
 
-Once I've identified the parent container for a new task, the final step is assigning a sort position (S0-S4) that reflects its priority relative to other tasks in the same container. This is where the strategic thinking really matters—I'm not just organizing tasks, I'm pre-deciding what matters most when I have capacity to work on this area.
+Final step: assign sort position (S0-S4) relative to siblings in the same container. This forces strategic thinking about trade-offs within each project.
 
-The sort position decision forces me to think critically about trade-offs. When I assign S0 to "record intro video" under my YouTube project, I'm saying this matters more than the S1 task to "research better lighting setup." These decisions compound over time into a clear strategic direction for each area of my work.
+**S0:** Critical path (1-3 per project max)  
+**S1-S2:** Core work that advances the project  
+**S3-S4:** Nice-to-have or someday-maybe
 
-**S0 tasks are critical path items** that unlock everything else or have genuine deadlines. Every project should have 1-3 S0 tasks maximum. If I find myself assigning S0 to many tasks, it usually means I need to break the project down further or clarify what actually matters most.
+Sort positions are relative, not absolute. S0 in "Home Organization" might be less important than S3 in "Client Work," but when working on Home Organization, I want clear internal guidance.
 
-**S1-S2 tasks represent the core work** that will advance the project meaningfully. These are important tasks that should happen soon after the S0 items are complete, but they don't have the same urgency or strategic importance.
-
-**S3-S4 tasks are nice-to-have or someday-maybe** items that support the project but aren't essential for its success. I still want to capture and organize these ideas, but I'm explicit about their lower priority relative to core work.
-
-The key insight is that sort positions are relative, not absolute. S0 within my "Home Organization" project might be less important than S3 within my "Client Work" project. But when I'm navigating to Home Organization and have capacity to work on it, I want clear guidance about what matters most within that context.
-
-This relative prioritization scales beautifully. I never have to rank all hundreds of tasks against each other globally—just against their siblings within the same parent container. The cognitive load stays manageable while the strategic thinking stays sharp.
+This scales beautifully—never ranking hundreds of tasks globally, just siblings within containers. Manageable cognitive load, sharp strategic thinking.
 
 ### The JTBD Decision Framework for Task Organization
 
