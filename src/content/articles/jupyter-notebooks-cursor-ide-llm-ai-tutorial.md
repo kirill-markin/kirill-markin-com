@@ -24,7 +24,7 @@ Each switch costs precious mental energy and introduces friction that slows down
 
 > **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire workflow. [Watch Jupyter Notebooks in Cursor IDE Tutorial with AI-Powered Data Analysis](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL) to see these techniques in action.
 
-![Final Jupyter workflow in Cursor IDE with data visualization](/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp)
+[![Final Jupyter workflow in Cursor IDE with data visualization](/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
 ## The Discovery: Unified Data Science with LLMs in Cursor IDE
 
@@ -149,7 +149,7 @@ Here's a glimpse of what a traditional `.ipynb` file actually looks like when yo
 
 This structure is particularly challenging for LLMs like those used in Cursor's AI features because:
 
-![Complex JSON structure of a traditional Jupyter notebook file](/articles/assets/jupyter-notebooks/jupyter-json-structure.webp)
+[![Complex JSON structure of a traditional Jupyter notebook file](/articles/assets/jupyter-notebooks/jupyter-json-structure.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
 1. The JSON format contains numerous symbols and nested structures that aren't directly relevant to the content
 2. Each cell's content is stored as an array of strings, with special escape characters for newlines and quotes
@@ -256,7 +256,7 @@ Generate a 3D scatter plot for the iris dataset showing the three species in dif
 
 The AI creates a sophisticated 3D visualization with rotation:
 
-![3D scatter plot visualization showing Iris dataset clusters](/articles/assets/jupyter-notebooks/jupyter-3d-visualization.webp)
+[![3D scatter plot visualization showing Iris dataset clusters](/articles/assets/jupyter-notebooks/jupyter-3d-visualization.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
 ```python
 # %%
@@ -540,7 +540,7 @@ To create a shareable report:
 3. Used the Jupyter extension's "Export as HTML" option
 4. Opened the HTML file in a browser and used "Save as PDF" for a polished document
 
-![Converting Jupyter notebook to a professional PDF report](/articles/assets/jupyter-notebooks/jupyter-pdf-export.webp)
+[![Converting Jupyter notebook to a professional PDF report](/articles/assets/jupyter-notebooks/jupyter-pdf-export.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
 The resulting report contained all my code, text explanations, and visualizations in a format anyone could view. The careful attention to markdown formatting paid off—section headers, bullet points, and emphasis all transferred perfectly to the final document.
 
