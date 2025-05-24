@@ -32,6 +32,8 @@ Last week, my siblings saw this system in action and demanded I document it. Ins
 
 What makes it work is embarrassingly simple: everything lives in one database. No jumping between apps, no complex integrations, no task avalanches when life gets busy. Just a hierarchy that scales from life directions down to daily actions, with views that show exactly what you need to see right now.
 
+> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this complete Notion task management system. [Watch Complete Notion Task Manager Guide](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv) to see the entire workflow in action.
+
 ## The Problem and Notion Solution: Why One Table Works
 
 I've tested every productivity system under the sun—Todoist, Things, TickTick, Monday.com, Getting Things Done, bullet journaling. They all eventually failed me for the same reason: **task avalanches.**
@@ -425,3 +427,11 @@ Traditional managers optimize for task completion. This system optimizes for out
 **Why it survives 1+ years while others lasted 2-3 months:** It's a strategic framework that includes task management, not just another Notion task manager. Structure serves thinking, not vice versa.
 
 If you're looking for a Notion task management template or Notion productivity system template to get started, the core principles outlined here provide the foundation you can customize for your specific needs and workflow preferences.
+
+## Video Tutorial: Watch the Complete Notion Task Management System
+
+If you prefer learning visually, I've created a comprehensive video tutorial that walks through the entire system covered in this article:
+
+[![Complete Notion Task Manager Guide Video Tutorial](/articles/assets/notion-task-manager/video-thumbnail.webp)](https://youtu.be/JNROpdv_KyM?si=JMMpGo-2hqZO9-Xv)
+
+The video demonstrates each component of this Notion task management system in real-time, showing exactly how to set up the database structure, create the essential views, and implement the daily workflow. You'll see how the hierarchy works in practice, how to process your inbox efficiently, and how to maintain the system for long-term success—all while avoiding the task avalanches that kill other productivity systems.
