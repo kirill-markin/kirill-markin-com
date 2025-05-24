@@ -13,9 +13,9 @@ keywords: [
   "jtbd",
   "jobs to be done"
 ]
-title: "Complete Notion Task Manager Guide: One Table for Goals, Projects & Daily Tasks"
+title: "Notion Task Manager Guide: One Table for Goals, Projects & Tasks"
 date: 2025-05-24
-description: "My proven system for managing hundreds of tasks in one Notion table. Hierarchical structure, quarterly goals, and zero inbox overwhelm."
+description: "My proven Notion task manager system for handling hundreds of tasks in one table. Hierarchical structure, quarterly goals, and zero inbox overwhelm."
 tags: [productivity, notion, task-management]
 publish: true
 thumbnailUrl: "/articles/notion-task-manager-guide.webp"
