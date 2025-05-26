@@ -72,6 +72,84 @@ Professional business-casual tone with personality. Avoids AI-sounding language 
 - Don't create artificial suspense with rhetorical questions
 - Let explanations flow naturally without Q&A format
 
+## Social Media AI Detection Patterns
+
+These patterns are particularly obvious on LinkedIn and other social platforms where people quickly recognize AI-generated content:
+
+### Emoji List Formatting (Major Red Flag)
+❌ **Avoid**: Using emojis as bullet points in lists:
+```
+🔹 **Feature 1** - Description here
+🔹 **Feature 2** - Description here  
+🔹 **Feature 3** - Description here
+```
+
+✅ **Good**: Natural paragraph flow or simple text lists:
+```
+You can duplicate any chat conversation from any point. I do this all the time when I want to explore different ideas but keep my main conversation going.
+
+And there's a keyboard shortcut to switch between AI models instantly.
+```
+
+### Marketing Buzzwords and Hyperbole
+❌ **Avoid**: AI marketing language:
+- "Game-changing"
+- "Revolutionary" 
+- "Breakthrough"
+- "Cutting-edge"
+- "Next-level"
+- "Transformative"
+
+✅ **Good**: Understated, personal language:
+- "This actually works"
+- "I use this constantly"
+- "Saves me time"
+- "Found this by accident"
+
+### Bold Text in List Descriptions
+❌ **Avoid**: Structured formatting that screams AI:
+```
+**Feature Name** - Clean description with perfect structure
+**Another Feature** - Another perfectly balanced description
+```
+
+✅ **Good**: Natural storytelling flow:
+```
+Yesterday I was working on my website and discovered this tiny plus button you can hover over.
+
+Turns out there are two other features I use constantly that most people miss.
+```
+
+### Personal Story Requirements
+Every social media post must include:
+1. **Specific timeframe** - "Yesterday," "Last week," not "Recently"
+2. **Concrete details** - "cleaning up my website's services page" not "working on a project"
+3. **Self-deprecating elements** - "way too many random services I made up"
+4. **Humble discovery language** - "stumbled through," "found by accident," "should have known about months ago"
+
+### Natural Conversation Starters
+❌ **Avoid**: Generic engagement hooks:
+- "What are your thoughts?"
+- "Let me know in comments"
+- "What's your experience?"
+
+✅ **Good**: Specific, relatable questions:
+- "What features in your dev tools did you discover by accident?"
+- "I'm always finding things I should have known about months ago"
+
+### Hashtag Usage
+❌ **Avoid**: Using hashtags in social media posts:
+```
+#AI #Cursor #DeveloperTools #Productivity
+```
+
+✅ **Good**: Focus on natural content without hashtags:
+```
+What features in your dev tools did you discover by accident? I'm always finding things I should have known about months ago.
+```
+
+**Why avoid hashtags**: They make content appear automated and reduce the human, conversational feel that builds genuine engagement.
+
 ## International Accessibility
 
 **Do**: Simple sentences, explain idioms, global examples, define terms, active voice, short paragraphs, visual aids.
