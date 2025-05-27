@@ -15,10 +15,14 @@ jest.mock('@/lib/localization', () => ({
                 en: {
                     title: 'A'.repeat(65),
                     description: 'A'.repeat(155),
+                    metaTitle: 'A'.repeat(65),
+                    metaDescription: 'A'.repeat(155),
                 },
                 es: {
                     title: 'A'.repeat(65),
                     description: 'A'.repeat(155),
+                    metaTitle: 'A'.repeat(65),
+                    metaDescription: 'A'.repeat(155),
                 }
             },
             articles: {

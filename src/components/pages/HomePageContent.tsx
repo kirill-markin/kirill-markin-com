@@ -42,9 +42,9 @@ export default async function HomePageContent({ language }: HomePageContentProps
 
                 <div className={styles.rightColumn}>
                     <section className={styles.articles}>
-                        <h2 className={styles.articlesHeading}>
+                        <h1 className={styles.articlesHeading}>
                             {t.title}
-                        </h2>
+                        </h1>
 
                         <div className={styles.mediaMentions}>
                             {mediaMentions.map((mention, index) => {

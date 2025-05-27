@@ -10,8 +10,8 @@ function getBaseMetadata(language: string): Metadata {
     const homeTranslations = getTranslation('home', language);
 
     return {
-        title: homeTranslations.title,
-        description: homeTranslations.description,
+        title: homeTranslations.metaTitle || homeTranslations.title,
+        description: homeTranslations.metaDescription || homeTranslations.description,
         openGraph: {
             locale: getLocaleForLanguage(language),
             siteName: 'Kirill Markin',
@@ -77,28 +77,32 @@ export function generateHomePageMetadata(language: string): Metadata {
     // Add current language to alternates
     alternates[language] = canonicalUrl;
 
+    // Use metaTitle and metaDescription for SEO metadata
+    const metaTitle = homeTranslations.metaTitle || homeTranslations.title;
+    const metaDescription = homeTranslations.metaDescription || homeTranslations.description;
+
     return {
         ...baseMetadata,
-        title: homeTranslations.title,
-        description: homeTranslations.description,
+        title: metaTitle,
+        description: metaDescription,
         openGraph: {
             ...baseMetadata.openGraph,
-            title: homeTranslations.title,
-            description: homeTranslations.description,
+            title: metaTitle,
+            description: metaDescription,
             url: canonicalUrl,
             images: [
                 {
                     url: '/articles/preview-main.webp',
                     width: 1200,
                     height: 630,
-                    alt: homeTranslations.title,
+                    alt: metaTitle,
                 }
             ],
         },
         twitter: {
             ...baseMetadata.twitter,
-            title: homeTranslations.title,
-            description: homeTranslations.description,
+            title: metaTitle,
+            description: metaDescription,
             images: ['/articles/preview-main.webp'],
         },
         alternates: {
@@ -131,11 +135,11 @@ export function generateArticlesPageMetadata(
     // Only customize for tags, otherwise use exact translation strings
     if (tag) {
         const formattedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-        // Create SEO-optimized title for tag pages with proper length (60-70 chars)
-        title = `${formattedTag} Articles | AI & Technology | Kirill Markin`;
+        // Create SEO-optimized title for tag pages with proper length (50-70 chars)
+        title = `${formattedTag} Articles | AI Strategy & Technology | Kirill Markin`;
 
-        // Create SEO-optimized description for tag pages with proper length (150-160 chars)
-        description = `Expert articles and guides about ${tag} in artificial intelligence and technology. Insights and implementation strategies by Kirill Markin.`;
+        // Create SEO-optimized description for tag pages with proper length (140-160 chars)
+        description = `Expert articles and guides about ${tag} in artificial intelligence and technology. Strategic insights and implementation strategies by Kirill Markin.`;
     }
 
     // Create canonical URL
