@@ -48,9 +48,9 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
   return (
     <div className={styles.personalInfoContainer}>
       <div className={styles.personalInfo}>
-        <h1 className={styles.personalName} data-text={personalInfo.name}>
+        <h2 className={styles.personalName} data-text={personalInfo.name}>
           {personalInfo.name}
-        </h1>
+        </h2>
         <div className={styles.nameUnderline}></div>
       </div>
       <div className={styles.personalContacts}>
