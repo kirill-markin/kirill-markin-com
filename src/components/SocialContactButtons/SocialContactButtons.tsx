@@ -44,35 +44,11 @@ export const SocialContactButtons: React.FC<SocialContactButtonsProps> = ({
             <span className={styles.label}>{link.username}</span>
           )}
 
-          {/* Add LinkedIn followers badge */}
-          {link.name === 'LinkedIn' && (
+          {/* Add achievement badge if present */}
+          {link.achievement && (
             <div className={styles.achievement}>
-              <div className={styles.value}>6,000+</div>
-              <div className={styles.label}>followers</div>
-            </div>
-          )}
-
-          {/* Add CV experience badge */}
-          {link.name === 'CV' && (
-            <div className={styles.achievement}>
-              <div className={styles.value}>12+</div>
-              <div className={styles.label}>years</div>
-            </div>
-          )}
-
-          {/* Add YouTube subscribers badge */}
-          {link.name === 'YouTube' && (
-            <div className={styles.achievement}>
-              <div className={styles.value}>170+</div>
-              <div className={styles.label}>subscribers</div>
-            </div>
-          )}
-
-          {/* Add GitHub repositories badge */}
-          {link.name === 'GitHub' && (
-            <div className={styles.achievement}>
-              <div className={styles.value}>35+</div>
-              <div className={styles.label}>repos</div>
+              <div className={styles.value}>{link.achievement.value}</div>
+              <div className={styles.label}>{link.achievement.label}</div>
             </div>
           )}
         </a>

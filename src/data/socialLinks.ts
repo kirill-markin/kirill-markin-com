@@ -10,6 +10,10 @@ export interface SocialLink {
   footerBottomGreenLine?: boolean;
   header?: boolean;
   avatarLearnMore?: boolean;
+  achievement?: {
+    value: string;
+    label: string;
+  };
 }
 
 export const socialLinks: SocialLink[] = [
@@ -20,7 +24,11 @@ export const socialLinks: SocialLink[] = [
     socialLogoUrlDefault: "/social/linkedin.png",
     socialLogoUrlHover: "/social/linkedin_hover.png",
     avatarContact: true,
-    footerBottom: true
+    footerBottom: true,
+    achievement: {
+      value: "6,000+",
+      label: "followers"
+    }
   },
   {
     name: "CV",
@@ -29,7 +37,11 @@ export const socialLinks: SocialLink[] = [
     socialLogoUrlDefault: "/social/cv.svg",
     socialLogoUrlHover: "/social/cv_hover.svg",
     avatarContact: true,
-    footerBottom: true
+    footerBottom: true,
+    achievement: {
+      value: "12+",
+      label: "years"
+    }
   },
   {
     name: "YouTube",
@@ -41,7 +53,11 @@ export const socialLinks: SocialLink[] = [
     contactBubble: true,
     footerBottom: true,
     footerBottomGreenLine: true,
-    header: true
+    header: true,
+    achievement: {
+      value: "170+",
+      label: "subscribers"
+    }
   },
   {
     name: "Telegram",
@@ -65,7 +81,11 @@ export const socialLinks: SocialLink[] = [
     contactBubble: true,
     footerBottom: true,
     footerBottomGreenLine: true,
-    header: true
+    header: true,
+    achievement: {
+      value: "35+",
+      label: "repos"
+    }
   },
   {
     name: "WhatsApp",
