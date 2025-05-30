@@ -23,6 +23,15 @@ export const socialLinks: SocialLink[] = [
     footerBottom: true
   },
   {
+    name: "CV",
+    url: "/data/cv-kirill-markin-data-engineer.pdf",
+    username: "CV",
+    socialLogoUrlDefault: "/social/cv.svg",
+    socialLogoUrlHover: "/social/cv_hover.svg",
+    avatarContact: true,
+    footerBottom: true
+  },
+  {
     name: "WhatsApp",
     url: "https://api.whatsapp.com/send?phone=31625351137",
     username: "+31625351137",
@@ -120,14 +129,5 @@ export const socialLinks: SocialLink[] = [
     socialLogoUrlHover: "/social/bluesky.png",
     footerBottom: true,
     footerBottomGreenLine: true
-  },
-  {
-    name: "CV",
-    url: "/data/cv-kirill-markin-data-engineer.pdf",
-    username: "CV",
-    socialLogoUrlDefault: "/social/cv.svg",
-    socialLogoUrlHover: "/social/cv_hover.svg",
-    avatarContact: true,
-    footerBottom: true
   }
 ]; 
