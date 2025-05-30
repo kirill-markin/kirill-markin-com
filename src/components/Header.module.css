@@ -26,7 +26,8 @@
   height: 100%;
 }
 
-.leftColumn, .rightColumn {
+.leftColumn,
+.rightColumn {
   display: flex;
   height: 100%;
 }
@@ -60,6 +61,7 @@
   position: relative;
   overflow: hidden;
   border-right: 1px solid #232323;
+  transition: none;
 }
 
 .headerDesktopButton:last-child {
@@ -72,7 +74,7 @@
   animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.headerDesktopButton:hover::before, 
+.headerDesktopButton:hover::before,
 .headerDesktopButton:hover::after {
   content: '';
   position: absolute;
@@ -86,13 +88,11 @@
 
 .headerDesktopButton:hover::before {
   animation: tech-noise-scanlines 0.8s steps(5) both;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0%, 
-    rgba(32, 128, 32, 0.02) 0.2%, 
-    rgba(0, 255, 0, 0.05) 0.3%,
-    transparent 0.5%
-  );
+  background: repeating-linear-gradient(0deg,
+      transparent 0%,
+      rgba(32, 128, 32, 0.02) 0.2%,
+      rgba(0, 255, 0, 0.05) 0.3%,
+      transparent 0.5%);
   background-size: 100% 2px;
   mix-blend-mode: screen;
   opacity: 0;
@@ -161,6 +161,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .headerMobileButton:hover {
+    animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .headerMobileButton:hover::before,
+  .headerMobileButton:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .headerMobileButton:hover::before {
+    animation: tech-noise-scanlines 0.8s steps(5) both;
+    background: repeating-linear-gradient(0deg,
+        transparent 0%,
+        rgba(32, 128, 32, 0.02) 0.2%,
+        rgba(0, 255, 0, 0.05) 0.3%,
+        transparent 0.5%);
+    background-size: 100% 2px;
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+
+  .headerMobileButton:hover::after {
+    animation: tech-rgb-shift 0.8s steps(3) both;
+    background-color: transparent;
+    mix-blend-mode: exclusion;
+    opacity: 0;
   }
 
   .headerMobileButtonClosed {
@@ -191,12 +229,49 @@
     color: var(--dark-gray);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-
     height: 40px;
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .headerMobileBlogButton:hover {
+    animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .headerMobileBlogButton:hover::before,
+  .headerMobileBlogButton:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .headerMobileBlogButton:hover::before {
+    animation: tech-noise-scanlines 0.8s steps(5) both;
+    background: repeating-linear-gradient(0deg,
+        transparent 0%,
+        rgba(32, 128, 32, 0.02) 0.2%,
+        rgba(0, 255, 0, 0.05) 0.3%,
+        transparent 0.5%);
+    background-size: 100% 2px;
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+
+  .headerMobileBlogButton:hover::after {
+    animation: tech-rgb-shift 0.8s steps(3) both;
+    background-color: transparent;
+    mix-blend-mode: exclusion;
+    opacity: 0;
   }
 
   .headerMobileBookAMeetingButton {
@@ -207,12 +282,49 @@
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-
     height: 40px;
     padding-left: 1rem;
     padding-right: 1rem;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .headerMobileBookAMeetingButton:hover {
+    animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .headerMobileBookAMeetingButton:hover::before,
+  .headerMobileBookAMeetingButton:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .headerMobileBookAMeetingButton:hover::before {
+    animation: tech-noise-scanlines 0.8s steps(5) both;
+    background: repeating-linear-gradient(0deg,
+        transparent 0%,
+        rgba(32, 128, 32, 0.02) 0.2%,
+        rgba(0, 255, 0, 0.05) 0.3%,
+        transparent 0.5%);
+    background-size: 100% 2px;
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+
+  .headerMobileBookAMeetingButton:hover::after {
+    animation: tech-rgb-shift 0.8s steps(3) both;
+    background-color: transparent;
+    mix-blend-mode: exclusion;
+    opacity: 0;
   }
 
   .headerMobileMenuOpen {
@@ -226,7 +338,7 @@
     transition: all 0.3s ease;
 
     /* first child */
-    & > :first-child {
+    &> :first-child {
       border-top: 1px solid #232323;
     }
   }
@@ -238,6 +350,49 @@
   .headerMobileMenuSection {
     padding: 1rem 2rem;
     border-bottom: 1px solid #232323;
+    position: relative;
+    overflow: hidden;
+    transition: none;
+  }
+
+  .headerMobileMenuSection:hover {
+    animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .headerMobileMenuSection:hover::before,
+  .headerMobileMenuSection:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .headerMobileMenuSection:hover::before {
+    animation: tech-noise-scanlines 0.8s steps(5) both;
+    background: repeating-linear-gradient(0deg,
+        transparent 0%,
+        rgba(32, 128, 32, 0.02) 0.2%,
+        rgba(0, 255, 0, 0.05) 0.3%,
+        transparent 0.5%);
+    background-size: 100% 2px;
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+
+  .headerMobileMenuSection:hover::after {
+    animation: tech-rgb-shift 0.8s steps(3) both;
+    background-color: transparent;
+    mix-blend-mode: exclusion;
+    opacity: 0;
+  }
+
+  .headerMobileMenuSection:hover a {
+    text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+    animation: tech-text-glitch 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
   .headerMobileMenuSection a {
@@ -259,4 +414,181 @@
   .headerMobileBookAMeeting svg {
     margin-left: 0.5rem;
   }
-} 
+}
+
+/* Keyframes for glitch animations */
+@keyframes clean-glitch-effect {
+  0% {
+    transform: scale(1);
+    filter: none;
+  }
+
+  3% {
+    transform: scale(1.004);
+    filter: none;
+  }
+
+  5% {
+    transform: scale(1.008);
+    filter: brightness(1.05);
+  }
+
+  10% {
+    transform: scale(1.01);
+    filter: brightness(1.1) contrast(1.15);
+  }
+
+  15% {
+    transform: scale(1.01);
+    filter: url('#data-corruption');
+  }
+
+  20% {
+    transform: scale(1.01);
+    filter: brightness(0.95) contrast(1.2);
+  }
+
+  25% {
+    transform: scale(1.01);
+    filter: url('#hacker-digital-corruption');
+  }
+
+  30% {
+    transform: scale(1.01);
+    filter: brightness(1.05) contrast(1.1);
+  }
+
+  100% {
+    transform: scale(1.01);
+    filter: none;
+  }
+}
+
+@keyframes tech-text-glitch {
+
+  0%,
+  100% {
+    text-shadow: none;
+    color: var(--dark-gray);
+  }
+
+  10% {
+    text-shadow: 0.5px 0 #00ffaa, -0.5px 0 #ff2222;
+    color: var(--dark-gray);
+  }
+
+  15% {
+    text-shadow: -0.5px 0 #00ffaa, 0.5px 0 #ff2222;
+    color: #323232;
+  }
+
+  18% {
+    text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+    color: #1a1a1a;
+  }
+
+  25% {
+    text-shadow: 0.75px 0 #0088ff, -0.75px 0 #ff0000;
+    color: #0e0e0e;
+  }
+
+  35% {
+    text-shadow: none;
+    color: var(--dark-gray);
+  }
+}
+
+@keyframes tech-noise-scanlines {
+
+  0%,
+  100% {
+    opacity: 0;
+    background-position: 0 0;
+    transform: translateY(0);
+  }
+
+  10% {
+    opacity: 0.4;
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+
+  15% {
+    opacity: 0.5;
+    background-position: 0 -5%;
+    transform: translateY(1px);
+  }
+
+  20% {
+    opacity: 0.45;
+    background-position: 0 -10%;
+    transform: translateY(-2px);
+  }
+
+  25% {
+    opacity: 0.6;
+    background-position: 0 20%;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 0.4;
+    background-position: 0 -15%;
+    transform: translateY(1px);
+  }
+
+  35% {
+    opacity: 0.5;
+    background-position: 0 10%;
+    transform: translateY(-1px);
+  }
+
+  40% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tech-rgb-shift {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+    background: linear-gradient(90deg,
+        rgba(255, 0, 0, 0.1) -10%,
+        transparent 20%,
+        transparent 80%,
+        rgba(0, 0, 255, 0.1) 110%);
+  }
+
+  15% {
+    opacity: 0.4;
+    background: linear-gradient(90deg,
+        rgba(0, 255, 0, 0.1) -5%,
+        transparent 30%,
+        transparent 70%,
+        rgba(255, 0, 0, 0.1) 105%);
+  }
+
+  20% {
+    opacity: 0.5;
+    background: linear-gradient(90deg,
+        rgba(0, 0, 255, 0.1) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(0, 255, 0, 0.1) 100%);
+  }
+
+  30% {
+    opacity: 0.3;
+    background: none;
+  }
+
+  40% {
+    opacity: 0;
+  }
+}
