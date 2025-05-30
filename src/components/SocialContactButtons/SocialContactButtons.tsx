@@ -67,6 +67,14 @@ export const SocialContactButtons: React.FC<SocialContactButtonsProps> = ({
               <div className={styles.label}>subscribers</div>
             </div>
           )}
+
+          {/* Add GitHub repositories badge */}
+          {link.name === 'GitHub' && (
+            <div className={styles.achievement}>
+              <div className={styles.value}>35+</div>
+              <div className={styles.label}>repos</div>
+            </div>
+          )}
         </a>
       ))}
     </div>

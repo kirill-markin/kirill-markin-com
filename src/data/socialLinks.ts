@@ -56,6 +56,18 @@ export const socialLinks: SocialLink[] = [
     header: true
   },
   {
+    name: "GitHub",
+    url: "https://github.com/kirill-markin",
+    username: "@kirill-markin",
+    socialLogoUrlDefault: "/social/github.svg",
+    socialLogoUrlHover: "/social/github_hover.svg",
+    avatarContact: true,
+    contactBubble: true,
+    footerBottom: true,
+    footerBottomGreenLine: true,
+    header: true
+  },
+  {
     name: "WhatsApp",
     url: "https://api.whatsapp.com/send?phone=31625351137",
     username: "+31625351137",
@@ -78,12 +90,6 @@ export const socialLinks: SocialLink[] = [
     footerBottom: true,
     footerBottomGreenLine: true,
     header: true
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/kirill-markin",
-    username: "@kirill-markin",
-    footerBottom: true
   },
   {
     name: "Reddit",
