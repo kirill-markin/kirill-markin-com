@@ -9,7 +9,7 @@
     background-color: white;
     border: 1px solid #232323;
     border-radius: 0;
-    overflow: hidden;
+    overflow: visible;
     text-decoration: none;
     display: flex;
     justify-content: flex-start;
@@ -99,6 +99,38 @@
     font-family: Archivo, sans-serif;
 }
 
+.achievementSticker {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #07ff39;
+    padding: 4px 8px;
+    height: 32px;
+    min-width: 50px;
+    transform: rotate(-8deg);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 101;
+}
+
+.achievementSticker .value {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #232323;
+}
+
+.achievementSticker .label {
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1;
+    color: #232323;
+    text-transform: lowercase;
+}
+
 /* Mobile styles - using media query only */
 @media (max-width: 1200px) {
     .authorBlock {
@@ -115,6 +147,8 @@
         border-bottom: 1px solid #232323;
         order: 999;
         /* Push to end of flex container */
+        overflow: visible;
+        position: relative;
     }
 
     .authorContent {
@@ -138,6 +172,23 @@
         height: 80px;
         margin-bottom: 0;
         margin-right: 15px;
+    }
+
+    .achievementSticker {
+        bottom: -4px;
+        right: 8px;
+        transform: rotate(-6deg);
+        height: 26px;
+        padding: 3px 6px;
+        min-width: 45px;
+    }
+
+    .achievementSticker .value {
+        font-size: 10px;
+    }
+
+    .achievementSticker .label {
+        font-size: 8px;
     }
 
     .authorInfo {

@@ -42,6 +42,10 @@ const AuthorBlock: React.FC<AuthorBlockProps> = ({
                     <p className={styles.authorTertiaryTitle}>{personalInfoTranslations.tertiaryTitle}</p>
                 </div>
             </div>
+            <div className={styles.achievementSticker}>
+                <div className={styles.value}>6000+</div>
+                <div className={styles.label}>subscribers</div>
+            </div>
         </Link>
     );
 };
