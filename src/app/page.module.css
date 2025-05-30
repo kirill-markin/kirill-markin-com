@@ -218,6 +218,10 @@ a.secondary {
   .mediaMention.wide {
     grid-column: span 1;
   }
+
+  .articlesHeading {
+    font-size: calc(var(--font-size-large) / 1.5) !important;
+  }
 }
 
 /* Left column - personal info */
@@ -665,6 +669,7 @@ a.secondary {
 }
 
 @keyframes tech-text-glitch {
+
   0%,
   100% {
     text-shadow: none;
@@ -747,6 +752,7 @@ a.secondary {
 
 /* Add keyframes for header animations */
 @keyframes tech-noise-scanlines {
+
   0%,
   100% {
     opacity: 0;
@@ -797,6 +803,7 @@ a.secondary {
 }
 
 @keyframes tech-rgb-shift {
+
   0%,
   100% {
     opacity: 0;
