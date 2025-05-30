@@ -77,6 +77,10 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/data/professionalRoles.ts',
         ...commonFiles
     ],
+    // Add CV.pdf file
+    '/data/cv-kirill-markin-data-engineer.pdf': [
+        'public/data/cv-kirill-markin-data-engineer.pdf'
+    ],
     // Add article slug page (for generic article page template)
     '/articles/[slug]/': [
         'src/app/articles/[slug]/page.tsx',

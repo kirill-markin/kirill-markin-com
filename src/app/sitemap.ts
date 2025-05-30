@@ -156,6 +156,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push(...await Promise.all(defaultRoutePromises));
   entries.push(...await Promise.all(localizedRoutePromises));
 
+  // Add CV.pdf file
+  const cvLastModified = await getFileLastCommitDate('public/data/cv-kirill-markin-data-engineer.pdf');
+  entries.push({
+    url: `${baseUrl}data/cv-kirill-markin-data-engineer.pdf`,
+    lastModified: cvLastModified,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  });
+
   // Generate article routes with Git commit dates
   for (const article of connectedArticles) {
     const { slug, metadata } = article;
