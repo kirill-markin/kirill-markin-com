@@ -59,6 +59,14 @@ export const SocialContactButtons: React.FC<SocialContactButtonsProps> = ({
               <div className={styles.label}>years</div>
             </div>
           )}
+
+          {/* Add YouTube subscribers badge */}
+          {link.name === 'YouTube' && (
+            <div className={styles.achievement}>
+              <div className={styles.value}>170+</div>
+              <div className={styles.label}>subscribers</div>
+            </div>
+          )}
         </a>
       ))}
     </div>
