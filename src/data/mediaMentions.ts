@@ -502,5 +502,65 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/ozma-2022-08-27.webp",
     websiteLogoUrl: "/logos/ozma.svg"
+  },
+  {
+    title: "chrome-auto-image-blocker: Chrome extension to block images with one click",
+    url: "https://github.com/kirill-markin/chrome-auto-image-blocker",
+    publisher: "GitHub",
+    date: "2024-06-08",
+    type: "Tool",
+    language: "en",
+    thumbnailUrl: "/articles/github-chrome-auto-image-blocker-2025.webp",
+    websiteLogoUrl: "/logos/github-with-text.png",
+    achievementValue: "78",
+    achievementLabel: "stars"
+  },
+  {
+    title: "ozma: Open-source CRM/ERP platform for rapid enterprise development",
+    url: "https://github.com/ozma-io/ozma",
+    publisher: "GitHub",
+    date: "2023-01-15",
+    type: "Tool",
+    language: "en",
+    thumbnailUrl: "/articles/github-ozma-2025.webp",
+    websiteLogoUrl: "/logos/github-with-text.png",
+    achievementValue: "35",
+    achievementLabel: "stars"
+  },
+  {
+    title: "example-mcp-server: MCP server template for extending Cursor IDE",
+    url: "https://github.com/kirill-markin/example-mcp-server",
+    publisher: "GitHub",
+    date: "2025-01-15",
+    type: "Tool",
+    language: "en",
+    thumbnailUrl: "/articles/github-example-mcp-server-2025.webp",
+    websiteLogoUrl: "/logos/github-with-text.png",
+    achievementValue: "35",
+    achievementLabel: "stars"
+  },
+  {
+    title: "ab-test-advanced-toolkit: Advanced A/B Testing with CUPED and Gradient Boosting",
+    url: "https://github.com/dmitry-brazhenko/ab-test-advanced-toolkit",
+    publisher: "GitHub",
+    date: "2023-08-10",
+    type: "Tool",
+    language: "en",
+    thumbnailUrl: "/articles/github-ab-test-advanced-toolkit-2025.webp",
+    websiteLogoUrl: "/logos/github-with-text.png",
+    achievementValue: "28",
+    achievementLabel: "stars"
+  },
+  {
+    title: "chatgpt-telegram-bot-telegraf: Open source Telegram bot powered by ChatGPT",
+    url: "https://github.com/kirill-markin/chatgpt-telegram-bot-telegraf",
+    publisher: "GitHub",
+    date: "2023-02-15",
+    type: "Tool",
+    language: "en",
+    thumbnailUrl: "/articles/github-chatgpt-telegram-bot-telegraf-2025.webp",
+    websiteLogoUrl: "/logos/github-with-text.png",
+    achievementValue: "25",
+    achievementLabel: "stars"
   }
 ]; 
