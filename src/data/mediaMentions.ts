@@ -67,19 +67,16 @@ export const mediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/oreilly.png",
   },
   {
-    title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
-    alternativeTitle: "How to\u00A0Motivate Employees to\u00A0Use AI Tools in\u00A0Their Work",
-    url: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
-    publisher: "epicgrowth.io",
-    date: "2024-03-14",
-    type: "Panel Discussion",
-    event: "Epic AI Conference 2024",
-    eventUrl: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
-    thumbnailUrl: "/articles/epicgrowth-2024-03-14.webp",
-    language: "ru",
-    websiteLogoUrl: "/logos/epicgrowth.svg",
-    achievementValue: "Moderator",
-    achievementLabel: null
+    title: "repo-to-text: Convert repository structure to single text file",
+    url: "https://github.com/kirill-markin/repo-to-text",
+    publisher: "GitHub",
+    date: "2024-06-09",
+    type: "Tool",
+    language: "en",
+    thumbnailUrl: "/articles/github-repo-to-text-2025.webp",
+    websiteLogoUrl: "/logos/github.png",
+    achievementValue: "155+",
+    achievementLabel: "stars"
   },
   {
     title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
@@ -93,6 +90,21 @@ export const mediaMentions: MediaMention[] = [
     achievementValue: "8,900",
     achievementLabel: "views",
     isVideo: true
+  },
+  {
+    title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
+    alternativeTitle: "How to\u00A0Motivate Employees to\u00A0Use AI Tools in\u00A0Their Work",
+    url: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
+    publisher: "epicgrowth.io",
+    date: "2024-03-14",
+    type: "Panel Discussion",
+    event: "Epic AI Conference 2024",
+    eventUrl: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
+    thumbnailUrl: "/articles/epicgrowth-2024-03-14.webp",
+    language: "ru",
+    websiteLogoUrl: "/logos/epicgrowth.svg",
+    achievementValue: "Moderator",
+    achievementLabel: null
   },
   {
     title: "How to\u00A0handle a\u00A0billion new\u00A0records per\u00A0day",
