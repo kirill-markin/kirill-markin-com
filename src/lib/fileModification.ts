@@ -68,6 +68,15 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/app/search/page.tsx',
         ...commonFiles
     ],
+    // Add llms.txt route
+    '/llms.txt': [
+        'src/app/llms.txt/route.ts',
+        'src/lib/articles.ts',
+        'src/data/services.ts',
+        'src/data/personalInfo.ts',
+        'src/data/professionalRoles.ts',
+        ...commonFiles
+    ],
     // Add article slug page (for generic article page template)
     '/articles/[slug]/': [
         'src/app/articles/[slug]/page.tsx',
