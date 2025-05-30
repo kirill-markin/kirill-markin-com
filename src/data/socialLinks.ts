@@ -68,11 +68,11 @@ export const socialLinks: SocialLink[] = [
     header: true
   },
   {
-    name: "Instagram",
-    url: "https://www.instagram.com/kirill.markin.kira/",
-    username: "@kirill.markin.kira",
-    socialLogoUrlDefault: "/social/instagram.png",
-    socialLogoUrlHover: "/social/instagram_hover.png",
+    name: "YouTube",
+    url: "https://www.youtube.com/@kirill-markin",
+    username: "@kirill-markin",
+    socialLogoUrlDefault: "/social/youtube.svg",
+    socialLogoUrlHover: "/social/youtube_hover.svg",
     avatarContact: true,
     contactBubble: true,
     footerBottom: true,
@@ -82,12 +82,6 @@ export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     url: "https://github.com/kirill-markin",
-    username: "@kirill-markin",
-    footerBottom: true
-  },
-  {
-    name: "YouTube",
-    url: "https://www.youtube.com/@kirill-markin",
     username: "@kirill-markin",
     footerBottom: true
   },
