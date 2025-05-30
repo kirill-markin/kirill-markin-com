@@ -10,13 +10,20 @@
   --black: #1A1A1A;
   --white: #FFFFFF;
   --gray: #BCBCBC;
-  --font-size-small: 0.875rem;  /* 14px */
-  --font-size-base: 1rem;       /* 16px */
-  --font-size-base-plus: 1.125rem; /* 18px */
-  --font-size-medium: 1.25rem; /* 20px */
-  --font-size-large: 2.25rem;   /* 36px */
-  --font-size-xlarge: 3.25rem;  /* 52px */
-  --font-size-xxlarge: 5.4375rem; /* 87px */
+  --font-size-small: 0.875rem;
+  /* 14px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-base-plus: 1.125rem;
+  /* 18px */
+  --font-size-medium: 1.25rem;
+  /* 20px */
+  --font-size-large: 2.25rem;
+  /* 36px */
+  --font-size-xlarge: 3.25rem;
+  /* 52px */
+  --font-size-xxlarge: 5.4375rem;
+  /* 87px */
 }
 
 html,
@@ -52,15 +59,21 @@ table {
   width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 main {
-  max-width: 100%;
+  max-width: 1470px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   padding: 20px 0 0 0;
-  margin: 0;
 }
