@@ -74,8 +74,8 @@ export const mediaMentions: MediaMention[] = [
     type: "Tool",
     language: "en",
     thumbnailUrl: "/articles/github-repo-to-text-2025.webp",
-    websiteLogoUrl: "/logos/github.png",
-    achievementValue: "155+",
+    websiteLogoUrl: "/logos/github-with-text.png",
+    achievementValue: "150+",
     achievementLabel: "stars"
   },
   {
