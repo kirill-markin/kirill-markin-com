@@ -54,7 +54,7 @@ export const mediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/noah-conf.png",
     isVideo: true,
     achievementValue: "Zurich",
-    achievementLabel: null
+    achievementLabel: "conference"
   },
   {
     title: "Generative AI for 80% Customer Support Automation",
