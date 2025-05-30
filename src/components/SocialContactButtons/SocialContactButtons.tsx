@@ -51,6 +51,14 @@ export const SocialContactButtons: React.FC<SocialContactButtonsProps> = ({
               <div className={styles.label}>followers</div>
             </div>
           )}
+
+          {/* Add CV experience badge */}
+          {link.name === 'CV' && (
+            <div className={styles.achievement}>
+              <div className={styles.value}>12+</div>
+              <div className={styles.label}>years</div>
+            </div>
+          )}
         </a>
       ))}
     </div>
