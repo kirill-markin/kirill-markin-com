@@ -27,6 +27,10 @@ Cursor IDE implements three levels of cursor rules:
 
 I'm sharing my base-level cursor project rules here - the global settings I use in Cursor IDE. These rules form the foundation for all my development work. When combined with repository-level and dynamic rules, they create a powerful system that maintains code quality while keeping my development practices consistent.
 
+> **Prefer Video Tutorial?** I've created a comprehensive video walkthrough of this entire cursor rules system. [Watch Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx) to see these techniques implemented step-by-step.
+
+[![Cursor IDE Rules configuration and implementation in action](/articles/cursor-ide-rules-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+
 ## How to Configure Cursor Rules for Optimal AI Coding Performance
 
 Cursor -> Settings -> Cursor Settings -> Rules for AI:
@@ -428,3 +432,18 @@ The token economy works the same way across all LLM-powered tools:
 So whether you're using Cursor's three-tier rule system or another tool's configuration options, always aim to be precise and concise. Focus your guidance on the specific patterns and preferences that matter most, and let the AI handle the rest.
 
 The real advantage isn't in which tool provides the most customization options, but in how thoughtfully you use the available options to communicate your expectations without wasting tokens on unnecessary verbosity.
+
+## Video Tutorial: Watch the Complete Cursor IDE Rules Implementation
+
+If you prefer learning visually, I've created a comprehensive video tutorial that demonstrates the complete implementation of this three-tier cursor rules system:
+
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+
+The video walks through:
+- Setting up global cursor rules in Cursor IDE settings
+- Creating repository-specific `.cursorrules` files with real examples
+- Implementing context-aware `.cursor/*.mdc` files for specialized tasks
+- Demonstrating how each level works together to optimize AI assistance
+- Troubleshooting common issues and optimizing token usage
+
+You'll see the entire workflow in action, from initial setup to advanced multi-level configurations that transform how you collaborate with AI assistants.
