@@ -30,6 +30,10 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 本文将重点解析我的全局规则配置，这些经过实战检验的设置构成了高效AI协作的基础框架。结合项目级和动态规则，这套系统能在保证代码质量的同时，显著提升日常开发效率。
 
+> **更倾向于视频教程？** 我制作了一个全面的视频演练，详细介绍了整个 cursor 规则系统。[观看 Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx) 来查看这些技术的分步实现。
+
+[![Cursor IDE 规则配置和实施实际操作](/articles/cursor-ide-rules-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+
 ## 实战指南：如何配置Cursor AI编码规则实现最佳性能
 
 根据我的经验，以下步骤能最大化AI编码效率：
@@ -499,3 +503,18 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 这些概念对于理解如何有效配置和使用Cursor IDE的AI功能至关重要。随着你对这些概念的熟悉，你将能够更有效地创建和管理适合你开发工作流程的AI规则。
 
 真正的优势不在于哪个工具提供最多的自定义选项，而在于你如何周到地使用可用选项来传达你的期望，而不浪费令牌在不必要的冗长表述上。
+
+## 视频教程：观看完整的 Cursor IDE 规则实施
+
+如果你更喜欢视觉学习，我制作了一个全面的视频教程，演示了这个三层 cursor 规则系统的完整实施：
+
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+
+视频涵盖内容：
+- 在 Cursor IDE 设置中配置全局 cursor 规则
+- 创建包含真实示例的仓库级 `.cursorrules` 文件
+- 实施专门任务的上下文感知 `.cursor/*.mdc` 文件
+- 演示每个级别如何协同工作以优化 AI 协助
+- 故障排除常见问题和优化令牌使用
+
+你将看到整个工作流程的实际操作，从初始设置到高级多级配置，这些配置改变了你与 AI 助手的协作方式。

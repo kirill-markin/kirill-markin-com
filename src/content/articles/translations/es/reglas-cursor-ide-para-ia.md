@@ -31,6 +31,10 @@ Cursor IDE implementa tres niveles de reglas:
 
 Aquí comparto mis reglas de cursor de nivel base - la configuración global que uso en Cursor IDE. Estas reglas forman la base de todo mi trabajo de desarrollo. Cuando se combinan con reglas a nivel de repositorio y reglas dinámicas, crean un sistema potente que mantiene la calidad del código mientras conserva mis prácticas de desarrollo consistentes.
 
+> **¿Prefieres un Tutorial en Video?** He creado un recorrido completo en video de todo este sistema de reglas de cursor. [Mira Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/ZbC11uEf8zA?si=Y-lDTKaNtyrNY7lF) para ver estas técnicas implementadas paso a paso.
+
+[![Configuración e implementación de reglas de Cursor IDE en acción](/articles/cursor-ide-rules-tutorial-es.webp)](https://youtu.be/ZbC11uEf8zA?si=Y-lDTKaNtyrNY7lF)
+
 ## Cómo configurar las reglas de Cursor para un rendimiento óptimo de codificación con IA
 
 Cursor -> Configuración -> Configuración de Cursor -> Reglas para IA:
@@ -432,4 +436,19 @@ La economía de tokens funciona de la misma manera en todas las herramientas bas
 Así que ya sea que estés usando el sistema de reglas de tres niveles de Cursor u opciones de configuración de otra herramienta, siempre apunta a ser preciso y conciso. Enfoca tu guía en los patrones y preferencias específicos que más importan, y deja que la IA maneje el resto.
 
 La verdadera ventaja no está en qué herramienta proporciona más opciones de personalización, sino en cómo utilizas cuidadosamente las opciones disponibles para comunicar tus expectativas sin desperdiciar tokens en verbosidad innecesaria.
+
+## Tutorial en Video: Mira la Implementación Completa de Reglas de Cursor IDE
+
+Si prefieres aprender visualmente, he creado un tutorial completo en video que demuestra la implementación completa de este sistema de reglas de cursor de tres niveles:
+
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial-es.webp)](https://youtu.be/ZbC11uEf8zA?si=Y-lDTKaNtyrNY7lF)
+
+El video cubre:
+- Configuración de reglas globales de cursor en los ajustes de Cursor IDE
+- Creación de archivos `.cursorrules` específicos del repositorio con ejemplos reales
+- Implementación de archivos `.cursor/*.mdc` sensibles al contexto para tareas especializadas
+- Demostración de cómo cada nivel funciona en conjunto para optimizar la asistencia de IA
+- Solución de problemas comunes y optimización del uso de tokens
+
+Verás todo el flujo de trabajo en acción, desde la configuración inicial hasta configuraciones multinivel avanzadas que transforman cómo colaboras con asistentes de IA.
 
