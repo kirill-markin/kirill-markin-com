@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { getAllArticles } from '@/lib/articles';
-import { servicesData } from '@/data/services';
 import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { redirect, notFound } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
@@ -9,21 +7,17 @@ import { generateArticlesPageMetadata, generateServicesPageMetadata, generateMee
 import { MeetPage } from '@/components/pages/meet';
 import { PayPage } from '@/components/pages/pay';
 
+// Force static generation even with searchParams
+export const dynamic = 'force-static';
+
 interface SegmentPageProps {
     params: Promise<{ lang: string; segment: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-// Generate static parameters for all supported languages
+// Generate static parameters for all supported languages and segments
 export async function generateStaticParams() {
     const params = [];
-
-    // Get articles for tag generation
-    const articles = await getAllArticles();
-
-    // Get unique tags from all articles
-    const allTags = articles.flatMap(article => article.metadata.tags || []);
-    const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
 
     // Create routes for each non-default language
     for (const lang of ['es', 'zh', 'ar', 'hi']) {
@@ -39,58 +33,11 @@ export async function generateStaticParams() {
         // Segment for pay
         const paySegment = getPathSegmentByLanguage('pay', lang);
 
-        // Add base route for articles
-        params.push({
-            lang,
-            segment: articlesSegment,
-            searchParams: {}
-        });
-
-        // Add base route for services
-        params.push({
-            lang,
-            segment: servicesSegment,
-            searchParams: {}
-        });
-
-        // Add base route for meet
-        params.push({
-            lang,
-            segment: meetSegment,
-            searchParams: {}
-        });
-
-        // Add base route for pay
-        params.push({
-            lang,
-            segment: paySegment,
-            searchParams: {}
-        });
-
-        // Add routes for service categories
-        const categories = Array.from(
-            new Set(servicesData.map(service => service.categoryId))
-        ).filter(category => category !== 'all');
-
-        for (const category of categories) {
-            // Use the localized category name in the URL
-            const localizedCategoryName = getSubPathSegmentByLanguage('services', category, lang);
-
-            params.push({
-                lang,
-                segment: servicesSegment,
-                searchParams: { category: localizedCategoryName }
-            });
-        }
-
-        // Add routes for article tags
-        for (const tag of uniqueTags) {
-            params.push({
-                lang,
-                segment: articlesSegment,
-                searchParams: { tag }
-            });
-        }
+        // Add base routes (searchParams are handled at runtime with force-static)
+        params.push({ lang, segment: articlesSegment });
+        params.push({ lang, segment: servicesSegment });
+        params.push({ lang, segment: meetSegment });
+        params.push({ lang, segment: paySegment });
     }
 
     return params;

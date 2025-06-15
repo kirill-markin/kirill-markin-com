@@ -1,30 +1,17 @@
-import { getAllArticles } from '@/lib/articles';
 import { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import { generateArticlesPageMetadata } from '@/lib/metadata';
+
+// Force static generation even with searchParams
+export const dynamic = 'force-static';
 
 type Props = {
   params: Promise<Record<string, string>>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-// This function generates all possible tag routes at build time
-export async function generateStaticParams() {
-  const articles = await getAllArticles();
-
-  // Get unique tags from all articles
-  const allTags = articles.flatMap(article => article.metadata.tags || []);
-  const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
-
-  // Generate params for 'all' and each specific tag
-  return [
-    { searchParams: {} }, // Default page (all)
-    ...uniqueTags.map(tag => ({
-      searchParams: { tag }
-    }))
-  ];
-}
+// Note: generateStaticParams not needed for searchParams - those are handled at runtime
 
 export async function generateMetadata(
   { searchParams }: Props

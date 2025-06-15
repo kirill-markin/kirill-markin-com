@@ -76,31 +76,7 @@ function fetchHeaders(url: string): Promise<{ status: number; headers: Record<st
     });
 }
 
-/**
- * Check if cache headers indicate static cached content
- */
-function isStaticCached(cacheControl: string | undefined, vercelCache: string | undefined): boolean {
-    if (!cacheControl) return false;
-
-    const cc = cacheControl.toLowerCase();
-
-    // Bad cache control headers that indicate dynamic content
-    if (cc.includes('private') || cc.includes('no-cache') || cc.includes('no-store')) {
-        return false;
-    }
-
-    // Good cache control headers - our configured headers
-    const hasPublic = cc.includes('public');
-    const hasSMaxAge = cc.includes('s-maxage');
-    const hasStaleWhileRevalidate = cc.includes('stale-while-revalidate');
-
-    // Check Vercel cache status - these indicate successful caching/prerendering
-    const isVercelCached = vercelCache === 'HIT' ||
-        vercelCache === 'PRERENDER' ||
-        vercelCache === 'STALE';
-
-    return hasPublic && hasSMaxAge && hasStaleWhileRevalidate && isVercelCached;
-}
+// Removed unused isStaticCached function since we now use isCacheWorkingProperly
 
 /**
  * Check if caching is working properly (considers warmup scenario)

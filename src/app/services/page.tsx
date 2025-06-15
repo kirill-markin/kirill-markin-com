@@ -1,31 +1,18 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { servicesData } from '@/data/services';
-import { DEFAULT_LANGUAGE, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import { generateServicesPageMetadata } from '@/lib/metadata';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
+
+// Force static generation even with searchParams
+export const dynamic = 'force-static';
 
 type Props = {
   params: Promise<Record<string, string>>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-// This function generates all possible category routes at build time
-export function generateStaticParams() {
-  // Get unique categories from data
-  const categories = Array.from(
-    new Set(servicesData.map(service => service.categoryId))
-  ).filter(category => category !== 'all');
-
-  // Generate params for 'all' and each specific category
-  return [
-    { searchParams: {} }, // Default page (all)
-    ...categories.map(category => ({
-      // Use the English category name in the URL (which is the same as the internal ID)
-      searchParams: { category: getSubPathSegmentByLanguage('services', category, DEFAULT_LANGUAGE) }
-    }))
-  ];
-}
+// Note: generateStaticParams not needed for searchParams - those are handled at runtime
 
 // Helper function to validate category parameter
 function isValidCategory(category: string | undefined): boolean {
