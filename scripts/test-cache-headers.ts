@@ -46,7 +46,7 @@ function fetchHeaders(url: string): Promise<{ status: number; headers: Record<st
         const options = {
             hostname: parsedUrl.hostname,
             port: parsedUrl.port || (isHttps ? 443 : 80),
-            path: parsedUrl.path,
+            path: encodeURI(parsedUrl.path || '/'), // Properly encode the path
             method: 'HEAD', // Only fetch headers, not body
             timeout: 10000, // 10 second timeout
         };
@@ -126,7 +126,7 @@ async function fetchSitemap(sitemapUrl: string): Promise<string[]> {
             const options = {
                 hostname: parsedUrl.hostname,
                 port: parsedUrl.port || (isHttps ? 443 : 80),
-                path: parsedUrl.path,
+                path: encodeURI(parsedUrl.path || '/'), // Properly encode the path
                 method: 'GET',
                 timeout: 10000,
             };
