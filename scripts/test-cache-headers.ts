@@ -20,10 +20,17 @@ interface SitemapData {
 
 interface CacheTestResult {
     url: string;
-    status: number;
-    cacheControl: string | undefined;
-    vercelCache: string | undefined;
-    isStaticCached: boolean;
+    firstRequest: {
+        status: number;
+        cacheControl: string | undefined;
+        vercelCache: string | undefined;
+    };
+    secondRequest: {
+        status: number;
+        cacheControl: string | undefined;
+        vercelCache: string | undefined;
+    };
+    isProperlyCached: boolean;
     error?: string;
 }
 
@@ -77,17 +84,55 @@ function isStaticCached(cacheControl: string | undefined, vercelCache: string | 
 
     const cc = cacheControl.toLowerCase();
 
-    // Bad cache control headers
+    // Bad cache control headers that indicate dynamic content
     if (cc.includes('private') || cc.includes('no-cache') || cc.includes('no-store')) {
         return false;
     }
 
-    // Good cache control headers
-    if (cc.includes('public') && cc.includes('max-age')) {
-        return true;
+    // Good cache control headers - our configured headers
+    const hasPublic = cc.includes('public');
+    const hasSMaxAge = cc.includes('s-maxage');
+    const hasStaleWhileRevalidate = cc.includes('stale-while-revalidate');
+
+    // Check Vercel cache status - these indicate successful caching/prerendering
+    const isVercelCached = vercelCache === 'HIT' ||
+        vercelCache === 'PRERENDER' ||
+        vercelCache === 'STALE';
+
+    return hasPublic && hasSMaxAge && hasStaleWhileRevalidate && isVercelCached;
+}
+
+/**
+ * Check if caching is working properly (considers warmup scenario)
+ */
+function isCacheWorkingProperly(
+    firstRequest: { cacheControl: string | undefined; vercelCache: string | undefined; },
+    secondRequest: { cacheControl: string | undefined; vercelCache: string | undefined; }
+): boolean {
+    // Check if we have proper cache headers
+    const firstHasGoodHeaders = firstRequest.cacheControl &&
+        firstRequest.cacheControl.includes('public') &&
+        firstRequest.cacheControl.includes('s-maxage');
+
+    const secondHasGoodHeaders = secondRequest.cacheControl &&
+        secondRequest.cacheControl.includes('public') &&
+        secondRequest.cacheControl.includes('s-maxage');
+
+    // At least one should have good headers
+    if (!firstHasGoodHeaders && !secondHasGoodHeaders) {
+        return false;
     }
 
-    return false;
+    // First request can be PRERENDER (static), MISS (cache miss), or HIT (already cached)
+    const firstIsValid = firstRequest.vercelCache === 'PRERENDER' ||
+        firstRequest.vercelCache === 'MISS' ||
+        firstRequest.vercelCache === 'HIT';
+
+    // Second request should be cached (HIT or PRERENDER)
+    const secondIsCached = secondRequest.vercelCache === 'HIT' ||
+        secondRequest.vercelCache === 'PRERENDER';
+
+    return firstIsValid && secondIsCached;
 }
 
 /**
@@ -147,28 +192,57 @@ async function fetchSitemap(sitemapUrl: string): Promise<string[]> {
 }
 
 /**
- * Test cache headers for a single URL
+ * Test cache headers for a single URL with cache warmup
  */
 async function testUrl(url: string): Promise<CacheTestResult> {
     try {
-        const { status, headers } = await fetchHeaders(url);
-        const cacheControl = headers['cache-control'];
-        const vercelCache = headers['x-vercel-cache'];
+        // First request - cache warmup
+        const firstRequest = await fetchHeaders(url);
+
+        // Small delay to allow cache to settle
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        // Second request - should be cached
+        const secondRequest = await fetchHeaders(url);
+
+        const firstCacheControl = firstRequest.headers['cache-control'];
+        const firstVercelCache = firstRequest.headers['x-vercel-cache'];
+        const secondCacheControl = secondRequest.headers['cache-control'];
+        const secondVercelCache = secondRequest.headers['x-vercel-cache'];
+
+        const isProperlyCached = isCacheWorkingProperly(
+            { cacheControl: firstCacheControl, vercelCache: firstVercelCache },
+            { cacheControl: secondCacheControl, vercelCache: secondVercelCache }
+        );
 
         return {
             url,
-            status,
-            cacheControl,
-            vercelCache,
-            isStaticCached: isStaticCached(cacheControl, vercelCache),
+            firstRequest: {
+                status: firstRequest.status,
+                cacheControl: firstCacheControl,
+                vercelCache: firstVercelCache,
+            },
+            secondRequest: {
+                status: secondRequest.status,
+                cacheControl: secondCacheControl,
+                vercelCache: secondVercelCache,
+            },
+            isProperlyCached,
         };
     } catch (error) {
         return {
             url,
-            status: 0,
-            cacheControl: undefined,
-            vercelCache: undefined,
-            isStaticCached: false,
+            firstRequest: {
+                status: 0,
+                cacheControl: undefined,
+                vercelCache: undefined,
+            },
+            secondRequest: {
+                status: 0,
+                cacheControl: undefined,
+                vercelCache: undefined,
+            },
+            isProperlyCached: false,
             error: error instanceof Error ? error.message : String(error),
         };
     }
@@ -194,14 +268,11 @@ async function testAllUrls(urls: string[]): Promise<CacheTestResult[]> {
 
         if (result.error) {
             console.log(`❌ ERROR: ${result.error}`);
-        } else if (!result.isStaticCached) {
-            console.log(`⚠️  NOT CACHED (${result.status}) - ${result.cacheControl || 'no cache-control'}`);
+        } else if (!result.isProperlyCached) {
+            console.log(`⚠️  NOT CACHED - 1st: ${result.firstRequest.vercelCache || 'none'}, 2nd: ${result.secondRequest.vercelCache || 'none'}`);
         } else {
-            console.log(`✅ CACHED (${result.status}) - ${result.vercelCache || 'unknown'}`);
+            console.log(`✅ CACHED - 1st: ${result.firstRequest.vercelCache || 'none'}, 2nd: ${result.secondRequest.vercelCache || 'none'}`);
         }
-
-        // Small delay to avoid overwhelming the server
-        await new Promise(resolve => setTimeout(resolve, 100));
     }
 
     return results;
@@ -212,10 +283,10 @@ async function testAllUrls(urls: string[]): Promise<CacheTestResult[]> {
  */
 function generateReport(results: CacheTestResult[]): void {
     const total = results.length;
-    const successful = results.filter(r => r.status === 200);
-    const cached = results.filter(r => r.isStaticCached);
+    const successful = results.filter(r => r.firstRequest.status === 200);
+    const cached = results.filter(r => r.isProperlyCached);
     const errors = results.filter(r => r.error);
-    const notCached = results.filter(r => r.status === 200 && !r.isStaticCached);
+    const notCached = results.filter(r => r.firstRequest.status === 200 && !r.isProperlyCached);
 
     console.log('\n=== CACHE TEST SUMMARY ===');
     console.log(`Total URLs tested: ${total}`);
@@ -227,8 +298,10 @@ function generateReport(results: CacheTestResult[]): void {
         console.log('\n⚠️  URLs NOT PROPERLY CACHED:');
         notCached.forEach(result => {
             console.log(`  - ${result.url}`);
-            console.log(`    Cache-Control: ${result.cacheControl || 'none'}`);
-            console.log(`    Vercel-Cache: ${result.vercelCache || 'none'}`);
+            console.log(`    1st Request - Cache-Control: ${result.firstRequest.cacheControl || 'none'}`);
+            console.log(`    1st Request - Vercel-Cache: ${result.firstRequest.vercelCache || 'none'}`);
+            console.log(`    2nd Request - Cache-Control: ${result.secondRequest.cacheControl || 'none'}`);
+            console.log(`    2nd Request - Vercel-Cache: ${result.secondRequest.vercelCache || 'none'}`);
         });
     }
 
