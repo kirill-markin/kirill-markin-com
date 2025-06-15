@@ -47,16 +47,33 @@ export default async function Page({ params }: PageProps) {
 
 ```
 website-next-js/
-├── public/          # Static assets
-├── src/             # Application source code
-│   ├── app/         # Next.js App Router pages
-│   ├── components/  # UI components
-│   ├── content/     # Content files
-│   ├── data/        # Structured data
-│   ├── lib/         # Utility functions
-│   └── types/       # TypeScript type definitions
-├── next.config.ts   # Next.js configuration
-└── package.json     # Dependencies and scripts
+├── public/              # Static assets
+├── src/                 # Application source code
+│   ├── app/             # Next.js App Router pages
+│   │   ├── (default)/   # Route group for English content
+│   │   │   ├── layout.tsx      # English layout with lang="en"
+│   │   │   ├── page.tsx        # English homepage
+│   │   │   ├── articles/       # English articles
+│   │   │   ├── services/       # English services
+│   │   │   ├── meet/           # English meeting pages
+│   │   │   └── pay/            # English payment pages
+│   │   ├── (i18n)/      # Route group for localized content
+│   │   │   └── [lang]/         # Dynamic language routes
+│   │   │       ├── layout.tsx      # Localized layout with lang={lang}
+│   │   │       ├── page.tsx        # Localized homepage
+│   │   │       ├── [segment]/      # Dynamic localized segments
+│   │   │       └── [segment]/[subsegment]/  # Nested localized routes
+│   │   ├── layout.tsx   # Root layout (minimal)
+│   │   ├── sitemap.ts   # Sitemap generation
+│   │   ├── robots.ts    # Robots.txt
+│   │   └── globals.css  # Global styles
+│   ├── components/      # UI components
+│   ├── content/         # Content files
+│   ├── data/            # Structured data
+│   ├── lib/             # Utility functions
+│   └── types/           # TypeScript type definitions
+├── next.config.ts       # Next.js configuration
+└── package.json         # Dependencies and scripts
 ```
 
 ## Content Structure
@@ -77,21 +94,32 @@ website-next-js/
   - Localized: `/[lang]/[segment]/[subsegment]/`
 - Pre-generated routes with `generateStaticParams`
 
-### Complex Routing System
+### Route Groups Architecture
 
-**⚠️ CRITICAL**: Non-trivial path resolution - same logical path uses different words per language
+**i18n Implementation using Next.js Route Groups:**
 
-**Route Examples:**
+**Route Groups Structure:**
+- `(default)` - English content with static routes and `lang="en"` layout
+- `(i18n)` - Localized content with dynamic `[lang]` routes and language-specific layouts
+
+**Language Resolution Logic:**
+- English routes: Direct static paths (e.g., `/articles/`, `/services/`)
+- Localized routes: Dynamic segment mapping via `lib/localization.ts`
+- Each language group has its own layout with proper `lang` attribute
+- RTL support for Arabic via `dir="rtl"` in `(i18n)` layout
+
+**Complex Path Mapping - Same logical path uses different words per language:**
 - `articles` → `es/articulos` → `zh/zhishi` → `ar/maqalat` → `hi/gyan`
 - `services` → `es/servicios` → `zh/zixun` → `ar/khadamat` → `hi/sevaen`
 - `meet/short` → `es/reservar/breve` → `zh/yuyue/mianfei` → `ar/mawid/majani`
 
-**Key Files:**
-- `lib/localization.ts` - Path segment mapping logic
-- `[lang]/[segment]/page.tsx` - Dynamic segment resolution
-- `[lang]/[segment]/[subsegment]/page.tsx` - Nested route handling
+**Key Implementation Files:**
+- `lib/localization.ts` - Path segment mapping and translation logic
+- `(i18n)/[lang]/[segment]/page.tsx` - Dynamic segment resolution for localized content
+- `(i18n)/[lang]/[segment]/[subsegment]/page.tsx` - Nested localized route handling
+- `(default)/*/page.tsx` - Static English routes
 
-**⚠️ Before modifying routes**: Check segment mappings in localization.ts
+**⚠️ Before modifying routes**: Check segment mappings in `localization.ts` and update both route groups
 
 ## Key Functionality
 
@@ -101,8 +129,16 @@ website-next-js/
 
 ### SEO Optimization
 - Metadata generation (title, description, OpenGraph)
-- Canonical URLs and language variants
+- Canonical URLs and language variants  
 - Structured data (JSON-LD)
+- Server-side language attribute rendering (no client-side lang updates)
+- Route groups ensure proper `lang` and `dir` attributes from initial HTML
+
+### Metadata Architecture
+- **Route-specific metadata generation**: Each page generates localized metadata via `generateMetadata()` functions
+- **Base metadata inheritance**: Layout-level metadata serves as fallback for route groups
+- **Language-specific translations**: Metadata pulled from `lib/localization.ts` translation system
+- **No metadata reuse across languages**: Each language generates unique, translated metadata
 
 ## Development Practices
 

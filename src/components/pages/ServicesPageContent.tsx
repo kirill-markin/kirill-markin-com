@@ -3,7 +3,7 @@ import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/loc
 import ServerServices from '@/components/ServerServices';
 import { servicesData } from '@/data/services';
 import Footer from '@/components/Footer';
-import styles from '@/app/services/page.module.css';
+import styles from '@/app/(default)/services/page.module.css';
 import { notFound } from 'next/navigation';
 
 interface ServicesPageContentProps {

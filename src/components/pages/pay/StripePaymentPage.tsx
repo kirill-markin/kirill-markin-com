@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styles from '@/app/pay/page.module.css';
+import styles from '@/app/(default)/pay/page.module.css';
 import Script from 'next/script';
 import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import Footer from '@/components/Footer';

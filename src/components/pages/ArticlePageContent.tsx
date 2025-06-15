@@ -7,7 +7,7 @@ import SocialShare from '@/components/SocialShare';
 import AuthorBlock from '@/components/AuthorBlock';
 import SidebarRelatedArticles from '@/components/SidebarRelatedArticles';
 import Footer from '@/components/Footer';
-import styles from '@/app/articles/articles.module.css';
+import styles from '@/app/(default)/articles/articles.module.css';
 import { getPathSegmentByLanguage } from '@/lib/localization';
 
 interface ArticlePageContentProps {

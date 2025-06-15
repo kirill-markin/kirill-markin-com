@@ -18,7 +18,7 @@ const commonFiles = [
 // Mapping pages to their corresponding files for analysis
 export const pageFilesMap: Record<string, string[]> = {
     '/': [
-        'src/app/page.tsx',
+        'src/app/(default)/page.tsx',
         'src/app/page.module.css',
         'src/data/personalInfo.ts',
         'src/data/professionalRoles.ts',
@@ -26,46 +26,46 @@ export const pageFilesMap: Record<string, string[]> = {
         ...commonFiles
     ],
     '/services/': [
-        'src/app/services/page.tsx',
-        'src/app/services/page.module.css',
+        'src/app/(default)/services/page.tsx',
+        'src/app/(default)/services/page.module.css',
         'src/data/services.ts',
         ...commonFiles
     ],
     '/meet/': [
-        'src/app/meet/page.tsx',
-        'src/app/meet/page.module.css',
+        'src/app/(default)/meet/page.tsx',
+        'src/app/(default)/meet/page.module.css',
         ...commonFiles
     ],
     '/meet/short/': [
-        'src/app/meet/short/page.tsx',
-        'src/app/meet/page.module.css',
+        'src/app/(default)/meet/short/page.tsx',
+        'src/app/(default)/meet/page.module.css',
         ...commonFiles
     ],
     '/meet/all/': [
-        'src/app/meet/all/page.tsx',
-        'src/app/meet/page.module.css',
+        'src/app/(default)/meet/all/page.tsx',
+        'src/app/(default)/meet/page.module.css',
         ...commonFiles
     ],
     '/pay/': [
-        'src/app/pay/page.tsx',
-        'src/app/pay/page.module.css',
+        'src/app/(default)/pay/page.tsx',
+        'src/app/(default)/pay/page.module.css',
         ...commonFiles
     ],
     '/pay/stripe/': [
-        'src/app/pay/stripe/page.tsx',
-        'src/app/pay/page.module.css',
+        'src/app/(default)/pay/stripe/page.tsx',
+        'src/app/(default)/pay/page.module.css',
         ...commonFiles
     ],
     '/articles/': [
-        'src/app/articles/page.tsx',
-        'src/app/articles/articles.module.css',
-        'src/app/articles/layout.tsx',
+        'src/app/(default)/articles/page.tsx',
+        'src/app/(default)/articles/articles.module.css',
+        'src/app/(default)/articles/layout.tsx',
         'src/lib/articles.ts',
         ...commonFiles
     ],
     // Add search page
     '/search/': [
-        'src/app/search/page.tsx',
+        'src/app/(default)/search/page.tsx',
         ...commonFiles
     ],
     // Add llms.txt route
@@ -83,16 +83,16 @@ export const pageFilesMap: Record<string, string[]> = {
     ],
     // Add article slug page (for generic article page template)
     '/articles/[slug]/': [
-        'src/app/articles/[slug]/page.tsx',
-        'src/app/articles/articles.module.css',
-        'src/app/articles/layout.tsx',
+        'src/app/(default)/articles/[slug]/page.tsx',
+        'src/app/(default)/articles/articles.module.css',
+        'src/app/(default)/articles/layout.tsx',
         'src/lib/articles.ts',
         ...commonFiles
     ],
     // Add localized main page
     '/[lang]/': [
-        'src/app/[lang]/page.tsx',
-        'src/app/[lang]/layout.tsx',
+        'src/app/(i18n)/[lang]/page.tsx',
+        'src/app/(i18n)/[lang]/layout.tsx',
         'src/app/page.module.css',
         'src/data/personalInfo.ts',
         'src/data/professionalRoles.ts',
@@ -101,15 +101,15 @@ export const pageFilesMap: Record<string, string[]> = {
     ],
     // Add localized segment page
     '/[lang]/[segment]/': [
-        'src/app/[lang]/[segment]/page.tsx',
-        'src/app/[lang]/layout.tsx',
+        'src/app/(i18n)/[lang]/[segment]/page.tsx',
+        'src/app/(i18n)/[lang]/layout.tsx',
         ...commonFiles
     ],
     // Add localized subsegment page
     '/[lang]/[segment]/[subsegment]/': [
-        'src/app/[lang]/[segment]/[subsegment]/page.tsx',
-        'src/app/[lang]/[segment]/page.tsx',
-        'src/app/[lang]/layout.tsx',
+        'src/app/(i18n)/[lang]/[segment]/[subsegment]/page.tsx',
+        'src/app/(i18n)/[lang]/[segment]/page.tsx',
+        'src/app/(i18n)/[lang]/layout.tsx',
         ...commonFiles
     ]
 };

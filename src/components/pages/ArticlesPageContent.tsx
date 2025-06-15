@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllArticles } from '@/lib/articles';
-import styles from '@/app/articles/articles.module.css';
+import styles from '@/app/(default)/articles/articles.module.css';
 import ArticlesListJsonLd from '@/components/ArticlesListJsonLd';
 import { getPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import Footer from '@/components/Footer';
