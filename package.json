@@ -15,7 +15,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "validate-metadata": "npx tsx scripts/validate-metadata.ts"
+    "validate-metadata": "npx tsx scripts/validate-metadata.ts",
+    "test-cache": "npx tsx scripts/test-cache-headers.ts"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
