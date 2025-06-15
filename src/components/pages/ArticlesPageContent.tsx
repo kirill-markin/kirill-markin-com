@@ -1,31 +1,33 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllArticles } from '@/lib/articles';
+import { useSearchParams } from 'next/navigation';
 import styles from '@/app/(default)/articles/articles.module.css';
 import ArticlesListJsonLd from '@/components/ArticlesListJsonLd';
 import { getPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import Footer from '@/components/Footer';
+import { Article } from '@/lib/articles';
 
 interface ArticlesPageContentProps {
     language: string;
-    tag?: string;
+    articles: Article[]; // Articles passed from server as props
 }
 
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
-export default async function ArticlesPageContent({ language, tag }: ArticlesPageContentProps) {
+export default function ArticlesPageContent({ language, articles }: ArticlesPageContentProps) {
+    const searchParams = useSearchParams();
+    const currentTag = searchParams.get('tag')?.toLowerCase() || 'all';
+
     // Get translations for the specified language
     const t = getTranslation('articles', language);
 
-    // Get articles for the specified language (or all articles for English)
-    const articles = await getAllArticles(language);
-
-    // Filter articles by tag if specified
-    const tagParam = tag?.toLowerCase() || 'all';
-    const filteredArticles = tagParam === 'all'
+    // Filter articles by tag
+    const filteredArticles = currentTag === 'all'
         ? articles
         : articles.filter(article =>
-            article.metadata.tags && article.metadata.tags.includes(tagParam)
+            article.metadata.tags && article.metadata.tags.includes(currentTag)
         );
 
     // Get all unique tags for the tags menu
@@ -38,28 +40,27 @@ export default async function ArticlesPageContent({ language, tag }: ArticlesPag
         : `/${language}/${getPathSegmentByLanguage('articles', language)}`;
 
     // Form full path including tag parameter if specified
-    const fullPath = tagParam === 'all'
+    const fullPath = currentTag === 'all'
         ? articlesBasePath
-        : `${articlesBasePath}/?tag=${tagParam}`;
+        : `${articlesBasePath}/?tag=${currentTag}`;
 
     // Form canonical URL
-    const canonicalUrl = tagParam === 'all'
+    const canonicalUrl = currentTag === 'all'
         ? `https://kirill-markin.com${articlesBasePath}/`
-        : `https://kirill-markin.com${articlesBasePath}/?tag=${tagParam}`;
+        : `https://kirill-markin.com${articlesBasePath}/?tag=${currentTag}`;
 
     // Function to get tag description
     const getTagDescription = () => {
-        if (tagParam === 'all') {
+        if (currentTag === 'all') {
             return t.description;
         }
 
         // Display tag with first letter capitalized
-        const formattedTag = tagParam.charAt(0).toUpperCase() + tagParam.slice(1);
+        const formattedTag = currentTag.charAt(0).toUpperCase() + currentTag.slice(1);
 
         // Get count of articles with this tag
         const tagArticlesCount = filteredArticles.length;
 
-        // Note: filteredBy removed in consolidated translations, would need to be added back if needed
         return `"${formattedTag}" [${tagArticlesCount}]. ${t.description}`;
     };
 
@@ -69,17 +70,17 @@ export default async function ArticlesPageContent({ language, tag }: ArticlesPag
                 <ArticlesListJsonLd
                     articles={filteredArticles}
                     url={canonicalUrl}
-                    tag={tagParam !== 'all' ? tagParam : undefined}
+                    tag={currentTag !== 'all' ? currentTag : undefined}
                 />
 
                 <div className={styles.fullWidthColumn}>
                     <div className={styles.articlesHeader}>
                         <div className={styles.articlesHeaderTitle}>
                             <h1 className={styles.articlesTitle}>
-                                {tagParam === 'all' ? (
+                                {currentTag === 'all' ? (
                                     <>{t.title}<span className={styles.glitchLetter}>s</span></>
                                 ) : (
-                                    <>{tagParam.charAt(0).toUpperCase() + tagParam.slice(1)} {t.title}<span className={styles.glitchLetter}>s</span></>
+                                    <>{currentTag.charAt(0).toUpperCase() + currentTag.slice(1)} {t.title}<span className={styles.glitchLetter}>s</span></>
                                 )}
                             </h1>
                             <div className={styles.categoryDescription}>
@@ -93,7 +94,7 @@ export default async function ArticlesPageContent({ language, tag }: ArticlesPag
                         <div className={styles.tagsMenuItems}>
                             <Link
                                 href={`${articlesBasePath}/`}
-                                className={`${styles.tagMenuItem} ${tagParam === 'all' ? styles.active : ''}`}
+                                className={`${styles.tagMenuItem} ${currentTag === 'all' ? styles.active : ''}`}
                             >
                                 All
                             </Link>
@@ -110,7 +111,7 @@ export default async function ArticlesPageContent({ language, tag }: ArticlesPag
                                     <Link
                                         key={tag}
                                         href={`${articlesBasePath}/?tag=${tag}`}
-                                        className={`${styles.tagMenuItem} ${tagParam === tag ? styles.active : ''}`}
+                                        className={`${styles.tagMenuItem} ${currentTag === tag ? styles.active : ''}`}
                                     >
                                         {tag} [{count}]
                                     </Link>

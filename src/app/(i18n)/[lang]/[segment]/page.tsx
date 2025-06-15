@@ -1,11 +1,13 @@
 import { Metadata } from 'next';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage } from '@/lib/localization';
 import { redirect, notFound } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
 import { generateArticlesPageMetadata, generateServicesPageMetadata, generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
 import { MeetPage } from '@/components/pages/meet';
 import { PayPage } from '@/components/pages/pay';
+import { getAllArticles } from '@/lib/articles';
+import { servicesData } from '@/data/services';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
@@ -45,37 +47,7 @@ export async function generateStaticParams() {
     return params;
 }
 
-// Helper function to resolve localized category name to internal category ID
-function resolveInternalCategoryId(localizedCategory: string | undefined, language: string): string | null {
-    if (!localizedCategory || localizedCategory === 'all' ||
-        localizedCategory === getSubPathSegmentByLanguage('services', 'all', language)) {
-        return 'all';
-    }
-
-    // Check against known categories
-    const knownCategories = ['people', 'business', 'journalists'];
-
-    // First check if it's already a known internal category (only for English)
-    if (language === 'en' && knownCategories.includes(localizedCategory)) {
-        return localizedCategory;
-    }
-
-    // Otherwise, check if it's a valid localized category for the CURRENT language only
-    for (const internalCategory of knownCategories) {
-        const localizedCategoryName = getSubPathSegmentByLanguage('services', internalCategory, language);
-        if (localizedCategory === localizedCategoryName) {
-            return internalCategory;
-        }
-    }
-
-    // If we get here, the category is either:
-    // 1. Not a valid category at all
-    // 2. A valid category but from the wrong language
-    // Either way, we should return null to trigger a 404
-    return null;
-}
-
-export async function generateMetadata({ params, searchParams }: SegmentPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; segment: string }> }): Promise<Metadata> {
     const { lang, segment } = await params;
 
     // Check if language is valid
@@ -102,29 +74,16 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
         });
     }
 
-    // Only access searchParams for articles and services (which need dynamic filtering)
-    const searchParamsData = await searchParams;
-    const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
-    const categoryParam = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
-
-    // Generate metadata based on segment type
+    // For articles and services, generate static metadata without filtering
     if (segment === articlesSegment) {
         return generateArticlesPageMetadata({
             language: lang,
-            tag: tag
+            tag: undefined
         });
     } else if (segment === servicesSegment) {
-        // Translate localized category name to internal category ID
-        const internalCategoryId = resolveInternalCategoryId(categoryParam, lang);
-
-        // If category is invalid, return empty metadata
-        if (internalCategoryId === null) {
-            return {};
-        }
-
         return generateServicesPageMetadata({
             language: lang,
-            category: internalCategoryId
+            category: undefined
         });
     }
 
@@ -172,23 +131,13 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
         return <MeetPage language={lang} />;
     } else if (segment === paySegment) {
         return <PayPage language={lang} />;
-    }
-
-    // Only access searchParams for articles and services (dynamic segments)
-    const searchParamsData = await searchParams;
-    const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
-    const category = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
-
-    if (segment === articlesSegment) {
-        return <ArticlesPageContent language={lang} tag={tag} />;
+    } else if (segment === articlesSegment) {
+        // Load articles on server and pass to client component
+        const articles = await getAllArticles(lang);
+        return <ArticlesPageContent language={lang} articles={articles} />;
     } else if (segment === servicesSegment) {
-        // If category is invalid, show 404
-        if (category && resolveInternalCategoryId(category, lang) === null) {
-            notFound();
-            return null;
-        }
-
-        return <ServicesPageContent language={lang} category={category} />;
+        // Pass services data to client component
+        return <ServicesPageContent language={lang} services={servicesData} />;
     }
 
     // If segment doesn't match any known type, show 404
