@@ -43,13 +43,13 @@ const nextConfig: NextConfig = {
   // Add cache control headers for static pages and SEO headers for non-production
   async headers() {
     const headers = [
-      // Cache control for all pages in production
+      // Cache control for all pages in production using Vercel-specific headers
       {
         source: '/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=86400, s-maxage=31536000, stale-while-revalidate=604800',
+            value: 'public, s-maxage=86400, stale-while-revalidate=604800',
           },
         ],
       },
