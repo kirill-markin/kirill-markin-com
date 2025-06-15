@@ -9,6 +9,10 @@ alwaysApply: true
 
 Modern personal website built with Next.js, migrated from Jekyll for improved performance.
 
+## Performance Strategy
+
+**Static Pages with Caching First**: This project prioritizes static page generation with aggressive caching to maximize performance and minimize server load. We strive to make all pages static whenever possible, leveraging Next.js static generation capabilities and caching strategies. Dynamic pages are used only in rare exceptions when real-time data or user-specific content is absolutely necessary.
+
 ## Core Architecture Principles
 
 ### Static Generation First
