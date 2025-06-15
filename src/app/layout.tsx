@@ -8,7 +8,6 @@ import GlitchFilters from "@/components/GlitchFilters";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { DEFAULT_LANGUAGE } from "@/lib/localization";
-import { headers } from 'next/headers';
 import LanguageAttributeUpdater from "@/components/LanguageAttributeUpdater";
 
 export const viewport: Viewport = {
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -78,12 +77,9 @@ export default async function RootLayout({
   // Check if we're in production environment
   const isProd = process.env.VERCEL_ENV === 'production';
 
-  // Get language from headers
-  const headersList = await headers();
-  const langWithRegion = headersList.has('x-language') ? headersList.get('x-language') as string : DEFAULT_LANGUAGE;
-
-  // Extract just the language part (first two letters) without the region
-  const lang = langWithRegion.split('-')[0];
+  // For root layout, always use default language (English)
+  // Language-specific pages use their own layout in /[lang]/layout.tsx
+  const lang = DEFAULT_LANGUAGE;
 
   return (
     <html lang={lang}>
