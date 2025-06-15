@@ -22,7 +22,7 @@ translations:
 Cursor IDE implements three levels of cursor rules:
 
 1. Rules for AI in Cursor IDE settings - base cursor rules that apply globally to all projects
-2. `.cursorrules` file in repository root - repository-specific cursor project rules
+2. `.cursor/index.mdc` file with Rule Type "Always" - repository-specific cursor project rules (replaces legacy `.cursorrules` approach)
 3. `.cursor/rules/*.mdc` files - dynamic cursor project rules that only activate when AI tackles tasks relevant to their description
 
 I'm sharing my base-level cursor project rules here - the global settings I use in Cursor IDE. These rules form the foundation for all my development work. When combined with repository-level and dynamic rules, they create a powerful system that maintains code quality while keeping my development practices consistent.
@@ -144,7 +144,7 @@ For more information on how cursor project rules work in Cursor, check out the [
    I begin with global Cursor IDE settings to establish baseline preferences. This lets me experiment with different rule formulations without cluttering my repositories. I reserve this level for truly universal cursor project rules that apply to all my coding work.
 
 2. **Move Project-Specific Project Rules to Repository Level**  
-   When I spot patterns specific to a particular codebase or want to share my AI guidance with teammates, I move these cursor project rules to a `.cursorrules` file in the repository root. This creates a shared understanding while keeping my global settings lean.
+   When I spot patterns specific to a particular codebase or want to share my AI guidance with teammates, I move these cursor project rules to a `.cursor/index.mdc` file with Rule Type "Always". This creates a shared understanding while keeping my global settings lean. (Note: the legacy `.cursorrules` file still works but is no longer recommended.)
 
 3. **Split into Context-Aware Project Rules When Necessary**  
    If my `.cursorrules` file gets bloated, I split it into `.cursor/*.mdc` files. This reduces token usage by only activating relevant cursor project rules when needed. It's like giving the language model more mental space to think about my specific task rather than remembering a bunch of irrelevant guidelines.
@@ -155,9 +155,9 @@ My goal is simple: in any conversation with the AI assistant, give it just enoug
 
 To show how I implement cursor project rules across different codebases, here are some real examples:
 
-### Repository-Level .cursorrules Files: Structure and Implementation
+### Repository-Level .cursor/index.mdc Files: Structure and Implementation
 
-My `.cursorrules` files work like a README.md specifically designed for AI assistants. They provide context about the project's purpose, architecture, and coding patterns.
+My `.cursor/index.mdc` files with Rule Type "Always" work like a README.md specifically designed for AI assistants. They provide context about the project's purpose, architecture, and coding patterns. (Legacy `.cursorrules` files are still supported but not recommended for new projects.)
 
 ![Repository-level .cursorrules file example](/articles/cursor-ide-rules-repo.webp)
 
@@ -203,14 +203,14 @@ I started by dumping everything into Cursor IDE settings. Simple but effective a
 
 ### Phase 2: Repository-Specific Cursor Project Rules for Project Standards
 
-As my global settings bloated with project-irrelevant information, I shifted to using `.cursorrules` files in repository roots. This became my primary approach, letting me customize cursor project rules for each project while maintaining consistent standards. During this time, `.cursorrules` was the only option for repository-level configuration.
+As my global settings bloated with project-irrelevant information, I shifted to using repository-level rules. Initially, this meant `.cursorrules` files in repository roots (now legacy). This became my primary approach, letting me customize cursor project rules for each project while maintaining consistent standards. Today, the recommended approach is `.cursor/index.mdc` files with Rule Type "Always".
 
 ### Phase 3: Dynamic Context-Aware Cursor Project Rules for Specialized Tasks
 
 When Cursor IDE introduced `.cursor/*.mdc` dynamic rules, I restructured everything. These context-aware cursor project rules only activate when the AI is doing relevant tasks. This let me:
 
 - Keep global settings minimal and broadly applicable
-- Use `.cursorrules` for project-wide standards
+- Use `.cursor/index.mdc` with Rule Type "Always" for project-wide standards (replacing legacy `.cursorrules`)
 - Create focused `.cursor/*.mdc` files for specialized tasks
 
 This layered approach gives just-in-time guidance to the AI based on what I'm currently working on, cutting through noise and improving the relevance of its assistance.
@@ -221,7 +221,7 @@ The evolution reflects my growing understanding of how to effectively collaborat
 
 Here's a quick comparison of the three levels of cursor project rules in Cursor IDE:
 
-| Feature | Global IDE Settings | Cursor Project Rules (.cursorrules) | Context-Aware Cursor Project Rules (.cursor/*.mdc) |
+| Feature | Global IDE Settings | Repository Rules (.cursor/index.mdc "Always") | Context-Aware Rules (.cursor/*.mdc) |
 |---------|--------------------|-----------------------------|----------------------------------|
 | **Scope** | All projects | Specific repository | Specific tasks or contexts |
 | **Visibility** | Only you (local settings) | Entire team via repository | Entire team via repository |
@@ -229,8 +229,9 @@ Here's a quick comparison of the three levels of cursor project rules in Cursor 
 | **Activation** | Always active | Always active for repository | Only when relevant to current task |
 | **Best for** | Universal cursor project rules | Project architecture patterns | Specialized domain knowledge |
 | **Token efficiency** | Low (always present) | Medium (always present for project) | High (only loads when needed) |
-| **Setup location** | Cursor settings UI | Repository root file | .cursor/rules/ directory |
+| **Setup location** | Cursor settings UI | .cursor/index.mdc file | .cursor/rules/ directory |
 | **Portability** | Requires manual setup on each device | Automatic with repository clone | Automatic with repository clone |
+| **Legacy support** | N/A | .cursorrules still works (legacy) | N/A |
 
 This multi-level approach lets you optimize token usage while maintaining consistent guidance across different scenarios.
 
@@ -254,15 +255,18 @@ The key is striking a balance - too few rules and the AI won't understand your p
 
 It's important to note that these settings are stored locally in your Cursor IDE installation. Your colleagues won't see these settings unless they configure them on their own machines. Also, if you use Cursor IDE on multiple computers (like separate personal and work accounts), you'll need to set them up manually on each installation.
 
-### Creating Repository-Level .cursorrules Files for Project Teams
+### Creating Repository-Level .cursor/index.mdc Files for Project Teams
 
 For project-level configuration:
 
-1. Create a `.cursorrules` file in the root of your repository
-2. Start with a brief project overview (what the project does, tech stack, etc.)
-3. Document architecture patterns that the AI should understand
-4. Include specific code conventions for this project
-5. Keep the file under 100 lines for optimal token usage
+1. Create a `.cursor/index.mdc` file in your repository
+2. Set Rule Type to "Always" in the Cursor interface (or manually specify in the file)
+3. Start with a brief project overview (what the project does, tech stack, etc.)
+4. Document architecture patterns that the AI should understand
+5. Include specific code conventions for this project
+6. Keep the file under 100 lines for optimal token usage
+
+Note: Legacy `.cursorrules` files still work but are no longer the recommended approach.
 
 #### Cursor Project Rules Template repository-level
 
@@ -419,6 +423,8 @@ While Cursor has a particularly well-designed system for rules, other AI coding 
 - GitHub Copilot offers `.github/copilot/settings.yml` for project-level configuration
 - JetBrains AI Assistant has project-level snippets and templates
 - VS Code with various AI extensions supports workspace settings and customization files
+
+Note: Cursor's evolution from `.cursorrules` (legacy) to `.cursor/index.mdc` with Rule Type "Always" shows how these systems continue to improve for better flexibility and organization.
 
 ### The Token Economy: Maximizing AI Performance Across All Tools
 
