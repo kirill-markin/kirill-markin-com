@@ -73,6 +73,22 @@ website-next-js/
   - Localized: `/[lang]/[segment]/[subsegment]/`
 - Pre-generated routes with `generateStaticParams`
 
+### Complex Routing System
+
+**⚠️ CRITICAL**: Non-trivial path resolution - same logical path uses different words per language
+
+**Route Examples:**
+- `articles` → `es/articulos` → `zh/zhishi` → `ar/maqalat` → `hi/gyan`
+- `services` → `es/servicios` → `zh/zixun` → `ar/khadamat` → `hi/sevaen`
+- `meet/short` → `es/reservar/breve` → `zh/yuyue/mianfei` → `ar/mawid/majani`
+
+**Key Files:**
+- `lib/localization.ts` - Path segment mapping logic
+- `[lang]/[segment]/page.tsx` - Dynamic segment resolution
+- `[lang]/[segment]/[subsegment]/page.tsx` - Nested route handling
+
+**⚠️ Before modifying routes**: Check segment mappings in localization.ts
+
 ## Key Functionality
 
 ### Sitemap Generation
