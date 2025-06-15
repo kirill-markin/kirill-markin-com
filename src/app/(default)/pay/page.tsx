@@ -3,6 +3,11 @@ import { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import { generatePayPageMetadata } from '@/lib/metadata';
 
+// Force static generation
+export const dynamic = 'force-static';
+export const revalidate = false;
+export const dynamicParams = false;
+
 export async function generateMetadata(): Promise<Metadata> {
   return generatePayPageMetadata({
     language: DEFAULT_LANGUAGE,
@@ -10,13 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-interface PageProps {
-  params: Promise<{ lang?: string }>;
-}
-
-export default async function Page({ params }: PageProps) {
-  // Get language from params, default to English if not provided
-  const { lang = DEFAULT_LANGUAGE } = await params || {};
-
-  return <PayPage language={lang} />;
+export default function Page() {
+  return <PayPage language={DEFAULT_LANGUAGE} />;
 } 
