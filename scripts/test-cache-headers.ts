@@ -225,31 +225,36 @@ async function testUrl(url: string): Promise<CacheTestResult> {
 }
 
 /**
- * Test cache headers for all URLs with progress reporting
+ * Test cache headers for all URLs with parallel execution
  */
 async function testAllUrls(urls: string[]): Promise<CacheTestResult[]> {
-    const results: CacheTestResult[] = [];
     const total = urls.length;
+    let completed = 0;
 
-    console.log(`\nTesting cache headers for ${total} URLs...\n`);
+    console.log(`\nTesting cache headers for ${total} URLs in parallel...\n`);
 
-    for (let i = 0; i < urls.length; i++) {
-        const url = urls[i];
-        const progress = Math.round(((i + 1) / total) * 100);
-
-        process.stdout.write(`[${progress}%] Testing: ${url.replace('https://kirill-markin.com/', '')} `);
-
+    // Create a promise for each URL test with progress reporting
+    const testPromises = urls.map(async (url) => {
         const result = await testUrl(url);
-        results.push(result);
+
+        // Update progress
+        completed++;
+        const progress = Math.round((completed / total) * 100);
+        const shortUrl = url.replace('https://kirill-markin.com/', '');
 
         if (result.error) {
-            console.log(`❌ ERROR: ${result.error}`);
+            console.log(`[${progress}%] ${shortUrl} ❌ ERROR: ${result.error}`);
         } else if (!result.isProperlyCached) {
-            console.log(`⚠️  NOT CACHED - 1st: ${result.firstRequest.vercelCache || 'none'}, 2nd: ${result.secondRequest.vercelCache || 'none'}`);
+            console.log(`[${progress}%] ${shortUrl} ⚠️  NOT CACHED - 1st: ${result.firstRequest.vercelCache || 'none'}, 2nd: ${result.secondRequest.vercelCache || 'none'}`);
         } else {
-            console.log(`✅ CACHED - 1st: ${result.firstRequest.vercelCache || 'none'}, 2nd: ${result.secondRequest.vercelCache || 'none'}`);
+            console.log(`[${progress}%] ${shortUrl} ✅ CACHED - 1st: ${result.firstRequest.vercelCache || 'none'}, 2nd: ${result.secondRequest.vercelCache || 'none'}`);
         }
-    }
+
+        return result;
+    });
+
+    // Wait for all tests to complete
+    const results = await Promise.all(testPromises);
 
     return results;
 }
