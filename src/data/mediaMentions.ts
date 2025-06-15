@@ -225,7 +225,9 @@ export const mediaMentions: MediaMention[] = [
     language: "ru",
     thumbnailUrl: "/articles/youtube-2023-09-16-1.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    isVideo: true
+    isVideo: true,
+    achievementValue: "1,500+",
+    achievementLabel: "views"
   },
   {
     title: "ML Product Day: Q&A session",
