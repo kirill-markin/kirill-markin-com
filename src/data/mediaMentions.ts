@@ -26,7 +26,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "67,000",
+    achievementValue: "70,000+",
     achievementLabel: "views"
   },
   {
