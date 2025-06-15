@@ -26,7 +26,7 @@ translations:
 Cursor IDE implementa tres niveles de reglas:
 
 1. Reglas para IA en la configuración de Cursor IDE - reglas base que se aplican globalmente a todos los proyectos
-2. Archivo `.cursorrules` en la raíz del repositorio - reglas específicas del proyecto
+2. Archivo `.cursor/index.mdc` con Rule Type "Always" - reglas específicas del repositorio (reemplaza el enfoque legacy `.cursorrules`)
 3. Archivos `.cursor/rules/*.mdc` - reglas dinámicas que solo se activan cuando la IA aborda tareas relevantes para su descripción
 
 Aquí comparto mis reglas de cursor de nivel base - la configuración global que uso en Cursor IDE. Estas reglas forman la base de todo mi trabajo de desarrollo. Cuando se combinan con reglas a nivel de repositorio y reglas dinámicas, crean un sistema potente que mantiene la calidad del código mientras conserva mis prácticas de desarrollo consistentes.
@@ -118,7 +118,7 @@ Cursor -> Configuración -> Configuración de Cursor -> Reglas para IA:
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- Leer `README.md` si no hay archivo `.cursorrules`
+- Leer `README.md` si no hay archivos de reglas del repositorio
 - Resumir el proyecto antes de trabajar en él
 </cursorrules_repository_practices>
 
@@ -148,10 +148,10 @@ Para más información sobre cómo funcionan las reglas de cursor en Cursor, con
    Comienzo con la configuración global de Cursor IDE para establecer preferencias básicas. Esto me permite experimentar con diferentes formulaciones de reglas sin sobrecargar mis repositorios. Reservo este nivel para reglas de cursor verdaderamente universales que aplican a todo mi trabajo de codificación.
 
 2. **Mover las reglas de Cursor específicas del proyecto al nivel de repositorio**  
-   Cuando identifico patrones específicos para una base de código particular o quiero compartir mis directrices de IA con compañeros de equipo, muevo estas reglas de cursor a un archivo `.cursorrules` en la raíz del repositorio. Esto crea un entendimiento compartido mientras mantengo mi configuración global sencilla.
+   Cuando identifico patrones específicos para una base de código particular o quiero compartir mis directrices de IA con compañeros de equipo, muevo estas reglas de cursor a un archivo `.cursor/index.mdc` con Rule Type "Always". Esto crea un entendimiento compartido mientras mantengo mi configuración global sencilla. (Nota: el archivo legacy `.cursorrules` aún funciona pero ya no se recomienda.)
 
 3. **Dividir en reglas de Cursor sensibles al contexto cuando sea necesario**  
-   Si mi archivo `.cursorrules` se vuelve demasiado extenso, lo divido en archivos `.cursor/*.mdc`. Esto reduce el uso de tokens al activar solo las reglas de cursor relevantes cuando se necesitan. Es como darle al modelo de lenguaje más espacio mental para pensar en mi tarea específica en lugar de recordar un montón de directrices irrelevantes.
+   Si mis archivos de reglas a nivel de repositorio se vuelven demasiado extensos, los divido en archivos `.cursor/*.mdc`. Esto reduce el uso de tokens al activar solo las reglas de cursor relevantes cuando se necesitan. Es como darle al modelo de lenguaje más espacio mental para pensar en mi tarea específica en lugar de recordar un montón de directrices irrelevantes.
 
 Mi objetivo es simple: en cualquier conversación con el asistente de IA, darle justo el contexto suficiente para ser útil sin desperdiciar su capacidad en información que no necesita en ese momento.
 
@@ -159,13 +159,15 @@ Mi objetivo es simple: en cualquier conversación con el asistente de IA, darle 
 
 Para mostrar cómo implemento las reglas de cursor en diferentes proyectos, aquí hay algunos ejemplos reales:
 
-### Archivos .cursorrules a nivel de repositorio: estructura e implementación
+### Archivos .cursor/index.mdc a nivel de repositorio: estructura e implementación
 
-Mis archivos `.cursorrules` funcionan como un README.md específicamente diseñado para asistentes de IA. Proporcionan contexto sobre el propósito del proyecto, la arquitectura y los patrones de codificación.
+Mis archivos `.cursor/index.mdc` con Rule Type "Always" funcionan como un README.md específicamente diseñado para asistentes de IA. Proporcionan contexto sobre el propósito del proyecto, la arquitectura y los patrones de codificación. (Los archivos legacy `.cursorrules` aún se soportan pero no se recomiendan para nuevos proyectos.)
 
 ![Ejemplo de archivo .cursorrules a nivel de repositorio](/articles/cursor-ide-rules-repo.webp)
 
 #### Ejemplos de repositorios de producción con reglas de Cursor
+
+*Nota: Estos ejemplos usan el enfoque legacy `.cursorrules` que aún funciona. Para nuevos proyectos, se recomienda usar `.cursor/index.mdc` con Rule Type "Always".*
 
 1. **[repo-to-text](https://github.com/kirill-markin/repo-to-text/blob/main/.cursorrules)**: Esta utilidad para convertir repositorios a texto incluye reglas que explican el propósito del proyecto, decisiones de arquitectura y patrones de código a seguir.
 
@@ -207,14 +209,14 @@ Comencé volcando todo en la configuración de Cursor IDE. Simple pero efectivo 
 
 ### Fase 2: reglas de Cursor específicas de repositorio para estándares de proyecto
 
-A medida que mi configuración global se sobrecargaba con información irrelevante para el proyecto, cambié a usar archivos `.cursorrules` en las raíces de los repositorios. Este se convirtió en mi enfoque principal, permitiéndome personalizar las reglas de cursor para cada proyecto mientras mantenía estándares consistentes. Durante este tiempo, `.cursorrules` era la única opción para la configuración a nivel de repositorio.
+A medida que mi configuración global se sobrecargaba con información irrelevante para el proyecto, cambié a usar reglas a nivel de repositorio. Inicialmente, esto significaba archivos `.cursorrules` en las raíces de los repositorios (ahora legacy). Este se convirtió en mi enfoque principal, permitiéndome personalizar las reglas de cursor para cada proyecto mientras mantenía estándares consistentes. Hoy en día, el enfoque recomendado es archivos `.cursor/index.mdc` con Rule Type "Always".
 
 ### Fase 3: reglas de Cursor dinámicas sensibles al contexto para tareas especializadas
 
 Cuando Cursor IDE introdujo las reglas dinámicas `.cursor/*.mdc`, reestructuré todo. Estas reglas de cursor sensibles al contexto solo se activan cuando la IA está realizando tareas relevantes. Esto me permitió:
 
 - Mantener la configuración global mínima y ampliamente aplicable
-- Usar `.cursorrules` para estándares a nivel de proyecto
+- Usar `.cursor/index.mdc` con Rule Type "Always" para estándares a nivel de proyecto (reemplazando legacy `.cursorrules`)
 - Crear archivos `.cursor/*.mdc` enfocados para tareas especializadas
 
 Este enfoque por capas proporciona orientación justo a tiempo a la IA basada en lo que estoy trabajando actualmente, eliminando el ruido y mejorando la relevancia de su asistencia.
@@ -225,7 +227,7 @@ La evolución refleja mi creciente comprensión de cómo colaborar efectivamente
 
 Aquí hay una comparación rápida de los tres niveles de reglas de cursor en Cursor IDE:
 
-| Característica | Configuración global del IDE | Reglas de repositorio (.cursorrules) | Reglas sensibles al contexto (.cursor/*.mdc) |
+| Característica | Configuración global del IDE | Reglas de repositorio (.cursor/index.mdc "Always") | Reglas sensibles al contexto (.cursor/*.mdc) |
 |---------|--------------------|-----------------------------|----------------------------------|
 | **Alcance** | Todos los proyectos | Repositorio específico | Tareas o contextos específicos |
 | **Visibilidad** | Solo tú (configuración local) | Todo el equipo a través del repositorio | Todo el equipo a través del repositorio |
@@ -233,8 +235,9 @@ Aquí hay una comparación rápida de los tres niveles de reglas de cursor en Cu
 | **Activación** | Siempre activa | Siempre activa para el repositorio | Solo cuando es relevante para la tarea actual |
 | **Mejor para** | Reglas de cursor universales | Patrones de arquitectura del proyecto | Conocimiento de dominio especializado |
 | **Eficiencia de tokens** | Baja (siempre presente) | Media (siempre presente para el proyecto) | Alta (solo se carga cuando es necesario) |
-| **Ubicación de configuración** | Interfaz de configuración de Cursor | Archivo raíz del repositorio | Directorio .cursor/rules/ |
+| **Ubicación de configuración** | Interfaz de configuración de Cursor | Archivo .cursor/index.mdc | Directorio .cursor/rules/ |
 | **Portabilidad** | Requiere configuración manual en cada dispositivo | Automática con la clonación del repositorio | Automática con la clonación del repositorio |
+| **Soporte legacy** | N/A | .cursorrules aún funciona (legacy) | N/A |
 
 Este enfoque de múltiples niveles te permite optimizar el uso de tokens mientras mantienes una orientación consistente en diferentes escenarios.
 
@@ -258,15 +261,18 @@ La clave es encontrar un equilibrio - muy pocas reglas y la IA no entenderá tus
 
 Es importante notar que esta configuración se almacena localmente en tu instalación de Cursor IDE. Tus colegas no verán esta configuración a menos que la configuren en sus propias máquinas. Además, si usas Cursor IDE en múltiples computadoras (como cuentas personales y de trabajo separadas), necesitarás configurarlas manualmente en cada instalación.
 
-### Creando archivos .cursorrules a nivel de repositorio para equipos de proyecto
+### Creando archivos .cursor/index.mdc a nivel de repositorio para equipos de proyecto
 
 Para la configuración a nivel de proyecto:
 
-1. Crea un archivo `.cursorrules` en la raíz de tu repositorio
-2. Comienza con una breve descripción general del proyecto (qué hace el proyecto, stack tecnológico, etc.)
-3. Documenta patrones de arquitectura que la IA debería entender
-4. Incluye convenciones de código específicas para este proyecto
-5. Mantén el archivo por debajo de 100 líneas para un uso óptimo de tokens
+1. Crea un archivo `.cursor/index.mdc` en tu repositorio
+2. Establece Rule Type como "Always" en la interfaz de Cursor (o especifica manualmente en el archivo)
+3. Comienza con una breve descripción general del proyecto (qué hace el proyecto, stack tecnológico, etc.)
+4. Documenta patrones de arquitectura que la IA debería entender
+5. Incluye convenciones de código específicas para este proyecto
+6. Mantén el archivo por debajo de 100 líneas para un uso óptimo de tokens
+
+Nota: Los archivos legacy `.cursorrules` aún funcionan pero ya no son el enfoque recomendado.
 
 #### Plantilla de reglas de repositorio para proyectos de Cursor IDE
 
@@ -347,7 +353,7 @@ Esto se traduce en menos comentarios de revisión y menos tiempo dedicado a corr
 
 Cuando trabajo con equipos, las reglas de cursor crean un entendimiento compartido:
 
-- Los nuevos miembros del equipo entienden rápidamente las expectativas a través del archivo `.cursorrules`
+- Los nuevos miembros del equipo entienden rápidamente las expectativas a través de los archivos de reglas a nivel de repositorio
 - La colaboración multifuncional mejora ya que tanto ingenieros como no ingenieros pueden hacer referencia a las mismas reglas
 - El intercambio de conocimientos ocurre automáticamente a medida que la IA aplica las mejores prácticas de forma consistente
 
@@ -445,7 +451,7 @@ Si prefieres aprender visualmente, he creado un tutorial completo en video que d
 
 El video cubre:
 - Configuración de reglas globales de cursor en los ajustes de Cursor IDE
-- Creación de archivos `.cursorrules` específicos del repositorio con ejemplos reales
+- Creación de archivos de reglas específicos del repositorio: nuevo enfoque `.cursor/index.mdc` con Rule Type "Always" y enfoque legacy `.cursorrules` (tradicional)
 - Implementación de archivos `.cursor/*.mdc` sensibles al contexto para tareas especializadas
 - Demostración de cómo cada nivel funciona en conjunto para optimizar la asistencia de IA
 - Solución de problemas comunes y optimización del uso de tokens

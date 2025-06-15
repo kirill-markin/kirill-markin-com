@@ -25,7 +25,7 @@ translations:
 Cursor IDE通过三级规则体系实现智能编码辅助：
 
 1. **全局基础规则** - 跨项目通用编码标准
-2. **仓库级.cursorrules配置** - 项目专属开发规范
+2. **仓库级.cursor/index.mdc配置（Rule Type "Always"）** - 项目专属开发规范（替代传统.cursorrules方案）
 3. **动态.cursor/rules/*.mdc文件** - 任务导向的智能提示
 
 本文将重点解析我的全局规则配置，这些经过实战检验的设置构成了高效AI协作的基础框架。结合项目级和动态规则，这套系统能在保证代码质量的同时，显著提升日常开发效率。
@@ -123,7 +123,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- 如果没有`.cursorrules`文件，请阅读`README.md`
+- 如果没有仓库规则文件，请阅读`README.md`
 - 在处理项目前先总结项目
 </cursorrules_repository_practices>
 
@@ -149,12 +149,12 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 初期将所有规则放入全局设置，简单但效率低下。随着项目增多，配置变得臃肿
 
 ### 阶段二：仓库级规则定制化
-将项目特定规则迁移至`.cursorrules`文件，实现按仓库定制，但缺乏动态激活能力
+将项目特定规则迁移到仓库级配置。初期使用`.cursorrules`文件（现为传统方式），实现按仓库定制。如今推荐使用`.cursor/index.mdc`文件（Rule Type "Always"）
 
 ### 阶段三：智能情景规则系统
 引入`.cursor/*.mdc`动态规则后：
 - 全局设置保持最小化
-- 仓库级规则定义项目标准
+- 使用`.cursor/index.mdc`（Rule Type "Always"）定义项目标准（替代传统`.cursorrules`）
 - 情景规则处理专项任务
 
 这种分层架构实现了"即时指导"理念，根据当前任务提供精准建议
@@ -171,7 +171,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
    从我的配置开始，建立跨项目统一标准。这个基线配置经过3个月迭代，平衡了灵活性和规范性。
 
 2. **项目规则定制**  
-   当识别出重复模式时，立即迁移到.cursorrules文件。比如在Next.js项目中，我们添加了严格的SSR规范。
+   当识别出重复模式时，立即迁移到`.cursor/index.mdc`文件（Rule Type "Always"）。比如在Next.js项目中，我们添加了严格的SSR规范。（注：传统`.cursorrules`文件仍可使用但不再推荐）
 
 3. **动态规则激活**  
    大型项目必备技巧：当处理API集成时，自动加载REST规范；开发UI组件时激活设计系统规则。
@@ -180,9 +180,11 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 以下是我在实际项目中应用的规则配置，展示了如何在不同场景下实现高效AI协作：
 
-### 仓库级.cursorrules文件结构
+### 仓库级规则文件结构
 
-我的`.cursorrules`文件就像为AI定制的README.md，它提供了：
+我的`.cursor/index.mdc`文件（Rule Type "Always"）就像为AI定制的README.md，它提供了：
+
+*注：以下示例使用传统`.cursorrules`方法（仍然有效）。新项目建议使用`.cursor/index.mdc`配置。*
 
 1. **项目目标** - 明确开发方向
 2. **架构说明** - 关键设计决策
@@ -191,6 +193,8 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 ![仓库级.cursorrules文件示例](/articles/cursor-ide-rules-repo.webp)
 
 #### 实际项目示例
+
+*注：这些示例使用传统`.cursorrules`方法（仍然有效）。新项目建议使用`.cursor/index.mdc`配置Rule Type "Always"。*
 
 1. **[repo-to-text](https://github.com/kirill-markin/repo-to-text/blob/main/.cursorrules)**  
    这个工具专注于将代码仓库转换为文本格式，其规则包括：
@@ -249,7 +253,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 ## 多级规则配置对比
 
-| 特性         | 全局设置       | 仓库级规则     | 情景规则         |
+| 特性         | 全局设置       | 仓库级规则(.cursor/index.mdc "Always") | 情景规则(.cursor/*.mdc) |
 |--------------|----------------|----------------|------------------|
 | **适用范围**  | 所有项目       | 特定仓库       | 专项任务         |
 | **可见性**    | 仅本地可见     | 团队共享       | 团队共享         |
@@ -257,8 +261,9 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 | **激活方式**  | 始终启用       | 仓库内始终有效 | 按任务动态激活   |
 | **最佳场景**  | 通用编码标准   | 项目架构规范   | 领域专业知识     |
 | **令牌效率**  | 低（始终存在） | 中（项目内始终存在）| 高（仅在需要时加载）|
-| **设置位置**  | Cursor设置界面 | 仓库根目录文件 | .cursor/rules/*.mdc |
+| **设置位置**  | Cursor设置界面 | .cursor/index.mdc文件 | .cursor/rules/*.mdc |
 | **可移植性**  | 每台设备需手动设置 | 随仓库克隆自动获取 | 随仓库克隆自动获取 |
+| **传统支持**  | 不适用 | .cursorrules仍可用（传统） | 不适用 |
 
 这种多层次方法使你能够在不同场景下优化令牌使用，同时保持一致的指导。
 
@@ -299,9 +304,10 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 ### 仓库级规则创建
 
 1. **文件位置**  
-   在项目根目录创建`.cursorrules`
+   在项目中创建`.cursor/index.mdc`
 
-2. **内容结构**  
+2. **配置设置**  
+   - 设置Rule Type为"Always"（在Cursor界面或手动指定）
    - 项目概述和技术栈
    - 架构设计和关键决策
    - 代码规范和风格指南
@@ -310,6 +316,8 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
    - 保持文件长度<100行
    - 使用清晰的Markdown标题
    - 添加具体示例和代码片段
+
+注：传统`.cursorrules`文件仍可使用但不再推荐用于新项目。
 
 #### 仓库级Cursor规则模板
 
@@ -484,7 +492,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 |------|--------|------|
 | **令牌** | Token | 大语言模型处理文本的基本单位，一个令牌可能是一个单词、部分单词或标点符号。令牌数量直接影响AI响应质量和处理速度。 |
 | **上下文窗口** | Context window | 大语言模型在生成回复时能考虑的文本范围，以令牌数量计算。 |
-| **规则文件** | Rules file | 在Cursor IDE中定义AI行为准则的配置文件，可以是全局设置、仓库级`.cursorrules`文件或情景特定`.mdc`文件。 |
+| **规则文件** | Rules file | 在Cursor IDE中定义AI行为准则的配置文件，可以是全局设置、仓库级`.cursor/index.mdc`文件或情景特定`.mdc`文件。 |
 | **纯函数** | Pure function | 仅依赖于输入参数且不产生副作用的函数，对于相同的输入总是返回相同的输出。 |
 | **函数式编程** | Functional programming | 编程范式，强调使用纯函数、避免共享状态和可变数据。 |
 | **DRY原则** | DRY (Don't Repeat Yourself) | 软件开发原则，提倡减少代码重复，每个知识点在系统中应当有唯一、明确的表示。 |
@@ -497,7 +505,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 | **PR (拉取请求)** | Pull Request | 开发者提议将其代码更改合并到项目主分支的请求。 |
 | **命名参数** | Named parameters | 在函数调用中明确指定参数名称，提高代码可读性和降低出错可能性。 |
 | **强类型** | Strongly typed | 编程语言特性，要求明确指定变量类型，限制不同类型间的自动转换。 |
-| **.cursorrules** | .cursorrules | Cursor IDE中用于配置AI助手行为的特殊文件，存放在代码仓库根目录。 |
+| **.cursorrules** | .cursorrules | Cursor IDE中用于配置AI助手行为的传统文件，存放在代码仓库根目录。现已被`.cursor/index.mdc`取代，但仍然兼容。 |
 | **.cursor/rules/*.mdc** | .cursor/rules/*.mdc | Cursor IDE中用于特定任务或上下文的动态规则文件，只有在相关任务时才会激活。 |
 
 这些概念对于理解如何有效配置和使用Cursor IDE的AI功能至关重要。随着你对这些概念的熟悉，你将能够更有效地创建和管理适合你开发工作流程的AI规则。
@@ -512,7 +520,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 视频涵盖内容：
 - 在 Cursor IDE 设置中配置全局 cursor 规则
-- 创建包含真实示例的仓库级 `.cursorrules` 文件
+- 创建仓库级规则文件：新方法`.cursor/index.mdc`（Rule Type "Always"）和传统方法`.cursorrules`（legacy）
 - 实施专门任务的上下文感知 `.cursor/*.mdc` 文件
 - 演示每个级别如何协同工作以优化 AI 协助
 - 故障排除常见问题和优化令牌使用
