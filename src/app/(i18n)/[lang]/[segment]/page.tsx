@@ -89,7 +89,20 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
     const meetSegment = getPathSegmentByLanguage('meet', lang);
     const paySegment = getPathSegmentByLanguage('pay', lang);
 
-    // Get parameters from URL
+    // For meet and pay segments, don't access searchParams at all (keep them static)
+    if (segment === meetSegment) {
+        return generateMeetPageMetadata({
+            language: lang,
+            type: 'index'
+        });
+    } else if (segment === paySegment) {
+        return generatePayPageMetadata({
+            language: lang,
+            type: 'index'
+        });
+    }
+
+    // Only access searchParams for articles and services (which need dynamic filtering)
     const searchParamsData = await searchParams;
     const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
     const categoryParam = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
@@ -113,16 +126,6 @@ export async function generateMetadata({ params, searchParams }: SegmentPageProp
             language: lang,
             category: internalCategoryId
         });
-    } else if (segment === meetSegment) {
-        return generateMeetPageMetadata({
-            language: lang,
-            type: 'index'
-        });
-    } else if (segment === paySegment) {
-        return generatePayPageMetadata({
-            language: lang,
-            type: 'index'
-        });
     }
 
     // If segment doesn't match any known type
@@ -144,25 +147,38 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
     const meetSegment = getPathSegmentByLanguage('meet', lang);
     const paySegment = getPathSegmentByLanguage('pay', lang);
 
-    // Get parameters from URL
+    // For English language, redirect to main routes
+    if (lang === DEFAULT_LANGUAGE) {
+        if (segment === meetSegment) {
+            redirect('/meet/');
+        } else if (segment === paySegment) {
+            redirect('/pay/');
+        } else if (segment === articlesSegment || segment === servicesSegment) {
+            // Only access searchParams for articles and services
+            const searchParamsData = await searchParams;
+            const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
+            const category = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
+
+            if (segment === articlesSegment) {
+                redirect(tag ? `/articles/?tag=${tag}` : '/articles/');
+            } else if (segment === servicesSegment) {
+                redirect(category ? `/services/?category=${category}` : '/services/');
+            }
+        }
+    }
+
+    // Return appropriate component based on segment type - handle static segments first
+    if (segment === meetSegment) {
+        return <MeetPage language={lang} />;
+    } else if (segment === paySegment) {
+        return <PayPage language={lang} />;
+    }
+
+    // Only access searchParams for articles and services (dynamic segments)
     const searchParamsData = await searchParams;
     const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
     const category = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
 
-    // For English language, redirect to main routes
-    if (lang === DEFAULT_LANGUAGE) {
-        if (segment === articlesSegment) {
-            redirect(tag ? `/articles/?tag=${tag}` : '/articles/');
-        } else if (segment === servicesSegment) {
-            redirect(category ? `/services/?category=${category}` : '/services/');
-        } else if (segment === meetSegment) {
-            redirect('/meet/');
-        } else if (segment === paySegment) {
-            redirect('/pay/');
-        }
-    }
-
-    // Return appropriate component based on segment type
     if (segment === articlesSegment) {
         return <ArticlesPageContent language={lang} tag={tag} />;
     } else if (segment === servicesSegment) {
@@ -173,10 +189,6 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
         }
 
         return <ServicesPageContent language={lang} category={category} />;
-    } else if (segment === meetSegment) {
-        return <MeetPage language={lang} />;
-    } else if (segment === paySegment) {
-        return <PayPage language={lang} />;
     }
 
     // If segment doesn't match any known type, show 404
