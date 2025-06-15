@@ -40,6 +40,37 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Add cache control headers for static pages and SEO headers for non-production
+  async headers() {
+    const headers = [
+      // Cache control for all pages in production
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=31536000, stale-while-revalidate=604800',
+          },
+        ],
+      },
+    ];
+
+    // Set X-Robots-Tag: noindex for all non-production environments
+    // This ensures custom domains used for preview/staging are also not indexed
+    if (process.env.VERCEL_ENV !== 'production') {
+      headers.push({
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex',
+          },
+        ],
+      });
+    }
+
+    return headers;
+  },
   // Add rewrites for IndexNow to avoid conflict with language routes
   async rewrites() {
     return [
@@ -81,26 +112,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
     ];
-  },
-  // Add headers configuration for SEO
-  async headers() {
-    // Set X-Robots-Tag: noindex for all non-production environments
-    // This ensures custom domains used for preview/staging are also not indexed
-    if (process.env.VERCEL_ENV !== 'production') {
-      return [
-        {
-          source: '/:path*',
-          headers: [
-            {
-              key: 'X-Robots-Tag',
-              value: 'noindex',
-            },
-          ],
-        },
-      ];
-    }
-
-    return [];
   },
   // swcMinify has been removed as it's no longer recognized in Next.js 15.3.0
 };
