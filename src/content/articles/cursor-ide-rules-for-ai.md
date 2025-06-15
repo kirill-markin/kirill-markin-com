@@ -103,8 +103,8 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 <cursorrules_planning_practices>
 - User can ask you to create a plan for the feature implementation
-- You MUST create a temp directory
-- You MUST create a markdown file with the feature plan in the temp directory
+- You MUST create a tmp directory
+- You MUST create a markdown file with the feature plan in the tmp directory
 - This feature plan file must contain the following sections:
   1. Overview of current state related to the feature
   2. Overview of the final state of the feature

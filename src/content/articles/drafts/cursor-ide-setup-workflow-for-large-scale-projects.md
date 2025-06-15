@@ -68,7 +68,7 @@ Yes, I've implemented these practices across different levels of Cursor configur
 
 ### Q: Are you using the cursor AI summary function, or do you keep the entire chat conversation? How exactly do you manage context between chats?
 
-I don't use the summary function or keep chat histories. Instead, I store all context in markdown files right in the repository. Usually, a design document in `docs/temp/*.md` describes the feature implementation plan and key decisions. Sometimes in the same file, sometimes in a separate one, I maintain the current state with all tasks, subtasks, and their statuses.
+I don't use the summary function or keep chat histories. Instead, I store all context in markdown files right in the repository. Usually, a design document in `docs/tmp/*.md` describes the feature implementation plan and key decisions. Sometimes in the same file, sometimes in a separate one, I maintain the current state with all tasks, subtasks, and their statuses.
 
 Before ending each Composer Agent chat, I ask AI to update these documents. When starting a new chat, I simply add these files to the context. That's it - full context restored instantly.
 
@@ -84,7 +84,7 @@ One small caveat - very rarely, SuperWhisper might fail to process your voice me
 
 ### Q: I'm new to Cursor and know it doesn't have a save chat feature. How do you document the chat history? I saw a third-party extension but don't trust it.
 
-I just save everything in markdown files in my project's `docs/temp/` directory. Usually it's two files: `feature-design.md` with the detailed description of what we're building and how, and `current-state.md` with all tasks and their statuses. Nothing fancy - just plain markdown files in your repo.
+I just save everything in markdown files in my project's `docs/tmp/` directory. Usually it's two files: `feature-design.md` with the detailed description of what we're building and how, and `current-state.md` with all tasks and their statuses. Nothing fancy - just plain markdown files in your repo.
 
 Before ending a chat session, I ask Cursor to update these files with any new insights or decisions. When I start a new chat, I just add these files to the context. It's simple, secure (everything stays in your repo), and actually works better than saving raw chat logs because you get clean, organized documentation instead of messy chat history.
 
