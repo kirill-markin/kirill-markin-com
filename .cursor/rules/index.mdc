@@ -103,4 +103,5 @@ website-next-js/
 - `npm run build` - Production build
 - `npm run lint` - Run ESLint
 - `npm test` - Run tests 
-- `npm run validate-metadata` - Validate SEO metadata across all pages 
+- `npm run validate-metadata` - Validate SEO metadata across all pages
+- `npx tsx scripts/test-cache-headers.ts` - Test cache headers for all pages in sitemap 
