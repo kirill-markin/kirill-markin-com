@@ -9,6 +9,8 @@ import { PayPage } from '@/components/pages/pay';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
+export const revalidate = false;
+export const dynamicParams = false;
 
 interface SegmentPageProps {
     params: Promise<{ lang: string; segment: string }>;

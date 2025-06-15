@@ -8,6 +8,11 @@ import ArticlePageContent from '@/components/pages/ArticlePageContent';
 import { markdownToHtml } from '@/lib/markdown';
 import { generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
 
+// Force static generation
+export const dynamic = 'force-static';
+export const revalidate = false;
+export const dynamicParams = false;
+
 interface SubsegmentPageProps {
     params: Promise<{
         lang: string;

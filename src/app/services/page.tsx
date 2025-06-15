@@ -6,13 +6,13 @@ import ServicesPageContent from '@/components/pages/ServicesPageContent';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
+export const revalidate = false;
+export const dynamicParams = false;
 
 type Props = {
   params: Promise<Record<string, string>>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
-
-// Note: generateStaticParams not needed for searchParams - those are handled at runtime
 
 // Helper function to validate category parameter
 function isValidCategory(category: string | undefined): boolean {

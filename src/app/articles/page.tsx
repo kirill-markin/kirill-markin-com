@@ -5,13 +5,13 @@ import { generateArticlesPageMetadata } from '@/lib/metadata';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
+export const revalidate = false;
+export const dynamicParams = false;
 
 type Props = {
   params: Promise<Record<string, string>>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
-
-// Note: generateStaticParams not needed for searchParams - those are handled at runtime
 
 export async function generateMetadata(
   { searchParams }: Props
