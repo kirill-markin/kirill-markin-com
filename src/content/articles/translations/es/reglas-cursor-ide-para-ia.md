@@ -4,7 +4,7 @@ date: 2025-05-06
 slug: "reglas-cursor-ide-para-ia"
 language: "es"
 description: "Reglas personalizadas para Cursor IDE que mejoran la codificación con IA mediante preferencias de estilo y patrones de flujo de trabajo optimizados."
-tags: ["productividad", "cursor-ide", "ia", "llm"]
+tags: ["productivity", "cursor-ide", "ai", "llm"]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
 originalArticle:

@@ -8,6 +8,7 @@ import ArticlesListJsonLd from '@/components/ArticlesListJsonLd';
 import { getPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import Footer from '@/components/Footer';
 import { Article } from '@/lib/articles';
+import { getInternalTagKey, getLocalizedTag } from '@/lib/tagLocalization';
 
 interface ArticlesPageContentProps {
     language: string;
@@ -18,21 +19,30 @@ const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
 export default function ArticlesPageContent({ language, articles }: ArticlesPageContentProps) {
     const searchParams = useSearchParams();
-    const currentTag = searchParams.get('tag')?.toLowerCase() || 'all';
+    const currentLocalizedTag = searchParams.get('tag')?.toLowerCase() || 'all';
+
+    // Convert localized tag to internal key for filtering
+    const currentInternalTag = currentLocalizedTag === 'all' ? 'all' : getInternalTagKey(currentLocalizedTag, language);
 
     // Get translations for the specified language
     const t = getTranslation('articles', language);
 
-    // Filter articles by tag
-    const filteredArticles = currentTag === 'all'
+    // Filter articles by internal tag
+    const filteredArticles = currentInternalTag === 'all'
         ? articles
         : articles.filter(article =>
-            article.metadata.tags && article.metadata.tags.includes(currentTag)
+            article.metadata.tags && article.metadata.tags.includes(currentInternalTag)
         );
 
-    // Get all unique tags for the tags menu
-    const allTags = articles.flatMap(article => article.metadata.tags || []);
-    const uniqueTags = Array.from(new Set(allTags)).filter(tag => tag);
+    // Get all unique internal tags for the tags menu, then localize them
+    const allInternalTags = articles.flatMap(article => article.metadata.tags || []);
+    const uniqueInternalTags = Array.from(new Set(allInternalTags)).filter(tag => tag);
+
+    // Convert internal tags to localized tags for display
+    const uniqueLocalizedTags = uniqueInternalTags.map(internalTag => ({
+        internal: internalTag,
+        localized: getLocalizedTag(internalTag, language)
+    }));
 
     // Form base paths for links
     const articlesBasePath = language === 'en'
@@ -40,23 +50,24 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
         : `/${language}/${getPathSegmentByLanguage('articles', language)}`;
 
     // Form full path including tag parameter if specified
-    const fullPath = currentTag === 'all'
+    const fullPath = currentLocalizedTag === 'all'
         ? articlesBasePath
-        : `${articlesBasePath}/?tag=${currentTag}`;
+        : `${articlesBasePath}/?tag=${currentLocalizedTag}`;
 
     // Form canonical URL
-    const canonicalUrl = currentTag === 'all'
+    const canonicalUrl = currentLocalizedTag === 'all'
         ? `https://kirill-markin.com${articlesBasePath}/`
-        : `https://kirill-markin.com${articlesBasePath}/?tag=${currentTag}`;
+        : `https://kirill-markin.com${articlesBasePath}/?tag=${currentLocalizedTag}`;
 
     // Function to get tag description
     const getTagDescription = () => {
-        if (currentTag === 'all') {
+        if (currentInternalTag === 'all') {
             return t.description;
         }
 
-        // Display tag with first letter capitalized
-        const formattedTag = currentTag.charAt(0).toUpperCase() + currentTag.slice(1);
+        // Display localized tag with first letter capitalized
+        const localizedTag = getLocalizedTag(currentInternalTag, language);
+        const formattedTag = localizedTag.charAt(0).toUpperCase() + localizedTag.slice(1);
 
         // Get count of articles with this tag
         const tagArticlesCount = filteredArticles.length;
@@ -70,17 +81,17 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
                 <ArticlesListJsonLd
                     articles={filteredArticles}
                     url={canonicalUrl}
-                    tag={currentTag !== 'all' ? currentTag : undefined}
+                    tag={currentInternalTag !== 'all' ? getLocalizedTag(currentInternalTag, language) : undefined}
                 />
 
                 <div className={styles.fullWidthColumn}>
                     <div className={styles.articlesHeader}>
                         <div className={styles.articlesHeaderTitle}>
                             <h1 className={styles.articlesTitle}>
-                                {currentTag === 'all' ? (
+                                {currentInternalTag === 'all' ? (
                                     <>{t.title}<span className={styles.glitchLetter}>s</span></>
                                 ) : (
-                                    <>{currentTag.charAt(0).toUpperCase() + currentTag.slice(1)} {t.title}<span className={styles.glitchLetter}>s</span></>
+                                    <>{getLocalizedTag(currentInternalTag, language).charAt(0).toUpperCase() + getLocalizedTag(currentInternalTag, language).slice(1)} {t.title}<span className={styles.glitchLetter}>s</span></>
                                 )}
                             </h1>
                             <div className={styles.categoryDescription}>
@@ -94,26 +105,27 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
                         <div className={styles.tagsMenuItems}>
                             <Link
                                 href={`${articlesBasePath}/`}
-                                className={`${styles.tagMenuItem} ${currentTag === 'all' ? styles.active : ''}`}
+                                className={`${styles.tagMenuItem} ${currentLocalizedTag === 'all' ? styles.active : ''}`}
                             >
                                 All
                             </Link>
 
-                            {uniqueTags
-                                .map(tag => ({
-                                    tag,
+                            {uniqueLocalizedTags
+                                .map(({ internal, localized }) => ({
+                                    internal,
+                                    localized,
                                     count: articles.filter(article =>
-                                        article.metadata.tags && article.metadata.tags.includes(tag)
+                                        article.metadata.tags && article.metadata.tags.includes(internal)
                                     ).length
                                 }))
                                 .sort((a, b) => b.count - a.count)
-                                .map(({ tag, count }) => (
+                                .map(({ internal, localized, count }) => (
                                     <Link
-                                        key={tag}
-                                        href={`${articlesBasePath}/?tag=${tag}`}
-                                        className={`${styles.tagMenuItem} ${currentTag === tag ? styles.active : ''}`}
+                                        key={internal}
+                                        href={`${articlesBasePath}/?tag=${localized}`}
+                                        className={`${styles.tagMenuItem} ${currentLocalizedTag === localized ? styles.active : ''}`}
                                     >
-                                        {tag} [{count}]
+                                        {localized} [{count}]
                                     </Link>
                                 ))}
                         </div>

@@ -117,6 +117,50 @@ export const SUB_PATH_SEGMENTS: Record<string, Record<string, Record<string, str
             'ar': 'sahafa',
             'hi': 'media'
         }
+    },
+    'articles': {
+        'productivity': {
+            'en': 'productivity',
+            'es': 'productividad',
+            'zh': '生产效率',
+            'ar': 'الإنتاجية',
+            'hi': 'उत्पादकता'
+        },
+        'cursor-ide': {
+            'en': 'cursor-ide',
+            'es': 'cursor-ide',
+            'zh': 'cursor-ide',
+            'ar': 'كورسر-آيدي',
+            'hi': 'कर्सर-आईडीई'
+        },
+        'ai': {
+            'en': 'ai',
+            'es': 'ia',
+            'zh': 'ai',
+            'ar': 'الذكاء-الاصطناعي',
+            'hi': 'एआई'
+        },
+        'llm': {
+            'en': 'llm',
+            'es': 'llm',
+            'zh': '人工智能',
+            'ar': 'نماذج-اللغة-الكبيرة',
+            'hi': 'एलएलएम'
+        },
+        'notion': {
+            'en': 'notion',
+            'es': 'notion',
+            'zh': 'notion',
+            'ar': 'نوشن',
+            'hi': 'नोशन'
+        },
+        'task-management': {
+            'en': 'task-management',
+            'es': 'gestion-tareas',
+            'zh': '任务管理',
+            'ar': 'ادارة-المهام',
+            'hi': 'कार्य-प्रबंधन'
+        }
     }
 };
 
@@ -231,6 +275,28 @@ export function getUrlForLanguage(
         // If we found the internal name, translate to target language
         if (categoryInternalName) {
             queryParams.category = getSubPathSegmentByLanguage('services', categoryInternalName, targetLanguage);
+        }
+    }
+
+    // Handle tag parameter translation if present
+    if (queryParams.tag) {
+        // Known tags in English (canonical keys)
+        const knownTags = Object.keys(SUB_PATH_SEGMENTS['articles'] || {});
+
+        // Try to find which tag this represents in the current language
+        let tagInternalName: string | undefined;
+
+        for (const tagKey of knownTags) {
+            const localizedTag = getSubPathSegmentByLanguage('articles', tagKey, currentLanguage);
+            if (localizedTag === queryParams.tag) {
+                tagInternalName = tagKey;
+                break;
+            }
+        }
+
+        // If we found the internal name, translate to target language
+        if (tagInternalName) {
+            queryParams.tag = getSubPathSegmentByLanguage('articles', tagInternalName, targetLanguage);
         }
     }
 
