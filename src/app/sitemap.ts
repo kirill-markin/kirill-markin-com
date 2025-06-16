@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
 import { getAllArticles, buildArticleConnections } from '@/lib/articles';
-import { servicesData } from '@/data/services';
 import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
 import { SUPPORTED_LANGUAGES, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
 
@@ -28,31 +27,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Build connections between original and translated articles
   const connectedArticles = await buildArticleConnections(allArticles);
 
-  // Get unique service categories (excluding 'all')
-  const serviceCategories = Array.from(
-    new Set(servicesData.map(service => service.categoryId))
-  ).filter(category => category !== 'all');
 
-  // Get unique article tags by language
-  const tagsByLanguage: Record<string, string[]> = {};
-
-  articlesByLanguage.forEach(({ lang, articles }) => {
-    const allTags = articles.flatMap(article => article.metadata.tags || []);
-    tagsByLanguage[lang] = Array.from(new Set(allTags)).filter(tag => tag);
-  });
 
   // Add static routes for default language (English)
   const defaultRoutes = [
     '/',
     '/services/',
-    ...serviceCategories.map(category => `/services/?category=${category}`),
     '/meet/',
     '/meet/short/',
     '/meet/all/',
     '/pay/',
     '/pay/stripe/',
-    '/articles/',
-    ...tagsByLanguage[DEFAULT_LANGUAGE].map(tag => `/articles/?tag=${tag}`)
+    '/articles/'
   ];
 
   const defaultRoutePromises = defaultRoutes.map(async (routePath) => {
@@ -92,32 +78,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const localizedRoutes = [
         `/${lang}/`,
         `/${lang}/${getPathSegmentByLanguage('services', lang)}/`,
-      ];
-
-      // Add service category routes for each non-default language
-      const servicesSegment = getPathSegmentByLanguage('services', lang);
-      for (const category of serviceCategories) {
-        const localizedCategory = getSubPathSegmentByLanguage('services', category, lang);
-        localizedRoutes.push(`/${lang}/${servicesSegment}/?category=${localizedCategory}`);
-      }
-
-      // Add other routes
-      localizedRoutes.push(
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('articles', lang)}/`,
-      );
-
-      // Add tag pages for this language
-      if (tagsByLanguage[lang]) {
-        const articlesSegment = getPathSegmentByLanguage('articles', lang);
-        localizedRoutes.push(
-          ...tagsByLanguage[lang].map(tag => `/${lang}/${articlesSegment}/?tag=${tag}`)
-        );
-      }
+      ];
 
       return localizedRoutes.map(async (routePath) => {
         const url = `${baseUrl}${routePath.startsWith('/') ? routePath.substring(1) : routePath}`;
@@ -132,11 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           .replace(`/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`, '/pay/stripe/')
           .replace(`/${getPathSegmentByLanguage('pay', lang)}/`, '/pay/');
 
-        // Handle service category pages
-        for (const category of serviceCategories) {
-          const localizedCategory = getSubPathSegmentByLanguage('services', category, lang);
-          englishPath.replace(`/?category=${localizedCategory}`, `/?category=${category}`);
-        }
+
 
         const lastModified = await getPageLastModifiedDate(englishPath);
 
