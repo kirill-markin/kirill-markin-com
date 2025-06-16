@@ -107,7 +107,7 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
                                 href={`${articlesBasePath}/`}
                                 className={`${styles.tagMenuItem} ${currentLocalizedTag === 'all' ? styles.active : ''}`}
                             >
-                                All
+                                {t.all}
                             </Link>
 
                             {uniqueLocalizedTags

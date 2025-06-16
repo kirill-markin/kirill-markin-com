@@ -738,6 +738,7 @@ export const translations = {
             metaTitle: 'AI & Technology Articles | Kirill Markin | Machine Learning Expert',
             metaDescription: 'Expert articles on AI, machine learning, and digital transformation. Insights on implementation strategy and emerging technologies from an industry specialist.',
             readTimeText: 'min read',
+            all: 'All',
         },
         'es': {
             title: 'Artículos',
@@ -745,6 +746,7 @@ export const translations = {
             metaTitle: 'Artículos de IA y Tecnología | Kirill Markin | Inteligencia Artificial',
             metaDescription: 'Artículos especializados sobre inteligencia artificial, aprendizaje automático y transformación digital. Perspectivas sobre implementación de IA para empresas.',
             readTimeText: 'min de lectura',
+            all: 'Todos',
         },
         'zh': {
             title: '文章',
@@ -752,6 +754,7 @@ export const translations = {
             metaTitle: '人工智能与科技文章 | Kirill Markin | 数字化转型与机器学习专家 | 企业AI策略专家',
             metaDescription: '关于人工智能、机器学习和数字化转型的专业文章。为中国企业提供AI实施见解、商业策略分析和新兴技术评估，助力企业数字化转型和提升竞争力，实现持续创新和业务增长。文章涵盖前沿AI应用、最佳实践和案例分析，帮助企业领导者作出明智决策。探索如何利用数据驱动方法解决复杂业务挑战，打造智能化企业生态系统。',
             readTimeText: '分钟阅读',
+            all: '全部',
         },
         'ar': {
             title: 'المقالات',
@@ -759,6 +762,7 @@ export const translations = {
             metaTitle: 'مقالات الذكاء الاصطناعي والتقنية | كيريل ماركين | خبير التعلم الآلي',
             metaDescription: 'مقالات متخصصة حول الذكاء الاصطناعي والتعلم الآلي والتحول الرقمي. رؤى حول تنفيذ الذكاء الاصطناعي واستراتيجيات الأعمال في العالم العربي والشرق الأوسط.',
             readTimeText: 'دقيقة قراءة',
+            all: 'الكل',
         },
         'hi': {
             title: 'लेख',
@@ -766,6 +770,7 @@ export const translations = {
             metaTitle: 'एआई और प्रौद्योगिकी लेख | किरिल मार्किन | मशीन लर्निंग विशेषज्ञ',
             metaDescription: 'कृत्रिम बुद्धिमत्ता, मशीन लर्निंग और डिजिटल परिवर्तन पर विशेषज्ञ लेख। भारतीय व्यवसायों के लिए एआई कार्यान्वयन रणनीति पर अंतर्दृष्टि और नवीन तकनीकों का विश्लेषण।',
             readTimeText: 'मिनट पढ़ें',
+            all: 'सभी',
         },
     },
     services: {
