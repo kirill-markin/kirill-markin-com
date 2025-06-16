@@ -8,7 +8,8 @@ import AuthorBlock from '@/components/AuthorBlock';
 import SidebarRelatedArticles from '@/components/SidebarRelatedArticles';
 import Footer from '@/components/Footer';
 import styles from '@/app/(default)/articles/articles.module.css';
-import { getPathSegmentByLanguage } from '@/lib/localization';
+import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { getLocalizedTag } from '@/lib/tagLocalization';
 
 interface ArticlePageContentProps {
     article: Article;
@@ -40,11 +41,12 @@ export default function ArticlePageContent({
 
     // Also update tag link generation using getPathSegmentByLanguage
     const getTagLink = (tag: string): string => {
+        const localizedTag = getSubPathSegmentByLanguage('articles', tag, language);
         if (language === 'en') {
-            return `/articles/?tag=${tag}`;
+            return `/articles/?tag=${localizedTag}`;
         } else {
             const segment = getPathSegmentByLanguage('articles', language);
-            return `/${language}/${segment}/?tag=${tag}`;
+            return `/${language}/${segment}/?tag=${localizedTag}`;
         }
     };
 
@@ -68,7 +70,7 @@ export default function ArticlePageContent({
                                                 href={getTagLink(tag)}
                                             >
                                                 <span className={styles.tag}>
-                                                    {tag}
+                                                    {getLocalizedTag(tag, language)}
                                                 </span>
                                             </Link>
                                         ))
