@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ServiceFractionalCTOPlan } from '@/types/services';
 import styles from './PricingCard.module.css';
 
@@ -36,12 +37,38 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
             </div>
 
             <div className={styles.cardAction}>
-                <a
-                    href={plan.buttonUrl}
-                    className={`${styles.actionButton} ${plan.highlighted ? styles.highlightedButton : ''}`}
-                >
-                    {plan.buttonText}
-                </a>
+                {plan.socialButtons ? (
+                    <div className={styles.socialButtons}>
+                        {plan.socialButtons.map((socialButton, index) => (
+                            <a
+                                key={index}
+                                href={socialButton.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.socialButton}
+                                aria-label={socialButton.name}
+                            >
+                                <div className={styles.iconWrapper}>
+                                    <Image
+                                        src={socialButton.icon}
+                                        alt={`${socialButton.name} logo`}
+                                        className={styles.icon}
+                                        width={24}
+                                        height={24}
+                                    />
+                                </div>
+                                <span className={styles.label}>{socialButton.username}</span>
+                            </a>
+                        ))}
+                    </div>
+                ) : (
+                    <a
+                        href={plan.buttonUrl}
+                        className={`${styles.actionButton} ${plan.highlighted ? styles.highlightedButton : ''}`}
+                    >
+                        {plan.buttonText}
+                    </a>
+                )}
             </div>
         </div>
     );

@@ -1,22 +1,35 @@
 import { ServiceFractionalCTOData } from '@/types/services';
 
 export const servicesFractionalCTOData: ServiceFractionalCTOData = {
-    title: 'Fractional AI CTO Services',
-    description: 'Strategic AI-powered technology leadership tailored to your business needs. From AI strategy development to enterprise AI transformation, get the specialized CTO expertise you need without the full-time commitment. Choose the plan that fits your needs.',
+    title: 'Kirill Markin - Your Fractional AI CTO',
+    description: 'I provide strategic AI-powered technology leadership tailored to your business needs. From AI strategy development to enterprise AI transformation, get the specialized CTO expertise you need without the full-time commitment. Choose the plan that fits your needs.',
     plans: [
         {
             planId: 'free',
             name: 'Free Plan',
             price: 'Free',
-            hours: '15 minutes',
+            hours: 'WhatsApp Chat',
             features: [
-                'Initial consultation call',
-                'Basic technology assessment',
-                'Strategic direction overview',
-                'Q&A session'
+                'Direct messaging via WhatsApp',
+                'Ask any technology questions',
+                'Free hiring recommendations',
+                'Strategic advice and guidance',
+                'Quick responses when available'
             ],
-            buttonText: 'Get Started',
-            buttonUrl: '/meet/short/'
+            socialButtons: [
+                {
+                    name: 'WhatsApp',
+                    url: 'https://api.whatsapp.com/send?phone=31625351137',
+                    username: '+31625351137',
+                    icon: '/social/whatsapp.png'
+                },
+                {
+                    name: 'Telegram',
+                    url: 'https://t.me/kirmark',
+                    username: '@kirmark',
+                    icon: '/social/telegram.png'
+                }
+            ]
         },
         {
             planId: 'starter',
@@ -26,10 +39,12 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             features: [
                 'Monthly strategy session',
                 'Technology roadmap review',
-                'Priority support via email',
-                'Basic architecture guidance'
+                'Unlimited text questions anytime',
+                'Architecture guidance',
+                'Team communication support',
+                'Hiring assistance and recommendations'
             ],
-            buttonText: 'Contact Us',
+            buttonText: 'Start Free Trial',
             buttonUrl: '/meet/short/'
         },
         {
@@ -39,13 +54,19 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             hours: '4 hours/month',
             features: [
                 'Weekly strategy sessions',
-                'Team leadership guidance',
+                'Technology roadmap review and updates',
+                'Unlimited text questions from all team members',
+                'Advanced architecture guidance',
+                'Team leadership and collaboration guidance',
                 'Technology stack optimization',
+                'Team communication and workflow support',
                 'Hiring and team building support',
-                'Performance metrics setup'
+                'Performance metrics setup and monitoring',
+                'Code review and technical standards',
+                'AI/ML integration guidance'
             ],
             highlighted: true,
-            buttonText: 'Contact Us',
+            buttonText: 'Start Free Trial',
             buttonUrl: '/meet/short/'
         },
         {

@@ -10,6 +10,14 @@ export interface ServiceOtherData {
   buttonUrl: string;
 }
 
+// Social Contact Button Interface
+export interface SocialContactButton {
+  name: string;
+  url: string;
+  username: string;
+  icon: string;
+}
+
 // Fractional CTO Plan Interface
 export interface ServiceFractionalCTOPlan {
   planId: string;
@@ -18,8 +26,9 @@ export interface ServiceFractionalCTOPlan {
   hours: string;
   features: string[];
   highlighted?: boolean;
-  buttonText: string;
-  buttonUrl: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  socialButtons?: SocialContactButton[];
 }
 
 // Fractional CTO Service Data

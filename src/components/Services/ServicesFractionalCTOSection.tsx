@@ -13,7 +13,7 @@ const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> 
         <section className={styles.fractionalCTOSection}>
             <div className={styles.sectionHeader}>
                 <h2 className={styles.sectionTitle}>
-                    Fractional <span className={styles.glitchLetter}>AI</span> CTO
+                    Kirill Markin - Your Fractional <span className={styles.glitchLetter}>AI</span> CTO
                 </h2>
                 <div className={styles.sectionDescription}>
                     <p>{data.description}</p>
