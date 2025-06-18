@@ -114,6 +114,8 @@
 
 .headerBookAMeeting {
   color: var(--dark-gray);
+  background-color: #ff00ff;
+  color: white;
 }
 
 /* Mobile Header */
@@ -275,8 +277,8 @@
   }
 
   .headerMobileBookAMeetingButton {
-    background-color: transparent;
-    color: var(--dark-gray);
+    background-color: #ff00ff;
+    color: white;
     border-radius: 0;
     font-size: 0.9rem;
     text-decoration: none;
@@ -407,8 +409,9 @@
   }
 
   .headerMobileBookAMeeting {
-    color: var(--dark-gray);
+    color: white;
     font-weight: 500;
+    background-color: #ff00ff;
   }
 
   .headerMobileBookAMeeting svg {
