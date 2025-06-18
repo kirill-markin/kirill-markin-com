@@ -8,7 +8,6 @@ import styles from './Header.module.css';
 import {
   DEFAULT_LANGUAGE,
   getPathSegmentByLanguage,
-  getSubPathSegmentByLanguage,
   getTranslation
 } from '@/lib/localization';
 
@@ -32,9 +31,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
     ? '/articles/'
     : `/${language}/${getPathSegmentByLanguage('articles', language)}/`;
 
-  const meetPath = language === DEFAULT_LANGUAGE
-    ? '/meet/short/'
-    : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'short', language)}/`;
+  const fractionalAICTOPath = '/services/fractional-ai-cto-kirill-markin/';
 
   // Get localized home path
   const homePath = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
@@ -69,10 +66,9 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
           </Link>
           <Link
             className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
-            href={meetPath}
-            rel="noopener noreferrer"
+            href={fractionalAICTOPath}
           >
-            {navigationTranslations.talkToKirill}
+            {navigationTranslations.fractionalAICTO}
           </Link>
         </nav>
       </div>
@@ -111,11 +107,10 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             </div>
             <div className={styles.mobileButton}>
               <Link
-                href={meetPath}
-                rel="noopener noreferrer"
+                href={fractionalAICTOPath}
                 className={styles.headerMobileBookAMeetingButton}
               >
-                {navigationTranslations.talkToKirill}
+                {navigationTranslations.fractionalAICTO}
               </Link>
             </div>
           </div>
@@ -139,11 +134,10 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
           <div className={styles.headerMobileMenuSection}>
             <Link
               className={styles.headerMobileBookAMeeting}
-              href={meetPath}
-              rel="noopener noreferrer"
+              href={fractionalAICTOPath}
               onClick={closeMobileMenu}
             >
-              {navigationTranslations.talkToKirill}
+              {navigationTranslations.fractionalAICTO}
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M4.22559 20L20 4M20 4V17M20 4H7" stroke="#353C2A" strokeWidth="2" />
               </svg>

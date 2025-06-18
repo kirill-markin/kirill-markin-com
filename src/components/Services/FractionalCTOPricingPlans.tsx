@@ -1,30 +1,53 @@
 'use client';
 
-import { ServiceFractionalCTOPlan } from '@/types/services';
+import Link from 'next/link';
+import { ServiceFractionalCTOData } from '@/types/services';
 import PricingCard from './PricingCard';
 import styles from './FractionalCTOPricingPlans.module.css';
 
 interface FractionalCTOPricingPlansProps {
-    plans: ServiceFractionalCTOPlan[];
-    subtitle?: string;
+    plans: ServiceFractionalCTOData['plans'];
 }
 
-const FractionalCTOPricingPlans: React.FC<FractionalCTOPricingPlansProps> = ({
-    plans,
-    subtitle
-}) => {
+const FractionalCTOPricingPlans: React.FC<FractionalCTOPricingPlansProps> = ({ plans }) => {
     return (
-        <div className={styles.pricingPlansContainer}>
-            {subtitle && (
-                <div className={styles.subtitle}>
-                    <p>{subtitle}</p>
-                </div>
-            )}
+        <div className={styles.pricingPlans}>
+            {plans.map((plan) => (
+                <PricingCard key={plan.planId} plan={plan} />
+            ))}
+        </div>
+    );
+};
 
-            <div className={styles.pricingGrid}>
-                {plans.map(plan => (
-                    <PricingCard key={plan.planId} plan={plan} />
-                ))}
+// Отдельный компонент для заголовка с ссылкой
+interface FractionalCTOHeaderProps {
+    data: ServiceFractionalCTOData;
+    isStandalonePage?: boolean;
+    headingLevel?: 'h1' | 'h2';
+}
+
+export const FractionalCTOHeader: React.FC<FractionalCTOHeaderProps> = ({
+    data,
+    isStandalonePage = false,
+    headingLevel = 'h2'
+}) => {
+    const TitleTag = headingLevel;
+
+    return (
+        <div className={styles.sectionHeader}>
+            {isStandalonePage ? (
+                <TitleTag className={styles.sectionTitle}>
+                    Your Fractional <span className={styles.glitchLetter}>AI</span> CTO Kirill Markin
+                </TitleTag>
+            ) : (
+                <TitleTag className={styles.sectionTitle}>
+                    <Link href="/services/fractional-ai-cto-kirill-markin/" className={styles.titleLink}>
+                        Your Fractional <span className={styles.glitchLetter}>AI</span> CTO Kirill Markin
+                    </Link>
+                </TitleTag>
+            )}
+            <div className={styles.sectionDescription}>
+                <p>{data.description}</p>
             </div>
         </div>
     );

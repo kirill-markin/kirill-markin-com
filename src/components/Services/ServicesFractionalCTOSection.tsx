@@ -1,28 +1,25 @@
 'use client';
 
 import { ServiceFractionalCTOData } from '@/types/services';
-import FractionalCTOPricingPlans from './FractionalCTOPricingPlans';
+import FractionalCTOPricingPlans, { FractionalCTOHeader } from './FractionalCTOPricingPlans';
 import styles from './ServicesFractionalCTOSection.module.css';
 
 interface ServicesFractionalCTOSectionProps {
     data: ServiceFractionalCTOData;
+    isStandalonePage?: boolean;
 }
 
-const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> = ({ data }) => {
+const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> = ({ data, isStandalonePage = false }) => {
+    const headingLevel = isStandalonePage ? 'h1' : 'h2';
+
     return (
         <section className={styles.fractionalCTOSection}>
-            <div className={styles.sectionHeader}>
-                <h2 className={styles.sectionTitle}>
-                    Your Fractional <span className={styles.glitchLetter}>AI</span> CTO Kirill Markin
-                </h2>
-                <div className={styles.sectionDescription}>
-                    <p>{data.description}</p>
-                </div>
-            </div>
-
-            <FractionalCTOPricingPlans
-                plans={data.plans}
+            <FractionalCTOHeader
+                data={data}
+                isStandalonePage={isStandalonePage}
+                headingLevel={headingLevel}
             />
+            <FractionalCTOPricingPlans plans={data.plans} />
         </section>
     );
 };

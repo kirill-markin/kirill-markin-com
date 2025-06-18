@@ -11,6 +11,7 @@ interface LanguageSwitcherProps {
     currentLanguage: string;
     currentPath: string;
     translations?: Translation[];
+    availableLanguages?: string[];
     className?: string;
 }
 
@@ -18,11 +19,15 @@ export default function LanguageSwitcher({
     currentLanguage,
     currentPath,
     translations,
+    availableLanguages,
     className,
 }: LanguageSwitcherProps) {
+    // Use availableLanguages if provided, otherwise use all SUPPORTED_LANGUAGES
+    const languagesToShow = availableLanguages || SUPPORTED_LANGUAGES;
+
     return (
         <div className={`${styles.languageSwitcher} ${className || ''}`}>
-            {SUPPORTED_LANGUAGES.map(lang => {
+            {languagesToShow.map(lang => {
                 if (lang === currentLanguage) {
                     return (
                         <span key={lang} className={styles.currentLanguage}>

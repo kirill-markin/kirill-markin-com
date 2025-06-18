@@ -17,12 +17,14 @@ interface FooterProps {
   language?: string;
   currentPath: string;
   translations?: Translation[];
+  availableLanguages?: string[];
 }
 
 const Footer: React.FC<FooterProps> = ({
   language = DEFAULT_LANGUAGE,
   currentPath,
-  translations
+  translations,
+  availableLanguages
 }) => {
   // Get footer translations
   const footerTranslations = getTranslation('footer', language);
@@ -193,6 +195,7 @@ const Footer: React.FC<FooterProps> = ({
           currentLanguage={language}
           currentPath={currentPath}
           translations={translations}
+          availableLanguages={availableLanguages}
           className={styles.footerLanguageSwitcher}
         />
       </div>

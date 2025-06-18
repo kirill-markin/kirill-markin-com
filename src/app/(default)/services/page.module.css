@@ -26,7 +26,7 @@
 
 @media (max-width: 768px) {
   .fullWidthColumn {
-    padding: 10px!important;
+    padding: 10px !important;
   }
 }
 
@@ -79,6 +79,7 @@
 }
 
 @keyframes tech-noise-scanlines {
+
   0%,
   100% {
     opacity: 0;
@@ -129,6 +130,7 @@
 }
 
 @keyframes tech-rgb-shift {
+
   0%,
   100% {
     opacity: 0;
@@ -231,50 +233,62 @@
   0% {
     clip-path: none;
   }
+
   2% {
     clip-path: polygon(0% 35%, 100% 35%, 100% 39%, 0% 39%);
     transform: translateX(-2px);
   }
+
   4% {
     clip-path: none;
     transform: translateX(0);
   }
+
   6% {
     clip-path: polygon(0% 15%, 100% 15%, 100% 16%, 0% 16%);
     transform: translateX(3px);
   }
+
   8% {
     clip-path: none;
     transform: translateX(0);
   }
+
   9% {
     clip-path: polygon(0% 65%, 100% 65%, 100% 70%, 0% 70%);
     transform: translateX(-3px);
   }
+
   11% {
     clip-path: none;
     transform: translateX(0);
   }
+
   90% {
     clip-path: none;
     transform: translateX(0);
   }
+
   92% {
     clip-path: polygon(0% 5%, 100% 5%, 100% 10%, 0% 10%);
     transform: translateX(10px);
   }
+
   94% {
     clip-path: none;
     transform: translateX(0);
   }
+
   96% {
     clip-path: polygon(0% 25%, 100% 25%, 100% 30%, 0% 30%);
     transform: translateX(-7px);
   }
+
   98% {
     clip-path: none;
     transform: translateX(0);
   }
+
   100% {
     clip-path: none;
     transform: translateX(0);
@@ -285,16 +299,17 @@
   0% {
     background: transparent;
   }
+
   50% {
     background: repeating-linear-gradient(0deg,
-      transparent 0%,
-      rgba(32, 128, 32, 0.05) 0.2%,
-      transparent 0.5%
-    );
+        transparent 0%,
+        rgba(32, 128, 32, 0.05) 0.2%,
+        transparent 0.5%);
     background-size: 100% 2px;
     mix-blend-mode: screen;
     opacity: 0.7;
   }
+
   100% {
     background: transparent;
   }
@@ -309,4 +324,42 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-} 
+}
+
+/* Article content styles for standalone pages */
+.articleContent {
+  margin-top: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.articleContent h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.articleContent p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .articleContent {
+    margin-top: 3rem;
+  }
+
+  .articleContent h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .articleContent p {
+    font-size: 1rem;
+  }
+}
