@@ -13,7 +13,7 @@ const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> 
         <section className={styles.fractionalCTOSection}>
             <div className={styles.sectionHeader}>
                 <h2 className={styles.sectionTitle}>
-                    Fractional CT<span className={styles.glitchLetter}>O</span>
+                    Fractional <span className={styles.glitchLetter}>AI</span> CTO
                 </h2>
                 <div className={styles.sectionDescription}>
                     <p>{data.description}</p>
@@ -22,7 +22,6 @@ const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> 
 
             <FractionalCTOPricingPlans
                 plans={data.plans}
-                subtitle={data.subtitle}
             />
         </section>
     );

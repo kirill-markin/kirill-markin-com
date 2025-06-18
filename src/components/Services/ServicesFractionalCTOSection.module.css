@@ -35,7 +35,7 @@
     margin: 0;
 }
 
-/* Glitch effect for the letter O */
+/* Glitch effect for the letters AI */
 .glitchLetter {
     position: relative;
     display: inline-block;
@@ -47,7 +47,7 @@
 
 .sectionTitle:hover .glitchLetter::before,
 .sectionTitle:hover .glitchLetter::after {
-    content: 'O';
+    content: 'AI';
     position: absolute;
     top: 0;
     left: 0;

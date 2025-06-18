@@ -3,7 +3,7 @@
     border: 1px solid var(--dark-gray);
     border-radius: 0;
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -72,9 +72,9 @@
 
 .pricingHeader {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--light-gray);
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .planName {
@@ -106,7 +106,7 @@
 
 .featuresContainer {
     flex: 1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .featuresList {

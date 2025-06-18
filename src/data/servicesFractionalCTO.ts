@@ -1,9 +1,8 @@
 import { ServiceFractionalCTOData } from '@/types/services';
 
 export const servicesFractionalCTOData: ServiceFractionalCTOData = {
-    title: 'Fractional CTO Services',
-    description: 'Strategic technology leadership tailored to your business needs. From startup guidance to enterprise transformation, get the CTO expertise you need without the full-time commitment.',
-    subtitle: 'Choose the plan that fits your needs',
+    title: 'Fractional AI CTO Services',
+    description: 'Strategic AI-powered technology leadership tailored to your business needs. From AI strategy development to enterprise AI transformation, get the specialized CTO expertise you need without the full-time commitment. Choose the plan that fits your needs.',
     plans: [
         {
             planId: 'free',
@@ -22,7 +21,7 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
         {
             planId: 'starter',
             name: 'Starter',
-            price: '$500/month',
+            price: '$400/month',
             hours: '1 hour/month',
             features: [
                 'Monthly strategy session',
@@ -36,8 +35,8 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
         {
             planId: 'growth',
             name: 'Growth',
-            price: '$2,500/month',
-            hours: '5 hours/month',
+            price: '$1,200/month',
+            hours: '4 hours/month',
             features: [
                 'Weekly strategy sessions',
                 'Team leadership guidance',
@@ -51,16 +50,17 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
         },
         {
             planId: 'scale',
-            name: 'Scale',
-            price: '$8,000/month',
-            hours: '20 hours/week',
+            name: 'Full-Time',
+            price: '$300,000+/year',
+            hours: 'Full Time',
             features: [
-                'Dedicated weekly availability',
-                'Hands-on technical leadership',
-                'Architecture design and review',
-                'Team mentoring and development',
-                'Full project management support',
-                'Direct Slack/email access'
+                'Complete CTO responsibility',
+                'Full technical leadership',
+                'Strategic planning & execution',
+                'Team building & management',
+                'Board & investor reporting',
+                'Technology vision & roadmap',
+                'Direct team access 24/7'
             ],
             buttonText: 'Contact Us',
             buttonUrl: '/meet/short/'
