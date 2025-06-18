@@ -8,7 +8,7 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             planId: 'free',
             name: 'Free Plan',
             price: 'Free',
-            hours: 'WhatsApp Chat',
+            hours: 'WhatsApp / Telegram Chat',
             features: [
                 'Text me anytime on WhatsApp and Telegram',
                 'Any tech question, even the weird ones',
