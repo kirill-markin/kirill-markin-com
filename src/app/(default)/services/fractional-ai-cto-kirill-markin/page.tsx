@@ -39,12 +39,11 @@ export default async function FractionalAICTOPage() {
             <main className={styles.main}>
                 <div className={styles.content}>
                     <div className={styles.fullWidthColumn}>
-                        <section aria-label="Pricing Plans">
-                            <ServicesFractionalCTOSection
-                                data={servicesFractionalCTOData}
-                                isStandalonePage={true}
-                            />
-                        </section>
+                        <ServicesFractionalCTOSection
+                            data={servicesFractionalCTOData}
+                            isStandalonePage={true}
+                            ariaLabel="Pricing Plans"
+                        />
 
                         <article className={styles.articleContent}>
                             <section>
@@ -195,18 +194,17 @@ export default async function FractionalAICTOPage() {
                             </section>
                         </article>
 
-                        <section aria-label="Pricing Plans - Call to Action">
-                            <ServicesFractionalCTOSection
-                                data={servicesFractionalCTOData}
-                                isStandalonePage={true}
-                            />
-                        </section>
+                        <ServicesFractionalCTOSection
+                            data={servicesFractionalCTOData}
+                            isStandalonePage={true}
+                            ariaLabel="Pricing Plans - Call to Action"
+                        />
 
-                        <footer className={styles.articleContent}>
+                        <nav className={styles.articleContent}>
                             <div className={styles.backLink}>
                                 <a href="/services/">← Back to All Services</a>
                             </div>
-                        </footer>
+                        </nav>
                     </div>
                 </div>
             </main>

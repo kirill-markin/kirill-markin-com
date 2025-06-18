@@ -7,13 +7,14 @@ import styles from './ServicesFractionalCTOSection.module.css';
 interface ServicesFractionalCTOSectionProps {
     data: ServiceFractionalCTOData;
     isStandalonePage?: boolean;
+    ariaLabel?: string;
 }
 
-const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> = ({ data, isStandalonePage = false }) => {
+const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> = ({ data, isStandalonePage = false, ariaLabel }) => {
     const headingLevel = isStandalonePage ? 'h1' : 'h2';
 
     return (
-        <section className={styles.fractionalCTOSection}>
+        <section className={styles.fractionalCTOSection} aria-label={ariaLabel}>
             <FractionalCTOHeader
                 data={data}
                 isStandalonePage={isStandalonePage}
