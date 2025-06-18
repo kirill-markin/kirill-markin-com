@@ -2,18 +2,18 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ServiceData } from '@/types/services';
+import { ServiceOtherData } from '@/types/services';
 import { getTranslation, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import styles from '../Services/Services.module.css';
 
 interface ServicesGridProps {
-    services: ServiceData[]; // ALL services (not filtered)
+    services: ServiceOtherData[]; // ALL services (not filtered)
     currentCategory: string;
     language: string;
 }
 
 // Client component for ServiceCard
-function ServiceCard({ service, language }: { service: ServiceData; language: string }) {
+function ServiceCard({ service, language }: { service: ServiceOtherData; language: string }) {
     const getFirstParagraph = (description: string): string => {
         return description.split('\n\n')[0];
     };

@@ -1,0 +1,274 @@
+.pricingCard {
+    position: relative;
+    border: 1px solid var(--dark-gray);
+    border-radius: 0;
+    background-color: #ffffff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: none;
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+.pricingCard:hover {
+    background-color: var(--white);
+    animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.pricingCard:hover::before,
+.pricingCard:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.pricingCard:hover::before {
+    animation: tech-noise-scanlines 0.8s steps(5) both;
+    background: repeating-linear-gradient(0deg,
+            transparent 0%,
+            rgba(32, 128, 32, 0.02) 0.2%,
+            rgba(0, 255, 0, 0.05) 0.3%,
+            transparent 0.5%);
+    background-size: 100% 2px;
+    mix-blend-mode: screen;
+    opacity: 0;
+}
+
+.pricingCard:hover::after {
+    animation: tech-rgb-shift 0.8s steps(3) both;
+    background-color: transparent;
+    mix-blend-mode: exclusion;
+    opacity: 0;
+}
+
+.highlighted {
+    border: 2px solid var(--dark-gray);
+    background-color: #fafafa;
+    position: relative;
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.highlightedBadge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.pricingHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 1.5rem;
+}
+
+.planName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--dark-gray);
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    line-height: 1;
+}
+
+.hours {
+    font-size: 0.875rem;
+    color: var(--medium-gray);
+    font-weight: 400;
+}
+
+.featuresContainer {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--dark-gray);
+}
+
+.checkmark {
+    color: #22c55e;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.cardAction {
+    margin-top: auto;
+}
+
+.actionButton {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--dark-gray);
+    color: var(--dark-gray);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.actionButton:hover {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.highlightedButton {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.highlightedButton:hover {
+    background-color: var(--medium-gray);
+}
+
+/* Animation keyframes - using same as Services.module.css */
+@keyframes clean-glitch-effect {
+    0% {
+        transform: scale(1);
+        filter: none;
+    }
+
+    3% {
+        transform: scale(1.004);
+        filter: none;
+    }
+
+    5% {
+        transform: scale(1.008);
+        filter: brightness(1.05);
+    }
+
+    10% {
+        transform: scale(1.01);
+        filter: brightness(1.1) contrast(1.15);
+    }
+
+    15% {
+        transform: scale(1.01);
+        filter: url('#data-corruption');
+    }
+
+    20% {
+        transform: scale(1.01);
+        filter: brightness(0.95) contrast(1.2);
+    }
+
+    25% {
+        transform: scale(1.01);
+        filter: url('#hacker-digital-corruption');
+    }
+
+    40% {
+        transform: scale(1.01);
+        filter: brightness(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: none;
+    }
+}
+
+@keyframes tech-noise-scanlines {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes tech-rgb-shift {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 0.05;
+    }
+}
+
+/* Highlighted card specific styling for hover */
+.highlighted:hover {
+    transform: scale(1.07);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricingCard {
+        padding: 1.5rem;
+    }
+
+    .highlighted {
+        transform: none;
+        border: 1px solid var(--dark-gray);
+    }
+
+    .highlighted:hover {
+        transform: none;
+    }
+
+    .planName {
+        font-size: 1.25rem;
+    }
+
+    .price {
+        font-size: 1.75rem;
+    }
+}

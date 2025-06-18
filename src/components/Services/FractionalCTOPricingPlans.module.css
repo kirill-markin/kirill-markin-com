@@ -1,0 +1,80 @@
+.pricingPlansContainer {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subtitle p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricingGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 100%;
+    align-items: stretch;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1400px) {
+    .pricingGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .pricingGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pricingGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .subtitle p {
+        font-size: 1rem;
+    }
+}
+
+/* Special layout for 5 cards */
+.pricingGrid:has(> :nth-child(5)) {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media screen and (max-width: 1600px) {
+    .pricingGrid:has(> :nth-child(5)) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pricingGrid:has(> :nth-child(5))> :nth-child(4),
+    .pricingGrid:has(> :nth-child(5))> :nth-child(5) {
+        grid-column: span 1;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .pricingGrid:has(> :nth-child(5)) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pricingGrid:has(> :nth-child(5)) {
+        grid-template-columns: 1fr;
+    }
+}

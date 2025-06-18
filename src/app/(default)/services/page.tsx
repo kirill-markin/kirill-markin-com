@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import { generateServicesPageMetadata } from '@/lib/metadata';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
-import { servicesData } from '@/data/services';
+import { servicesOtherData } from '@/data/servicesOther';
+import { servicesFractionalCTOData } from '@/data/servicesFractionalCTO';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
@@ -19,5 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ServicesPage() {
   // Pass all services data to client component
-  return <ServicesPageContent language={DEFAULT_LANGUAGE} services={servicesData} />;
+  return <ServicesPageContent
+    language={DEFAULT_LANGUAGE}
+    services={servicesOtherData}
+    fractionalCTOData={servicesFractionalCTOData}
+  />;
 }

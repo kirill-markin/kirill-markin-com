@@ -1,15 +1,6 @@
-export interface ServiceData {
-  serviceId: string;
-  categoryId: string;
-  name: string;
-  description: string;
-  logoUrl: string;
-  promoText: string;
-  buttonText: string;
-  buttonUrl: string;
-}
+import { ServiceOtherData } from '@/types/services';
 
-export const servicesData: ServiceData[] = [
+export const servicesOtherData: ServiceOtherData[] = [
   // Category: All
   {
     serviceId: "welcome_meeting_all",
@@ -165,7 +156,7 @@ export const servicesData: ServiceData[] = [
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"
   },
-  
+
   // Category: Journalists
   {
     serviceId: "conference",
@@ -217,4 +208,5 @@ export const servicesData: ServiceData[] = [
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"
   }
-]; 
+];
+
