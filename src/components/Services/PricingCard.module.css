@@ -7,45 +7,15 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: none;
+    transition: all 0.2s ease;
     text-decoration: none;
     color: var(--dark-gray);
 }
 
 .pricingCard:hover {
     background-color: var(--white);
-    animation: clean-glitch-effect 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.pricingCard:hover::before,
-.pricingCard:hover::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.pricingCard:hover::before {
-    animation: tech-noise-scanlines 0.8s steps(5) both;
-    background: repeating-linear-gradient(0deg,
-            transparent 0%,
-            rgba(32, 128, 32, 0.02) 0.2%,
-            rgba(0, 255, 0, 0.05) 0.3%,
-            transparent 0.5%);
-    background-size: 100% 2px;
-    mix-blend-mode: screen;
-    opacity: 0;
-}
-
-.pricingCard:hover::after {
-    animation: tech-rgb-shift 0.8s steps(3) both;
-    background-color: transparent;
-    mix-blend-mode: exclusion;
-    opacity: 0;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
 }
 
 .highlighted {
@@ -54,6 +24,7 @@
     position: relative;
     transform: scale(1.05);
     z-index: 2;
+    transition: all 0.2s ease;
 }
 
 .highlightedBadge {
@@ -374,7 +345,9 @@
 
 /* Highlighted card specific styling for hover */
 .highlighted:hover {
-    transform: scale(1.07);
+    transform: scale(1.1);
+    background-color: var(--white);
+    transition: all 0.2s ease;
 }
 
 /* Responsive Design */

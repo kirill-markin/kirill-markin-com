@@ -1,7 +1,7 @@
 import { ServiceFractionalCTOData } from '@/types/services';
 
 export const servicesFractionalCTOData: ServiceFractionalCTOData = {
-    title: 'Kirill Markin - Your Fractional AI CTO',
+    title: 'Your Fractional AI CTO Kirill Markin',
     description: 'I provide strategic AI-powered technology leadership tailored to your business needs. From AI strategy development to enterprise AI transformation, get the specialized CTO expertise you need without the full-time commitment. Choose the plan that fits your needs.',
     plans: [
         {
@@ -77,13 +77,13 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'Technology vision & roadmap',
                 'Direct team access 24/7'
             ],
-            buttonText: 'Contact Us',
+            buttonText: 'Contact Me',
             buttonUrl: '/meet/short/'
         },
         {
             planId: 'custom',
             name: 'Custom',
-            price: 'Contact us',
+            price: 'Contact me',
             hours: 'Flexible',
             features: [
                 'Tailored engagement model',
@@ -92,7 +92,7 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'Specialized expertise focus',
                 'Enterprise-level support'
             ],
-            buttonText: 'Contact Us',
+            buttonText: 'Contact Me',
             buttonUrl: '/meet/short/'
         }
     ]
