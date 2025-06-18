@@ -176,8 +176,16 @@ export default async function FractionalAICTOPage() {
 
                             <p>This focus on real-world impact is what makes <strong>fractional CTO</strong> work different from traditional consulting. We're not just making recommendations - we're building, deploying, and ensuring adoption. Your <strong>AI transformation</strong> starts showing results within the first month, not after months of planning.</p>
 
-                            <p>Ready to get started? Pick the plan that fits your needs above, or just send me a message on Telegram or WhatsApp if you have questions. Let's talk about how we can accelerate your AI strategy and make your technology actually work for your business.</p>
+                            <p>Ready to get started? Pick the plan that fits your needs below, or just send me a message on Telegram or WhatsApp if you have questions. Let's talk about how we can accelerate your AI strategy and make your technology actually work for your business.</p>
+                        </section>
 
+                        {/* Duplicate pricing section at the bottom */}
+                        <ServicesFractionalCTOSection
+                            data={servicesFractionalCTOData}
+                            isStandalonePage={true}
+                        />
+
+                        <section className={styles.articleContent}>
                             <div className={styles.backLink}>
                                 <a href="/services/">← Back to All Services</a>
                             </div>

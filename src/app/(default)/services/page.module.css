@@ -332,34 +332,150 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
+  font-size: 1.125rem;
+}
+
+.articleContent h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--dark-gray);
+  letter-spacing: -0.5px;
 }
 
 .articleContent h2 {
-  font-size: 1.875rem;
+  font-size: 1.75rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
   color: var(--dark-gray);
-  margin-bottom: 1.5rem;
-  text-align: center;
+}
+
+.articleContent h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--dark-gray);
 }
 
 .articleContent p {
+  margin-bottom: 1.5rem;
   font-size: 1.125rem;
   line-height: 1.6;
-  color: var(--medium-gray);
+  color: var(--dark-gray);
+}
+
+.articleContent ul,
+.articleContent ol {
+  margin-left: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.articleContent li {
+  margin-bottom: 0.5rem;
+}
+
+.articleContent blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid #e5e5e5;
+  color: #666;
+}
+
+.articleContent code {
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.articleContent pre {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.articleContent pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.articleContent a {
+  color: var(--dark-gray);
+  text-decoration: underline;
+}
+
+.articleContent a:hover {
+  color: #555;
+}
+
+.articleContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.articleContent strong {
+  font-weight: 600;
+}
+
+/* Back link styles */
+.backLink {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.backLink a {
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.backLink a:hover {
+  color: #555;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
   .articleContent {
     margin-top: 3rem;
+    font-size: 1rem;
+  }
+
+  .articleContent h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   .articleContent h2 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .articleContent h3 {
+    font-size: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
   }
 
   .articleContent p {
     font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .backLink {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
   }
 }
