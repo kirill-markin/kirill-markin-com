@@ -12,6 +12,7 @@
  */
 
 import chalk from 'chalk';
+import { Metadata } from 'next';
 import {
     SUPPORTED_LANGUAGES,
     DEFAULT_LANGUAGE,
@@ -61,7 +62,7 @@ interface PageTypeConfig {
     name: string;
     type: string;
     subType: string | null;
-    generator: (lang: string) => any;
+    generator: ((lang: string) => Metadata) | (() => Metadata);
     availableLanguages?: string[]; // Optional: if not specified, all languages are checked
 }
 
@@ -147,7 +148,7 @@ function validateGeneratedMetadata() {
             name: 'Fractional AI CTO',
             type: 'services',
             subType: 'fractional-ai-cto',
-            generator: (lang: string) => generateFractionalAICTOPageMetadata(),
+            generator: () => generateFractionalAICTOPageMetadata(),
             availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
         }
     ];
@@ -159,7 +160,9 @@ function validateGeneratedMetadata() {
 
         for (const lang of languagesToCheck) {
             try {
-                const metadata = pageType.generator(lang);
+                const metadata = pageType.generator.length === 0
+                    ? (pageType.generator as () => Metadata)()
+                    : (pageType.generator as (lang: string) => Metadata)(lang);
                 const pageId = getPageIdentifier(pageType.name, pageType.type, pageType.subType, lang);
 
                 if (!metadata.title) {
