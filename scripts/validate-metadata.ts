@@ -55,11 +55,22 @@ function getPageIdentifier(pageName: string, pageType: string, subType: string |
 }
 
 /**
+ * Page type configuration for metadata validation
+ */
+interface PageTypeConfig {
+    name: string;
+    type: string;
+    subType: string | null;
+    generator: (lang: string) => any;
+    availableLanguages?: string[]; // Optional: if not specified, all languages are checked
+}
+
+/**
  * Validate generated metadata using the actual metadata generation functions
  */
 function validateGeneratedMetadata() {
     // Define page types to validate
-    const pageTypes = [
+    const pageTypes: PageTypeConfig[] = [
         {
             name: 'Home',
             type: 'home',
@@ -137,12 +148,16 @@ function validateGeneratedMetadata() {
             type: 'services',
             subType: 'fractional-ai-cto',
             generator: (lang: string) => generateFractionalAICTOPageMetadata(),
+            availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
         }
     ];
 
-    // Generate and validate metadata for all page types in all languages
+    // Generate and validate metadata for all page types in appropriate languages
     for (const pageType of pageTypes) {
-        for (const lang of SUPPORTED_LANGUAGES) {
+        // Use availableLanguages if specified, otherwise use all supported languages
+        const languagesToCheck = pageType.availableLanguages || SUPPORTED_LANGUAGES;
+
+        for (const lang of languagesToCheck) {
             try {
                 const metadata = pageType.generator(lang);
                 const pageId = getPageIdentifier(pageType.name, pageType.type, pageType.subType, lang);

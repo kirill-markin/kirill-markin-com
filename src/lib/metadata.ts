@@ -585,8 +585,8 @@ export function generatePayPageMetadata(
  * Generate metadata for the Fractional AI CTO page
  */
 export function generateFractionalAICTOPageMetadata(): Metadata {
-    const title = 'Your Fractional AI CTO Kirill Markin - Strategic AI Technology Leadership';
-    const description = 'Hire Kirill Markin as your Fractional AI CTO for startups and growing companies. I provide strategic AI technology leadership, AI strategy development, and enterprise AI transformation without the full-time commitment. Proven part-time CTO consultant with real results.';
+    const title = 'Your Fractional AI CTO Kirill Markin - Strategic AI Technology';
+    const description = 'Hire Kirill Markin as your Fractional AI CTO for growing company or startup. I provide strategic AI development, transformation, without the full-time cost.';
 
     return {
         title,
