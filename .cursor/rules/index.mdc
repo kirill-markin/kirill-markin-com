@@ -84,7 +84,7 @@ website-next-js/
 - Bidirectional references between translations
 
 ### Services
-- Structured data in `src/data/services.ts`
+- Structured data in `src/data/servicesOther.ts`
 - Category-based filtering with URL parameters
 
 ### Multilanguage Support

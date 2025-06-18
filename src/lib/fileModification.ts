@@ -28,7 +28,14 @@ export const pageFilesMap: Record<string, string[]> = {
     '/services/': [
         'src/app/(default)/services/page.tsx',
         'src/app/(default)/services/page.module.css',
-        'src/data/services.ts',
+        'src/data/servicesOther.ts',
+        'src/data/servicesFractionalCTO.ts',
+        ...commonFiles
+    ],
+    '/services/fractional-ai-cto-kirill-markin/': [
+        'src/app/(default)/services/fractional-ai-cto-kirill-markin/page.tsx',
+        'src/app/(default)/services/page.module.css',
+        'src/data/servicesFractionalCTO.ts',
         ...commonFiles
     ],
     '/meet/': [
@@ -72,7 +79,8 @@ export const pageFilesMap: Record<string, string[]> = {
     '/llms.txt': [
         'src/app/llms.txt/route.ts',
         'src/lib/articles.ts',
-        'src/data/services.ts',
+        'src/data/servicesOther.ts',
+        'src/data/servicesFractionalCTO.ts',
         'src/data/personalInfo.ts',
         'src/data/professionalRoles.ts',
         ...commonFiles
