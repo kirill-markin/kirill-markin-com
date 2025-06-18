@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { servicesFractionalCTOData } from '@/data/servicesFractionalCTO';
 import ServicesFractionalCTOSection from '@/components/Services/ServicesFractionalCTOSection';
 import Footer from '@/components/Footer';
 import styles from '@/app/(default)/services/page.module.css';
+import { generateFractionalAICTOPageMetadata } from '@/lib/metadata';
 
 // Force static generation
 export const dynamic = 'force-static';
@@ -10,27 +12,7 @@ export const revalidate = false;
 export const dynamicParams = false;
 
 export async function generateMetadata(): Promise<Metadata> {
-    const title = 'Your Fractional AI CTO Kirill Markin - Strategic AI Technology Leadership';
-    const description = 'Hire Kirill Markin as your Fractional AI CTO for startups and growing companies. I provide strategic AI technology leadership, AI strategy development, and enterprise AI transformation without the full-time commitment. Proven part-time CTO consultant with real results.';
-
-    return {
-        title,
-        description,
-        openGraph: {
-            title,
-            description,
-            type: 'website',
-            url: '/services/fractional-ai-cto-kirill-markin/',
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title,
-            description,
-        },
-        alternates: {
-            canonical: '/services/fractional-ai-cto-kirill-markin/',
-        },
-    };
+    return generateFractionalAICTOPageMetadata();
 }
 
 export default async function FractionalAICTOPage() {
@@ -202,7 +184,7 @@ export default async function FractionalAICTOPage() {
 
                         <nav className={styles.articleContent}>
                             <div className={styles.backLink}>
-                                <a href="/services/">← Back to All Services</a>
+                                <Link href="/services/">← Back to All Services</Link>
                             </div>
                         </nav>
                     </div>

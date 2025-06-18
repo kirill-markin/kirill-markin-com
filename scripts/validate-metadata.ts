@@ -22,7 +22,8 @@ import {
     generateArticlesPageMetadata,
     generateServicesPageMetadata,
     generateMeetPageMetadata,
-    generatePayPageMetadata
+    generatePayPageMetadata,
+    generateFractionalAICTOPageMetadata
 } from '../src/lib/metadata';
 import {
     getAllArticles,
@@ -130,6 +131,12 @@ function validateGeneratedMetadata() {
             type: 'pay',
             subType: 'stripe',
             generator: (lang: string) => generatePayPageMetadata({ language: lang, type: 'stripe' }),
+        },
+        {
+            name: 'Fractional AI CTO',
+            type: 'services',
+            subType: 'fractional-ai-cto',
+            generator: (lang: string) => generateFractionalAICTOPageMetadata(),
         }
     ];
 

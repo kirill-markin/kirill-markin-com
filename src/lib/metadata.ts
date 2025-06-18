@@ -579,4 +579,63 @@ export function generatePayPageMetadata(
             languages: languageAlternates
         },
     };
+}
+
+/**
+ * Generate metadata for the Fractional AI CTO page
+ */
+export function generateFractionalAICTOPageMetadata(): Metadata {
+    const title = 'Your Fractional AI CTO Kirill Markin - Strategic AI Technology Leadership';
+    const description = 'Hire Kirill Markin as your Fractional AI CTO for startups and growing companies. I provide strategic AI technology leadership, AI strategy development, and enterprise AI transformation without the full-time commitment. Proven part-time CTO consultant with real results.';
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            // Note: Next.js doesn't support 'product' type natively, using 'website' as fallback
+            // The actual 'product' type is set via 'other' field below as a workaround
+            type: 'website',
+            url: '/services/fractional-ai-cto-kirill-markin/',
+            siteName: 'Kirill Markin',
+            images: [
+                {
+                    url: '/services/fractional-ai-cto.webp',
+                    width: 1200,
+                    height: 630,
+                    alt: 'Fractional AI CTO Services by Kirill Markin',
+                }
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: ['/services/fractional-ai-cto.webp'],
+        },
+        alternates: {
+            canonical: '/services/fractional-ai-cto-kirill-markin/',
+        },
+        // Workaround for Next.js OpenGraph limitations: 
+        // Set proper OpenGraph product type and properties via 'other' field
+        // This ensures social media platforms get the correct product metadata
+        other: {
+            // OpenGraph product type (bypasses Next.js type restrictions)
+            'og:type': 'product',
+
+            // Product-specific OpenGraph properties
+            'product:price:amount': '400',
+            'product:price:currency': 'USD',
+            'product:availability': 'in stock',
+            'product:condition': 'new',
+            'product:brand': 'Kirill Markin',
+            'product:retailer_item_id': 'fractional-ai-cto-service',
+
+            // Business location metadata
+            'business:contact_data:locality': 'Global',
+            'business:contact_data:region': 'Remote',
+            'business:contact_data:country_name': 'Worldwide',
+        },
+    };
 } 
