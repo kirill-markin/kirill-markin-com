@@ -30,6 +30,40 @@
   }
 }
 
+/* Services Page Header Styles */
+.servicesPageHeader {
+  text-align: left;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.servicesPageTitle {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .servicesPageHeader {
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+
+  .servicesPageTitle {
+    font-size: 2.25rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+}
+
 /* Add animation keyframes for glitch effects */
 @keyframes clean-glitch-effect {
   0% {

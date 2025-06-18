@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { getPathSegmentByLanguage, getSubPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import ServicesFractionalCTOSection from '@/components/Services/ServicesFractionalCTOSection';
 import ServicesOtherSection from '@/components/Services/ServicesOtherSection';
 import { ServiceOtherData, ServiceFractionalCTOData } from '@/types/services';
@@ -14,6 +14,19 @@ interface ServicesPageContentProps {
     services: ServiceOtherData[]; // Services Other passed from server as props
     fractionalCTOData: ServiceFractionalCTOData; // Fractional CTO data passed from server as props
 }
+
+// Main Services Page Header Component
+const ServicesPageHeader: React.FC<{ language: string }> = ({ language }) => {
+    const t = getTranslation('services', language);
+
+    return (
+        <header className={styles.servicesPageHeader}>
+            <h1 className={styles.servicesPageTitle}>
+                {t.title || 'Services'}
+            </h1>
+        </header>
+    );
+};
 
 export default function ServicesPageContent({ language, services, fractionalCTOData }: ServicesPageContentProps) {
     const searchParams = useSearchParams();
@@ -72,6 +85,7 @@ export default function ServicesPageContent({ language, services, fractionalCTOD
             <div className={styles.main}>
                 <div className={styles.content}>
                     <div className={styles.fullWidthColumn}>
+                        <ServicesPageHeader language={language} />
                         <ServicesFractionalCTOSection data={fractionalCTOData} />
                         <ServicesOtherSection
                             services={services}

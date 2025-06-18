@@ -178,7 +178,7 @@ export default async function FractionalAICTOPage() {
 
                         <ServicesFractionalCTOSection
                             data={servicesFractionalCTOData}
-                            isStandalonePage={true}
+                            isStandalonePage={false}
                             ariaLabel="Pricing Plans - Call to Action"
                         />
 
