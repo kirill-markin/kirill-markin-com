@@ -7,8 +7,6 @@ import { socialLinks } from '../data/socialLinks';
 import LanguageSwitcher from './LanguageSwitcher';
 import {
   DEFAULT_LANGUAGE,
-  getPathSegmentByLanguage,
-  getSubPathSegmentByLanguage,
   getTranslation
 } from '@/lib/localization';
 import { Translation } from '@/types/article';
@@ -28,6 +26,9 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   // Get footer translations
   const footerTranslations = getTranslation('footer', language);
+
+  // Get navigation translations for button text
+  const navigationTranslations = getTranslation('navigation', language);
 
   // Get personal info translations
   const personalInfoTranslations = getTranslation('personalInfo', language);
@@ -67,13 +68,11 @@ const Footer: React.FC<FooterProps> = ({
               <div className={styles.footerCta}>
                 <div className={styles.questionButton}>
                   <Link
-                    href={language === DEFAULT_LANGUAGE
-                      ? "/meet/short/"
-                      : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'short', language)}/`}
+                    href="/services/fractional-ai-cto-kirill-markin/"
                     className={styles.footerButton}
                     rel="noopener noreferrer"
                   >
-                    {footerTranslations.talkToKirill}
+                    {navigationTranslations.fractionalAICTO}
                   </Link>
                 </div>
               </div>

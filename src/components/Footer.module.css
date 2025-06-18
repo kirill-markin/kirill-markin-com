@@ -1,6 +1,6 @@
 /* Footer Styles */
 .footer {
-  background-color: #232323;
+  background-color: #000000;
   color: #ffffff;
   padding: 2rem 0 0 0;
 }
@@ -130,11 +130,11 @@
 .footerButton {
   display: inline-block;
   padding: 10px 15px;
-  background-color: var(--green);
+  background-color: #00ff00;
   color: #232323;
   text-decoration: none;
   font-weight: 400;
-  border: 1px solid var(--green);
+  border: 1px solid #00ff00;
   transition: all 0.2s;
   text-transform: uppercase;
   font-size: 1rem;
@@ -144,8 +144,8 @@
 
 .footerButton:hover {
   color: #ffffff;
-  background-color: #232323;
-  border: 1px solid var(--green);
+  background-color: #000000;
+  border: 1px solid #00ff00;
 }
 
 .footerLinksWrapper {
@@ -223,7 +223,7 @@
 .footerEmail:hover,
 .footerPhone:hover,
 .footerLink:hover {
-  color: var(--green);
+  color: #00ff00;
 }
 
 .footerIcon {
@@ -266,7 +266,7 @@
 }
 
 .socialLink:hover {
-  background-color: rgba(35, 35, 35, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .iconDefault {
