@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ServiceData } from '@/types/services';
+import { ServiceOtherData } from '@/types/services';
 import styles from './Services.module.css';
 
 interface ServiceCardProps {
-  service: ServiceData;
+  service: ServiceOtherData;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {

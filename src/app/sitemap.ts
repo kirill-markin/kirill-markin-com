@@ -33,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const defaultRoutes = [
     '/',
     '/services/',
+    '/services/fractional-ai-cto-kirill-markin/',
     '/meet/',
     '/meet/short/',
     '/meet/all/',

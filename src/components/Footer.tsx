@@ -17,12 +17,14 @@ interface FooterProps {
   language?: string;
   currentPath: string;
   translations?: Translation[];
+  availableLanguages?: string[];
 }
 
 const Footer: React.FC<FooterProps> = ({
   language = DEFAULT_LANGUAGE,
   currentPath,
-  translations
+  translations,
+  availableLanguages
 }) => {
   // Get footer translations
   const footerTranslations = getTranslation('footer', language);
@@ -43,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.footerColumnContainer}>
         <div className={`${styles.rightColumn} ${styles.singleColumn}`}>
           <div className={styles.footerTopSection}>
@@ -193,10 +195,11 @@ const Footer: React.FC<FooterProps> = ({
           currentLanguage={language}
           currentPath={currentPath}
           translations={translations}
+          availableLanguages={availableLanguages}
           className={styles.footerLanguageSwitcher}
         />
       </div>
-    </div>
+    </footer>
   );
 };
 

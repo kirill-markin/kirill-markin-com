@@ -7,7 +7,8 @@ import { generateArticlesPageMetadata, generateServicesPageMetadata, generateMee
 import { MeetPage } from '@/components/pages/meet';
 import { PayPage } from '@/components/pages/pay';
 import { getAllArticles } from '@/lib/articles';
-import { servicesData } from '@/data/services';
+import { servicesOtherData } from '@/data/servicesOther';
+import { servicesFractionalCTOData } from '@/data/servicesFractionalCTO';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
@@ -137,7 +138,11 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
         return <ArticlesPageContent language={lang} articles={articles} />;
     } else if (segment === servicesSegment) {
         // Pass services data to client component
-        return <ServicesPageContent language={lang} services={servicesData} />;
+        return <ServicesPageContent
+            language={lang}
+            services={servicesOtherData}
+            fractionalCTOData={servicesFractionalCTOData}
+        />;
     }
 
     // If segment doesn't match any known type, show 404

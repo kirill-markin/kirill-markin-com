@@ -508,6 +508,7 @@ export const translations = {
             home: 'Home',
             services: 'SERVICES',
             articles: 'ARTICLES',
+            fractionalAICTO: 'FRACTIONAL AI CTO',
             talkToKirill: 'TALK TO KIRILL',
             language: 'English'
         },
@@ -515,6 +516,7 @@ export const translations = {
             home: 'Inicio',
             services: 'SERVICIOS',
             articles: 'ARTÍCULOS',
+            fractionalAICTO: 'CTO DE IA FRACCIONARIO',
             talkToKirill: 'HABLAR CON KIRILL',
             language: 'Español'
         },
@@ -522,6 +524,7 @@ export const translations = {
             home: '首页',
             services: '服务项目',
             articles: '专业文章',
+            fractionalAICTO: '兼职AI技术总监',
             talkToKirill: '预约咨询',
             language: '中文'
         },
@@ -529,6 +532,7 @@ export const translations = {
             home: 'الرئيسية',
             services: 'الخدمات',
             articles: 'المقالات',
+            fractionalAICTO: 'مدير تقني ذكي جزئي',
             talkToKirill: 'تحدث مع كيريل',
             language: 'العربية'
         },
@@ -536,6 +540,7 @@ export const translations = {
             home: 'होम',
             services: 'सेवाएं',
             articles: 'लेख',
+            fractionalAICTO: 'आंशिक AI CTO',
             talkToKirill: 'किरिल से बात करें',
             language: 'हिन्दी'
         },

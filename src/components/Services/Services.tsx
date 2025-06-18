@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { ServiceData } from '@/types/services';
+import { ServiceOtherData } from '@/types/services';
 import ServiceCard from './ServiceCard';
 import styles from './Services.module.css';
 
 interface ServicesProps {
-  services: ServiceData[];
+  services: ServiceOtherData[];
 }
 
 const Services: React.FC<ServicesProps> = ({ services }) => {

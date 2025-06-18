@@ -1,0 +1,375 @@
+.pricingCard {
+    position: relative;
+    border: 1px solid var(--dark-gray);
+    border-radius: 0;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+.pricingCard:hover {
+    background-color: var(--white);
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+.highlighted {
+    border: 2px solid var(--dark-gray);
+    background-color: #fafafa;
+    position: relative;
+    transform: scale(1.05);
+    z-index: 2;
+    transition: all 0.2s ease;
+}
+
+.highlightedBadge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.pricingHeader {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 1rem;
+}
+
+.planName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--dark-gray);
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    line-height: 1;
+}
+
+.hours {
+    font-size: 0.875rem;
+    color: var(--medium-gray);
+    font-weight: 400;
+}
+
+.featuresContainer {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--dark-gray);
+}
+
+.checkIcon {
+    color: #22c55e;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    margin-right: 0.5rem;
+}
+
+.cardAction {
+    margin-top: auto;
+}
+
+.actionButton {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--dark-gray);
+    color: var(--dark-gray);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.actionButton:hover {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.highlightedButton {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.highlightedButton:hover {
+    background-color: var(--medium-gray);
+}
+
+/* Social buttons styles */
+.socialButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.socialButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: none;
+    background-color: white;
+    border: 1px solid #232323;
+    padding: 0.5rem;
+    width: 100%;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.socialButton:hover {
+    background-color: var(--dark-gray);
+    transition: all 0.2s ease;
+}
+
+.socialButton:hover .label {
+    color: white;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #232323;
+}
+
+/* Animation keyframes - using same as Services.module.css */
+@keyframes clean-glitch-effect {
+    0% {
+        transform: scale(1);
+        filter: none;
+    }
+
+    3% {
+        transform: scale(1.004);
+        filter: none;
+    }
+
+    5% {
+        transform: scale(1.008);
+        filter: brightness(1.05);
+    }
+
+    10% {
+        transform: scale(1.01);
+        filter: brightness(1.1) contrast(1.15);
+    }
+
+    15% {
+        transform: scale(1.01);
+        filter: url('#data-corruption');
+    }
+
+    20% {
+        transform: scale(1.01);
+        filter: brightness(0.95) contrast(1.2);
+    }
+
+    25% {
+        transform: scale(1.01);
+        filter: url('#hacker-digital-corruption');
+    }
+
+    40% {
+        transform: scale(1.01);
+        filter: brightness(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: none;
+    }
+}
+
+@keyframes tech-noise-scanlines {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes tech-rgb-shift {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    20%,
+    80% {
+        opacity: 0.05;
+    }
+}
+
+@keyframes clean-glitch-image {
+    0% {
+        filter: none;
+    }
+
+    5% {
+        filter: brightness(1.05);
+    }
+
+    8% {
+        filter: url('#scan-lines');
+    }
+
+    15% {
+        filter: brightness(1.1) contrast(1.2);
+    }
+
+    18% {
+        filter: url('#glitch-filter');
+    }
+
+    25% {
+        filter: brightness(0.95) contrast(1.15) saturate(1.1);
+    }
+
+    30% {
+        filter: url('#profile-noise-filter');
+    }
+
+    40% {
+        filter: brightness(1.05);
+    }
+
+    100% {
+        filter: none;
+    }
+}
+
+@keyframes tech-text-glitch {
+
+    0%,
+    100% {
+        text-shadow: none;
+        color: #232323;
+    }
+
+    10% {
+        text-shadow: 0.5px 0 #00ffaa, -0.5px 0 #ff2222;
+        color: #232323;
+    }
+
+    15% {
+        text-shadow: -0.5px 0 #00ffaa, 0.5px 0 #ff2222;
+        color: #323232;
+    }
+
+    18% {
+        text-shadow: 0 0 8px #00ff00, 0 0 10px #ffffff;
+        color: #1a1a1a;
+    }
+
+    25% {
+        text-shadow: 0.75px 0 #0088ff, -0.75px 0 #ff0000;
+        color: #0e0e0e;
+    }
+
+    35% {
+        text-shadow: none;
+        color: #232323;
+    }
+}
+
+/* Highlighted card specific styling for hover */
+.highlighted:hover {
+    transform: scale(1.1);
+    background-color: var(--white);
+    transition: all 0.2s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pricingCard {
+        padding: 1.5rem;
+    }
+
+    .highlighted {
+        transform: none;
+        border: 1px solid var(--dark-gray);
+    }
+
+    .highlighted:hover {
+        transform: none;
+    }
+
+    .planName {
+        font-size: 1.25rem;
+    }
+
+    .price {
+        font-size: 1.75rem;
+    }
+}

@@ -12,6 +12,7 @@
  */
 
 import chalk from 'chalk';
+import { Metadata } from 'next';
 import {
     SUPPORTED_LANGUAGES,
     DEFAULT_LANGUAGE,
@@ -22,7 +23,8 @@ import {
     generateArticlesPageMetadata,
     generateServicesPageMetadata,
     generateMeetPageMetadata,
-    generatePayPageMetadata
+    generatePayPageMetadata,
+    generateFractionalAICTOPageMetadata
 } from '../src/lib/metadata';
 import {
     getAllArticles,
@@ -54,11 +56,22 @@ function getPageIdentifier(pageName: string, pageType: string, subType: string |
 }
 
 /**
+ * Page type configuration for metadata validation
+ */
+interface PageTypeConfig {
+    name: string;
+    type: string;
+    subType: string | null;
+    generator: ((lang: string) => Metadata) | (() => Metadata);
+    availableLanguages?: string[]; // Optional: if not specified, all languages are checked
+}
+
+/**
  * Validate generated metadata using the actual metadata generation functions
  */
 function validateGeneratedMetadata() {
     // Define page types to validate
-    const pageTypes = [
+    const pageTypes: PageTypeConfig[] = [
         {
             name: 'Home',
             type: 'home',
@@ -130,14 +143,26 @@ function validateGeneratedMetadata() {
             type: 'pay',
             subType: 'stripe',
             generator: (lang: string) => generatePayPageMetadata({ language: lang, type: 'stripe' }),
+        },
+        {
+            name: 'Fractional AI CTO',
+            type: 'services',
+            subType: 'fractional-ai-cto',
+            generator: () => generateFractionalAICTOPageMetadata(),
+            availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
         }
     ];
 
-    // Generate and validate metadata for all page types in all languages
+    // Generate and validate metadata for all page types in appropriate languages
     for (const pageType of pageTypes) {
-        for (const lang of SUPPORTED_LANGUAGES) {
+        // Use availableLanguages if specified, otherwise use all supported languages
+        const languagesToCheck = pageType.availableLanguages || SUPPORTED_LANGUAGES;
+
+        for (const lang of languagesToCheck) {
             try {
-                const metadata = pageType.generator(lang);
+                const metadata = pageType.generator.length === 0
+                    ? (pageType.generator as () => Metadata)()
+                    : (pageType.generator as (lang: string) => Metadata)(lang);
                 const pageId = getPageIdentifier(pageType.name, pageType.type, pageType.subType, lang);
 
                 if (!metadata.title) {

@@ -2,7 +2,7 @@
 
 import { personalInfo } from '@/data/personalInfo';
 import { socialLinks } from '@/data/socialLinks';
-import { servicesData } from '@/data/services';
+import { servicesOtherData } from '@/data/servicesOther';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
 interface JsonLdSchemaProps {
@@ -66,7 +66,7 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     'hasOfferCatalog': {
       '@type': 'OfferCatalog',
       'name': 'Services Offered',
-      'itemListElement': servicesData.map((service, index) => ({
+      'itemListElement': servicesOtherData.map((service, index) => ({
         '@type': 'Offer',
         'itemOffered': {
           '@type': 'Service',

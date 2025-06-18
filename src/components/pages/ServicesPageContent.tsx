@@ -3,17 +3,19 @@
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
-import ServicesGrid from '@/components/ServicesGrid/ServicesGrid';
-import { ServiceData } from '@/data/services';
+import ServicesFractionalCTOSection from '@/components/Services/ServicesFractionalCTOSection';
+import ServicesOtherSection from '@/components/Services/ServicesOtherSection';
+import { ServiceOtherData, ServiceFractionalCTOData } from '@/types/services';
 import Footer from '@/components/Footer';
 import styles from '@/app/(default)/services/page.module.css';
 
 interface ServicesPageContentProps {
     language: string;
-    services: ServiceData[]; // Services passed from server as props
+    services: ServiceOtherData[]; // Services Other passed from server as props
+    fractionalCTOData: ServiceFractionalCTOData; // Fractional CTO data passed from server as props
 }
 
-export default function ServicesPageContent({ language, services }: ServicesPageContentProps) {
+export default function ServicesPageContent({ language, services, fractionalCTOData }: ServicesPageContentProps) {
     const searchParams = useSearchParams();
     const currentCategory = searchParams.get('category') || 'all';
 
@@ -70,7 +72,8 @@ export default function ServicesPageContent({ language, services }: ServicesPage
             <div className={styles.main}>
                 <div className={styles.content}>
                     <div className={styles.fullWidthColumn}>
-                        <ServicesGrid
+                        <ServicesFractionalCTOSection data={fractionalCTOData} />
+                        <ServicesOtherSection
                             services={services}
                             currentCategory={internalCategory}
                             language={language}
