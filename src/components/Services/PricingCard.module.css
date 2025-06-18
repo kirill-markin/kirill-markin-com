@@ -121,17 +121,16 @@
 .featureItem {
     display: flex;
     align-items: flex-start;
-    gap: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.4;
     color: var(--dark-gray);
 }
 
-.checkmark {
+.checkIcon {
     color: #22c55e;
-    font-weight: bold;
     flex-shrink: 0;
     margin-top: 0.1rem;
+    margin-right: 0.5rem;
 }
 
 .cardAction {

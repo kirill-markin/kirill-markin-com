@@ -53,17 +53,11 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             price: '$1,200/month',
             hours: '4 hours/month',
             features: [
+                'Everything in Starter plan',
                 'Weekly strategy sessions',
-                'Technology roadmap review and updates',
                 'Unlimited text questions from all team members',
                 'Advanced architecture guidance',
-                'Team leadership and collaboration guidance',
-                'Technology stack optimization',
-                'Team communication and workflow support',
-                'Hiring and team building support',
-                'Performance metrics setup and monitoring',
-                'Code review and technical standards',
-                'AI/ML integration guidance'
+                'Participation in hiring interviews'
             ],
             highlighted: true,
             buttonText: 'Start Free Trial',

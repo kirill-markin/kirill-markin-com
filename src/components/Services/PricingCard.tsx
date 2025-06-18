@@ -8,6 +8,21 @@ interface PricingCardProps {
     plan: ServiceFractionalCTOPlan;
 }
 
+const CheckIcon: React.FC = () => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        width="16"
+        height="16"
+        className={styles.checkIcon}
+    >
+        <path
+            d="m56,18.24l-30,30L8,30.24l4.24-4.24,13.76,13.76,25.76-25.76,4.24,4.24Z"
+            fill="currentColor"
+        />
+    </svg>
+);
+
 const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
     return (
         <div className={`${styles.pricingCard} ${plan.highlighted ? styles.highlighted : ''}`}>
@@ -29,7 +44,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
                 <ul className={styles.featuresList}>
                     {plan.features.map((feature, index) => (
                         <li key={index} className={styles.featureItem}>
-                            <span className={styles.checkmark}>✓</span>
+                            <CheckIcon />
                             {feature}
                         </li>
                     ))}
