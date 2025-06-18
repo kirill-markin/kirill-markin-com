@@ -45,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.footerColumnContainer}>
         <div className={`${styles.rightColumn} ${styles.singleColumn}`}>
           <div className={styles.footerTopSection}>
@@ -199,7 +199,7 @@ const Footer: React.FC<FooterProps> = ({
           className={styles.footerLanguageSwitcher}
         />
       </div>
-    </div>
+    </footer>
   );
 };
 
