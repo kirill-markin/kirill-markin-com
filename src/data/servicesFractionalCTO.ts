@@ -10,11 +10,11 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             price: 'Free',
             hours: 'WhatsApp Chat',
             features: [
-                'Direct messaging via WhatsApp',
-                'Ask any technology questions',
-                'Free hiring recommendations',
-                'Strategic advice and guidance',
-                'Quick responses when available'
+                'Text me anytime on WhatsApp and Telegram',
+                'Any tech question, even the weird ones',
+                'Free hiring recommendations of my friends',
+                'Honest advice without corporate BS',
+                'Usually respond faster than your email provider'
             ],
             socialButtons: [
                 {
@@ -38,11 +38,10 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             hours: '1 hour/month',
             features: [
                 'Monthly strategy session',
-                'Technology roadmap review',
-                'Unlimited text questions anytime',
-                'Architecture guidance',
-                'Team communication support',
-                'Hiring assistance and recommendations'
+                'We\'ll figure out your tech mess together',
+                'Unlimited \'is this normal?\' questions',
+                'Architecture advice that actually makes sense',
+                'Hiring help and recommendations from my network'
             ],
             buttonText: 'Start Free Trial',
             buttonUrl: '/meet/short/'
@@ -55,9 +54,10 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             features: [
                 'Everything in Starter plan',
                 'Weekly strategy sessions',
-                'Unlimited text questions from all team members',
-                'Advanced architecture guidance',
-                'Participation in hiring interviews'
+                'Unlimited \'help us!\' messages from your whole team',
+                'Deep architecture talks over virtual coffee',
+                'Help your devs talk to humans',
+                'I\'ll help you spot the rockstars and red flags'
             ],
             highlighted: true,
             buttonText: 'Start Free Trial',
@@ -69,13 +69,12 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             price: '$300,000+/year',
             hours: 'Full Time',
             features: [
-                'Complete CTO responsibility',
-                'Full technical leadership',
-                'Strategic planning & execution',
-                'Team building & management',
+                'I become your full-time CTO',
+                'Ultra efforts before product launches and releases',
                 'Board & investor reporting',
-                'Technology vision & roadmap',
-                'Direct team access 24/7'
+                'Direct team access 24/7',
+                'Coffee-fueled late-night debugging sessions',
+                'Team building and occasional team therapy'
             ],
             buttonText: 'Contact Me',
             buttonUrl: '/meet/short/'
@@ -86,11 +85,11 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             price: 'Contact me',
             hours: 'Flexible',
             features: [
-                'Tailored engagement model',
-                'Custom scope and deliverables',
+                'We\'ll invent something that fits perfectly',
+                'You dream it, we scope it',
                 'Flexible time commitment',
-                'Specialized expertise focus',
-                'Enterprise-level support'
+                'Deep dive into your specific tech challenges',
+                'White-glove treatment for serious projects'
             ],
             buttonText: 'Contact Me',
             buttonUrl: '/meet/short/'
