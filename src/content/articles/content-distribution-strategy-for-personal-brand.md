@@ -63,11 +63,12 @@ Share links to original content only when there's potential value in redirecting
   - When sharing external content, put the link in the first comment
 - Personal Twitter feed: [Twitter](https://twitter.com)
 - BlueSky updates: [BlueSky](https://bsky.app)
+- Threads updates: [Threads](https://www.threads.com/@kirill.markin.ai)
 - Company Twitter profile
 - HackerNews submissions: [News](https://news.ycombinator.com/news)
   - Follow [posting guidelines](https://news.ycombinator.com/newsguidelines.html)
 - IndieHackers posts (with images): [Profile](https://www.indiehackers.com/)
-- Instagram stories and highlights
+- Instagram stories and highlights: [Instagram](https://www.instagram.com/kirill.markin.ai)
 - Facebook stories
 - Telegram stories
 - Telegram channel updates with friends
