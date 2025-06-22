@@ -81,7 +81,7 @@ export const mediaMentions: MediaMention[] = [
   {
     title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
     url: "https://youtu.be/eOSfeBIBzr0?si=kbJlYFZQtdDR8Ipo",
-    publisher: "Youtube",
+    publisher: "YouTube",
     date: "2025-02-18",
     type: "Video",
     language: "en",
@@ -424,7 +424,7 @@ export const mediaMentions: MediaMention[] = [
     title: "ИИ-инструменты для\u00A0агентов по\u00A0недвижимости",
     alternativeTitle: "AI Tools for\u00A0Real Estate Agents",
     url: "https://www.youtube.com/live/utRAu4_f1mo?si=I2cyJL-ZqiV3dWrU",
-    publisher: "Youtube",
+    publisher: "YouTube",
     date: "2024-02-06",
     type: "Video",
     language: "ru",
