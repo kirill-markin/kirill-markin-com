@@ -96,7 +96,7 @@ export async function getArticleBySlug(
     const fileStats = await fs.stat(fullPath);
     const lastModificationDate = fileStats.mtime;
 
-    // Get first 160 characters of content for description if none exists in frontmatter
+    // Use the first section of the content (length limited in code) for description if none exists in frontmatter
     const contentPreview = content.replace(/^# .*$/m, '').substring(0, 200).replace(/\n/g, ' ').trim();
 
     // Clean description if it exists by removing markdown symbols
