@@ -14,11 +14,11 @@ export const revalidate = false;
 export const dynamicParams = false;
 
 interface SubsegmentPageProps {
-    params: Promise<{
+    params: {
         lang: string;
         segment: string;
         subsegment: string;
-    }>;
+    };
 }
 
 // Generate static parameters for all supported languages
@@ -73,7 +73,7 @@ export async function generateStaticParams() {
 
 // Generate metadata based on subsegment
 export async function generateMetadata({ params }: SubsegmentPageProps): Promise<Metadata> {
-    const { lang, segment, subsegment } = await params;
+    const { lang, segment, subsegment } = params;
 
     // Check language validity
     if (!isValidLanguage(lang)) {
@@ -198,7 +198,7 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 }
 
 export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
-    const { lang, segment, subsegment } = await params;
+    const { lang, segment, subsegment } = params;
 
     // Check if language is valid
     if (!isValidLanguage(lang)) {

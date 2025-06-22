@@ -16,8 +16,8 @@ export const revalidate = false;
 export const dynamicParams = false;
 
 interface SegmentPageProps {
-    params: Promise<{ lang: string; segment: string }>;
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+    params: { lang: string; segment: string };
+    searchParams: { [key: string]: string | string[] | undefined };
 }
 
 // Generate static parameters for all supported languages and segments
@@ -48,8 +48,8 @@ export async function generateStaticParams() {
     return params;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string; segment: string }> }): Promise<Metadata> {
-    const { lang, segment } = await params;
+export async function generateMetadata({ params }: { params: { lang: string; segment: string } }): Promise<Metadata> {
+    const { lang, segment } = params;
 
     // Check if language is valid
     if (!isValidLanguage(lang)) {
@@ -93,7 +93,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function SegmentPage({ params, searchParams }: SegmentPageProps) {
-    const { lang, segment } = await params;
+    const { lang, segment } = params;
 
     // Check if language is valid
     if (!isValidLanguage(lang)) {
@@ -115,7 +115,7 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
             redirect('/pay/');
         } else if (segment === articlesSegment || segment === servicesSegment) {
             // Only access searchParams for articles and services
-            const searchParamsData = await searchParams;
+            const searchParamsData = searchParams;
             const tag = typeof searchParamsData.tag === 'string' ? searchParamsData.tag : undefined;
             const category = typeof searchParamsData.category === 'string' ? searchParamsData.category : undefined;
 
