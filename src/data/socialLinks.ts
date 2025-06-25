@@ -10,6 +10,7 @@ export interface SocialLink {
   footerBottomGreenLine?: boolean;
   header?: boolean;
   avatarLearnMore?: boolean;
+  hidden?: boolean;
   achievement?: {
     value: string;
     label: string;
@@ -31,13 +32,27 @@ export const socialLinks: SocialLink[] = [
     }
   },
   {
-    name: "CV",
-    url: "/data/cv-kirill-markin-data-engineer.pdf",
-    username: "CV",
+    name: "CV CTO",
+    url: "/data/cv-kirill-markin-cto.pdf",
+    username: "CV CTO",
     socialLogoUrlDefault: "/social/cv.svg",
     socialLogoUrlHover: "/social/cv_hover.svg",
     avatarContact: true,
     footerBottom: true,
+    achievement: {
+      value: "12+",
+      label: "years"
+    }
+  },
+  {
+    name: "CV DE",
+    url: "/data/cv-kirill-markin-data-engineer.pdf",
+    username: "CV DE",
+    socialLogoUrlDefault: "/social/cv.svg",
+    socialLogoUrlHover: "/social/cv_hover.svg",
+    avatarContact: true,
+    footerBottom: true,
+    hidden: true,
     achievement: {
       value: "12+",
       label: "years"

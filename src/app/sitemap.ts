@@ -120,11 +120,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push(...await Promise.all(defaultRoutePromises));
   entries.push(...await Promise.all(localizedRoutePromises));
 
-  // Add CV.pdf file
-  const cvLastModified = await getFileLastCommitDate('public/data/cv-kirill-markin-data-engineer.pdf');
+  // Add CV.pdf file (CTO version only in sitemap)
+  const cvCtoLastModified = await getFileLastCommitDate('public/data/cv-kirill-markin-cto.pdf');
   entries.push({
-    url: `${baseUrl}data/cv-kirill-markin-data-engineer.pdf`,
-    lastModified: cvLastModified,
+    url: `${baseUrl}data/cv-kirill-markin-cto.pdf`,
+    lastModified: cvCtoLastModified,
     changeFrequency: 'monthly',
     priority: 0.8,
   });

@@ -29,6 +29,7 @@ export const SocialContactButtons: React.FC<SocialContactButtonsProps> = ({
           rel="noopener noreferrer"
           className={styles.socialButton}
           aria-label={link.name}
+          style={link.hidden ? { display: 'none' } : undefined}
         >
           <div className={styles.iconWrapper}>
             <Image
