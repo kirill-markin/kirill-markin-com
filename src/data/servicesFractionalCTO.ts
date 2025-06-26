@@ -76,8 +76,8 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'Coffee-fueled late-night debugging sessions',
                 'Team building and occasional team therapy'
             ],
-            buttonText: 'Contact Me',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Read My CTO CV',
+            buttonUrl: '/data/cv-kirill-markin-cto.pdf'
         },
         {
             planId: 'custom',
