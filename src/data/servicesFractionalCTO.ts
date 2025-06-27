@@ -1,8 +1,8 @@
 import { ServiceFractionalCTOData } from '@/types/services';
 
 export const servicesFractionalCTOData: ServiceFractionalCTOData = {
-    title: 'Your Fractional AI CTO Kirill Markin',
-    description: 'I provide strategic AI-powered technology leadership tailored to your business needs. From AI strategy development to enterprise AI transformation, get the specialized CTO expertise you need without the full-time commitment. Choose the plan that fits your needs.',
+    title: 'Your Fractional CTO Kirill Markin',
+    description: 'I provide strategic technology leadership tailored to your business needs. As your fractional CTO, I deliver AI strategy development, enterprise transformation, and CTO expertise without the full-time commitment. Choose the plan that fits your needs.',
     plans: [
         {
             planId: 'free',
