@@ -47,48 +47,7 @@
     color: var(--dark-gray);
 }
 
-/* Glitch effect for the letters AI */
-.glitchLetter {
-    position: relative;
-    display: inline-block;
-}
 
-.sectionTitle:hover .glitchLetter,
-.titleLink:hover .glitchLetter {
-    color: transparent;
-}
-
-.sectionTitle:hover .glitchLetter::before,
-.sectionTitle:hover .glitchLetter::after,
-.titleLink:hover .glitchLetter::before,
-.titleLink:hover .glitchLetter::after {
-    content: 'AI';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--dark-gray);
-}
-
-.sectionTitle:hover .glitchLetter::before,
-.titleLink:hover .glitchLetter::before {
-    animation: hacker-text-glitch 3s infinite linear alternate;
-    left: 1px;
-    text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75),
-        -0.025em -0.05em 0 rgba(255, 0, 255, 0.75),
-        0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
-}
-
-.sectionTitle:hover .glitchLetter::after,
-.titleLink:hover .glitchLetter::after {
-    animation: hacker-text-glitch 2s infinite linear alternate-reverse,
-        glitch-blocks 4s steps(1) infinite;
-    left: -1px;
-    text-shadow: 0.05em 0 0 rgba(0, 255, 255, 0.75),
-        -0.05em -0.025em 0 rgba(255, 0, 255, 0.75),
-        0.025em 0.05em 0 rgba(0, 140, 255, 0.75);
-}
 
 /* Animation keyframes for glitch effect */
 @keyframes hacker-text-glitch {
