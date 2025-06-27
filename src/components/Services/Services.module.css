@@ -230,7 +230,7 @@
 .serviceCardImage {
   width: 100%;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   position: relative;
   max-width: 100%;
 }

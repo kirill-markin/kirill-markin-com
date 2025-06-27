@@ -20,7 +20,7 @@ export const servicesOtherData: ServiceOtherData[] = [
     categoryId: "people",
     name: "Career Consulting",
     description: "Tired of sending CVs into the void? I've hired dozens of engineers, so I know what works and what's just LinkedIn noise.",
-    logoUrl: "",
+    logoUrl: "/services/career-consulting.webp",
     promoText: "",
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"

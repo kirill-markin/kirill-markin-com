@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
               alt={service.name}
               className={styles.serviceImage}
               width={600}
-              height={338}
+              height={400}
               sizes="(max-width: 640px) 300px, (max-width: 1024px) 450px, 600px"
               quality={75}
               priority
@@ -44,7 +44,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
               alt={service.name}
               className={styles.serviceImage}
               width={600}
-              height={338}
+              height={400}
               sizes="(max-width: 640px) 300px, (max-width: 1024px) 450px, 600px"
               quality={75}
               priority
