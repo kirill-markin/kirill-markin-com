@@ -57,6 +57,16 @@ export const servicesOtherData: ServiceOtherData[] = [
 
   // Category: Business
   {
+    serviceId: "fractional_ai_cto",
+    categoryId: "business",
+    name: "Fractional AI CTO",
+    description: "Get strategic AI-powered technology leadership tailored to your business needs. From AI strategy development to enterprise AI transformation, get the specialized CTO expertise you need without the full-time commitment.\n\n### Available Plans:\n- **Free Plan**: WhatsApp/Telegram chat support\n- **Starter**: $400/month (1 hour/month)\n- **Growth**: $1,200/month (4 hours/month) - Most Popular\n- **Full-Time**: $300,000+/year\n- **Custom**: Flexible arrangements",
+    logoUrl: "/services/default.png",
+    promoText: "Most Popular Service",
+    buttonText: "View Plans",
+    buttonUrl: "/services/fractional-ai-cto-kirill-markin/"
+  },
+  {
     serviceId: "analytics_department_audit",
     categoryId: "business",
     name: "Analitycs Department Audit",

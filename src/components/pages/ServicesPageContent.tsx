@@ -3,39 +3,46 @@
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getPathSegmentByLanguage, getSubPathSegmentByLanguage, getTranslation } from '@/lib/localization';
-import ServicesFractionalCTOSection from '@/components/Services/ServicesFractionalCTOSection';
+import ServicesCategorySelector from '@/components/Services/ServicesCategorySelector';
 import ServicesOtherSection from '@/components/Services/ServicesOtherSection';
-import { ServiceOtherData, ServiceFractionalCTOData } from '@/types/services';
+import { ServiceOtherData } from '@/types/services';
 import Footer from '@/components/Footer';
 import styles from '@/app/(default)/services/page.module.css';
 
 interface ServicesPageContentProps {
     language: string;
     services: ServiceOtherData[]; // Services Other passed from server as props
-    fractionalCTOData: ServiceFractionalCTOData; // Fractional CTO data passed from server as props
 }
 
 // Main Services Page Header Component
-const ServicesPageHeader: React.FC<{ language: string }> = ({ language }) => {
-    const t = getTranslation('services', language);
-
+const ServicesPageHeader: React.FC<{
+    language: string;
+}> = ({ language }) => {
     return (
         <header className={styles.servicesPageHeader}>
             <h1 className={styles.servicesPageTitle}>
-                {t.title || 'Services'}
+                Services from Kirill Markin
             </h1>
         </header>
     );
 };
 
-export default function ServicesPageContent({ language, services, fractionalCTOData }: ServicesPageContentProps) {
+export default function ServicesPageContent({ language, services }: ServicesPageContentProps) {
     const searchParams = useSearchParams();
-    const currentCategory = searchParams.get('category') || 'all';
+    const currentCategory = searchParams.get('category');
+
+    // If no category parameter, show category selector
+    const showCategorySelector = !currentCategory;
 
     // Function to resolve localized category name to internal category ID
     const resolveInternalCategory = (): string => {
-        // If no category or explicit 'all' category, return 'all'
-        if (!currentCategory || currentCategory === 'all' ||
+        // If no category, return 'all' (but this won't be used when showCategorySelector is true)
+        if (!currentCategory) {
+            return 'all';
+        }
+
+        // If explicit 'all' category, return 'all'
+        if (currentCategory === 'all' ||
             currentCategory === getSubPathSegmentByLanguage('services', 'all', language)) {
             return 'all';
         }
@@ -72,26 +79,33 @@ export default function ServicesPageContent({ language, services, fractionalCTOD
 
     // Form path for footer
     const servicesBasePath = language === 'en'
-        ? '/services'
-        : `/${language}/${getPathSegmentByLanguage('services', language)}`;
+        ? '/services/'
+        : `/${language}/${getPathSegmentByLanguage('services', language)}/`;
 
     // Form full path including category parameter if specified
-    const fullPath = internalCategory === 'all'
+    const fullPath = showCategorySelector
         ? servicesBasePath
-        : `${servicesBasePath}/?category=${getLocalizedCategoryParam()}`;
+        : `${servicesBasePath}?category=${getLocalizedCategoryParam()}`;
 
     return (
         <>
             <div className={styles.main}>
                 <div className={styles.content}>
                     <div className={styles.fullWidthColumn}>
-                        <ServicesPageHeader language={language} />
-                        <ServicesFractionalCTOSection data={fractionalCTOData} />
-                        <ServicesOtherSection
-                            services={services}
-                            currentCategory={internalCategory}
-                            language={language}
-                        />
+                        {!showCategorySelector && (
+                            <ServicesPageHeader
+                                language={language}
+                            />
+                        )}
+                        {showCategorySelector ? (
+                            <ServicesCategorySelector language={language} />
+                        ) : (
+                            <ServicesOtherSection
+                                services={services}
+                                currentCategory={internalCategory}
+                                language={language}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

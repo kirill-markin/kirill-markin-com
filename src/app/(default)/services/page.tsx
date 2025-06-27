@@ -3,7 +3,6 @@ import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import { generateServicesPageMetadata } from '@/lib/metadata';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
 import { servicesOtherData } from '@/data/servicesOther';
-import { servicesFractionalCTOData } from '@/data/servicesFractionalCTO';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
@@ -23,6 +22,5 @@ export default async function ServicesPage() {
   return <ServicesPageContent
     language={DEFAULT_LANGUAGE}
     services={servicesOtherData}
-    fractionalCTOData={servicesFractionalCTOData}
   />;
 }

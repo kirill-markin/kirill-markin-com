@@ -125,9 +125,6 @@ export default function ServicesOtherGrid({ services, currentCategory, language 
         <section className={styles.services}>
             <div className={styles.servicesHeader}>
                 <div className={styles.servicesHeaderTitle}>
-                    <h2 className={styles.servicesTitle}>
-                        Other Service<span className={styles.glitchLetter}>s</span>
-                    </h2>
                     <div className={styles.categoryDescription}>
                         <p>{t.description}</p>
                     </div>

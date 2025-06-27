@@ -260,12 +260,16 @@ export function generateServicesPageMetadata(
         }
     }
 
-    // Create canonical URL
+    // Create canonical URL - always point to base services page without parameters
     const servicesSegment = language === DEFAULT_LANGUAGE
         ? 'services'
         : getPathSegmentByLanguage('services', language);
 
-    // Use localized category name in the URL
+    const canonicalUrl = language === DEFAULT_LANGUAGE
+        ? 'https://kirill-markin.com/services/'
+        : `https://kirill-markin.com/${language}/${servicesSegment}/`;
+
+    // For language alternates, preserve the current category filter
     let categoryParam = '';
     if (category && category !== 'all') {
         // Get the localized category name for the current language
@@ -273,15 +277,14 @@ export function generateServicesPageMetadata(
         categoryParam = `?category=${localizedCategoryName}`;
     }
 
-    const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com/services/${categoryParam}`
-        : `https://kirill-markin.com/${language}/${servicesSegment}/${categoryParam}`;
-
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
 
-    // Add current language to alternates
-    languageAlternates[language] = canonicalUrl;
+    // Add current language to alternates with category filter if present (for language switching)
+    const currentLanguageUrl = language === DEFAULT_LANGUAGE
+        ? `https://kirill-markin.com/services/${categoryParam}`
+        : `https://kirill-markin.com/${language}/${servicesSegment}/${categoryParam}`;
+    languageAlternates[language] = currentLanguageUrl;
 
     // Generate alternates for other languages
     for (const lang of SUPPORTED_LANGUAGES) {
