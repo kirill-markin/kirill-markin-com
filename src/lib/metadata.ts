@@ -604,7 +604,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             siteName: 'Kirill Markin',
             images: [
                 {
-                    url: '/services/fractional-ai-cto.webp',
+                    url: '/services/fractional-ai-cto-meta.webp',
                     width: 1200,
                     height: 630,
                     alt: 'Fractional AI CTO Services by Kirill Markin',
@@ -615,7 +615,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             card: 'summary_large_image',
             title,
             description,
-            images: ['/services/fractional-ai-cto.webp'],
+            images: ['/services/fractional-ai-cto-meta.webp'],
         },
         alternates: {
             canonical: '/services/fractional-ai-cto-kirill-markin/',

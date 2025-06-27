@@ -8,7 +8,7 @@ export const servicesOtherData: ServiceOtherData[] = [
     categoryId: "business",
     name: "Fractional AI CTO",
     description: "Need a CTO but don't want to sell your kidney? Get strategic AI-powered tech leadership without the full-time drama (or salary).",
-    logoUrl: "/services/default.png",
+    logoUrl: "/services/fractional-ai-cto.webp",
     promoText: "Most Popular Service",
     buttonText: "View Plans",
     buttonUrl: "/services/fractional-ai-cto-kirill-markin/"
