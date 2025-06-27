@@ -55,9 +55,9 @@ export default function ServicesCategorySelector({ language }: ServicesCategoryS
     return (
         <section className={styles.categorySelector}>
             <div className={styles.categoryHeader}>
-                <h2 className={styles.categoryTitle}>
+                <h1 className={styles.categoryTitle}>
                     How Can I Help<span className={styles.glitchLetter}>?</span>
-                </h2>
+                </h1>
                 <p className={styles.categoryDescription}>
                     Please select what interests you - I'll be happy to help!
                 </p>
