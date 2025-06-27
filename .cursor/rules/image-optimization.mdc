@@ -100,6 +100,44 @@ This command:
 - Sets maximum quality (`-quality 100`)
 - Saves in WebP format
 
+## Service Images Optimization
+
+For service cards on the services page, different aspect ratio requirements apply:
+
+- **Dimensions**: 600×400 pixels (3:2 aspect ratio)
+- **Location**: `public/services/`
+- **Naming Convention**: `service-name.webp` (kebab-case)
+- **Quality**: Use 90% quality for optimal size/quality balance
+
+### Process service images
+
+```bash
+# Standard resize with proper 3:2 aspect ratio
+magick source-image.png -resize 600x400 -quality 90 public/services/service-name.webp
+```
+
+This command:
+- Resizes the image to exact 600×400 dimensions
+- Uses 90% quality for good compression
+- Saves in WebP format for optimal performance
+
+### Service Image Workflow
+
+```bash
+# Check source image
+identify -format "%wx%h" /Users/kirill/Downloads/service-source.png
+# 1536x1024 (perfect 3:2 ratio)
+
+# Process image for service card
+magick /Users/kirill/Downloads/service-source.png -resize 600x400 -quality 90 public/services/my-service.webp
+
+# Verify the result
+ls -la public/services/my-service.webp
+identify -format "%wx%h" public/services/my-service.webp
+```
+
+**Note**: Service images use 3:2 aspect ratio (different from article thumbnails which use 16:9). This allows for better visual presentation of service-related content without cropping important details.
+
 ## Troubleshooting
 
 ### Background Issues
