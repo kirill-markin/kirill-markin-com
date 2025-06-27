@@ -16,9 +16,7 @@ export default function ServicesCategorySelector({ language }: ServicesCategoryS
     const getCategoryUrl = (category: string) => {
         // Special case: business category redirects to Fractional AI CTO page
         if (category === 'business') {
-            return language === 'en'
-                ? '/services/fractional-ai-cto-kirill-markin/'
-                : `/${language}/${getPathSegmentByLanguage('services', language)}/fractional-ai-cto-kirill-markin/`;
+            return '/services/fractional-ai-cto-kirill-markin/';
         }
 
         const servicesSegment = getPathSegmentByLanguage('services', language);
