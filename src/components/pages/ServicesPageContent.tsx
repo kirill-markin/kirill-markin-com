@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getPathSegmentByLanguage, getSubPathSegmentByLanguage, getTranslation } from '@/lib/localization';
+import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import ServicesCategorySelector from '@/components/Services/ServicesCategorySelector';
 import ServicesOtherSection from '@/components/Services/ServicesOtherSection';
 import { ServiceOtherData } from '@/types/services';
@@ -15,9 +15,7 @@ interface ServicesPageContentProps {
 }
 
 // Main Services Page Header Component
-const ServicesPageHeader: React.FC<{
-    language: string;
-}> = ({ language }) => {
+const ServicesPageHeader: React.FC = () => {
     return (
         <header className={styles.servicesPageHeader}>
             <h1 className={styles.servicesPageTitle}>
@@ -93,9 +91,7 @@ export default function ServicesPageContent({ language, services }: ServicesPage
                 <div className={styles.content}>
                     <div className={styles.fullWidthColumn}>
                         {!showCategorySelector && (
-                            <ServicesPageHeader
-                                language={language}
-                            />
+                            <ServicesPageHeader />
                         )}
                         {showCategorySelector ? (
                             <ServicesCategorySelector language={language} />
