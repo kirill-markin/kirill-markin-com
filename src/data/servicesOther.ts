@@ -50,9 +50,9 @@ export const servicesOtherData: ServiceOtherData[] = [
   {
     serviceId: "conference",
     categoryId: "journalists",
-    name: "Conference",
+    name: "Conference talk",
     description: "Looking for a speaker who won't put your audience to sleep? AI and tech talks without the buzzword bingo.",
-    logoUrl: "",
+    logoUrl: "/services/conference.webp",
     promoText: "",
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"
