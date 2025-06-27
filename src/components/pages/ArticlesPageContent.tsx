@@ -89,9 +89,9 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
                         <div className={styles.articlesHeaderTitle}>
                             <h1 className={styles.articlesTitle}>
                                 {currentInternalTag === 'all' ? (
-                                    <>{t.title}<span className={styles.glitchLetter}>s</span></>
+                                    <>{t.title}s</>
                                 ) : (
-                                    <>{getLocalizedTag(currentInternalTag, language).charAt(0).toUpperCase() + getLocalizedTag(currentInternalTag, language).slice(1)} {t.title}<span className={styles.glitchLetter}>s</span></>
+                                    <>{getLocalizedTag(currentInternalTag, language).charAt(0).toUpperCase() + getLocalizedTag(currentInternalTag, language).slice(1)} {t.title}s</>
                                 )}
                             </h1>
                             <div className={styles.categoryDescription}>

@@ -42,7 +42,7 @@ const Services: React.FC<ServicesProps> = ({ services }) => {
       <div className={styles.servicesHeader}>
         <div className={styles.servicesHeaderTitle}>
           <h1 className={styles.servicesTitle}>
-            Service<span className={styles.glitchLetter}>s</span>
+            Services
           </h1>
         </div>
       </div>
