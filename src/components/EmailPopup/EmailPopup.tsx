@@ -3,9 +3,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { getTranslation, SUPPORTED_LANGUAGES } from '@/lib/localization';
 import { trackGtmEvent } from '@/lib/gtm';
+import { useExitIntent } from '@/lib/useExitIntent';
 import {
     POPUP_DELAY,
-    EXIT_INTENT_THRESHOLD,
     POPUP_COOKIE_NAME,
     POPUP_SUBSCRIBED_COOKIE_NAME,
     POPUP_SESSION_KEY,
@@ -30,11 +30,18 @@ export default function EmailPopup({ language }: EmailPopupProps) {
     const [showSuccess, setShowSuccess] = useState(false);
     const [showError, setShowError] = useState(false);
     const [showValidationError, setShowValidationError] = useState(false);
-    const startTimeRef = useRef<number>(Date.now());
-    const exitIntentTriggeredRef = useRef(false);
     const timerTriggeredRef = useRef(false);
 
     const translations = getTranslation('emailPopup', language);
+
+    // Use exit intent hook
+    const exitIntentState = useExitIntent({
+        onExitIntent: () => {
+            if (!timerTriggeredRef.current) {
+                showPopup();
+            }
+        }
+    });
 
     // Cookie utilities
     const setCookie = useCallback((name: string, value: string, days: number) => {
@@ -99,35 +106,20 @@ export default function EmailPopup({ language }: EmailPopupProps) {
         trackGtmEvent({ event: 'email_subscription_success' });
     }, [setCookie]);
 
-    // Exit intent detection
-    useEffect(() => {
-        const handleMouseLeave = (e: MouseEvent) => {
-            if (
-                e.clientY <= EXIT_INTENT_THRESHOLD &&
-                !exitIntentTriggeredRef.current &&
-                !timerTriggeredRef.current &&
-                Date.now() - startTimeRef.current >= 1000 // Minimum 1 second on page
-            ) {
-                exitIntentTriggeredRef.current = true;
-                showPopup();
-            }
-        };
-
-        document.addEventListener('mouseleave', handleMouseLeave);
-        return () => document.removeEventListener('mouseleave', handleMouseLeave);
-    }, [showPopup]);
-
     // Timer trigger
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (!exitIntentTriggeredRef.current && !timerTriggeredRef.current) {
+            if (!exitIntentState.hasTriggered && !timerTriggeredRef.current) {
                 timerTriggeredRef.current = true;
+                trackGtmEvent({
+                    event: 'email_popup_timer_trigger'
+                });
                 showPopup();
             }
         }, POPUP_DELAY);
 
         return () => clearTimeout(timer);
-    }, [showPopup]);
+    }, [showPopup, exitIntentState.hasTriggered]);
 
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
