@@ -1111,7 +1111,7 @@ export const translations = {
                 ]
             },
             form: {
-                emailPlaceholder: 'Your email (I promise not to spam)',
+                emailPlaceholder: 'Your email (for the occasional brain dump)',
                 subscribeButton: 'Subscribe',
                 loadingText: 'Adding you to the list...',
                 successMessage: 'Welcome aboard! I\'ll send you something when I have actual news.',
@@ -1126,7 +1126,7 @@ export const translations = {
             title: 'Join My Brain Dumps',
             description: 'I share AI insights and practical tools when I find something actually useful',
             ctaButton: 'Subscribe',
-            subText: 'No spam, just real insights',
+            subText: 'Only when my brain produces something useful',
             successMessage: 'Welcome! I\'ll email you when I have actual news',
             errorMessage: 'Something broke. Try again?',
             validationError: 'That doesn\'t look like an email'
@@ -1135,7 +1135,7 @@ export const translations = {
             title: 'Únete a Mis Derrames Cerebrales',
             description: 'Comparto ideas de IA y herramientas cuando encuentro algo realmente útil',
             ctaButton: 'Suscribirse',
-            subText: 'Sin spam, solo ideas reales',
+            subText: 'Solo cuando mi cerebro produce algo útil',
             successMessage: '¡Bienvenido! Te escribiré cuando tenga noticias de verdad',
             errorMessage: 'Algo se rompió. ¿Intentamos otra vez?',
             validationError: 'Eso no parece un email'
@@ -1144,7 +1144,7 @@ export const translations = {
             title: '加入我的大脑垃圾场',
             description: '当我发现真正有用的东西时，我会分享AI见解和实用工具',
             ctaButton: '订阅',
-            subText: '不发垃圾邮件，只有真实见解',
+            subText: '只在我的大脑产出有用东西时',
             successMessage: '欢迎！有真正的消息时我会邮件联系你',
             errorMessage: '出故障了，再试一次？',
             validationError: '这看起来不像邮箱地址'
@@ -1153,7 +1153,7 @@ export const translations = {
             title: 'انضم إلى مقالب دماغي',
             description: 'أشارك رؤى الذكاء الاصطناعي والأدوات عندما أجد شيئًا مفيدًا فعلاً',
             ctaButton: 'اشترك',
-            subText: 'بدون إزعاج، فقط أفكار حقيقية',
+            subText: 'فقط عندما ينتج دماغي شيئًا مفيدًا',
             successMessage: 'أهلاً بك! سأراسلك عندما يكون لدي أخبار حقيقية',
             errorMessage: 'شيء ما تعطل. نحاول مرة أخرى؟',
             validationError: 'هذا لا يبدو كعنوان بريد إلكتروني'
@@ -1162,7 +1162,7 @@ export const translations = {
             title: 'मेरे दिमागी कचरे में शामिल हों',
             description: 'जब मुझे कुछ वास्तव में उपयोगी मिलता है तो मैं AI अंतर्दृष्टि और उपकरण साझा करता हूं',
             ctaButton: 'सब्स्क्राइब करें',
-            subText: 'कोई स्पैम नहीं, केवल वास्तविक अंतर्दृष्टि',
+            subText: 'केवल जब मेरा दिमाग कुछ उपयोगी बनाता है',
             successMessage: 'स्वागत है! जब मेरे पास असली खबर होगी तो मैं ईमेल करूंगा',
             errorMessage: 'कुछ टूट गया। फिर कोशिश करें?',
             validationError: 'यह ईमेल पता नहीं लग रहा'
