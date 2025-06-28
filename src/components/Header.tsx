@@ -47,30 +47,32 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerDesktopContainer}>
-        <div className={styles.leftColumn}>
-          {pathname !== homePath && (
-            <Link href={homePath} className={`${styles.headerDesktopButton} ${styles.headerLogo}`}>
-              KIRILL MARKIN
+        <div className={styles.headerContentWrapper}>
+          <div className={styles.leftColumn}>
+            {pathname !== homePath && (
+              <Link href={homePath} className={`${styles.headerDesktopButton} ${styles.headerLogo}`}>
+                KIRILL MARKIN
+              </Link>
+            )}
+          </div>
+          <nav className={styles.rightColumn} aria-label="Main navigation">
+            <Link className={styles.headerDesktopButton} href={servicesPath}>
+              {navigationTranslations.services}
             </Link>
-          )}
+            <Link
+              className={styles.headerDesktopButton}
+              href={articlesPath}
+            >
+              {navigationTranslations.articles}
+            </Link>
+            <Link
+              className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
+              href={fractionalAICTOPath}
+            >
+              {navigationTranslations.fractionalAICTO}
+            </Link>
+          </nav>
         </div>
-        <nav className={styles.rightColumn} aria-label="Main navigation">
-          <Link className={styles.headerDesktopButton} href={servicesPath}>
-            {navigationTranslations.services}
-          </Link>
-          <Link
-            className={styles.headerDesktopButton}
-            href={articlesPath}
-          >
-            {navigationTranslations.articles}
-          </Link>
-          <Link
-            className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
-            href={fractionalAICTOPath}
-          >
-            {navigationTranslations.fractionalAICTO}
-          </Link>
-        </nav>
       </div>
 
       <div className={styles.headerMobile}>

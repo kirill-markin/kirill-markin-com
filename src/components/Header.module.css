@@ -24,6 +24,15 @@
   margin: 0;
   padding: 0;
   height: 100%;
+  justify-content: center;
+}
+
+.headerContentWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .leftColumn,
@@ -35,6 +44,13 @@
 .leftColumn {
   width: 25%;
   border-right: 1px solid #232323;
+}
+
+/* Show left border only on screens wider than max content width */
+@media (min-width: 1471px) {
+  .leftColumn {
+    border-left: 1px solid #232323;
+  }
 }
 
 .rightColumn {

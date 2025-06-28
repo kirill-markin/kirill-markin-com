@@ -91,36 +91,38 @@ const Breadcrumbs = () => {
 
   return (
     <nav className={styles.breadcrumbsContainer} aria-label="Breadcrumbs">
-      <ol className={styles.breadcrumbsList} itemScope itemType="https://schema.org/BreadcrumbList">
-        {breadcrumbs.map((breadcrumb, index) => (
-          <li
-            key={breadcrumb.id}
-            className={styles.breadcrumbItem}
-            itemProp="itemListElement"
-            itemScope
-            itemType="https://schema.org/ListItem"
-          >
-            {index < breadcrumbs.length - 1 ? (
-              <>
-                <Link
-                  href={breadcrumb.path}
-                  className={styles.breadcrumbLink}
-                  itemProp="item"
-                >
-                  <span itemProp="name">{breadcrumb.label}</span>
-                </Link>
-                <meta itemProp="position" content={`${index + 1}`} />
-                <span className={styles.separator}>/</span>
-              </>
-            ) : (
-              <>
-                <span className={styles.currentPage} itemProp="name">{breadcrumb.label}</span>
-                <meta itemProp="position" content={`${index + 1}`} />
-              </>
-            )}
-          </li>
-        ))}
-      </ol>
+      <div className={styles.breadcrumbsContentWrapper}>
+        <ol className={styles.breadcrumbsList} itemScope itemType="https://schema.org/BreadcrumbList">
+          {breadcrumbs.map((breadcrumb, index) => (
+            <li
+              key={breadcrumb.id}
+              className={styles.breadcrumbItem}
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+            >
+              {index < breadcrumbs.length - 1 ? (
+                <>
+                  <Link
+                    href={breadcrumb.path}
+                    className={styles.breadcrumbLink}
+                    itemProp="item"
+                  >
+                    <span itemProp="name">{breadcrumb.label}</span>
+                  </Link>
+                  <meta itemProp="position" content={`${index + 1}`} />
+                  <span className={styles.separator}>/</span>
+                </>
+              ) : (
+                <>
+                  <span className={styles.currentPage} itemProp="name">{breadcrumb.label}</span>
+                  <meta itemProp="position" content={`${index + 1}`} />
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
     </nav>
   );
 };

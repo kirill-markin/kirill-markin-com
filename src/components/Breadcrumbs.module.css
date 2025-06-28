@@ -1,11 +1,19 @@
 .breadcrumbsContainer {
-  padding: 0.5rem 1rem;
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
   margin-top: 41px;
   /* Account for 40px header height + 1px border */
   border-bottom: 1px solid var(--dark-gray);
   background-color: var(--background);
+  display: flex;
+  justify-content: center;
+}
+
+.breadcrumbsContentWrapper {
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
 }
 
 .breadcrumbsList {
@@ -48,10 +56,8 @@
 
 /* Media queries for responsive design */
 @media (max-width: 768px) {
-  .breadcrumbsContainer {
+  .breadcrumbsContentWrapper {
     padding: 0.5rem 1rem;
-    margin-top: 41px;
-    /* Same for mobile */
   }
 
   .breadcrumbItem {
