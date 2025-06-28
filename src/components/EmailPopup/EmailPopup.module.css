@@ -101,17 +101,17 @@
 }
 
 .errorInput {
-    border-color: #ff0000;
+    border-color: #FF073A;
     background-color: #fff5f5;
 }
 
 .errorInput:focus {
-    border-color: #ff0000;
-    box-shadow: inset 2px 2px 0px #ff0000;
+    border-color: #FF073A;
+    box-shadow: inset 2px 2px 0px #FF073A;
 }
 
 .validationError {
-    color: #ff0000;
+    color: #FF073A;
     font-size: var(--font-size-small, 0.875rem);
     font-weight: 600;
     margin-top: -12px;
@@ -184,7 +184,7 @@
     color: var(--background, #ffffff);
     font-size: var(--font-size-small, 0.875rem);
     text-align: center;
-    background-color: #ff0000;
+    background-color: #FF073A;
     border: 2px solid var(--dark-gray, #232323);
     border-radius: 0;
     padding: 12px;

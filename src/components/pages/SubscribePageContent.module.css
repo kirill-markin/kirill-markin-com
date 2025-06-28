@@ -1,0 +1,239 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--white);
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+}
+
+.fullWidthColumn {
+    width: 100%;
+    vertical-align: top;
+    padding: 20px;
+    background-color: var(--white);
+}
+
+.subscribeContainer {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--white);
+}
+
+.subscribeContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--white);
+}
+
+.title {
+    font-size: var(--font-size-large);
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.description {
+    font-size: var(--font-size-base-plus);
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.benefitsSection {
+    margin-bottom: 2.5rem;
+}
+
+.benefitsTitle {
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.benefitsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefitItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-base);
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.benefitIcon {
+    color: var(--dark-gray);
+    font-weight: bold;
+    margin-right: 0.75rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+.subscribeForm {
+    background: var(--white);
+    padding: 1.5rem;
+    border: 1px solid var(--dark-gray);
+    border-radius: 0;
+    box-shadow: 4px 4px 0px var(--dark-gray);
+}
+
+.formGroup {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.emailInput {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--dark-gray);
+    border-radius: 0;
+    font-size: var(--font-size-base);
+    background: var(--white);
+    font-family: Archivo, sans-serif;
+    box-shadow: inset 2px 2px 0px var(--dark-gray);
+}
+
+.emailInput:focus {
+    outline: none;
+    border-color: var(--dark-gray);
+    background-color: #f5f5f5;
+    box-shadow: inset 2px 2px 0px var(--dark-gray);
+}
+
+.emailInput:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    color: var(--medium-gray);
+    box-shadow: inset 2px 2px 0px var(--medium-gray);
+}
+
+.subscribeButton {
+    padding: 0.875rem 2rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 1px solid var(--dark-gray);
+    border-radius: 0;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: Archivo, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: 2px 2px 0px var(--dark-gray);
+}
+
+.subscribeButton:hover:not(:disabled) {
+    background: var(--white);
+    color: var(--dark-gray);
+    box-shadow: 2px 2px 0px var(--dark-gray);
+}
+
+.subscribeButton:disabled {
+    background: var(--medium-gray);
+    border-color: var(--medium-gray);
+    cursor: not-allowed;
+    box-shadow: 2px 2px 0px var(--medium-gray);
+}
+
+.message {
+    padding: 1rem;
+    border: 1px solid var(--dark-gray);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: var(--font-size-base);
+    box-shadow: 2px 2px 0px var(--dark-gray);
+}
+
+.message.success {
+    background: #39FF14;
+    color: var(--dark-gray);
+    border-color: var(--dark-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.message.error {
+    background: #FF073A;
+    color: var(--white);
+    border-color: var(--dark-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.privacyNote {
+    font-size: var(--font-size-small);
+    color: var(--medium-gray);
+    text-align: center;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fullWidthColumn {
+        padding: 10px !important;
+    }
+
+    .title {
+        font-size: var(--font-size-medium);
+    }
+
+    .description {
+        font-size: var(--font-size-base);
+    }
+
+    .benefitsTitle {
+        font-size: var(--font-size-base-plus);
+    }
+
+    .formGroup {
+        flex-direction: column;
+    }
+
+    .emailInput {
+        min-width: auto;
+    }
+
+    .subscribeButton {
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .subscribeForm {
+        padding: 1rem;
+    }
+}

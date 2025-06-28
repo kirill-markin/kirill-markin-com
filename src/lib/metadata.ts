@@ -641,4 +641,47 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             'business:contact_data:country_name': 'Worldwide',
         },
     };
+}
+
+/**
+ * Generate metadata for the subscribe page
+ * @returns Metadata object
+ */
+export function generateSubscribePageMetadata(): Metadata {
+    const subscribeTranslations = getTranslation('subscribe', DEFAULT_LANGUAGE);
+    const baseMetadata = getBaseMetadata(DEFAULT_LANGUAGE);
+
+    const title = subscribeTranslations.metaTitle || subscribeTranslations.title;
+    const description = subscribeTranslations.metaDescription || String(subscribeTranslations.description);
+
+    const canonicalUrl = 'https://kirill-markin.com/subscribe/';
+
+    return {
+        ...baseMetadata,
+        title,
+        description,
+        openGraph: {
+            ...baseMetadata.openGraph,
+            title,
+            description,
+            url: canonicalUrl,
+            images: [
+                {
+                    url: '/articles/preview-main.webp',
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                }
+            ],
+        },
+        twitter: {
+            ...baseMetadata.twitter,
+            title,
+            description,
+            images: ['/articles/preview-main.webp'],
+        },
+        alternates: {
+            canonical: canonicalUrl,
+        },
+    };
 } 

@@ -1094,51 +1094,78 @@ export const translations = {
             formLoading: 'सुरक्षित भुगतान फॉर्म लोड हो रहा है...'
         }
     },
+    subscribe: {
+        'en': {
+            title: 'Subscribe to My Brain Dumps',
+            description: 'I write about AI, tech, and whatever else catches my attention. No corporate BS, no weekly promises I can\'t keep. Just real insights when I actually have something interesting to share.',
+            metaTitle: 'Subscribe to AI Strategy Updates | Kirill Markin Newsletter',
+            metaDescription: 'Subscribe to Kirill Markin\'s newsletter for AI strategy insights, emerging technology trends, and practical tools. Expert content for professionals and decision-makers.',
+            benefits: {
+                title: 'What You\'ll Actually Get:',
+                items: [
+                    'AI insights when I discover something genuinely useful',
+                    'Early access to articles before I post them everywhere',
+                    'Practical tools I actually use (not just recommend)',
+                    'Honest takes on AI trends, including the overhyped ones',
+                    'Real case studies from projects that didn\'t explode'
+                ]
+            },
+            form: {
+                emailPlaceholder: 'Your email (I promise not to spam)',
+                subscribeButton: 'Subscribe',
+                loadingText: 'Adding you to the list...',
+                successMessage: 'Welcome aboard! I\'ll send you something when I have actual news.',
+                errorMessage: 'Something broke. Try again?',
+                validationError: 'That doesn\'t look like an email address',
+                privacyNote: 'I respect your privacy. Unsubscribe anytime without drama.'
+            }
+        }
+    },
     emailPopup: {
         'en': {
-            title: 'Stay Updated',
-            description: 'Get practical insights and tools delivered to your inbox',
+            title: 'Join My Brain Dumps',
+            description: 'I share AI insights and practical tools when I find something actually useful',
             ctaButton: 'Subscribe',
-            subText: 'No spam, unsubscribe anytime',
-            successMessage: 'Thanks! I\'ll send you updates soon',
-            errorMessage: 'Something went wrong. Please try again',
-            validationError: 'Please enter a valid email address'
+            subText: 'No spam, just real insights',
+            successMessage: 'Welcome! I\'ll email you when I have actual news',
+            errorMessage: 'Something broke. Try again?',
+            validationError: 'That doesn\'t look like an email'
         },
         'es': {
-            title: 'Mantente Actualizado',
-            description: 'Recibe insights prácticos y herramientas directamente en tu bandeja',
+            title: 'Únete a Mis Derrames Cerebrales',
+            description: 'Comparto ideas de IA y herramientas cuando encuentro algo realmente útil',
             ctaButton: 'Suscribirse',
-            subText: 'Sin spam, cancela cuando quieras',
-            successMessage: '¡Gracias! Te enviaré actualizaciones pronto',
-            errorMessage: 'Algo salió mal. Por favor, inténtalo de nuevo',
-            validationError: 'Por favor, introduce un email válido'
+            subText: 'Sin spam, solo ideas reales',
+            successMessage: '¡Bienvenido! Te escribiré cuando tenga noticias de verdad',
+            errorMessage: 'Algo se rompió. ¿Intentamos otra vez?',
+            validationError: 'Eso no parece un email'
         },
         'zh': {
-            title: '保持更新',
-            description: '获取实用见解和工具，直接发送到您的邮箱',
+            title: '加入我的大脑垃圾场',
+            description: '当我发现真正有用的东西时，我会分享AI见解和实用工具',
             ctaButton: '订阅',
-            subText: '无垃圾邮件，随时可退订',
-            successMessage: '感谢您！我很快会发送更新给您',
-            errorMessage: '出现错误，请重试',
-            validationError: '请输入有效的邮箱地址'
+            subText: '不发垃圾邮件，只有真实见解',
+            successMessage: '欢迎！有真正的消息时我会邮件联系你',
+            errorMessage: '出故障了，再试一次？',
+            validationError: '这看起来不像邮箱地址'
         },
         'ar': {
-            title: 'ابق على اطلاع',
-            description: 'احصل على رؤى عملية وأدوات مفيدة في صندوق بريدك',
+            title: 'انضم إلى مقالب دماغي',
+            description: 'أشارك رؤى الذكاء الاصطناعي والأدوات عندما أجد شيئًا مفيدًا فعلاً',
             ctaButton: 'اشترك',
-            subText: 'بدون رسائل مزعجة، يمكن إلغاء الاشتراك في أي وقت',
-            successMessage: 'شكراً! سأرسل لك التحديثات قريباً',
-            errorMessage: 'حدث خطأ. يرجى المحاولة مرة أخرى',
-            validationError: 'يرجى إدخال عنوان بريد إلكتروني صحيح'
+            subText: 'بدون إزعاج، فقط أفكار حقيقية',
+            successMessage: 'أهلاً بك! سأراسلك عندما يكون لدي أخبار حقيقية',
+            errorMessage: 'شيء ما تعطل. نحاول مرة أخرى؟',
+            validationError: 'هذا لا يبدو كعنوان بريد إلكتروني'
         },
         'hi': {
-            title: 'अपडेट रहें',
-            description: 'अपने इनबॉक्स में व्यावहारिक अंतर्दृष्टि और उपकरण प्राप्त करें',
+            title: 'मेरे दिमागी कचरे में शामिल हों',
+            description: 'जब मुझे कुछ वास्तव में उपयोगी मिलता है तो मैं AI अंतर्दृष्टि और उपकरण साझा करता हूं',
             ctaButton: 'सब्स्क्राइब करें',
-            subText: 'कोई स्पैम नहीं, कभी भी अनसब्स्क्राइब करें',
-            successMessage: 'धन्यवाद! मैं जल्द ही अपडेट भेजूंगा',
-            errorMessage: 'कुछ गलत हुआ। कृपया पुनः प्रयास करें',
-            validationError: 'कृपया एक वैध ईमेल पता दर्ज करें'
+            subText: 'कोई स्पैम नहीं, केवल वास्तविक अंतर्दृष्टि',
+            successMessage: 'स्वागत है! जब मेरे पास असली खबर होगी तो मैं ईमेल करूंगा',
+            errorMessage: 'कुछ टूट गया। फिर कोशिश करें?',
+            validationError: 'यह ईमेल पता नहीं लग रहा'
         }
     },
     notFound: {

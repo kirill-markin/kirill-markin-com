@@ -70,6 +70,13 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/lib/articles.ts',
         ...commonFiles
     ],
+    '/subscribe/': [
+        'src/app/(default)/subscribe/page.tsx',
+        'src/components/pages/SubscribePageContent.tsx',
+        'src/components/pages/SubscribePageContent.module.css',
+        'src/app/api/subscribe/route.ts',
+        ...commonFiles
+    ],
     // Add search page
     '/search/': [
         'src/app/(default)/search/page.tsx',

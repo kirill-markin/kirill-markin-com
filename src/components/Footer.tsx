@@ -27,11 +27,11 @@ const Footer: React.FC<FooterProps> = ({
   // Get footer translations
   const footerTranslations = getTranslation('footer', language);
 
-  // Get navigation translations for button text
-  const navigationTranslations = getTranslation('navigation', language);
-
   // Get personal info translations
   const personalInfoTranslations = getTranslation('personalInfo', language);
+
+  // Get email popup translations for subscribe button
+  const emailPopupTranslations = getTranslation('emailPopup', language);
 
   const renderJobTitle = (title: string): { __html: string } => {
     return {
@@ -68,11 +68,11 @@ const Footer: React.FC<FooterProps> = ({
               <div className={styles.footerCta}>
                 <div className={styles.questionButton}>
                   <Link
-                    href="/services/fractional-ai-cto-kirill-markin/"
+                    href="/subscribe/"
                     className={styles.footerButton}
                     rel="noopener noreferrer"
                   >
-                    {navigationTranslations.fractionalAICTO}
+                    {emailPopupTranslations.title}
                   </Link>
                 </div>
               </div>
