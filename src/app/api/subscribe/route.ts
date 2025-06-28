@@ -106,6 +106,15 @@ async function addToLemlist(email: string, metadata: Record<string, string>): Pr
             const errorText = await response.text();
             console.error(`❌ Lemlist API error: ${response.status} - ${errorText}`);
 
+            // Special case: Lead already in campaign is considered success
+            if (response.status === 400 && errorText.includes('Lead already in the campaign')) {
+                console.warn('✅ Lead already in campaign - treating as success:', {
+                    status: response.status,
+                    message: 'Lead already subscribed'
+                });
+                return { _id: 'existing', campaignName: 'existing', status: 'already_subscribed' };
+            }
+
             // Don't retry client errors (4xx), only server errors (5xx) and network issues
             if (response.status >= 400 && response.status < 500) {
                 throw new Error(`Lemlist API client error: ${response.status} - ${errorText}`);
