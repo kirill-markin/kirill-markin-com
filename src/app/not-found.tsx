@@ -3,6 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import GlitchFilters from '@/components/GlitchFilters';
+import './globals.css';
 import styles from './not-found.module.css';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
@@ -33,23 +38,31 @@ export default function NotFound() {
   const homeLink = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
 
   return (
-    <div className={styles.errorPageContainer}>
-      <h1 className={styles.errorTitle}>404</h1>
-      <h2 className={styles.errorSubtitle}>
-        {translations.title.split('').map((letter, index) =>
-          index === translations.title.length - 1 ? (
-            <span key={index} className={styles.glitchLetter}>{letter}</span>
-          ) : (
-            letter
-          )
-        )}
-      </h2>
-      <p className={styles.errorMessage}>
-        {translations.message}
-      </p>
-      <Link href={homeLink} className={styles.errorBackButton}>
-        {translations.backToHome}
-      </Link>
-    </div>
+    <>
+      <Header language={language} />
+      <Breadcrumbs />
+      <main>
+        <div className={styles.errorPageContainer}>
+          <h1 className={styles.errorTitle}>404</h1>
+          <h2 className={styles.errorSubtitle}>
+            {translations.title.split('').map((letter, index) =>
+              index === translations.title.length - 1 ? (
+                <span key={index} className={styles.glitchLetter}>{letter}</span>
+              ) : (
+                letter
+              )
+            )}
+          </h2>
+          <p className={styles.errorMessage}>
+            {translations.message}
+          </p>
+          <Link href={homeLink} className={styles.errorBackButton}>
+            {translations.backToHome}
+          </Link>
+        </div>
+      </main>
+      <Footer language={language} currentPath="/404/" />
+      <GlitchFilters />
+    </>
   );
 } 
