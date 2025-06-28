@@ -88,3 +88,10 @@
         display: none;
     }
 }
+
+/* Hide on screens with low height */
+@media (max-height: 499px) {
+    .sidebarRelatedArticles {
+        display: none;
+    }
+}
