@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './SubscribePageContent.module.css';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
+import { trackGtmEvent } from '@/lib/gtm';
 import Footer from '@/components/Footer';
 import { EMAIL_REGEX, EMAIL_MIN_LENGTH, EMAIL_MAX_LENGTH } from '@/lib/popupConstants';
 
@@ -17,6 +18,11 @@ export default function SubscribePageContent({ language = DEFAULT_LANGUAGE }: Su
 
     // Get translated texts
     const translations = getTranslation('subscribe', language);
+
+    // Track page view for subscription form
+    useEffect(() => {
+        trackGtmEvent({ event: 'email_subscribe_page_shown' });
+    }, []);
 
     const validateEmail = (email: string): boolean => {
         const trimmedEmail = email.trim();
@@ -35,6 +41,7 @@ export default function SubscribePageContent({ language = DEFAULT_LANGUAGE }: Su
                 type: 'error',
                 text: translations.form.validationError
             });
+            trackGtmEvent({ event: 'email_validation_failed' });
             return;
         }
 
@@ -43,8 +50,11 @@ export default function SubscribePageContent({ language = DEFAULT_LANGUAGE }: Su
                 type: 'error',
                 text: translations.form.validationError
             });
+            trackGtmEvent({ event: 'email_validation_failed' });
             return;
         }
+
+        trackGtmEvent({ event: 'email_validation_passed' });
 
         setIsLoading(true);
         setMessage(null);
@@ -64,6 +74,7 @@ export default function SubscribePageContent({ language = DEFAULT_LANGUAGE }: Su
                     text: translations.form.successMessage
                 });
                 setEmail('');
+                trackGtmEvent({ event: 'email_subscription_success' });
             } else {
                 throw new Error('Subscription failed');
             }
@@ -73,6 +84,7 @@ export default function SubscribePageContent({ language = DEFAULT_LANGUAGE }: Su
                 type: 'error',
                 text: translations.form.errorMessage
             });
+            trackGtmEvent({ event: 'email_subscription_failed' });
         } finally {
             setIsLoading(false);
         }
