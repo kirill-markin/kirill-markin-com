@@ -37,8 +37,12 @@ export default function LayoutBody({ children, language, isProd }: LayoutBodyPro
             <Breadcrumbs />
             <main>{children}</main>
             <GlitchFilters />
-            <Analytics debug={process.env.NODE_ENV !== 'production'} />
-            <SpeedInsights debug={process.env.NODE_ENV !== 'production'} />
+            {isProd && (
+                <>
+                    <Analytics />
+                    <SpeedInsights />
+                </>
+            )}
             {showEmailPopup && <EmailPopup language={language} />}
         </body>
     );
