@@ -1099,7 +1099,7 @@ export const translations = {
             title: 'Subscribe to My Brain Dumps',
             description: 'I write about AI, tech, and whatever else catches my attention. No corporate BS, no weekly promises I can\'t keep. Just real insights when I actually have something interesting to share.',
             metaTitle: 'Subscribe to AI Strategy Updates | Kirill Markin Newsletter',
-            metaDescription: 'Subscribe to Kirill Markin\'s newsletter for AI strategy insights, emerging technology trends, and practical tools. Expert content for professionals and decision-makers.',
+            metaDescription: 'Subscribe to Kirill Markin\'s newsletter for AI strategy insights, emerging technology trends, and practical tools. Expert content for professionals.',
             benefits: {
                 title: 'What You\'ll Actually Get:',
                 items: [
