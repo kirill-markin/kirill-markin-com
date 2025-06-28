@@ -1094,6 +1094,53 @@ export const translations = {
             formLoading: 'सुरक्षित भुगतान फॉर्म लोड हो रहा है...'
         }
     },
+    emailPopup: {
+        'en': {
+            title: 'Stay Updated',
+            description: 'Get practical insights and tools delivered to your inbox',
+            ctaButton: 'Subscribe',
+            subText: 'No spam, unsubscribe anytime',
+            successMessage: 'Thanks! I\'ll send you updates soon',
+            errorMessage: 'Something went wrong. Please try again',
+            validationError: 'Please enter a valid email address'
+        },
+        'es': {
+            title: 'Mantente Actualizado',
+            description: 'Recibe insights prácticos y herramientas directamente en tu bandeja',
+            ctaButton: 'Suscribirse',
+            subText: 'Sin spam, cancela cuando quieras',
+            successMessage: '¡Gracias! Te enviaré actualizaciones pronto',
+            errorMessage: 'Algo salió mal. Por favor, inténtalo de nuevo',
+            validationError: 'Por favor, introduce un email válido'
+        },
+        'zh': {
+            title: '保持更新',
+            description: '获取实用见解和工具，直接发送到您的邮箱',
+            ctaButton: '订阅',
+            subText: '无垃圾邮件，随时可退订',
+            successMessage: '感谢您！我很快会发送更新给您',
+            errorMessage: '出现错误，请重试',
+            validationError: '请输入有效的邮箱地址'
+        },
+        'ar': {
+            title: 'ابق على اطلاع',
+            description: 'احصل على رؤى عملية وأدوات مفيدة في صندوق بريدك',
+            ctaButton: 'اشترك',
+            subText: 'بدون رسائل مزعجة، يمكن إلغاء الاشتراك في أي وقت',
+            successMessage: 'شكراً! سأرسل لك التحديثات قريباً',
+            errorMessage: 'حدث خطأ. يرجى المحاولة مرة أخرى',
+            validationError: 'يرجى إدخال عنوان بريد إلكتروني صحيح'
+        },
+        'hi': {
+            title: 'अपडेट रहें',
+            description: 'अपने इनबॉक्स में व्यावहारिक अंतर्दृष्टि और उपकरण प्राप्त करें',
+            ctaButton: 'सब्स्क्राइब करें',
+            subText: 'कोई स्पैम नहीं, कभी भी अनसब्स्क्राइब करें',
+            successMessage: 'धन्यवाद! मैं जल्द ही अपडेट भेजूंगा',
+            errorMessage: 'कुछ गलत हुआ। कृपया पुनः प्रयास करें',
+            validationError: 'कृपया एक वैध ईमेल पता दर्ज करें'
+        }
+    },
     notFound: {
         'en': {
             title: 'Page Not Found',

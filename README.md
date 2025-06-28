@@ -79,6 +79,18 @@ npm run test:watch
 npm run test:coverage
 ```
 
+## Environment Variables
+
+The application includes an optional email collection popup that requires configuration for full functionality:
+
+```bash
+# Optional: Email popup integration (Lemlist)
+LEMLIST_API_KEY=your_lemlist_api_key
+LEMLIST_SUBSCRIPTION_COMPANY_ID=your_company_id
+```
+
+**Note**: If these variables are not set, the email popup will be automatically disabled and the site will function normally without email collection features. This graceful degradation ensures the website works in all environments.
+
 ## Key Features
 
 - **Multilingual Support**: Full localization with 5 supported languages
