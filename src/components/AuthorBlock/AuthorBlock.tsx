@@ -43,7 +43,7 @@ const AuthorBlock: React.FC<AuthorBlockProps> = ({
                 </div>
             </div>
             <div className={styles.achievementSticker}>
-                <div className={styles.value}>6000+</div>
+                <div className={styles.value}>6,200+</div>
                 <div className={styles.label}>subscribers</div>
             </div>
         </Link>

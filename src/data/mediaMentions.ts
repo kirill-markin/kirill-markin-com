@@ -26,7 +26,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "70,000+",
+    achievementValue: "73,000+",
     achievementLabel: "views"
   },
   {
@@ -75,7 +75,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-repo-to-text-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "150+",
+    achievementValue: "160+",
     achievementLabel: "stars"
   },
   {
@@ -87,7 +87,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "10,000+",
+    achievementValue: "11,000+",
     achievementLabel: "views",
     isVideo: true
   },
@@ -125,7 +125,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/kirill-2024-01-21.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "5,100",
+    achievementValue: "5,100+",
     achievementLabel: "views",
     isVideo: true
   },
@@ -172,7 +172,7 @@ export const mediaMentions: MediaMention[] = [
     language: "ru",
     thumbnailUrl: "/articles/habr-2022-07-12.webp",
     websiteLogoUrl: "/logos/habr.svg",
-    achievementValue: "13,000",
+    achievementValue: "13,000+",
     achievementLabel: "views"
   },
   {
