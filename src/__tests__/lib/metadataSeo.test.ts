@@ -3,7 +3,8 @@ import {
     generateArticlesPageMetadata,
     generateServicesPageMetadata,
     generateMeetPageMetadata,
-    generatePayPageMetadata
+    generatePayPageMetadata,
+    generateSubscribePageMetadata
 } from '@/lib/metadata';
 import { validateMetadata } from '@/lib/seoValidation';
 
@@ -79,6 +80,14 @@ jest.mock('@/lib/localization', () => ({
                         metaTitle: 'A'.repeat(65),
                         metaDescription: 'A'.repeat(155)
                     }
+                }
+            },
+            subscribe: {
+                en: {
+                    title: 'A'.repeat(65),
+                    description: 'A'.repeat(155),
+                    metaTitle: 'A'.repeat(65),
+                    metaDescription: 'A'.repeat(155)
                 }
             }
         };
@@ -225,6 +234,26 @@ describe('SEO Metadata Tests', () => {
             expect(validation.valid).toBe(true);
             expect(validation.title.valid).toBe(true);
             expect(validation.description.valid).toBe(true);
+        });
+    });
+
+    describe('Subscribe Page Metadata', () => {
+        it('should generate valid SEO metadata for the subscribe page', () => {
+            const metadata = generateSubscribePageMetadata();
+            const validation = validateMetadata(metadata.title as string, metadata.description as string);
+
+            expect(validation.valid).toBe(true);
+            expect(validation.title.valid).toBe(true);
+            expect(validation.description.valid).toBe(true);
+        });
+
+        it('should include OpenGraph metadata with valid title and description', () => {
+            const metadata = generateSubscribePageMetadata();
+            const ogTitle = metadata.openGraph?.title as string;
+            const ogDescription = metadata.openGraph?.description as string;
+
+            const ogValidation = validateMetadata(ogTitle, ogDescription);
+            expect(ogValidation.valid).toBe(true);
         });
     });
 }); 

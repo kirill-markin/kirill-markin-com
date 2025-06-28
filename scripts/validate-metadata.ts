@@ -24,7 +24,8 @@ import {
     generateServicesPageMetadata,
     generateMeetPageMetadata,
     generatePayPageMetadata,
-    generateFractionalAICTOPageMetadata
+    generateFractionalAICTOPageMetadata,
+    generateSubscribePageMetadata
 } from '../src/lib/metadata';
 import {
     getAllArticles,
@@ -149,6 +150,13 @@ function validateGeneratedMetadata() {
             type: 'services',
             subType: 'fractional-ai-cto',
             generator: () => generateFractionalAICTOPageMetadata(),
+            availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
+        },
+        {
+            name: 'Subscribe',
+            type: 'subscribe',
+            subType: null,
+            generator: () => generateSubscribePageMetadata(),
             availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
         }
     ];
