@@ -1,6 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { EMAIL_REGEX, EMAIL_MIN_LENGTH, EMAIL_MAX_LENGTH } from '@/lib/popupConstants';
 
+// CORS configuration
+function getCorsHeaders(origin: string | null): Record<string, string> {
+    const allowedOrigins = process.env.NODE_ENV === 'development'
+        ? ['http://localhost:3000', 'https://kirill-markin.com', 'https://www.kirill-markin.com']
+        : ['https://kirill-markin.com', 'https://www.kirill-markin.com'];
+
+    const isAllowedOrigin = origin && allowedOrigins.includes(origin);
+
+    return {
+        'Access-Control-Allow-Origin': isAllowedOrigin ? origin : 'null',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '86400', // Cache preflight for 24 hours
+    };
+}
+
 // Rate limiting (simple in-memory implementation)
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
@@ -138,6 +154,9 @@ async function addToLemlist(email: string, metadata: Record<string, string>): Pr
 }
 
 export async function POST(request: NextRequest) {
+    const origin = request.headers.get('origin');
+    const corsHeaders = getCorsHeaders(origin);
+
     try {
         // Get client IP for rate limiting
         const forwarded = request.headers.get('x-forwarded-for');
@@ -148,7 +167,7 @@ export async function POST(request: NextRequest) {
             console.warn(`Rate limit exceeded for IP: ${ip}`);
             return NextResponse.json(
                 { error: 'Too many requests. Please try again later.' },
-                { status: 429 }
+                { status: 429, headers: corsHeaders }
             );
         }
 
@@ -159,14 +178,14 @@ export async function POST(request: NextRequest) {
         if (!email || typeof email !== 'string') {
             return NextResponse.json(
                 { error: 'Email is required' },
-                { status: 400 }
+                { status: 400, headers: corsHeaders }
             );
         }
 
         if (!validateEmail(email)) {
             return NextResponse.json(
                 { error: 'Invalid email format' },
-                { status: 400 }
+                { status: 400, headers: corsHeaders }
             );
         }
 
@@ -185,7 +204,7 @@ export async function POST(request: NextRequest) {
             pageUrl: metadata.pageUrl
         });
 
-        return NextResponse.json({ success: true });
+        return NextResponse.json({ success: true }, { headers: corsHeaders });
 
     } catch (error) {
         console.error('Subscription error:', error);
@@ -194,27 +213,44 @@ export async function POST(request: NextRequest) {
         if (error instanceof Error && error.message.includes('Lemlist integration not configured')) {
             return NextResponse.json(
                 { error: 'Email subscription service is temporarily unavailable.' },
-                { status: 503 }
+                { status: 503, headers: corsHeaders }
             );
         }
 
         // Return generic error to client for security
         return NextResponse.json(
             { error: 'Subscription failed. Please try again.' },
-            { status: 500 }
+            { status: 500, headers: corsHeaders }
         );
     }
 }
 
+// Handle preflight OPTIONS request
+export async function OPTIONS(request: NextRequest) {
+    const origin = request.headers.get('origin');
+    const corsHeaders = getCorsHeaders(origin);
+
+    return new NextResponse(null, {
+        status: 200,
+        headers: corsHeaders,
+    });
+}
+
 // Handle other HTTP methods
-export async function GET() {
-    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+export async function GET(request: NextRequest) {
+    const origin = request.headers.get('origin');
+    const corsHeaders = getCorsHeaders(origin);
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405, headers: corsHeaders });
 }
 
-export async function PUT() {
-    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+export async function PUT(request: NextRequest) {
+    const origin = request.headers.get('origin');
+    const corsHeaders = getCorsHeaders(origin);
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405, headers: corsHeaders });
 }
 
-export async function DELETE() {
-    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+export async function DELETE(request: NextRequest) {
+    const origin = request.headers.get('origin');
+    const corsHeaders = getCorsHeaders(origin);
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405, headers: corsHeaders });
 } 
