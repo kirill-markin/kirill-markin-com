@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import GlitchFilters from '@/components/GlitchFilters';
-import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleTagManagerNoScript } from './GoogleTagManager';
 import { SUPPORTED_LANGUAGES } from '@/lib/localization';
@@ -37,12 +36,7 @@ export default function LayoutBody({ children, language, isProd }: LayoutBodyPro
             <Breadcrumbs />
             <main>{children}</main>
             <GlitchFilters />
-            {isProd && (
-                <>
-                    <Analytics />
-                    <SpeedInsights />
-                </>
-            )}
+            {isProd && <SpeedInsights />}
             {showEmailPopup && <EmailPopup language={language} />}
         </body>
     );
