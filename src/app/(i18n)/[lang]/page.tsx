@@ -5,9 +5,9 @@ import HomePageContent from '@/components/pages/HomePageContent';
 import { generateHomePageMetadata } from '@/lib/metadata';
 
 interface HomePageProps {
-    params: {
+    params: Promise<{
         lang: string;
-    };
+    }>;
 }
 
 // Generate static params for all supported languages
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
-    const { lang } = params;
+    const { lang } = await params;
 
     // Check if language is valid
     if (!isValidLanguage(lang) || lang === DEFAULT_LANGUAGE) {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 }
 
 export default async function LocalizedHomePage({ params }: HomePageProps) {
-    const { lang } = params;
+    const { lang } = await params;
 
     // Check if language is valid
     if (!isValidLanguage(lang)) {

@@ -30,9 +30,9 @@ export default async function LocaleLayout({
     params,
 }: {
     children: React.ReactNode;
-    params: { lang: string };
+    params: Promise<{ lang: string }>;
 }) {
-    const { lang } = params;
+    const { lang } = await params;
 
     // Validate language or show 404
     if (!isValidLanguage(lang)) {

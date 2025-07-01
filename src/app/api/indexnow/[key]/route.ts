@@ -20,9 +20,9 @@ export async function generateStaticParams() {
 
 export async function GET(
     request: NextRequest,
-    context: { params: { key: string } }
+    context: { params: Promise<{ key: string }> }
 ): Promise<NextResponse> {
-    const { key } = context.params;
+    const { key } = await context.params;
     const expectedKey = process.env.INDEXNOW_API_KEY;
 
     if (!expectedKey) {
