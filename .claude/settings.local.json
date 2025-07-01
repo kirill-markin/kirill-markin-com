@@ -5,7 +5,8 @@
       "Bash(npm run lint)",
       "Bash(npx tsc:*)",
       "Bash(npm audit:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(npm install)"
     ],
     "deny": []
   }
