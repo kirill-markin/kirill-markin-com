@@ -20,10 +20,9 @@ export async function generateStaticParams() {
 
 export async function GET(
     request: NextRequest,
-    context: { params: Promise<{ key: string }> }
+    context: { params: { key: string } }
 ): Promise<NextResponse> {
-    // В Next.js 15 параметры являются асинхронными и требуют await
-    const { key } = await context.params;
+    const { key } = context.params;
     const expectedKey = process.env.INDEXNOW_API_KEY;
 
     if (!expectedKey) {

@@ -11,12 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 interface PageProps {
-    params: Promise<{ lang?: string }>;
+    params: { lang?: string };
 }
 
 export default async function Page({ params }: PageProps) {
     // Get language from params, default to English if not provided
-    const { lang = DEFAULT_LANGUAGE } = await params || {};
+    const { lang = DEFAULT_LANGUAGE } = params || {};
 
     return <ShortMeetingPage language={lang} />;
 } 
