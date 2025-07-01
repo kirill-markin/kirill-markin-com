@@ -6,13 +6,13 @@ import ArticlePageContent from '@/components/pages/ArticlePageContent';
 import { getPathSegmentByLanguage } from '@/lib/localization';
 
 interface ArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const article = await getArticleBySlug(slug);
 
   if (!article) {
@@ -93,7 +93,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const article = await getArticleBySlug(slug);
 
   if (!article) {
