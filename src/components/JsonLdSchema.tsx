@@ -97,32 +97,6 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     }
   };
 
-  // Add breadcrumb schema for better navigation understanding
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
-      {
-        '@type': 'ListItem',
-        'position': 1,
-        'name': 'Home',
-        'item': 'https://kirill-markin.com/'
-      },
-      {
-        '@type': 'ListItem',
-        'position': 2,
-        'name': 'Services',
-        'item': 'https://kirill-markin.com/services/'
-      },
-      {
-        '@type': 'ListItem',
-        'position': 3,
-        'name': 'Meeting Options',
-        'item': 'https://kirill-markin.com/meet/'
-      }
-    ]
-  };
-
   return (
     <>
       <script
@@ -136,10 +110,6 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
     </>
   );

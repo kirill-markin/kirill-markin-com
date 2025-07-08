@@ -117,6 +117,7 @@ const Breadcrumbs = () => {
                 <>
                   <span className={styles.currentPage} itemProp="name">{breadcrumb.label}</span>
                   <meta itemProp="position" content={`${index + 1}`} />
+                  <link itemProp="item" href={`${breadcrumb.path}${breadcrumb.path.endsWith('/') ? '' : '/'}`} />
                 </>
               )}
             </li>
