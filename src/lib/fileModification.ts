@@ -8,11 +8,35 @@
 
 // Common files that affect all pages
 const commonFiles = [
+    // Root layout and global styles
     'src/app/layout.tsx',
     'src/app/globals.css',
     'src/app/not-found.tsx',
     'src/app/not-found.module.css',
-    'src/app/not-found-metadata.tsx'
+    'src/app/not-found-metadata.tsx',
+
+    // Layout components (used across all pages)
+    'src/components/layout/LayoutBody.tsx',
+    'src/components/layout/GoogleTagManager.tsx',
+    'src/components/layout/HeadLinks.tsx',
+
+    // Global navigation and structure
+    'src/components/Header.tsx',
+    'src/components/Header.module.css',
+    'src/components/Footer.tsx',
+    'src/components/Footer.module.css',
+    'src/components/Breadcrumbs.tsx',
+    'src/components/Breadcrumbs.module.css',
+
+    // Global visual effects and popups
+    'src/components/GlitchFilters.tsx',
+    'src/components/EmailPopup/EmailPopup.tsx',
+    'src/components/EmailPopup/EmailPopup.module.css',
+    'src/components/EmailPopup/index.ts',
+
+    // Language and localization core files  
+    'src/lib/localization.ts',
+    'src/lib/popupConstants.ts'
 ];
 
 // Mapping pages to their corresponding files for analysis
