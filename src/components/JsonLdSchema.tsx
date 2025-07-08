@@ -67,19 +67,22 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
       '@type': 'OfferCatalog',
       'name': 'Services Offered',
       'itemListElement': servicesOtherData.map((service, index) => ({
-        '@type': 'Offer',
-        'itemOffered': {
-          '@type': 'Service',
-          'name': service.name,
-          'description': service.description.split('\n\n')[0], // Just first paragraph
-          'url': service.buttonUrl.startsWith('http') ? service.buttonUrl : `https://kirill-markin.com${service.buttonUrl.startsWith('/') ? service.buttonUrl : '/' + service.buttonUrl}${!service.buttonUrl.endsWith('/') ? '/' : ''}`,
-          'provider': {
-            '@type': 'Person',
-            'name': personalInfo.name
-          },
-          'serviceType': service.categoryId.replace('for_', '').charAt(0).toUpperCase() + service.categoryId.replace('for_', '').slice(1)
-        },
-        'position': index + 1
+        '@type': 'ListItem',
+        'position': index + 1,
+        'item': {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'Service',
+            'name': service.name,
+            'description': service.description.split('\n\n')[0], // Just first paragraph
+            'url': service.buttonUrl.startsWith('http') ? service.buttonUrl : `https://kirill-markin.com${service.buttonUrl.startsWith('/') ? service.buttonUrl : '/' + service.buttonUrl}${!service.buttonUrl.endsWith('/') ? '/' : ''}`,
+            'provider': {
+              '@type': 'Person',
+              'name': personalInfo.name
+            },
+            'serviceType': service.categoryId.replace('for_', '').charAt(0).toUpperCase() + service.categoryId.replace('for_', '').slice(1)
+          }
+        }
       }))
     }
   };
