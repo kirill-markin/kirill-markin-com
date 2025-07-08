@@ -138,6 +138,17 @@ export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
 curl -v -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" -d '{"host":"kirill-markin.com","key":"'${INDEXNOW_API_KEY}'","keyLocation":"https://kirill-markin.com/'${INDEXNOW_API_KEY}'.txt","urlList":["https://kirill-markin.com/","https://kirill-markin.com/services/","https://kirill-markin.com/articles/"]}'
 ```
 
+### 4. Submit ALL URLs from sitemap (when user requests all links)
+
+```bash
+# Extract all URLs from public sitemap, create JSON payload, and submit
+curl -s https://kirill-markin.com/sitemap.xml | grep -o '<loc>[^<]*</loc>' | sed 's/<loc>//g' | sed 's|</loc>||g' > all_urls.txt
+export INDEXNOW_API_KEY=$(grep INDEXNOW_API_KEY .env.local | cut -d '=' -f2)
+URLS=$(cat all_urls.txt | sed 's/.*/"&"/' | tr '\n' ',' | sed 's/,$//' | sed 's/^/[/' | sed 's/$/]/') && echo "{\"host\":\"kirill-markin.com\",\"key\":\"$INDEXNOW_API_KEY\",\"keyLocation\":\"https://kirill-markin.com/$INDEXNOW_API_KEY.txt\",\"urlList\":$URLS}" > indexnow_payload.json
+curl -v -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" -d @indexnow_payload.json
+rm all_urls.txt indexnow_payload.json
+```
+
 ## API Response Codes
 
 IndexNow API returns the following status codes (which you'll see in the `-v` output):
