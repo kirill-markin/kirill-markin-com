@@ -130,6 +130,54 @@ export const pageFilesMap: Record<string, string[]> = {
 };
 
 /**
+ * Limits concurrent async operations
+ */
+async function limitConcurrency<T, R>(
+    items: T[],
+    asyncFunction: (item: T) => Promise<R>,
+    limit: number = 5
+): Promise<R[]> {
+    const results: R[] = [];
+
+    for (let i = 0; i < items.length; i += limit) {
+        const batch = items.slice(i, i + limit);
+        const batchResults = await Promise.all(
+            batch.map(item => asyncFunction(item))
+        );
+        results.push(...batchResults);
+    }
+
+    return results;
+}
+
+/**
+ * Retry function with exponential backoff
+ */
+async function retryFetch(url: string, options: RequestInit, maxRetries = 3): Promise<Response> {
+    let lastError: Error;
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        try {
+            const response = await fetch(url, options);
+            return response;
+        } catch (error) {
+            lastError = error as Error;
+
+            if (attempt === maxRetries) {
+                throw lastError;
+            }
+
+            // Exponential backoff: wait 2^attempt seconds
+            const delay = Math.pow(2, attempt) * 1000;
+            console.warn(`Fetch attempt ${attempt + 1} failed, retrying in ${delay}ms:`, error);
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+    }
+
+    throw lastError!;
+}
+
+/**
  * Gets the last Git commit date for a file using GitHub API
  * @param filePath Path to the file
  * @returns The date of the last commit that modified the file
@@ -151,11 +199,13 @@ export async function getFileLastCommitDate(filePath: string): Promise<Date> {
 
         console.warn('Fetching GitHub commit info:', { githubUrl, filePath });
 
-        const response = await fetch(githubUrl, {
+        const response = await retryFetch(githubUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 Accept: 'application/vnd.github.v3+json',
             },
+            // Add timeout configuration
+            signal: AbortSignal.timeout(30000), // 30 seconds timeout
         });
 
         if (!response.ok) {
@@ -193,9 +243,11 @@ export async function getPageLastModifiedDate(pagePath: string): Promise<Date> {
             return new Date();
         }
 
-        // Get the latest commit date for each file
-        const fileDates = await Promise.all(
-            relevantFiles.map(file => getFileLastCommitDate(file))
+        // Get the latest commit date for each file with limited concurrency
+        const fileDates = await limitConcurrency(
+            relevantFiles,
+            (file) => getFileLastCommitDate(file),
+            3 // Limit to 3 concurrent requests to avoid overwhelming GitHub API
         );
 
         // Return the most recent date
