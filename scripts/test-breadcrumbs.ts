@@ -33,19 +33,30 @@ interface BreadcrumbList {
     itemListElement: BreadcrumbItem[];
 }
 
-// Extract breadcrumbs from HTML
-const extractBreadcrumbs = (html: string): BreadcrumbList | null => {
+interface BreadcrumbsData {
+    jsonLd: BreadcrumbList | null;
+    microdata: BreadcrumbList | null;
+    hasJsonLd: boolean;
+    hasMicrodata: boolean;
+}
+
+// Extract breadcrumbs from HTML - both JSON-LD and microdata
+const extractBreadcrumbs = (html: string): BreadcrumbsData => {
     const dom = new JSDOM(html);
     const document = dom.window.document;
+
+    let jsonLd: BreadcrumbList | null = null;
+    let microdata: BreadcrumbList | null = null;
 
     // Look for BreadcrumbList JSON-LD
     const scripts = document.querySelectorAll('script[type="application/ld+json"]');
 
     for (const script of Array.from(scripts)) {
         try {
-            const jsonLd = JSON.parse(script.textContent || '');
-            if (jsonLd['@type'] === 'BreadcrumbList') {
-                return jsonLd;
+            const parsed = JSON.parse(script.textContent || '');
+            if (parsed['@type'] === 'BreadcrumbList') {
+                jsonLd = parsed;
+                break;
             }
         } catch {
             // Skip invalid JSON
@@ -56,7 +67,7 @@ const extractBreadcrumbs = (html: string): BreadcrumbList | null => {
     const breadcrumbNav = document.querySelector('[itemType="https://schema.org/BreadcrumbList"]');
     if (breadcrumbNav) {
         const items = Array.from(breadcrumbNav.querySelectorAll('[itemType="https://schema.org/ListItem"]'));
-        return {
+        microdata = {
             '@type': 'BreadcrumbList',
             'itemListElement': items.map(item => {
                 const nameElement = item.querySelector('[itemProp="name"]');
@@ -73,13 +84,18 @@ const extractBreadcrumbs = (html: string): BreadcrumbList | null => {
         };
     }
 
-    return null;
+    return {
+        jsonLd,
+        microdata,
+        hasJsonLd: jsonLd !== null,
+        hasMicrodata: microdata !== null
+    };
 };
 
 interface TestResult {
     url: string;
     status: string;
-    breadcrumbs: BreadcrumbList | null;
+    breadcrumbs: BreadcrumbsData;
     error?: string;
 }
 
@@ -89,41 +105,72 @@ const testUrl = async (url: string): Promise<TestResult> => {
         console.log(`Testing: ${url}`);
         const response = await fetch(url);
 
+        const emptyBreadcrumbs: BreadcrumbsData = {
+            jsonLd: null,
+            microdata: null,
+            hasJsonLd: false,
+            hasMicrodata: false
+        };
+
         if (!response.ok) {
-            return { url, status: 'ERROR', breadcrumbs: null, error: `HTTP ${response.status}` };
+            return { url, status: 'ERROR', breadcrumbs: emptyBreadcrumbs, error: `HTTP ${response.status}` };
         }
 
         const html = await response.text();
         const breadcrumbs = extractBreadcrumbs(html);
 
-        if (!breadcrumbs) {
-            return { url, status: 'NO_BREADCRUMBS', breadcrumbs: null };
+        if (!breadcrumbs.hasJsonLd && !breadcrumbs.hasMicrodata) {
+            return { url, status: 'NO_BREADCRUMBS', breadcrumbs };
         }
 
-        // Check for "unnamed" items
-        const items = breadcrumbs.itemListElement || [];
-        const hasUnnamed = items.some((item: BreadcrumbItem) =>
-            !item.name || item.name === 'UNNAMED' || item.name.toString().toLowerCase().includes('unnamed')
-        );
+        // Function to check for problems in breadcrumb items
+        const checkBreadcrumbItems = (items: BreadcrumbItem[]) => {
+            const hasUnnamed = items.some((item: BreadcrumbItem) =>
+                !item.name || item.name === 'UNNAMED' || item.name.toString().toLowerCase().includes('unnamed')
+            );
 
-        const hasMissingData = items.some((item: BreadcrumbItem) =>
-            !item.position || item.position === 'NO_POSITION' ||
-            !item.item || item.item === 'NO_ITEM'
-        );
+            const hasMissingData = items.some((item: BreadcrumbItem) =>
+                !item.position || item.position === 'NO_POSITION' ||
+                !item.item || item.item === 'NO_ITEM'
+            );
 
-        if (hasUnnamed) {
+            return { hasUnnamed, hasMissingData };
+        };
+
+        // Check JSON-LD and microdata for issues
+        const jsonLdItems = breadcrumbs.jsonLd?.itemListElement || [];
+        const microdataItems = breadcrumbs.microdata?.itemListElement || [];
+
+        const jsonLdCheck = checkBreadcrumbItems(jsonLdItems);
+        const microdataCheck = checkBreadcrumbItems(microdataItems);
+
+        // Determine overall status
+        if (jsonLdCheck.hasUnnamed || microdataCheck.hasUnnamed) {
             return { url, status: 'HAS_UNNAMED', breadcrumbs };
         }
 
-        if (hasMissingData) {
+        if (jsonLdCheck.hasMissingData || microdataCheck.hasMissingData) {
             return { url, status: 'MISSING_DATA', breadcrumbs };
+        }
+
+        // Check if we have both JSON-LD and microdata (best practice)
+        if (breadcrumbs.hasJsonLd && breadcrumbs.hasMicrodata) {
+            return { url, status: 'OK_BOTH', breadcrumbs };
+        } else if (breadcrumbs.hasJsonLd || breadcrumbs.hasMicrodata) {
+            return { url, status: 'OK_PARTIAL', breadcrumbs };
         }
 
         return { url, status: 'OK', breadcrumbs };
 
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : String(error);
-        return { url, status: 'ERROR', breadcrumbs: null, error: errorMessage };
+        const emptyBreadcrumbs: BreadcrumbsData = {
+            jsonLd: null,
+            microdata: null,
+            hasJsonLd: false,
+            hasMicrodata: false
+        };
+        return { url, status: 'ERROR', breadcrumbs: emptyBreadcrumbs, error: errorMessage };
     }
 };
 
@@ -160,6 +207,8 @@ const main = async () => {
     const summary = {
         total: results.length,
         ok: results.filter(r => r.status === 'OK').length,
+        okBoth: results.filter(r => r.status === 'OK_BOTH').length,
+        okPartial: results.filter(r => r.status === 'OK_PARTIAL').length,
         hasUnnamed: results.filter(r => r.status === 'HAS_UNNAMED').length,
         missingData: results.filter(r => r.status === 'MISSING_DATA').length,
         noBreadcrumbs: results.filter(r => r.status === 'NO_BREADCRUMBS').length,
@@ -167,14 +216,18 @@ const main = async () => {
     };
 
     console.log('\n📊 SUMMARY:');
-    console.log(`✅ OK: ${summary.ok}/${summary.total}`);
+    console.log(`✅ Perfect (JSON-LD + microdata): ${summary.okBoth}/${summary.total}`);
+    console.log(`⚡ Partial (JSON-LD or microdata): ${summary.okPartial}/${summary.total}`);
+    console.log(`🆗 OK (other): ${summary.ok}/${summary.total}`);
     console.log(`❌ Has unnamed: ${summary.hasUnnamed}`);
     console.log(`⚠️  Missing data: ${summary.missingData}`);
     console.log(`🚫 No breadcrumbs: ${summary.noBreadcrumbs}`);
     console.log(`💥 Errors: ${summary.errors}`);
 
     // Show detailed results for problematic pages
-    const problematic = results.filter(r => r.status !== 'OK' && r.status !== 'NO_BREADCRUMBS');
+    const problematic = results.filter(r =>
+        !['OK', 'OK_BOTH', 'OK_PARTIAL', 'NO_BREADCRUMBS'].includes(r.status)
+    );
 
     if (problematic.length > 0) {
         console.log('\n🔍 PROBLEMATIC PAGES:');
@@ -183,9 +236,19 @@ const main = async () => {
             if (result.error) {
                 console.log(`  Error: ${result.error}`);
             }
-            if (result.breadcrumbs && result.breadcrumbs.itemListElement) {
-                console.log('  Breadcrumbs:');
-                result.breadcrumbs.itemListElement.forEach((item: BreadcrumbItem, index: number) => {
+
+            // Show JSON-LD breadcrumbs if available
+            if (result.breadcrumbs.jsonLd?.itemListElement) {
+                console.log('  JSON-LD Breadcrumbs:');
+                result.breadcrumbs.jsonLd.itemListElement.forEach((item: BreadcrumbItem, index: number) => {
+                    console.log(`    ${index + 1}. "${item.name}" (pos: ${item.position}, item: ${item.item})`);
+                });
+            }
+
+            // Show microdata breadcrumbs if available
+            if (result.breadcrumbs.microdata?.itemListElement) {
+                console.log('  Microdata Breadcrumbs:');
+                result.breadcrumbs.microdata.itemListElement.forEach((item: BreadcrumbItem, index: number) => {
                     console.log(`    ${index + 1}. "${item.name}" (pos: ${item.position}, item: ${item.item})`);
                 });
             }
@@ -202,16 +265,25 @@ const main = async () => {
     }
 
     // Show some successful examples
-    const successful = results.filter(r => r.status === 'OK').slice(0, 3);
+    const successful = results.filter(r => ['OK', 'OK_BOTH', 'OK_PARTIAL'].includes(r.status)).slice(0, 3);
     if (successful.length > 0) {
         console.log('\n✅ SUCCESSFUL EXAMPLES:');
         successful.forEach(result => {
-            console.log(`\n${result.url}`);
-            if (result.breadcrumbs && result.breadcrumbs.itemListElement) {
-                result.breadcrumbs.itemListElement.forEach((item: BreadcrumbItem, index: number) => {
+            console.log(`\n${result.url} (${result.status})`);
+
+            // Prefer JSON-LD if available, fallback to microdata
+            const breadcrumbData = result.breadcrumbs.jsonLd || result.breadcrumbs.microdata;
+            if (breadcrumbData?.itemListElement) {
+                breadcrumbData.itemListElement.forEach((item: BreadcrumbItem, index: number) => {
                     console.log(`  ${index + 1}. "${item.name}" → ${item.item}`);
                 });
             }
+
+            // Show which format(s) are available
+            const formats = [];
+            if (result.breadcrumbs.hasJsonLd) formats.push('JSON-LD');
+            if (result.breadcrumbs.hasMicrodata) formats.push('microdata');
+            console.log(`  Formats: ${formats.join(', ')}`);
         });
     }
 };

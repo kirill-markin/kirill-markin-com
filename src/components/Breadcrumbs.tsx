@@ -89,42 +89,63 @@ const Breadcrumbs = () => {
 
   const breadcrumbs = getBreadcrumbs(pathname);
 
+  // Generate JSON-LD schema for breadcrumbs
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': breadcrumbs.map((breadcrumb, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': breadcrumb.label,
+      'item': `https://kirill-markin.com${breadcrumb.path}${breadcrumb.path.endsWith('/') ? '' : '/'}`
+    }))
+  };
+
   return (
-    <nav className={styles.breadcrumbsContainer} aria-label="Breadcrumbs">
-      <div className={styles.breadcrumbsContentWrapper}>
-        <ol className={styles.breadcrumbsList} itemScope itemType="https://schema.org/BreadcrumbList">
-          {breadcrumbs.map((breadcrumb, index) => (
-            <li
-              key={breadcrumb.id}
-              className={styles.breadcrumbItem}
-              itemProp="itemListElement"
-              itemScope
-              itemType="https://schema.org/ListItem"
-            >
-              {index < breadcrumbs.length - 1 ? (
-                <>
-                  <Link
-                    href={breadcrumb.path}
-                    className={styles.breadcrumbLink}
-                    itemProp="item"
-                  >
-                    <span itemProp="name">{breadcrumb.label}</span>
-                  </Link>
-                  <meta itemProp="position" content={`${index + 1}`} />
-                  <span className={styles.separator}>/</span>
-                </>
-              ) : (
-                <>
-                  <span className={styles.currentPage} itemProp="name">{breadcrumb.label}</span>
-                  <meta itemProp="position" content={`${index + 1}`} />
-                  <link itemProp="item" href={`${breadcrumb.path}${breadcrumb.path.endsWith('/') ? '' : '/'}`} />
-                </>
-              )}
-            </li>
-          ))}
-        </ol>
-      </div>
-    </nav>
+    <>
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      {/* HTML with microdata */}
+      <nav className={styles.breadcrumbsContainer} aria-label="Breadcrumbs">
+        <div className={styles.breadcrumbsContentWrapper}>
+          <ol className={styles.breadcrumbsList} itemScope itemType="https://schema.org/BreadcrumbList">
+            {breadcrumbs.map((breadcrumb, index) => (
+              <li
+                key={breadcrumb.id}
+                className={styles.breadcrumbItem}
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/ListItem"
+              >
+                {index < breadcrumbs.length - 1 ? (
+                  <>
+                    <Link
+                      href={breadcrumb.path}
+                      className={styles.breadcrumbLink}
+                      itemProp="item"
+                    >
+                      <span itemProp="name">{breadcrumb.label}</span>
+                    </Link>
+                    <meta itemProp="position" content={`${index + 1}`} />
+                    <span className={styles.separator}>/</span>
+                  </>
+                ) : (
+                  <>
+                    <span className={styles.currentPage} itemProp="name">{breadcrumb.label}</span>
+                    <meta itemProp="position" content={`${index + 1}`} />
+                    <link itemProp="item" href={`${breadcrumb.path}${breadcrumb.path.endsWith('/') ? '' : '/'}`} />
+                  </>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </nav>
+    </>
   );
 };
 
