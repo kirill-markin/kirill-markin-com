@@ -71,6 +71,20 @@ export const SUB_PATH_SEGMENTS: Record<string, Record<string, Record<string, str
             'ar': 'majani',
             'hi': 'muft'
         },
+        'medium': {
+            'en': 'medium',
+            'es': 'medio',
+            'zh': 'zhong',
+            'ar': 'mutawassit',
+            'hi': 'madhyam'
+        },
+        'long': {
+            'en': 'long',
+            'es': 'largo',
+            'zh': 'chang',
+            'ar': 'tawil',
+            'hi': 'lamba'
+        },
         'all': {
             'en': 'all',
             'es': 'completo',
@@ -927,6 +941,18 @@ export const translations = {
                 metaTitle: 'Free 15-Minute AI Strategy Consultation | Kirill Markin',
                 metaDescription: 'Book a complimentary 15-minute introduction call with AI expert Kirill Markin. Discuss your AI strategy needs and explore collaboration opportunities.'
             },
+            mediumMeeting: {
+                title: '30-Minute Strategy Session',
+                description: 'Focused consultation to discuss your specific AI implementation needs and strategic planning',
+                metaTitle: 'Book 30-Minute AI Strategy Session | Kirill Markin',
+                metaDescription: 'Schedule a 30-minute AI strategy consultation with expert Kirill Markin. Discuss implementation plans and strategic guidance for your business.'
+            },
+            longMeeting: {
+                title: '60-Minute Deep Dive',
+                description: 'Comprehensive consultation for detailed AI strategy planning and implementation roadmap',
+                metaTitle: 'Book 60-Minute AI Strategy Deep Dive | Kirill Markin',
+                metaDescription: 'Schedule a comprehensive 60-minute AI strategy session with Kirill Markin. In-depth consultation on implementation, planning, and digital transformation.'
+            },
             allMeetings: {
                 title: 'All Consultation Options',
                 description: 'View all available consultation durations and book a time that works for your schedule',
@@ -934,6 +960,8 @@ export const translations = {
                 metaDescription: 'Browse all consultation options with AI strategy expert Kirill Markin. Schedule a personalized session on AI implementation and digital transformation.'
             },
             shortPageTitle: '15-MINUTE WELCOME MEETING',
+            mediumPageTitle: '30-MINUTE STRATEGY SESSION',
+            longPageTitle: '60-MINUTE DEEP DIVE',
             allPageTitle: 'ALL CONSULTATION OPTIONS',
             calendarLoading: 'Loading calendar...'
         },
@@ -948,6 +976,18 @@ export const translations = {
                 metaTitle: 'Consulta Gratuita de Estrategia de IA (15 Min) | Kirill Markin',
                 metaDescription: 'Reserve una llamada gratuita de 15 minutos con el experto en IA Kirill Markin. Discuta sus necesidades y explore oportunidades de colaboración.',
             },
+            mediumMeeting: {
+                title: 'Sesión de Estrategia de 30 Minutos',
+                description: 'Consulta enfocada para discutir sus necesidades específicas de implementación de IA y planificación estratégica',
+                metaTitle: 'Reserve Sesión de Estrategia de IA (30 Min) | Kirill Markin',
+                metaDescription: 'Programe una consulta de estrategia de IA de 30 minutos con el experto Kirill Markin. Discuta planes de implementación y orientación estratégica.'
+            },
+            longMeeting: {
+                title: 'Inmersión Profunda de 60 Minutos',
+                description: 'Consulta integral para planificación detallada de estrategia de IA y hoja de ruta de implementación',
+                metaTitle: 'Reserve Inmersión Profunda de IA (60 Min) | Kirill Markin',
+                metaDescription: 'Programe una sesión integral de estrategia de IA de 60 minutos con Kirill Markin. Consulta en profundidad sobre implementación y transformación digital.'
+            },
             allMeetings: {
                 title: 'Todas las Opciones de Consulta',
                 description: 'Vea todas las duraciones de consulta disponibles y reserve un horario que se adapte a su agenda',
@@ -955,6 +995,8 @@ export const translations = {
                 metaDescription: 'Explore opciones de consulta con el experto en IA Kirill Markin. Programe una sesión personalizada sobre implementación de IA y transformación digital.',
             },
             shortPageTitle: 'REUNIÓN DE BIENVENIDA DE 15 MINUTOS',
+            mediumPageTitle: 'SESIÓN DE ESTRATEGIA DE 30 MINUTOS',
+            longPageTitle: 'INMERSIÓN PROFUNDA DE 60 MINUTOS',
             allPageTitle: 'TODAS LAS OPCIONES DE CONSULTA',
             calendarLoading: 'Cargando calendario...'
         },
@@ -969,6 +1011,18 @@ export const translations = {
                 metaTitle: '15分钟免费AI战略咨询 | 人工智能专家服务 | 数字化转型解决方案 | Kirill Markin',
                 metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案，帮助企业实现数字化转型。了解如何将AI技术应用到您的业务中，无需前期投入。我们将评估您的需求，提供针对性建议，助力企业保持竞争优势。'
             },
+            mediumMeeting: {
+                title: '30分钟战略会议',
+                description: '专注讨论您的具体AI实施需求和战略规划的深度咨询',
+                metaTitle: '30分钟AI战略咨询 | 人工智能实施规划 | Kirill Markin',
+                metaDescription: '预约与AI专家Kirill Markin的30分钟战略咨询。讨论实施计划和战略指导，为您的业务提供专业建议。'
+            },
+            longMeeting: {
+                title: '60分钟深度咨询',
+                description: '全面的AI战略规划和实施路线图的综合咨询服务',
+                metaTitle: '60分钟AI战略深度咨询 | 综合实施规划 | Kirill Markin',
+                metaDescription: '预约与Kirill Markin的60分钟综合AI战略会议。深入咨询实施、规划和数字化转型的全面解决方案。'
+            },
             allMeetings: {
                 title: '所有咨询选项',
                 description: '多种咨询时长选择，深度技术讨论与战略规划，满足不同阶段需求。',
@@ -976,6 +1030,8 @@ export const translations = {
                 metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议，获取专业技术解决方案和战略建议。中文服务，专为中国企业设计。我们提供15分钟免费介绍会议，以及30分钟、60分钟和90分钟不同深度的付费咨询服务，满足您从初步了解到深入战略规划的各类需求。'
             },
             shortPageTitle: '15分钟欢迎会议',
+            mediumPageTitle: '30分钟战略会议',
+            longPageTitle: '60分钟深度咨询',
             allPageTitle: '所有咨询选项',
             calendarLoading: '正在加载日历...'
         },
@@ -990,6 +1046,18 @@ export const translations = {
                 metaTitle: 'استشارة مجانية لاستراتيجية الذكاء الاصطناعي (15 دقيقة) | كيريل ماركين',
                 metaDescription: 'احجز مكالمة تعريفية مجانية مع خبير الذكاء الاصطناعي كيريل ماركين. ناقش احتياجاتك التقنية واستكشف فرص التعاون المستقبلية في مجال الذكاء الاصطناعي باللغة العربية.'
             },
+            mediumMeeting: {
+                title: 'جلسة استراتيجية لمدة 30 دقيقة',
+                description: 'استشارة مركزة لمناقشة احتياجاتك المحددة لتنفيذ الذكاء الاصطناعي والتخطيط الاستراتيجي',
+                metaTitle: 'احجز جلسة استراتيجية للذكاء الاصطناعي (30 دقيقة) | كيريل ماركين',
+                metaDescription: 'جدولة استشارة استراتيجية للذكاء الاصطناعي لمدة 30 دقيقة مع الخبير كيريل ماركين. ناقش خطط التنفيذ والتوجيه الاستراتيجي.'
+            },
+            longMeeting: {
+                title: 'غوص عميق لمدة 60 دقيقة',
+                description: 'استشارة شاملة للتخطيط المفصل لاستراتيجية الذكاء الاصطناعي وخارطة طريق التنفيذ',
+                metaTitle: 'احجز غوص عميق للذكاء الاصطناعي (60 دقيقة) | كيريل ماركين',
+                metaDescription: 'جدولة جلسة شاملة لاستراتيجية الذكاء الاصطناعي لمدة 60 دقيقة مع كيريل ماركين. استشارة متعمقة حول التنفيذ والتخطيط والتحول الرقمي.'
+            },
             allMeetings: {
                 title: 'جميع خيارات الاستشارة',
                 description: 'اطلع على جميع مدد الاستشارة المتاحة واحجز وقتًا يناسب جدولك',
@@ -997,6 +1065,8 @@ export const translations = {
                 metaDescription: 'تصفح خيارات الاستشارة المتنوعة مع خبير الذكاء الاصطناعي كيريل ماركين. جدولة جلسة مخصصة حول تنفيذ الذكاء الاصطناعي والتحول الرقمي لمشروعك أو شركتك.'
             },
             shortPageTitle: 'اجتماع ترحيبي لمدة 15 دقيقة',
+            mediumPageTitle: 'جلسة استراتيجية لمدة 30 دقيقة',
+            longPageTitle: 'غوص عميق لمدة 60 دقيقة',
             allPageTitle: 'جميع خيارات الاستشارة',
             calendarLoading: 'جاري تحميل التقويم...'
         },
@@ -1011,6 +1081,18 @@ export const translations = {
                 metaTitle: 'मुफ्त 15-मिनट एआई रणनीति परामर्श | प्रौद्योगिकी समाधान | किरिल मार्किन',
                 metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ 15-मिनट का मुफ्त परिचयात्मक कॉल बुक करें। अपनी रणनीति आवश्यकताओं पर चर्चा करें और भारतीय व्यवसायों के लिए एआई समाधान खोजें।'
             },
+            mediumMeeting: {
+                title: '30-मिनट रणनीति सत्र',
+                description: 'आपकी विशिष्ट एआई कार्यान्वयन आवश्यकताओं और रणनीतिक योजना पर चर्चा के लिए केंद्रित परामर्श',
+                metaTitle: '30-मिनट एआई रणनीति सत्र बुक करें | किरिल मार्किन',
+                metaDescription: 'विशेषज्ञ किरिल मार्किन के साथ 30-मिनट का एआई रणनीति परामर्श शेड्यूल करें। कार्यान्वयन योजनाओं और रणनीतिक मार्गदर्शन पर चर्चा करें।'
+            },
+            longMeeting: {
+                title: '60-मिनट गहरी चर्चा',
+                description: 'विस्तृत एआई रणनीति योजना और कार्यान्वयन रोडमैप के लिए व्यापक परामर्श',
+                metaTitle: '60-मिनट एआई रणनीति गहरी चर्चा बुक करें | किरिल मार्किन',
+                metaDescription: 'किरिल मार्किन के साथ 60-मिनट का व्यापक एआई रणनीति सत्र शेड्यूल करें। कार्यान्वयन, योजना और डिजिटल परिवर्तन पर गहन परामर्श।'
+            },
             allMeetings: {
                 title: 'सभी परामर्श विकल्प',
                 description: 'सभी उपलब्ध परामर्श अवधियों को देखें और अपनी समय-सारिणी के अनुसार एक समय बुक करें',
@@ -1018,6 +1100,8 @@ export const translations = {
                 metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श विकल्प देखें। कृत्रिम बुद्धिमत्ता कार्यान्वयन पर व्यक्तिगत सत्र शेड्यूल करें। भारतीय व्यवसायों के लिए अनुकूलित सेवाएं।'
             },
             shortPageTitle: '15-मिनट का स्वागत मीटिंग',
+            mediumPageTitle: '30-मिनट रणनीति सत्र',
+            longPageTitle: '60-मिनट गहरी चर्चा',
             allPageTitle: 'सभी परामर्श विकल्प',
             calendarLoading: 'कैलेंडर लोड हो रहा है...'
         }

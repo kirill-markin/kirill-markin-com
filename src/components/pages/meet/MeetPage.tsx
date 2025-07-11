@@ -17,6 +17,14 @@ export default function MeetPage({ language = DEFAULT_LANGUAGE }: MeetPageProps)
         ? '/meet/short/'
         : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'short', language)}/`;
 
+    const mediumPath = language === DEFAULT_LANGUAGE
+        ? '/meet/medium/'
+        : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'medium', language)}/`;
+
+    const longPath = language === DEFAULT_LANGUAGE
+        ? '/meet/long/'
+        : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'long', language)}/`;
+
     const allPath = language === DEFAULT_LANGUAGE
         ? '/meet/all/'
         : `/${language}/${getPathSegmentByLanguage('meet', language)}/${getSubPathSegmentByLanguage('meet', 'all', language)}/`;
@@ -46,6 +54,38 @@ export default function MeetPage({ language = DEFAULT_LANGUAGE }: MeetPageProps)
                         <div className={styles.bookingMethodDetails}>
                             <h2>{translations.shortMeeting.title}</h2>
                             <p>{translations.shortMeeting.description}</p>
+                        </div>
+                    </Link>
+
+                    <Link href={mediumPath} className={styles.bookingMethod}>
+                        <div className={styles.bookingMethodLogo}>
+                            <Image
+                                src="/icons/booking/calendar-icon.svg"
+                                alt="Medium Meeting"
+                                className={styles.bookingLogo}
+                                width={40}
+                                height={40}
+                            />
+                        </div>
+                        <div className={styles.bookingMethodDetails}>
+                            <h2>{translations.mediumMeeting.title}</h2>
+                            <p>{translations.mediumMeeting.description}</p>
+                        </div>
+                    </Link>
+
+                    <Link href={longPath} className={styles.bookingMethod}>
+                        <div className={styles.bookingMethodLogo}>
+                            <Image
+                                src="/icons/booking/calendar-icon.svg"
+                                alt="Long Meeting"
+                                className={styles.bookingLogo}
+                                width={40}
+                                height={40}
+                            />
+                        </div>
+                        <div className={styles.bookingMethodDetails}>
+                            <h2>{translations.longMeeting.title}</h2>
+                            <p>{translations.longMeeting.description}</p>
                         </div>
                     </Link>
 

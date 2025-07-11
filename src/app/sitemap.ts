@@ -36,6 +36,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/fractional-ai-cto-kirill-markin/',
     '/meet/',
     '/meet/short/',
+    '/meet/medium/',
+    '/meet/long/',
     '/meet/all/',
     '/pay/',
     '/pay/stripe/',
@@ -82,6 +84,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         `/${lang}/${getPathSegmentByLanguage('services', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`,
+        `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'medium', lang)}/`,
+        `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'long', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/`,
         `/${lang}/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`,
@@ -96,6 +100,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           .replace(`/${getPathSegmentByLanguage('services', lang)}/`, '/services/')
           .replace(`/${getPathSegmentByLanguage('articles', lang)}/`, '/articles/')
           .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`, '/meet/short/')
+          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'medium', lang)}/`, '/meet/medium/')
+          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'long', lang)}/`, '/meet/long/')
           .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`, '/meet/all/')
           .replace(`/${getPathSegmentByLanguage('meet', lang)}/`, '/meet/')
           .replace(`/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`, '/pay/stripe/')

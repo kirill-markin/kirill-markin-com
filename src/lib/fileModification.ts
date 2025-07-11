@@ -72,6 +72,16 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/app/(default)/meet/page.module.css',
         ...commonFiles
     ],
+    '/meet/medium/': [
+        'src/app/(default)/meet/medium/page.tsx',
+        'src/app/(default)/meet/page.module.css',
+        ...commonFiles
+    ],
+    '/meet/long/': [
+        'src/app/(default)/meet/long/page.tsx',
+        'src/app/(default)/meet/page.module.css',
+        ...commonFiles
+    ],
     '/meet/all/': [
         'src/app/(default)/meet/all/page.tsx',
         'src/app/(default)/meet/page.module.css',

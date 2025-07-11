@@ -347,7 +347,7 @@ export function generateServicesPageMetadata(
 export function generateMeetPageMetadata(
     options: {
         language: string;
-        type?: 'index' | 'short' | 'all';
+        type?: 'index' | 'short' | 'medium' | 'long' | 'all';
     }
 ): Metadata {
     const { language, type = 'index' } = options;
@@ -369,6 +369,20 @@ export function generateMeetPageMetadata(
             meetTranslations.shortMeeting?.description ||
             'Schedule a free 15-minute introduction call with Kirill Markin to discuss your needs and how we can work together.');
         canonicalPath = '/meet/short/';
+    } else if (type === 'medium') {
+        title = meetTranslations.mediumMeeting?.metaTitle ||
+            meetTranslations.mediumMeeting?.title || '30-Minute Strategy Session';
+        description = String(meetTranslations.mediumMeeting?.metaDescription ||
+            meetTranslations.mediumMeeting?.description ||
+            'Schedule a 30-minute focused consultation to discuss your AI implementation needs and strategic planning.');
+        canonicalPath = '/meet/medium/';
+    } else if (type === 'long') {
+        title = meetTranslations.longMeeting?.metaTitle ||
+            meetTranslations.longMeeting?.title || '60-Minute Deep Dive';
+        description = String(meetTranslations.longMeeting?.metaDescription ||
+            meetTranslations.longMeeting?.description ||
+            'Schedule a comprehensive 60-minute consultation for detailed AI strategy planning and implementation roadmap.');
+        canonicalPath = '/meet/long/';
     } else if (type === 'all') {
         title = meetTranslations.allMeetings?.metaTitle ||
             meetTranslations.allMeetings?.title || 'All Meeting Options';
@@ -396,6 +410,14 @@ export function generateMeetPageMetadata(
         meetTypeSegment = language === DEFAULT_LANGUAGE
             ? '/short'
             : `/${getSubPathSegmentByLanguage('meet', 'short', language)}`;
+    } else if (type === 'medium') {
+        meetTypeSegment = language === DEFAULT_LANGUAGE
+            ? '/medium'
+            : `/${getSubPathSegmentByLanguage('meet', 'medium', language)}`;
+    } else if (type === 'long') {
+        meetTypeSegment = language === DEFAULT_LANGUAGE
+            ? '/long'
+            : `/${getSubPathSegmentByLanguage('meet', 'long', language)}`;
     } else if (type === 'all') {
         meetTypeSegment = language === DEFAULT_LANGUAGE
             ? '/all'
@@ -425,6 +447,14 @@ export function generateMeetPageMetadata(
             langMeetTypeSegment = lang === DEFAULT_LANGUAGE
                 ? '/short'
                 : `/${getSubPathSegmentByLanguage('meet', 'short', lang)}`;
+        } else if (type === 'medium') {
+            langMeetTypeSegment = lang === DEFAULT_LANGUAGE
+                ? '/medium'
+                : `/${getSubPathSegmentByLanguage('meet', 'medium', lang)}`;
+        } else if (type === 'long') {
+            langMeetTypeSegment = lang === DEFAULT_LANGUAGE
+                ? '/long'
+                : `/${getSubPathSegmentByLanguage('meet', 'long', lang)}`;
         } else if (type === 'all') {
             langMeetTypeSegment = lang === DEFAULT_LANGUAGE
                 ? '/all'

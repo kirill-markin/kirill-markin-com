@@ -1,4 +1,4 @@
-import { ShortMeetingPage, AllMeetingsPage } from '@/components/pages/meet';
+import { MeetingPageTemplate } from '@/components/pages/meet';
 import { StripePaymentPage } from '@/components/pages/pay';
 import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, isValidLanguage } from '@/lib/localization';
 import { redirect, notFound } from 'next/navigation';
@@ -34,6 +34,8 @@ export async function generateStaticParams() {
 
         // Get subsegments for meet
         const shortSubsegment = getSubPathSegmentByLanguage('meet', 'short', lang);
+        const mediumSubsegment = getSubPathSegmentByLanguage('meet', 'medium', lang);
+        const longSubsegment = getSubPathSegmentByLanguage('meet', 'long', lang);
         const allSubsegment = getSubPathSegmentByLanguage('meet', 'all', lang);
 
         // Add meet subsegments
@@ -41,6 +43,18 @@ export async function generateStaticParams() {
             lang,
             segment: meetSegment,
             subsegment: shortSubsegment
+        });
+
+        params.push({
+            lang,
+            segment: meetSegment,
+            subsegment: mediumSubsegment
+        });
+
+        params.push({
+            lang,
+            segment: meetSegment,
+            subsegment: longSubsegment
         });
 
         params.push({
@@ -87,6 +101,8 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 
     // Get expected subsegment values
     const shortSubsegment = getSubPathSegmentByLanguage('meet', 'short', lang);
+    const mediumSubsegment = getSubPathSegmentByLanguage('meet', 'medium', lang);
+    const longSubsegment = getSubPathSegmentByLanguage('meet', 'long', lang);
     const allSubsegment = getSubPathSegmentByLanguage('meet', 'all', lang);
     const stripeSubsegment = getSubPathSegmentByLanguage('pay', 'stripe', lang);
 
@@ -95,6 +111,22 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
         return generateMeetPageMetadata({
             language: lang,
             type: 'short'
+        });
+    }
+
+    // For medium meetings
+    if (segment === meetSegment && subsegment === mediumSubsegment) {
+        return generateMeetPageMetadata({
+            language: lang,
+            type: 'medium'
+        });
+    }
+
+    // For long meetings
+    if (segment === meetSegment && subsegment === longSubsegment) {
+        return generateMeetPageMetadata({
+            language: lang,
+            type: 'long'
         });
     }
 
@@ -213,6 +245,8 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
 
     // Get expected subsegment values
     const shortSubsegment = getSubPathSegmentByLanguage('meet', 'short', lang);
+    const mediumSubsegment = getSubPathSegmentByLanguage('meet', 'medium', lang);
+    const longSubsegment = getSubPathSegmentByLanguage('meet', 'long', lang);
     const allSubsegment = getSubPathSegmentByLanguage('meet', 'all', lang);
     const stripeSubsegment = getSubPathSegmentByLanguage('pay', 'stripe', lang);
 
@@ -221,6 +255,10 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
         if (segment === meetSegment) {
             if (subsegment === shortSubsegment) {
                 redirect('/meet/short');
+            } else if (subsegment === mediumSubsegment) {
+                redirect('/meet/medium');
+            } else if (subsegment === longSubsegment) {
+                redirect('/meet/long');
             } else if (subsegment === allSubsegment) {
                 redirect('/meet/all');
             }
@@ -234,9 +272,13 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
     // Handle meet segment with subsegments
     if (segment === meetSegment) {
         if (subsegment === shortSubsegment) {
-            return <ShortMeetingPage language={lang} />;
+            return <MeetingPageTemplate language={lang} meetingType="short" />;
+        } else if (subsegment === mediumSubsegment) {
+            return <MeetingPageTemplate language={lang} meetingType="medium" />;
+        } else if (subsegment === longSubsegment) {
+            return <MeetingPageTemplate language={lang} meetingType="long" />;
         } else if (subsegment === allSubsegment) {
-            return <AllMeetingsPage language={lang} />;
+            return <MeetingPageTemplate language={lang} meetingType="all" />;
         }
     }
 
