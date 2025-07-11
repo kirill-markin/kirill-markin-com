@@ -45,7 +45,7 @@ export default async function FractionalAICTOPage() {
 
                                 <p>I've seen this approach save companies 6-12 months on critical AI implementations. Sometimes a single insight from my experience can unlock metrics across the board - that's the power of bringing in proven <strong>technology leadership</strong> exactly when you need it.</p>
 
-                                <p>Budget constraints drive the second most common reason companies look for a <strong>CTO for hire</strong> on a fractional basis. Startups and growing companies often can't afford a $300k+ full-time CTO, but they absolutely need someone at that experience level. They need to make sure they're not building in completely the wrong direction or missing obvious technical debt that will bite them later.</p>
+                                <p>Budget constraints drive the second most common reason companies look for a <strong>CTO for hire</strong> on a fractional basis. Startups and growing companies often can't afford an expensive full-time CTO, but they absolutely need someone at that experience level. They need to make sure they're not building in completely the wrong direction or missing obvious technical debt that will bite them later.</p>
 
                                 <p>This is where <strong>outsourced CTO services</strong> like my <strong>part-time CTO</strong> arrangements make perfect sense. You get access to senior-level strategic thinking and <strong>AI strategy development</strong> without the full-time commitment. For many companies, having me involved 10-15 hours per week provides exactly the guidance they need while staying within budget.</p>
 
@@ -87,7 +87,7 @@ export default async function FractionalAICTOPage() {
 
                                 <p>In my experience, companies solve this one of two ways. Either they rope in a friend of the founders or investors who happens to know AI (risky), or they bring in a <strong>fractional AI CTO</strong> who stays involved through the entire process. I've helped dozens of companies navigate this transition, and having someone who's not ready to change jobs full-time but can provide ongoing <strong>technology advisor</strong> support makes all the difference.</p>
 
-                                <p>The second pattern I see constantly: you're launching a new AI product and you absolutely need to get it right. You know that using the latest approaches to AI development could make or break your launch, but you don't have $300k+ per year to hire a senior AI specialist full-time.</p>
+                                <p>The second pattern I see constantly: you're launching a new AI product and you absolutely need to get it right. You know that using the latest approaches to AI development could make or break your launch, but you don't have the budget to hire a senior AI specialist full-time.</p>
 
                                 <p>This is where <strong>startup CTO services</strong> become critical. You need the best possible technical leadership to maximize your product's chances of success, but you need it in a way that doesn't destroy your budget. I've worked with countless startups in exactly this situation - they need someone who can set the right technical direction, help with key hiring decisions, and ensure they're building something users actually want.</p>
 
@@ -121,7 +121,7 @@ export default async function FractionalAICTOPage() {
 
                                 <p>Text me anytime with any tech question, even the weird ones. I believe that simple, honest advice without corporate BS shouldn't cost money. You'll get free hiring recommendations from my network of friends, and I usually respond faster than your email provider.</p>
 
-                                <p>For more substantial needs, I've structured my <strong>fractional CTO services</strong> around what actually works in practice. Unlike a full-time CTO salary of $300k+, my <strong>part-time CTO</strong> approach gives you enterprise-level technology leadership at a fraction of the cost:</p>
+                                <p>For more substantial needs, I've structured my <strong>fractional CTO services</strong> around what actually works in practice. Unlike expensive full-time CTO salaries, my <strong>part-time CTO</strong> approach gives you enterprise-level technology leadership at a fraction of the cost:</p>
 
                                 <p><strong>The Starter Plan ($400/month, 1 hour)</strong><br />
                                     Perfect for companies that need regular strategic guidance. We'll figure out your tech mess together in monthly strategy sessions, plus you get unlimited "is this normal?" questions throughout the month. I provide architecture advice that actually makes sense, along with hiring help and recommendations from my network.</p>
@@ -133,7 +133,7 @@ export default async function FractionalAICTOPage() {
 
                                 <p>This level of <strong>AI technology leadership</strong> works perfectly for companies in growth mode, where we're actively working on hiring, product development, and strategic technical decisions weekly.</p>
 
-                                <p><strong>Full-Time Arrangements ($300,000+/year)</strong><br />
+                                <p><strong>Full-Time Arrangements (Secret Pricing)</strong><br />
                                     When you need me as your full-time CTO, I bring ultra efforts before product launches and releases, handle board and investor reporting, provide direct team access 24/7, and yes - coffee-fueled late-night debugging sessions. Plus team building and occasional team therapy when things get stressful.</p>
 
                                 <p><strong>Custom Solutions</strong><br />
