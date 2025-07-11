@@ -351,6 +351,53 @@
 }
 
 /* Responsive Design */
+/* Sold out banner styles */
+.soldOut {
+    position: relative;
+    overflow: hidden;
+}
+
+.soldOutBanner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    background-color: #00ff00;
+    color: #232323;
+    padding: 1rem 2rem;
+    z-index: 10;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6), 0 0 40px rgba(0, 255, 0, 0.3);
+    border: 2px solid #232323;
+    min-width: 200px;
+}
+
+.soldOutMainText {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    line-height: 1;
+}
+
+.soldOutAdditionalText {
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.9;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+/* Dim the sold out card content */
+.soldOut .pricingHeader,
+.soldOut .featuresContainer,
+.soldOut .cardAction {
+    opacity: 0.6;
+    filter: blur(0.5px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .pricingCard {
         padding: 1.5rem;
@@ -371,5 +418,19 @@
 
     .price {
         font-size: 1.75rem;
+    }
+
+    .soldOutBanner {
+        padding: 0.75rem 1.5rem;
+        min-width: 180px;
+        transform: translate(-50%, -50%) rotate(-10deg);
+    }
+
+    .soldOutMainText {
+        font-size: 1.1rem;
+    }
+
+    .soldOutAdditionalText {
+        font-size: 0.7rem;
     }
 }

@@ -66,7 +66,7 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
         {
             planId: 'scale',
             name: 'Full-Time',
-            price: '$300,000+/year',
+            price: 'Secret Price',
             hours: 'Full Time',
             features: [
                 'I become your full-time CTO',
@@ -76,6 +76,9 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'Coffee-fueled late-night debugging sessions',
                 'Team building and occasional team therapy'
             ],
+            soldOut: true,
+            soldOutMainText: 'SOLD OUT',
+            soldOutAdditionalText: 'my wife said not more than 80 hours per week',
             buttonText: 'Read My CTO CV',
             buttonUrl: '/data/cv-kirill-markin-cto.pdf'
         },

@@ -29,6 +29,9 @@ export interface ServiceFractionalCTOPlan {
   buttonText?: string;
   buttonUrl?: string;
   socialButtons?: SocialContactButton[];
+  soldOut?: boolean;
+  soldOutMainText?: string;
+  soldOutAdditionalText?: string;
 }
 
 // Fractional CTO Service Data

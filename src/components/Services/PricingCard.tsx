@@ -25,10 +25,17 @@ const CheckIcon: React.FC = () => (
 
 const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
     return (
-        <div className={`${styles.pricingCard} ${plan.highlighted ? styles.highlighted : ''}`}>
+        <div className={`${styles.pricingCard} ${plan.highlighted ? styles.highlighted : ''} ${plan.soldOut ? styles.soldOut : ''}`}>
             {plan.highlighted && (
                 <div className={styles.highlightedBadge}>
                     Recommended
+                </div>
+            )}
+
+            {plan.soldOut && (
+                <div className={styles.soldOutBanner}>
+                    <div className={styles.soldOutMainText}>{plan.soldOutMainText}</div>
+                    <div className={styles.soldOutAdditionalText}>{plan.soldOutAdditionalText}</div>
                 </div>
             )}
 
