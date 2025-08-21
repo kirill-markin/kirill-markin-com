@@ -11,7 +11,7 @@ export interface PersonalInfo {
 export const personalInfo: PersonalInfo = {
   name: "Kirill Markin",
   email: "markinkirill@gmail.com",
-  phone: "+31 6 253 51137",
+  phone: "+359879906085",
   image: "/avatars/Kirill-Markin.webp",
   jobTitle: "Founder of ozma.io",
   secondaryTitle: "Director of R&D",

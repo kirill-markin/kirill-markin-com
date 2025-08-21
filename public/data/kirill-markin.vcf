@@ -3,7 +3,7 @@ VERSION:3.0
 FN:Kirill Markin
 N:Markin;Kirill;;;
 EMAIL;TYPE=INTERNET;TYPE=HOME:markinkirill@gmail.com
-item1.TEL:+31 6 253 51137
+item1.TEL:+359879906085
 item1.X-ABLabel:main
 NOTE:Startup, SMB, SaaS, CRM, ERP, Data Science, Data Engineer
 ADR;TYPE=HOME:;;;Amsterdam;;1054GJ;NL;1054GJ Amsterdam\nNL
@@ -26,7 +26,7 @@ item9.URL:https\://twitter.com/kirill_markin_
 item9.X-ABLabel:Twitter
 item10.URL:https\://t.me/kirmark
 item10.X-ABLabel:Telegram
-item11.URL:https\://api.whatsapp.com/send?phone=31625351137
+item11.URL:https\://api.whatsapp.com/send?phone=359879906085
 item11.X-ABLabel:WhatsApp
 PHOTO:https://kirill-markin.com/data/kirill-200x200.jpg
 CATEGORIES:myContacts

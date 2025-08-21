@@ -104,8 +104,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "WhatsApp",
-    url: "https://api.whatsapp.com/send?phone=31625351137",
-    username: "+31625351137",
+    url: "https://api.whatsapp.com/send?phone=359879906085",
+    username: "+359879906085",
     socialLogoUrlDefault: "/social/whatsapp.png",
     socialLogoUrlHover: "/social/whatsapp_hover.png",
     avatarContact: true,
