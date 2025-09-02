@@ -7,16 +7,16 @@ keywords: [
   "Factorio automation games",
   "management systems replacement"
 ]
-title: "Creators Who Mock Their Own Craft: Comedians on Comedians — and Engineers Optimizing Engineers"
+title: "Creators Who Mock Their Own Craft: Examples and Patterns"
 date: 2025-09-01
-description: "Real examples of creators automating themselves out of jobs: Bo Burnham's meta-comedy about meaningless art, engineers building AI systems that replace programmers, and why we find satisfaction in our own obsolescence."
-tags: [automation, creativity, engineering, comedy, management]
+description: "Examples of creators who automate their own work: comedians mocking comedy, engineers building AI to replace programmers, and why we enjoy our obsolescence."
+tags: [automation, ai, engineering, productivity, management]
 publish: true
 thumbnailUrl: "/articles/placeholder.webp"
 language: "en"
 ---
 
-# Creators Who Mock Their Own Craft: Comedians on Comedians — and Engineers Optimizing Engineers
+# Creators Who Mock Their Own Craft: Examples and Patterns
 
 Can engineers build AI systems so good that they replace engineers entirely? And if they can, why would they do it?
 
