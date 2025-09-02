@@ -94,10 +94,6 @@ For 14 months now, I've been writing code almost entirely through AI and voice c
 
 I'm VP of Engineering at a startup. Before this, I spent 3 years as Director of R&D at two different companies, led data analysis teams of 8-12 people, founded several companies. I've been building and optimizing systems since I was 16.
 
-Which makes what I'm about to say either more credible or more concerning, depending on how you look at it.
-
-But that's not even the interesting part.
-
 In the past 8 months, I've been working on a few automation systems:
 
 1. Something that generates basic CRUD APIs from database schemas — saves us from writing the same boilerplate over and over
