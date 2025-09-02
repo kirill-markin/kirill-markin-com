@@ -16,33 +16,11 @@ thumbnailUrl: "/articles/placeholder.webp"
 language: "en"
 ---
 
-<!-- 
-<article-main-idea>
-Контент про
 
-Автора который высмеивает авторов
-
-Инженера который оптимизирует инженеров
-
-И поработит ли нас ai — это так приятно делать эффективнее
-
-И про то что я как менеджер слежу чтобы меня можно было легко убрать и чтоб дорого
-
-Певец который высмеивает певцов
-
-Комик смеющийся над комиками с примерами
-</article-main-idea>
- -->
 
 # Creators Who Mock Their Own Craft: Comedians on Comedians — and Engineers Optimizing Engineers
 
-<!-- STRUCTURE NOTES:
-Вступление (до первого H2): Личная история как Data Scientist, который обнаружил странную красоту в самоуничтожении
-- Я инженер, люблю писать код
-- Занимался Data Science до того, как AI стал общеизвестным
-- Заметил, что лучшие создатели стремятся сделать себя ненужными - и находят в этом красоту
-- Провокационная затравка: мы высмеиваем сами себя ради эстетики
--->
+
 
 Can engineers build AI systems so good that they replace engineers entirely? And if they can, why would they do it?
 
@@ -62,11 +40,7 @@ This self-destructive impulse shows up everywhere. The best creators seem drawn 
 
 ## When Comedians Dissect Comedy: The Art of Professional Self-Awareness
 
-<!-- NOTES:
-- Примеры комиков, которые высмеивают комедию и самих себя (Bo Burnham, George Carlin)
-- Фокус: они не просто анализируют комедию, они уничтожают иллюзию своей важности
-- Отсылка: "Как инженер, я узнаю это желание сделать себя ненужным..."
--->
+
 
 I remember watching Bo Burnham's "Make Happy" and feeling something click. Here was a comedian spending half his set explaining why comedy was pointless.
 
@@ -80,7 +54,7 @@ His song "Art is Dead" captures this perfectly. The whole thing is about how art
 
 I loved it. But really, I was watching a comedian argue that comedians shouldn't exist.
 
-Burnham found the comedy that makes comedy unnecessary.
+Burnham figured out how to use comedy to kill comedy.
 
 This self-destruction becomes beautiful. He's not just analyzing comedy from the outside. He's using comedy to kill comedy from the inside, and somehow that creates something better than either analysis or comedy alone.
 
@@ -89,11 +63,7 @@ I recognize this impulse. The best code I've written makes my job easier by doin
 
 ## The Manager's Paradox: Building Systems to Replace Yourself
 
-<!-- NOTES:
-- Ваш опыт как менеджера, который строит системы для собственной замены (но дорогой замены)
-- Фокус: красота в том, чтобы сделать себя ненужным, но не дешевым
-- Отсылка: "Инженерное мышление толкает меня автоматизировать даже самого себя..."
--->
+
 
 I've been a manager since I was 16. Not because I was particularly good at it, but because I've always had at least one company running alongside whatever engineering work I was doing.
 
@@ -115,14 +85,7 @@ Good management eventually makes the manager replaceable.
 
 ## Game Designers Who Gamify Optimization: The Factorio Phenomenon
 
-<!-- NOTES:
-- Factorio: дизайнеры создали игру, где цель - сделать игрока ненужным
-- Игрок строит фабрику, чтобы фабрика работала без игрока
-- Красота в том, что успех измеряется твоей собственной ненужностью
-- Дизайнеры игры высмеяли саму идею важности игрока - создали систему самоуничтожения
-- Отсылка: "Как инженер, я узнал знакомое желание исчезнуть в собственной автоматизации..."
-- Это не мета-комментарий, а прямое самоуничтожение через красоту
--->
+
 
 There's this whole category of games called automation simulators where the entire point is making yourself unnecessary. 
 
