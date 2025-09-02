@@ -68,10 +68,28 @@ Professional business-casual tone with personality. Avoids AI-sounding language 
 ✅ **Good**: "This works because it eliminates unnecessary complexity."
 ✅ **Good**: "Everything changed when I moved to a single Notion table."
 
+### Self-Questioning Pattern (Major AI Red Flag)
+❌ **Avoid**: Questions to yourself or your audience that you immediately answer:
+- "What does this mean for developers?"
+- "How can we solve this problem?"
+- "Why is this important?"
+- "What's the takeaway here?"
+- "So what's the solution?"
+- "What should you do next?"
+
+✅ **Good**: Direct statements without artificial questions:
+- "This changes how developers approach..."
+- "The solution I found was..."
+- "This matters because..."
+- "Here's what I learned..."
+- "The approach that worked was..."
+- "Your next step should be..."
+
 ### Pattern Recognition Rules:
 - If you write a question mark, don't answer it in the next sentence
 - Avoid dramatic one-word answers after questions
 - Don't create artificial suspense with rhetorical questions
+- Never ask yourself questions in your own writing
 - Let explanations flow naturally without Q&A format
 
 ## Social Media AI Detection Patterns
