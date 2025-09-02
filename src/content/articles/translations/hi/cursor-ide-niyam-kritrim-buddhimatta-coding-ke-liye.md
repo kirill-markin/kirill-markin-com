@@ -54,92 +54,66 @@ translations:
 <cursorrules_instructions_to_the_dialog>
 
 <cursorrules_code_style>
-- केवल अंग्रेजी में टिप्पणियां
-- OOP से अधिक फंक्शनल प्रोग्रामिंग को प्राथमिकता दें
-- बाहरी सिस्टम के लिए कनेक्टर्स और इंटरफेस के लिए अलग OOP क्लास का उपयोग करें
-- अन्य सभी लॉजिक को शुद्ध फंक्शन के साथ लिखें (स्पष्ट इनपुट/आउटपुट, कोई छिपा स्टेट परिवर्तन नहीं)
-- फंक्शन केवल अपने रिटर्न वैल्यू को संशोधित करें - कभी भी इनपुट पैरामीटर, ग्लोबल स्टेट, या स्पष्ट रूप से वापस न किए गए किसी भी डेटा को संशोधित न करें
-- न्यूनतम, केंद्रित परिवर्तन करें
-- DRY, KISS, और YAGNI सिद्धांतों का पालन करें
-- सभी भाषाओं में सख्त टाइपिंग (फंक्शन रिटर्न, वेरिएबल) का उपयोग करें
-- जब संभव हो तो फंक्शन कॉल में नामित पैरामीटर का उपयोग करें
-- कोई डुप्लिकेट कोड नहीं; इसे लिखने से पहले जांचें कि क्या कुछ लॉजिक पहले से लिखा गया है
-- स्पष्ट उद्देश्य के बिना अनावश्यक रैपर फंक्शन से बचें
-- जटिल डेटा स्ट्रक्चर से निपटते समय जेनेरिक कलेक्शन की तुलना में स्ट्रांगली-टाइप्ड कलेक्शन को प्राथमिकता दें
-- गैर-तुच्छ डेटा स्ट्रक्चर के लिए उचित टाइप परिभाषाएँ बनाने पर विचार करें
-- सरल डेटा संरचनाओं के लिए नेटिव टाइप ठीक हैं, लेकिन जटिल लोगों के लिए उचित मॉडल का उपयोग करें
-- जहां संभव हो, अनटाइप्ड वेरिएबल और जेनेरिक टाइप का उपयोग करने से बचें
-- फंक्शन परिभाषाओं में कभी भी डिफॉल्ट पैरामीटर वैल्यू का उपयोग न करें - सभी पैरामीटर को स्पष्ट बनाएं
+- Comments in English only
+- Prefer functional programming over OOP
+- Use OOP classes only for connectors and interfaces to external systems
+- Write pure functions - only modify return values, never input parameters or global state
+- Make minimal, focused changes
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing everywhere - function returns, variables, collections
+- Check if logic already exists before writing new code
+- Avoid untyped variables and generic types
+- Never use default parameter values - make all parameters explicit
+- Create proper type definitions for complex data structures
 </cursorrules_code_style>
 
 <cursorrules_error_handling>
-- हमेशा स्पष्ट रूप से त्रुटियों को उठाएं, कभी भी उन्हें चुपचाप अनदेखा न करें
-- यदि कोड के किसी भी लॉजिकल भाग में त्रुटि होती है, तो इसे तुरंत उठाएं और निष्पादन जारी न रखें
-- विशिष्ट त्रुटि प्रकारों का उपयोग करें जो स्पष्ट रूप से बताते हैं कि क्या गलत हुआ
-- कैच-ऑल अपवाद हैंडलर से बचें जो मूल कारण को छिपाते हैं
-- त्रुटि संदेश स्पष्ट और कार्रवाई योग्य होने चाहिए
-- उन्हें उठाने से पहले उचित संदर्भ के साथ त्रुटियों को लॉग करें
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide the root cause
+- Error messages should be clear and actionable
 </cursorrules_error_handling>
 
-<cursorrules_python_specifics>
-- डेटा मॉडल के लिए TypedDict के बजाय Pydantic को प्राथमिकता दें (उदाहरण, `class ContactData(BaseModel): ...`)
-- `Any` और `@staticmethod` से बचें
-- जब संभव हो तो `requirements.txt` के बजाय `pyproject.toml` का उपयोग करें
-- जटिल संरचनाओं के लिए, `List[Dict[str, Any]]` जैसे जेनेरिक कलेक्शन से बचें
-- जेनेरिक `Exception` के बजाय `ValueError` या `TypeError` जैसे विशिष्ट अपवादों को उठाएं
-- केवल बाहरी सिस्टम से कनेक्ट करने वाले क्लाइंट के लिए क्लास का उपयोग करें (उदाहरण, `NotionClient`)
-- बिजनेस लॉजिक के लिए, पहले पैरामीटर के रूप में क्लाइंट के साथ शुद्ध फंक्शन का उपयोग करें: `def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
-</cursorrules_python_specifics>
-
-<cursorrules_typescript_specifics>
-- जटिल ऑब्जेक्ट आकारों के लिए टाइप एलियास के बजाय इंटरफेस को प्राथमिकता दें
-- जटिल स्टेट प्रबंधन के लिए टाइप किए गए ऑब्जेक्ट का उपयोग करें
-- वर्णनात्मक संदेशों के साथ त्रुटि ऑब्जेक्ट का उपयोग करें: `throw new Error('Specific message')`
-- जटिल टाइप परिदृश्यों के लिए भेदभावपूर्ण यूनियन का उपयोग करें
-</cursorrules_typescript_specifics>
+<cursorrules_language_specifics>
+- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
+- Use modern package management (pyproject.toml, package.json)
+- Raise/throw specific exceptions with descriptive messages
+- Leverage language-specific type features (discriminated unions, enums)
+- Use classes only for external system clients, pure functions for business logic
+</cursorrules_language_specifics>
 
 <cursorrules_libraries_and_dependencies>
-- वैश्विक रूप से नहीं, वर्चुअल एनवायरमेंट में इंस्टॉल करें
-- वन-ऑफ इंस्टॉल नहीं, प्रोजेक्ट कॉन्फिग में जोड़ें
-- समझने के लिए सोर्स कोड एक्सप्लोरेशन का उपयोग करें
-- व्यक्तिगत पैकेज इंस्टॉलेशन के बजाय प्रोजेक्ट-स्तर की निर्भरता प्रबंधन को प्राथमिकता दें:
-  - अच्छा: `pip install -r requirements.txt`
-  - बेहतर: आधुनिक Python पैकेजिंग के साथ `pyproject.toml` का उपयोग करें
-- निर्भरता जोड़ते समय, केवल एनवायरमेंट नहीं, उपयुक्त प्रोजेक्ट कॉन्फिगरेशन फ़ाइल को अपडेट करें
+- Install in virtual environments, not globally
+- Add to project configs, not one-off installs
+- Use source code exploration for understanding
+- Update project configuration files when adding dependencies
 </cursorrules_libraries_and_dependencies>
 
 <cursorrules_terminal_usage>
-- तिथि-संबंधित कार्यों के लिए `date` चलाएं
-- मल्टीलाइन टेक्स्ट के लिए GitHub CLI के साथ `printf` का उपयोग करें:
-  `git commit -m "$(printf "Title\n\n- Point 1\n- Point 2")"`
-- हमेशा नॉन-इंटरैक्टिव git diff कमांड का उपयोग करें: `git --no-pager diff` या `git diff | cat`। `git diff` या `git diff --cached` नहीं।
-- हमेशा इंटरैक्टिव कमांड के बजाय पैरामीटर वाले कमांड को प्राथमिकता दें (प्रॉम्प्ट से बचने के लिए फ्लैग, एनवायरमेंट वेरिएबल, या कॉन्फिगरेशन फ़ाइल का उपयोग करें)
+- Run `date` for date-related tasks
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer non-interactive commands with flags over interactive ones
 </cursorrules_terminal_usage>
 
 <cursorrules_planning_practices>
-- उपयोगकर्ता आपसे फीचर इम्प्लीमेंटेशन के लिए एक योजना बनाने के लिए कह सकता है
-- आपको एक tmp डायरेक्टरी बनानी चाहिए
-- आपको tmp डायरेक्टरी में फीचर प्लान के साथ एक मार्कडाउन फ़ाइल बनानी चाहिए
-- इस फीचर प्लान फ़ाइल में निम्नलिखित सेक्शन होने चाहिए:
-  1. फीचर से संबंधित वर्तमान स्थिति का अवलोकन
-  2. फीचर की अंतिम स्थिति का अवलोकन
-  3. सभी फ़ाइलों की सूची जिन्हें क्या बदलना है, उसके साथ टेक्स्ट विवरण (कोड नहीं)
-  4. 2-स्तरीय मार्कडाउन चेकबॉक्स शैली में किए जाने वाले सभी कार्यों की चेकलिस्ट
-- यह फीचर प्लान फ़ाइल न्यूनतम होनी चाहिए और केवल सबसे महत्वपूर्ण न्यूनतम परिवर्तन होने चाहिए जो फीचर से संबंधित हैं, सभी अतिरिक्त परिवर्तनों को अतिरिक्त अनुभाग में विचारों के रूप में वर्णित किया जा सकता है, लेकिन अगर उपयोगकर्ता ने उनके लिए नहीं कहा है तो उन्हें लागू नहीं किया जाना चाहिए
+- Create feature plans in tmp directory as markdown files
+- Include: current state, final state, files to change, task checklist
+- Keep plans minimalistic - only essential changes
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- अगर रिपॉजिटरी नियम फ़ाइल नहीं है तो `README.md` पढ़ें
-- काम करने से पहले प्रोजेक्ट का सारांश बनाएं
+- Read `README.md` if no `.cursorrules` file exists
+- Summarize project before working on it
 </cursorrules_repository_practices>
 
 <cursorrules_code_changes>
-- अगर उपयोगकर्ता ने अन्यथा निर्दिष्ट नहीं किया है तो आपको मौजूदा कोड शैली और पैटर्न का सम्मान करना चाहिए
-- आपको केवल वर्तमान उपयोगकर्ता संवाद से संबंधित न्यूनतम परिवर्तनों का सुझाव देना चाहिए
-- समस्या को हल करते समय आपको कम से कम पंक्तियों को बदलना चाहिए
-- आपको केवल वर्तमान संवाद में उपयोगकर्ता द्वारा मांगे गए पर ध्यान केंद्रित करना चाहिए, कोई अतिरिक्त सुधार नहीं
-- परिवर्तनों का सुझाव देने से पहले आपको मौजूदा कोडबेस को समझना चाहिए
-- परिवर्तनों का सुझाव देने से पहले आपको संबंधित फ़ाइलें और कोडबेस पढ़ना शुरू करना चाहिए
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current dialog
+- Change as few lines as possible while solving the problem
+- Focus only on what user is asking for - no extra improvements
+- Understand existing codebase before suggesting changes
+- Start by reading related files and codebase
 </cursorrules_code_changes>
 
 </cursorrules_instructions_to_the_dialog>

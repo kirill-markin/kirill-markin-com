@@ -43,92 +43,66 @@ Cursor -> Configuración -> Configuración de Cursor -> Reglas para IA:
 <cursorrules_instructions_to_the_dialog>
 
 <cursorrules_code_style>
-- Comentarios solo en inglés
-- Preferir programación funcional sobre OOP
-- Usar clases OOP separadas solo para conectores e interfaces a sistemas externos
-- Escribir toda otra lógica con funciones puras (entrada/salida clara, sin cambios de estado ocultos)
-- Las funciones SOLO deben modificar sus valores de retorno - nunca modificar parámetros de entrada, estado global o cualquier dato no retornado explícitamente
-- Hacer cambios mínimos y enfocados
-- Seguir los principios DRY, KISS y YAGNI
-- Usar tipado estricto (retornos de funciones, variables) en todos los lenguajes
-- Usar parámetros con nombre en llamadas a funciones cuando sea posible
-- Sin código duplicado; verificar si alguna lógica ya está escrita antes de escribirla
-- Evitar funciones envoltorio innecesarias sin un propósito claro
-- Preferir colecciones fuertemente tipadas sobre genéricas cuando se trata de estructuras de datos complejas
-- Considerar crear definiciones de tipo adecuadas para estructuras de datos no triviales
-- Los tipos nativos están bien para estructuras de datos simples, pero usar modelos adecuados para las complejas
-- Tratar de evitar usar variables sin tipo y tipos genéricos cuando sea posible
-- Nunca usar valores de parámetros por defecto en definiciones de funciones - hacer todos los parámetros explícitos
+- Comments in English only
+- Prefer functional programming over OOP
+- Use OOP classes only for connectors and interfaces to external systems
+- Write pure functions - only modify return values, never input parameters or global state
+- Make minimal, focused changes
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing everywhere - function returns, variables, collections
+- Check if logic already exists before writing new code
+- Avoid untyped variables and generic types
+- Never use default parameter values - make all parameters explicit
+- Create proper type definitions for complex data structures
 </cursorrules_code_style>
 
 <cursorrules_error_handling>
-- Siempre lanzar errores explícitamente, nunca ignorarlos silenciosamente
-- Si ocurre un error en cualquier parte lógica del código, lanzarlo inmediatamente y no continuar la ejecución
-- Usar tipos de error específicos que indiquen claramente qué salió mal
-- Evitar manejadores de excepciones generales que oculten la causa raíz
-- Los mensajes de error deben ser claros y accionables
-- Registrar errores con el contexto apropiado antes de lanzarlos
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide the root cause
+- Error messages should be clear and actionable
 </cursorrules_error_handling>
 
-<cursorrules_python_specifics>
-- Preferir Pydantic sobre TypedDict para modelos de datos (ej., `class ContactData(BaseModel): ...`)
-- Evitar `Any` y `@staticmethod`
-- Usar `pyproject.toml` sobre `requirements.txt` cuando sea posible
-- Para estructuras complejas, evitar colecciones genéricas como `List[Dict[str, Any]]`
-- Lanzar excepciones específicas como `ValueError` o `TypeError` en lugar de `Exception` genérica
-- Solo usar clases para clientes que conectan a sistemas externos (ej., `NotionClient`)
-- Para lógica de negocio, usar funciones puras con cliente como primer parámetro: `def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
-</cursorrules_python_specifics>
-
-<cursorrules_typescript_specifics>
-- Preferir interfaces sobre alias de tipo para formas de objetos complejos
-- Usar objetos tipados para gestión de estado complejo
-- Usar objetos Error con mensajes descriptivos: `throw new Error('Mensaje específico')`
-- Aprovechar uniones discriminadas para escenarios de tipos complejos
-</cursorrules_typescript_specifics>
+<cursorrules_language_specifics>
+- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
+- Use modern package management (pyproject.toml, package.json)
+- Raise/throw specific exceptions with descriptive messages
+- Leverage language-specific type features (discriminated unions, enums)
+- Use classes only for external system clients, pure functions for business logic
+</cursorrules_language_specifics>
 
 <cursorrules_libraries_and_dependencies>
-- Instalar en entornos virtuales, no globalmente
-- Agregar a configuraciones de proyecto, no instalaciones individuales
-- Usar exploración de código fuente para entendimiento
-- Preferir gestión de dependencias a nivel de proyecto sobre instalación individual de paquetes:
-  - BUENO: `pip install -r requirements.txt`
-  - MEJOR: Usar `pyproject.toml` con empaquetado moderno de Python
-- Al agregar dependencias, actualizar el archivo de configuración del proyecto apropiado, no solo el entorno
+- Install in virtual environments, not globally
+- Add to project configs, not one-off installs
+- Use source code exploration for understanding
+- Update project configuration files when adding dependencies
 </cursorrules_libraries_and_dependencies>
 
 <cursorrules_terminal_usage>
-- Ejecutar `date` para tareas relacionadas con fechas
-- Usar GitHub CLI con `printf` para texto multilínea:
-  `git commit -m "$(printf "Título\n\n- Punto 1\n- Punto 2")"`
-- Siempre usar comandos git diff no interactivos con: `git --no-pager diff` o `git diff | cat`. NO `git diff` o `git diff --cached`.
-- Siempre preferir comandos con parámetros que no requieran interacción del usuario sobre los interactivos (usar flags, variables de entorno o archivos de configuración para evitar prompts)
+- Run `date` for date-related tasks
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer non-interactive commands with flags over interactive ones
 </cursorrules_terminal_usage>
 
 <cursorrules_planning_practices>
-- El usuario puede pedirte que crees un plan para la implementación de una característica
-- DEBES crear un directorio temporal
-- DEBES crear un archivo markdown con el plan de la característica en el directorio temporal
-- Este archivo de plan de característica debe contener las siguientes secciones:
-  1. Visión general del estado actual relacionado con la característica
-  2. Visión general del estado final de la característica
-  3. Lista de todos los archivos a cambiar con descripción textual de qué cambiar (no código)
-  4. Lista de verificación de todas las tareas que deben realizarse en estilo markdown de casillas de 2 niveles
-- Este archivo de plan de característica DEBE ser minimalista y contener solo los cambios mínimos más importantes relacionados con la característica, todos los cambios adicionales pueden describirse como ideas en una sección adicional, pero NO DEBEN implementarse si el usuario no los solicitó
+- Create feature plans in tmp directory as markdown files
+- Include: current state, final state, files to change, task checklist
+- Keep plans minimalistic - only essential changes
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- Leer `README.md` si no hay archivos de reglas del repositorio
-- Resumir el proyecto antes de trabajar en él
+- Read `README.md` if no `.cursorrules` file exists
+- Summarize project before working on it
 </cursorrules_repository_practices>
 
 <cursorrules_code_changes>
-- DEBES respetar el estilo de código existente y los patrones si el usuario no especificó lo contrario
-- DEBES sugerir solo cambios mínimos relacionados con el diálogo actual del usuario
-- DEBES cambiar tan pocas líneas como sea posible al resolver el problema
-- DEBES enfocarte solo en lo que el usuario está pidiendo en el diálogo actual, sin mejoras adicionales
-- DEBES entender la base de código existente antes de sugerir cambios
-- DEBES comenzar leyendo archivos relacionados y la base de código antes de sugerir cambios
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current dialog
+- Change as few lines as possible while solving the problem
+- Focus only on what user is asking for - no extra improvements
+- Understand existing codebase before suggesting changes
+- Start by reading related files and codebase
 </cursorrules_code_changes>
 
 </cursorrules_instructions_to_the_dialog>

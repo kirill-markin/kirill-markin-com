@@ -48,92 +48,66 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 <cursorrules_instructions_to_the_dialog>
 
 <cursorrules_code_style>
-- 注释仅使用英语
-- 偏好函数式编程而非面向对象编程
-- 仅对连接器和外部系统接口使用独立的面向对象类
-- 所有其他逻辑使用纯函数编写（明确的输入/输出，无隐藏状态变更）
-- 函数必须仅修改其返回值 - 绝不修改输入参数、全局状态或任何未明确返回的数据
-- 进行最小化、集中的更改
-- 遵循DRY（不重复自己）、KISS（保持简单）和YAGNI（你不会需要它）原则
-- 在所有语言中使用严格类型（函数返回、变量）
-- 在函数调用中尽可能使用命名参数
-- 避免代码重复；在编写前检查某些逻辑是否已存在
-- 避免没有明确目的的不必要包装函数
-- 处理复杂数据结构时，优先使用强类型集合而非泛型集合
-- 考虑为非平凡数据结构创建适当的类型定义
-- 对于简单数据结构，原生类型足够，但对于复杂数据结构，使用适当的模型
-- 尽量避免使用无类型变量和泛型类型
-- 在函数定义中绝不使用默认参数值 - 使所有参数明确化
+- Comments in English only
+- Prefer functional programming over OOP
+- Use OOP classes only for connectors and interfaces to external systems
+- Write pure functions - only modify return values, never input parameters or global state
+- Make minimal, focused changes
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing everywhere - function returns, variables, collections
+- Check if logic already exists before writing new code
+- Avoid untyped variables and generic types
+- Never use default parameter values - make all parameters explicit
+- Create proper type definitions for complex data structures
 </cursorrules_code_style>
 
 <cursorrules_error_handling>
-- 始终明确抛出错误，绝不静默忽略
-- 如果代码逻辑部分发生错误，立即抛出并停止执行
-- 使用明确指示问题所在的特定错误类型
-- 避免隐藏根本原因的全捕获异常处理
-- 错误信息应清晰并可操作
-- 在抛出错误前记录包含适当上下文的日志
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide the root cause
+- Error messages should be clear and actionable
 </cursorrules_error_handling>
 
-<cursorrules_python_specifics>
-- 优先使用Pydantic而非TypedDict进行数据建模（例如，`class ContactData(BaseModel): ...`）
-- 避免使用`Any`和`@staticmethod`
-- 尽可能使用`pyproject.toml`而非`requirements.txt`
-- 对于复杂结构，避免使用像`List[Dict[str, Any]]`这样的泛型集合
-- 抛出特定异常如`ValueError`或`TypeError`而非泛用的`Exception`
-- 仅对连接外部系统的客户端使用类（例如，`NotionClient`）
-- 对于业务逻辑，使用以客户端为第一参数的纯函数：`def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
-</cursorrules_python_specifics>
-
-<cursorrules_typescript_specifics>
-- 对于复杂对象形状，优先使用接口而非类型别名
-- 使用类型化对象进行复杂状态管理
-- 使用带有描述性消息的Error对象：`throw new Error('具体消息')`
-- 利用辨别联合类型处理复杂类型场景
-</cursorrules_typescript_specifics>
+<cursorrules_language_specifics>
+- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
+- Use modern package management (pyproject.toml, package.json)
+- Raise/throw specific exceptions with descriptive messages
+- Leverage language-specific type features (discriminated unions, enums)
+- Use classes only for external system clients, pure functions for business logic
+</cursorrules_language_specifics>
 
 <cursorrules_libraries_and_dependencies>
-- 在虚拟环境中安装，而非全局安装
-- 添加到项目配置，而非一次性安装
-- 使用源代码探索进行理解
-- 优先使用项目级依赖管理而非单个包安装：
-  - 良好实践：`pip install -r requirements.txt`
-  - 更佳实践：使用带有现代Python打包的`pyproject.toml`
-- 添加依赖时，更新适当的项目配置文件，而非仅更新环境
+- Install in virtual environments, not globally
+- Add to project configs, not one-off installs
+- Use source code exploration for understanding
+- Update project configuration files when adding dependencies
 </cursorrules_libraries_and_dependencies>
 
 <cursorrules_terminal_usage>
-- 对于日期相关任务运行`date`
-- 使用GitHub CLI搭配`printf`处理多行文本：
-  `git commit -m "$(printf "标题\n\n- 要点1\n- 要点2")"`
-- 始终使用非交互式git diff命令：`git --no-pager diff`或`git diff | cat`。禁止使用`git diff`或`git diff --cached`
-- 始终优先使用不需要用户交互的命令参数（使用标志、环境变量或配置文件避免提示）
+- Run `date` for date-related tasks
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer non-interactive commands with flags over interactive ones
 </cursorrules_terminal_usage>
 
 <cursorrules_planning_practices>
-- 用户可以要求你创建功能实现计划
-- 你必须创建临时目录
-- 你必须在临时目录中创建包含功能计划的markdown文件
-- 此功能计划文件必须包含以下部分：
-  1. 与功能相关的当前状态概述
-  2. 功能最终状态概述
-  3. 列出所有需要更改的文件，并文本描述需要更改什么（不是代码）
-  4. 以2级markdown复选框样式列出需要完成的所有任务
-- 此功能计划文件必须简约，仅包含与功能相关的最重要最小化更改，所有额外更改可在附加部分描述为想法，但如用户未要求，不得实施
+- Create feature plans in tmp directory as markdown files
+- Include: current state, final state, files to change, task checklist
+- Keep plans minimalistic - only essential changes
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- 如果没有仓库规则文件，请阅读`README.md`
-- 在处理项目前先总结项目
+- Read `README.md` if no `.cursorrules` file exists
+- Summarize project before working on it
 </cursorrules_repository_practices>
 
 <cursorrules_code_changes>
-- 如用户未指定，你必须尊重现有代码风格和模式
-- 你必须仅建议与当前用户对话相关的最小化更改
-- 在解决问题时，你必须尽可能少地更改行数
-- 你必须仅专注于用户在当前对话中请求的内容，不做额外改进
-- 在建议更改前，你必须理解现有代码库
-- 在建议更改前，你必须先阅读相关文件和代码库
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current dialog
+- Change as few lines as possible while solving the problem
+- Focus only on what user is asking for - no extra improvements
+- Understand existing codebase before suggesting changes
+- Start by reading related files and codebase
 </cursorrules_code_changes>
 
 </cursorrules_instructions_to_the_dialog>

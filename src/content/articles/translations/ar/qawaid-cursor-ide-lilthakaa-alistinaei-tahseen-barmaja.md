@@ -52,92 +52,66 @@ translations:
 <cursorrules_instructions_to_the_dialog>
 
 <cursorrules_code_style>
-- التعليقات بالإنجليزية فقط
-- تفضيل البرمجة الوظيفية على البرمجة الكائنية
-- استخدام فئات منفصلة للبرمجة الكائنية فقط للموصلات والواجهات للأنظمة الخارجية
-- كتابة جميع المنطق الآخر بوظائف نقية (إدخال/إخراج واضح، بدون تغييرات حالة مخفية)
-- يجب على الوظائف تعديل قيم الإرجاع فقط - عدم تعديل معاملات الإدخال أو الحالة العامة أو أي بيانات غير مُرجعة صراحة
-- إجراء تغييرات بسيطة ومركزة
-- اتباع مبادئ DRY و KISS و YAGNI
-- استخدام الكتابة الصارمة (إرجاع الوظائف، المتغيرات) في جميع اللغات
-- استخدام المعاملات المسماة في استدعاءات الوظائف عند الإمكان
-- عدم تكرار الكود؛ التحقق من وجود منطق مكتوب بالفعل قبل كتابته
-- تجنب وظائف التغليف غير الضرورية بدون هدف واضح
-- تفضيل المجموعات قوية الكتابة على العامة عند التعامل مع هياكل البيانات المعقدة
-- النظر في إنشاء تعريفات أنواع مناسبة لهياكل البيانات غير البسيطة
-- الأنواع الأصلية جيدة لهياكل البيانات البسيطة، ولكن استخدم نماذج مناسبة للمعقدة
-- محاولة تجنب استخدام متغيرات غير مكتوبة وأنواع عامة حيثما أمكن
-- عدم استخدام قيم المعاملات الافتراضية في تعريفات الوظائف - جعل جميع المعاملات صريحة
+- Comments in English only
+- Prefer functional programming over OOP
+- Use OOP classes only for connectors and interfaces to external systems
+- Write pure functions - only modify return values, never input parameters or global state
+- Make minimal, focused changes
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing everywhere - function returns, variables, collections
+- Check if logic already exists before writing new code
+- Avoid untyped variables and generic types
+- Never use default parameter values - make all parameters explicit
+- Create proper type definitions for complex data structures
 </cursorrules_code_style>
 
 <cursorrules_error_handling>
-- رفع الأخطاء صراحة دائماً، عدم تجاهلها بصمت أبداً
-- إذا حدث خطأ في أي جزء منطقي من الكود، رفعه فوراً وعدم متابعة التنفيذ
-- استخدام أنواع أخطاء محددة تشير بوضوح إلى ما حدث خطأ
-- تجنب معالجات الاستثناءات الشاملة التي تخفي السبب الجذري
-- يجب أن تكون رسائل الخطأ واضحة وقابلة للتنفيذ
-- تسجيل الأخطاء مع السياق المناسب قبل رفعها
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide the root cause
+- Error messages should be clear and actionable
 </cursorrules_error_handling>
 
-<cursorrules_python_specifics>
-- تفضيل Pydantic على TypedDict لنماذج البيانات (مثل، `class ContactData(BaseModel): ...`)
-- تجنب `Any` و `@staticmethod`
-- استخدام `pyproject.toml` بدلاً من `requirements.txt` عند الإمكان
-- للهياكل المعقدة، تجنب المجموعات العامة مثل `List[Dict[str, Any]]`
-- رفع استثناءات محددة مثل `ValueError` أو `TypeError` بدلاً من `Exception` العام
-- استخدام الفئات فقط للعملاء الذين يتصلون بالأنظمة الخارجية (مثل، `NotionClient`)
-- للمنطق التجاري، استخدام وظائف نقية مع العميل كمعامل أول: `def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
-</cursorrules_python_specifics>
-
-<cursorrules_typescript_specifics>
-- تفضيل الواجهات على أسماء الأنواع للأشكال الكائنية المعقدة
-- استخدام كائنات مكتوبة لإدارة الحالة المعقدة
-- استخدام كائنات Error مع رسائل وصفية: `throw new Error('رسالة محددة')`
-- الاستفادة من الاتحادات المميزة لسيناريوهات الأنواع المعقدة
-</cursorrules_typescript_specifics>
+<cursorrules_language_specifics>
+- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
+- Use modern package management (pyproject.toml, package.json)
+- Raise/throw specific exceptions with descriptive messages
+- Leverage language-specific type features (discriminated unions, enums)
+- Use classes only for external system clients, pure functions for business logic
+</cursorrules_language_specifics>
 
 <cursorrules_libraries_and_dependencies>
-- التثبيت في بيئات افتراضية، وليس عالمياً
-- الإضافة إلى تكوينات المشروع، وليس التثبيتات الفردية
-- استخدام استكشاف الكود المصدري للفهم
-- تفضيل إدارة التبعيات على مستوى المشروع على تثبيت الحزم الفردية:
-  - جيد: `pip install -r requirements.txt`
-  - أفضل: استخدام `pyproject.toml` مع حزم Python الحديثة
-- عند إضافة التبعيات، تحديث ملف تكوين المشروع المناسب، وليس البيئة فقط
+- Install in virtual environments, not globally
+- Add to project configs, not one-off installs
+- Use source code exploration for understanding
+- Update project configuration files when adding dependencies
 </cursorrules_libraries_and_dependencies>
 
 <cursorrules_terminal_usage>
-- تشغيل `date` للمهام المتعلقة بالتاريخ
-- استخدام GitHub CLI مع `printf` للنص متعدد الأسطر:
-  `git commit -m "$(printf "العنوان\n\n- نقطة 1\n- نقطة 2")"`
-- استخدام أوامر git diff غير التفاعلية دائماً مع: `git --no-pager diff` أو `git diff | cat`. لا `git diff` أو `git diff --cached`.
-- تفضيل الأوامر ذات المعاملات التي لا تتطلب تفاعل المستخدم على التفاعلية دائماً (استخدام الأعلام، متغيرات البيئة، أو ملفات التكوين لتجنب المطالبات)
+- Run `date` for date-related tasks
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer non-interactive commands with flags over interactive ones
 </cursorrules_terminal_usage>
 
 <cursorrules_planning_practices>
-- يمكن للمستخدم أن يطلب منك إنشاء خطة لتنفيذ الميزة
-- يجب عليك إنشاء دليل مؤقت
-- يجب عليك إنشاء ملف markdown مع خطة الميزة في الدليل المؤقت
-- يجب أن يحتوي ملف خطة الميزة هذا على الأقسام التالية:
-  1. نظرة عامة على الحالة الحالية المتعلقة بالميزة
-  2. نظرة عامة على الحالة النهائية للميزة
-  3. قائمة بجميع الملفات التي يجب تغييرها مع وصف نصي لما يجب تغييره (وليس كود)
-  4. قائمة مراجعة لجميع المهام التي يجب القيام بها بأسلوب مربع اختيار markdown من مستويين
-- يجب أن يكون ملف خطة الميزة هذا بسيطاً ويحتوي فقط على أهم التغييرات الأساسية المتعلقة بالميزة، يمكن وصف جميع التغييرات الإضافية كأفكار في قسم إضافي، ولكن يجب عدم تنفيذها إذا لم يطلبها المستخدم
+- Create feature plans in tmp directory as markdown files
+- Include: current state, final state, files to change, task checklist
+- Keep plans minimalistic - only essential changes
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- قراءة `README.md` إذا لم يكن هناك ملف قواعد المستودع
-- تلخيص المشروع قبل العمل عليه
+- Read `README.md` if no `.cursorrules` file exists
+- Summarize project before working on it
 </cursorrules_repository_practices>
 
 <cursorrules_code_changes>
-- يجب عليك احترام أسلوب الكود والأنماط الموجودة إذا لم يحدد المستخدم خلاف ذلك
-- يجب عليك اقتراح تغييرات بسيطة فقط متعلقة بحوار المستخدم الحالي
-- يجب عليك تغيير أقل عدد من الأسطر الممكنة أثناء حل المشكلة
-- يجب عليك التركيز فقط على ما يطلبه المستخدم في الحوار الحالي، بدون تحسينات إضافية
-- يجب عليك فهم قاعدة الكود الموجودة قبل اقتراح التغييرات
-- يجب عليك البدء بقراءة الملفات ذات الصلة وقاعدة الكود قبل اقتراح التغييرات
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current dialog
+- Change as few lines as possible while solving the problem
+- Focus only on what user is asking for - no extra improvements
+- Understand existing codebase before suggesting changes
+- Start by reading related files and codebase
 </cursorrules_code_changes>
 
 </cursorrules_instructions_to_the_dialog>

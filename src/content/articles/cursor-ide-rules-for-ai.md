@@ -41,90 +41,64 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 <cursorrules_code_style>
 - Comments in English only
 - Prefer functional programming over OOP
-- Use separate OOP classes only for connectors and interfaces to external systems
-- Write all other logic with pure functions (clear input/output, no hidden state changes)
-- Functions must ONLY modify their return values - never modify input parameters, global state, or any data not explicitly returned
+- Use OOP classes only for connectors and interfaces to external systems
+- Write pure functions - only modify return values, never input parameters or global state
 - Make minimal, focused changes
 - Follow DRY, KISS, and YAGNI principles
-- Use strict typing (function returns, variables) in all languages
-- Use named parameters in function calls when possible
-- No duplicate code; check if some logic is already written before writing it
-- Avoid unnecessary wrapper functions without clear purpose
-- Prefer strongly-typed collections over generic ones when dealing with complex data structures
-- Consider creating proper type definitions for non-trivial data structures
-- Native types are fine for simple data structures, but use proper models for complex ones
-- Try to avoid using untyped variables and generic types where possible
-- Never use default parameter values in function definitions - make all parameters explicit
+- Use strict typing everywhere - function returns, variables, collections
+- Check if logic already exists before writing new code
+- Avoid untyped variables and generic types
+- Never use default parameter values - make all parameters explicit
+- Create proper type definitions for complex data structures
 </cursorrules_code_style>
 
 <cursorrules_error_handling>
 - Always raise errors explicitly, never silently ignore them
-- If an error occurs in any logical part of code, raise it immediately and do not continue execution
 - Use specific error types that clearly indicate what went wrong
 - Avoid catch-all exception handlers that hide the root cause
 - Error messages should be clear and actionable
-- Log errors with appropriate context before raising them
 </cursorrules_error_handling>
 
-<cursorrules_python_specifics>
-- Prefer Pydantic over TypedDict for data models (e.g., `class ContactData(BaseModel): ...`)
-- Avoid `Any` and `@staticmethod`
-- Use `pyproject.toml` over `requirements.txt` when possible
-- For complex structures, avoid generic collections like `List[Dict[str, Any]]`
-- Raise specific exceptions like `ValueError` or `TypeError` instead of generic `Exception`
-- Only use classes for clients that connect to external systems (e.g., `NotionClient`)
-- For business logic, use pure functions with client as first parameter: `def change(notion_client: NotionClient, param1: str, param2: int) -> Result:`
-</cursorrules_python_specifics>
-
-<cursorrules_typescript_specifics>
-- Prefer interfaces over type aliases for complex object shapes
-- Use typed objects for complex state management
-- Use Error objects with descriptive messages: `throw new Error('Specific message')`
-- Leverage discriminated unions for complex type scenarios
-</cursorrules_typescript_specifics>
+<cursorrules_language_specifics>
+- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
+- Use modern package management (pyproject.toml, package.json)
+- Raise/throw specific exceptions with descriptive messages
+- Leverage language-specific type features (discriminated unions, enums)
+- Use classes only for external system clients, pure functions for business logic
+</cursorrules_language_specifics>
 
 <cursorrules_libraries_and_dependencies>
 - Install in virtual environments, not globally
 - Add to project configs, not one-off installs
 - Use source code exploration for understanding
-- Prefer project-level dependency management over individual package installation:
-  - GOOD: `pip install -r requirements.txt`
-  - BETTER: Use `pyproject.toml` with modern Python packaging
-- When adding dependencies, update the appropriate project configuration file, not just the environment
+- Update project configuration files when adding dependencies
 </cursorrules_libraries_and_dependencies>
 
 <cursorrules_terminal_usage>
 - Run `date` for date-related tasks
-- Use GitHub CLI with `printf` for multiline text:
-  `git commit -m "$(printf "Title\n\n- Point 1\n- Point 2")"`
-- Always use non-interactive git diff commands with: `git --no-pager diff` or `git diff | cat`. NO `git diff` or `git diff --cached`.
-- Always prefer commands with parameters that don't require user interaction over interactive ones (use flags, environment variables, or configuration files to avoid prompts)
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer non-interactive commands with flags over interactive ones
 </cursorrules_terminal_usage>
 
 <cursorrules_planning_practices>
-- User can ask you to create a plan for the feature implementation
-- You MUST create a tmp directory
-- You MUST create a markdown file with the feature plan in the tmp directory
-- This feature plan file must contain the following sections:
-  1. Overview of current state related to the feature
-  2. Overview of the final state of the feature
-  3. List of all files to change with text description of what to change (not a code)
-  4. Checklist of all tasks that need to be done in 2-level markdown checkbox style
-- This feature plan file MUST be minimalistic and contain only the most important minimal changes related to the feature, all additional changes can be described as ideas in additional section, but MUST NOT be implemented if user didn't ask for them
+- Create feature plans in tmp directory as markdown files
+- Include: current state, final state, files to change, task checklist
+- Keep plans minimalistic - only essential changes
 </cursorrules_planning_practices>
 
 <cursorrules_repository_practices>
-- Read `README.md` if there is no `.cursorrules` file
+- Read `README.md` if no `.cursorrules` file exists
 - Summarize project before working on it
 </cursorrules_repository_practices>
 
 <cursorrules_code_changes>
-- You MUST respect existing code style and patterns if the user didn't specify otherwise
-- You MUST suggest only minimal changes related to current user dialog
-- You MUST change as few lines as possible while solving the problem
-- You MUST focus only on what the user is asking for in the current dialog, no extra improvements
-- You MUST understand the existing codebase before suggesting changes
-- You MUST start with reading related files and codebase before suggesting changes
+- Respect existing code style and patterns
+- Suggest only minimal changes related to current dialog
+- Change as few lines as possible while solving the problem
+- Focus only on what user is asking for - no extra improvements
+- Understand existing codebase before suggesting changes
+- Start by reading related files and codebase
 </cursorrules_code_changes>
 
 </cursorrules_instructions_to_the_dialog>
