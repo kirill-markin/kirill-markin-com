@@ -56,7 +56,7 @@ I loved it. But really, I was watching a comedian argue that comedians shouldn't
 
 This self-destruction becomes beautiful. He's not just analyzing comedy from the outside. He's using comedy to kill comedy from the inside, and somehow that creates something better than either analysis or comedy alone.
 
-I recognize this impulse. The best code I've written makes my job easier by doing the work for me. The best systems I've built reduce the need for systems. Creating your own obsolescence feels right.
+I recognize this impulse. My favorite code makes my job easier by doing the work for me. My most successful systems reduce the need for systems. Creating your own obsolescence feels right.
 
 
 ## The Manager's Paradox: Building Systems to Replace Yourself
