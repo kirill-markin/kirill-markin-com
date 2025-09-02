@@ -15,12 +15,14 @@ Professional business-casual tone with personality. Avoids AI-sounding language 
 4. **Personal touches** - Include experiences and light humor
 5. **Conversational** - Write as if speaking to a respected colleague
 6. **Globally accessible** - Clear English for non-native speakers
+7. **Concrete over abstract** - Use specific, detailed, real examples wherever possible
+8. **Anti-pathos** - Avoid pompous, overly dramatic, or grandiose language
 
 ## Voice and Tone
 
-✅ **Do**: Use first-person, vary sentence length, include mild colloquialisms, express genuine feelings, add occasional asides.
+✅ **Do**: Use first-person, vary sentence length, include mild colloquialisms, express genuine feelings, add occasional asides, provide specific examples with concrete details.
 
-❌ **Avoid**: Hedging language, unnecessary qualifiers, academic detachment, formal transitions, robotic parallelism.
+❌ **Avoid**: Hedging language, unnecessary qualifiers, academic detachment, formal transitions, robotic parallelism, grandiose statements, abstract generalizations without examples.
 
 ## Vocabulary
 
@@ -167,6 +169,46 @@ What features in your dev tools did you discover by accident? I'm always finding
 
 **Business-Casual-Plus (Use)**:
 "I wasted a year posting content nobody saw before realizing most platforms aren't actually designed to help you reach new people. After some painful trial and error, I've sorted my content channels into three buckets: ones that actually bring in new eyeballs, ones that make me look credible when someone Googles me, and ones that just keep me connected with people who already know me."
+
+## Concrete Examples Requirement
+
+**Always prioritize specific, detailed, real examples over abstract explanations:**
+
+✅ **Good**: "I spent 3 hours debugging a TypeScript error that turned out to be a missing semicolon on line 47 of my authentication middleware."
+
+❌ **Bad**: "Debugging can be time-consuming and often involves identifying small syntax errors in your codebase."
+
+✅ **Good**: "Yesterday I saved 2 hours by using Cursor's duplicate chat feature when I wanted to try a different approach to my React component structure."
+
+❌ **Bad**: "AI tools can significantly improve developer productivity through various features."
+
+### Example Requirements:
+- Include specific timeframes, numbers, tools, file names
+- Mention actual code, real projects, concrete outcomes
+- Use personal experience over hypothetical scenarios
+- Provide measurable results when possible
+
+## Anti-Pathos Guidelines
+
+**Avoid pompous, grandiose, or overly dramatic language:**
+
+❌ **Avoid**: Pathos-heavy language:
+- "Revolutionary breakthrough"
+- "Mind-blowing transformation" 
+- "Absolutely incredible"
+- "Life-changing discovery"
+- "Stunning revelation"
+- "Phenomenal results"
+- "Extraordinary achievement"
+- "Breathtaking innovation"
+
+✅ **Good**: Understated, honest language:
+- "This actually worked for me"
+- "Turned out to be useful"
+- "Made things easier"
+- "Saved me some time"
+- "Pretty straightforward"
+- "Works well enough"
 
 ## AI Word Red Flags
 
