@@ -12,7 +12,7 @@ date: 2025-09-01
 description: "Examples of creators who automate their own work: comedians mocking comedy, engineers building AI to replace programmers, and why we enjoy our obsolescence."
 tags: [productivity, ai, llm, cursor-ide, management]
 publish: true
-thumbnailUrl: "/articles/placeholder.webp"
+thumbnailUrl: "/articles/creators-who-mock-their-own-craft-examples.webp"
 language: "en"
 ---
 
