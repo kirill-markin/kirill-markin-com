@@ -56,9 +56,9 @@ Creating your own obsolescence has this strange appeal. The better you get at yo
 
 Last week I was debugging some automation code I'd written — code that eliminates the need for manual data processing that used to take our team hours every day. While I was fixing it, I realized I was using AI to help me write better code that replaces human work more efficiently.
 
-I'm literally using artificial intelligence to build better artificial intelligence that makes human intelligence less necessary. And I love how cleanly the whole thing works.
+I'm using AI to build better automation that eliminates human work. The irony hit me: I'm making myself obsolete with tools designed to make me obsolete.
 
-This isn't unique to engineering. I've started noticing this self-destructive impulse in creators everywhere. The best ones seem drawn to undermining their own importance, and somehow that makes their work more valuable, not less.
+This self-destructive impulse shows up everywhere. The best creators seem drawn to undermining their own importance, and somehow that makes their work more valuable, not less.
 
 ## When Comedians Dissect Comedy: The Art of Professional Self-Awareness
 
@@ -146,30 +146,36 @@ Factorio just made that engineering satisfaction into a game.
 
 ## Engineers Optimizing Engineers: The Beautiful Recursion
 
-For over a year now, I've been writing code almost entirely through AI and voice commands in Cursor IDE. Not just chatting with AI about programming problems — I mean literally speaking my intentions and watching code appear on screen.
+For 14 months now, I've been writing code almost entirely through AI and voice commands in Cursor IDE. Yesterday I built a complete product page for an e-commerce site by talking to my computer for 20 minutes. No typing, just voice commands: "Create a new product page like the existing ones, but for wireless headphones with reviews and a buy button." Then a few more iterations to match the design and add the shopping cart integration.
 
-I should probably mention I'm currently VP of Engineering at a startup. Before this, I spent years as Director of Research and Development at a couple different companies, led data analysis teams, founded several companies myself. I've been building and optimizing systems from pretty much every angle you can imagine.
+I'm VP of Engineering at a startup. Before this, I spent 3 years as Director of R&D at two different companies, led data analysis teams of 8-12 people, founded several companies. I've been building and optimizing systems since I was 16.
 
 Which makes what I'm about to say either more credible or more concerning, depending on how you look at it.
 
 But that's not even the interesting part.
 
-During this year, I've built multiple large-scale pipelines that automatically generate code for complex systems. Not AI assistants that help programmers in chat. Software solutions that write most of the code without any human involvement at all.
+In the past 8 months, I've built 3 large-scale pipelines that do most of the programming work:
+
+1. A system that generates complete CRUD APIs from database schemas (saves our team 40 hours per new service)
+2. A system that automatically scrapes API documentation and writes complete integrations with those APIs
+3. A system that analyzes task requirements and generates mobile apps using React Native
+
+These aren't AI assistants that help programmers in chat. These are systems where LLMs write 80-90% of the codebase through hundreds of automated calls, and programmers review and finish the remaining 10-20%. We're still essential, but we've moved from writing code to orchestrating code generation.
 
 I'm not just watching how these systems might take jobs away from lower-skilled engineers. I'm actively contributing to making it happen as fast as possible.
 
-And my brain is in exactly the same state I described with comedians, managers, and game designers above. I find it incredibly, almost aesthetically beautiful how elegantly we can remove programmers — including myself — from the equation.
+My brain is in exactly the same state I described with comedians, managers, and game designers. I find it beautiful how elegantly we can remove programmers — including myself — from the equation.
 
-So when people ask me whether programmers might accidentally build software that completely replaces them, I'm absolutely certain we can. Just for the beauty of it. Against our own economic interests.
+When people ask me whether programmers might accidentally build software that replaces them, I'm certain we will. Not accidentally. On purpose. Just for the elegance of it.
 
-Engineers engineering their own obsolescence is perfectly recursive. We're the ones building the systems that make us unnecessary. We understand exactly what we're doing, and we keep doing it anyway because the automation is too elegant to resist.
+Engineers engineering their own obsolescence is perfectly recursive. We build the systems that make us unnecessary. We understand exactly what we're doing, and we keep doing it anyway because the automation is too elegant to resist.
 
 The irony isn't lost on me. I'm using AI to write systems that replace human programmers, while finding genuine joy in how cleanly the whole process works. Every time I eliminate another manual step, every time I automate something that used to require human judgment, I feel the same satisfaction I get from a perfectly optimized algorithm.
 
-It's the same impulse that drives comedians to mock comedy and game designers to create games about player obsolescence. Creating your own replacement is deeply satisfying, especially when you do it well.
+Creating your own replacement is deeply satisfying, especially when you do it well.
 
-Of course, I don't actually believe this will happen too quickly. There's probably going to be a massive last-mile problem. Fine-tuning AI systems to perfection will likely take much longer than we all think. Plus, improving these systems still falls on engineers — at least for now.
+I don't think this will happen overnight. There's a massive last-mile problem. Fine-tuning AI systems to handle edge cases will take longer than we think. Plus, improving these systems still falls on engineers — for now.
 
-But the beauty in automation is so compelling that it's enough for engineers to eliminate themselves, even when it's against their own interests.
+But the beauty in automation is compelling enough for engineers to eliminate themselves, even against their own interests.
 
-We're building our own obsolescence, and we can't stop because it's too elegant not to finish.
+We're building our own obsolescence because it's too elegant not to finish.
