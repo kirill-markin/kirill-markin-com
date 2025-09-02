@@ -36,7 +36,7 @@ Last week I was debugging some automation code I'd written — code that elimina
 
 I'm using AI to build better automation that eliminates human work. The irony hit me: I'm making myself obsolete with tools designed to make me obsolete.
 
-This self-destructive impulse shows up everywhere. The best creators seem drawn to undermining their own importance, and somehow that makes their work more valuable, not less.
+This self-destructive impulse shows up everywhere. Great creators seem drawn to undermining their own importance, and somehow that makes their work more valuable, not less.
 
 ## When Comedians Dissect Comedy: The Art of Professional Self-Awareness
 
@@ -52,9 +52,7 @@ The finale was brutal in its honesty. He talked about how comedians appear confi
 
 His song "Art is Dead" captures this perfectly. The whole thing is about how artists are just attention-seeking people who learned to get what they want. He's singing about how meaningless his own art is, while creating art that's genuinely meaningful.
 
-I loved it. But really, I was watching a comedian argue that comedians shouldn't exist.
-
-Burnham figured out how to use comedy to kill comedy.
+I loved it. But really, I was watching a comedian argue that comedians shouldn't exist. Burnham figured out how to use comedy to kill comedy.
 
 This self-destruction becomes beautiful. He's not just analyzing comedy from the outside. He's using comedy to kill comedy from the inside, and somehow that creates something better than either analysis or comedy alone.
 
@@ -79,9 +77,7 @@ But in most cases, building systems to eliminate myself led to promotions, highe
 
 Most managers hoard information and create dependencies because they're terrified of being replaced. They become bottlenecks. Doing the opposite works — actively working to eliminate your own bottleneck status makes you valuable in a completely different way.
 
-Now when I manage teams, I follow the same "fire myself" logic. Everything I build is designed so I could vanish tomorrow and the team would keep running smoothly.
-
-Good management eventually makes the manager replaceable.
+Now when I manage teams, I follow the same "fire myself" logic. Everything I build is designed so I could vanish tomorrow and the team would keep running smoothly. Good management eventually makes the manager replaceable.
 
 ## Game Designers Who Gamify Optimization: The Factorio Phenomenon
 
@@ -101,11 +97,7 @@ The game designers created a system where the ultimate achievement is making the
 
 This isn't just a game mechanic. It's the same drive that pushes engineers to write code that writes code, managers to build self-running teams, and comedians to create jokes about the pointlessness of jokes.
 
-The game designers understood something fundamental. We find deep satisfaction in creating systems that make us unnecessary.
-
-The best code eliminates the need for more code. The best automation removes the need for manual work. The best systems reduce the need for systems.
-
-Factorio just made that engineering satisfaction into a game.
+The game designers understood something fundamental. We find deep satisfaction in creating systems that make us unnecessary. Smart code eliminates the need for more code. Effective automation removes the need for manual work. Well-designed systems reduce the need for systems. Factorio just made that engineering satisfaction into a game.
 
 ## Engineers Optimizing Engineers: The Beautiful Recursion
 
