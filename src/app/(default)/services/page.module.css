@@ -460,6 +460,17 @@
   font-weight: 600;
 }
 
+/* Apply serif font to article text content on services pages */
+.articleContent p,
+.articleContent li,
+.articleContent blockquote,
+.articleContent ul,
+.articleContent ol {
+  font-family: var(--serif-font-family);
+  font-size: 20px;
+  font-weight: 400;
+}
+
 /* Back link styles */
 .backLink {
   margin-top: 3rem;
