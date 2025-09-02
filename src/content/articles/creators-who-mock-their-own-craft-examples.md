@@ -54,7 +54,7 @@ I recognize this impulse. My favorite code makes my job easier by doing the work
 
 ## Building Systems That Fire Me (And Why I Love It)
 
-I ended up managing people pretty young — not because I was any good at it, but because I kept starting small projects that grew beyond what I could handle alone.
+I ended up managing people earlier than expected — mostly by accident when small projects I was working on needed more hands than I could provide.
 
 The thing about having other people work with you is that you quickly realize coordination becomes its own problem. You can't just throw more hands at work and expect things to go smoothly.
 
@@ -64,7 +64,7 @@ I became obsessed with building systems where I could disappear and nothing woul
 
 This backfired spectacularly a couple times. I got removed from situations where I really didn't want to be removed. Turns out when you make yourself replaceable, sometimes people actually replace you.
 
-But in most cases, building systems to eliminate myself led to promotions, higher income, and more influence. The better I got at making myself unnecessary, the more necessary I became.
+But most of the time, this approach worked out better than I expected. The better I got at making myself unnecessary, the more necessary I became.
 
 Most managers hoard information and create dependencies because they're terrified of being replaced. They become bottlenecks. Doing the opposite works — actively working to eliminate your own bottleneck status makes you valuable in a completely different way.
 
