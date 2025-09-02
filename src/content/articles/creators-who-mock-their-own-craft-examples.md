@@ -78,9 +78,9 @@ The finale was brutal in its honesty. He talked about how comedians appear confi
 
 His song "Art is Dead" captures this perfectly. The whole thing is about how artists are just attention-seeking people who learned to get what they want. He's singing about how meaningless his own art is, while creating art that's genuinely meaningful.
 
-I loved it, probably because this meta-comedy made me feel smarter and more aware than the regular audience. But really, I was watching a comedian argue that comedians shouldn't exist.
+I loved it. But really, I was watching a comedian argue that comedians shouldn't exist.
 
-It reminded me of optimization problems I'd work on as a data scientist. You're trying to find the solution that makes the problem unnecessary. Burnham found the comedy that makes comedy unnecessary.
+Burnham found the comedy that makes comedy unnecessary.
 
 This self-destruction becomes beautiful. He's not just analyzing comedy from the outside. He's using comedy to kill comedy from the inside, and somehow that creates something better than either analysis or comedy alone.
 
@@ -105,15 +105,11 @@ I became obsessed with building systems where I could disappear and nothing woul
 
 This backfired spectacularly a couple times. I got removed from situations where I really didn't want to be removed. Turns out when you make yourself replaceable, sometimes people actually replace you.
 
-But in every other case, building systems to eliminate myself led to promotions, higher income, and more influence. Even when I was working as a hired manager for someone else's company.
+But in most cases, building systems to eliminate myself led to promotions, higher income, and more influence. The better I got at making myself unnecessary, the more necessary I became.
 
-The pattern kept repeating. The better I got at making myself unnecessary, the more necessary I became. The more I could be removed, the less anyone wanted to remove me.
+Most managers hoard information and create dependencies because they're terrified of being replaced. They become bottlenecks. Doing the opposite works — actively working to eliminate your own bottleneck status makes you valuable in a completely different way.
 
-Most managers are terrified of being replaced, so they hoard information and create dependencies. They become bottlenecks. Doing the opposite works — actively working to eliminate your own bottleneck status makes you valuable in a completely different way.
-
-Now when I manage teams, I follow the same "fire myself" logic. Everything I build, every process I document, every system I create is designed so I could vanish tomorrow and the team would keep running smoothly.
-
-It's the same impulse I see in comedians who mock comedy. Creating your own obsolescence appeals to something deep. The better you get at your job, the less the job needs you specifically.
+Now when I manage teams, I follow the same "fire myself" logic. Everything I build is designed so I could vanish tomorrow and the team would keep running smoothly.
 
 Good management eventually makes the manager replaceable.
 
@@ -142,11 +138,11 @@ The game designers created a system where the ultimate achievement is making the
 
 This isn't just a game mechanic. It's the same drive that pushes engineers to write code that writes code, managers to build self-running teams, and comedians to create jokes about the pointlessness of jokes.
 
-The game designers understood something fundamental about human psychology. We find deep satisfaction in creating systems that make us unnecessary. There's genuine pleasure in building your own replacement.
+The game designers understood something fundamental. We find deep satisfaction in creating systems that make us unnecessary.
 
-I recognize this impulse immediately. The best code eliminates the need for more code. The best automation removes the need for manual work. The best systems reduce the need for systems.
+The best code eliminates the need for more code. The best automation removes the need for manual work. The best systems reduce the need for systems.
 
-Factorio just made that engineering satisfaction into a game you can play for fun.
+Factorio just made that engineering satisfaction into a game.
 
 ## Engineers Optimizing Engineers: The Beautiful Recursion
 
