@@ -52,7 +52,7 @@ This self-destruction becomes beautiful. He's not just analyzing comedy from the
 
 I recognize this impulse. My favorite code makes my job easier by doing the work for me. My most successful systems reduce the need for systems. Creating your own obsolescence feels right.
 
-## The Manager's Paradox: Building Systems to Replace Yourself
+## Building Systems That Fire Me (And Why I Love It)
 
 I've been a manager since I was 16. Not because I was particularly good at it, but because I've always had at least one company running alongside whatever engineering work I was doing.
 
@@ -88,7 +88,7 @@ This isn't just a game mechanic. It's the same drive that pushes engineers to wr
 
 The game designers understood something fundamental. We find deep satisfaction in creating systems that make us unnecessary. Smart code eliminates the need for more code. Effective automation removes the need for manual work. Well-designed systems reduce the need for systems. Factorio just made that engineering satisfaction into a game.
 
-## Engineers Optimizing Engineers: The Beautiful Recursion
+## We're Programming Our Own Replacement (And It's Working)
 
 For 14 months now, I've been writing code almost entirely through AI and voice commands in Cursor IDE. Yesterday I built a complete product page for an e-commerce site by talking to my computer for 20 minutes. No typing, just voice commands: "Create a new product page like the existing ones, but for wireless headphones with reviews and a buy button." Then a few more iterations to match the design and add the shopping cart integration.
 
