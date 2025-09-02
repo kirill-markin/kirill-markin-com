@@ -90,9 +90,9 @@ The game designers understood something fundamental. We find deep satisfaction i
 
 ## We're Programming Our Own Replacement (And It's Working)
 
-For 14 months now, I've been writing code almost entirely through AI and voice commands in Cursor IDE. Yesterday I built a complete product page for an e-commerce site by talking to my computer for 20 minutes. No typing, just voice commands: "Create a new product page like the existing ones, but for wireless headphones with reviews and a buy button." Then a few more iterations to match the design and add the shopping cart integration.
+For over a year now, I've been writing most of my code through AI voice commands in Cursor IDE. Yesterday I built a product page by talking to my computer for about twenty minutes instead of typing.
 
-I'm VP of Engineering at a startup. Before this, I spent 3 years as Director of R&D at two different companies, led data analysis teams of 8-12 people, founded several companies. I've been building and optimizing systems since I was 16.
+I've been working as VP of Engineering and building systems for a while now.
 
 In the past 8 months, I've been working on a few automation systems:
 
@@ -100,11 +100,11 @@ In the past 8 months, I've been working on a few automation systems:
 2. A scraper that reads API docs and writes integration code (works about 70% of the time without manual fixes)
 3. An experiment with generating simple mobile apps from requirements (still pretty rough, but surprisingly functional)
 
-These aren't AI assistants that help programmers in chat. These are systems where LLMs write 80-90% of the codebase through hundreds of automated calls, and programmers review and finish the remaining 10-20%. We're still essential, but we've moved from writing code to orchestrating code generation.
+These aren't AI assistants that help programmers in chat. These are systems where LLMs write most of the codebase automatically, and programmers review and fix what needs fixing. We're still essential, but we've moved from writing code to orchestrating code generation.
 
-I'm not just watching how these systems might take jobs away from lower-skilled engineers. I'm actively contributing to making it happen as fast as possible.
+I'm not just watching this happen to other programmers. I'm actively building these systems myself.
 
-My brain is in exactly the same state I described with comedians, managers, and game designers. I find it beautiful how elegantly we can remove programmers — including myself — from the equation.
+I recognize the same pattern I described with comedians and game designers. There's something satisfying about how cleanly these systems can replace manual work.
 
 When people ask me whether programmers might accidentally build software that replaces them, I'm certain we will. Not accidentally. On purpose. Just for the elegance of it.
 
@@ -126,7 +126,7 @@ Bo Burnham uses comedy to destroy comedy. I build management systems that elimin
 
 This isn't masochism or career suicide. It's something deeper.
 
-Here's what I think is actually happening: we're not building AI to replace engineers because we have to. We're doing it because it's the most interesting problem we've ever seen.
+Here's my theory about what's really going on: we're not building AI to replace engineers because we have to. We're doing it because it's the most interesting problem we've ever seen.
 
 Every engineer I know got into this field because they love solving puzzles. And what's the ultimate puzzle? Building a system that can solve puzzles better than you can.
 
