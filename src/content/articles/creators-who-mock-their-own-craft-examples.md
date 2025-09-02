@@ -54,11 +54,11 @@ I recognize this impulse. My favorite code makes my job easier by doing the work
 
 ## Building Systems That Fire Me (And Why I Love It)
 
-I've been a manager since I was 16. Not because I was particularly good at it, but because I've always had at least one company running alongside whatever engineering work I was doing.
+I ended up managing people pretty young — not because I was any good at it, but because I kept starting small projects that grew beyond what I could handle alone.
 
-The thing about having employees is that you quickly realize you need more hands than just your own. In my family, this was always the default assumption. You don't try to do everything yourself — you find people who can help and figure out how to coordinate them.
+The thing about having other people work with you is that you quickly realize coordination becomes its own problem. You can't just throw more hands at work and expect things to go smoothly.
 
-So I hired my first assistant pretty early. Then more people. And no matter what I was working on, I kept asking myself the same question: if I got sick tomorrow and couldn't work for a week, would everything fall apart?
+So I started hiring help when projects got too big for me to manage. And no matter what I was working on, I kept asking myself the same question: if I got sick tomorrow and couldn't work for a week, would everything fall apart?
 
 I became obsessed with building systems where I could disappear and nothing would break. Every process I documented, every workflow I set up, every decision framework I created — all designed so the company could run without me.
 
@@ -98,11 +98,11 @@ Which makes what I'm about to say either more credible or more concerning, depen
 
 But that's not even the interesting part.
 
-In the past 8 months, I've built 3 large-scale pipelines that do most of the programming work:
+In the past 8 months, I've been working on a few automation systems:
 
-1. A system that generates complete CRUD APIs from database schemas (saves our team 40 hours per new service)
-2. A system that automatically scrapes API documentation and writes complete integrations with those APIs
-3. A system that analyzes task requirements and generates mobile apps using React Native
+1. Something that generates basic CRUD APIs from database schemas — saves us from writing the same boilerplate over and over
+2. A scraper that reads API docs and writes integration code (works about 70% of the time without manual fixes)
+3. An experiment with generating simple mobile apps from requirements (still pretty rough, but surprisingly functional)
 
 These aren't AI assistants that help programmers in chat. These are systems where LLMs write 80-90% of the codebase through hundreds of automated calls, and programmers review and finish the remaining 10-20%. We're still essential, but we've moved from writing code to orchestrating code generation.
 
