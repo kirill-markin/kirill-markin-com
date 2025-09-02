@@ -9,18 +9,14 @@ keywords: [
 ]
 title: "Creators Who Mock Their Own Craft: Comedians on Comedians — and Engineers Optimizing Engineers"
 date: 2025-09-01
-description: "Why the best creators work to make themselves unnecessary. From Bo Burnham's meta-comedy to engineers building AI that replaces engineers."
+description: "Real examples of creators automating themselves out of jobs: Bo Burnham's meta-comedy about meaningless art, engineers building AI systems that replace programmers, and why we find satisfaction in our own obsolescence."
 tags: [automation, creativity, engineering, comedy, management]
 publish: true
 thumbnailUrl: "/articles/placeholder.webp"
 language: "en"
 ---
 
-
-
 # Creators Who Mock Their Own Craft: Comedians on Comedians — and Engineers Optimizing Engineers
-
-
 
 Can engineers build AI systems so good that they replace engineers entirely? And if they can, why would they do it?
 
@@ -40,8 +36,6 @@ This self-destructive impulse shows up everywhere. Great creators seem drawn to 
 
 ## When Comedians Dissect Comedy: The Art of Professional Self-Awareness
 
-
-
 I remember watching Bo Burnham's "Make Happy" and feeling something click. Here was a comedian spending half his set explaining why comedy was pointless.
 
 In his older work, he'd walk up to a spotlight mid-performance and tell the audience exactly how much that single light rental cost. Then he'd calculate how many children in Africa could be fed for the same amount. Just casually destroying the magic while standing in it.
@@ -58,10 +52,7 @@ This self-destruction becomes beautiful. He's not just analyzing comedy from the
 
 I recognize this impulse. My favorite code makes my job easier by doing the work for me. My most successful systems reduce the need for systems. Creating your own obsolescence feels right.
 
-
 ## The Manager's Paradox: Building Systems to Replace Yourself
-
-
 
 I've been a manager since I was 16. Not because I was particularly good at it, but because I've always had at least one company running alongside whatever engineering work I was doing.
 
@@ -80,8 +71,6 @@ Most managers hoard information and create dependencies because they're terrifie
 Now when I manage teams, I follow the same "fire myself" logic. Everything I build is designed so I could vanish tomorrow and the team would keep running smoothly. Good management eventually makes the manager replaceable.
 
 ## Game Designers Who Gamify Optimization: The Factorio Phenomenon
-
-
 
 There's this whole category of games called automation simulators where the entire point is making yourself unnecessary. 
 
