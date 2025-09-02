@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Source_Serif_4 } from "next/font/google";
 import "../globals.css";
 import JsonLdSchema from "@/components/JsonLdSchema";
 import { DEFAULT_LANGUAGE } from "@/lib/localization";
@@ -6,6 +7,13 @@ import { commonViewport, commonIcons, commonManifestConfig, commonMetadataBase }
 import HeadLinks from "@/components/layout/HeadLinks";
 import GoogleTagManager from "@/components/layout/GoogleTagManager";
 import LayoutBody from "@/components/layout/LayoutBody";
+
+const sourceSerifPro = Source_Serif_4({
+    subsets: ['latin'],
+    weight: ['400', '600'],
+    display: 'swap',
+    variable: '--font-source-serif-pro',
+});
 
 export const viewport = commonViewport;
 
@@ -56,7 +64,7 @@ export default function DefaultLayout({
     const lang = DEFAULT_LANGUAGE;
 
     return (
-        <html lang={lang}>
+        <html lang={lang} className={sourceSerifPro.variable}>
             <head>
                 <HeadLinks />
                 <JsonLdSchema language={lang} />

@@ -10,6 +10,7 @@
   --black: #1A1A1A;
   --white: #FFFFFF;
   --gray: #BCBCBC;
+  --serif-font-family: var(--font-source-serif-pro), Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-size-small: 0.875rem;
   /* 14px */
   --font-size-base: 1rem;
