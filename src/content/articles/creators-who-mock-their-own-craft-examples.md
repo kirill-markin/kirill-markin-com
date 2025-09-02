@@ -134,3 +134,19 @@ I don't think this will happen overnight. There's a massive last-mile problem. F
 But the beauty in automation is compelling enough for engineers to eliminate themselves, even against their own interests.
 
 We're building our own obsolescence because it's too elegant not to finish.
+
+## The Pattern Behind the Pattern
+
+Bo Burnham uses comedy to destroy comedy. I build management systems that eliminate managers. Game designers create entertainment about making players unnecessary. Engineers write code that replaces engineers.
+
+This isn't masochism or career suicide. It's something deeper.
+
+Here's what I think is actually happening: we're not building AI to replace engineers because we have to. We're doing it because it's the most interesting problem we've ever seen.
+
+Every engineer I know got into this field because they love solving puzzles. And what's the ultimate puzzle? Building a system that can solve puzzles better than you can.
+
+It's like Burnham using comedy to kill comedy. You see the problem and you want to solve it. Can you write code that writes better code than you do?
+
+Some engineers say they're worried about AI taking their jobs. But watch what they actually build in their spare time. They're not building job protection - they're building automation.
+
+We're going to automate engineering work because the challenge is too interesting to ignore. And when it works, we'll be proud of it.
