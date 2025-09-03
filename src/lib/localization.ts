@@ -562,12 +562,12 @@ export const translations = {
     personalInfo: {
         'en': {
             jobTitle: 'Founder of ozma.io',
-            secondaryTitle: 'Director of R&D',
+            secondaryTitle: 'VP of Engineering',
             tertiaryTitle: 'AI & Data Engineer'
         },
         'es': {
             jobTitle: 'Fundador de ozma.io',
-            secondaryTitle: 'Director de I+D',
+            secondaryTitle: 'VP of Engineering',
             tertiaryTitle: 'Ingeniero de IA y Datos'
         },
         'zh': {

@@ -14,6 +14,6 @@ export const personalInfo: PersonalInfo = {
   phone: "+359879906085",
   image: "/avatars/Kirill-Markin.webp",
   jobTitle: "Founder of ozma.io",
-  secondaryTitle: "Director of R&D",
+  secondaryTitle: "VP of Engineering",
   tertiaryTitle: "AI & Data Engineer"
 }; 

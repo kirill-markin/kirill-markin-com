@@ -5,12 +5,12 @@ export interface ProfessionalRole {
 
 export const professionalRoles: ProfessionalRole[] = [
   {
-    title: "Founder of ozma.io",
-    url: "https://ozma.io"
+    title: "VP of Engineering at Aspect Health",
+    url: "https://aspect-health.com"
   },
   {
-    title: "Director of R&D at Improvado",
-    url: "https://improvado.io/"
+    title: "ex-founder of ozma.io",
+    url: "https://ozma.io"
   },
   {
     title: "Judge at MassChallenge",
