@@ -66,6 +66,9 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 - Use specific error types that clearly indicate what went wrong
 - Avoid catch-all exception handlers that hide the root cause
 - Error messages should be clear and actionable
+- NO FALLBACKS: Never mask errors with fallback mechanisms - work with user to fix the main flow explicitly
+- Transparent debugging: When something fails, show exactly what went wrong and why
+- Fix root causes, not symptoms - fallbacks hide real problems that need solving
 </cursorrules_error_handling>
 
 <cursorrules_language_specifics>
