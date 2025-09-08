@@ -931,178 +931,178 @@ export const translations = {
     },
     meet: {
         'en': {
-            title: 'Meeting Booking Options',
-            description: 'Schedule a meeting with AI strategy expert Kirill Markin. Select your preferred meeting type:',
-            metaTitle: 'Book a Consultation with AI Expert Kirill Markin | AI Strategy',
-            metaDescription: 'Schedule a meeting with AI strategy expert Kirill Markin. Discuss AI implementation, digital transformation, and technology solutions for your business needs.',
+            title: 'Let\'s Talk',
+            description: 'Pick how much time you need. Different meeting lengths for different types of conversations.',
+            metaTitle: 'Meet with Kirill Markin',
+            metaDescription: 'Schedule a conversation with Kirill Markin. Choose the meeting length that makes sense for what you want to discuss.',
             shortMeeting: {
-                title: '15-Minute Welcome Meeting',
-                description: 'Free introductory consultation to discuss your AI needs and explore potential collaboration opportunities',
-                metaTitle: 'Free 15-Minute AI Strategy Consultation | Kirill Markin',
-                metaDescription: 'Book a complimentary 15-minute introduction call with AI expert Kirill Markin. Discuss your AI strategy needs and explore collaboration opportunities.'
+                title: '15-Minute Meeting',
+                description: 'Quick sync when you don\'t need much time. Good for brief check-ins, quick questions, or when you just want to say hi.',
+                metaTitle: '15-Minute Meeting with Kirill Markin',
+                metaDescription: 'Short meeting with Kirill Markin. Perfect for quick discussions, brief check-ins, or when you need just a few minutes to talk.'
             },
             mediumMeeting: {
-                title: '30-Minute Strategy Session',
-                description: 'Focused consultation to discuss your specific AI implementation needs and strategic planning',
-                metaTitle: 'Book 30-Minute AI Strategy Session | Kirill Markin',
-                metaDescription: 'Schedule a 30-minute AI strategy consultation with expert Kirill Markin. Discuss implementation plans and strategic guidance for your business.'
+                title: '30-Minute Meeting',
+                description: 'Half an hour to dig into something specific. Works for most conversations that need more than a quick chat.',
+                metaTitle: '30-Minute Meeting with Kirill Markin',
+                metaDescription: 'Thirty-minute meeting with Kirill Markin. Good for focused discussions, project reviews, or when you need time to work through something together.'
             },
             longMeeting: {
-                title: '60-Minute Deep Dive',
-                description: 'Comprehensive consultation for detailed AI strategy planning and implementation roadmap',
-                metaTitle: 'Book 60-Minute AI Strategy Deep Dive | Kirill Markin',
-                metaDescription: 'Schedule a comprehensive 60-minute AI strategy session with Kirill Markin. In-depth consultation on implementation, planning, and digital transformation.'
+                title: '60-Minute Meeting',
+                description: 'Full hour when you need proper time to work through something complex. Good for detailed discussions, interviews, or when the topic actually needs space.',
+                metaTitle: '60-Minute Meeting with Kirill Markin',
+                metaDescription: 'One-hour meeting with Kirill Markin. Perfect for in-depth conversations, interviews, mentoring sessions, or complex topics that need time to explore properly.'
             },
             allMeetings: {
-                title: 'All Consultation Options',
-                description: 'View all available consultation durations and book a time that works for your schedule',
-                metaTitle: 'AI Strategy Consultation Options | Kirill Markin | Expert Advice',
-                metaDescription: 'Browse all consultation options with AI strategy expert Kirill Markin. Schedule a personalized session on AI implementation and digital transformation.'
+                title: 'All Meeting Options',
+                description: 'All the different meeting lengths in one place. Pick whatever works for your schedule.',
+                metaTitle: 'Meeting Options with Kirill Markin',
+                metaDescription: 'All available meeting times with Kirill Markin. Choose the length that makes sense for your conversation.'
             },
-            shortPageTitle: '15-MINUTE WELCOME MEETING',
-            mediumPageTitle: '30-MINUTE STRATEGY SESSION',
-            longPageTitle: '60-MINUTE DEEP DIVE',
-            allPageTitle: 'ALL CONSULTATION OPTIONS',
+            shortPageTitle: '15-MINUTE MEETING',
+            mediumPageTitle: '30-MINUTE MEETING',
+            longPageTitle: '60-MINUTE MEETING',
+            allPageTitle: 'ALL MEETING OPTIONS',
             calendarLoading: 'Loading calendar...'
         },
         'es': {
-            title: 'Opciones de Reserva de Reuniones',
-            description: 'Programe una reunión con el experto en estrategia de IA Kirill Markin. Seleccione su tipo de reunión preferido:',
-            metaTitle: 'Reserve una Consulta con Experto en IA Kirill Markin | Estrategia',
-            metaDescription: 'Agende una reunión con el experto en estrategia de IA Kirill Markin. Analice implementación de inteligencia artificial y transformación digital para su empresa.',
+            title: 'Hablemos',
+            description: 'Elige cuánto tiempo necesitas. Diferentes duraciones para diferentes tipos de conversaciones.',
+            metaTitle: 'Reunión con Kirill Markin',
+            metaDescription: 'Programa una conversación con Kirill Markin. Elige la duración que tenga sentido para lo que quieres discutir.',
             shortMeeting: {
-                title: 'Reunión de Bienvenida de 15 Minutos',
-                description: 'Consulta introductoria gratuita para discutir sus necesidades de IA y explorar posibles oportunidades de colaboración',
-                metaTitle: 'Consulta Gratuita de Estrategia de IA (15 Min) | Kirill Markin',
-                metaDescription: 'Reserve una llamada gratuita de 15 minutos con el experto en IA Kirill Markin. Discuta sus necesidades y explore oportunidades de colaboración.',
+                title: 'Reunión de 15 Minutos',
+                description: 'Sincronización rápida cuando no necesitas mucho tiempo. Buena para revisiones breves, preguntas rápidas, o cuando solo quieres saludar.',
+                metaTitle: 'Reunión de 15 Minutos con Kirill Markin',
+                metaDescription: 'Reunión corta con Kirill Markin. Perfecta para discusiones rápidas, revisiones breves, o cuando necesitas solo unos minutos para hablar.',
             },
             mediumMeeting: {
-                title: 'Sesión de Estrategia de 30 Minutos',
-                description: 'Consulta enfocada para discutir sus necesidades específicas de implementación de IA y planificación estratégica',
-                metaTitle: 'Reserve Sesión de Estrategia de IA (30 Min) | Kirill Markin',
-                metaDescription: 'Programe una consulta de estrategia de IA de 30 minutos con el experto Kirill Markin. Discuta planes de implementación y orientación estratégica.'
+                title: 'Reunión de 30 Minutos',
+                description: 'Media hora para profundizar en algo específico. Funciona para la mayoría de conversaciones que necesitan más que una charla rápida.',
+                metaTitle: 'Reunión de 30 Minutos con Kirill Markin',
+                metaDescription: 'Reunión de treinta minutos con Kirill Markin. Buena para discusiones enfocadas, revisiones de proyectos, o cuando necesitas tiempo para trabajar algo juntos.',
             },
             longMeeting: {
-                title: 'Inmersión Profunda de 60 Minutos',
-                description: 'Consulta integral para planificación detallada de estrategia de IA y hoja de ruta de implementación',
-                metaTitle: 'Reserve Inmersión Profunda de IA (60 Min) | Kirill Markin',
-                metaDescription: 'Programe una sesión integral de estrategia de IA de 60 minutos con Kirill Markin. Consulta en profundidad sobre implementación y transformación digital.'
+                title: 'Reunión de 60 Minutos',
+                description: 'Hora completa cuando necesitas tiempo adecuado para trabajar algo complejo. Buena para discusiones detalladas, entrevistas, o cuando el tema realmente necesita espacio.',
+                metaTitle: 'Reunión de 60 Minutos con Kirill Markin',
+                metaDescription: 'Reunión de una hora con Kirill Markin. Perfecta para conversaciones profundas, entrevistas, sesiones de mentoría, o temas complejos que necesitan tiempo para explorarse adecuadamente.',
             },
             allMeetings: {
-                title: 'Todas las Opciones de Consulta',
-                description: 'Vea todas las duraciones de consulta disponibles y reserve un horario que se adapte a su agenda',
-                metaTitle: 'Opciones de Consulta de Estrategia de IA | Kirill Markin',
-                metaDescription: 'Explore opciones de consulta con el experto en IA Kirill Markin. Programe una sesión personalizada sobre implementación de IA y transformación digital.',
+                title: 'Todas las Opciones de Reunión',
+                description: 'Todas las diferentes duraciones de reunión en un lugar. Elige lo que funcione para tu horario.',
+                metaTitle: 'Opciones de Reunión con Kirill Markin',
+                metaDescription: 'Todos los tiempos de reunión disponibles con Kirill Markin. Elige la duración que tenga sentido para tu conversación.',
             },
-            shortPageTitle: 'REUNIÓN DE BIENVENIDA DE 15 MINUTOS',
-            mediumPageTitle: 'SESIÓN DE ESTRATEGIA DE 30 MINUTOS',
-            longPageTitle: 'INMERSIÓN PROFUNDA DE 60 MINUTOS',
-            allPageTitle: 'TODAS LAS OPCIONES DE CONSULTA',
+            shortPageTitle: 'REUNIÓN DE 15 MINUTOS',
+            mediumPageTitle: 'REUNIÓN DE 30 MINUTOS',
+            longPageTitle: 'REUNIÓN DE 60 MINUTOS',
+            allPageTitle: 'TODAS LAS OPCIONES DE REUNIÓN',
             calendarLoading: 'Cargando calendario...'
         },
         'zh': {
-            title: '会议预约选项',
-            description: '与人工智能战略专家Kirill Markin安排会议。选择适合的咨询类型，获取定制化解决方案，推动业务创新与技术实施。',
-            metaTitle: '预约人工智能专家咨询 | 定制化AI战略规划与实施服务 | Kirill Markin 专业顾问服务',
-            metaDescription: '与AI专家Kirill Markin一对一会议，深入探讨人工智能实施策略与数字化转型方案。专业咨询服务涵盖技术评估、战略规划与实施路径，助力企业实现技术升级与竞争力提升。获取定制化AI解决方案，推动业务创新与可持续发展。我们提供从技术咨询到实施落地的全流程服务，帮助企业构建智能化运营体系，实现降本增效与业务增长。',
+            title: '聊一聊',
+            description: '选择需要多长时间。不同时长适合不同类型的对话。',
+            metaTitle: '与Kirill Markin会面',
+            metaDescription: '与Kirill Markin安排对话。选择适合你要讨论内容的时长。',
             shortMeeting: {
-                title: '15分钟欢迎会议',
-                description: '15分钟免费咨询，评估AI需求并探索合作机会。初步技术建议助力明确实施方向。',
-                metaTitle: '15分钟免费AI战略咨询 | 人工智能专家服务 | 数字化转型解决方案 | Kirill Markin',
-                metaDescription: '预约与AI专家Kirill Markin的15分钟免费介绍通话。讨论您的人工智能战略需求，探索合作机会。专业咨询服务，提供中文支持和本地化解决方案，帮助企业实现数字化转型。了解如何将AI技术应用到您的业务中，无需前期投入。我们将评估您的需求，提供针对性建议，助力企业保持竞争优势。'
+                title: '15分钟会议',
+                description: '时间不多时的快速同步。适合简短检查、快速提问，或只是想打个招呼。',
+                metaTitle: '与Kirill Markin的15分钟会议',
+                metaDescription: '与Kirill Markin的简短会议。适合快速讨论、简短检查，或需要几分钟交流时。'
             },
             mediumMeeting: {
-                title: '30分钟战略会议',
-                description: '专注讨论您的具体AI实施需求和战略规划的深度咨询',
-                metaTitle: '30分钟AI战略咨询 | 人工智能实施规划 | Kirill Markin',
-                metaDescription: '预约与AI专家Kirill Markin的30分钟战略咨询。讨论实施计划和战略指导，为您的业务提供专业建议。'
+                title: '30分钟会议',
+                description: '半小时深入讨论具体事项。适合需要超过快速聊天的大多数对话。',
+                metaTitle: '与Kirill Markin的30分钟会议',
+                metaDescription: '与Kirill Markin的三十分钟会议。适合集中讨论、项目回顾，或需要时间一起解决问题时。'
             },
             longMeeting: {
-                title: '60分钟深度咨询',
-                description: '全面的AI战略规划和实施路线图的综合咨询服务',
-                metaTitle: '60分钟AI战略深度咨询 | 综合实施规划 | Kirill Markin',
-                metaDescription: '预约与Kirill Markin的60分钟综合AI战略会议。深入咨询实施、规划和数字化转型的全面解决方案。'
+                title: '60分钟会议',
+                description: '需要充足时间处理复杂事项时的完整一小时。适合详细讨论、面试，或话题确实需要空间时。',
+                metaTitle: '与Kirill Markin的60分钟会议',
+                metaDescription: '与Kirill Markin的一小时会议。适合深度对话、面试、指导会议，或需要时间充分探讨的复杂话题。'
             },
             allMeetings: {
-                title: '所有咨询选项',
-                description: '多种咨询时长选择，深度技术讨论与战略规划，满足不同阶段需求。',
-                metaTitle: 'AI战略咨询选项 | 人工智能实施规划 | 数字化转型服务 | 专业技术顾问预约 | Kirill Markin',
-                metaDescription: '浏览与AI战略专家Kirill Markin的所有咨询选项。预约关于人工智能实施和数字化转型的个性化会议，获取专业技术解决方案和战略建议。中文服务，专为中国企业设计。我们提供15分钟免费介绍会议，以及30分钟、60分钟和90分钟不同深度的付费咨询服务，满足您从初步了解到深入战略规划的各类需求。'
+                title: '所有会议选项',
+                description: '所有不同的会议时长集中在一处。选择适合你日程的时间。',
+                metaTitle: '与Kirill Markin的会议选项',
+                metaDescription: '与Kirill Markin的所有可用会议时间。选择适合你对话的时长。'
             },
-            shortPageTitle: '15分钟欢迎会议',
-            mediumPageTitle: '30分钟战略会议',
-            longPageTitle: '60分钟深度咨询',
-            allPageTitle: '所有咨询选项',
+            shortPageTitle: '15分钟会议',
+            mediumPageTitle: '30分钟会议',
+            longPageTitle: '60分钟会议',
+            allPageTitle: '所有会议选项',
             calendarLoading: '正在加载日历...'
         },
         'ar': {
-            title: 'خيارات حجز الاجتماعات',
-            description: 'جدولة اجتماع مع خبير استراتيجية الذكاء الاصطناعي كيريل ماركين. اختر نوع الاجتماع المفضل لديك:',
-            metaTitle: 'احجز استشارة مع خبير الذكاء الاصطناعي كيريل ماركين | استراتيجية',
-            metaDescription: 'جدولة اجتماع مع خبير استراتيجية الذكاء الاصطناعي كيريل ماركين. ناقش تنفيذ الذكاء الاصطناعي والتحول الرقمي لمشروعك التجاري أو مبادرتك التقنية باللغة العربية.',
+            title: 'دعونا نتحدث',
+            description: 'اختر المدة التي تحتاجها. مدد اجتماع مختلفة لأنواع محادثات مختلفة.',
+            metaTitle: 'اجتماع مع كيريل ماركين',
+            metaDescription: 'جدولة محادثة مع كيريل ماركين. اختر المدة التي تناسب ما تريد مناقشته.',
             shortMeeting: {
-                title: 'اجتماع ترحيبي لمدة 15 دقيقة',
-                description: 'استشارة تعريفية مجانية لمناقشة احتياجاتك من الذكاء الاصطناعي واستكشاف فرص التعاون المحتملة',
-                metaTitle: 'استشارة مجانية لاستراتيجية الذكاء الاصطناعي (15 دقيقة) | كيريل ماركين',
-                metaDescription: 'احجز مكالمة تعريفية مجانية مع خبير الذكاء الاصطناعي كيريل ماركين. ناقش احتياجاتك التقنية واستكشف فرص التعاون المستقبلية في مجال الذكاء الاصطناعي باللغة العربية.'
+                title: 'اجتماع 15 دقيقة',
+                description: 'مزامنة سريعة عندما لا تحتاج وقتاً كثيراً. جيد للمراجعات المختصرة، الأسئلة السريعة، أو عندما تريد فقط أن تقول مرحباً.',
+                metaTitle: 'اجتماع 15 دقيقة مع كيريل ماركين',
+                metaDescription: 'اجتماع قصير مع كيريل ماركين. مثالي للنقاشات السريعة، المراجعات المختصرة، أو عندما تحتاج دقائق قليلة للحديث.'
             },
             mediumMeeting: {
-                title: 'جلسة استراتيجية لمدة 30 دقيقة',
-                description: 'استشارة مركزة لمناقشة احتياجاتك المحددة لتنفيذ الذكاء الاصطناعي والتخطيط الاستراتيجي',
-                metaTitle: 'احجز جلسة استراتيجية للذكاء الاصطناعي (30 دقيقة) | كيريل ماركين',
-                metaDescription: 'جدولة استشارة استراتيجية للذكاء الاصطناعي لمدة 30 دقيقة مع الخبير كيريل ماركين. ناقش خطط التنفيذ والتوجيه الاستراتيجي.'
+                title: 'اجتماع 30 دقيقة',
+                description: 'نصف ساعة للتعمق في شيء محدد. يناسب معظم المحادثات التي تحتاج أكثر من دردشة سريعة.',
+                metaTitle: 'اجتماع 30 دقيقة مع كيريل ماركين',
+                metaDescription: 'اجتماع ثلاثين دقيقة مع كيريل ماركين. جيد للنقاشات المركزة، مراجعات المشاريع، أو عندما تحتاج وقتاً لحل شيء معاً.'
             },
             longMeeting: {
-                title: 'غوص عميق لمدة 60 دقيقة',
-                description: 'استشارة شاملة للتخطيط المفصل لاستراتيجية الذكاء الاصطناعي وخارطة طريق التنفيذ',
-                metaTitle: 'احجز غوص عميق للذكاء الاصطناعي (60 دقيقة) | كيريل ماركين',
-                metaDescription: 'جدولة جلسة شاملة لاستراتيجية الذكاء الاصطناعي لمدة 60 دقيقة مع كيريل ماركين. استشارة متعمقة حول التنفيذ والتخطيط والتحول الرقمي.'
+                title: 'اجتماع 60 دقيقة',
+                description: 'ساعة كاملة عندما تحتاج وقتاً مناسباً لحل شيء معقد. جيد للنقاشات المفصلة، المقابلات، أو عندما يحتاج الموضوع فعلاً لمساحة.',
+                metaTitle: 'اجتماع 60 دقيقة مع كيريل ماركين',
+                metaDescription: 'اجتماع ساعة كاملة مع كيريل ماركين. مثالي للمحادثات المتعمقة، المقابلات، جلسات الإرشاد، أو المواضيع المعقدة التي تحتاج وقتاً للاستكشاف بشكل صحيح.'
             },
             allMeetings: {
-                title: 'جميع خيارات الاستشارة',
-                description: 'اطلع على جميع مدد الاستشارة المتاحة واحجز وقتًا يناسب جدولك',
-                metaTitle: 'خيارات استشارة استراتيجية الذكاء الاصطناعي | كيريل ماركين',
-                metaDescription: 'تصفح خيارات الاستشارة المتنوعة مع خبير الذكاء الاصطناعي كيريل ماركين. جدولة جلسة مخصصة حول تنفيذ الذكاء الاصطناعي والتحول الرقمي لمشروعك أو شركتك.'
+                title: 'جميع خيارات الاجتماع',
+                description: 'جميع مدد الاجتماع المختلفة في مكان واحد. اختر ما يناسب جدولك.',
+                metaTitle: 'خيارات الاجتماع مع كيريل ماركين',
+                metaDescription: 'جميع أوقات الاجتماع المتاحة مع كيريل ماركين. اختر المدة التي تناسب محادثتك.'
             },
-            shortPageTitle: 'اجتماع ترحيبي لمدة 15 دقيقة',
-            mediumPageTitle: 'جلسة استراتيجية لمدة 30 دقيقة',
-            longPageTitle: 'غوص عميق لمدة 60 دقيقة',
-            allPageTitle: 'جميع خيارات الاستشارة',
+            shortPageTitle: 'اجتماع 15 دقيقة',
+            mediumPageTitle: 'اجتماع 30 دقيقة',
+            longPageTitle: 'اجتماع 60 دقيقة',
+            allPageTitle: 'جميع خيارات الاجتماع',
             calendarLoading: 'جاري تحميل التقويم...'
         },
         'hi': {
-            title: 'मीटिंग बुकिंग विकल्प',
-            description: 'एआई रणनीति विशेषज्ञ किरिल मार्किन के साथ मीटिंग शेड्यूल करें। अपना पसंदीदा मीटिंग प्रकार चुनें:',
-            metaTitle: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श बुक करें | एआई रणनीति',
-            metaDescription: 'एआई रणनीति विशेषज्ञ किरिल मार्किन के साथ मीटिंग शेड्यूल करें। एआई कार्यान्वयन, डिजिटल परिवर्तन और तकनीकी समाधानों पर चर्चा करें। हिंदी में उपलब्ध सेवाएं।',
+            title: 'आइए बात करते हैं',
+            description: 'चुनें कि आपको कितना समय चाहिए। विभिन्न प्रकार की बातचीत के लिए अलग-अलग मीटिंग की लंबाई।',
+            metaTitle: 'किरिल मार्किन से मिलें',
+            metaDescription: 'किरिल मार्किन के साथ बातचीत शेड्यूल करें। उस अवधि का चयन करें जो आपकी चर्चा के लिए उपयुक्त हो।',
             shortMeeting: {
-                title: '15-मिनट का स्वागत मीटिंग',
-                description: 'आपकी एआई आवश्यकताओं पर चर्चा करने और संभावित सहयोग के अवसरों का पता लगाने के लिए मुफ्त परिचयात्मक परामर्श',
-                metaTitle: 'मुफ्त 15-मिनट एआई रणनीति परामर्श | प्रौद्योगिकी समाधान | किरिल मार्किन',
-                metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ 15-मिनट का मुफ्त परिचयात्मक कॉल बुक करें। अपनी रणनीति आवश्यकताओं पर चर्चा करें और भारतीय व्यवसायों के लिए एआई समाधान खोजें।'
+                title: '15-मिनट की मीटिंग',
+                description: 'जब आपको ज्यादा समय की जरूरत नहीं हो तो त्वरित सिंक। संक्षिप्त चेक-इन, तुरंत सवाल, या जब आप सिर्फ हैलो कहना चाहते हों के लिए अच्छा है।',
+                metaTitle: 'किरिल मार्किन के साथ 15-मिनट की मीटिंग',
+                metaDescription: 'किरिल मार्किन के साथ छोटी मीटिंग। त्वरित चर्चा, संक्षिप्त चेक-इन, या जब आपको बात करने के लिए कुछ मिनट चाहिए तो बिल्कुल सही।'
             },
             mediumMeeting: {
-                title: '30-मिनट रणनीति सत्र',
-                description: 'आपकी विशिष्ट एआई कार्यान्वयन आवश्यकताओं और रणनीतिक योजना पर चर्चा के लिए केंद्रित परामर्श',
-                metaTitle: '30-मिनट एआई रणनीति सत्र बुक करें | किरिल मार्किन',
-                metaDescription: 'विशेषज्ञ किरिल मार्किन के साथ 30-मिनट का एआई रणनीति परामर्श शेड्यूल करें। कार्यान्वयन योजनाओं और रणनीतिक मार्गदर्शन पर चर्चा करें।'
+                title: '30-मिनट की मीटिंग',
+                description: 'किसी विशिष्ट चीज़ पर गहराई से जाने के लिए आधा घंटा। अधिकांश बातचीत के लिए काम करता है जिन्हें त्वरित चैट से अधिक की आवश्यकता होती है।',
+                metaTitle: 'किरिल मार्किन के साथ 30-मिनट की मीटिंग',
+                metaDescription: 'किरिल मार्किन के साथ तीस मिनट की मीटिंग। केंद्रित चर्चा, प्रोजेक्ट समीक्षा, या जब आपको कुछ मिलकर हल करने के लिए समय चाहिए तो अच्छी है।'
             },
             longMeeting: {
-                title: '60-मिनट गहरी चर्चा',
-                description: 'विस्तृत एआई रणनीति योजना और कार्यान्वयन रोडमैप के लिए व्यापक परामर्श',
-                metaTitle: '60-मिनट एआई रणनीति गहरी चर्चा बुक करें | किरिल मार्किन',
-                metaDescription: 'किरिल मार्किन के साथ 60-मिनट का व्यापक एआई रणनीति सत्र शेड्यूल करें। कार्यान्वयन, योजना और डिजिटल परिवर्तन पर गहन परामर्श।'
+                title: '60-मिनट की मीटिंग',
+                description: 'जब आपको कुछ जटिल चीज़ को हल करने के लिए उचित समय चाहिए तो पूरा घंटा। विस्तृत चर्चा, इंटरव्यू, या जब विषय को वास्तव में जगह की आवश्यकता हो तो अच्छा है।',
+                metaTitle: 'किरिल मार्किन के साथ 60-मिनट की मीटिंग',
+                metaDescription: 'किरिल मार्किन के साथ एक घंटे की मीटिंग। गहन बातचीत, इंटरव्यू, मेंटरिंग सेशन, या जटिल विषयों के लिए बिल्कुल सही जिन्हें उचित रूप से एक्सप्लोर करने के लिए समय चाहिए।'
             },
             allMeetings: {
-                title: 'सभी परामर्श विकल्प',
-                description: 'सभी उपलब्ध परामर्श अवधियों को देखें और अपनी समय-सारिणी के अनुसार एक समय बुक करें',
-                metaTitle: 'एआई रणनीति परामर्श विकल्प | विशेषज्ञ सलाह | किरिल मार्किन',
-                metaDescription: 'एआई विशेषज्ञ किरिल मार्किन के साथ परामर्श विकल्प देखें। कृत्रिम बुद्धिमत्ता कार्यान्वयन पर व्यक्तिगत सत्र शेड्यूल करें। भारतीय व्यवसायों के लिए अनुकूलित सेवाएं।'
+                title: 'सभी मीटिंग विकल्प',
+                description: 'सभी अलग-अलग मीटिंग की लंबाई एक जगह। वह चुनें जो आपके शेड्यूल के लिए काम करे।',
+                metaTitle: 'किरिल मार्किन के साथ मीटिंग विकल्प',
+                metaDescription: 'किरिल मार्किन के साथ सभी उपलब्ध मीटिंग समय। वह अवधि चुनें जो आपकी बातचीत के लिए उपयुक्त हो।'
             },
-            shortPageTitle: '15-मिनट का स्वागत मीटिंग',
-            mediumPageTitle: '30-मिनट रणनीति सत्र',
-            longPageTitle: '60-मिनट गहरी चर्चा',
-            allPageTitle: 'सभी परामर्श विकल्प',
+            shortPageTitle: '15-मिनट की मीटिंग',
+            mediumPageTitle: '30-मिनट की मीटिंग',
+            longPageTitle: '60-मिनट की मीटिंग',
+            allPageTitle: 'सभी मीटिंग विकल्प',
             calendarLoading: 'कैलेंडर लोड हो रहा है...'
         }
     },
