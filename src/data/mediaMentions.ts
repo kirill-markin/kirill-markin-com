@@ -92,6 +92,19 @@ export const mediaMentions: MediaMention[] = [
     isVideo: true
   },
   {
+    title: "Ultimate Cursor AI IDE Rules Guide: All 5 Levels and\u00A0.cursorrules (2025)",
+    url: "https://youtu.be/gw8otRr2zpw?si=z5dvTp0Fc05jlGEX",
+    publisher: "YouTube",
+    date: "2025-09-09",
+    type: "Video",
+    language: "en",
+    thumbnailUrl: "/articles/youtube-2025-09-09.webp",
+    websiteLogoUrl: "/logos/youtube.png",
+    isVideo: true,
+    achievementValue: "4,800+",
+    achievementLabel: "views"
+  },
+  {
     title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
     alternativeTitle: "How to\u00A0Motivate Employees to\u00A0Use AI Tools in\u00A0Their Work",
     url: "https://web.archive.org/web/20240617095343/https://epicgrowth.io/ai-conference#agenda",
