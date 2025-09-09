@@ -48,7 +48,13 @@ export default async function HomePageContent({ language }: HomePageContentProps
 
                         <div className={styles.mediaMentions}>
                             {mediaMentions.map((mention, index) => {
-                                const isLarge = index === 0 || index === 5;
+                                // Indices of cards that should be large (span 2 grid columns)
+                                const largeCardIndices = [
+                                    0, // First row, first entry (top left)
+                                    5, // Second row, last entry (bottom right)
+                                    6  // Third row, first entry (first entry of second screen)
+                                ];
+                                const isLarge = largeCardIndices.includes(index);
                                 const isVideo = mention.isVideo || mention.type.toLowerCase() === 'video';
                                 const displayTitle = mention.language === language
                                     ? mention.title
