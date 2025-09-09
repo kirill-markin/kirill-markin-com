@@ -26,7 +26,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "73,000+",
+    achievementValue: "87,000+",
     achievementLabel: "views"
   },
   {
@@ -75,7 +75,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-repo-to-text-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "160+",
+    achievementValue: "170+",
     achievementLabel: "stars"
   },
   {
@@ -87,7 +87,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "11,000+",
+    achievementValue: "15,000+",
     achievementLabel: "views",
     isVideo: true
   },
@@ -226,7 +226,7 @@ export const mediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/youtube-2023-09-16-1.webp",
     websiteLogoUrl: "/logos/youtube.png",
     isVideo: true,
-    achievementValue: "1,500+",
+    achievementValue: "1,600+",
     achievementLabel: "views"
   },
   {
@@ -330,7 +330,9 @@ export const mediaMentions: MediaMention[] = [
     language: "ru",
     thumbnailUrl: "/articles/youtube-2018-08-05.webp",
     websiteLogoUrl: "/logos/tanya-rybakova-youtube.png",
-    isVideo: true
+    isVideo: true,
+    achievementValue: "6,100+",
+    achievementLabel: "views"
   },
   {
     title: "Применение долгосрочной памяти в\u00A0GPT-чатах для\u00A0бизнеса: практические примеры",

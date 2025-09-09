@@ -27,7 +27,7 @@ export const socialLinks: SocialLink[] = [
     avatarContact: true,
     footerBottom: true,
     achievement: {
-      value: "6,200+",
+      value: "6,800+",
       label: "followers"
     }
   },
@@ -70,7 +70,7 @@ export const socialLinks: SocialLink[] = [
     footerBottomGreenLine: true,
     header: true,
     achievement: {
-      value: "220+",
+      value: "300+",
       label: "subscribers"
     }
   },
