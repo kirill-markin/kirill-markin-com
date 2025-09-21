@@ -933,31 +933,31 @@ export const translations = {
         'en': {
             title: 'Let\'s Talk',
             description: 'Pick how much time you need. Different meeting lengths for different types of conversations.',
-            metaTitle: 'Meet with Kirill Markin',
-            metaDescription: 'Schedule a conversation with Kirill Markin. Choose the meeting length that makes sense for what you want to discuss.',
+            metaTitle: 'Schedule Meeting with Kirill Markin | Flexible Time Options',
+            metaDescription: 'Schedule a conversation with Kirill Markin. Choose from different meeting lengths: 15, 30, or 60 minutes depending on your discussion needs.',
             shortMeeting: {
                 title: '15-Minute Meeting',
                 description: 'Quick sync when you don\'t need much time. Good for brief check-ins, quick questions, or when you just want to say hi.',
-                metaTitle: '15-Minute Meeting with Kirill Markin',
-                metaDescription: 'Short meeting with Kirill Markin. Perfect for quick discussions, brief check-ins, or when you need just a few minutes to talk.'
+                metaTitle: 'Book 15-Minute Meeting with Kirill Markin | Quick Discussion',
+                metaDescription: 'Schedule a 15-minute meeting with Kirill Markin. Perfect for quick discussions, brief check-ins, or when you need just a few minutes to talk.'
             },
             mediumMeeting: {
                 title: '30-Minute Meeting',
                 description: 'Half an hour to dig into something specific. Works for most conversations that need more than a quick chat.',
-                metaTitle: '30-Minute Meeting with Kirill Markin',
-                metaDescription: 'Thirty-minute meeting with Kirill Markin. Good for focused discussions, project reviews, or when you need time to work through something together.'
+                metaTitle: 'Book 30-Minute Meeting with Kirill Markin | Focused Discussion',
+                metaDescription: 'Schedule a 30-minute meeting with Kirill Markin. Ideal for focused discussions, project reviews, or when you need time to work through topics together.'
             },
             longMeeting: {
                 title: '60-Minute Meeting',
                 description: 'Full hour when you need proper time to work through something complex. Good for detailed discussions, interviews, or when the topic actually needs space.',
-                metaTitle: '60-Minute Meeting with Kirill Markin',
-                metaDescription: 'One-hour meeting with Kirill Markin. Perfect for in-depth conversations, interviews, mentoring sessions, or complex topics that need time to explore properly.'
+                metaTitle: 'Book 60-Minute Meeting with Kirill Markin | In-depth Discussion',
+                metaDescription: 'Schedule a 60-minute meeting with Kirill Markin. Perfect for in-depth conversations, interviews, or complex topics that need time to explore properly.'
             },
             allMeetings: {
                 title: 'All Meeting Options',
                 description: 'All the different meeting lengths in one place. Pick whatever works for your schedule.',
-                metaTitle: 'Meeting Options with Kirill Markin',
-                metaDescription: 'All available meeting times with Kirill Markin. Choose the length that makes sense for your conversation.'
+                metaTitle: 'All Meeting Options with Kirill Markin | Choose Your Duration',
+                metaDescription: 'View all available meeting options with Kirill Markin. Choose from 15, 30, or 60-minute time slots based on your conversation needs and schedule.'
             },
             shortPageTitle: '15-MINUTE MEETING',
             mediumPageTitle: '30-MINUTE MEETING',
@@ -968,31 +968,31 @@ export const translations = {
         'es': {
             title: 'Hablemos',
             description: 'Elige cuánto tiempo necesitas. Diferentes duraciones para diferentes tipos de conversaciones.',
-            metaTitle: 'Reunión con Kirill Markin',
-            metaDescription: 'Programa una conversación con Kirill Markin. Elige la duración que tenga sentido para lo que quieres discutir.',
+            metaTitle: 'Programar Reunión con Kirill Markin | Opciones Flexibles',
+            metaDescription: 'Programa una conversación con Kirill Markin. Elige entre duraciones de 15, 30 o 60 minutos según tus necesidades. Flexibilidad para diversos temas.',
             shortMeeting: {
                 title: 'Reunión de 15 Minutos',
                 description: 'Sincronización rápida cuando no necesitas mucho tiempo. Buena para revisiones breves, preguntas rápidas, o cuando solo quieres saludar.',
-                metaTitle: 'Reunión de 15 Minutos con Kirill Markin',
-                metaDescription: 'Reunión corta con Kirill Markin. Perfecta para discusiones rápidas, revisiones breves, o cuando necesitas solo unos minutos para hablar.',
+                metaTitle: 'Reservar Reunión de 15 Minutos con Kirill Markin | Rápida',
+                metaDescription: 'Programa una reunión de 15 minutos con Kirill Markin. Perfecta para discusiones rápidas, revisiones breves, o cuando necesitas unos minutos para hablar.'
             },
             mediumMeeting: {
                 title: 'Reunión de 30 Minutos',
                 description: 'Media hora para profundizar en algo específico. Funciona para la mayoría de conversaciones que necesitan más que una charla rápida.',
-                metaTitle: 'Reunión de 30 Minutos con Kirill Markin',
-                metaDescription: 'Reunión de treinta minutos con Kirill Markin. Buena para discusiones enfocadas, revisiones de proyectos, o cuando necesitas tiempo para trabajar algo juntos.',
+                metaTitle: 'Reservar Reunión de 30 Minutos con Kirill Markin | Enfocada',
+                metaDescription: 'Programa una reunión de 30 minutos con Kirill Markin. Ideal para discusiones enfocadas, revisiones de proyectos, o trabajar temas juntos.'
             },
             longMeeting: {
                 title: 'Reunión de 60 Minutos',
                 description: 'Hora completa cuando necesitas tiempo adecuado para trabajar algo complejo. Buena para discusiones detalladas, entrevistas, o cuando el tema realmente necesita espacio.',
-                metaTitle: 'Reunión de 60 Minutos con Kirill Markin',
-                metaDescription: 'Reunión de una hora con Kirill Markin. Perfecta para conversaciones profundas, entrevistas, sesiones de mentoría, o temas complejos que necesitan tiempo para explorarse adecuadamente.',
+                metaTitle: 'Reservar Reunión de 60 Minutos con Kirill Markin | Profunda',
+                metaDescription: 'Programa una reunión de 60 minutos con Kirill Markin. Perfecta para conversaciones profundas, entrevistas, o temas complejos que necesitan tiempo.'
             },
             allMeetings: {
                 title: 'Todas las Opciones de Reunión',
                 description: 'Todas las diferentes duraciones de reunión en un lugar. Elige lo que funcione para tu horario.',
-                metaTitle: 'Opciones de Reunión con Kirill Markin',
-                metaDescription: 'Todos los tiempos de reunión disponibles con Kirill Markin. Elige la duración que tenga sentido para tu conversación.',
+                metaTitle: 'Todas las Opciones de Reunión con Kirill Markin | Horarios',
+                metaDescription: 'Ve todas las opciones de reunión disponibles con Kirill Markin. Elige entre franjas de 15, 30 o 60 minutos según tus necesidades de conversación.'
             },
             shortPageTitle: 'REUNIÓN DE 15 MINUTOS',
             mediumPageTitle: 'REUNIÓN DE 30 MINUTOS',
@@ -1003,31 +1003,31 @@ export const translations = {
         'zh': {
             title: '聊一聊',
             description: '选择需要多长时间。不同时长适合不同类型的对话。',
-            metaTitle: '与Kirill Markin会面',
-            metaDescription: '与Kirill Markin安排对话。选择适合你要讨论内容的时长。',
+            metaTitle: '预约Kirill Markin会议时间安排 | 15分钟30分钟60分钟时长可选 | 灵活在线预约系统',
+            metaDescription: '与Kirill Markin安排会议时间。提供15分钟、30分钟或60分钟不同时长选择，满足各种会议需求。在线预约系统简单便捷，适合不同类型的对话和交流，灵活安排时间，根据具体需求选择合适的会议时长，支持多种交流场景和时间安排，便于预约各类会面，满足不同沟通需求和会议安排等要求。',
             shortMeeting: {
                 title: '15分钟会议',
                 description: '时间不多时的快速同步。适合简短检查、快速提问，或只是想打个招呼。',
-                metaTitle: '与Kirill Markin的15分钟会议',
-                metaDescription: '与Kirill Markin的简短会议。适合快速讨论、简短检查，或需要几分钟交流时。'
+                metaTitle: '预约Kirill Markin 15分钟会议时间安排 | 快速会面预约系统 | 短时间对话交流会面安排',
+                metaDescription: '安排与Kirill Markin的15分钟会议时间。适合快速讨论、简短交流，或需要几分钟对话的场合。高效便捷的短时间会面选择，灵活在线预约安排，满足各种沟通需求和时间要求，适合不同类型的简短交流和会面需求，提供多样化的时间选择，支持各种对话需求和会议安排，便于快速高效的沟通交流。'
             },
             mediumMeeting: {
                 title: '30分钟会议',
                 description: '半小时深入讨论具体事项。适合需要超过快速聊天的大多数对话。',
-                metaTitle: '与Kirill Markin的30分钟会议',
-                metaDescription: '与Kirill Markin的三十分钟会议。适合集中讨论、项目回顾，或需要时间一起解决问题时。'
+                metaTitle: '预约Kirill Markin 30分钟会议 | 专注讨论 | 项目回顾',
+                metaDescription: '安排与Kirill Markin的30分钟会议。适合集中讨论、项目回顾，或需要时间一起深入探讨问题的专业对话场合。'
             },
             longMeeting: {
                 title: '60分钟会议',
                 description: '需要充足时间处理复杂事项时的完整一小时。适合详细讨论、面试，或话题确实需要空间时。',
-                metaTitle: '与Kirill Markin的60分钟会议',
-                metaDescription: '与Kirill Markin的一小时会议。适合深度对话、面试、指导会议，或需要时间充分探讨的复杂话题。'
+                metaTitle: '预约Kirill Markin 60分钟会议 | 深度对话 | 详细讨论',
+                metaDescription: '安排与Kirill Markin的60分钟会议。适合深度对话、面试、或需要时间充分探讨的复杂话题。提供充足时间进行详细专业交流。'
             },
             allMeetings: {
                 title: '所有会议选项',
                 description: '所有不同的会议时长集中在一处。选择适合你日程的时间。',
-                metaTitle: '与Kirill Markin的会议选项',
-                metaDescription: '与Kirill Markin的所有可用会议时间。选择适合你对话的时长。'
+                metaTitle: '所有Kirill Markin会议时间选项 | 15分钟30分钟60分钟时长 | 灵活在线预约安排系统',
+                metaDescription: '查看与Kirill Markin的所有可用会议时间选项。提供15分钟、30分钟或60分钟时长选择，根据您的会议需求和日程安排选择合适时间。灵活在线预约系统，多种时长选择，适合不同类型的会面和交流需求，满足各种日程安排要求，便于您灵活安排会议时间，提供多样化会面安排服务和时间选择。'
             },
             shortPageTitle: '15分钟会议',
             mediumPageTitle: '30分钟会议',
@@ -1038,31 +1038,31 @@ export const translations = {
         'ar': {
             title: 'دعونا نتحدث',
             description: 'اختر المدة التي تحتاجها. مدد اجتماع مختلفة لأنواع محادثات مختلفة.',
-            metaTitle: 'اجتماع مع كيريل ماركين',
-            metaDescription: 'جدولة محادثة مع كيريل ماركين. اختر المدة التي تناسب ما تريد مناقشته.',
+            metaTitle: 'حجز اجتماع مهني مع كيريل ماركين | خيارات مرنة ومتنوعة',
+            metaDescription: 'جدولة اجتماع مع كيريل ماركين. اختر من فترات زمنية مختلفة: 15 أو 30 أو 60 دقيقة حسب احتياجات نقاشك. نظام حجز مرن عبر الإنترنت يناسب جميع أنواع المناقشات.',
             shortMeeting: {
                 title: 'اجتماع 15 دقيقة',
                 description: 'مزامنة سريعة عندما لا تحتاج وقتاً كثيراً. جيد للمراجعات المختصرة، الأسئلة السريعة، أو عندما تريد فقط أن تقول مرحباً.',
-                metaTitle: 'اجتماع 15 دقيقة مع كيريل ماركين',
-                metaDescription: 'اجتماع قصير مع كيريل ماركين. مثالي للنقاشات السريعة، المراجعات المختصرة، أو عندما تحتاج دقائق قليلة للحديث.'
+                metaTitle: 'حجز اجتماع مهني 15 دقيقة مع كيريل ماركين | نقاش سريع',
+                metaDescription: 'جدولة اجتماع 15 دقيقة مع كيريل ماركين. مثالي للنقاشات السريعة والمراجعات المختصرة أو عند الحاجة لدقائق قليلة للحديث. نظام حجز مرن عبر الإنترنت.'
             },
             mediumMeeting: {
                 title: 'اجتماع 30 دقيقة',
                 description: 'نصف ساعة للتعمق في شيء محدد. يناسب معظم المحادثات التي تحتاج أكثر من دردشة سريعة.',
-                metaTitle: 'اجتماع 30 دقيقة مع كيريل ماركين',
-                metaDescription: 'اجتماع ثلاثين دقيقة مع كيريل ماركين. جيد للنقاشات المركزة، مراجعات المشاريع، أو عندما تحتاج وقتاً لحل شيء معاً.'
+                metaTitle: 'حجز اجتماع 30 دقيقة مع كيريل ماركين | نقاش مركز',
+                metaDescription: 'جدولة اجتماع 30 دقيقة مع كيريل ماركين. مثالي للنقاشات المركزة ومراجعات المشاريع أو عند الحاجة لوقت لمعالجة الموضوعات.'
             },
             longMeeting: {
                 title: 'اجتماع 60 دقيقة',
                 description: 'ساعة كاملة عندما تحتاج وقتاً مناسباً لحل شيء معقد. جيد للنقاشات المفصلة، المقابلات، أو عندما يحتاج الموضوع فعلاً لمساحة.',
-                metaTitle: 'اجتماع 60 دقيقة مع كيريل ماركين',
-                metaDescription: 'اجتماع ساعة كاملة مع كيريل ماركين. مثالي للمحادثات المتعمقة، المقابلات، جلسات الإرشاد، أو المواضيع المعقدة التي تحتاج وقتاً للاستكشاف بشكل صحيح.'
+                metaTitle: 'حجز اجتماع 60 دقيقة مع كيريل ماركين | نقاش معمق',
+                metaDescription: 'جدولة اجتماع 60 دقيقة مع كيريل ماركين. مثالي للمحادثات المعمقة والمقابلات أو المواضيع المعقدة التي تحتاج وقت للاستكشاف.'
             },
             allMeetings: {
                 title: 'جميع خيارات الاجتماع',
                 description: 'جميع مدد الاجتماع المختلفة في مكان واحد. اختر ما يناسب جدولك.',
-                metaTitle: 'خيارات الاجتماع مع كيريل ماركين',
-                metaDescription: 'جميع أوقات الاجتماع المتاحة مع كيريل ماركين. اختر المدة التي تناسب محادثتك.'
+                metaTitle: 'جميع خيارات الاجتماع مع كيريل ماركين | أوقات مختلفة',
+                metaDescription: 'عرض جميع خيارات الاجتماع المهنية مع كيريل ماركين. اختر من فترات 15 أو 30 أو 60 دقيقة حسب احتياجات نقاشك وجدولك. مرونة في التوقيت وتنوع في المواضيع.'
             },
             shortPageTitle: 'اجتماع 15 دقيقة',
             mediumPageTitle: 'اجتماع 30 دقيقة',
@@ -1073,31 +1073,31 @@ export const translations = {
         'hi': {
             title: 'आइए बात करते हैं',
             description: 'चुनें कि आपको कितना समय चाहिए। विभिन्न प्रकार की बातचीत के लिए अलग-अलग मीटिंग की लंबाई।',
-            metaTitle: 'किरिल मार्किन से मिलें',
-            metaDescription: 'किरिल मार्किन के साथ बातचीत शेड्यूल करें। उस अवधि का चयन करें जो आपकी चर्चा के लिए उपयुक्त हो।',
+            metaTitle: 'किरिल मार्किन के साथ मीटिंग बुक करें | लचीले विकल्प',
+            metaDescription: 'किरिल मार्किन के साथ मीटिंग शेड्यूल करें। 15, 30 या 60 मिनट के विकल्प उपलब्ध। ऑनलाइन बुकिंग सिस्टम सुविधाजनक है और विभिन्न प्रकार की चर्चा के लिए उपयुक्त है।',
             shortMeeting: {
                 title: '15-मिनट की मीटिंग',
                 description: 'जब आपको ज्यादा समय की जरूरत नहीं हो तो त्वरित सिंक। संक्षिप्त चेक-इन, तुरंत सवाल, या जब आप सिर्फ हैलो कहना चाहते हों के लिए अच्छा है।',
-                metaTitle: 'किरिल मार्किन के साथ 15-मिनट की मीटिंग',
-                metaDescription: 'किरिल मार्किन के साथ छोटी मीटिंग। त्वरित चर्चा, संक्षिप्त चेक-इन, या जब आपको बात करने के लिए कुछ मिनट चाहिए तो बिल्कुल सही।'
+                metaTitle: 'किरिल मार्किन के साथ 15-मिनट मीटिंग बुक करें | त्वरित',
+                metaDescription: 'किरिल मार्किन के साथ 15-मिनट की पेशेवर मीटिंग शेड्यूल करें। त्वरित चर्चा, संक्षिप्त चेक-इन, या कुछ मिनट बात करने के लिए बिल्कुल सही। उपयुक्त प्रारूप।'
             },
             mediumMeeting: {
                 title: '30-मिनट की मीटिंग',
                 description: 'किसी विशिष्ट चीज़ पर गहराई से जाने के लिए आधा घंटा। अधिकांश बातचीत के लिए काम करता है जिन्हें त्वरित चैट से अधिक की आवश्यकता होती है।',
-                metaTitle: 'किरिल मार्किन के साथ 30-मिनट की मीटिंग',
-                metaDescription: 'किरिल मार्किन के साथ तीस मिनट की मीटिंग। केंद्रित चर्चा, प्रोजेक्ट समीक्षा, या जब आपको कुछ मिलकर हल करने के लिए समय चाहिए तो अच्छी है।'
+                metaTitle: 'किरिल मार्किन के साथ 30-मिनट मीटिंग बुक करें | केंद्रित',
+                metaDescription: 'किरिल मार्किन के साथ 30-मिनट की मीटिंग शेड्यूल करें। केंद्रित चर्चा, प्रोजेक्ट समीक्षा, या विषयों पर मिलकर काम करने के लिए आदर्श।'
             },
             longMeeting: {
                 title: '60-मिनट की मीटिंग',
                 description: 'जब आपको कुछ जटिल चीज़ को हल करने के लिए उचित समय चाहिए तो पूरा घंटा। विस्तृत चर्चा, इंटरव्यू, या जब विषय को वास्तव में जगह की आवश्यकता हो तो अच्छा है।',
-                metaTitle: 'किरिल मार्किन के साथ 60-मिनट की मीटिंग',
-                metaDescription: 'किरिल मार्किन के साथ एक घंटे की मीटिंग। गहन बातचीत, इंटरव्यू, मेंटरिंग सेशन, या जटिल विषयों के लिए बिल्कुल सही जिन्हें उचित रूप से एक्सप्लोर करने के लिए समय चाहिए।'
+                metaTitle: 'किरिल मार्किन के साथ 60-मिनट मीटिंग बुक करें | गहरी',
+                metaDescription: 'किरिल मार्किन के साथ 60-मिनट की मीटिंग शेड्यूल करें। गहन बातचीत, इंटरव्यू, या जटिल विषयों के लिए बिल्कुल सही।'
             },
             allMeetings: {
                 title: 'सभी मीटिंग विकल्प',
                 description: 'सभी अलग-अलग मीटिंग की लंबाई एक जगह। वह चुनें जो आपके शेड्यूल के लिए काम करे।',
-                metaTitle: 'किरिल मार्किन के साथ मीटिंग विकल्प',
-                metaDescription: 'किरिल मार्किन के साथ सभी उपलब्ध मीटिंग समय। वह अवधि चुनें जो आपकी बातचीत के लिए उपयुक्त हो।'
+                metaTitle: 'किरिल मार्किन के साथ सभी मीटिंग विकल्प | समय चुनें',
+                metaDescription: 'किरिल मार्किन के साथ सभी उपलब्ध पेशेवर मीटिंग विकल्प देखें। 15, 30, या 60 मिनट के सलॉट में से आपकी जरूरतों के अनुसार चुनें। विभिन्न विषयों के लिए आदर्श।'
             },
             shortPageTitle: '15-मिनट की मीटिंग',
             mediumPageTitle: '30-मिनट की मीटिंग',
