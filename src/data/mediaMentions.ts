@@ -26,7 +26,7 @@ export const mediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "87,000+",
+    achievementValue: "91,000+",
     achievementLabel: "views"
   },
   {
@@ -101,7 +101,7 @@ export const mediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/youtube-2025-09-09.webp",
     websiteLogoUrl: "/logos/youtube.png",
     isVideo: true,
-    achievementValue: "4,800+",
+    achievementValue: "5,200+",
     achievementLabel: "views"
   },
   {
