@@ -776,11 +776,12 @@ For those ready to implement this system, here's the complete n8n workflow you c
 }
 ```
 
-</details>
-
 ---
 
-**Import Instructions:**
+</details>
+
+### Import Instructions
+
 1. Copy the JSON above
 2. Save it to a file with the name `email-ai-automation-personal.json`
 3. In n8n, go to Workflows → Import from JSON
