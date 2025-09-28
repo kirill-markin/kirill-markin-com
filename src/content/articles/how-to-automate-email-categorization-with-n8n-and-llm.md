@@ -13,7 +13,7 @@ keywords: [
 ]
 title: "How to Automate Email Categorization with n8n and LLM"
 date: 2025-09-27
-description: "My 3-month proven system for automating email categorization using n8n workflows and GPT-4 nano. Archive, read, or answer - let AI decide for you."
+description: "My 3-month proven system for automating email categorization using n8n workflows and GPT-5-nano. Archive, read, or answer - let AI decide for you."
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
@@ -24,7 +24,7 @@ language: "en"
 
 I got tired of waiting for Gmail to figure out which emails actually matter to me. After three months of letting AI handle my personal email categorization, I can't imagine going back to manual sorting.
 
-My system is embarrassingly simple: every email gets sorted into one of three buckets by GPT-4 nano. Archive it, read it, or answer it. That's it.
+My system is embarrassingly simple: every email gets sorted into one of three buckets by GPT-5-nano. Archive it, read it, or answer it. That's it.
 
 The whole thing runs on n8n and costs me almost nothing since I'm using the cheapest OpenAI model with structured output. Sure, OpenAI now sees all my personal emails, but let's be honest—they probably know more about me from my ChatGPT conversations anyway.
 
@@ -141,7 +141,7 @@ Since implementing this system:
 
 - **Time saved**: About 15-20 minutes per day on email triage
 - **Accuracy**: The AI correctly categorizes roughly 95% of emails
-- **Cost**: Under $3 per month using GPT-4 nano
+- **Cost**: Under $3 per month using GPT-5-nano
 - **False positives**: Maybe 2-3 emails per week get miscategorized
 
 The 5% error rate is totally manageable. When the AI gets it wrong, I just move the email to the right category and move on. Still faster than manually sorting everything.
