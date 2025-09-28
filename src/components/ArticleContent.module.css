@@ -69,6 +69,50 @@
   background-color: #f0f0f0;
 }
 
+/* Details/Summary styles for collapsible sections */
+.articleContent details {
+  margin: 1.5rem 0;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.articleContent summary {
+  padding: 1rem;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #232323;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.articleContent summary:hover {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+.articleContent summary:focus {
+  outline: 2px solid #232323;
+  outline-offset: -2px;
+}
+
+.articleContent details[open] summary {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.articleContent details>*:not(summary) {
+  padding: 1rem;
+  margin: 0;
+}
+
+.articleContent details pre {
+  margin: 0;
+  border-radius: 0;
+}
+
 @media screen and (max-width: 768px) {
   .articleContent table {
     font-size: 0.9rem;
@@ -77,5 +121,14 @@
   .articleContent table th,
   .articleContent table td {
     padding: 0.5rem 0.75rem;
+  }
+
+  .articleContent summary {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .articleContent details>*:not(summary) {
+    padding: 0.75rem;
   }
 }
