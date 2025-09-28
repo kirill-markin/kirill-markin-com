@@ -36,6 +36,10 @@ I receive way too many emails. Newsletter subscriptions, service notifications, 
 
 The breaking point came when I realized I was archiving 80% of my emails without reading them. If most emails don't need my attention, why am I the one deciding which ones do?
 
+> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire email automation workflow. [Watch Email Automation with n8n and LLM Tutorial](https://www.youtube.com/watch?v=xn1RyMlZudE) to see the complete setup process in action.
+
+[![Email automation workflow with n8n and LLM demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+
 ## The Three-Category System That Actually Works
 
 My AI categorizes every email into exactly three options:
@@ -187,6 +191,10 @@ Three months in, this email automation system has become essential to my daily w
 The setup is straightforward, the ongoing costs are minimal, and the time savings are real. If you're drowning in email like I was, this approach might be worth trying.
 
 Just remember: start simple, test thoroughly, and don't automate anything you can't easily undo.
+
+> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire email automation workflow. [Watch Email Automation with n8n and LLM Tutorial](https://www.youtube.com/watch?v=xn1RyMlZudE) to see the complete setup process in action.
+
+[![Email automation workflow with n8n and LLM demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
 ## Complete n8n Workflow JSON
 
@@ -804,4 +812,12 @@ For those ready to implement this system, here's the complete n8n workflow you c
 8. Test with a few emails before enabling the trigger
 
 Remember to update the OpenAI API key and Gmail authentication after importing the workflow.
+
+## Video Tutorial: Watch the Complete Email Automation Setup
+
+If you prefer learning visually, I've created a comprehensive video tutorial that walks through the entire process of setting up this email automation system:
+
+[![Email Automation with n8n and LLM Video Tutorial](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+
+The video demonstrates each step of creating the n8n workflow, configuring the OpenAI integration, setting up Gmail connections, and testing the complete automation. You'll see the exact node configurations, the LLM prompt in action, and how the system categorizes real emails in real-time.
 
