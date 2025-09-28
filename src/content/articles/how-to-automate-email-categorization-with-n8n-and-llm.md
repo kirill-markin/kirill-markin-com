@@ -192,10 +192,6 @@ The setup is straightforward, the ongoing costs are minimal, and the time saving
 
 Just remember: start simple, test thoroughly, and don't automate anything you can't easily undo.
 
-> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire email automation workflow. [Watch Email Automation with n8n and LLM Tutorial](https://www.youtube.com/watch?v=xn1RyMlZudE) to see the complete setup process in action.
-
-[![Email automation workflow with n8n and LLM demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
-
 ## Complete n8n Workflow JSON
 
 For those ready to implement this system, here's the complete n8n workflow you can import directly:
