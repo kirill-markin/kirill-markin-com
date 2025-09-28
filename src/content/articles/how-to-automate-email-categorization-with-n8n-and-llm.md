@@ -279,22 +279,11 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        704,
-        80
+        -1552,
+        432
       ],
-      "id": "1745bfda-0eb0-488f-abe0-d861a322e12d",
+      "id": "ff266540-edd6-42ef-8e07-f1754c1aa394",
       "name": "Switch"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -512,
-        160
-      ],
-      "id": "3ae78a57-9585-44c7-b04c-5952fa0b315f",
-      "name": "When clicking ‘Execute workflow’"
     },
     {
       "parameters": {
@@ -303,26 +292,11 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        0,
-        80
+        -2256,
+        432
       ],
-      "id": "a734b8d0-d058-4fc3-a01f-820cc3bf5d8f",
+      "id": "66a72457-b0e5-4ab0-bf49-ef00a06213aa",
       "name": "Loop Over Items"
-    },
-    {
-      "parameters": {
-        "mode": "combine",
-        "combineBy": "combineByPosition",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3.2,
-      "position": [
-        560,
-        112
-      ],
-      "id": "6518f5e1-e0f8-4a5b-8d98-92fc96f74f3f",
-      "name": "Merge"
     },
     {
       "parameters": {
@@ -334,10 +308,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        960,
-        -272
+        -1296,
+        112
       ],
-      "id": "1e1d5d38-508a-4743-9eac-9476d1b24ca1",
+      "id": "47db305c-2f55-4797-b646-331903a798ad",
       "name": "Add label to_hide",
       "webhookId": "",
       "credentials": {}
@@ -352,10 +326,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        960,
-        128
+        -1296,
+        480
       ],
-      "id": "05e3d00e-6a81-46f5-85c5-0afe305b4589",
+      "id": "bb1c5387-99a2-42ba-b615-ae65f39e9337",
       "name": "Add label to_answer",
       "webhookId": "",
       "credentials": {}
@@ -370,10 +344,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        960,
-        -64
+        -1296,
+        288
       ],
-      "id": "88f63420-aa04-4d56-afd0-509fc4fc5ab2",
+      "id": "82f68387-c342-4222-87c3-f6bbb1a23f77",
       "name": "Add label to_read",
       "webhookId": "",
       "credentials": {}
@@ -382,16 +356,16 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "parameters": {
         "resource": "thread",
         "operation": "addLabels",
-        "threadId": "={{ $('Merge').item.json.threadId }}",
+        "threadId": "={{ $('Merge2').item.json.threadId }}",
         "labelIds": []
       },
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1376,
-        304
+        -880,
+        656
       ],
-      "id": "8a403314-9912-4a7a-b788-d2d6500f5a9a",
+      "id": "7de8f655-3c3d-49f9-9074-b39eaf4abaf2",
       "name": "Add label processed_by_ai",
       "webhookId": "",
       "credentials": {}
@@ -400,7 +374,7 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "parameters": {
         "resource": "thread",
         "operation": "removeLabels",
-        "threadId": "={{ $('Merge').item.json.threadId }}",
+        "threadId": "={{ $('Merge2').item.json.threadId }}",
         "labelIds": [
           "INBOX"
         ]
@@ -408,10 +382,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1216,
-        -144
+        -1040,
+        208
       ],
-      "id": "034b5a8d-80ea-43b3-9871-267a82a5af8c",
+      "id": "438c1618-edf3-41a1-b991-fef18b003edf",
       "name": "Remove label from thread",
       "webhookId": "",
       "credentials": {}
@@ -430,10 +404,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmailTrigger",
       "typeVersion": 1.2,
       "position": [
-        -512,
-        -16
+        -2560,
+        160
       ],
-      "id": "8bb1ba5b-c755-43a6-ae3f-206980b2f027",
+      "id": "676e065d-fc0b-4ae4-8c1b-4b663267023f",
       "name": "Gmail Trigger",
       "credentials": {}
     },
@@ -454,19 +428,19 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        144,
-        -256
+        -2240,
+        -32
       ],
-      "id": "94b05019-c6f1-4e5a-adc8-b88f2fe1eaba",
+      "id": "9cb4e14e-cd43-4a7b-96c9-7acd93b8b947",
       "name": "exceptions"
     },
     {
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "gpt-5-nano",
+          "value": "gpt-5-mini",
           "mode": "list",
-          "cachedResultName": "GPT-5-NANO"
+          "cachedResultName": "GPT-5-MINI"
         },
         "messages": {
           "values": [
@@ -481,10 +455,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        288,
-        208
+        -2032,
+        560
       ],
-      "id": "d843ef03-546f-4b24-8b5a-23bf79a90023",
+      "id": "4f65ce04-67eb-4c28-9d56-6d2f03dedd41",
       "name": "llm categorization",
       "alwaysOutputData": false,
       "credentials": {}
@@ -517,10 +491,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -192,
-        80
+        -1936,
+        144
       ],
-      "id": "f3f59907-c206-43a7-8cd5-0406fefee02e",
+      "id": "cc8dda5a-414c-4fb8-9774-6bdfe1224976",
       "name": "Filter: not processed"
     },
     {
@@ -534,10 +508,10 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        960,
-        304
+        -1296,
+        656
       ],
-      "id": "3018fb23-32f2-4420-bbde-a1fc49350efc",
+      "id": "90cfc5e9-cddd-418e-bf95-5e9eb77b6778",
       "name": "Send error message",
       "webhookId": "",
       "credentials": {}
@@ -553,13 +527,43 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        -352,
-        80
+        -2400,
+        160
       ],
-      "id": "1d492d99-23df-438a-8d43-7c25101908f8",
+      "id": "5d534d0c-0210-4d32-853d-d26a5b13c646",
       "name": "Get emails with filter",
       "webhookId": "",
       "credentials": {}
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -2080,
+        144
+      ],
+      "id": "c6e6b5bd-0196-4a4f-a36d-1f119df3ee5d",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1696,
+        464
+      ],
+      "id": "d109e9f9-1089-4060-89e4-e70762d0aea5",
+      "name": "Merge2"
     }
   ],
   "pinData": {},
@@ -596,17 +600,6 @@ For those ready to implement this system, here's the complete n8n workflow you c
         ]
       ]
     },
-    "When clicking ‘Execute workflow’": {
-      "main": [
-        [
-          {
-            "node": "Get emails with filter",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Loop Over Items": {
       "main": [
         [],
@@ -617,23 +610,7 @@ For those ready to implement this system, here's the complete n8n workflow you c
             "index": 0
           },
           {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "exceptions",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "Switch",
+            "node": "Merge2",
             "type": "main",
             "index": 0
           }
@@ -710,7 +687,7 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "main": [
         [
           {
-            "node": "llm categorization",
+            "node": "Merge1",
             "type": "main",
             "index": 0
           }
@@ -721,7 +698,7 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Merge2",
             "type": "main",
             "index": 1
           }
@@ -754,7 +731,34 @@ For those ready to implement this system, here's the complete n8n workflow you c
       "main": [
         [
           {
+            "node": "exceptions",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
             "node": "Filter: not processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Switch",
             "type": "main",
             "index": 0
           }
@@ -764,7 +768,8 @@ For those ready to implement this system, here's the complete n8n workflow you c
   },
   "active": true,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "versionId": "",
   "meta": {
