@@ -71,6 +71,8 @@ The magic happens in the OpenAI node configuration. Here's how I set it up:
 
 The prompt is the heart of this system. After testing dozens of variations, this one gives me the most consistent results:
 
+> **Note**: This is just the LLM prompt for email categorization. If you want the complete n8n workflow automation (including all nodes and connections), scroll down to the "Complete n8n Workflow JSON" section below.
+
 <details>
 <summary>Click to expand the full LLM prompt</summary>
 
