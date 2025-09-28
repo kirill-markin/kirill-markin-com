@@ -71,6 +71,9 @@ The magic happens in the OpenAI node configuration. Here's how I set it up:
 
 The prompt is the heart of this system. After testing dozens of variations, this one gives me the most consistent results:
 
+<details>
+<summary>Click to expand the full LLM prompt</summary>
+
 ```
 Act as an Email classifier. You will get email data and need to return the correct label from the list of available labels.
 
@@ -132,6 +135,8 @@ Answer in JSON with two fields:
 - `reasoning`
 - `label`
 ```
+
+</details>
 
 I use structured output to ensure the AI always returns a valid category. No parsing errors, no edge cases where the AI gets creative with its response format.
 
