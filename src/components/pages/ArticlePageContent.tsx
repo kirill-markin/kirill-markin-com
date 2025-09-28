@@ -6,6 +6,7 @@ import ArticleJsonLd from '@/components/ArticleJsonLd';
 import SocialShare from '@/components/SocialShare';
 import AuthorBlock from '@/components/AuthorBlock';
 import SidebarRelatedArticles from '@/components/SidebarRelatedArticles';
+import SidebarVisibilityWrapper from '@/components/SidebarRelatedArticles/SidebarVisibilityWrapper';
 import Footer from '@/components/Footer';
 import styles from '@/app/(default)/articles/articles.module.css';
 import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
@@ -190,7 +191,9 @@ export default function ArticlePageContent({
                     <AuthorBlock language={language} />
 
                     {/* Sidebar Related Articles for Desktop */}
-                    <SidebarRelatedArticles relatedArticles={relatedArticles} language={language} />
+                    <SidebarVisibilityWrapper>
+                        <SidebarRelatedArticles relatedArticles={relatedArticles} language={language} />
+                    </SidebarVisibilityWrapper>
 
                     {/* Mobile social share buttons */}
                     <div className={styles.mobileShareContainer}>
