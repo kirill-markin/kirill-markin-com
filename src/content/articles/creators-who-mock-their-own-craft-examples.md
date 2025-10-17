@@ -92,7 +92,7 @@ The game designers understood something fundamental. We find deep satisfaction i
 
 For over a year now, I've been writing most of my code through AI voice commands in Cursor IDE. Yesterday I built a product page by talking to my computer for about twenty minutes instead of typing.
 
-I've been working as VP of Engineering and building systems for a while now.
+I've been working as CTO and building systems for a while now.
 
 In the past 8 months, I've been working on a few automation systems:
 

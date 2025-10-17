@@ -13,7 +13,7 @@ export const personalInfo: PersonalInfo = {
   email: "markinkirill@gmail.com",
   phone: "+359879906085",
   image: "/avatars/Kirill-Markin.webp",
-  jobTitle: "Founder of ozma.io",
-  secondaryTitle: "VP of Engineering",
+  jobTitle: "CTO",
+  secondaryTitle: "ex-Founder of ozma.io",
   tertiaryTitle: "AI & Data Engineer"
 }; 
