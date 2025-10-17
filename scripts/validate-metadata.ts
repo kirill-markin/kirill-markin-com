@@ -146,7 +146,7 @@ function validateGeneratedMetadata() {
             generator: (lang: string) => generatePayPageMetadata({ language: lang, type: 'stripe' }),
         },
         {
-            name: 'Fractional AI CTO',
+            name: 'Fractional CTO',
             type: 'services',
             subType: 'fractional-ai-cto',
             generator: () => generateFractionalAICTOPageMetadata(),

@@ -522,7 +522,7 @@ export const translations = {
             home: 'Home',
             services: 'SERVICES',
             articles: 'ARTICLES',
-            fractionalAICTO: 'FRACTIONAL AI CTO',
+            fractionalAICTO: 'FRACTIONAL CTO',
             talkToKirill: 'TALK TO KIRILL',
             language: 'English'
         },
@@ -554,7 +554,7 @@ export const translations = {
             home: 'होम',
             services: 'सेवाएं',
             articles: 'लेख',
-            fractionalAICTO: 'आंशिक AI CTO',
+            fractionalAICTO: 'आंशिक CTO',
             talkToKirill: 'किरिल से बात करें',
             language: 'हिन्दी'
         },

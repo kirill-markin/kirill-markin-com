@@ -14,7 +14,7 @@ export default function ServicesCategorySelector({ language }: ServicesCategoryS
 
     // Helper to get the localized category URL
     const getCategoryUrl = (category: string) => {
-        // Special case: business category redirects to Fractional AI CTO page
+        // Special case: business category redirects to Fractional CTO page
         if (category === 'business') {
             return '/services/fractional-ai-cto-kirill-markin/';
         }

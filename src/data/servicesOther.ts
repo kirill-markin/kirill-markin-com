@@ -6,7 +6,7 @@ export const servicesOtherData: ServiceOtherData[] = [
   {
     serviceId: "fractional_ai_cto",
     categoryId: "business",
-    name: "Fractional AI CTO",
+    name: "Fractional CTO",
     description: "Need a CTO but don't want to sell your kidney? Get strategic AI-powered tech leadership without the full-time drama (or salary).",
     logoUrl: "/services/fractional-ai-cto.webp",
     promoText: "Most Popular Service",

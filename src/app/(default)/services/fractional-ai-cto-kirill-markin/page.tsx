@@ -41,7 +41,7 @@ export default async function FractionalAICTOPage() {
                                 <h2>Why Companies Choose a Fractional CTO Over Full-Time</h2>
                                 <p>I've worked with dozens of companies as a fractional CTO, and the reasons they choose this approach over traditional hiring follow some pretty clear patterns.</p>
 
-                                <p>The most common scenario I see: companies desperately need someone with deep AI expertise, but those people aren't actively looking for new jobs. The best AI engineers and technology leaders are usually quite happy where they are. So instead of waiting months (or years) for the right person to become available, smart companies bring me in as their <strong>fractional AI CTO</strong>. They get immediate access to the knowledge, network, and strategic thinking they need to move faster on product development.</p>
+                                <p>The most common scenario I see: companies desperately need someone with deep AI expertise, but those people aren't actively looking for new jobs. The best AI engineers and technology leaders are usually quite happy where they are. So instead of waiting months (or years) for the right person to become available, smart companies bring me in as their <strong>fractional CTO</strong>. They get immediate access to the knowledge, network, and strategic thinking they need to move faster on product development.</p>
 
                                 <p>I've seen this approach save companies 6-12 months on critical AI implementations. Sometimes a single insight from my experience can unlock metrics across the board - that's the power of bringing in proven <strong>technology leadership</strong> exactly when you need it.</p>
 
@@ -85,7 +85,7 @@ export default async function FractionalAICTOPage() {
 
                                 <p>Here's the problem: you need someone who's actually building AI solutions right now, using the latest frameworks and models, working with current AI tools daily. You need this person to choose your tech stack, hire the right team, and most importantly, review that your new AI team is actually building something useful rather than just playing with cool technology. This often calls for <strong>interim CTO</strong> expertise during the transition period.</p>
 
-                                <p>In my experience, companies solve this one of two ways. Either they rope in a friend of the founders or investors who happens to know AI (risky), or they bring in a <strong>fractional AI CTO</strong> who stays involved through the entire process. I've helped dozens of companies navigate this transition, and having someone who's not ready to change jobs full-time but can provide ongoing <strong>technology advisor</strong> support makes all the difference.</p>
+                                <p>In my experience, companies solve this one of two ways. Either they rope in a friend of the founders or investors who happens to know AI (risky), or they bring in a <strong>fractional CTO</strong> who stays involved through the entire process. I've helped dozens of companies navigate this transition, and having someone who's not ready to change jobs full-time but can provide ongoing <strong>technology advisor</strong> support makes all the difference.</p>
 
                                 <p>The second pattern I see constantly: you're launching a new AI product and you absolutely need to get it right. You know that using the latest approaches to AI development could make or break your launch, but you don't have the budget to hire a senior AI specialist full-time.</p>
 
@@ -146,7 +146,7 @@ export default async function FractionalAICTOPage() {
                                 <h2>Fractional CTO Success Stories</h2>
                                 <p>Over the past few years, I've helped launch more than 10 different AI products. These range from very early-stage startups that just raised money from friends and family, to companies that closed seed rounds worth several million dollars.</p>
 
-                                <p>What these companies had in common: they needed someone with deep AI, data science, and data engineering experience to review and guide their technical direction. They had solid business ideas and sometimes even initial teams, but they needed a <strong>fractional AI CTO</strong> who could ensure they were building the right thing the right way from day one.</p>
+                                <p>What these companies had in common: they needed someone with deep AI, data science, and data engineering experience to review and guide their technical direction. They had solid business ideas and sometimes even initial teams, but they needed a <strong>fractional CTO</strong> who could ensure they were building the right thing the right way from day one.</p>
 
                                 <p>I've also personally built and hired 4 complete AI R&D teams from scratch. This means I understand not just the technical challenges, but the hiring challenges, the team dynamics, and the organizational structure needed to make AI teams actually productive rather than just expensive.</p>
 

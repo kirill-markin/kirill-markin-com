@@ -615,7 +615,7 @@ export function generatePayPageMetadata(
 }
 
 /**
- * Generate metadata for the Fractional AI CTO page
+ * Generate metadata for the Fractional CTO page
  */
 export function generateFractionalAICTOPageMetadata(): Metadata {
     const title = 'Fractional CTO Services - Hire Kirill Markin as Your Part-Time CTO';
@@ -637,7 +637,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
                     url: '/services/fractional-ai-cto-meta.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'Fractional AI CTO Services by Kirill Markin',
+                    alt: 'Fractional CTO Services by Kirill Markin',
                 }
             ],
         },
