@@ -1,7 +1,7 @@
 import { ServiceFractionalCTOData } from '@/types/services';
 
 export const servicesMentorshipData: ServiceFractionalCTOData = {
-    title: 'AI Technical Mentorship with Kirill Markin',
+    title: 'Your Mentor Kirill Markin',
     description: 'Whether you\'re a founder building your first AI product or an engineer transitioning into AI/LLM development — I help you make the right technical decisions, avoid 6-month rewrites, and move faster without expensive trial-and-error.',
     plans: [
         {

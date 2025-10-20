@@ -37,12 +37,12 @@ export const FractionalCTOHeader: React.FC<FractionalCTOHeaderProps> = ({
         <div className={styles.sectionHeader}>
             {isStandalonePage ? (
                 <TitleTag className={styles.sectionTitle}>
-                    Your Fractional CTO Kirill Markin
+                    {data.title}
                 </TitleTag>
             ) : (
                 <TitleTag className={styles.sectionTitle}>
                     <Link href="/services/fractional-ai-cto-kirill-markin/" className={styles.titleLink}>
-                        Your Fractional CTO Kirill Markin
+                        {data.title}
                     </Link>
                 </TitleTag>
             )}
