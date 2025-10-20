@@ -13,27 +13,17 @@ export const servicesOtherData: ServiceOtherData[] = [
     buttonText: "View Plans",
     buttonUrl: "/services/fractional-ai-cto-kirill-markin/"
   },
+
+  // Category: People
   {
     serviceId: "ai_mentorship",
     categoryId: "people",
     name: "AI Technical Mentorship",
     description: "Building an AI product or transitioning into AI/LLM development? Get expert guidance to avoid 6-month mistakes and move faster.",
-    logoUrl: "/services/fractional-ai-cto.webp",
+    logoUrl: "/services/career-consulting.webp",
     promoText: "",
     buttonText: "View Plans",
     buttonUrl: "/services/mentorship/"
-  },
-
-  // Category: People
-  {
-    serviceId: "career_consulting",
-    categoryId: "people",
-    name: "Career Consulting",
-    description: "Tired of sending CVs into the void? I've hired dozens of engineers, so I know what works and what's just LinkedIn noise.",
-    logoUrl: "/services/career-consulting.webp",
-    promoText: "",
-    buttonText: "Book a call",
-    buttonUrl: "/meet/short/"
   },
   // {
   //   serviceId: "telegram_chatgpt_subscription",
