@@ -674,6 +674,55 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
 }
 
 /**
+ * Generate metadata for the Mentorship page
+ */
+export function generateMentorshipPageMetadata(): Metadata {
+    const title = 'AI Technical Mentorship - Expert Guidance for Founders & Engineers';
+    const description = 'Get expert AI/LLM mentorship from Kirill Markin. Whether you\'re a founder building an AI product or an engineer transitioning into AI — avoid costly mistakes and move faster.';
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            type: 'website',
+            url: '/services/mentorship/',
+            siteName: 'Kirill Markin',
+            images: [
+                {
+                    url: '/services/fractional-ai-cto-meta.webp',
+                    width: 1200,
+                    height: 630,
+                    alt: 'AI Technical Mentorship by Kirill Markin',
+                }
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: ['/services/fractional-ai-cto-meta.webp'],
+        },
+        alternates: {
+            canonical: '/services/mentorship/',
+        },
+        other: {
+            'og:type': 'product',
+            'product:price:amount': '260',
+            'product:price:currency': 'USD',
+            'product:availability': 'in stock',
+            'product:condition': 'new',
+            'product:brand': 'Kirill Markin',
+            'product:retailer_item_id': 'ai-technical-mentorship-service',
+            'business:contact_data:locality': 'Global',
+            'business:contact_data:region': 'Remote',
+            'business:contact_data:country_name': 'Worldwide',
+        },
+    };
+}
+
+/**
  * Generate metadata for the subscribe page
  * @returns Metadata object
  */

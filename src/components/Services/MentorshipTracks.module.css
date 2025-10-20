@@ -1,0 +1,147 @@
+.tracksSection {
+    width: 100%;
+    margin: 4rem 0;
+    padding: 3rem 0;
+    background-color: var(--light-background, #fafafa);
+    border-radius: 8px;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 0 3rem 0;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.tracksContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.track {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.trackTitle {
+    font-size: 1.5rem;
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.trackContent p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+    margin-bottom: 1.5rem;
+}
+
+.trackContent h4 {
+    font-size: 1.125rem;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.trackContent ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.trackContent ul li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    font-size: 0.975rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+.trackContent ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color, #0070f3);
+    font-weight: bold;
+}
+
+.example {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--accent-color, #0070f3);
+    border-radius: 4px;
+}
+
+.example strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+    font-size: 0.975rem;
+}
+
+.example {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--medium-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .tracksContainer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .tracksSection {
+        margin: 3rem 0;
+        padding: 2rem 0;
+    }
+
+    .sectionTitle {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .track {
+        padding: 1.5rem;
+    }
+
+    .trackTitle {
+        font-size: 1.375rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .tracksSection {
+        margin: 2rem 0;
+        padding: 1.5rem 0;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tracksContainer {
+        padding: 0 1rem;
+    }
+
+    .track {
+        padding: 1.25rem;
+    }
+
+    .trackTitle {
+        font-size: 1.25rem;
+    }
+}

@@ -13,6 +13,16 @@ export const servicesOtherData: ServiceOtherData[] = [
     buttonText: "View Plans",
     buttonUrl: "/services/fractional-ai-cto-kirill-markin/"
   },
+  {
+    serviceId: "ai_mentorship",
+    categoryId: "business",
+    name: "AI Technical Mentorship",
+    description: "Building an AI product or transitioning into AI/LLM development? Get expert guidance to avoid 6-month mistakes and move faster.",
+    logoUrl: "/services/fractional-ai-cto.webp",
+    promoText: "",
+    buttonText: "View Plans",
+    buttonUrl: "/services/mentorship/"
+  },
 
   // Category: People
   {
