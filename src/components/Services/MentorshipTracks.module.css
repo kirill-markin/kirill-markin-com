@@ -80,7 +80,7 @@
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--accent-color, #0070f3);
+    color: #00ffaa;
     font-weight: bold;
 }
 
@@ -91,7 +91,7 @@
     padding-right: 1.5rem;
     padding-bottom: 1.5rem;
     background-color: #f8f9fa;
-    border-left: 4px solid var(--accent-color, #0070f3);
+    border-left: 4px solid #00ffaa;
     border-radius: 0;
     min-height: 270px;
 }
