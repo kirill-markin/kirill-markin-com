@@ -1207,7 +1207,7 @@ export const translations = {
     },
     emailPopup: {
         'en': {
-            title: 'Join My Brain Dumps',
+            title: 'Subscribe',
             description: 'I share AI insights and practical tools when I find something actually useful',
             ctaButton: 'Subscribe',
             subText: 'Only when my brain produces something useful',
@@ -1216,7 +1216,7 @@ export const translations = {
             validationError: 'That doesn\'t look like an email'
         },
         'es': {
-            title: 'Únete a Mis Derrames Cerebrales',
+            title: 'Suscribirse',
             description: 'Comparto ideas de IA y herramientas cuando encuentro algo realmente útil',
             ctaButton: 'Suscribirse',
             subText: 'Solo cuando mi cerebro produce algo útil',
@@ -1225,7 +1225,7 @@ export const translations = {
             validationError: 'Eso no parece un email'
         },
         'zh': {
-            title: '加入我的大脑垃圾场',
+            title: '订阅',
             description: '当我发现真正有用的东西时，我会分享AI见解和实用工具',
             ctaButton: '订阅',
             subText: '只在我的大脑产出有用东西时',
@@ -1234,7 +1234,7 @@ export const translations = {
             validationError: '这看起来不像邮箱地址'
         },
         'ar': {
-            title: 'انضم إلى مقالب دماغي',
+            title: 'اشترك',
             description: 'أشارك رؤى الذكاء الاصطناعي والأدوات عندما أجد شيئًا مفيدًا فعلاً',
             ctaButton: 'اشترك',
             subText: 'فقط عندما ينتج دماغي شيئًا مفيدًا',
@@ -1243,7 +1243,7 @@ export const translations = {
             validationError: 'هذا لا يبدو كعنوان بريد إلكتروني'
         },
         'hi': {
-            title: 'मेरे दिमागी कचरे में शामिल हों',
+            title: 'सब्स्क्राइब करें',
             description: 'जब मुझे कुछ वास्तव में उपयोगी मिलता है तो मैं AI अंतर्दृष्टि और उपकरण साझा करता हूं',
             ctaButton: 'सब्स्क्राइब करें',
             subText: 'केवल जब मेरा दिमाग कुछ उपयोगी बनाता है',
