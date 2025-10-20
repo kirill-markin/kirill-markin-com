@@ -40,9 +40,10 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Monthly 1-hour strategy call',
                 'Unlimited "help, I\'m stuck!" messages',
                 'Framework selection without the paralysis',
+                'Concrete tech guidance: LangChain vs LlamaIndex vs custom solutions',
                 'We\'ll figure out your AI mess together',
                 'Skip the 6-month rewrite horror stories',
-                'Pause/resume anytime (Jake did this twice)'
+                'Pause/resume anytime (Jake paused twice — when traveling to Japan, then resumed when questions came up)'
             ],
             buttonText: 'Book Free Trial Call',
             buttonUrl: '/meet/short/'
@@ -57,7 +58,8 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Two 1-hour calls per month (bi-weekly check-ins)',
                 'Priority "oh crap, production is broken" support',
                 'Product validation before you waste runway',
-                'Intros to people who actually solved your exact problem',
+                'Network access: intros to specialists who solved your exact problem',
+                'Production patterns: human-in-the-loop rollout strategies',
                 'Deep architecture talks over virtual coffee'
             ],
             highlighted: true,
@@ -73,7 +75,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Everything in Standard plan',
                 'Four 1-hour calls per month (weekly check-ins)',
                 'Code & architecture review access',
-                'Your whole team can join the calls',
+                'Your whole team can join calls — architecture reviews together',
                 'Direct Slack/Discord channel (no context switching)',
                 'Quarterly roadmap planning sessions',
                 'Emergency "this is on fire" same-day support'
