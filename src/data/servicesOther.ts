@@ -15,7 +15,7 @@ export const servicesOtherData: ServiceOtherData[] = [
   },
   {
     serviceId: "ai_mentorship",
-    categoryId: "business",
+    categoryId: "people",
     name: "AI Technical Mentorship",
     description: "Building an AI product or transitioning into AI/LLM development? Get expert guidance to avoid 6-month mistakes and move faster.",
     logoUrl: "/services/fractional-ai-cto.webp",
