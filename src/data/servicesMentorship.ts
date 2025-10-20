@@ -63,6 +63,23 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
             highlighted: true,
             buttonText: 'Book Free Trial Call',
             buttonUrl: '/meet/short/'
+        },
+        {
+            planId: 'premium',
+            name: 'Premium',
+            price: '$880/month',
+            hours: '4 calls + VIP access',
+            features: [
+                'Everything in Standard plan',
+                'Four 1-hour calls per month (weekly check-ins)',
+                'Code & architecture review access',
+                'Your whole team can join the calls',
+                'Direct Slack/Discord channel (no context switching)',
+                'Quarterly roadmap planning sessions',
+                'Emergency "this is on fire" same-day support'
+            ],
+            buttonText: 'Book Free Trial Call',
+            buttonUrl: '/meet/short/'
         }
     ]
 };
