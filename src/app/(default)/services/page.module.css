@@ -524,3 +524,57 @@
     padding-top: 1.5rem;
   }
 }
+
+/* ASCII Art Styles for Military-Police Page */
+.asciiArtSection {
+  text-align: center;
+  margin: 4rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.asciiArt {
+  display: inline-block;
+  margin: 0 auto;
+  font-family: monospace;
+  font-size: 7px;
+  line-height: 1;
+  user-select: none;
+  white-space: pre;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .asciiArtSection {
+    margin: 2rem 0;
+    padding: 0 5px;
+  }
+
+  .asciiArt {
+    font-size: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .asciiArt {
+    font-size: 3.8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .asciiArt {
+    font-size: 3.2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .asciiArt {
+    font-size: 3px;
+  }
+}
+
+@media (max-width: 320px) {
+  .asciiArt {
+    font-size: 2.8px;
+  }
+}

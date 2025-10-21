@@ -130,6 +130,13 @@ export const SUB_PATH_SEGMENTS: Record<string, Record<string, Record<string, str
             'zh': 'meiti',
             'ar': 'sahafa',
             'hi': 'media'
+        },
+        'military': {
+            'en': 'military',
+            'es': 'militares',
+            'zh': 'junjing',
+            'ar': 'askari',
+            'hi': 'sainya'
         }
     },
     'articles': {
@@ -273,7 +280,7 @@ export function getUrlForLanguage(
     // Handle category parameter translation if present
     if (queryParams.category) {
         // Known categories in English
-        const knownCategories = ['all', 'people', 'business', 'journalists'];
+        const knownCategories = ['all', 'people', 'business', 'journalists', 'military'];
 
         // Try to find which category this represents in the current language
         let categoryInternalName: string | undefined;
@@ -802,7 +809,8 @@ export const translations = {
                 all: 'All Services',
                 people: 'For Individuals',
                 business: 'For Businesses',
-                journalists: 'For Media'
+                journalists: 'For Media',
+                military: 'For Military & Police'
             },
             categoriesLabel: 'Service Categories',
             categoryMetadata: {
@@ -817,6 +825,10 @@ export const translations = {
                 journalists: {
                     metaTitle: 'AI Services for Media | Tech Consultation for Journalists | Kirill',
                     metaDescription: 'Expert AI consultation for media professionals and journalists. Technical information, speaking engagements, and article collaboration on AI topics.'
+                },
+                military: {
+                    metaTitle: 'AI Services for Military & Police | Strategic Defense Technology Consulting',
+                    metaDescription: 'Strategic AI and technology consulting for defense and law enforcement. Secure, professional guidance for mission-critical operations.'
                 }
             }
         },
@@ -829,7 +841,8 @@ export const translations = {
                 all: 'Todos los Servicios',
                 people: 'Para Individuos',
                 business: 'Para Empresas',
-                journalists: 'Para Medios'
+                journalists: 'Para Medios',
+                military: 'Para Militares y Policía'
             },
             categoriesLabel: 'Categorías de Servicios',
             categoryMetadata: {
@@ -844,6 +857,10 @@ export const translations = {
                 journalists: {
                     metaTitle: 'Servicios de IA para Medios | Consulta Técnica | Kirill Markin',
                     metaDescription: 'Consultoría experta de IA para medios y periodistas. Información técnica precisa y colaboración en artículos sobre IA y tecnología avanzada.'
+                },
+                military: {
+                    metaTitle: 'Servicios de IA para Militares y Policía | Consultoría Tecnológica de Defensa',
+                    metaDescription: 'Consultoría estratégica de IA y tecnología para defensa y fuerzas del orden. Orientación profesional y segura para operaciones de misión crítica.'
                 }
             }
         },
@@ -856,7 +873,8 @@ export const translations = {
                 all: '所有服务',
                 people: '个人服务',
                 business: '企业服务',
-                journalists: '媒体服务'
+                journalists: '媒体服务',
+                military: '军警服务'
             },
             categoriesLabel: '服务类别',
             categoryMetadata: {
@@ -871,6 +889,10 @@ export const translations = {
                 journalists: {
                     metaTitle: '媒体人工智能服务 | 技术咨询与内容合作 | 专业技术解读与深度分析 | Kirill Markin',
                     metaDescription: '为媒体专业人士和记者提供专业AI咨询服务。我们提供关于人工智能和前沿技术的准确专业信息，支持媒体报道和内容创作，提供技术解读、专家观点和深度分析。同时提供专业演讲、技术顾问和文章合作服务，帮助媒体准确传达复杂技术概念，提升内容质量和专业性。我们致力于成为媒体行业值得信赖的技术合作伙伴，为您的报道提供权威支持。'
+                },
+                military: {
+                    metaTitle: '军警人工智能服务 | 战略防务技术咨询 | 安全指导',
+                    metaDescription: '为国防和执法部门提供战略性人工智能和技术咨询。为关键任务行动提供安全、专业的指导。'
                 }
             }
         },
@@ -883,7 +905,8 @@ export const translations = {
                 all: 'جميع الخدمات',
                 people: 'للأفراد',
                 business: 'للشركات',
-                journalists: 'للإعلام'
+                journalists: 'للإعلام',
+                military: 'للعسكريين والشرطة'
             },
             categoriesLabel: 'فئات الخدمات',
             categoryMetadata: {
@@ -898,6 +921,10 @@ export const translations = {
                 journalists: {
                     metaTitle: 'خدمات الذكاء الاصطناعي للإعلام | استشارات تقنية | كيريل ماركين',
                     metaDescription: 'استشارات خبيرة في الذكاء الاصطناعي للإعلاميين والصحفيين. معلومات تقنية دقيقة حول التكنولوجيا المتقدمة وتعاون في المحتوى المتخصص لتقديم رؤى عن التطورات التقنية.'
+                },
+                military: {
+                    metaTitle: 'خدمات الذكاء الاصطناعي للعسكريين والشرطة | استشارات التكنولوجيا الدفاعية',
+                    metaDescription: 'استشارات استراتيجية للذكاء الاصطناعي والتكنولوجيا للدفاع وإنفاذ القانون. إرشادات آمنة ومهنية للعمليات الحساسة.'
                 }
             }
         },
@@ -910,7 +937,8 @@ export const translations = {
                 all: 'सभी सेवाएं',
                 people: 'व्यक्तियों के लिए',
                 business: 'व्यवसायों के लिए',
-                journalists: 'मीडिया के लिए'
+                journalists: 'मीडिया के लिए',
+                military: 'सैन्य और पुलिस के लिए'
             },
             categoriesLabel: 'सेवा श्रेणियां',
             categoryMetadata: {
@@ -925,6 +953,10 @@ export const translations = {
                 journalists: {
                     metaTitle: 'मीडिया के लिए एआई सेवाएं | तकनीकी परामर्श | किरिल मार्किन',
                     metaDescription: 'मीडिया पेशेवरों और पत्रकारों के लिए विशेषज्ञ एआई परामर्श। एआई और प्रौद्योगिकी विषयों पर सटीक तकनीकी जानकारी। विश्वसनीय तकनीकी अंतर्दृष्टि प्राप्त करें।'
+                },
+                military: {
+                    metaTitle: 'सैन्य और पुलिस के लिए एआई सेवाएं | रणनीतिक रक्षा प्रौद्योगिकी परामर्श',
+                    metaDescription: 'रक्षा और कानून प्रवर्तन के लिए रणनीतिक एआई और प्रौद्योगिकी परामर्श। मिशन-महत्वपूर्ण संचालन के लिए सुरक्षित, पेशेवर मार्गदर्शन।'
                 }
             }
         },

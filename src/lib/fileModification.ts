@@ -62,6 +62,12 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/data/servicesFractionalCTO.ts',
         ...commonFiles
     ],
+    '/services/military-and-police/': [
+        'src/app/(default)/services/military-and-police/page.tsx',
+        'src/app/(default)/services/page.module.css',
+        'src/data/servicesMilitaryPolice.ts',
+        ...commonFiles
+    ],
     '/meet/': [
         'src/app/(default)/meet/page.tsx',
         'src/app/(default)/meet/page.module.css',

@@ -57,5 +57,17 @@ export const servicesOtherData: ServiceOtherData[] = [
     buttonText: "Book a call",
     buttonUrl: "/meet/short/"
   },
+
+  // Category: Military & Police
+  {
+    serviceId: "military_police_consulting",
+    categoryId: "military",
+    name: "Military & Police Consulting",
+    description: "Strategic AI and technology consulting for defense and law enforcement. Secure, professional guidance for mission-critical operations.",
+    logoUrl: "/services/military-police.webp",
+    promoText: "",
+    buttonText: "View Details",
+    buttonUrl: "/services/military-and-police/"
+  },
 ];
 
