@@ -5,34 +5,15 @@ alwaysApply: true
 ---
 # Kirill Markin Website - Project Guide
 
-## Project Overview
+Modern personal website built with Next.js 15. Migrated from Jekyll for performance.
 
-Modern personal website built with Next.js, migrated from Jekyll for improved performance.
+## Core Principles
 
-## Performance Strategy
+**Static Generation First**: Pre-render all content at build time with `generateStaticParams`. Aggressive caching. Zero server-side computation at request time. Dynamic pages only in rare exceptions.
 
-**Static Pages with Caching First**: This project prioritizes static page generation with aggressive caching to maximize performance and minimize server load. We strive to make all pages static whenever possible, leveraging Next.js static generation capabilities and caching strategies. Dynamic pages are used only in rare exceptions when real-time data or user-specific content is absolutely necessary.
+**Server Components First**: Client components only where interactivity required. Minimal JavaScript to browser.
 
-## Core Architecture Principles
-
-### Static Generation First
-
-Pre-render all possible content at build time:
-- Use `generateStaticParams` for dynamic routes
-- Optimize SSR pages when content is predictable
-- Zero server-side computation at request time
-- Pre-generate all category pages and filtered views
-
-### Server Components with Strategic Client Hydration
-
-- Server components for performance
-- Client components only where interactivity required 
-- Minimal JavaScript to browser
-- Limited client-side state
-
-### Dynamic Routes and Params Handling (Next.js 15)
-
-Params in dynamic routes are asynchronous:
+**Next.js 15 Async Params**:
 ```typescript
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -46,122 +27,66 @@ export default async function Page({ params }: PageProps) {
 ## Project Structure
 
 ```
-website-next-js/
-├── public/              # Static assets
-├── src/                 # Application source code
-│   ├── app/             # Next.js App Router pages
-│   │   ├── (default)/   # Route group for English content
-│   │   │   ├── layout.tsx      # English layout with lang="en"
-│   │   │   ├── page.tsx        # English homepage
-│   │   │   ├── articles/       # English articles
-│   │   │   ├── services/       # English services
-│   │   │   ├── meet/           # English meeting pages
-│   │   │   └── pay/            # English payment pages
-│   │   ├── (i18n)/      # Route group for localized content
-│   │   │   └── [lang]/         # Dynamic language routes
-│   │   │       ├── layout.tsx      # Localized layout with lang={lang}
-│   │   │       ├── page.tsx        # Localized homepage
-│   │   │       ├── [segment]/      # Dynamic localized segments
-│   │   │       └── [segment]/[subsegment]/  # Nested localized routes
-│   │   ├── layout.tsx   # Root layout (minimal)
-│   │   ├── sitemap.ts   # Sitemap generation
-│   │   ├── robots.ts    # Robots.txt
-│   │   └── globals.css  # Global styles
-│   ├── components/      # UI components
-│   ├── content/         # Content files
-│   ├── data/            # Structured data
-│   ├── lib/             # Utility functions
-│   └── types/           # TypeScript type definitions
-├── next.config.ts       # Next.js configuration
-└── package.json         # Dependencies and scripts
+src/
+├── app/
+│   ├── (default)/      # English static routes (lang="en")
+│   │   ├── articles/, services/, meet/, pay/
+│   ├── (i18n)/         # Localized routes
+│   │   └── [lang]/[segment]/[subsegment]/
+│   ├── sitemap.ts, robots.ts
+├── components/         # UI components
+├── content/articles/   # Markdown + translations/[lang]/
+├── data/               # Structured data (services, media)
+├── lib/                # Utils + localization.ts
+└── types/
 ```
 
-## Content Structure
+## Multilingual Architecture
 
-### Articles
-- Markdown in `src/content/articles/` with translations
-- Frontmatter metadata (title, date, description, tags)
-- Bidirectional references between translations
+**Route Groups:**
+- `(default)` - English: `/articles/`, `/services/`, `/meet/short/`
+- `(i18n)` - Localized: `/es/articulos/`, `/zh/zixun/`, `/ar/mawid/majani/`
 
-### Services
-- Structured data in `src/data/servicesOther.ts`
-- Category-based filtering with URL parameters
+**Path Mapping (same logical path, different words per language):**
+- articles → articulos → zhishi → maqalat → gyan
+- services → servicios → zixun → khadamat → sevaen
+- meet/short → reservar/breve → yuyue/mianfei → mawid/majani
 
-### Multilanguage Support
-- Multiple languages (en, es, zh, ar, hi)
-- Path structure:
-  - Default: `/path/` 
-  - Localized: `/[lang]/[segment]/[subsegment]/`
-- Pre-generated routes with `generateStaticParams`
-
-### Route Groups Architecture
-
-**i18n Implementation using Next.js Route Groups:**
-
-**Route Groups Structure:**
-- `(default)` - English content with static routes and `lang="en"` layout
-- `(i18n)` - Localized content with dynamic `[lang]` routes and language-specific layouts
-
-**Language Resolution Logic:**
-- English routes: Direct static paths (e.g., `/articles/`, `/services/`)
-- Localized routes: Dynamic segment mapping via `lib/localization.ts`
-- Each language group has its own layout with proper `lang` attribute
-- RTL support for Arabic via `dir="rtl"` in `(i18n)` layout
-
-**Complex Path Mapping - Same logical path uses different words per language:**
-- `articles` → `es/articulos` → `zh/zhishi` → `ar/maqalat` → `hi/gyan`
-- `services` → `es/servicios` → `zh/zixun` → `ar/khadamat` → `hi/sevaen`
-- `meet/short` → `es/reservar/breve` → `zh/yuyue/mianfei` → `ar/mawid/majani`
-
-**Key Implementation Files:**
-- `lib/localization.ts` - Path segment mapping and translation logic
-- `(i18n)/[lang]/[segment]/page.tsx` - Dynamic segment resolution for localized content
-- `(i18n)/[lang]/[segment]/[subsegment]/page.tsx` - Nested localized route handling
+**Key Files:**
+- `lib/localization.ts` - Path segment mapping & translations
+- `(i18n)/[lang]/[segment]/page.tsx` - Dynamic segment resolution
 - `(default)/*/page.tsx` - Static English routes
 
-**⚠️ Before modifying routes**: Check segment mappings in `localization.ts` and update both route groups
+**⚠️ Before modifying routes**: Check `localization.ts` mappings
 
-## Key Functionality
+## Content
 
-### Sitemap Generation
-- GitHub API integration for file modification dates
-- Comprehensive coverage of all routes
+- **Articles**: `src/content/articles/` - Markdown with frontmatter, bidirectional translation refs
+- **Services**: `src/data/servicesOther.ts` - Category filtering
+- **Languages**: en, es, zh, ar, hi - Routes pre-generated with `generateStaticParams`
 
-### SEO Optimization
-- Metadata generation (title, description, OpenGraph)
-- Canonical URLs and language variants  
-- Structured data (JSON-LD)
-- Server-side language attribute rendering (no client-side lang updates)
-- Route groups ensure proper `lang` and `dir` attributes from initial HTML
+## SEO & Metadata
 
-### Metadata Architecture
-- **Route-specific metadata generation**: Each page generates localized metadata via `generateMetadata()` functions
-- **Base metadata inheritance**: Layout-level metadata serves as fallback for route groups
-- **Language-specific translations**: Metadata pulled from `lib/localization.ts` translation system
-- **No metadata reuse across languages**: Each language generates unique, translated metadata
+- Metadata via `generateMetadata()` per route, translations from `lib/localization.ts`
+- Each language generates unique metadata (no reuse)
+- Sitemap with GitHub API for lastmod dates
+- Server-side `lang` and `dir` attributes (RTL for Arabic)
 
-### Analytics & Events
+## Analytics & Events
+
 - Custom events via `trackGtmEvent()` from `src/lib/gtm.ts` → GTM auto-forwards all to analytics systems
-- Events buffered in `dataLayer` until GTM loads, no GTM config changes needed for new events
+- Events buffered in `dataLayer` until GTM loads, no GTM config changes needed
 
-## Development Practices
+## Development
 
-### Core Principles
-- "Static generation first"
-- Minimal client-side JavaScript
-- Type safety throughout
-- SEO-driven development
-
-### Best Practices
-- Server Components by default
-- CSS Modules for component styling
-- Update sitemap file mappings for new pages
-
-## Common Commands
-
-- `npm run dev` - Development server
+**Commands:**
+- `npm run dev` - Dev server
 - `npm run build` - Production build
-- `npm run lint` - Run ESLint
-- `npm test` - Run tests 
-- `npm run validate-metadata` - Validate SEO metadata across all pages
-- `npx tsx scripts/test-cache-headers.ts` - Test cache headers for all pages in sitemap 
+- `npm test` - Tests
+- `npm run validate-metadata` - SEO validation
+- `npx tsx scripts/test-cache-headers.ts` - Cache headers test
+
+**Best Practices:**
+- Server Components by default
+- CSS Modules for styling
+- Update `pageFilesMap` in `lib/fileModification.ts` for new pages (sitemap lastmod)
