@@ -46,7 +46,7 @@ export default function ServicesPageContent({ language, services }: ServicesPage
         }
 
         // Check against known categories
-        const knownCategories = ['people', 'business', 'journalists', 'military'];
+        const knownCategories = ['people', 'business', 'journalists', 'police'];
 
         // First check if it's already a known internal category (for English)
         if (language === 'en' && knownCategories.includes(currentCategory)) {

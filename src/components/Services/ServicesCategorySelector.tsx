@@ -49,7 +49,7 @@ export default function ServicesCategorySelector({ language }: ServicesCategoryS
         { id: 'business', iconPath: '/icons/services/building-office.svg' },
         { id: 'people', iconPath: '/icons/services/user.svg' },
         { id: 'journalists', iconPath: '/icons/services/newspaper.svg' },
-        { id: 'military', iconPath: '/icons/services/shield.svg' },
+        { id: 'police', iconPath: '/icons/services/shield.svg' },
         { id: 'all', iconPath: '/icons/services/squares-2x2.svg' }
     ];
 

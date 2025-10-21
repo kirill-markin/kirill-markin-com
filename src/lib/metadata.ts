@@ -723,11 +723,11 @@ export function generateMentorshipPageMetadata(): Metadata {
 }
 
 /**
- * Generate metadata for the Military & Police Consulting page
+ * Generate metadata for the Police Consulting page
  */
-export function generateMilitaryPolicePageMetadata(): Metadata {
-    const title = 'Military & Police Consulting - Strategic AI & Defense Technology';
-    const description = 'Strategic AI and technology consulting for defense and law enforcement. Secure, professional guidance for mission-critical operations and advanced system implementation.';
+export function generatePolicePageMetadata(): Metadata {
+    const title = 'Police Consulting - Strategic AI & Law Enforcement Technology';
+    const description = 'Strategic AI and technology consulting for law enforcement. Secure, professional guidance for mission-critical police operations and advanced system implementation.';
 
     return {
         title,
@@ -736,14 +736,14 @@ export function generateMilitaryPolicePageMetadata(): Metadata {
             title,
             description,
             type: 'website',
-            url: '/services/military-and-police/',
+            url: '/services/police/',
             siteName: 'Kirill Markin',
             images: [
                 {
-                    url: '/services/military-police.webp',
+                    url: '/services/police.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'Military & Police Consulting Services by Kirill Markin',
+                    alt: 'Police Consulting Services by Kirill Markin',
                 }
             ],
         },
@@ -751,10 +751,10 @@ export function generateMilitaryPolicePageMetadata(): Metadata {
             card: 'summary_large_image',
             title,
             description,
-            images: ['/services/military-police.webp'],
+            images: ['/services/police.webp'],
         },
         alternates: {
-            canonical: '/services/military-and-police/',
+            canonical: '/services/police/',
         },
         other: {
             'og:type': 'product',
@@ -763,7 +763,7 @@ export function generateMilitaryPolicePageMetadata(): Metadata {
             'product:availability': 'in stock',
             'product:condition': 'new',
             'product:brand': 'Kirill Markin',
-            'product:retailer_item_id': 'military-police-consulting-service',
+            'product:retailer_item_id': 'police-consulting-service',
             'business:contact_data:locality': 'Global',
             'business:contact_data:region': 'Remote',
             'business:contact_data:country_name': 'Worldwide',

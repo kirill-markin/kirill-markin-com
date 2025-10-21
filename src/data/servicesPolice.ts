@@ -1,8 +1,8 @@
 import { ServiceFractionalCTOData } from '@/types/services';
 
-export const servicesMilitaryPoliceData: ServiceFractionalCTOData = {
-    title: 'Military & Police Consulting Services',
-    description: 'Strategic AI and technology consulting for defense and law enforcement operations. We provide secure, professional guidance for implementing advanced technology solutions in mission-critical environments.',
+export const servicesPoliceData: ServiceFractionalCTOData = {
+    title: 'Police Consulting Services',
+    description: 'Strategic AI and technology consulting for law enforcement operations. We provide secure, professional guidance for implementing advanced technology solutions in mission-critical police environments.',
     plans: [
         {
             planId: 'tactical',
@@ -10,14 +10,14 @@ export const servicesMilitaryPoliceData: ServiceFractionalCTOData = {
             price: '$5,000/month',
             hours: 'Strategic Advisory',
             features: [
-                'Secure AI deployment strategies for defense operations',
+                'Secure AI deployment strategies for police operations',
                 'Real-time threat analysis system architecture',
                 'Encrypted communication protocol implementation',
                 'Mission-critical system reliability engineering',
                 'Advanced data security and compliance frameworks',
                 'Strategic technology roadmap for law enforcement',
                 'Operational efficiency optimization through AI',
-                'Cross-agency technology integration planning'
+                'Police-agency technology integration planning'
             ],
             buttonText: 'Request Consultation',
             buttonUrl: '/meet/short/'
@@ -33,9 +33,9 @@ export const servicesMilitaryPoliceData: ServiceFractionalCTOData = {
                 'Custom AI solution architecture and development',
                 '24/7 emergency technical response team',
                 'Quarterly security audits and compliance reviews',
-                'Training programs for technical personnel',
+                'Training programs for police technical personnel',
                 'Technology procurement and vendor assessment',
-                'Long-term digital transformation planning'
+                'Long-term police digital transformation planning'
             ],
             highlighted: true,
             buttonText: 'Request Consultation',
@@ -48,13 +48,13 @@ export const servicesMilitaryPoliceData: ServiceFractionalCTOData = {
             hours: 'Full-Scale Implementation',
             features: [
                 'Everything in Strategic Partnership',
-                'Multi-agency coordination and integration',
+                'Multi-agency police coordination and integration',
                 'Custom development team assignment',
                 'Advanced threat modeling and simulation',
-                'International compliance and standards alignment',
-                'Executive leadership technology briefings',
+                'International law enforcement compliance alignment',
+                'Police executive leadership technology briefings',
                 'Crisis management technical support',
-                'Classified project capability assessment'
+                'Specialized project capability assessment'
             ],
             buttonText: 'Contact for Details',
             buttonUrl: '/meet/short/'

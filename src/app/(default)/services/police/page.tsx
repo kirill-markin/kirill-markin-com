@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import styles from '@/app/(default)/services/page.module.css';
-import { generateMilitaryPolicePageMetadata } from '@/lib/metadata';
+import { generatePolicePageMetadata } from '@/lib/metadata';
 
 // Force static generation
 export const dynamic = 'force-static';
@@ -10,10 +10,10 @@ export const revalidate = false;
 export const dynamicParams = false;
 
 export async function generateMetadata(): Promise<Metadata> {
-    return generateMilitaryPolicePageMetadata();
+    return generatePolicePageMetadata();
 }
 
-export default async function MilitaryPolicePage() {
+export default async function PolicePage() {
     return (
         <>
             <main className={styles.main}>
@@ -21,8 +21,8 @@ export default async function MilitaryPolicePage() {
                     <div className={styles.fullWidthColumn}>
                         <article className={styles.articleContent} style={{ marginTop: 0 }}>
                             <section style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                                <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Military & Police Consulting Services</h1>
-                                <p style={{ fontSize: '1.25rem', color: '#666', maxWidth: '800px', margin: '0 auto' }}>Strategic AI and technology consulting for defense and law enforcement operations. Professional guidance for mission-critical systems.</p>
+                                <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Police Consulting Services</h1>
+                                <p style={{ fontSize: '1.25rem', color: '#666', maxWidth: '800px', margin: '0 auto' }}>Strategic AI and technology consulting for law enforcement operations. Professional guidance for mission-critical police systems.</p>
                             </section>
 
                             <section className={styles.asciiArtSection}>
@@ -88,7 +88,7 @@ export default async function MilitaryPolicePage() {
             </main>
             <Footer
                 language="en"
-                currentPath="/services/military-and-police/"
+                currentPath="/services/police/"
                 availableLanguages={['en']}
             />
         </>
