@@ -171,8 +171,9 @@ LEMLIST_SUBSCRIPTION_COMPANY_ID=your_company_id
 
 #### Analytics & Monitoring
 - Vercel Speed Insights integration
-- Google Tag Manager support
-- Custom analytics events for user interactions
+- Google Tag Manager with automatic event forwarding to analytics systems
+- Custom events via `trackGtmEvent()` from `src/lib/gtm.ts` → GTM auto-forwards all to connected systems
+- Events buffered in `dataLayer` until GTM loads, no GTM config changes needed for new events
 
 ### Testing Strategy
 

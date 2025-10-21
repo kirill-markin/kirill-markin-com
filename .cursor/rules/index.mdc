@@ -140,6 +140,10 @@ website-next-js/
 - **Language-specific translations**: Metadata pulled from `lib/localization.ts` translation system
 - **No metadata reuse across languages**: Each language generates unique, translated metadata
 
+### Analytics & Events
+- Custom events via `trackGtmEvent()` from `src/lib/gtm.ts` → GTM auto-forwards all to analytics systems
+- Events buffered in `dataLayer` until GTM loads, no GTM config changes needed for new events
+
 ## Development Practices
 
 ### Core Principles
