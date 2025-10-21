@@ -10,6 +10,7 @@ import {
   getPathSegmentByLanguage,
   getTranslation
 } from '@/lib/localization';
+import { trackGtmEvent } from '@/lib/gtm';
 
 interface HeaderProps {
   language?: string;
@@ -44,6 +45,10 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
     setMobileMenuOpen(false);
   };
 
+  const handleMainServiceClick = (): void => {
+    trackGtmEvent({ event: 'header_main_service_click' });
+  };
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerDesktopContainer}>
@@ -68,6 +73,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             <Link
               className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
               href={mainServicePath}
+              onClick={handleMainServiceClick}
             >
               {navigationTranslations.mainService}
             </Link>
@@ -111,6 +117,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
               <Link
                 href={mainServicePath}
                 className={styles.headerMobileBookAMeetingButton}
+                onClick={handleMainServiceClick}
               >
                 {navigationTranslations.mainService}
               </Link>
@@ -137,7 +144,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             <Link
               className={styles.headerMobileBookAMeeting}
               href={mainServicePath}
-              onClick={closeMobileMenu}
+              onClick={() => { handleMainServiceClick(); closeMobileMenu(); }}
             >
               {navigationTranslations.mainService}
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
