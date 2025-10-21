@@ -551,30 +551,30 @@
   }
 
   .asciiArt {
-    font-size: 5px;
+    font-size: 4.5px;
   }
 }
 
 @media (max-width: 480px) {
   .asciiArt {
-    font-size: 3.8px;
+    font-size: 3.5px;
   }
 }
 
 @media (max-width: 375px) {
   .asciiArt {
-    font-size: 3.2px;
+    font-size: 3px;
   }
 }
 
 @media (max-width: 360px) {
   .asciiArt {
-    font-size: 3px;
+    font-size: 2.7px;
   }
 }
 
 @media (max-width: 320px) {
   .asciiArt {
-    font-size: 2.8px;
+    font-size: 2.5px;
   }
 }
