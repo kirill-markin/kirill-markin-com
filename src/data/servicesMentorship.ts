@@ -34,7 +34,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
         {
             planId: 'lite',
             name: 'Lite',
-            price: '$260/month',
+            price: '$240/month',
             hours: '1 call + async chat',
             features: [
                 'Monthly 1-hour strategy call',
@@ -51,7 +51,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
         {
             planId: 'standard',
             name: 'Standard',
-            price: '$480/month',
+            price: '$340/month',
             hours: '2 calls + priority async',
             features: [
                 'Everything in Lite plan',
@@ -69,7 +69,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
         {
             planId: 'premium',
             name: 'Premium',
-            price: '$880/month',
+            price: '$1000/month',
             hours: '4 calls + VIP access',
             features: [
                 'Everything in Standard plan',

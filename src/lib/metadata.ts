@@ -709,7 +709,7 @@ export function generateMentorshipPageMetadata(): Metadata {
         },
         other: {
             'og:type': 'product',
-            'product:price:amount': '260',
+            'product:price:amount': '240',
             'product:price:currency': 'USD',
             'product:availability': 'in stock',
             'product:condition': 'new',
