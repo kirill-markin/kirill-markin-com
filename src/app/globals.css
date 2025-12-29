@@ -10,6 +10,10 @@
   --black: #1A1A1A;
   --white: #FFFFFF;
   --gray: #BCBCBC;
+  
+  /* Badge/Label Colors */
+  --badge-bg-primary: #07ff39; /* bright green - currently used */
+  --badge-bg-secondary: #00ffff; /* cyan - alternative option */
   --serif-font-family: var(--font-source-serif-pro), Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-size-small: 0.875rem;
   /* 14px */
