@@ -12,6 +12,21 @@ export const ANALYTICS_CONFIG = {
     AHREFS_DATA_KEY: 'u5Yzn778hzBC6F+ZzQw5QQ',
 } as const;
 
+/**
+ * GA4 Custom Dimensions (registered in GA4 Admin → Custom definitions)
+ *
+ * These event parameters are registered as Custom Dimensions in GA4
+ * to enable filtering, comparison, and breakdown in reports.
+ *
+ * | Dimension name | Scope | Event parameter | Used in event  | Description                                    |
+ * |----------------|-------|-----------------|----------------|------------------------------------------------|
+ * | service_type   | Event | service_type    | service_click  | Type of service: mentorship or fractional_cto  |
+ * | plan_id        | Event | plan_id         | service_click  | Pricing plan: free, lite, standard, premium... |
+ *
+ * Note: Other event attributes (like service cards) use dynamic event names
+ * (e.g., card_click_ai_mentorship) instead of dimensions to save the 50 dimension limit.
+ */
+
 // Type definitions
 export type EventParams = Record<string, string | number | boolean>;
 
