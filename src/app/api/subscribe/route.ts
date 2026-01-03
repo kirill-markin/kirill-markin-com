@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { EMAIL_REGEX, EMAIL_MIN_LENGTH, EMAIL_MAX_LENGTH } from '@/lib/popupConstants';
+import { SITE_URL, SITE_DOMAIN } from '@/data/contacts';
 
 // CORS configuration
 function getCorsHeaders(origin: string | null): Record<string, string> {
     const allowedOrigins = process.env.NODE_ENV === 'development'
-        ? ['http://localhost:3000', 'https://kirill-markin.com', 'https://www.kirill-markin.com']
-        : ['https://kirill-markin.com', 'https://www.kirill-markin.com'];
+        ? ['http://localhost:3000', SITE_URL, `https://www.${SITE_DOMAIN}`]
+        : [SITE_URL, `https://www.${SITE_DOMAIN}`];
 
     const isAllowedOrigin = origin && allowedOrigins.includes(origin);
 

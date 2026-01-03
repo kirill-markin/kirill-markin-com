@@ -2,6 +2,7 @@
 
 import { Article } from '@/lib/articles';
 import { personalInfo } from '@/data/personalInfo';
+import { SITE_URL } from '@/data/contacts';
 
 type ArticlesListJsonLdProps = {
   articles: Article[];
@@ -18,7 +19,7 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': tag ? `${tag.charAt(0).toUpperCase() + tag.slice(1)} Articles - Kirill Markin` : 'Articles - Kirill Markin',
+    'name': tag ? `${tag.charAt(0).toUpperCase() + tag.slice(1)} Articles - ${personalInfo.name}` : `Articles - ${personalInfo.name}`,
     'description': tag
       ? `Articles tagged with "${tag}" from Kirill Markin - expert analysis and perspectives.`
       : 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system, with content organized through natural connections between ideas.',
@@ -26,14 +27,14 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
     'author': {
       '@type': 'Person',
       'name': personalInfo.name,
-      'url': 'https://kirill-markin.com/'
+      'url': `${SITE_URL}/`
     },
     'mainEntity': {
       '@type': 'ItemList',
       'itemListElement': articles.map((article, index) => ({
         '@type': 'ListItem',
         'position': index + 1,
-        'url': `https://kirill-markin.com/articles/${article.slug}/`,
+        'url': `${SITE_URL}/articles/${article.slug}/`,
         'name': article.metadata.title
       }))
     }
@@ -48,13 +49,13 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://kirill-markin.com/'
+        'item': `${SITE_URL}/`
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Articles',
-        'item': 'https://kirill-markin.com/articles/'
+        'item': `${SITE_URL}/articles/`
       },
       ...(tag ? [
         {

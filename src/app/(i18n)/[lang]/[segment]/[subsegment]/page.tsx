@@ -7,6 +7,7 @@ import { getAllArticles, getArticleBySlug, getRelatedArticlesByTags } from '@/li
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
 import { markdownToHtml } from '@/lib/markdown';
 import { generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
+import { SITE_URL } from '@/data/contacts';
 
 // Force static generation
 export const dynamic = 'force-static';
@@ -156,8 +157,8 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
 
         // Create canonical URL
         const canonicalUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/articles/${subsegment}`
-            : `https://kirill-markin.com/${lang}/${articlesSegment}/${subsegment}`;
+            ? `${SITE_URL}/articles/${subsegment}`
+            : `${SITE_URL}/${lang}/${articlesSegment}/${subsegment}`;
 
         // Создаем объект для языковых альтернатив
         const languageAlternates: Record<string, string> = {};
@@ -173,8 +174,8 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
                     : getPathSegmentByLanguage('articles', translation.language);
 
                 const translatedUrl = translation.language === DEFAULT_LANGUAGE
-                    ? `https://kirill-markin.com/articles/${translation.slug}`
-                    : `https://kirill-markin.com/${translation.language}/${translatedSegment}/${translation.slug}`;
+                    ? `${SITE_URL}/articles/${translation.slug}`
+                    : `${SITE_URL}/${translation.language}/${translatedSegment}/${translation.slug}`;
 
                 languageAlternates[translation.language] = translatedUrl;
             }
@@ -188,8 +189,8 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
                 : getPathSegmentByLanguage('articles', language);
 
             const originalUrl = language === DEFAULT_LANGUAGE
-                ? `https://kirill-markin.com/articles/${originalSlug}`
-                : `https://kirill-markin.com/${language}/${originalSegment}/${originalSlug}`;
+                ? `${SITE_URL}/articles/${originalSlug}`
+                : `${SITE_URL}/${language}/${originalSegment}/${originalSlug}`;
 
             languageAlternates[language] = originalUrl;
         }
@@ -302,8 +303,8 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
 
         // Create URL for JSON-LD
         const canonicalUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/articles/${subsegment}`
-            : `https://kirill-markin.com/${lang}/${articlesSegment}/${subsegment}`;
+            ? `${SITE_URL}/articles/${subsegment}`
+            : `${SITE_URL}/${lang}/${articlesSegment}/${subsegment}`;
 
         // Get related articles
         const relatedArticles = await getRelatedArticlesByTags(

@@ -3,6 +3,7 @@
 import { personalInfo } from '@/data/personalInfo';
 import { socialLinks } from '@/data/socialLinks';
 import { servicesOtherData } from '@/data/servicesOther';
+import { SITE_URL } from '@/data/contacts';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
 interface JsonLdSchemaProps {
@@ -31,10 +32,10 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
       personalInfoTranslations.secondaryTitle,
       personalInfoTranslations.tertiaryTitle
     ].filter(Boolean).join(', '),
-    'url': 'https://kirill-markin.com/',
+    'url': `${SITE_URL}/`,
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
-    'image': `https://kirill-markin.com/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
+    'image': `${SITE_URL}/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
     'sameAs': sameAs,
     'knowsAbout': [
       'AI Engineering',
@@ -53,8 +54,8 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     '@type': 'ProfessionalService',
     'name': `${personalInfo.name} - Professional Services`,
     'description': 'Professional services including AI consulting, analytics department audit, startup guidance, and more',
-    'url': 'https://kirill-markin.com/services/',
-    'logo': `https://kirill-markin.com/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
+    'url': `${SITE_URL}/services/`,
+    'logo': `${SITE_URL}/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
     'address': {
@@ -75,7 +76,7 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
             '@type': 'Service',
             'name': service.name,
             'description': service.description.split('\n\n')[0], // Just first paragraph
-            'url': service.buttonUrl.startsWith('http') ? service.buttonUrl : `https://kirill-markin.com${service.buttonUrl.startsWith('/') ? service.buttonUrl : '/' + service.buttonUrl}${!service.buttonUrl.endsWith('/') ? '/' : ''}`,
+            'url': service.buttonUrl.startsWith('http') ? service.buttonUrl : `${SITE_URL}${service.buttonUrl.startsWith('/') ? service.buttonUrl : '/' + service.buttonUrl}${!service.buttonUrl.endsWith('/') ? '/' : ''}`,
             'provider': {
               '@type': 'Person',
               'name': personalInfo.name
@@ -91,9 +92,9 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'url': 'https://kirill-markin.com/',
+    'url': `${SITE_URL}/`,
     'name': `${personalInfo.name} - Official Website`,
-    'description': 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
+    'description': `Professional services by ${personalInfo.name} - Software Architecture, Tech Consulting, and more`,
     'author': {
       '@type': 'Person',
       'name': personalInfo.name

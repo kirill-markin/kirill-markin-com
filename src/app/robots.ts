@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/data/contacts';
 
 /**
  * Generates robots.txt rules using Next.js Metadata API
@@ -8,7 +9,7 @@ import { MetadataRoute } from 'next';
  */
 export default function robots(): MetadataRoute.Robots {
   // Default host for production - can be overridden by environment variables
-  const host = process.env.SITE_URL?.replace(/\/$/, '') || 'https://kirill-markin.com';
+  const host = process.env.SITE_URL?.replace(/\/$/, '') || SITE_URL;
 
   // Check for production environment using Vercel's system environment variable
   const isProd = process.env.VERCEL_ENV === 'production';

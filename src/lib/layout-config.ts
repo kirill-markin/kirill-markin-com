@@ -1,4 +1,5 @@
 import type { Viewport } from 'next';
+import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 
 export const commonViewport: Viewport = {
     themeColor: '#800080',
@@ -25,9 +26,9 @@ export const commonIcons = {
 export const commonManifestConfig = {
     manifest: '/site.webmanifest',
     appleWebApp: {
-        title: 'Kirill Markin',
+        title: VCARD_DATA.fullName,
         statusBarStyle: 'black-translucent' as const,
     },
 };
 
-export const commonMetadataBase = new URL('https://kirill-markin.com/'); 
+export const commonMetadataBase = new URL(`${SITE_URL}/`); 

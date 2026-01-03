@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getLocaleForLanguage, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getPathSegmentByLanguage, getTranslation, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 
 /**
  * Generate base metadata for all pages
@@ -14,7 +15,7 @@ function getBaseMetadata(language: string): Metadata {
         description: homeTranslations.metaDescription || homeTranslations.description,
         openGraph: {
             locale: getLocaleForLanguage(language),
-            siteName: 'Kirill Markin',
+            siteName: VCARD_DATA.fullName,
             type: 'website',
         },
         twitter: {
@@ -52,7 +53,7 @@ function getLanguageAlternates(
             path = `/${lang}/${localizedBasePath}${slug ? `/${slug}` : ''}`;
         }
 
-        alternates[lang] = `https://kirill-markin.com${path}`;
+        alternates[lang] = `${SITE_URL}${path}`;
     }
 
     return alternates;
@@ -68,8 +69,8 @@ export function generateHomePageMetadata(language: string): Metadata {
     const baseMetadata = getBaseMetadata(language);
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? 'https://kirill-markin.com/'
-        : `https://kirill-markin.com/${language}`;
+        ? `${SITE_URL}/`
+        : `${SITE_URL}/${language}`;
 
     // Get language alternates
     const alternates = getLanguageAlternates(language, '', '');
@@ -148,8 +149,8 @@ export function generateArticlesPageMetadata(
         : getPathSegmentByLanguage('articles', language);
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com/articles/${tag ? `?tag=${tag}` : ''}`
-        : `https://kirill-markin.com/${language}/${articlesSegment}/${tag ? `?tag=${tag}` : ''}`;
+        ? `${SITE_URL}/articles/${tag ? `?tag=${tag}` : ''}`
+        : `${SITE_URL}/${language}/${articlesSegment}/${tag ? `?tag=${tag}` : ''}`;
 
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
@@ -166,8 +167,8 @@ export function generateArticlesPageMetadata(
             : getPathSegmentByLanguage('articles', lang);
 
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/articles/${tag ? `?tag=${tag}` : ''}`
-            : `https://kirill-markin.com/${lang}/${langArticlesSegment}/${tag ? `?tag=${tag}` : ''}`;
+            ? `${SITE_URL}/articles/${tag ? `?tag=${tag}` : ''}`
+            : `${SITE_URL}/${lang}/${langArticlesSegment}/${tag ? `?tag=${tag}` : ''}`;
 
         languageAlternates[lang] = alternateUrl;
     }
@@ -186,7 +187,7 @@ export function generateArticlesPageMetadata(
                     url: '/articles/articles-hero.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'Kirill Markin Articles',
+                    alt: `${VCARD_DATA.fullName} Articles`,
                 }
             ],
         },
@@ -266,8 +267,8 @@ export function generateServicesPageMetadata(
         : getPathSegmentByLanguage('services', language);
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? 'https://kirill-markin.com/services/'
-        : `https://kirill-markin.com/${language}/${servicesSegment}/`;
+        ? `${SITE_URL}/services/`
+        : `${SITE_URL}/${language}/${servicesSegment}/`;
 
     // For language alternates, preserve the current category filter
     let categoryParam = '';
@@ -282,8 +283,8 @@ export function generateServicesPageMetadata(
 
     // Add current language to alternates with category filter if present (for language switching)
     const currentLanguageUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com/services/${categoryParam}`
-        : `https://kirill-markin.com/${language}/${servicesSegment}/${categoryParam}`;
+        ? `${SITE_URL}/services/${categoryParam}`
+        : `${SITE_URL}/${language}/${servicesSegment}/${categoryParam}`;
     languageAlternates[language] = currentLanguageUrl;
 
     // Generate alternates for other languages
@@ -302,8 +303,8 @@ export function generateServicesPageMetadata(
         }
 
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/services/${langCategoryParam}`
-            : `https://kirill-markin.com/${lang}/${langServicesSegment}/${langCategoryParam}`;
+            ? `${SITE_URL}/services/${langCategoryParam}`
+            : `${SITE_URL}/${lang}/${langServicesSegment}/${langCategoryParam}`;
 
         languageAlternates[lang] = alternateUrl;
     }
@@ -322,7 +323,7 @@ export function generateServicesPageMetadata(
                     url: '/services/services-hero.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'Kirill Markin Services',
+                    alt: `${VCARD_DATA.fullName} Services`,
                 }
             ],
         },
@@ -425,8 +426,8 @@ export function generateMeetPageMetadata(
     }
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com${canonicalPath}`
-        : `https://kirill-markin.com/${language}/${meetSegment}${meetTypeSegment}/`;
+        ? `${SITE_URL}${canonicalPath}`
+        : `${SITE_URL}/${language}/${meetSegment}${meetTypeSegment}/`;
 
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
@@ -462,8 +463,8 @@ export function generateMeetPageMetadata(
         }
 
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/meet${langMeetTypeSegment}/`
-            : `https://kirill-markin.com/${lang}/${langMeetSegment}${langMeetTypeSegment}/`;
+            ? `${SITE_URL}/meet${langMeetTypeSegment}/`
+            : `${SITE_URL}/${lang}/${langMeetSegment}${langMeetTypeSegment}/`;
 
         languageAlternates[lang] = alternateUrl;
     }
@@ -552,8 +553,8 @@ export function generatePayPageMetadata(
     }
 
     const canonicalUrl = language === DEFAULT_LANGUAGE
-        ? `https://kirill-markin.com${canonicalPath}`
-        : `https://kirill-markin.com/${language}/${paySegment}${payTypeSegment}/`;
+        ? `${SITE_URL}${canonicalPath}`
+        : `${SITE_URL}/${language}/${paySegment}${payTypeSegment}/`;
 
     // Generate hreflang alternates for all supported languages
     const languageAlternates: Record<string, string> = {};
@@ -577,8 +578,8 @@ export function generatePayPageMetadata(
         }
 
         const alternateUrl = lang === DEFAULT_LANGUAGE
-            ? `https://kirill-markin.com/pay${langPayTypeSegment}/`
-            : `https://kirill-markin.com/${lang}/${langPaySegment}${langPayTypeSegment}/`;
+            ? `${SITE_URL}/pay${langPayTypeSegment}/`
+            : `${SITE_URL}/${lang}/${langPaySegment}${langPayTypeSegment}/`;
 
         languageAlternates[lang] = alternateUrl;
     }
@@ -631,13 +632,13 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             // The actual 'product' type is set via 'other' field below as a workaround
             type: 'website',
             url: '/services/fractional-ai-cto-kirill-markin/',
-            siteName: 'Kirill Markin',
+            siteName: VCARD_DATA.fullName,
             images: [
                 {
                     url: '/services/fractional-ai-cto-meta.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'Fractional CTO Services by Kirill Markin',
+                    alt: `Fractional CTO Services by ${VCARD_DATA.fullName}`,
                 }
             ],
         },
@@ -662,7 +663,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             'product:price:currency': 'USD',
             'product:availability': 'in stock',
             'product:condition': 'new',
-            'product:brand': 'Kirill Markin',
+            'product:brand': VCARD_DATA.fullName,
             'product:retailer_item_id': 'fractional-ai-cto-service',
 
             // Business location metadata
@@ -688,13 +689,13 @@ export function generateMentorshipPageMetadata(): Metadata {
             description,
             type: 'website',
             url: '/services/mentorship/',
-            siteName: 'Kirill Markin',
+            siteName: VCARD_DATA.fullName,
             images: [
                 {
                     url: '/services/fractional-ai-cto-meta.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'AI Technical Mentorship by Kirill Markin',
+                    alt: `AI Technical Mentorship by ${VCARD_DATA.fullName}`,
                 }
             ],
         },
@@ -713,7 +714,7 @@ export function generateMentorshipPageMetadata(): Metadata {
             'product:price:currency': 'USD',
             'product:availability': 'in stock',
             'product:condition': 'new',
-            'product:brand': 'Kirill Markin',
+            'product:brand': VCARD_DATA.fullName,
             'product:retailer_item_id': 'ai-technical-mentorship-service',
             'business:contact_data:locality': 'Global',
             'business:contact_data:region': 'Remote',
@@ -737,13 +738,13 @@ export function generatePolicePageMetadata(): Metadata {
             description,
             type: 'website',
             url: '/services/police/',
-            siteName: 'Kirill Markin',
+            siteName: VCARD_DATA.fullName,
             images: [
                 {
                     url: '/services/police.webp',
                     width: 1200,
                     height: 630,
-                    alt: 'Police Consulting Services by Kirill Markin',
+                    alt: `Police Consulting Services by ${VCARD_DATA.fullName}`,
                 }
             ],
         },
@@ -762,7 +763,7 @@ export function generatePolicePageMetadata(): Metadata {
             'product:price:currency': 'USD',
             'product:availability': 'in stock',
             'product:condition': 'new',
-            'product:brand': 'Kirill Markin',
+            'product:brand': VCARD_DATA.fullName,
             'product:retailer_item_id': 'police-consulting-service',
             'business:contact_data:locality': 'Global',
             'business:contact_data:region': 'Remote',
@@ -782,7 +783,7 @@ export function generateSubscribePageMetadata(): Metadata {
     const title = subscribeTranslations.metaTitle || subscribeTranslations.title;
     const description = subscribeTranslations.metaDescription || String(subscribeTranslations.description);
 
-    const canonicalUrl = 'https://kirill-markin.com/subscribe/';
+    const canonicalUrl = `${SITE_URL}/subscribe/`;
 
     return {
         ...baseMetadata,

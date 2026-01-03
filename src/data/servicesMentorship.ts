@@ -1,4 +1,14 @@
 import { ServiceFractionalCTOData } from '@/types/services';
+import { PHONE_NUMBER, getWhatsAppUrl, getTelegramUrl, TELEGRAM_USERNAME } from './contacts';
+
+// Message template for mentorship plans: {planName} will be replaced with actual plan name
+const MENTORSHIP_MESSAGE_TEMPLATE = "Hi! I'm interested in the {planName} mentorship plan.";
+
+// Generate WhatsApp URL with pre-filled mentorship message
+function getMentorshipWhatsAppUrl(planName: string): string {
+    const message = MENTORSHIP_MESSAGE_TEMPLATE.replace('{planName}', planName);
+    return getWhatsAppUrl(message);
+}
 
 export const servicesMentorshipData: ServiceFractionalCTOData = {
     title: 'Your AI Technical Mentor Kirill Markin',
@@ -19,14 +29,14 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
             socialButtons: [
                 {
                     name: 'WhatsApp',
-                    url: 'https://api.whatsapp.com/send?phone=359879906085',
-                    username: '+359879906085',
+                    url: getWhatsAppUrl(),
+                    username: PHONE_NUMBER,
                     icon: '/social/whatsapp.png'
                 },
                 {
                     name: 'Telegram',
-                    url: 'https://t.me/kirmark',
-                    username: '@kirmark',
+                    url: getTelegramUrl(),
+                    username: `@${TELEGRAM_USERNAME}`,
                     icon: '/social/telegram.png'
                 }
             ]
@@ -45,8 +55,8 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Skip the 6-month rewrite horror stories',
                 'Pause/resume anytime (Jake paused twice — when traveling to Japan, then resumed when questions came up)'
             ],
-            buttonText: 'Book Free Trial Call',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getMentorshipWhatsAppUrl('Lite')
         },
         {
             planId: 'standard',
@@ -63,8 +73,8 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Deep architecture talks over virtual coffee'
             ],
             highlighted: true,
-            buttonText: 'Book Free Trial Call',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getMentorshipWhatsAppUrl('Standard')
         },
         {
             planId: 'premium',
@@ -80,8 +90,8 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Quarterly roadmap planning sessions',
                 'Emergency "this is on fire" same-day support'
             ],
-            buttonText: 'Book Free Trial Call',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getMentorshipWhatsAppUrl('Premium')
         }
     ]
 };

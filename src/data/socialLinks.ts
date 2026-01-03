@@ -1,3 +1,5 @@
+import { PHONE_NUMBER, getWhatsAppUrl, EMAIL, getEmailUrl, getTelegramUrl, TELEGRAM_USERNAME, SOCIAL_URLS } from './contacts';
+
 export interface SocialLink {
   name: string;
   url: string;
@@ -20,7 +22,7 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/kirill-markin/",
+    url: SOCIAL_URLS.linkedin,
     username: "@kirill-markin",
     socialLogoUrlDefault: "/social/linkedin.png",
     socialLogoUrlHover: "/social/linkedin_hover.png",
@@ -60,7 +62,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "YouTube",
-    url: "https://www.youtube.com/@kirill-markin",
+    url: SOCIAL_URLS.youtube,
     username: "@kirill-markin",
     socialLogoUrlDefault: "/social/youtube.svg",
     socialLogoUrlHover: "/social/youtube_hover.svg",
@@ -76,8 +78,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Telegram",
-    url: "https://t.me/kirmark",
-    username: "@kirmark",
+    url: getTelegramUrl(),
+    username: `@${TELEGRAM_USERNAME}`,
     socialLogoUrlDefault: "/social/telegram.png",
     socialLogoUrlHover: "/social/telegram_hover.png",
     avatarContact: true,
@@ -88,7 +90,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/kirill-markin",
+    url: SOCIAL_URLS.github,
     username: "@kirill-markin",
     socialLogoUrlDefault: "/social/github.svg",
     socialLogoUrlHover: "/social/github_hover.svg",
@@ -104,8 +106,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "WhatsApp",
-    url: "https://api.whatsapp.com/send?phone=359879906085",
-    username: "+359879906085",
+    url: getWhatsAppUrl(),
+    username: PHONE_NUMBER,
     socialLogoUrlDefault: "/social/whatsapp.png",
     socialLogoUrlHover: "/social/whatsapp_hover.png",
     avatarContact: true,
@@ -116,8 +118,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Email",
-    url: "mailto:markinkirill@gmail.com",
-    username: "markinkirill@gmail.com",
+    url: getEmailUrl(),
+    username: EMAIL,
     socialLogoUrlDefault: "/social/gmail.png",
     socialLogoUrlHover: "/social/google_hover.png",
     avatarContact: true,
@@ -128,7 +130,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Reddit",
-    url: "https://www.reddit.com/user/Kirmark",
+    url: SOCIAL_URLS.reddit,
     username: "@Kirmark",
     avatarLearnMore: true,
     footerBottom: true,
@@ -138,7 +140,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Twitter",
-    url: "https://x.com/kirill_markin_",
+    url: SOCIAL_URLS.twitter,
     username: "@kirill_markin_",
     socialLogoUrlDefault: "/social/xcom.png",
     socialLogoUrlHover: "/social/xcom_hover.png",
@@ -148,7 +150,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Medium",
-    url: "https://kirill-markin.medium.com/",
+    url: SOCIAL_URLS.medium,
     username: "@kirill-markin",
     avatarLearnMore: true,
     footerBottom: true,
@@ -158,7 +160,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Bluesky",
-    url: "https://bsky.app/profile/kirill-markin.bsky.social",
+    url: SOCIAL_URLS.bluesky,
     username: "@kirill-markin",
     socialLogoUrlDefault: "/social/bluesky.png",
     socialLogoUrlHover: "/social/bluesky.png",

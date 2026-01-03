@@ -1,4 +1,5 @@
 import { ServiceFractionalCTOData } from '@/types/services';
+import { PHONE_NUMBER, getWhatsAppUrl, getTelegramUrl, TELEGRAM_USERNAME } from './contacts';
 
 export const servicesFractionalCTOData: ServiceFractionalCTOData = {
     title: 'Your Fractional CTO Kirill Markin',
@@ -19,14 +20,14 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             socialButtons: [
                 {
                     name: 'WhatsApp',
-                    url: 'https://api.whatsapp.com/send?phone=359879906085',
-                    username: '+359879906085',
+                    url: getWhatsAppUrl(),
+                    username: PHONE_NUMBER,
                     icon: '/social/whatsapp.png'
                 },
                 {
                     name: 'Telegram',
-                    url: 'https://t.me/kirmark',
-                    username: '@kirmark',
+                    url: getTelegramUrl(),
+                    username: `@${TELEGRAM_USERNAME}`,
                     icon: '/social/telegram.png'
                 }
             ]

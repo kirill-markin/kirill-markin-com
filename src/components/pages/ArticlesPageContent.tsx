@@ -9,6 +9,7 @@ import { getPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import Footer from '@/components/Footer';
 import { Article } from '@/lib/articles';
 import { getInternalTagKey, getLocalizedTag } from '@/lib/tagLocalization';
+import { SITE_URL } from '@/data/contacts';
 
 interface ArticlesPageContentProps {
     language: string;
@@ -56,8 +57,8 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
 
     // Form canonical URL
     const canonicalUrl = currentLocalizedTag === 'all'
-        ? `https://kirill-markin.com${articlesBasePath}/`
-        : `https://kirill-markin.com${articlesBasePath}/?tag=${currentLocalizedTag}`;
+        ? `${SITE_URL}${articlesBasePath}/`
+        : `${SITE_URL}${articlesBasePath}/?tag=${currentLocalizedTag}`;
 
     // Function to get tag description
     const getTagDescription = () => {

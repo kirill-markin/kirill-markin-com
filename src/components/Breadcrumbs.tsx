@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Breadcrumbs.module.css';
 import { SUPPORTED_LANGUAGES, getTranslation } from '@/lib/localization';
+import { SITE_URL } from '@/data/contacts';
 
 type BreadcrumbItem = {
   path: string;
@@ -97,7 +98,7 @@ const Breadcrumbs = () => {
       '@type': 'ListItem',
       'position': index + 1,
       'name': breadcrumb.label,
-      'item': `https://kirill-markin.com${breadcrumb.path}${breadcrumb.path.endsWith('/') ? '' : '/'}`
+      'item': `${SITE_URL}${breadcrumb.path}${breadcrumb.path.endsWith('/') ? '' : '/'}`
     }))
   };
 

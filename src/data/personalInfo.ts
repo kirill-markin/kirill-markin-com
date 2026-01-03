@@ -1,3 +1,5 @@
+import { PHONE_NUMBER, EMAIL } from './contacts';
+
 export interface PersonalInfo {
   name: string;
   email: string;
@@ -10,8 +12,8 @@ export interface PersonalInfo {
 
 export const personalInfo: PersonalInfo = {
   name: "Kirill Markin",
-  email: "markinkirill@gmail.com",
-  phone: "+359879906085",
+  email: EMAIL,
+  phone: PHONE_NUMBER,
   image: "/avatars/Kirill-Markin.webp",
   jobTitle: "CTO",
   secondaryTitle: "ex-Founder of ozma.io",

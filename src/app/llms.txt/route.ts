@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAllArticles } from '@/lib/articles';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
+import { SITE_URL } from '@/data/contacts';
 
 /**
  * Generates an llms.txt file for the website following the llms.txt specification
@@ -9,7 +10,7 @@ import { DEFAULT_LANGUAGE } from '@/lib/localization';
  * @returns {Response} llms.txt content as plain text
  */
 export async function GET(): Promise<NextResponse> {
-    const baseUrl = 'https://kirill-markin.com';
+    const baseUrl = SITE_URL;
 
     // Get articles for content examples
     const articles = await getAllArticles(DEFAULT_LANGUAGE);

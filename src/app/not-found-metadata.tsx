@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslation, getLocaleForLanguage } from '@/lib/localization';
+import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 
 /**
  * Generate metadata for the 404 page
@@ -18,7 +19,7 @@ export function generateNotFoundMetadata(language: string = 'en'): Metadata {
         openGraph: {
             title: translations.title,
             description: translations.message,
-            url: 'https://kirill-markin.com/404/',
+            url: `${SITE_URL}/404/`,
             images: [
                 {
                     url: '/images/404.webp',
@@ -28,7 +29,7 @@ export function generateNotFoundMetadata(language: string = 'en'): Metadata {
                 }
             ],
             type: 'website',
-            siteName: 'Kirill Markin',
+            siteName: VCARD_DATA.fullName,
             locale: locale,
         },
         twitter: {

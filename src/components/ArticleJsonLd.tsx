@@ -2,6 +2,7 @@
 
 import { Article } from '@/lib/articles';
 import { personalInfo } from '@/data/personalInfo';
+import { SITE_URL } from '@/data/contacts';
 import { getLocaleForLanguage, getPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
 
 type ArticleJsonLdProps = {
@@ -50,7 +51,7 @@ interface ArticleSchema {
  * Generate a URL for an article based on its language and slug
  */
 function getArticleUrl(slug: string, language: string): string {
-  const baseUrl = 'https://kirill-markin.com/';
+  const baseUrl = `${SITE_URL}/`;
 
   if (language === DEFAULT_LANGUAGE) {
     return `${baseUrl}articles/${slug}/`;
@@ -76,14 +77,14 @@ export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
     'author': {
       '@type': 'Person',
       'name': personalInfo.name,
-      'url': 'https://kirill-markin.com/'
+      'url': `${SITE_URL}/`
     },
     'publisher': {
       '@type': 'Person',
       'name': article.metadata.publisher || personalInfo.name,
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://kirill-markin.com/images/logo.png'
+        'url': `${SITE_URL}/images/logo.png`
       }
     },
     'mainEntityOfPage': {

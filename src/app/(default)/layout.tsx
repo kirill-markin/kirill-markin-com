@@ -7,6 +7,7 @@ import { commonViewport, commonIcons, commonManifestConfig, commonMetadataBase }
 import HeadLinks from "@/components/layout/HeadLinks";
 import GoogleTagManager from "@/components/layout/GoogleTagManager";
 import LayoutBody from "@/components/layout/LayoutBody";
+import { SITE_URL, VCARD_DATA } from "@/data/contacts";
 
 const sourceSerifPro = Source_Serif_4({
     subsets: ['latin'],
@@ -18,37 +19,37 @@ const sourceSerifPro = Source_Serif_4({
 export const viewport = commonViewport;
 
 export const metadata: Metadata = {
-    title: "Kirill Markin - Consultant and Software Architect",
-    description: "Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more",
+    title: `${VCARD_DATA.fullName} - Consultant and Software Architect`,
+    description: `Professional services by ${VCARD_DATA.fullName} - Software Architecture, Tech Consulting, and more`,
     metadataBase: commonMetadataBase,
     icons: commonIcons,
     ...commonManifestConfig,
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://kirill-markin.com/',
-        siteName: 'Kirill Markin',
-        title: 'Kirill Markin - Consultant and Software Architect',
-        description: 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
+        url: `${SITE_URL}/`,
+        siteName: VCARD_DATA.fullName,
+        title: `${VCARD_DATA.fullName} - Consultant and Software Architect`,
+        description: `Professional services by ${VCARD_DATA.fullName} - Software Architecture, Tech Consulting, and more`,
         images: [
             {
                 url: '/avatars/Kirill-Markin.webp',
                 width: 300,
                 height: 300,
-                alt: 'Kirill Markin',
+                alt: VCARD_DATA.fullName,
             }
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Kirill Markin - Consultant and Software Architect',
-        description: 'Professional services by Kirill Markin - Software Architecture, Tech Consulting, and more',
+        title: `${VCARD_DATA.fullName} - Consultant and Software Architect`,
+        description: `Professional services by ${VCARD_DATA.fullName} - Software Architecture, Tech Consulting, and more`,
         images: ['/avatars/Kirill-Markin.webp'],
         creator: '@kirill_markin_',
         site: '@kirill_markin_',
     },
     alternates: {
-        canonical: 'https://kirill-markin.com/',
+        canonical: `${SITE_URL}/`,
     },
 };
 

@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllArticles, buildArticleConnections } from '@/lib/articles';
 import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
 import { SUPPORTED_LANGUAGES, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
+import { SITE_URL } from '@/data/contacts';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
@@ -10,7 +11,7 @@ import { SUPPORTED_LANGUAGES, getPathSegmentByLanguage, getSubPathSegmentByLangu
  * @returns {MetadataRoute.Sitemap} Sitemap configuration
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://kirill-markin.com/';
+  const baseUrl = `${SITE_URL}/`;
   const entries: MetadataRoute.Sitemap = [];
 
   // Get all articles for all languages

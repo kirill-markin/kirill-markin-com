@@ -1,9 +1,10 @@
 import { visit } from 'unist-util-visit';
 import { Node } from 'unist';
+import { SITE_DOMAIN } from '@/data/contacts';
 
 // Whitelist of domains that we don't need to add rel="nofollow" to
 const DOMAIN_WHITELIST = [
-    'kirill-markin.com',
+    SITE_DOMAIN,
 ];
 
 // Whitelist of specific URLs that we don't need to add rel="nofollow" to
@@ -26,7 +27,7 @@ function isExternalUrl(url: string): boolean {
     // Check if URL is absolute (begins with http:// or https://)
     if (url.startsWith('http://') || url.startsWith('https://')) {
         // Check if the URL is not pointing to the current domain
-        return !url.includes('kirill-markin.com');
+        return !url.includes(SITE_DOMAIN);
     }
 
     // Check if URL is a mailto or tel link
