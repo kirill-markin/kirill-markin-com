@@ -1,5 +1,5 @@
 // Analytics Configuration
-// These IDs should match what was configured in GTM
+// Direct GA4 integration via gtag.js (no GTM)
 
 export const ANALYTICS_CONFIG = {
     // GA4 Measurement ID
@@ -32,7 +32,8 @@ export type EventParams = Record<string, string | number | boolean>;
 
 declare global {
     interface Window {
-        dataLayer: Array<Record<string, unknown>>;
+        // dataLayer holds gtag command arguments (pushed via gtag function stub)
+        dataLayer: Array<IArguments | unknown[]>;
         clarity: {
             (command: string, ...args: unknown[]): void;
             q?: IArguments[];
@@ -78,14 +79,12 @@ export function trackEvent(eventName: string, params?: EventParams): void {
 
     const isDev = process.env.NODE_ENV === 'development';
 
-    // GA4: Push to dataLayer
-    if (window.dataLayer) {
-        window.dataLayer.push({
-            event: eventName,
-            ...params,
-        });
+    // GA4: Use gtag() which queues events in dataLayer until script loads
+    // gtag stub is initialized in <head> via getAnalyticsInitScript()
+    if (window.gtag) {
+        window.gtag('event', eventName, params);
     } else if (isDev) {
-        console.warn(`[Analytics] dataLayer not available: ${eventName}`, params);
+        console.warn(`[Analytics] gtag not available: ${eventName}`, params);
     }
 
     // Clarity: Send only event name (Clarity API does not support event parameters)
