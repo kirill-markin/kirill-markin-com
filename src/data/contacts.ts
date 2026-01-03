@@ -78,12 +78,21 @@ export function getWhatsAppUrl(message?: string): string {
 }
 
 /**
+ * Lowercase only the first character, keep rest as-is
+ * e.g. "Free" → "free", "Fractional CTO" → "fractional CTO"
+ */
+function lowercaseFirst(str: string): string {
+    if (!str) return str;
+    return str.charAt(0).toLowerCase() + str.slice(1);
+}
+
+/**
  * Generate WhatsApp URL with pre-filled service inquiry message
  */
 export function getServiceWhatsAppUrl(planName: string, serviceName: string): string {
     const message = SERVICE_MESSAGE_TEMPLATE
-        .replace('{planName}', planName)
-        .replace('{serviceName}', serviceName);
+        .replace('{planName}', lowercaseFirst(planName))
+        .replace('{serviceName}', lowercaseFirst(serviceName));
     return getWhatsAppUrl(message);
 }
 
