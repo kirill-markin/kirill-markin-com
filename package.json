@@ -19,6 +19,7 @@
     "test-cache": "npx tsx scripts/test-cache-headers.ts"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.32.1",
     "@tailwindcss/typography": "^0.5.16",
     "@vercel/speed-insights": "^1.2.0",
     "gray-matter": "^4.0.3",
