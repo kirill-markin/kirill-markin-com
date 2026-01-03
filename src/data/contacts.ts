@@ -61,7 +61,7 @@ export const VCARD_DATA = {
 // =============================================================================
 
 // Template for service inquiry messages: {planName} and {serviceName} will be replaced
-const SERVICE_MESSAGE_TEMPLATE = "Hi! I'm interested in the {planName} {serviceName} plan.";
+const SERVICE_MESSAGE_TEMPLATE = "Hey Kirill! I'd like to learn more about your {planName} {serviceName} option.";
 
 // =============================================================================
 // HELPER FUNCTIONS
