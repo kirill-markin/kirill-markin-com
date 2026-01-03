@@ -81,9 +81,12 @@ Built-in: `SITE_URL=https://kirill-markin.com/`, `SITE_NAME=Kirill Markin`
 
 ## Analytics & Events
 
-- Google Tag Manager with automatic forwarding to analytics systems
-- Custom events via `trackGtmEvent()` from `src/lib/gtm.ts` → GTM auto-forwards all to connected systems
-- Events buffered in `dataLayer` until GTM loads, no GTM config changes needed
+- Direct integration with GA4 and Microsoft Clarity (no GTM dependency)
+- Custom events via `trackEvent()` from `src/lib/analytics.ts`
+- Events buffered in queues (`dataLayer` for GA4, `clarity.q` for Clarity) before scripts load
+- Scripts load with `strategy="lazyOnload"` to not block page rendering
+- Error tracking: Use Sentry (not analytics) for JS errors
+- Configuration: Update `ANALYTICS_CONFIG` in `src/lib/analytics.ts` with GA4/Clarity IDs
 
 ## Development Patterns
 

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './EmojiBubbles.module.css';
-import { trackGtmEvent } from '@/lib/gtm';
+import { trackEvent } from '@/lib/analytics';
 
 export default function EmojiBubbles() {
   const [activeEmoji, setActiveEmoji] = useState<'none' | 'angel' | 'devil'>('none');
@@ -12,9 +12,7 @@ export default function EmojiBubbles() {
     setActiveEmoji(newState);
 
     if (newState === 'angel') {
-      trackGtmEvent({
-        event: 'emoji_click_angel'
-      });
+      trackEvent('emoji_click_angel');
     }
   };
 
@@ -23,9 +21,7 @@ export default function EmojiBubbles() {
     setActiveEmoji(newState);
 
     if (newState === 'devil') {
-      trackGtmEvent({
-        event: 'emoji_click_devil'
-      });
+      trackEvent('emoji_click_devil');
     }
   };
 

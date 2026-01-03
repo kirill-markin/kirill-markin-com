@@ -1,7 +1,7 @@
 'use client';
 
 import { ServiceFractionalCTOPlan, ServiceType } from '@/types/services';
-import { trackGtmEvent } from '@/lib/gtm';
+import { trackEvent } from '@/lib/analytics';
 import styles from './PricingCard.module.css';
 
 interface PricingCardProps {
@@ -66,8 +66,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, serviceType }) => {
                     rel="noopener noreferrer"
                     className={`${styles.actionButton} ${plan.highlighted ? styles.highlightedButton : ''}`}
                     onClick={() => {
-                        trackGtmEvent({
-                            event: 'service_click',
+                        trackEvent('service_click', {
                             service_type: serviceType,
                             plan_id: plan.planId,
                             target: 'cta_button'

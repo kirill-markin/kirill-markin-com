@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import GlitchFilters from '@/components/GlitchFilters';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { GoogleTagManagerNoScript } from './GoogleTagManager';
+import { AnalyticsNoScript } from './AnalyticsScripts';
 import { SUPPORTED_LANGUAGES } from '@/lib/localization';
 import EmailPopup from '@/components/EmailPopup';
 import { isLemlistConfigured, getLemlistConfigStatus } from '@/lib/popupConstants';
@@ -31,7 +31,7 @@ export default function LayoutBody({ children, language, isProd }: LayoutBodyPro
 
     return (
         <body>
-            <GoogleTagManagerNoScript isProd={isProd} />
+            <AnalyticsNoScript isProd={isProd} />
             <Header language={language} />
             <Breadcrumbs />
             <main>{children}</main>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { getTranslation, SUPPORTED_LANGUAGES } from '@/lib/localization';
-import { trackGtmEvent } from '@/lib/gtm';
+import { trackEvent } from '@/lib/analytics';
 import { useExitIntent } from '@/lib/useExitIntent';
 import {
     POPUP_DELAY,
@@ -90,20 +90,20 @@ export default function EmailPopup({ language }: EmailPopupProps) {
 
         setIsVisible(true);
         sessionStorage.setItem(POPUP_SESSION_KEY, 'true');
-        trackGtmEvent({ event: 'email_popup_shown' });
+        trackEvent('email_popup_shown');
     }, [isVisible, shouldShowPopup]);
 
     // Hide popup logic
     const hidePopup = useCallback(() => {
         setIsVisible(false);
         setCookie(POPUP_COOKIE_NAME, 'true', POPUP_COOLDOWN_DAYS);
-        trackGtmEvent({ event: 'email_popup_dismissed' });
+        trackEvent('email_popup_dismissed');
     }, [setCookie]);
 
     // Mark user as subscribed (never show popup again)
     const markAsSubscribed = useCallback(() => {
         setCookie(POPUP_SUBSCRIBED_COOKIE_NAME, 'true', POPUP_SUBSCRIBED_DAYS);
-        trackGtmEvent({ event: 'email_subscription_success' });
+        trackEvent('email_subscription_success');
     }, [setCookie]);
 
     // Timer trigger
@@ -111,9 +111,7 @@ export default function EmailPopup({ language }: EmailPopupProps) {
         const timer = setTimeout(() => {
             if (!exitIntentState.hasTriggered && !timerTriggeredRef.current) {
                 timerTriggeredRef.current = true;
-                trackGtmEvent({
-                    event: 'email_popup_timer_trigger'
-                });
+                trackEvent('email_popup_timer_trigger');
                 showPopup();
             }
         }, POPUP_DELAY);
@@ -134,11 +132,11 @@ export default function EmailPopup({ language }: EmailPopupProps) {
         // Validate email
         if (!validateEmail(trimmedEmail)) {
             setShowValidationError(true);
-            trackGtmEvent({ event: 'email_validation_failed' });
+            trackEvent('email_validation_failed');
             return;
         }
 
-        trackGtmEvent({ event: 'email_validation_passed' });
+        trackEvent('email_validation_passed');
 
         setIsSubmitting(true);
 
@@ -162,12 +160,12 @@ export default function EmailPopup({ language }: EmailPopupProps) {
                 }, 2000);
             } else {
                 setShowError(true);
-                trackGtmEvent({ event: 'email_subscription_failed' });
+                trackEvent('email_subscription_failed');
             }
         } catch (error) {
             console.error('Subscription error:', error);
             setShowError(true);
-            trackGtmEvent({ event: 'email_subscription_failed' });
+            trackEvent('email_subscription_failed');
         } finally {
             setIsSubmitting(false);
         }

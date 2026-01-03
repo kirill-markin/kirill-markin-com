@@ -10,7 +10,7 @@ import {
   getPathSegmentByLanguage,
   getTranslation
 } from '@/lib/localization';
-import { trackGtmEvent } from '@/lib/gtm';
+import { trackEvent } from '@/lib/analytics';
 
 interface HeaderProps {
   language?: string;
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   };
 
   const handleMainServiceClick = (): void => {
-    trackGtmEvent({ event: 'header_main_service_click' });
+    trackEvent('header_main_service_click');
   };
 
   return (

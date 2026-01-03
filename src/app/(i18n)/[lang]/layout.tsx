@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import "../../globals.css";
 import { commonViewport, commonIcons, commonManifestConfig, commonMetadataBase } from "@/lib/layout-config";
 import HeadLinks from "@/components/layout/HeadLinks";
-import GoogleTagManager from "@/components/layout/GoogleTagManager";
+import AnalyticsScripts, { AnalyticsInit } from "@/components/layout/AnalyticsScripts";
 import LayoutBody from "@/components/layout/LayoutBody";
 
 const sourceSerifPro = Source_Serif_4({
@@ -56,7 +56,8 @@ export default async function LocaleLayout({
             <head>
                 <HeadLinks />
                 <JsonLdSchema language={lang} />
-                <GoogleTagManager isProd={isProd} />
+                <AnalyticsInit isProd={isProd} />
+                <AnalyticsScripts isProd={isProd} />
             </head>
             <LayoutBody language={lang} isProd={isProd}>
                 {children}

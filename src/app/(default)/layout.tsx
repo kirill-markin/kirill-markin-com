@@ -5,7 +5,7 @@ import JsonLdSchema from "@/components/JsonLdSchema";
 import { DEFAULT_LANGUAGE } from "@/lib/localization";
 import { commonViewport, commonIcons, commonManifestConfig, commonMetadataBase } from "@/lib/layout-config";
 import HeadLinks from "@/components/layout/HeadLinks";
-import GoogleTagManager from "@/components/layout/GoogleTagManager";
+import AnalyticsScripts, { AnalyticsInit } from "@/components/layout/AnalyticsScripts";
 import LayoutBody from "@/components/layout/LayoutBody";
 import { SITE_URL, VCARD_DATA } from "@/data/contacts";
 
@@ -69,7 +69,8 @@ export default function DefaultLayout({
             <head>
                 <HeadLinks />
                 <JsonLdSchema language={lang} />
-                <GoogleTagManager isProd={isProd} />
+                <AnalyticsInit isProd={isProd} />
+                <AnalyticsScripts isProd={isProd} />
             </head>
             <LayoutBody language={lang} isProd={isProd}>
                 {children}

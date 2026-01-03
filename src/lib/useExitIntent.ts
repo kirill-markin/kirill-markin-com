@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
-import { trackGtmEvent } from '@/lib/gtm';
+import { trackEvent } from '@/lib/analytics';
 import { EXIT_INTENT_THRESHOLD, SCROLL_UP_THRESHOLD, SCROLL_DEBOUNCE_MS } from '@/lib/popupConstants';
 
 export type ExitIntentTrigger = 'mouse' | 'scroll';
@@ -41,8 +41,7 @@ export function useExitIntent(options: ExitIntentOptions): ExitIntentState {
     // Handle exit intent trigger
     const triggerExitIntent = useCallback((trigger: ExitIntentTrigger) => {
         // Track general exit intent event
-        trackGtmEvent({
-            event: 'exit_intent',
+        trackEvent('exit_intent', {
             trigger_type: trigger
         });
 
