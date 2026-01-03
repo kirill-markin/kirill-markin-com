@@ -62,6 +62,8 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, serviceType }) => {
             <div className={styles.cardAction}>
                 <a
                     href={plan.buttonUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`${styles.actionButton} ${plan.highlighted ? styles.highlightedButton : ''}`}
                     onClick={() => {
                         trackGtmEvent({
