@@ -1,7 +1,10 @@
 import { ServiceFractionalCTOData } from '@/types/services';
-import { PHONE_NUMBER, getWhatsAppUrl, getTelegramUrl, TELEGRAM_USERNAME } from './contacts';
+import { getServiceWhatsAppUrl } from './contacts';
+
+const SERVICE_NAME = 'Fractional CTO';
 
 export const servicesFractionalCTOData: ServiceFractionalCTOData = {
+    serviceType: 'fractional_cto',
     title: 'Your Fractional CTO Kirill Markin',
     description: 'I provide strategic technology leadership tailored to your business needs. As your fractional CTO, I deliver AI strategy development, enterprise transformation, and CTO expertise without the full-time commitment. Choose the plan that fits your needs.',
     plans: [
@@ -9,28 +12,16 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             planId: 'free',
             name: 'Free Plan',
             price: 'Free',
-            hours: 'WhatsApp / Telegram Chat',
+            hours: 'WhatsApp Chat',
             features: [
-                'Text me anytime on WhatsApp and Telegram',
+                'Text me anytime on WhatsApp',
                 'Any tech question, even the weird ones',
                 'Free hiring recommendations of my friends',
                 'Honest advice without corporate BS',
                 'Usually respond faster than your email provider'
             ],
-            socialButtons: [
-                {
-                    name: 'WhatsApp',
-                    url: getWhatsAppUrl(),
-                    username: PHONE_NUMBER,
-                    icon: '/social/whatsapp.png'
-                },
-                {
-                    name: 'Telegram',
-                    url: getTelegramUrl(),
-                    username: `@${TELEGRAM_USERNAME}`,
-                    icon: '/social/telegram.png'
-                }
-            ]
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getServiceWhatsAppUrl('Free', SERVICE_NAME)
         },
         {
             planId: 'starter',
@@ -44,8 +35,8 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'Architecture advice that actually makes sense',
                 'Hiring help and recommendations from my network'
             ],
-            buttonText: 'Start Free Trial',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getServiceWhatsAppUrl('Starter', SERVICE_NAME)
         },
         {
             planId: 'growth',
@@ -61,8 +52,8 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'I\'ll help you spot the rockstars and red flags'
             ],
             highlighted: true,
-            buttonText: 'Start Free Trial',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getServiceWhatsAppUrl('Growth', SERVICE_NAME)
         },
         {
             planId: 'scale',
@@ -95,8 +86,8 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
                 'Deep dive into your specific tech challenges',
                 'White-glove treatment for serious projects'
             ],
-            buttonText: 'Contact Me',
-            buttonUrl: '/meet/short/'
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getServiceWhatsAppUrl('Custom', SERVICE_NAME)
         }
     ]
 }; 

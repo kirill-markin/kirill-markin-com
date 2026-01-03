@@ -1,19 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { ServiceFractionalCTOData } from '@/types/services';
+import { ServiceFractionalCTOData, ServiceType } from '@/types/services';
 import PricingCard from './PricingCard';
 import styles from './FractionalCTOPricingPlans.module.css';
 
 interface FractionalCTOPricingPlansProps {
     plans: ServiceFractionalCTOData['plans'];
+    serviceType: ServiceType;
 }
 
-const FractionalCTOPricingPlans: React.FC<FractionalCTOPricingPlansProps> = ({ plans }) => {
+const FractionalCTOPricingPlans: React.FC<FractionalCTOPricingPlansProps> = ({ plans, serviceType }) => {
     return (
         <div className={styles.pricingPlans}>
             {plans.map((plan) => (
-                <PricingCard key={plan.planId} plan={plan} />
+                <PricingCard key={plan.planId} plan={plan} serviceType={serviceType} />
             ))}
         </div>
     );

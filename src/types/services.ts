@@ -10,14 +10,6 @@ export interface ServiceOtherData {
   buttonUrl: string;
 }
 
-// Social Contact Button Interface
-export interface SocialContactButton {
-  name: string;
-  url: string;
-  username: string;
-  icon: string;
-}
-
 // Fractional CTO Plan Interface
 export interface ServiceFractionalCTOPlan {
   planId: string;
@@ -28,14 +20,17 @@ export interface ServiceFractionalCTOPlan {
   highlighted?: boolean;
   buttonText?: string;
   buttonUrl?: string;
-  socialButtons?: SocialContactButton[];
   soldOut?: boolean;
   soldOutMainText?: string;
   soldOutAdditionalText?: string;
 }
 
+// Service type for analytics tracking
+export type ServiceType = 'mentorship' | 'fractional_cto';
+
 // Fractional CTO Service Data
 export interface ServiceFractionalCTOData {
+  serviceType: ServiceType;
   title: string;
   description: string;
   subtitle?: string;

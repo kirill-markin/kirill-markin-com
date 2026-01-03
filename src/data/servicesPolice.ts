@@ -1,6 +1,6 @@
-import { ServiceFractionalCTOData } from '@/types/services';
-
-export const servicesPoliceData: ServiceFractionalCTOData = {
+// Note: This data is prepared for future use but not currently rendered
+// The /services/police/ page currently shows ASCII art only
+export const servicesPoliceData = {
     title: 'Police Consulting Services',
     description: 'Strategic AI and technology consulting for law enforcement operations. We provide secure, professional guidance for implementing advanced technology solutions in mission-critical police environments.',
     plans: [

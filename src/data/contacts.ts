@@ -57,6 +57,13 @@ export const VCARD_DATA = {
 } as const;
 
 // =============================================================================
+// MESSAGE TEMPLATES
+// =============================================================================
+
+// Template for service inquiry messages: {planName} and {serviceName} will be replaced
+const SERVICE_MESSAGE_TEMPLATE = "Hi! I'm interested in the {planName} {serviceName} plan.";
+
+// =============================================================================
 // HELPER FUNCTIONS
 // =============================================================================
 
@@ -68,6 +75,16 @@ export function getWhatsAppUrl(message?: string): string {
         return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(message)}`;
     }
     return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}`;
+}
+
+/**
+ * Generate WhatsApp URL with pre-filled service inquiry message
+ */
+export function getServiceWhatsAppUrl(planName: string, serviceName: string): string {
+    const message = SERVICE_MESSAGE_TEMPLATE
+        .replace('{planName}', planName)
+        .replace('{serviceName}', serviceName);
+    return getWhatsAppUrl(message);
 }
 
 /**

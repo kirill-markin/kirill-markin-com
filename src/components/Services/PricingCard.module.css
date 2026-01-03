@@ -136,63 +136,6 @@
     background-color: var(--medium-gray);
 }
 
-/* Social buttons styles */
-.socialButtons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.socialButton {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: inherit;
-    transition: none;
-    background-color: white;
-    border: 1px solid #232323;
-    padding: 0.5rem;
-    width: 100%;
-    justify-content: flex-start;
-    position: relative;
-    overflow: hidden;
-}
-
-.socialButton:hover {
-    background-color: var(--dark-gray);
-    transition: all 0.2s ease;
-}
-
-.socialButton:hover .label {
-    color: white;
-}
-
-.iconWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: white;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
-
-.label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #232323;
-}
-
 /* Animation keyframes - using same as Services.module.css */
 @keyframes clean-glitch-effect {
     0% {

@@ -20,7 +20,7 @@ const ServicesFractionalCTOSection: React.FC<ServicesFractionalCTOSectionProps> 
                 isStandalonePage={isStandalonePage}
                 headingLevel={headingLevel}
             />
-            <FractionalCTOPricingPlans plans={data.plans} />
+            <FractionalCTOPricingPlans plans={data.plans} serviceType={data.serviceType} />
         </section>
     );
 };

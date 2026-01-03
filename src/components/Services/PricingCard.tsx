@@ -1,11 +1,12 @@
 'use client';
 
-import Image from 'next/image';
-import { ServiceFractionalCTOPlan } from '@/types/services';
+import { ServiceFractionalCTOPlan, ServiceType } from '@/types/services';
+import { trackGtmEvent } from '@/lib/gtm';
 import styles from './PricingCard.module.css';
 
 interface PricingCardProps {
     plan: ServiceFractionalCTOPlan;
+    serviceType: ServiceType;
 }
 
 const CheckIcon: React.FC = () => (
@@ -23,7 +24,7 @@ const CheckIcon: React.FC = () => (
     </svg>
 );
 
-const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
+const PricingCard: React.FC<PricingCardProps> = ({ plan, serviceType }) => {
     return (
         <div className={`${styles.pricingCard} ${plan.highlighted ? styles.highlighted : ''} ${plan.soldOut ? styles.soldOut : ''}`}>
             {plan.highlighted && (
@@ -59,38 +60,20 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
             </div>
 
             <div className={styles.cardAction}>
-                {plan.socialButtons ? (
-                    <div className={styles.socialButtons}>
-                        {plan.socialButtons.map((socialButton, index) => (
-                            <a
-                                key={index}
-                                href={socialButton.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.socialButton}
-                                aria-label={socialButton.name}
-                            >
-                                <div className={styles.iconWrapper}>
-                                    <Image
-                                        src={socialButton.icon}
-                                        alt={`${socialButton.name} logo`}
-                                        className={styles.icon}
-                                        width={24}
-                                        height={24}
-                                    />
-                                </div>
-                                <span className={styles.label}>{socialButton.username}</span>
-                            </a>
-                        ))}
-                    </div>
-                ) : (
-                    <a
-                        href={plan.buttonUrl}
-                        className={`${styles.actionButton} ${plan.highlighted ? styles.highlightedButton : ''}`}
-                    >
-                        {plan.buttonText}
-                    </a>
-                )}
+                <a
+                    href={plan.buttonUrl}
+                    className={`${styles.actionButton} ${plan.highlighted ? styles.highlightedButton : ''}`}
+                    onClick={() => {
+                        trackGtmEvent({
+                            event: 'service_click',
+                            service_type: serviceType,
+                            plan_id: plan.planId,
+                            target: 'cta_button'
+                        });
+                    }}
+                >
+                    {plan.buttonText}
+                </a>
             </div>
         </div>
     );

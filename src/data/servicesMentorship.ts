@@ -1,16 +1,10 @@
 import { ServiceFractionalCTOData } from '@/types/services';
-import { PHONE_NUMBER, getWhatsAppUrl, getTelegramUrl, TELEGRAM_USERNAME } from './contacts';
+import { getServiceWhatsAppUrl } from './contacts';
 
-// Message template for mentorship plans: {planName} will be replaced with actual plan name
-const MENTORSHIP_MESSAGE_TEMPLATE = "Hi! I'm interested in the {planName} mentorship plan.";
-
-// Generate WhatsApp URL with pre-filled mentorship message
-function getMentorshipWhatsAppUrl(planName: string): string {
-    const message = MENTORSHIP_MESSAGE_TEMPLATE.replace('{planName}', planName);
-    return getWhatsAppUrl(message);
-}
+const SERVICE_NAME = 'mentorship';
 
 export const servicesMentorshipData: ServiceFractionalCTOData = {
+    serviceType: 'mentorship',
     title: 'Your AI Technical Mentor Kirill Markin',
     description: 'Whether you\'re a founder building your first AI product or an engineer transitioning into AI/LLM development — I help you make the right technical decisions, avoid 6-month rewrites, and move faster without expensive trial-and-error.',
     plans: [
@@ -18,7 +12,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
             planId: 'free',
             name: 'Free Chat',
             price: 'Free',
-            hours: 'WhatsApp / Telegram',
+            hours: 'WhatsApp Chat',
             features: [
                 'Text me anytime with quick questions',
                 'Framework recommendations that actually make sense',
@@ -26,20 +20,8 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Honest "is this a terrible idea?" feedback',
                 'Usually respond faster than Stack Overflow'
             ],
-            socialButtons: [
-                {
-                    name: 'WhatsApp',
-                    url: getWhatsAppUrl(),
-                    username: PHONE_NUMBER,
-                    icon: '/social/whatsapp.png'
-                },
-                {
-                    name: 'Telegram',
-                    url: getTelegramUrl(),
-                    username: `@${TELEGRAM_USERNAME}`,
-                    icon: '/social/telegram.png'
-                }
-            ]
+            buttonText: 'Message on WhatsApp',
+            buttonUrl: getServiceWhatsAppUrl('Free', SERVICE_NAME)
         },
         {
             planId: 'lite',
@@ -56,7 +38,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Pause/resume anytime (Jake paused twice — when traveling to Japan, then resumed when questions came up)'
             ],
             buttonText: 'Message on WhatsApp',
-            buttonUrl: getMentorshipWhatsAppUrl('Lite')
+            buttonUrl: getServiceWhatsAppUrl('Lite', SERVICE_NAME)
         },
         {
             planId: 'standard',
@@ -74,7 +56,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
             ],
             highlighted: true,
             buttonText: 'Message on WhatsApp',
-            buttonUrl: getMentorshipWhatsAppUrl('Standard')
+            buttonUrl: getServiceWhatsAppUrl('Standard', SERVICE_NAME)
         },
         {
             planId: 'premium',
@@ -91,7 +73,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
                 'Emergency "this is on fire" same-day support'
             ],
             buttonText: 'Message on WhatsApp',
-            buttonUrl: getMentorshipWhatsAppUrl('Premium')
+            buttonUrl: getServiceWhatsAppUrl('Premium', SERVICE_NAME)
         }
     ]
 };
