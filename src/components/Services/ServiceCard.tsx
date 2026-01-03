@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceOtherData } from '@/types/services';
+import { trackEvent } from '@/lib/analytics';
 import styles from './Services.module.css';
 
 interface ServiceCardProps {
@@ -22,7 +23,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     <article className={styles.serviceCard} data-category={service.categoryId}>
       <Link href={service.buttonUrl}
         className={styles.serviceCardLink}
-        target={isExternalLink ? '_blank' : undefined}>
+        target={isExternalLink ? '_blank' : undefined}
+        onClick={() => {
+          trackEvent(`card_click_${service.serviceId}`);
+        }}>
         <div className={styles.serviceCardCategory}>
           <span className={styles.currentCategory}>{formattedCategory}</span>
         </div>

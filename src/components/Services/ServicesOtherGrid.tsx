@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceOtherData } from '@/types/services';
 import { getTranslation, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { trackEvent } from '@/lib/analytics';
 import styles from './Services.module.css';
 
 interface ServicesOtherGridProps {
@@ -36,7 +37,10 @@ function ServiceCard({ service, language }: { service: ServiceOtherData; languag
         <article className={styles.serviceCard} data-category={service.categoryId}>
             <Link href={service.buttonUrl}
                 className={styles.serviceCardLink}
-                target={isExternalLink ? '_blank' : undefined}>
+                target={isExternalLink ? '_blank' : undefined}
+                onClick={() => {
+                    trackEvent(`card_click_${service.serviceId}`);
+                }}>
                 <div className={styles.serviceCardCategory}>
                     <span className={styles.currentCategory}>{formattedCategory}</span>
                 </div>
