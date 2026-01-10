@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { mediaMentions } from '@/data/mediaMentions';
+import { bigMediaMentions, smallMediaMentions, buildWallItems } from '@/data/mediaMentions';
 import { getAllArticles } from '@/lib/articles';
 import PersonalInfo from '@/components/PersonalInfo';
 import { MediaMentionCard } from '@/components/MediaMentionCard';
@@ -11,13 +11,6 @@ import styles from '@/app/page.module.css';
 
 // Update placeholder image constant
 const PLACEHOLDER_IMAGE = '/articles/preview-main.webp';
-
-// Indices of cards that should be large (span 2 grid columns)
-const LARGE_CARD_INDICES = [
-    0, // First row, first entry (top left)
-    5, // Second row, last entry (bottom right)
-    6  // Third row, first entry (first entry of second screen)
-];
 
 interface HomePageContentProps {
     language: string;
@@ -55,19 +48,18 @@ export default async function HomePageContent({ language }: HomePageContentProps
                         </h1>
 
                         <div className={styles.mediaMentions}>
-                            {mediaMentions.map((mention, index) => {
-                                const isLarge = LARGE_CARD_INDICES.includes(index);
-                                const displayTitle = mention.language === language
-                                    ? mention.title
-                                    : (mention.alternativeTitle || mention.title);
+                            {buildWallItems(bigMediaMentions, smallMediaMentions).map((wallItem) => {
+                                const displayTitle = wallItem.mention.language === language
+                                    ? wallItem.mention.title
+                                    : (wallItem.mention.alternativeTitle || wallItem.mention.title);
 
                                 return (
                                     <MediaMentionCard
-                                        key={index}
-                                        mention={mention}
-                                        isLarge={isLarge}
+                                        key={wallItem.position}
+                                        mention={wallItem.mention}
+                                        isLarge={wallItem.isLarge}
                                         displayTitle={displayTitle}
-                                        index={index}
+                                        index={wallItem.position}
                                     />
                                 );
                             })}
