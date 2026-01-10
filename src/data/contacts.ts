@@ -109,3 +109,27 @@ export function getTelegramUrl(): string {
 export function getEmailUrl(): string {
     return `mailto:${EMAIL}`;
 }
+
+// =============================================================================
+// EXTERNAL PROFILES - Remember to update these when contact info changes!
+// =============================================================================
+//
+// These external profiles contain personal/contact information that should be
+// kept in sync with the constants above. Update them manually when needed:
+//
+// SCHEDULING & BOOKING:
+// - MentorCruise Event Types: https://cal.mentorcruise.com/event-types
+//
+// SOCIAL PROFILES (bio, contact info, links):
+// - GitHub Profile: https://github.com/settings/profile
+// - LinkedIn Profile: https://www.linkedin.com/in/kirill-markin/edit/
+// - Twitter/X Profile: https://x.com/settings/profile
+// - YouTube About: https://studio.youtube.com/channel/UCxxxxxxx/editing/details
+// - Medium Profile: https://medium.com/me/settings
+// - Bluesky Profile: https://bsky.app/profile/kirill-markin.bsky.social
+//
+// OTHER:
+// - Google Business Profile (if applicable)
+// - Calendly (if used separately from MentorCruise)
+//
+// =============================================================================
