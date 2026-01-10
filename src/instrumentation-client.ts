@@ -27,6 +27,12 @@ const EXTENSION_ERROR_MESSAGES = [
   "Failed to execute 'removeChild' on 'Node'",
   "Failed to execute 'insertBefore' on 'Node'",
   "Failed to execute 'appendChild' on 'Node'",
+  // Next.js RSC prefetch failures (network issues, user navigating away, etc.)
+  'Failed to fetch RSC payload',
+  'Failed to fetch',
+  'Load failed',
+  // Non-Error promise rejections (usually from third-party scripts)
+  'Non-Error promise rejection captured',
 ];
 
 function isExtensionError(event: Sentry.ErrorEvent): boolean {
