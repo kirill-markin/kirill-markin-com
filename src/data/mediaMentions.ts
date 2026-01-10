@@ -16,7 +16,8 @@ export interface MediaMention {
   eventUrl?: string;
 }
 
-export const mediaMentions: MediaMention[] = [
+// Big cards (span 2 grid columns)
+export const bigMediaMentions: MediaMention[] = [
   {
     title: "Cursor IDE: Setup and Workflow in\u00A0Larger Projects",
     url: "https://www.reddit.com/r/cursor/comments/1ikq9m6/cursor_ide_setup_and_workflow_in_larger_projects/",
@@ -29,6 +30,36 @@ export const mediaMentions: MediaMention[] = [
     achievementValue: "91,000+",
     achievementLabel: "views"
   },
+  {
+    title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
+    url: "https://youtu.be/eOSfeBIBzr0?si=kbJlYFZQtdDR8Ipo",
+    publisher: "YouTube",
+    date: "2025-02-18",
+    type: "Video",
+    language: "en",
+    thumbnailUrl: "/articles/youtube-2025-02-18.webp",
+    websiteLogoUrl: "/logos/youtube.png",
+    achievementValue: "15,000+",
+    achievementLabel: "views",
+    isVideo: true
+  },
+  {
+    title: "Ultimate Cursor AI IDE Rules Guide: All 5 Levels and\u00A0.cursorrules (2025)",
+    url: "https://youtu.be/gw8otRr2zpw?si=z5dvTp0Fc05jlGEX",
+    publisher: "YouTube",
+    date: "2025-09-09",
+    type: "Video",
+    language: "en",
+    thumbnailUrl: "/articles/youtube-2025-09-09.webp",
+    websiteLogoUrl: "/logos/youtube.png",
+    isVideo: true,
+    achievementValue: "5,200+",
+    achievementLabel: "views"
+  },
+];
+
+// Small cards (1 grid column)
+export const smallMediaMentions: MediaMention[] = [
   {
     title: "Merged pull request to Computer Using Agent Sample App",
     url: "https://github.com/openai/openai-cua-sample-app/pull/11",
@@ -77,32 +108,6 @@ export const mediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/github-with-text.png",
     achievementValue: "170+",
     achievementLabel: "stars"
-  },
-  {
-    title: "How to\u00A0Work with\u00A0Jupyter Notebooks via\u00A0LLM in\u00A0Cursor IDE?",
-    url: "https://youtu.be/eOSfeBIBzr0?si=kbJlYFZQtdDR8Ipo",
-    publisher: "YouTube",
-    date: "2025-02-18",
-    type: "Video",
-    language: "en",
-    thumbnailUrl: "/articles/youtube-2025-02-18.webp",
-    websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "15,000+",
-    achievementLabel: "views",
-    isVideo: true
-  },
-  {
-    title: "Ultimate Cursor AI IDE Rules Guide: All 5 Levels and\u00A0.cursorrules (2025)",
-    url: "https://youtu.be/gw8otRr2zpw?si=z5dvTp0Fc05jlGEX",
-    publisher: "YouTube",
-    date: "2025-09-09",
-    type: "Video",
-    language: "en",
-    thumbnailUrl: "/articles/youtube-2025-09-09.webp",
-    websiteLogoUrl: "/logos/youtube.png",
-    isVideo: true,
-    achievementValue: "5,200+",
-    achievementLabel: "views"
   },
   {
     title: "Как\u00A0мотивировать сотрудников использовать AI инструменты в\u00A0работе",
@@ -579,5 +584,56 @@ export const mediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/github-with-text.png",
     achievementValue: "25",
     achievementLabel: "stars"
+  },
+];
+
+// Wall item with position metadata for rendering
+export interface WallItem {
+  mention: MediaMention;
+  isLarge: boolean;
+  position: number;
+}
+
+// Build wall items array in the pattern: big, small, small, small, small, big (repeat)
+// Pattern: positions 0 and 5 in each 6-item cycle are large
+export function buildWallItems(
+  bigItems: MediaMention[],
+  smallItems: MediaMention[]
+): WallItem[] {
+  const result: WallItem[] = [];
+  let bigIndex = 0;
+  let smallIndex = 0;
+  let position = 0;
+
+  while (bigIndex < bigItems.length || smallIndex < smallItems.length) {
+    const posInCycle = position % 6;
+    const shouldBeBig = posInCycle === 0 || posInCycle === 5;
+
+    if (shouldBeBig && bigIndex < bigItems.length) {
+      result.push({
+        mention: bigItems[bigIndex],
+        isLarge: true,
+        position,
+      });
+      bigIndex++;
+    } else if (smallIndex < smallItems.length) {
+      result.push({
+        mention: smallItems[smallIndex],
+        isLarge: false,
+        position,
+      });
+      smallIndex++;
+    } else if (bigIndex < bigItems.length) {
+      // Fallback: render remaining big items as large
+      result.push({
+        mention: bigItems[bigIndex],
+        isLarge: true,
+        position,
+      });
+      bigIndex++;
+    }
+    position++;
   }
-]; 
+
+  return result;
+} 
