@@ -18,11 +18,15 @@ const EXTENSION_ERROR_PATTERNS = [
   /<anonymous>:\d+:\d+.*(?:fetch|clone)/,
 ];
 
-// Error messages typically caused by extensions or external scripts
+// Error messages typically caused by extensions or external scripts modifying DOM
 const EXTENSION_ERROR_MESSAGES = [
   'req.clone is not a function',
   'Request.clone',
   'ResizeObserver loop', // Often caused by extensions observing DOM
+  // React hydration errors when extensions modify DOM before/during hydration
+  "Failed to execute 'removeChild' on 'Node'",
+  "Failed to execute 'insertBefore' on 'Node'",
+  "Failed to execute 'appendChild' on 'Node'",
 ];
 
 function isExtensionError(event: Sentry.ErrorEvent): boolean {
@@ -47,7 +51,7 @@ function isExtensionError(event: Sentry.ErrorEvent): boolean {
     for (const frame of frames) {
       const filename = frame.filename || '';
       const functionName = frame.function || '';
-      
+
       for (const pattern of EXTENSION_ERROR_PATTERNS) {
         if (pattern.test(filename) || pattern.test(functionName)) {
           return true;
