@@ -44,6 +44,18 @@ export const bigMediaMentions: MediaMention[] = [
     isVideo: true
   },
   {
+    title: "My wife gave me Meta Ray-Ban glasses for my birthday — I\u00A0spent the next two days adding custom AI\u00A0tools to\u00A0them",
+    url: "https://www.reddit.com/r/RaybanMeta/comments/1q4iw5u/my_wife_gave_me_meta_rayban_glasses_for_my/",
+    publisher: "Reddit",
+    date: "2024-11-04",
+    type: "Article",
+    language: "en",
+    thumbnailUrl: "/articles/reddit-2024-11-04.webp",
+    websiteLogoUrl: "/logos/meta.png",
+    achievementValue: "46,000+",
+    achievementLabel: "views"
+  },
+  {
     title: "Ultimate Cursor AI IDE Rules Guide: All 5 Levels and\u00A0.cursorrules (2025)",
     url: "https://youtu.be/gw8otRr2zpw?si=z5dvTp0Fc05jlGEX",
     publisher: "YouTube",
