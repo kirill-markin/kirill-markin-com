@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Modern personal website built with Next.js 15. Migrated from Jekyll for performance.
+
 ## Development Commands
 
 - `npm run dev` - Development server with ESLint and Turbopack
@@ -20,13 +22,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Testing: Jest + ts-jest
 - Path alias: `@/*` → `./src/*`
 
-## Architecture
+## Core Principles
 
-### Static Generation First
-- Pre-render all content at build time with `generateStaticParams`
-- Aggressive caching (86400s with stale-while-revalidate in next.config.ts)
-- Server Components by default, Client Components only where needed
-- Zero server-side computation at request time
+**Static Generation First**: Pre-render all content at build time with `generateStaticParams`. Aggressive caching (86400s with stale-while-revalidate in next.config.ts). Zero server-side computation at request time. Dynamic pages only in rare exceptions.
+
+**Server Components First**: Client components only where interactivity required. Minimal JavaScript to browser.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── (default)/      # English static routes (lang="en")
+│   │   ├── articles/, services/, meet/, pay/
+│   ├── (i18n)/         # Localized routes
+│   │   └── [lang]/[segment]/[subsegment]/
+│   ├── sitemap.ts, robots.ts
+├── components/         # UI components
+├── content/articles/   # Markdown + translations/[lang]/
+├── data/               # Structured data (services, media)
+├── lib/                # Utils + localization.ts
+└── types/
+```
+
+## Multilingual Architecture
 
 ### Next.js 15: Async Params
 ```typescript
@@ -39,16 +58,21 @@ export default async function Page({ params }: PageProps) {
 }
 ```
 
-### Multilingual Route Groups
+### Route Groups
 - `app/(default)/` - English static routes: `/articles/`, `/services/`, `/meet/short/`
 - `app/(i18n)/[lang]/` - Localized dynamic routes: `/es/articulos/`, `/zh/zixun/`, `/ar/mawid/majani/`
-- Complex path mapping per language (articles → articulos → zhishi → maqalat → gyan)
 - RTL support for Arabic via `dir="rtl"` in `(i18n)` layout
+
+### Path Mapping (same logical path, different words per language)
+- articles → articulos → zhishi → maqalat → gyan
+- services → servicios → zixun → khadamat → sevaen
+- meet/short → reservar/breve → yuyue/mianfei → mawid/majani
 
 **Key Files:**
 - `lib/localization.ts` - Path segment mapping and translations
 - `(i18n)/[lang]/[segment]/page.tsx` - Dynamic segment resolution
 - `(i18n)/[lang]/[segment]/[subsegment]/page.tsx` - Nested routes
+- `(default)/*/page.tsx` - Static English routes
 
 **⚠️ Before modifying routes**: Check segment mappings in `localization.ts`
 
@@ -57,11 +81,13 @@ export default async function Page({ params }: PageProps) {
 - **Articles**: `src/content/articles/` + `translations/[lang]/` - Markdown with frontmatter, bidirectional translation refs
 - **Services**: `src/data/servicesOther.ts` - Category-based filtering
 - **Media**: `src/data/mediaMentions.ts` - Thumbnails 520×297 (16:9), logos in `public/logos/`
+- **Languages**: en, es, zh, ar, hi - Routes pre-generated with `generateStaticParams`
 
 ## SEO & Performance
 
 - Metadata via `generateMetadata()` per route, translations from `lib/localization.ts`, unique per language
 - Sitemap with GitHub API for lastmod dates (update `pageFilesMap` in `lib/fileModification.ts` for new pages)
+- Server-side `lang` and `dir` attributes (RTL for Arabic)
 - Images: WebP for photos, SVG for icons, specific dimensions (thumbnails 520×297, services 600×400)
 - Validation: `npm run validate-metadata` checks titles (30-60 chars), descriptions (120-155 chars), duplicates
 
@@ -101,6 +127,11 @@ Built-in: `SITE_URL=https://kirill-markin.com/`, `SITE_NAME=Kirill Markin`
 1. Create markdown with frontmatter
 2. Add translations with bidirectional refs
 3. Run `npm run validate-metadata`
+
+**Best Practices:**
+- Server Components by default
+- CSS Modules for styling
+- Update `pageFilesMap` in `lib/fileModification.ts` for new pages (sitemap lastmod)
 
 **Translation Workflow:**
 - Structured process with key term discussion
