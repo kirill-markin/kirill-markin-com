@@ -13,6 +13,9 @@
 
 import chalk from 'chalk';
 import { Metadata } from 'next';
+import fs from 'fs/promises';
+import path from 'path';
+import matter from 'gray-matter';
 import {
     SUPPORTED_LANGUAGES,
     DEFAULT_LANGUAGE,
@@ -31,6 +34,7 @@ import {
     getAllArticles,
     Article,
 } from '../src/lib/articles';
+import { validateFrontmatter } from '../src/lib/validateFrontmatter';
 
 // Track all metadata for duplicate detection
 const allTitles = new Map<string, string[]>();
@@ -40,7 +44,7 @@ const allDescriptions = new Map<string, string[]>();
 interface Issue {
     path: string;
     language: string;
-    type: 'missing_title' | 'missing_description' | 'title_too_short' | 'title_too_long' | 'description_too_short' | 'description_too_long' | 'duplicate_title' | 'duplicate_description' | 'missing_translation';
+    type: 'missing_title' | 'missing_description' | 'title_too_short' | 'title_too_long' | 'description_too_short' | 'description_too_long' | 'duplicate_title' | 'duplicate_description' | 'missing_translation' | 'invalid_frontmatter';
     details: string;
 }
 
@@ -54,6 +58,42 @@ function getPageIdentifier(pageName: string, pageType: string, subType: string |
         return `${pageName} [${lang}] (${pageType}/${subType})`;
     }
     return `${pageName} [${lang}] (${pageType})`;
+}
+
+async function getMarkdownFiles(dir: string): Promise<string[]> {
+    const dirents = await fs.readdir(dir, { withFileTypes: true });
+    const files: string[] = [];
+    for (const dirent of dirents) {
+        const res = path.join(dir, dirent.name);
+        if (dirent.isDirectory()) {
+            files.push(...await getMarkdownFiles(res));
+        } else if (dirent.name.endsWith('.md')) {
+            files.push(res);
+        }
+    }
+    return files;
+}
+
+async function validateArticleFrontmatter() {
+    console.log(chalk.blue('Validating article frontmatter...'));
+    const articlesDir = path.join(process.cwd(), 'src/content/articles');
+    const files = await getMarkdownFiles(articlesDir);
+
+    for (const filePath of files) {
+        const fileContents = await fs.readFile(filePath, 'utf8');
+        const { data } = matter(fileContents);
+        const isTranslation = filePath.includes(`${path.sep}translations${path.sep}`);
+        try {
+            validateFrontmatter(data, isTranslation);
+        } catch (error) {
+            issues.push({
+                path: `Article: ${path.relative(process.cwd(), filePath)}`,
+                language: isTranslation ? data.language || 'unknown' : DEFAULT_LANGUAGE,
+                type: 'invalid_frontmatter',
+                details: (error as Error).message,
+            });
+        }
+    }
 }
 
 /**
@@ -499,7 +539,8 @@ function printReport() {
         description_too_long: 0,
         duplicate_title: 0,
         duplicate_description: 0,
-        missing_translation: 0
+        missing_translation: 0,
+        invalid_frontmatter: 0
     };
 
     for (const issue of issues) {
@@ -516,6 +557,7 @@ function printReport() {
     console.log(chalk.magenta(`- Duplicate titles: ${issueTypes.duplicate_title}`));
     console.log(chalk.magenta(`- Duplicate descriptions: ${issueTypes.duplicate_description}`));
     console.log(chalk.cyan(`- Missing translations: ${issueTypes.missing_translation}`));
+    console.log(chalk.red(`- Invalid frontmatter: ${issueTypes.invalid_frontmatter}`));
 
     const totalIssues = Object.values(issueTypes).reduce((a, b) => a + b, 0);
 
@@ -576,6 +618,9 @@ function printReport() {
 async function main() {
     try {
         console.log(chalk.bold('Starting metadata validation...'));
+
+        // Validate frontmatter structure
+        await validateArticleFrontmatter();
 
         // Validate generated metadata
         validateGeneratedMetadata();
