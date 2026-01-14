@@ -129,7 +129,6 @@ export function getEmailUrl(): string {
 // - Bluesky Profile: https://bsky.app/profile/kirill-markin.bsky.social
 //
 // OTHER:
-// - Google Business Profile (if applicable)
-// - Calendly (if used separately from MentorCruise)
+// - Google Business Profile
 //
 // =============================================================================
