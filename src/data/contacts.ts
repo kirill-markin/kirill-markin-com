@@ -3,11 +3,11 @@
 // =============================================================================
 
 // Phone number for calls (with + prefix)
-export const PHONE_NUMBER = '+359879906085';
+export const PHONE_NUMBER = '+447455711443';
 
 // WhatsApp phone number (without + prefix, as required by WhatsApp API)
 // Note: Usually same as PHONE_NUMBER but can differ
-export const WHATSAPP_PHONE = '359879906085';
+export const WHATSAPP_PHONE = '447455711443';
 
 // Telegram username (without @)
 export const TELEGRAM_USERNAME = 'kirmark';
