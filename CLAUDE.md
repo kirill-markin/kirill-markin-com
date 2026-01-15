@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Modern personal website built with Next.js 15. Migrated from Jekyll for performance.
 
+**Git Workflow**: Commit directly to `main` branch (no PRs). Deploy is automatic after push.
+
 ## Development Commands
 
 - `npm run dev` - Development server with ESLint and Turbopack
