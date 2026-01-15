@@ -113,7 +113,7 @@ const Footer: React.FC<FooterProps> = ({
                 <div className={styles.footerOrgMedia}>
                   <h3>{footerTranslations.media}</h3>
                   {socialLinks
-                    .filter(link => ['Blog', 'Medium', 'YouTube', 'Reddit', 'Product Hunt', 'IndieHackers'].includes(link.name))
+                    .filter(link => ['Blog', 'Medium', 'YouTube', 'Reddit', 'Product Hunt', 'IndieHackers', 'Google Scholar'].includes(link.name))
                     .map((link, index) => (
                       <a
                         key={index}
