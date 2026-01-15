@@ -166,5 +166,12 @@ export const socialLinks: SocialLink[] = [
     socialLogoUrlHover: "/social/bluesky.png",
     footerBottom: true,
     footerBottomGreenLine: true
+  },
+  {
+    name: "Google Scholar",
+    url: SOCIAL_URLS.googleScholar,
+    username: "Kirill Markin",
+    avatarLearnMore: true,
+    footerBottom: true
   }
 ]; 

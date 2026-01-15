@@ -31,6 +31,7 @@ export const SOCIAL_URLS = {
     medium: 'https://kirill-markin.medium.com/',
     reddit: 'https://www.reddit.com/user/Kirmark',
     bluesky: 'https://bsky.app/profile/kirill-markin.bsky.social',
+    googleScholar: 'https://scholar.google.com/citations?user=DTOtg2MAAAAJ&hl=en',
     // Legacy social links (for vCard compatibility)
     instagram: 'https://www.instagram.com/kirill.markin.kira/',
     facebook: 'https://www.facebook.com/kirill.markin.kira',

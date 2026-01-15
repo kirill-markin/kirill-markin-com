@@ -617,7 +617,8 @@ export const translations = {
                 WhatsApp: 'WhatsApp',
                 GitLab: 'GitLab',
                 Bluesky: 'Bluesky',
-                Email: 'Email'
+                Email: 'Email',
+                'Google Scholar': 'Google Scholar'
             }
         },
         'es': {
@@ -643,7 +644,8 @@ export const translations = {
                 WhatsApp: 'WhatsApp',
                 GitLab: 'GitLab',
                 Bluesky: 'Bluesky',
-                Email: 'Correo'
+                Email: 'Correo',
+                'Google Scholar': 'Google Scholar'
             }
         },
         'zh': {
@@ -669,7 +671,8 @@ export const translations = {
                 WhatsApp: 'WhatsApp',
                 GitLab: 'GitLab',
                 Bluesky: 'Bluesky',
-                Email: '邮箱'
+                Email: '邮箱',
+                'Google Scholar': '谷歌学术'
             }
         },
         'ar': {
@@ -695,7 +698,8 @@ export const translations = {
                 WhatsApp: 'واتساب',
                 GitLab: 'جيتلاب',
                 Bluesky: 'بلوسكاى',
-                Email: 'البريد الإلكتروني'
+                Email: 'البريد الإلكتروني',
+                'Google Scholar': 'الباحث العلمي من جوجل'
             }
         },
         'hi': {
@@ -721,7 +725,8 @@ export const translations = {
                 WhatsApp: 'व्हाट्सएप',
                 GitLab: 'गिटलैब',
                 Bluesky: 'ब्लूस्काई',
-                Email: 'ईमेल'
+                Email: 'ईमेल',
+                'Google Scholar': 'गूगल स्कॉलर'
             }
         }
     },
