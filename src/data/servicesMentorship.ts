@@ -27,9 +27,9 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
             planId: 'lite',
             name: 'Lite',
             price: '$270/month',
-            hours: '1 call + async chat',
+            hours: '2 calls + async chat',
             features: [
-                'Monthly 1-hour strategy call',
+                '2 calls per month (30min/call)',
                 'Unlimited "help, I\'m stuck!" messages',
                 'Framework selection without the paralysis',
                 'Concrete tech guidance: LangChain vs LlamaIndex vs custom solutions',
@@ -47,7 +47,7 @@ export const servicesMentorshipData: ServiceFractionalCTOData = {
             hours: '2 calls + priority async',
             features: [
                 'Everything in Lite plan',
-                'Two 1-hour calls per month (bi-weekly check-ins)',
+                '2 calls per month (60min/call)',
                 'Priority "oh crap, production is broken" support',
                 'Product validation before you waste runway',
                 'Network access: intros to specialists who solved your exact problem',
