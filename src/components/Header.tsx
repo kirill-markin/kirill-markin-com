@@ -11,6 +11,7 @@ import {
   getTranslation
 } from '@/lib/localization';
 import { trackEvent } from '@/lib/analytics';
+import { useSecretMode } from '@/lib/secretModeContext';
 
 interface HeaderProps {
   language?: string;
@@ -19,6 +20,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const { handleHeaderClick } = useSecretMode();
 
   // Get translations for navigation items
   const navigationTranslations = getTranslation('navigation', language);
@@ -50,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   };
 
   return (
-    <header className={styles.headerContainer}>
+    <header className={styles.headerContainer} onClick={handleHeaderClick}>
       <div className={styles.headerDesktopContainer}>
         <div className={styles.headerContentWrapper}>
           <div className={styles.leftColumn}>

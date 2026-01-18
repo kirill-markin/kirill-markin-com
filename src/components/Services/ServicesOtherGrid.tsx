@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceOtherData } from '@/types/services';
 import { getTranslation, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { useSecretMode } from '@/lib/secretModeContext';
 import { trackEvent } from '@/lib/analytics';
 import styles from './Services.module.css';
 
@@ -86,16 +87,27 @@ function ServiceCard({ service, language }: { service: ServiceOtherData; languag
 export default function ServicesOtherGrid({ services, currentCategory, language }: ServicesOtherGridProps) {
     // Get translations
     const t = getTranslation('services', language);
+    const { isSecretModeUnlocked } = useSecretMode();
 
-    // Extract unique categories from ALL services (not filtered)
+    // Filter out police services unless secret mode is unlocked
+    const availableServices = isSecretModeUnlocked
+        ? services
+        : services.filter(service => service.categoryId !== 'police');
+
+    // If accessing police category without secret mode, fallback to 'all'
+    const effectiveCategory = (!isSecretModeUnlocked && currentCategory === 'police')
+        ? 'all'
+        : currentCategory;
+
+    // Extract unique categories from available services (not filtered by current category)
     const categories = Array.from(
-        new Set(services.map(service => service.categoryId))
+        new Set(availableServices.map(service => service.categoryId))
     ).filter(category => category !== 'all');
 
-    // Filter services based on current category (client-side filtering)
-    const filteredServices = currentCategory === 'all'
-        ? services
-        : services.filter(service => service.categoryId === currentCategory);
+    // Filter services based on effective category (client-side filtering)
+    const filteredServices = effectiveCategory === 'all'
+        ? availableServices
+        : availableServices.filter(service => service.categoryId === effectiveCategory);
 
     // Helper to get the localized category URL
     const getCategoryUrl = (category: string) => {
@@ -140,7 +152,7 @@ export default function ServicesOtherGrid({ services, currentCategory, language 
                 <div className={styles.servicesMenuCategories}>
                     <Link
                         href={getCategoryUrl('all')}
-                        className={`${styles.servicesMenuCategory} ${currentCategory === 'all' ? styles.active : ''}`}
+                        className={`${styles.servicesMenuCategory} ${effectiveCategory === 'all' ? styles.active : ''}`}
                         scroll={false}
                     >
                         {getCategoryName('all')}
@@ -150,7 +162,7 @@ export default function ServicesOtherGrid({ services, currentCategory, language 
                         <Link
                             key={category}
                             href={getCategoryUrl(category)}
-                            className={`${styles.servicesMenuCategory} ${currentCategory === category ? styles.active : ''}`}
+                            className={`${styles.servicesMenuCategory} ${effectiveCategory === category ? styles.active : ''}`}
                             scroll={false}
                         >
                             {getCategoryName(category)}
