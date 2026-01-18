@@ -10,6 +10,7 @@ import GlitchFilters from '@/components/GlitchFilters';
 import './globals.css';
 import styles from './not-found.module.css';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
+import { SecretModeProvider } from '@/lib/secretModeContext';
 
 // Note: In the App Router, we can't dynamically set metadata from client components.
 // The static metadata defined in layout.js or page.js will be used for SEO purposes.
@@ -38,7 +39,7 @@ export default function NotFound() {
   const homeLink = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
 
   return (
-    <>
+    <SecretModeProvider>
       <Header language={language} />
       <Breadcrumbs />
       <main>
@@ -63,6 +64,6 @@ export default function NotFound() {
       </main>
       <Footer language={language} currentPath="/404/" />
       <GlitchFilters />
-    </>
+    </SecretModeProvider>
   );
 } 
