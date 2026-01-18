@@ -6,6 +6,7 @@ import { AnalyticsNoScript } from './AnalyticsScripts';
 import { SUPPORTED_LANGUAGES } from '@/lib/localization';
 import EmailPopup from '@/components/EmailPopup';
 import { isLemlistConfigured, getLemlistConfigStatus } from '@/lib/popupConstants';
+import { SecretModeProvider } from '@/lib/secretModeContext';
 
 type Language = typeof SUPPORTED_LANGUAGES[number];
 
@@ -31,13 +32,15 @@ export default function LayoutBody({ children, language, isProd }: LayoutBodyPro
 
     return (
         <body>
-            <AnalyticsNoScript isProd={isProd} />
-            <Header language={language} />
-            <Breadcrumbs />
-            <main>{children}</main>
-            <GlitchFilters />
-            {isProd && <SpeedInsights />}
-            {showEmailPopup && <EmailPopup language={language} />}
+            <SecretModeProvider>
+                <AnalyticsNoScript isProd={isProd} />
+                <Header language={language} />
+                <Breadcrumbs />
+                <main>{children}</main>
+                <GlitchFilters />
+                {isProd && <SpeedInsights />}
+                {showEmailPopup && <EmailPopup language={language} />}
+            </SecretModeProvider>
         </body>
     );
-} 
+}

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getTranslation, getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { useSecretMode } from '@/lib/secretModeContext';
 import styles from './ServicesCategorySelector.module.css';
 
 interface ServicesCategorySelectorProps {
@@ -11,6 +12,7 @@ interface ServicesCategorySelectorProps {
 
 export default function ServicesCategorySelector({ language }: ServicesCategorySelectorProps) {
     const t = getTranslation('services', language);
+    const { isSecretModeUnlocked } = useSecretMode();
 
     // Helper to get the localized category URL
     const getCategoryUrl = (category: string) => {
@@ -45,13 +47,18 @@ export default function ServicesCategorySelector({ language }: ServicesCategoryS
             category.charAt(0).toUpperCase() + category.slice(1);
     };
 
-    const categories = [
+    const allCategories = [
         { id: 'business', iconPath: '/icons/services/building-office.svg' },
         { id: 'people', iconPath: '/icons/services/user.svg' },
         { id: 'journalists', iconPath: '/icons/services/newspaper.svg' },
         { id: 'police', iconPath: '/icons/services/shield.svg' },
         { id: 'all', iconPath: '/icons/services/squares-2x2.svg' }
     ];
+
+    // Filter out police category unless secret mode is unlocked
+    const categories = isSecretModeUnlocked
+        ? allCategories
+        : allCategories.filter(cat => cat.id !== 'police');
 
     return (
         <section className={styles.categorySelector}>

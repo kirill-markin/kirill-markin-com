@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
+import SecretPageGuard from '@/components/SecretPageGuard';
 import styles from '@/app/(default)/services/page.module.css';
 import { generatePolicePageMetadata } from '@/lib/metadata';
 
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PolicePage() {
     return (
-        <>
+        <SecretPageGuard redirectTo="/services/">
             <main className={styles.main}>
                 <div className={styles.content}>
                     <div className={styles.fullWidthColumn}>
@@ -91,7 +92,7 @@ export default async function PolicePage() {
                 currentPath="/services/police/"
                 availableLanguages={['en']}
             />
-        </>
+        </SecretPageGuard>
     );
 }
 
