@@ -27,7 +27,7 @@ export const bigMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2025-02-08.webp",
     websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "91,000+",
+    achievementValue: "108,000+",
     achievementLabel: "views"
   },
   {
@@ -39,7 +39,7 @@ export const bigMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "15,000+",
+    achievementValue: "18,000+",
     achievementLabel: "views",
     isVideo: true
   },
@@ -52,7 +52,7 @@ export const bigMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/reddit-2024-11-04.webp",
     websiteLogoUrl: "/logos/meta.png",
-    achievementValue: "46,000+",
+    achievementValue: "52,000+",
     achievementLabel: "views"
   },
   {
@@ -65,7 +65,7 @@ export const bigMediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/youtube-2025-09-09.webp",
     websiteLogoUrl: "/logos/youtube.png",
     isVideo: true,
-    achievementValue: "5,200+",
+    achievementValue: "6,600+",
     achievementLabel: "views"
   },
 ];
@@ -118,7 +118,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-repo-to-text-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "170+",
+    achievementValue: "190+",
     achievementLabel: "stars"
   },
   {
@@ -155,7 +155,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/kirill-2024-01-21.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "5,100+",
+    achievementValue: "5,200+",
     achievementLabel: "views",
     isVideo: true
   },
@@ -202,7 +202,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "ru",
     thumbnailUrl: "/articles/habr-2022-07-12.webp",
     websiteLogoUrl: "/logos/habr.svg",
-    achievementValue: "13,000+",
+    achievementValue: "15,000+",
     achievementLabel: "views"
   },
   {
@@ -361,7 +361,7 @@ export const smallMediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/youtube-2018-08-05.webp",
     websiteLogoUrl: "/logos/tanya-rybakova-youtube.png",
     isVideo: true,
-    achievementValue: "6,100+",
+    achievementValue: "6,200+",
     achievementLabel: "views"
   },
   {
