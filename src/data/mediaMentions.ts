@@ -73,7 +73,7 @@ export const bigMediaMentions: MediaMention[] = [
 // Small cards (1 grid column)
 export const smallMediaMentions: MediaMention[] = [
   {
-    title: "Merged pull request to Computer Using Agent Sample App",
+    title: "Merged pull request to OpenAI repository",
     url: "https://github.com/openai/openai-cua-sample-app/pull/11",
     publisher: "openai",
     date: "2024-04-01",
