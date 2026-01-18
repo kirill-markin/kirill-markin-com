@@ -171,7 +171,14 @@ export const socialLinks: SocialLink[] = [
     name: "Google Scholar",
     url: SOCIAL_URLS.googleScholar,
     username: "Kirill Markin",
+    socialLogoUrlDefault: "/social/google-scholar.svg",
+    socialLogoUrlHover: "/social/google-scholar_hover.svg",
+    avatarContact: true,
     avatarLearnMore: true,
-    footerBottom: true
+    footerBottom: true,
+    achievement: {
+      value: "2",
+      label: "articles"
+    }
   }
 ]; 
