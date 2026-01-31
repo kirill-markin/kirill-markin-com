@@ -32,20 +32,13 @@ Modern personal website built with Next.js 15. Migrated from Jekyll for performa
 
 ## Project Structure
 
-```
-src/
-├── app/
-│   ├── (default)/      # English static routes (lang="en")
-│   │   ├── articles/, services/, meet/, pay/
-│   ├── (i18n)/         # Localized routes
-│   │   └── [lang]/[segment]/[subsegment]/
-│   ├── sitemap.ts, robots.ts
-├── components/         # UI components
-├── content/articles/   # Markdown + translations/[lang]/
-├── data/               # Structured data (services, media)
-├── lib/                # Utils + localization.ts
-└── types/
-```
+- **`src/app/(default)/`** — English static routes (`/articles/`, `/services/`, `/meet/`, `/pay/`)
+- **`src/app/(i18n)/[lang]/`** — Localized dynamic routes
+- **`src/components/`** — UI components
+- **`src/content/articles/`** — Markdown articles + `translations/[lang]/`
+- **`src/data/`** — Structured data (services, media)
+- **`src/lib/`** — Utils including `localization.ts`
+- **`src/types/`** — TypeScript types
 
 ## Multilingual Architecture
 
