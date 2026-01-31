@@ -1,8 +1,3 @@
----
-description: 
-globs: src/content/articles/**
-alwaysApply: false
----
 # Business-Casual-Plus Writing Style Guide
 
 Professional business-casual tone with personality. Avoids AI-sounding language while maintaining professionalism.
