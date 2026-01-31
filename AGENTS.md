@@ -139,3 +139,7 @@ Built-in: `SITE_URL=https://kirill-markin.com/`, `SITE_NAME=Kirill Markin`
 - Structured process with key term discussion
 - Chinese translations reviewed with DeepSeek V3
 - SEO-friendly URLs with target language keywords
+
+## Writing Style
+
+- Writing style guide: [docs/writing-style.md](docs/writing-style.md)
