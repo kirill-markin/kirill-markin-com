@@ -9,15 +9,15 @@
   border: 1px solid var(--dark-gray);
   cursor: pointer;
   transition: transform 0.2s ease;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .copyButton:hover {
   transform: scale(1.05);
   background-color: #f5f5f5;
+  z-index: 3;
 }
 
 .icon {
@@ -37,7 +37,7 @@
   border-radius: 4px;
   font-size: 12px;
   white-space: nowrap;
-  z-index: 11;
+  z-index: 4;
   animation: fadeIn 0.3s ease;
 }
 
