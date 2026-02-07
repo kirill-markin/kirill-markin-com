@@ -1,20 +1,65 @@
 import { NextResponse } from 'next/server';
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '@/lib/localization';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, PATH_SEGMENTS } from '@/lib/localization';
 import type { NextRequest } from 'next/server';
 
+/** All known page names across all languages (articles, articulos, zhishi, services, etc.) */
+const KNOWN_PAGE_NAMES: Set<string> = new Set(
+    Object.values(PATH_SEGMENTS).flatMap(locales => Object.values(locales))
+);
+
 export function middleware(request: NextRequest) {
-    // Extract language from the URL path
     const { pathname } = request.nextUrl;
+
+    // --- Markdown serving: .md / .txt extension ---
+    if (pathname.endsWith('.md') || pathname.endsWith('.txt')) {
+        // Exclude /llms.txt and /robots.txt — they have their own handlers
+        if (pathname === '/llms.txt' || pathname === '/robots.txt') {
+            return NextResponse.next();
+        }
+
+        const ext = pathname.endsWith('.md') ? '.md' : '.txt';
+        const stripped = pathname.slice(1, -ext.length); // remove leading / and extension
+
+        // For single-segment .txt paths (e.g. /something.txt), only rewrite known page names
+        // to avoid intercepting IndexNow key files
+        if (ext === '.txt') {
+            const segments = stripped.split('/').filter(Boolean);
+            const effectiveSegments = segments.length > 0 && SUPPORTED_LANGUAGES.includes(segments[0])
+                ? segments.slice(1)
+                : segments;
+
+            if (effectiveSegments.length === 1 && !KNOWN_PAGE_NAMES.has(effectiveSegments[0])) {
+                return NextResponse.next();
+            }
+        }
+
+        const rewriteUrl = request.nextUrl.clone();
+        rewriteUrl.pathname = `/api/page-markdown/${stripped || 'home'}`;
+        return NextResponse.rewrite(rewriteUrl);
+    }
+
+    // --- Markdown serving: Accept header ---
+    const accept = request.headers.get('accept') || '';
+    if (
+        accept.includes('text/markdown') &&
+        !pathname.startsWith('/api/') &&
+        !pathname.startsWith('/_next/')
+    ) {
+        const stripped = pathname.replace(/^\//, '').replace(/\/$/, '');
+        const rewriteUrl = request.nextUrl.clone();
+        rewriteUrl.pathname = `/api/page-markdown/${stripped || 'home'}`;
+        return NextResponse.rewrite(rewriteUrl);
+    }
+
+    // --- Existing language extraction logic ---
     const pathParts = pathname.split('/').filter(Boolean);
 
     let lang = DEFAULT_LANGUAGE;
 
-    // If the first part of the path is a supported language, use it
     if (pathParts.length > 0 && SUPPORTED_LANGUAGES.includes(pathParts[0])) {
         lang = pathParts[0];
     }
 
-    // Create a new response and add the language header
     const response = NextResponse.next();
     response.headers.set('x-language', lang);
 
@@ -32,4 +77,4 @@ export const config = {
          */
         '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)|robots\\.txt).*)',
     ],
-}; 
+};

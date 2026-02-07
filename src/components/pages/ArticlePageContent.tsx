@@ -8,6 +8,7 @@ import AuthorBlock from '@/components/AuthorBlock';
 import SidebarRelatedArticles from '@/components/SidebarRelatedArticles';
 import SidebarVisibilityWrapper from '@/components/SidebarRelatedArticles/SidebarVisibilityWrapper';
 import Footer from '@/components/Footer';
+import CopyMarkdownButton from '@/components/CopyMarkdownButton/CopyMarkdownButton';
 import styles from '@/app/(default)/articles/articles.module.css';
 import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { getLocalizedTag } from '@/lib/tagLocalization';
@@ -91,6 +92,7 @@ export default function ArticlePageContent({
                                     </time>
                                 )}
                             </div>
+                            <CopyMarkdownButton content={article.content} />
                         </div>
                     </header>
 
