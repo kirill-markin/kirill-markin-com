@@ -61,7 +61,6 @@ export default function ArticlePageContent({
                 <SocialShare url={canonicalUrl} title={article.metadata.title} variant="fixed" />
 
                 <article className={styles.articleContainer}>
-                    <CopyMarkdownButton content={article.content} />
                     <header className={styles.articleHeader}>
                         <div className={styles.articleMeta}>
                             <div className={styles.metaRow}>
@@ -80,18 +79,21 @@ export default function ArticlePageContent({
                                     )}
                                 </div>
 
-                                {article.metadata.date && (
-                                    <time className={styles.articleDate} dateTime={article.metadata.date}>
-                                        {new Date(article.metadata.date).toLocaleDateString(
-                                            language === 'en' ? 'en-US' : language,
-                                            {
-                                                year: 'numeric',
-                                                month: 'long',
-                                                day: 'numeric',
-                                            }
-                                        )}
-                                    </time>
-                                )}
+                                <div className={styles.metaRight}>
+                                    {article.metadata.date && (
+                                        <time className={styles.articleDate} dateTime={article.metadata.date}>
+                                            {new Date(article.metadata.date).toLocaleDateString(
+                                                language === 'en' ? 'en-US' : language,
+                                                {
+                                                    year: 'numeric',
+                                                    month: 'long',
+                                                    day: 'numeric',
+                                                }
+                                            )}
+                                        </time>
+                                    )}
+                                    <CopyMarkdownButton content={article.content} />
+                                </div>
                             </div>
                         </div>
                     </header>
