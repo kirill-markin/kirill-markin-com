@@ -8,16 +8,13 @@
   background-color: white;
   border: 1px solid var(--dark-gray);
   cursor: pointer;
-  transition: transform 0.2s ease;
   position: relative;
   z-index: 2;
   flex-shrink: 0;
 }
 
 .copyButton:hover {
-  transform: scale(1.05);
   background-color: #f5f5f5;
-  z-index: 3;
 }
 
 .icon {
