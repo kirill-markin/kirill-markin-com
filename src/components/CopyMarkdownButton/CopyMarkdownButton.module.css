@@ -9,8 +9,10 @@
   border: 1px solid var(--dark-gray);
   cursor: pointer;
   transition: transform 0.2s ease;
-  position: relative;
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .copyButton:hover {
@@ -35,6 +37,7 @@
   border-radius: 4px;
   font-size: 12px;
   white-space: nowrap;
+  z-index: 11;
   animation: fadeIn 0.3s ease;
 }
 

@@ -61,6 +61,7 @@ export default function ArticlePageContent({
                 <SocialShare url={canonicalUrl} title={article.metadata.title} variant="fixed" />
 
                 <article className={styles.articleContainer}>
+                    <CopyMarkdownButton content={article.content} />
                     <header className={styles.articleHeader}>
                         <div className={styles.articleMeta}>
                             <div className={styles.metaRow}>
@@ -92,7 +93,6 @@ export default function ArticlePageContent({
                                     </time>
                                 )}
                             </div>
-                            <CopyMarkdownButton content={article.content} />
                         </div>
                     </header>
 
