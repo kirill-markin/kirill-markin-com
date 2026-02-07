@@ -1,0 +1,48 @@
+.copyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  background-color: white;
+  border: 1px solid var(--dark-gray);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.copyButton:hover {
+  transform: scale(1.05);
+  background-color: #f5f5f5;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  color: #555;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--dark-gray, #333);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
