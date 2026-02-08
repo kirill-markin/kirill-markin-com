@@ -60,6 +60,22 @@ function getLanguageAlternates(
 }
 
 /**
+ * Derive the Markdown-alternate URL from a canonical URL.
+ * Strips trailing slashes and query parameters, appends `.md`.
+ * Root path maps to `/home.md` to match the markdown API route.
+ */
+function getMarkdownPath(canonicalUrl: string): string {
+    let path: string;
+    if (canonicalUrl.startsWith('http')) {
+        path = new URL(canonicalUrl).pathname;
+    } else {
+        path = canonicalUrl.split('?')[0];
+    }
+    path = path.replace(/\/+$/, '');
+    return path === '' ? '/home.md' : `${path}.md`;
+}
+
+/**
  * Generate metadata for the home page
  * @param language Language code
  * @returns Metadata object
@@ -109,6 +125,7 @@ export function generateHomePageMetadata(language: string): Metadata {
         alternates: {
             canonical: canonicalUrl,
             languages: alternates,
+            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 }
@@ -199,7 +216,8 @@ export function generateArticlesPageMetadata(
         },
         alternates: {
             canonical: canonicalUrl,
-            languages: languageAlternates
+            languages: languageAlternates,
+            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 }
@@ -335,7 +353,8 @@ export function generateServicesPageMetadata(
         },
         alternates: {
             canonical: canonicalUrl,
-            languages: languageAlternates
+            languages: languageAlternates,
+            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 }
@@ -495,7 +514,8 @@ export function generateMeetPageMetadata(
         },
         alternates: {
             canonical: canonicalUrl,
-            languages: languageAlternates
+            languages: languageAlternates,
+            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 }
@@ -610,7 +630,8 @@ export function generatePayPageMetadata(
         },
         alternates: {
             canonical: canonicalUrl,
-            languages: languageAlternates
+            languages: languageAlternates,
+            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 }
@@ -650,6 +671,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
         },
         alternates: {
             canonical: '/services/fractional-ai-cto-kirill-markin/',
+            types: { 'text/markdown': getMarkdownPath('/services/fractional-ai-cto-kirill-markin/') },
         },
         // Workaround for Next.js OpenGraph limitations: 
         // Set proper OpenGraph product type and properties via 'other' field
@@ -707,6 +729,7 @@ export function generateMentorshipPageMetadata(): Metadata {
         },
         alternates: {
             canonical: '/services/mentorship/',
+            types: { 'text/markdown': getMarkdownPath('/services/mentorship/') },
         },
         other: {
             'og:type': 'product',
@@ -756,6 +779,7 @@ export function generatePolicePageMetadata(): Metadata {
         },
         alternates: {
             canonical: '/services/police/',
+            types: { 'text/markdown': getMarkdownPath('/services/police/') },
         },
         other: {
             'og:type': 'product',
@@ -811,6 +835,7 @@ export function generateSubscribePageMetadata(): Metadata {
         },
         alternates: {
             canonical: canonicalUrl,
+            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 } 

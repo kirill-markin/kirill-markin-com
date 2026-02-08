@@ -62,6 +62,12 @@ export function middleware(request: NextRequest) {
 
     const response = NextResponse.next();
     response.headers.set('x-language', lang);
+    response.headers.set('Vary', 'Accept');
+
+    // Advertise Markdown alternate via standard Link header
+    const cleanPath = pathname.replace(/\/+$/, '');
+    const mdPath = cleanPath === '' ? '/home.md' : `${cleanPath}.md`;
+    response.headers.set('Link', `<${mdPath}>; rel="alternate"; type="text/markdown"`);
 
     return response;
 }

@@ -221,7 +221,8 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
             },
             alternates: {
                 canonical: canonicalUrl,
-                languages: languageAlternates
+                languages: languageAlternates,
+                types: { 'text/markdown': `${canonicalUrl}.md` },
             },
         };
     }
