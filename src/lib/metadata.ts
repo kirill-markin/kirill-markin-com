@@ -72,7 +72,7 @@ function getMarkdownPath(canonicalUrl: string): string {
         path = canonicalUrl.split('?')[0];
     }
     path = path.replace(/\/+$/, '');
-    return path === '' ? '/home.md' : `${path}.md`;
+    return path === '' ? '/.md' : `${path}.md`;
 }
 
 /**
