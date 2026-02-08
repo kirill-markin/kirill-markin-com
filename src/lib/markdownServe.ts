@@ -2,11 +2,26 @@ import { getAllArticles, getArticleBySlug } from '@/lib/articles';
 import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
 import { servicesOtherData } from '@/data/servicesOther';
 import { SITE_URL } from '@/data/contacts';
+import { socialLinks } from '@/data/socialLinks';
+import { bigMediaMentions, smallMediaMentions, type MediaMention } from '@/data/mediaMentions';
 
 type MarkdownResult = {
   markdown: string;
   status: 200 | 404;
 };
+
+function formatMediaMention(m: MediaMention): string {
+  const title = m.alternativeTitle || m.title;
+  const parts: string[] = [];
+  if (m.publisher) parts.push(m.publisher);
+  if (m.date) parts.push(m.date);
+  if (m.type) parts.push(m.type);
+  if (m.achievementValue) {
+    parts.push(`${m.achievementValue}${m.achievementLabel ? ' ' + m.achievementLabel : ''}`);
+  }
+  const suffix = parts.length > 0 ? ` — ${parts.join(', ')}` : '';
+  return `- [${title}](${m.url})${suffix}`;
+}
 
 export async function renderHomeMarkdown(language: string): Promise<MarkdownResult> {
   const home = getTranslation('home', language);
@@ -40,6 +55,19 @@ export async function renderHomeMarkdown(language: string): Promise<MarkdownResu
     ),
     ``,
     `[All services](${SITE_URL}${langPrefix}/${servicesSegment}/)`,
+    ``,
+    `## Professional Profiles`,
+    ``,
+    ...socialLinks
+      .filter(s => !s.hidden && s.avatarContact)
+      .map(s => {
+        const achievement = s.achievement ? ` (${s.achievement.value} ${s.achievement.label})` : '';
+        return `- [${s.name}](${s.url}) — ${s.username}${achievement}`;
+      }),
+    ``,
+    `## Media & Publications`,
+    ``,
+    ...[...bigMediaMentions, ...smallMediaMentions].map(formatMediaMention),
     ``,
     `## Contact`,
     ``,
@@ -154,6 +182,12 @@ export async function renderMeetMarkdown(language: string): Promise<MarkdownResu
     meetTranslation.longMeeting.description,
     ``,
     `[Book](${SITE_URL}${langPrefix}/${meetSegment}/long/)`,
+    ``,
+    `## ${meetTranslation.allMeetings.title}`,
+    ``,
+    meetTranslation.allMeetings.description,
+    ``,
+    `[View all](${SITE_URL}${langPrefix}/${meetSegment}/all/)`,
   ];
 
   return { markdown: lines.join('\n'), status: 200 };
