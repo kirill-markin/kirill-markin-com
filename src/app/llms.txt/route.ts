@@ -58,7 +58,7 @@ ${recentArticles.map(article =>
 ## Markdown Access
 
 Any page on this site is available as clean Markdown for LLM consumption:
-- Append \`.md\` to any URL (e.g. ${baseUrl}/articles/your-article-slug.md)
+- Append \`.md\` to any URL (e.g. ${baseUrl}/.md, ${baseUrl}/articles.md, ${baseUrl}/services.md)
 - Or send the HTTP header \`Accept: text/markdown\` to get Markdown from the original URL`;
 
     return new NextResponse(llmsContent, {
