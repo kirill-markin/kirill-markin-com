@@ -53,7 +53,13 @@ ${recentArticles.map(article =>
 
 - [Payment Options](${baseUrl}/pay/): Information about payment methods and billing
 - [Multilingual Content](${baseUrl}/es/, ${baseUrl}/zh/, ${baseUrl}/ar/, ${baseUrl}/hi/): Content available in Spanish (es), Chinese (zh), Arabic (ar), and Hindi (hi)
-- [RSS/Sitemap](${baseUrl}/sitemap.xml): Complete site structure and content index`;
+- [RSS/Sitemap](${baseUrl}/sitemap.xml): Complete site structure and content index
+
+## Markdown Access
+
+Any page on this site is available as clean Markdown for LLM consumption:
+- Append \`.md\` to any URL (e.g. ${baseUrl}/articles/your-article-slug.md)
+- Or send the HTTP header \`Accept: text/markdown\` to get Markdown from the original URL`;
 
     return new NextResponse(llmsContent, {
         headers: {

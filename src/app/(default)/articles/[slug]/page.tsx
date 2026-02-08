@@ -83,7 +83,8 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     },
     alternates: {
       canonical: canonicalUrl,
-      languages: languageAlternates
+      languages: languageAlternates,
+      types: { 'text/markdown': `${canonicalUrl}.md` },
     }
   };
 }
