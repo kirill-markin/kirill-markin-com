@@ -19,9 +19,11 @@
     "test-cache": "npx tsx scripts/test-cache-headers.ts"
   },
   "dependencies": {
+    "@google-cloud/bigquery": "^8.1.1",
     "@sentry/nextjs": "^10.32.1",
     "@tailwindcss/typography": "^0.5.16",
     "@vercel/speed-insights": "^1.2.0",
+    "d3": "^7.9.0",
     "gray-matter": "^4.0.3",
     "image-size": "^2.0.2",
     "next": "15.3.8",
@@ -41,6 +43,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.3",
+    "@types/d3": "^7.4.3",
     "@types/jest": "^29.5.14",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20",
