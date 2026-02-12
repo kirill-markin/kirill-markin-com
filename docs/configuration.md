@@ -12,6 +12,15 @@ LEMLIST_API_KEY=your_lemlist_api_key
 LEMLIST_SUBSCRIPTION_COMPANY_ID=your_company_id
 ```
 
+## Environment (required for dashboards build)
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS_JSON=<service account key JSON>
+```
+
+The service account only needs read access to public curated views — never to raw private data.
+See [`src/lib/bigquery.ts`](../src/lib/bigquery.ts) for details.
+
 Built-in: `SITE_URL=https://kirill-markin.com/`, `SITE_NAME=Kirill Markin`
 
 ## SEO & Performance
