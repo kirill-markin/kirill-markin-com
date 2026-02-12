@@ -32,12 +32,13 @@ Modern personal website built with Next.js 15. Migrated from Jekyll for performa
 
 ## Project Structure
 
-- **`src/app/(default)/`** — English static routes (`/articles/`, `/services/`, `/meet/`, `/pay/`)
+- **`src/app/(default)/`** — English static routes (`/articles/`, `/services/`, `/meet/`, `/pay/`, `/dashboards/`)
 - **`src/app/(i18n)/[lang]/`** — Localized dynamic routes
 - **`src/components/`** — UI components
+- **`src/components/charts/`** — D3.js chart components (client-side)
 - **`src/content/articles/`** — Markdown articles + `translations/[lang]/`
 - **`src/data/`** — Structured data (services, media)
-- **`src/lib/`** — Utils including `localization.ts`
+- **`src/lib/`** — Utils including `localization.ts`, `bigquery.ts`, `weight.ts`
 - **`src/types/`** — TypeScript types
 
 ## Multilingual Architecture
@@ -101,6 +102,13 @@ export default async function Page({ params }: PageProps) {
 - Structured process with key term discussion
 - Chinese translations reviewed with DeepSeek V3
 - SEO-friendly URLs with target language keywords
+
+## Dashboards
+
+Pages under `/dashboards/` display personal metrics as D3.js charts.
+Data is fetched from BigQuery at build time and baked into static HTML.
+Daily redeploy via GitHub Actions cron + Vercel Deploy Hook keeps data fresh.
+See `src/lib/bigquery.ts` and `src/lib/weight.ts` for details.
 
 ## Reference
 

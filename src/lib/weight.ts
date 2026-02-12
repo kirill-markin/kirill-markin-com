@@ -1,3 +1,8 @@
+/**
+ * Fetches weight series from the public.weight_series authorized view.
+ * The view exposes only date + kg — no notes, IDs, or private metadata.
+ * Source schema is managed in the analytics repository.
+ */
 import { getBigQueryClient } from '@/lib/bigquery';
 import type { WeightPoint } from '@/types/weight';
 

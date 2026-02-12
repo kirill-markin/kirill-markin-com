@@ -1,3 +1,15 @@
+/**
+ * BigQuery client for build-time data fetching.
+ *
+ * Used by dashboard pages to query curated public views at build time.
+ * Data is baked into static HTML — no runtime queries.
+ *
+ * Requires GOOGLE_APPLICATION_CREDENTIALS_JSON env var (Vercel, production + preview)
+ * with a service account key that has read access to the `public` dataset only.
+ * The service account must NOT have access to `raw` or other private datasets.
+ *
+ * Daily redeploy (.github/workflows/daily-redeploy.yml) keeps data fresh.
+ */
 import { BigQuery } from '@google-cloud/bigquery';
 
 const PROJECT_ID = 'personal-analytics-km';
