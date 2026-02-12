@@ -1,0 +1,13 @@
+name: Daily Redeploy
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel Deploy Hook
+        run: curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"

@@ -117,6 +117,23 @@ export const pageFilesMap: Record<string, string[]> = {
         'src/app/api/subscribe/route.ts',
         ...commonFiles
     ],
+    // Dashboard pages
+    '/dashboards/': [
+        'src/app/(default)/dashboards/page.tsx',
+        ...commonFiles
+    ],
+    '/dashboards/body/': [
+        'src/app/(default)/dashboards/body/page.tsx',
+        'src/components/charts/WeightLineChart.tsx',
+        'src/lib/weight.ts',
+        ...commonFiles
+    ],
+    '/dashboards/body/weight/': [
+        'src/app/(default)/dashboards/body/weight/page.tsx',
+        'src/components/charts/WeightLineChart.tsx',
+        'src/lib/weight.ts',
+        ...commonFiles
+    ],
     // Add search page
     '/search/': [
         'src/app/(default)/search/page.tsx',
