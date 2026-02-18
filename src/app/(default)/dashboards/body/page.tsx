@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { getWeightSeries } from '@/lib/weight';
-import { WeightLineChart } from '@/components/charts/WeightLineChart';
+import { WeightDashboard } from '@/components/charts/WeightDashboard';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -41,13 +40,9 @@ export default async function BodyDashboardPage() {
       <h1>Body</h1>
 
       <section style={{ marginTop: '2rem' }}>
-        <h2>
-          <Link href="/dashboards/body/weight/" style={{ color: 'inherit', textDecoration: 'none' }}>
-            Weight
-          </Link>
-        </h2>
-        <div style={{ width: '100%', aspectRatio: '16 / 8', minHeight: 240 }}>
-          <WeightLineChart series={weightSeries} />
+        <h2>Weight</h2>
+        <div style={{ maxWidth: '50%' }}>
+          <WeightDashboard series={weightSeries} />
         </div>
       </section>
     </main>

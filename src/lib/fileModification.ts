@@ -124,12 +124,7 @@ export const pageFilesMap: Record<string, string[]> = {
     ],
     '/dashboards/body/': [
         'src/app/(default)/dashboards/body/page.tsx',
-        'src/components/charts/WeightLineChart.tsx',
-        'src/lib/weight.ts',
-        ...commonFiles
-    ],
-    '/dashboards/body/weight/': [
-        'src/app/(default)/dashboards/body/weight/page.tsx',
+        'src/components/charts/WeightDashboard.tsx',
         'src/components/charts/WeightLineChart.tsx',
         'src/lib/weight.ts',
         ...commonFiles
