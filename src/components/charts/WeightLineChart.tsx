@@ -75,10 +75,6 @@ export const WeightLineChart = (props: Props): ReactElement => {
   const [zoomDomain, setZoomDomain] = useState<readonly [Date, Date] | null>(null);
 
   const data = useMemo<ReadonlyArray<ParsedPoint>>(() => {
-    if (series.length < 2) {
-      throw new Error("Weight series must have at least 2 points.");
-    }
-
     return series.map((point) => ({
       date: parseUtcDate(point.date),
       dateRaw: point.date,
@@ -89,6 +85,16 @@ export const WeightLineChart = (props: Props): ReactElement => {
   const width = 900;
   const height = 420;
   const margin = { top: 24, right: 24, bottom: 44, left: 58 } as const;
+
+  if (data.length < 2) {
+    return (
+      <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Weight over time">
+        <text x={width / 2} y={height / 2} textAnchor="middle" fill="#898989" fontSize={14}>
+          Not enough data for the selected period.
+        </text>
+      </svg>
+    );
+  }
 
   const xDomain = extent(data, (d) => d.date);
   const xMin = xDomain[0];
