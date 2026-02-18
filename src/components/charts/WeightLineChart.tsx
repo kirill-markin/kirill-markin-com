@@ -72,6 +72,7 @@ const buildXTickFormatter = (domainStart: Date, domainEnd: Date): ((tick: Date) 
 export const WeightLineChart = (props: Props): ReactElement => {
   const { series } = props;
   const brushRef = useRef<SVGGElement>(null);
+  const xScaleRef = useRef<ReturnType<typeof scaleTime> | null>(null);
   const [zoomDomain, setZoomDomain] = useState<readonly [Date, Date] | null>(null);
 
   const data = useMemo<ReadonlyArray<ParsedPoint>>(() => {
@@ -85,6 +86,30 @@ export const WeightLineChart = (props: Props): ReactElement => {
   const width = 900;
   const height = 420;
   const margin = { top: 24, right: 24, bottom: 44, left: 58 } as const;
+
+  useEffect(() => {
+    const node = brushRef.current;
+    if (node === null) return;
+
+    const brush = brushX()
+      .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]])
+      .on("end", (event: D3BrushEvent<unknown>) => {
+        const selection = event.selection as [number, number] | null;
+        if (selection === null) return;
+        const [x0, x1] = selection;
+        const currentScale = xScaleRef.current;
+        if (currentScale === null) return;
+        setZoomDomain([currentScale.invert(x0), currentScale.invert(x1)] as const);
+        select(node).call(brush.move, null);
+      });
+
+    select(node).call(brush);
+
+    return () => {
+      select(node).on(".brush", null);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (data.length < 2) {
     return (
@@ -145,30 +170,7 @@ export const WeightLineChart = (props: Props): ReactElement => {
     throw new Error("Failed to generate full line path.");
   }
 
-  const xScaleRef = useRef(xScale);
   xScaleRef.current = xScale;
-
-  useEffect(() => {
-    const node = brushRef.current;
-    if (node === null) return;
-
-    const brush = brushX()
-      .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]])
-      .on("end", (event: D3BrushEvent<unknown>) => {
-        const selection = event.selection as [number, number] | null;
-        if (selection === null) return;
-        const [x0, x1] = selection;
-        setZoomDomain([xScaleRef.current.invert(x0), xScaleRef.current.invert(x1)] as const);
-        select(node).call(brush.move, null);
-      });
-
-    select(node).call(brush);
-
-    return () => {
-      select(node).on(".brush", null);
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleReset = (): void => {
     setZoomDomain(null);
