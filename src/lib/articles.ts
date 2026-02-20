@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { ArticleMetadata } from '@/types/article';
 import { DEFAULT_LANGUAGE } from './localization';
+import { validateFrontmatter } from './validateFrontmatter';
 
 const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
@@ -86,6 +87,8 @@ export async function getArticleBySlug(
 
     const fileContents = await fs.readFile(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
+    // Validate frontmatter fields
+    validateFrontmatter(data, language !== DEFAULT_LANGUAGE);
 
     // Validate that this is a published article
     if (data.publish !== true) {

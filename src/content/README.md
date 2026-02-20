@@ -83,6 +83,7 @@ When adding images:
 - Use the `language` field to specify the article's language
 - Always maintain bidirectional references between originals and translations
 - Images should use the `.webp` format for optimal performance
+- Only the documented frontmatter keys are allowed; extra keys will cause the validation script to fail
 
 ## Notes
 
