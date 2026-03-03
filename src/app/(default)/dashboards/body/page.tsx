@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { getWeightSeries } from '@/lib/weight';
 import { generateWeightCsv } from '@/lib/generateWeightCsv';
+import { BodyFacts } from '@/components/charts/BodyFacts';
 import { WeightDashboard } from '@/components/charts/WeightDashboard';
 import { RawDataSection } from '@/components/charts/RawDataSection';
 
@@ -45,6 +46,10 @@ export default async function BodyDashboardPage() {
 
       <section style={{ marginTop: '2rem' }}>
         <div className="dashboard-grid">
+          <div className="dashboard-grid-item">
+            <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Facts</h2>
+            <BodyFacts />
+          </div>
           <div className="dashboard-grid-item">
             <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Weight</h2>
             <WeightDashboard series={weightSeries} />
