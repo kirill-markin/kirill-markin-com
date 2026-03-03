@@ -16,7 +16,12 @@ const CACHE_HEADERS = {
   'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
 };
 
-const MARKDOWN_FOOTER = `\n\n---\n*Tip: Append \`.md\` to any URL on ${SITE_URL} to get a clean Markdown version of that page.*`;
+function markdownFooter(pagePath: string[], language: string): string {
+  const langPrefix = language === DEFAULT_LANGUAGE ? '' : `/${language}`;
+  const pathSuffix = pagePath.length > 0 ? `/${pagePath.join('/')}` : '';
+  const originalUrl = `${SITE_URL}${langPrefix}${pathSuffix}`;
+  return `\n\n---\n*[View the styled HTML version of this page](${originalUrl})*\n\n*Tip: Append \`.md\` to any URL on ${SITE_URL} to get a clean Markdown version of that page.*`;
+}
 
 /**
  * Resolve a localized path segment back to its canonical English name.
@@ -51,7 +56,7 @@ export async function GET(
   // Route: home
   if (pathParts.length === 0 || (pathParts.length === 1 && pathParts[0] === 'home')) {
     const result = await renderHomeMarkdown(language);
-    return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+    return new NextResponse(result.markdown + markdownFooter([], language), { status: result.status, headers: CACHE_HEADERS });
   }
 
   // Resolve the first segment to canonical name
@@ -60,32 +65,32 @@ export async function GET(
   if (canonical === 'articles') {
     if (pathParts.length === 1) {
       const result = await renderArticlesListingMarkdown(language);
-      return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+      return new NextResponse(result.markdown + markdownFooter([pathParts[0]], language), { status: result.status, headers: CACHE_HEADERS });
     }
     // pathParts[1] is the article slug
     const result = await renderArticleMarkdown(pathParts[1], language);
-    return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+    return new NextResponse(result.markdown + markdownFooter([pathParts[0], pathParts[1]], language), { status: result.status, headers: CACHE_HEADERS });
   }
 
   if (canonical === 'services') {
     const result = await renderServicesListingMarkdown(language);
-    return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+    return new NextResponse(result.markdown + markdownFooter([pathParts[0]], language), { status: result.status, headers: CACHE_HEADERS });
   }
 
   if (canonical === 'meet') {
     const result = await renderMeetMarkdown(language);
-    return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+    return new NextResponse(result.markdown + markdownFooter([pathParts[0]], language), { status: result.status, headers: CACHE_HEADERS });
   }
 
   // Route: dashboards
   if (pathParts[0] === 'dashboards') {
     if (pathParts.length === 1) {
       const result = await renderDashboardsListingMarkdown();
-      return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+      return new NextResponse(result.markdown + markdownFooter(['dashboards'], language), { status: result.status, headers: CACHE_HEADERS });
     }
     if (pathParts[1] === 'body') {
       const result = await renderDashboardsBodyMarkdown();
-      return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+      return new NextResponse(result.markdown + markdownFooter(['dashboards', 'body'], language), { status: result.status, headers: CACHE_HEADERS });
     }
   }
 
