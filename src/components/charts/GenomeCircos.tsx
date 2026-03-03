@@ -424,7 +424,7 @@ export const GenomeCircos = (props: Props): ReactElement => {
   }, [data.chromosomes]);
 
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: "800px", margin: "0 auto" }}>
+    <div style={{ position: "relative", width: "100%" }}>
       <svg
         viewBox={`0 0 ${SIZE} ${SIZE}`}
         role="img"

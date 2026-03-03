@@ -6,6 +6,7 @@ import { getGenomeCircosData } from '@/lib/genome';
 import { BodyFacts } from '@/components/charts/BodyFacts';
 import { WeightDashboard } from '@/components/charts/WeightDashboard';
 import { GenomeCircos } from '@/components/charts/GenomeCircos';
+import { ChartFullscreen } from '@/components/charts/ChartFullscreen';
 import { RawDataSection } from '@/components/charts/RawDataSection';
 
 export const dynamic = 'force-static';
@@ -55,19 +56,21 @@ export default async function BodyDashboardPage() {
           </div>
           <div className="dashboard-grid-item">
             <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Weight</h2>
-            <WeightDashboard series={weightSeries} />
+            <ChartFullscreen title="Weight">
+              <WeightDashboard series={weightSeries} />
+            </ChartFullscreen>
+          </div>
+          <div className="dashboard-grid-item">
+            <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Genome</h2>
+            <ChartFullscreen title="Genome">
+              <p style={{ margin: '0 0 12px', fontSize: '13px', color: '#898989', lineHeight: 1.5 }}>
+                Circular genome map of {genomeData.totalSnps.toLocaleString()} genotyped SNPs across 23 chromosomes.
+                Outer ring: SNP density per 1 Mb window. Inner ring: heterozygosity rate.
+              </p>
+              <GenomeCircos data={genomeData} />
+            </ChartFullscreen>
           </div>
         </div>
-      </section>
-
-      <section style={{ marginTop: '2rem' }}>
-        <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Genome</h2>
-        <p style={{ margin: '0 0 16px', fontSize: '13px', color: '#898989', lineHeight: 1.5 }}>
-          Circular genome map of {genomeData.totalSnps.toLocaleString()} genotyped SNPs across 23 chromosomes.
-          Outer ring: SNP density per 1 Mb window. Inner ring: heterozygosity rate.
-          Source: Atlas Biomed, February 2022.
-        </p>
-        <GenomeCircos data={genomeData} />
       </section>
 
       <RawDataSection
