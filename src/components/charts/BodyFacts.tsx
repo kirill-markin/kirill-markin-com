@@ -36,7 +36,7 @@ const styles = {
     display: "flex",
     flexDirection: "column" as const,
     border: "1px solid #ddd",
-    borderRadius: "4px",
+    borderRadius: "0",
   },
   row: {
     display: "flex",
