@@ -3,7 +3,7 @@
 import { brushX, curveCatmullRom, extent, line, max, min, scaleLinear, scaleTime, select, utcFormat } from "d3";
 import type { D3BrushEvent } from "d3";
 import type { ReactElement } from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import type { WeightPoint } from "@/types/weight";
 
@@ -15,6 +15,7 @@ type ParsedPoint = Readonly<{
 
 type Props = Readonly<{
   series: ReadonlyArray<WeightPoint>;
+  onDateRangeChange?: (dateFrom: string, dateTo: string) => void;
 }>;
 
 type TooltipData = Readonly<{
@@ -32,6 +33,13 @@ const parseUtcDate = (value: string): Date => {
   }
 
   return date;
+};
+
+const formatDateToInput = (date: Date): string => {
+  const y = date.getUTCFullYear();
+  const m = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(date.getUTCDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 };
 
 const MS_PER_DAY = 86_400_000;
@@ -101,11 +109,12 @@ const tooltipStyles = {
 } as const;
 
 export const WeightLineChart = (props: Props): ReactElement => {
-  const { series } = props;
+  const { series, onDateRangeChange } = props;
   const svgRef = useRef<SVGSVGElement>(null);
   const brushRef = useRef<SVGGElement>(null);
   const xScaleRef = useRef<ReturnType<typeof scaleTime> | null>(null);
-  const [zoomDomain, setZoomDomain] = useState<readonly [Date, Date] | null>(null);
+  const onDateRangeChangeRef = useRef(onDateRangeChange);
+  onDateRangeChangeRef.current = onDateRangeChange;
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
 
   const data = useMemo<ReadonlyArray<ParsedPoint>>(() => {
@@ -120,6 +129,17 @@ export const WeightLineChart = (props: Props): ReactElement => {
   const height = 420;
   const margin = { top: 24, right: 24, bottom: 44, left: 58 } as const;
 
+  const handleBrushEnd = useCallback((event: D3BrushEvent<unknown>) => {
+    const selection = event.selection as [number, number] | null;
+    if (selection === null) return;
+    const [x0, x1] = selection;
+    const currentScale = xScaleRef.current;
+    if (currentScale === null) return;
+    const dateFrom = formatDateToInput(currentScale.invert(x0));
+    const dateTo = formatDateToInput(currentScale.invert(x1));
+    onDateRangeChangeRef.current?.(dateFrom, dateTo);
+  }, []);
+
   useEffect(() => {
     const node = brushRef.current;
     if (node === null) return;
@@ -127,12 +147,7 @@ export const WeightLineChart = (props: Props): ReactElement => {
     const brush = brushX()
       .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]])
       .on("end", (event: D3BrushEvent<unknown>) => {
-        const selection = event.selection as [number, number] | null;
-        if (selection === null) return;
-        const [x0, x1] = selection;
-        const currentScale = xScaleRef.current;
-        if (currentScale === null) return;
-        setZoomDomain([currentScale.invert(x0), currentScale.invert(x1)] as const);
+        handleBrushEnd(event);
         select(node).call(brush.move, null);
       });
 
@@ -142,7 +157,7 @@ export const WeightLineChart = (props: Props): ReactElement => {
       select(node).on(".brush", null);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [handleBrushEnd]);
 
   if (data.length < 2) {
     return (
@@ -161,20 +176,12 @@ export const WeightLineChart = (props: Props): ReactElement => {
     throw new Error("Failed to compute X domain.");
   }
 
-  const activeXMin = zoomDomain !== null ? zoomDomain[0] : xMin;
-  const activeXMax = zoomDomain !== null ? zoomDomain[1] : xMax;
-
   const xScale = scaleTime()
-    .domain([activeXMin, activeXMax])
+    .domain([xMin, xMax])
     .range([margin.left, width - margin.right]);
 
-  const visibleData = zoomDomain !== null
-    ? data.filter((d) => d.date >= zoomDomain[0] && d.date <= zoomDomain[1])
-    : data;
-  const ySource = visibleData.length >= 2 ? visibleData : data;
-
-  const yMinRaw = min(ySource, (d) => d.weightKg);
-  const yMaxRaw = max(ySource, (d) => d.weightKg);
+  const yMinRaw = min(data, (d) => d.weightKg);
+  const yMaxRaw = max(data, (d) => d.weightKg);
   if (yMinRaw === undefined || yMaxRaw === undefined) {
     throw new Error("Failed to compute Y domain.");
   }
@@ -189,7 +196,7 @@ export const WeightLineChart = (props: Props): ReactElement => {
 
   const xTicks = xScale.ticks(6);
   const yTicks = yScale.ticks(5);
-  const xTickFormat = buildXTickFormatter(activeXMin, activeXMax);
+  const xTickFormat = buildXTickFormatter(xMin, xMax);
 
   const gaps = findGaps(data);
 
@@ -204,10 +211,6 @@ export const WeightLineChart = (props: Props): ReactElement => {
   }
 
   xScaleRef.current = xScale;
-
-  const handleReset = (): void => {
-    setZoomDomain(null);
-  };
 
   const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>): void => {
     const svgElement = svgRef.current;
@@ -339,15 +342,6 @@ export const WeightLineChart = (props: Props): ReactElement => {
         <text x={margin.left} y={margin.top - 10} fill="#898989" fontSize={12}>
           kg
         </text>
-
-        {zoomDomain !== null && (
-          <g cursor="pointer" onClick={handleReset}>
-            <rect x={width - margin.right - 52} y={4} width={52} height={20} rx={3} fill="#898989" opacity={0.15} />
-            <text x={width - margin.right - 26} y={17} textAnchor="middle" fill="#898989" fontSize={11}>
-              Reset
-            </text>
-          </g>
-        )}
 
         <g ref={brushRef} />
       </svg>
