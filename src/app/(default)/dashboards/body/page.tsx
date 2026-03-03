@@ -13,7 +13,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Body Dashboard | ${VCARD_DATA.fullName}`;
+  const title = `Kirill Markin: Body | ${VCARD_DATA.fullName}`;
   const description = `Body metrics dashboard by ${VCARD_DATA.fullName}. Weight tracking over time with interactive D3.js charts — updated daily.`;
   const canonicalUrl = `${SITE_URL}/dashboards/body/`;
 
@@ -47,7 +47,7 @@ export default async function BodyDashboardPage() {
 
   return (
     <main style={{ padding: '2rem 1rem' }}>
-      <h1>Body</h1>
+      <h1>Kirill Markin: Body</h1>
 
       <section style={{ marginTop: '2rem' }}>
         <div className="dashboard-grid">
