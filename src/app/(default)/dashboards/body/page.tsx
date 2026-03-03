@@ -2,8 +2,10 @@ import { Metadata } from 'next';
 import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { getWeightSeries } from '@/lib/weight';
 import { generateWeightCsv } from '@/lib/generateWeightCsv';
+import { getGenomeCircosData } from '@/lib/genome';
 import { BodyFacts } from '@/components/charts/BodyFacts';
 import { WeightDashboard } from '@/components/charts/WeightDashboard';
+import { GenomeCircos } from '@/components/charts/GenomeCircos';
 import { RawDataSection } from '@/components/charts/RawDataSection';
 
 export const dynamic = 'force-static';
@@ -39,6 +41,7 @@ export default async function BodyDashboardPage() {
   const weightSeries = await getWeightSeries();
   const csvMeta = generateWeightCsv(weightSeries);
   const csvSizeKb = Math.round(csvMeta.fileSizeBytes / 1024);
+  const genomeData = getGenomeCircosData();
 
   return (
     <main style={{ padding: '2rem 1rem' }}>
@@ -55,6 +58,16 @@ export default async function BodyDashboardPage() {
             <WeightDashboard series={weightSeries} />
           </div>
         </div>
+      </section>
+
+      <section style={{ marginTop: '2rem' }}>
+        <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Genome</h2>
+        <p style={{ margin: '0 0 16px', fontSize: '13px', color: '#898989', lineHeight: 1.5 }}>
+          Circular genome map of {genomeData.totalSnps.toLocaleString()} genotyped SNPs across 23 chromosomes.
+          Outer ring: SNP density per 1 Mb window. Inner ring: heterozygosity rate.
+          Source: Atlas Biomed, February 2022.
+        </p>
+        <GenomeCircos data={genomeData} />
       </section>
 
       <RawDataSection
