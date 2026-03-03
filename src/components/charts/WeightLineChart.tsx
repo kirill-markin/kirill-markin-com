@@ -17,6 +17,13 @@ type Props = Readonly<{
   series: ReadonlyArray<WeightPoint>;
 }>;
 
+type TooltipData = Readonly<{
+  x: number;
+  y: number;
+  dateRaw: string;
+  weightKg: number;
+}>;
+
 const parseUtcDate = (value: string): Date => {
   const date = new Date(`${value}T00:00:00Z`);
 
@@ -29,6 +36,7 @@ const parseUtcDate = (value: string): Date => {
 
 const MS_PER_DAY = 86_400_000;
 const GAP_THRESHOLD_DAYS = 60;
+const HOVER_THRESHOLD_SVG_UNITS = 20;
 
 type GapRegion = Readonly<{
   fromDate: Date;
@@ -69,11 +77,36 @@ const buildXTickFormatter = (domainStart: Date, domainEnd: Date): ((tick: Date) 
   return utcFormat("%b %d");
 };
 
+const tooltipStyles = {
+  container: {
+    position: "absolute" as const,
+    pointerEvents: "none" as const,
+    background: "#fff",
+    border: "1px solid #232323",
+    padding: "6px 10px",
+    fontSize: "12px",
+    color: "#000",
+    fontFamily: "inherit",
+    whiteSpace: "nowrap" as const,
+    zIndex: 10,
+    transform: "translate(-50%, calc(-100% - 12px))",
+  },
+  date: {
+    color: "#898989",
+    fontSize: "11px",
+  },
+  value: {
+    fontWeight: 600,
+  },
+} as const;
+
 export const WeightLineChart = (props: Props): ReactElement => {
   const { series } = props;
+  const svgRef = useRef<SVGSVGElement>(null);
   const brushRef = useRef<SVGGElement>(null);
   const xScaleRef = useRef<ReturnType<typeof scaleTime> | null>(null);
   const [zoomDomain, setZoomDomain] = useState<readonly [Date, Date] | null>(null);
+  const [tooltip, setTooltip] = useState<TooltipData | null>(null);
 
   const data = useMemo<ReadonlyArray<ParsedPoint>>(() => {
     return series.map((point) => ({
@@ -176,94 +209,154 @@ export const WeightLineChart = (props: Props): ReactElement => {
     setZoomDomain(null);
   };
 
+  const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>): void => {
+    const svgElement = svgRef.current;
+    if (svgElement === null) return;
+
+    const rect = svgElement.getBoundingClientRect();
+    const svgX = ((event.clientX - rect.left) / rect.width) * width;
+
+    if (svgX < margin.left || svgX > width - margin.right) {
+      setTooltip(null);
+      return;
+    }
+
+    let nearest: ParsedPoint | null = null;
+    let nearestDist = Infinity;
+    for (const point of data) {
+      const px = xScale(point.date);
+      const dist = Math.abs(px - svgX);
+      if (dist < nearestDist) {
+        nearestDist = dist;
+        nearest = point;
+      }
+    }
+
+    if (nearest === null || nearestDist > HOVER_THRESHOLD_SVG_UNITS) {
+      setTooltip(null);
+      return;
+    }
+
+    setTooltip({
+      x: (xScale(nearest.date) / width) * 100,
+      y: (yScale(nearest.weightKg) / height) * 100,
+      dateRaw: nearest.dateRaw,
+      weightKg: nearest.weightKg,
+    });
+  };
+
+  const handleMouseLeave = (): void => {
+    setTooltip(null);
+  };
+
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Weight over time">
-      <defs>
-        <clipPath id="weight-chart-clip">
-          <rect
-            x={margin.left - 6}
-            y={margin.top - 6}
-            width={width - margin.left - margin.right + 12}
-            height={height - margin.top - margin.bottom + 12}
-          />
-        </clipPath>
-        <mask id="weight-segment-mask">
-          <rect x={0} y={0} width={width} height={height} fill="white" />
-          {gaps.map((gap, i) => (
+    <>
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${width} ${height}`}
+        role="img"
+        aria-label="Weight over time"
+        style={{ width: "100%", height: "100%", display: "block" }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <defs>
+          <clipPath id="weight-chart-clip">
             <rect
-              key={`gap-mask-${i}`}
-              x={xScale(gap.fromDate)}
-              y={0}
-              width={xScale(gap.toDate) - xScale(gap.fromDate)}
-              height={height}
-              fill="black"
+              x={margin.left - 6}
+              y={margin.top - 6}
+              width={width - margin.left - margin.right + 12}
+              height={height - margin.top - margin.bottom + 12}
             />
-          ))}
-        </mask>
-      </defs>
+          </clipPath>
+          <mask id="weight-segment-mask">
+            <rect x={0} y={0} width={width} height={height} fill="white" />
+            {gaps.map((gap, i) => (
+              <rect
+                key={`gap-mask-${i}`}
+                x={xScale(gap.fromDate)}
+                y={0}
+                width={xScale(gap.toDate) - xScale(gap.fromDate)}
+                height={height}
+                fill="black"
+              />
+            ))}
+          </mask>
+        </defs>
 
-      <rect x={0} y={0} width={width} height={height} fill="transparent" />
+        <rect x={0} y={0} width={width} height={height} fill="transparent" />
 
-      {yTicks.map((tick) => {
-        const y = yScale(tick);
-
-        return (
-          <g key={`y-${tick}`}>
-            <line x1={margin.left} x2={width - margin.right} y1={y} y2={y} stroke="rgba(0,0,0,0.08)" />
-            <text x={margin.left - 10} y={y} textAnchor="end" dominantBaseline="middle" fill="#898989" fontSize={12}>
-              {tick.toFixed(1)}
-            </text>
-          </g>
-        );
-      })}
-
-      {xTicks.map((tick) => {
-        const x = xScale(tick);
-        const label = xTickFormat(tick);
-
-        return (
-          <g key={`x-${tick.toISOString()}`}>
-            <line x1={x} x2={x} y1={margin.top} y2={height - margin.bottom} stroke="rgba(0,0,0,0.06)" />
-            <text x={x} y={height - margin.bottom + 18} textAnchor="middle" fill="#898989" fontSize={12}>
-              {label}
-            </text>
-          </g>
-        );
-      })}
-
-      <g clipPath="url(#weight-chart-clip)">
-        <path d={fullPath} fill="none" stroke="#232323" strokeWidth={1.5} strokeDasharray="6 4" opacity={0.3} />
-        <path d={fullPath} fill="none" stroke="#232323" strokeWidth={2} mask="url(#weight-segment-mask)" />
-
-        {data.map((point) => {
-          const x = xScale(point.date);
-          const y = yScale(point.weightKg);
+        {yTicks.map((tick) => {
+          const y = yScale(tick);
 
           return (
-            <g key={`${point.dateRaw}-${point.weightKg}`}>
-              <circle cx={x} cy={y} r={4} fill="#ffffff" stroke="#232323" strokeWidth={2} />
-              <title>
-                {point.dateRaw}: {point.weightKg.toFixed(1)} kg
-              </title>
+            <g key={`y-${tick}`}>
+              <line x1={margin.left} x2={width - margin.right} y1={y} y2={y} stroke="rgba(0,0,0,0.08)" />
+              <text x={margin.left - 10} y={y} textAnchor="end" dominantBaseline="middle" fill="#898989" fontSize={12}>
+                {tick.toFixed(1)}
+              </text>
             </g>
           );
         })}
-      </g>
 
-      <text x={margin.left} y={margin.top - 10} fill="#898989" fontSize={12}>
-        kg
-      </text>
+        {xTicks.map((tick) => {
+          const x = xScale(tick);
+          const label = xTickFormat(tick);
 
-      {zoomDomain !== null && (
-        <g cursor="pointer" onClick={handleReset}>
-          <rect x={width - margin.right - 52} y={4} width={52} height={20} rx={3} fill="#898989" opacity={0.15} />
-          <text x={width - margin.right - 26} y={17} textAnchor="middle" fill="#898989" fontSize={11}>
-            Reset
-          </text>
+          return (
+            <g key={`x-${tick.toISOString()}`}>
+              <line x1={x} x2={x} y1={margin.top} y2={height - margin.bottom} stroke="rgba(0,0,0,0.06)" />
+              <text x={x} y={height - margin.bottom + 18} textAnchor="middle" fill="#898989" fontSize={12}>
+                {label}
+              </text>
+            </g>
+          );
+        })}
+
+        <g clipPath="url(#weight-chart-clip)">
+          <path d={fullPath} fill="none" stroke="#232323" strokeWidth={1.5} strokeDasharray="6 4" opacity={0.3} />
+          <path d={fullPath} fill="none" stroke="#232323" strokeWidth={2} mask="url(#weight-segment-mask)" />
+
+          {data.map((point) => {
+            const x = xScale(point.date);
+            const y = yScale(point.weightKg);
+
+            return (
+              <circle
+                key={`${point.dateRaw}-${point.weightKg}`}
+                cx={x}
+                cy={y}
+                r={4}
+                fill="#ffffff"
+                stroke="#232323"
+                strokeWidth={2}
+              />
+            );
+          })}
         </g>
-      )}
 
-      <g ref={brushRef} />
-    </svg>
+        <text x={margin.left} y={margin.top - 10} fill="#898989" fontSize={12}>
+          kg
+        </text>
+
+        {zoomDomain !== null && (
+          <g cursor="pointer" onClick={handleReset}>
+            <rect x={width - margin.right - 52} y={4} width={52} height={20} rx={3} fill="#898989" opacity={0.15} />
+            <text x={width - margin.right - 26} y={17} textAnchor="middle" fill="#898989" fontSize={11}>
+              Reset
+            </text>
+          </g>
+        )}
+
+        <g ref={brushRef} />
+      </svg>
+
+      {tooltip !== null && (
+        <div style={{ ...tooltipStyles.container, left: `${tooltip.x}%`, top: `${tooltip.y}%` }}>
+          <div style={tooltipStyles.date}>{tooltip.dateRaw}</div>
+          <div style={tooltipStyles.value}>{tooltip.weightKg.toFixed(1)} kg</div>
+        </div>
+      )}
+    </>
   );
 };
