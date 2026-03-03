@@ -34,6 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: canonicalUrl,
+      types: { 'text/markdown': `${canonicalUrl.replace(/\/+$/, '')}.md` },
     },
   };
 }

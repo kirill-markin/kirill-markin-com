@@ -7,6 +7,8 @@ import {
   renderArticleMarkdown,
   renderServicesListingMarkdown,
   renderMeetMarkdown,
+  renderDashboardsBodyMarkdown,
+  renderDashboardsListingMarkdown,
 } from '@/lib/markdownServe';
 
 const CACHE_HEADERS = {
@@ -73,6 +75,18 @@ export async function GET(
   if (canonical === 'meet') {
     const result = await renderMeetMarkdown(language);
     return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+  }
+
+  // Route: dashboards
+  if (pathParts[0] === 'dashboards') {
+    if (pathParts.length === 1) {
+      const result = await renderDashboardsListingMarkdown();
+      return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+    }
+    if (pathParts[1] === 'body') {
+      const result = await renderDashboardsBodyMarkdown();
+      return new NextResponse(result.markdown + MARKDOWN_FOOTER, { status: result.status, headers: CACHE_HEADERS });
+    }
   }
 
   // 404 for unrecognized paths
