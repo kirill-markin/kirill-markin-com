@@ -320,14 +320,15 @@ export const WeightLineChart = (props: Props): ReactElement => {
           {data.map((point) => {
             const x = xScale(point.date);
             const y = yScale(point.weightKg);
+            const isHovered = tooltip !== null && tooltip.dateRaw === point.dateRaw;
 
             return (
               <circle
                 key={`${point.dateRaw}-${point.weightKg}`}
                 cx={x}
                 cy={y}
-                r={4}
-                fill="#ffffff"
+                r={isHovered ? 6 : 4}
+                fill={isHovered ? "#232323" : "#ffffff"}
                 stroke="#232323"
                 strokeWidth={2}
               />
