@@ -33,6 +33,9 @@ const styles = {
     minWidth: '280px',
     border: '1px solid #ddd',
     padding: '16px',
+    textDecoration: 'none',
+    color: 'inherit',
+    display: 'block',
   },
   cardTitle: {
     margin: '0 0 6px',
@@ -53,7 +56,7 @@ const styles = {
     fontSize: '12px',
     color: '#898989',
   },
-  link: {
+  downloadLabel: {
     fontSize: '13px',
     color: '#232323',
     textDecoration: 'underline',
@@ -69,17 +72,21 @@ export const RawDataSection = (props: Props): ReactElement => {
       <h2 style={styles.heading}>Raw Data</h2>
       <div style={styles.grid}>
         {cards.map((card) => (
-          <div key={card.title} style={styles.card}>
+          <a
+            key={card.title}
+            href={card.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.card}
+          >
             <h3 style={styles.cardTitle}>{card.title}</h3>
             <p style={styles.cardSubtitle}>{card.subtitle}</p>
             <div style={styles.cardMeta}>
               <span>{card.format}</span>
               <span>{card.size}</span>
-              <a href={card.url} style={styles.link} download>
-                Download
-              </a>
+              <span style={styles.downloadLabel}>Download</span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
