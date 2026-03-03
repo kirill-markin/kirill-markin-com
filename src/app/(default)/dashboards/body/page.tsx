@@ -36,7 +36,7 @@ export default async function BodyDashboardPage() {
   const weightSeries = await getWeightSeries();
 
   return (
-    <main style={{ maxWidth: 960, margin: '0 auto', padding: '2rem 1rem' }}>
+    <main style={{ padding: '2rem 1rem' }}>
       <h1>Body</h1>
 
       <section style={{ marginTop: '2rem' }}>
