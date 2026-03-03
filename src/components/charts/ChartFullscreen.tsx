@@ -12,7 +12,7 @@ const buttonStyle = {
   position: "absolute" as const,
   top: 0,
   right: 0,
-  background: "transparent",
+  background: "#fff",
   border: "1px solid #ddd",
   padding: "4px 8px",
   fontSize: "12px",
@@ -27,7 +27,7 @@ const overlayStyles = {
   backdrop: {
     position: "fixed" as const,
     inset: 0,
-    background: "rgba(255, 255, 255, 0.97)",
+    background: "#fff",
     zIndex: 9999,
     display: "flex",
     flexDirection: "column" as const,
