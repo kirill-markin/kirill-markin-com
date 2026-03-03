@@ -42,8 +42,8 @@ export default function DashboardsPage() {
       <nav className={styles.dashboardsList} aria-label="Available dashboards">
         <Link href="/dashboards/body/" className={styles.dashboardCard}>
           <div className={styles.dashboardCardDetails}>
-            <h2>Body</h2>
-            <p>Weight tracking and body measurements</p>
+            <h2>Kirill Markin: Body</h2>
+            <p>Weight tracking, body measurements, and genome data</p>
           </div>
         </Link>
       </nav>
