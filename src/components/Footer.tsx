@@ -7,6 +7,7 @@ import { socialLinks } from '../data/socialLinks';
 import LanguageSwitcher from './LanguageSwitcher';
 import {
   DEFAULT_LANGUAGE,
+  getPathSegmentByLanguage,
   getTranslation
 } from '@/lib/localization';
 import { Translation } from '@/types/article';
@@ -32,6 +33,11 @@ const Footer: React.FC<FooterProps> = ({
 
   // Get email popup translations for subscribe button
   const emailPopupTranslations = getTranslation('emailPopup', language);
+
+  // Get localized services path
+  const servicesPath = language === DEFAULT_LANGUAGE
+    ? '/services/'
+    : `/${language}/${getPathSegmentByLanguage('services', language)}/`;
 
   const renderJobTitle = (title: string): { __html: string } => {
     return {
@@ -90,6 +96,9 @@ const Footer: React.FC<FooterProps> = ({
                     <Image src="/icons/phone.svg" alt="Phone icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.phone}
                   </a>
+                  <Link href={servicesPath} className={styles.footerLink}>
+                    {footerTranslations.services}
+                  </Link>
                 </div>
 
                 <div className={styles.footerOrgMoreInfo}>

@@ -527,7 +527,7 @@ export const translations = {
     navigation: {
         'en': {
             home: 'Home',
-            services: 'SERVICES',
+            dashboards: 'DASHBOARDS',
             articles: 'ARTICLES',
             mainService: 'AI TECH MENTORSHIP',
             talkToKirill: 'TALK TO KIRILL',
@@ -535,7 +535,7 @@ export const translations = {
         },
         'es': {
             home: 'Inicio',
-            services: 'SERVICIOS',
+            dashboards: 'DASHBOARDS',
             articles: 'ARTÍCULOS',
             mainService: 'MENTORÍA TÉCNICA IA',
             talkToKirill: 'HABLAR CON KIRILL',
@@ -543,7 +543,7 @@ export const translations = {
         },
         'zh': {
             home: '首页',
-            services: '服务项目',
+            dashboards: 'DASHBOARDS',
             articles: '专业文章',
             mainService: 'AI技术导师',
             talkToKirill: '预约咨询',
@@ -551,7 +551,7 @@ export const translations = {
         },
         'ar': {
             home: 'الرئيسية',
-            services: 'الخدمات',
+            dashboards: 'DASHBOARDS',
             articles: 'المقالات',
             mainService: 'إرشاد تقني بالذكاء الاصطناعي',
             talkToKirill: 'تحدث مع كيريل',
@@ -559,7 +559,7 @@ export const translations = {
         },
         'hi': {
             home: 'होम',
-            services: 'सेवाएं',
+            dashboards: 'DASHBOARDS',
             articles: 'लेख',
             mainService: 'AI तकनीकी मेंटरशिप',
             talkToKirill: 'किरिल से बात करें',
@@ -596,6 +596,7 @@ export const translations = {
     footer: {
         'en': {
             contact: 'Contact',
+            services: 'Services',
             social: 'Social',
             media: 'Media',
             other: 'Other',
@@ -623,6 +624,7 @@ export const translations = {
         },
         'es': {
             contact: 'Contacto',
+            services: 'Servicios',
             social: 'Social',
             media: 'Medios',
             other: 'Otros',
@@ -650,6 +652,7 @@ export const translations = {
         },
         'zh': {
             contact: '联系方式',
+            services: '服务项目',
             social: '社交媒体',
             media: '媒体',
             other: '其他',
@@ -677,6 +680,7 @@ export const translations = {
         },
         'ar': {
             contact: 'جهات الاتصال',
+            services: 'الخدمات',
             social: 'وسائل التواصل',
             media: 'الإعلام',
             other: 'أخرى',
@@ -704,6 +708,7 @@ export const translations = {
         },
         'hi': {
             contact: 'संपर्क',
+            services: 'सेवाएं',
             social: 'सामाजिक',
             media: 'मीडिया',
             other: 'अन्य',
