@@ -40,9 +40,9 @@ export default async function BodyDashboardPage() {
       <h1>Body</h1>
 
       <section style={{ marginTop: '2rem' }}>
-        <h2>Weight</h2>
         <div className="dashboard-grid">
           <div className="dashboard-grid-item">
+            <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Weight</h2>
             <WeightDashboard series={weightSeries} />
           </div>
         </div>
