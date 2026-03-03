@@ -1,9 +1,11 @@
 import { getAllArticles, getArticleBySlug } from '@/lib/articles';
 import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
 import { servicesOtherData } from '@/data/servicesOther';
-import { SITE_URL } from '@/data/contacts';
+import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { socialLinks } from '@/data/socialLinks';
 import { bigMediaMentions, smallMediaMentions, type MediaMention } from '@/data/mediaMentions';
+import { getWeightSeries } from '@/lib/weight';
+import type { WeightPoint } from '@/types/weight';
 
 type MarkdownResult = {
   markdown: string;
@@ -188,6 +190,113 @@ export async function renderMeetMarkdown(language: string): Promise<MarkdownResu
     meetTranslation.allMeetings.description,
     ``,
     `[View all](${SITE_URL}${langPrefix}/${meetSegment}/all/)`,
+  ];
+
+  return { markdown: lines.join('\n'), status: 200 };
+}
+
+const BIRTH_DATE = '1993-01-02';
+const HEIGHT_CM = 176;
+const DEFAULT_RANGE_DAYS = 365;
+const GENOME_URL = 'https://storage.googleapis.com/personal-public-data-km/raw/genome_snps-kirill_markin-atlas_ru-2022_02_22.txt';
+
+const computeAge = (birthDate: string): number => {
+  const birth = new Date(birthDate);
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+};
+
+const computeWeightStats = (
+  series: ReadonlyArray<WeightPoint>,
+  rangeDays: number,
+): { filtered: ReadonlyArray<WeightPoint>; min: WeightPoint; max: WeightPoint; latest: WeightPoint; oldest: WeightPoint } => {
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - rangeDays);
+  const cutoffStr = cutoff.toISOString().slice(0, 10);
+
+  const filtered = series.filter((p) => p.date >= cutoffStr);
+  const data = filtered.length >= 2 ? filtered : series;
+
+  let min = data[0];
+  let max = data[0];
+  for (const p of data) {
+    if (p.weightKg < min.weightKg) min = p;
+    if (p.weightKg > max.weightKg) max = p;
+  }
+
+  return {
+    filtered: data,
+    min,
+    max,
+    latest: data[data.length - 1],
+    oldest: data[0],
+  };
+};
+
+export async function renderDashboardsBodyMarkdown(): Promise<MarkdownResult> {
+  const series = await getWeightSeries();
+  const stats = computeWeightStats(series, DEFAULT_RANGE_DAYS);
+  const csvSizeKb = Math.round((series.length * 16) / 1024);
+  const canonicalUrl = `${SITE_URL}/dashboards/body/`;
+
+  const weightChange = stats.latest.weightKg - stats.oldest.weightKg;
+  const changeSign = weightChange >= 0 ? '+' : '';
+  const recentPoints = stats.filtered.slice(-10);
+
+  const lines: string[] = [
+    `# Body Dashboard`,
+    ``,
+    `Body metrics dashboard by ${VCARD_DATA.fullName}.`,
+    ``,
+    `## Facts`,
+    ``,
+    `| Metric | Value |`,
+    `|--------|-------|`,
+    `| Height | ${HEIGHT_CM} cm |`,
+    `| Date of birth | ${BIRTH_DATE} |`,
+    `| Age | ${computeAge(BIRTH_DATE)} |`,
+    ``,
+    `## Weight (last ${DEFAULT_RANGE_DAYS} days)`,
+    ``,
+    `| Metric | Value |`,
+    `|--------|-------|`,
+    `| Latest | ${stats.latest.weightKg} kg (${stats.latest.date}) |`,
+    `| Min | ${stats.min.weightKg} kg (${stats.min.date}) |`,
+    `| Max | ${stats.max.weightKg} kg (${stats.max.date}) |`,
+    `| Change | ${changeSign}${weightChange.toFixed(1)} kg over period |`,
+    `| Data points | ${stats.filtered.length} entries |`,
+    ``,
+    `### Recent Measurements`,
+    ``,
+    `| Date | Weight (kg) |`,
+    `|------|-------------|`,
+    ...recentPoints.map((p) => `| ${p.date} | ${p.weightKg} |`),
+    ``,
+    `## Raw Data`,
+    ``,
+    `- [Body Metrics — Weight Series (CSV, ~${csvSizeKb} KB)](${SITE_URL}/data/body-metrics-weight-series.csv) — ${series.length} data points, updated daily`,
+    `- [Full Genome — SNP Genotyping Data (TSV, ~16 MB)](${GENOME_URL}) — Atlas Biomed, February 2022`,
+    ``,
+    `## Links`,
+    ``,
+    `- [Interactive dashboard](${canonicalUrl})`,
+  ];
+
+  return { markdown: lines.join('\n'), status: 200 };
+}
+
+export async function renderDashboardsListingMarkdown(): Promise<MarkdownResult> {
+  const lines: string[] = [
+    `# Dashboards`,
+    ``,
+    `Public personal metrics and data visualizations by ${VCARD_DATA.fullName}.`,
+    ``,
+    `- [Body Dashboard](${SITE_URL}/dashboards/body/) — weight tracking, body facts, raw data downloads`,
   ];
 
   return { markdown: lines.join('\n'), status: 200 };
