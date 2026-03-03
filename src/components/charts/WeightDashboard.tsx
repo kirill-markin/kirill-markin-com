@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactElement } from "react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import type { WeightPoint } from "@/types/weight";
 import { WeightLineChart } from "@/components/charts/WeightLineChart";
@@ -47,16 +47,28 @@ const filterStyles = {
     alignSelf: "flex-end" as const,
     paddingBottom: "4px",
   },
+  reset: {
+    fontFamily: "inherit",
+    fontSize: "12px",
+    padding: "4px 10px",
+    border: "1px solid #ddd",
+    borderRadius: "0",
+    background: "transparent",
+    color: "#898989",
+    cursor: "pointer",
+    alignSelf: "flex-end" as const,
+    marginBottom: "1px",
+  },
 } as const;
+
+const DEFAULT_FROM = (): string => toDateInputValue(new Date(Date.now() - 365 * 24 * 60 * 60 * 1000));
+const DEFAULT_TO = (): string => toDateInputValue(new Date());
 
 export const WeightDashboard = (props: Props): ReactElement => {
   const { series } = props;
 
-  const now = new Date();
-  const oneYearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
-
-  const [dateFrom, setDateFrom] = useState<string>(toDateInputValue(oneYearAgo));
-  const [dateTo, setDateTo] = useState<string>(toDateInputValue(now));
+  const [dateFrom, setDateFrom] = useState<string>(DEFAULT_FROM);
+  const [dateTo, setDateTo] = useState<string>(DEFAULT_TO);
 
   const filteredSeries = useMemo<ReadonlyArray<WeightPoint>>(() => {
     return series.filter((point) => {
@@ -65,6 +77,18 @@ export const WeightDashboard = (props: Props): ReactElement => {
       return true;
     });
   }, [series, dateFrom, dateTo]);
+
+  const handleDateRangeChange = useCallback((newFrom: string, newTo: string): void => {
+    setDateFrom(newFrom);
+    setDateTo(newTo);
+  }, []);
+
+  const handleReset = (): void => {
+    setDateFrom(DEFAULT_FROM());
+    setDateTo(DEFAULT_TO());
+  };
+
+  const isDefaultRange = dateFrom === DEFAULT_FROM() && dateTo === DEFAULT_TO();
 
   return (
     <>
@@ -90,9 +114,14 @@ export const WeightDashboard = (props: Props): ReactElement => {
         <span style={filterStyles.count}>
           {filteredSeries.length} entries
         </span>
+        {!isDefaultRange && (
+          <button type="button" style={filterStyles.reset} onClick={handleReset}>
+            Reset
+          </button>
+        )}
       </div>
       <div style={{ position: "relative", width: "100%", aspectRatio: "900 / 420", minHeight: 240 }}>
-        <WeightLineChart series={filteredSeries} />
+        <WeightLineChart series={filteredSeries} onDateRangeChange={handleDateRangeChange} />
       </div>
     </>
   );
