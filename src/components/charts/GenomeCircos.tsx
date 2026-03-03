@@ -1,6 +1,6 @@
 "use client";
 
-import { arc, max, scaleLinear, scaleOrdinal } from "d3";
+import { arc, max, scaleLinear } from "d3";
 import type { ReactElement } from "react";
 import { useMemo, useState } from "react";
 
