@@ -37,7 +37,7 @@ const filterStyles = {
     fontSize: "13px",
     padding: "4px 8px",
     border: "1px solid #ddd",
-    borderRadius: "4px",
+    borderRadius: "0",
     background: "transparent",
     color: "inherit",
   },
