@@ -82,3 +82,23 @@ main {
   width: 100%;
   padding: 20px 0 0 0;
 }
+
+/* Dashboard grid */
+
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.dashboard-grid-item {
+  width: calc(50% - 12px);
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid-item {
+    width: 100%;
+  }
+}

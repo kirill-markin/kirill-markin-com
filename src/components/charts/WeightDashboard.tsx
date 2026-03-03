@@ -53,9 +53,9 @@ export const WeightDashboard = (props: Props): ReactElement => {
   const { series } = props;
 
   const now = new Date();
-  const ninetyDaysAgo = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+  const oneYearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
 
-  const [dateFrom, setDateFrom] = useState<string>(toDateInputValue(ninetyDaysAgo));
+  const [dateFrom, setDateFrom] = useState<string>(toDateInputValue(oneYearAgo));
   const [dateTo, setDateTo] = useState<string>(toDateInputValue(now));
 
   const filteredSeries = useMemo<ReadonlyArray<WeightPoint>>(() => {
@@ -91,7 +91,7 @@ export const WeightDashboard = (props: Props): ReactElement => {
           {filteredSeries.length} entries
         </span>
       </div>
-      <div style={{ width: "100%", aspectRatio: "16 / 8", minHeight: 240 }}>
+      <div style={{ position: "relative", width: "100%", aspectRatio: "900 / 420", minHeight: 240 }}>
         <WeightLineChart series={filteredSeries} />
       </div>
     </>

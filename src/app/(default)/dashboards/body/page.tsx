@@ -41,8 +41,10 @@ export default async function BodyDashboardPage() {
 
       <section style={{ marginTop: '2rem' }}>
         <h2>Weight</h2>
-        <div style={{ maxWidth: '50%' }}>
-          <WeightDashboard series={weightSeries} />
+        <div className="dashboard-grid">
+          <div className="dashboard-grid-item">
+            <WeightDashboard series={weightSeries} />
+          </div>
         </div>
       </section>
     </main>
