@@ -26,9 +26,7 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
   const navigationTranslations = getTranslation('navigation', language);
 
   // Get localized path segments
-  const servicesPath = language === DEFAULT_LANGUAGE
-    ? '/services/'
-    : `/${language}/${getPathSegmentByLanguage('services', language)}/`;
+  const dashboardsPath = '/dashboards/';
 
   const articlesPath = language === DEFAULT_LANGUAGE
     ? '/articles/'
@@ -47,6 +45,10 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
     setMobileMenuOpen(false);
   };
 
+  const handleDashboardsClick = (): void => {
+    trackEvent('header_dashboards_click');
+  };
+
   const handleMainServiceClick = (): void => {
     trackEvent('header_main_service_click');
   };
@@ -63,8 +65,12 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             )}
           </div>
           <nav className={styles.rightColumn} aria-label="Main navigation">
-            <Link className={styles.headerDesktopButton} href={servicesPath}>
-              {navigationTranslations.services}
+            <Link
+              className={`${styles.headerDesktopButton} ${styles.headerDashboards}`}
+              href={dashboardsPath}
+              onClick={handleDashboardsClick}
+            >
+              {navigationTranslations.dashboards}
             </Link>
             <Link
               className={styles.headerDesktopButton}
@@ -131,8 +137,8 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
           <div className={styles.headerMobileMenuSection}>
             <Link href={homePath} onClick={closeMobileMenu}>KIRILL MARKIN</Link>
           </div>
-          <div className={styles.headerMobileMenuSection}>
-            <Link href={servicesPath} onClick={closeMobileMenu}>{navigationTranslations.services}</Link>
+          <div className={`${styles.headerMobileMenuSection} ${styles.headerMobileDashboards}`}>
+            <Link href={dashboardsPath} onClick={() => { handleDashboardsClick(); closeMobileMenu(); }}>{navigationTranslations.dashboards}</Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
             <Link

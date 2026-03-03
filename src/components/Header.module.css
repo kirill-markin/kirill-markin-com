@@ -128,8 +128,12 @@
   text-align: center;
 }
 
+.headerDashboards {
+  background-color: #008cff;
+  color: white;
+}
+
 .headerBookAMeeting {
-  color: var(--dark-gray);
   background-color: #ff00ff;
   color: white;
 }
@@ -422,6 +426,15 @@
     justify-content: space-between;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+  }
+
+  .headerMobileDashboards {
+    background-color: #008cff;
+  }
+
+  .headerMobileDashboards a {
+    color: white;
+    font-weight: 500;
   }
 
   .headerMobileBookAMeeting {
