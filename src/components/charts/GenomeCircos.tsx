@@ -34,20 +34,21 @@ type ChromArc = Readonly<{
 // Constants
 // ---------------------------------------------------------------------------
 
-const SIZE = 800;
-const CX = SIZE / 2;
-const CY = SIZE / 2;
+const WIDTH = 1200;
+const HEIGHT = 560;
+const CX = WIDTH / 2;
+const CY = HEIGHT / 2;
 
 const CHROM_GAP_DEG = 1.8;
 const TOTAL_GAP_DEG = CHROM_GAP_DEG * 23;
 const AVAILABLE_DEG = 360 - TOTAL_GAP_DEG;
 
-const R_OUTER = 370;
-const R_CHROM_INNER = 340;
-const R_DENSITY_OUTER = 330;
-const R_DENSITY_INNER = 270;
-const R_HET_OUTER = 260;
-const R_HET_INNER = 220;
+const R_OUTER = 240;
+const R_CHROM_INNER = 220;
+const R_DENSITY_OUTER = 214;
+const R_DENSITY_INNER = 170;
+const R_HET_OUTER = 162;
+const R_HET_INNER = 138;
 
 const DEG_TO_RAD = Math.PI / 180;
 
@@ -329,51 +330,38 @@ const HeterozygosityTrack = (props: {
 // Legend
 // ---------------------------------------------------------------------------
 
+const LEGEND_X = CX + R_OUTER + 60;
+const LEGEND_Y = CY - 40;
+
 const Legend = (): ReactElement => {
   const hetStops = [
-    { rate: 0, label: "0%", color: "#2c3e50" },
-    { rate: 0.10, label: "10%", color: "#3498db" },
-    { rate: 0.20, label: "20%", color: "#f1c40f" },
-    { rate: 0.35, label: "35%", color: "#e74c3c" },
+    { rate: "0%", color: "#2c3e50" },
+    { rate: "10%", color: "#3498db" },
+    { rate: "20%", color: "#f1c40f" },
+    { rate: "35%", color: "#e74c3c" },
   ];
 
   return (
-    <g transform={`translate(${CX}, ${CY})`}>
-      {/* Density legend */}
-      <text x={0} y={-20} textAnchor="middle" fill="#898989" fontSize={10}>
+    <g transform={`translate(${LEGEND_X}, ${LEGEND_Y})`}>
+      <text x={0} y={0} fill="#898989" fontSize={10}>
         SNP Density
       </text>
-      <text x={0} y={-6} textAnchor="middle" fill="#898989" fontSize={9}>
+      <text x={0} y={14} fill="#898989" fontSize={9}>
         (outer ring)
       </text>
 
-      {/* Het legend */}
-      <text x={0} y={14} textAnchor="middle" fill="#898989" fontSize={10}>
+      <text x={0} y={38} fill="#898989" fontSize={10}>
         Heterozygosity
       </text>
-      <text x={0} y={28} textAnchor="middle" fill="#898989" fontSize={9}>
+      <text x={0} y={52} fill="#898989" fontSize={9}>
         (inner ring)
       </text>
 
-      {/* Het color bar */}
       {hetStops.map((stop, i) => (
         <g key={`het-legend-${i}`}>
-          <rect
-            x={-40 + i * 20}
-            y={38}
-            width={20}
-            height={8}
-            fill={stop.color}
-            opacity={0.85}
-          />
-          <text
-            x={-40 + i * 20 + 10}
-            y={56}
-            textAnchor="middle"
-            fill="#898989"
-            fontSize={8}
-          >
-            {stop.label}
+          <rect x={i * 20} y={62} width={20} height={8} fill={stop.color} opacity={0.85} />
+          <text x={i * 20 + 10} y={80} textAnchor="middle" fill="#898989" fontSize={8}>
+            {stop.rate}
           </text>
         </g>
       ))}
@@ -391,17 +379,17 @@ const CenterStats = (props: { data: GenomeCircosData }): ReactElement => {
 
   return (
     <g transform={`translate(${CX}, ${CY})`}>
-      <text x={0} y={-55} textAnchor="middle" fill="#232323" fontSize={14} fontWeight={600}>
+      <text x={0} y={-16} textAnchor="middle" fill="#232323" fontSize={14} fontWeight={600}>
         {data.totalSnps.toLocaleString()}
       </text>
-      <text x={0} y={-42} textAnchor="middle" fill="#898989" fontSize={9}>
+      <text x={0} y={-2} textAnchor="middle" fill="#898989" fontSize={9}>
         SNPs genotyped
       </text>
 
-      <text x={0} y={70} textAnchor="middle" fill="#232323" fontSize={13} fontWeight={600}>
+      <text x={0} y={20} textAnchor="middle" fill="#232323" fontSize={13} fontWeight={600}>
         {hetPct}%
       </text>
-      <text x={0} y={83} textAnchor="middle" fill="#898989" fontSize={9}>
+      <text x={0} y={33} textAnchor="middle" fill="#898989" fontSize={9}>
         heterozygosity
       </text>
     </g>
@@ -426,7 +414,7 @@ export const GenomeCircos = (props: Props): ReactElement => {
   return (
     <div style={{ position: "relative", width: "100%" }}>
       <svg
-        viewBox={`0 0 ${SIZE} ${SIZE}`}
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
         aria-label="Genome Circos plot showing SNP density and heterozygosity across 23 chromosomes"
         style={{ width: "100%", height: "100%", display: "block" }}

@@ -64,7 +64,7 @@ export default async function BodyDashboardPage() {
           <div className="dashboard-grid-item">
             <h2 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600 }}>Genome</h2>
             <ChartFullscreen title="Genome">
-              <p style={{ margin: '0 0 12px', fontSize: '13px', color: '#898989', lineHeight: 1.5 }}>
+              <p style={{ margin: '0 0 12px', fontSize: '13px', color: '#898989', lineHeight: 1.5, paddingRight: '70px' }}>
                 Circular genome map of {genomeData.totalSnps.toLocaleString()} genotyped SNPs across 23 chromosomes.
                 Outer ring: SNP density per 1 Mb window. Inner ring: heterozygosity rate.
               </p>
