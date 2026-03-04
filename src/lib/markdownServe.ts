@@ -1,7 +1,7 @@
 import { getAllArticles, getArticleBySlug } from '@/lib/articles';
 import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
 import { servicesOtherData } from '@/data/servicesOther';
-import { SITE_URL, VCARD_DATA } from '@/data/contacts';
+import { SITE_URL, VCARD_DATA, HEIGHT_CM } from '@/data/contacts';
 import { socialLinks } from '@/data/socialLinks';
 import { bigMediaMentions, smallMediaMentions, type MediaMention } from '@/data/mediaMentions';
 import { getWeightSeries } from '@/lib/weight';
@@ -195,8 +195,6 @@ export async function renderMeetMarkdown(language: string): Promise<MarkdownResu
   return { markdown: lines.join('\n'), status: 200 };
 }
 
-const BIRTH_DATE = '1993-01-02';
-const HEIGHT_CM = 176;
 const DEFAULT_RANGE_DAYS = 365;
 const GENOME_URL = 'https://storage.googleapis.com/personal-public-data-km/raw/genome_snps-kirill_markin-atlas_ru-2022_02_22.txt';
 
@@ -258,8 +256,8 @@ export async function renderDashboardsBodyMarkdown(): Promise<MarkdownResult> {
     `| Metric | Value |`,
     `|--------|-------|`,
     `| Height | ${HEIGHT_CM} cm |`,
-    `| Date of birth | ${BIRTH_DATE} |`,
-    `| Age | ${computeAge(BIRTH_DATE)} |`,
+    `| Date of birth | ${VCARD_DATA.birthday} |`,
+    `| Age | ${computeAge(VCARD_DATA.birthday)} |`,
     ``,
     `## Weight (last ${DEFAULT_RANGE_DAYS} days)`,
     ``,
