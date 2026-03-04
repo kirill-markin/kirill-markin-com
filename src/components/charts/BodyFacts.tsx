@@ -1,7 +1,4 @@
-"use client";
-
 import type { ReactElement } from "react";
-import { useMemo } from "react";
 
 const BIRTH_DATE = "1993-01-02";
 const HEIGHT_CM = 176;
@@ -63,7 +60,7 @@ const styles = {
 } as const;
 
 export const BodyFacts = (): ReactElement => {
-  const facts = useMemo(buildFacts, []);
+  const facts = buildFacts();
 
   return (
     <ul style={styles.list}>
