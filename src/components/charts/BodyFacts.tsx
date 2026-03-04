@@ -1,7 +1,5 @@
 import type { ReactElement } from "react";
-
-const BIRTH_DATE = "1993-01-02";
-const HEIGHT_CM = 176;
+import { HEIGHT_CM, VCARD_DATA } from "@/data/contacts";
 
 const computeAge = (birthDate: string): number => {
   const birth = new Date(birthDate);
@@ -21,8 +19,8 @@ type Fact = Readonly<{
 
 const buildFacts = (): ReadonlyArray<Fact> => [
   { label: "Height", value: `${HEIGHT_CM} cm` },
-  { label: "Date of birth", value: BIRTH_DATE },
-  { label: "Age", value: `${computeAge(BIRTH_DATE)}` },
+  { label: "Date of birth", value: VCARD_DATA.birthday },
+  { label: "Age", value: `${computeAge(VCARD_DATA.birthday)}` },
 ];
 
 const styles = {
