@@ -93,6 +93,9 @@ export default async function Page({ params }: PageProps) {
 2. Add translations with bidirectional refs
 3. Run `npm run validate-metadata`
 
+**Before Committing:**
+- Run `npm test` and `npm run validate-metadata` — fix any failures before creating a commit
+
 **Best Practices:**
 - Server Components by default
 - CSS Modules for styling
