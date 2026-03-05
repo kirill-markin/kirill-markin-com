@@ -11,6 +11,8 @@
  * Run with: npm run validate-metadata
  */
 
+import fs from 'fs';
+import path from 'path';
 import chalk from 'chalk';
 import { Metadata } from 'next';
 import {
@@ -40,7 +42,7 @@ const allDescriptions = new Map<string, string[]>();
 interface Issue {
     path: string;
     language: string;
-    type: 'missing_title' | 'missing_description' | 'title_too_short' | 'title_too_long' | 'description_too_short' | 'description_too_long' | 'duplicate_title' | 'duplicate_description' | 'missing_translation';
+    type: 'missing_title' | 'missing_description' | 'title_too_short' | 'title_too_long' | 'description_too_short' | 'description_too_long' | 'duplicate_title' | 'duplicate_description' | 'missing_translation' | 'missing_thumbnail';
     details: string;
 }
 
@@ -377,6 +379,20 @@ function validateSingleArticle(article: Article, language: string) {
     if (!isTranslation && metadata.translations && metadata.translations.length > 0) {
         // This validation will be handled by the cross-reference check function
     }
+
+    // Validate thumbnailUrl points to an existing file
+    if (metadata.thumbnailUrl) {
+        const publicDir = path.resolve(process.cwd(), 'public');
+        const thumbnailPath = path.join(publicDir, metadata.thumbnailUrl);
+        if (!fs.existsSync(thumbnailPath)) {
+            issues.push({
+                path: articlePath,
+                language,
+                type: 'missing_thumbnail',
+                details: `Thumbnail file not found: ${metadata.thumbnailUrl}`
+            });
+        }
+    }
 }
 
 /**
@@ -499,7 +515,8 @@ function printReport() {
         description_too_long: 0,
         duplicate_title: 0,
         duplicate_description: 0,
-        missing_translation: 0
+        missing_translation: 0,
+        missing_thumbnail: 0
     };
 
     for (const issue of issues) {
@@ -509,6 +526,7 @@ function printReport() {
     console.log(chalk.bold('Issue Summary:'));
     console.log(chalk.red(`- Missing titles: ${issueTypes.missing_title}`));
     console.log(chalk.red(`- Missing descriptions: ${issueTypes.missing_description}`));
+    console.log(chalk.red(`- Missing thumbnails: ${issueTypes.missing_thumbnail}`));
     console.log(chalk.yellow(`- Titles too short (< ${SEO_CONSTRAINTS.TITLE.MIN_LENGTH} chars): ${issueTypes.title_too_short}`));
     console.log(chalk.yellow(`- Titles too long (> ${SEO_CONSTRAINTS.TITLE.MAX_LENGTH} chars): ${issueTypes.title_too_long}`));
     console.log(chalk.yellow(`- Descriptions too short (< ${SEO_CONSTRAINTS.DESCRIPTION.MIN_LENGTH} chars): ${issueTypes.description_too_short}`));
@@ -546,6 +564,7 @@ function printReport() {
             switch (issue.type) {
                 case 'missing_title':
                 case 'missing_description':
+                case 'missing_thumbnail':
                     color = chalk.red;
                     break;
                 case 'title_too_short':
