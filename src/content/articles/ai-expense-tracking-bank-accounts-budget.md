@@ -4,7 +4,7 @@ date: 2026-03-05
 description: "My personal system for tracking expenses, managing bank accounts, and budgeting with AI. Open-source tools, automation, and practical workflows."
 tags: [productivity, ai, finance]
 publish: true
-thumbnailUrl: "/articles/ai-expense-tracking-bank-accounts-budget.webp"
+thumbnailUrl: "/articles/ai-expense-tracking-budget-view.jpg"
 keywords: [
   "AI expense tracking",
   "personal finance automation",
