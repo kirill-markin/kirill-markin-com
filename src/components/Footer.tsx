@@ -196,8 +196,13 @@ const Footer: React.FC<FooterProps> = ({
 
       {/* Language switcher at the bottom of the footer */}
       <div className={styles.footerBottom}>
-        <div className={styles.copyright}>
-          {footerTranslations.copyright.replace('{year}', new Date().getFullYear().toString())}
+        <div className={styles.footerMeta}>
+          <div className={styles.copyright}>
+            {footerTranslations.copyright.replace('{year}', new Date().getFullYear().toString())}
+          </div>
+          <div className={styles.legalEntity}>
+            {footerTranslations.legalEntity}: SAMO DANNI EOOD, VAT BG207395566, Country: Bulgaria
+          </div>
         </div>
         <LanguageSwitcher
           currentLanguage={language}

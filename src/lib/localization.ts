@@ -600,6 +600,7 @@ export const translations = {
             social: 'Social',
             media: 'Media',
             other: 'Other',
+            legalEntity: 'Legal entity',
             talkToKirill: 'Talk to Kirill',
             copyright: '© {year} Kirill Markin',
             socialNetworks: {
@@ -628,6 +629,7 @@ export const translations = {
             social: 'Social',
             media: 'Medios',
             other: 'Otros',
+            legalEntity: 'Entidad legal',
             talkToKirill: 'Hablar con Kirill',
             copyright: '© {year} Kirill Markin',
             socialNetworks: {
@@ -656,6 +658,7 @@ export const translations = {
             social: '社交媒体',
             media: '媒体',
             other: '其他',
+            legalEntity: '法律实体',
             talkToKirill: '与Kirill交流',
             copyright: '© {year} Kirill Markin',
             socialNetworks: {
@@ -684,6 +687,7 @@ export const translations = {
             social: 'وسائل التواصل',
             media: 'الإعلام',
             other: 'أخرى',
+            legalEntity: 'الكيان القانوني',
             talkToKirill: 'تحدث مع كيريل',
             copyright: '© {year} كيريل ماركين',
             socialNetworks: {
@@ -712,6 +716,7 @@ export const translations = {
             social: 'सामाजिक',
             media: 'मीडिया',
             other: 'अन्य',
+            legalEntity: 'कानूनी इकाई',
             talkToKirill: 'किरिल से बात करें',
             copyright: '© {year} किरिल मार्किन',
             socialNetworks: {
