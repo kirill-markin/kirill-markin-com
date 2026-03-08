@@ -66,7 +66,6 @@ const DEFAULT_TO = (): string => toDateInputValue(new Date());
 
 export const WeightDashboard = (props: Props): ReactElement => {
   const { series } = props;
-
   const [dateFrom, setDateFrom] = useState<string>(DEFAULT_FROM);
   const [dateTo, setDateTo] = useState<string>(DEFAULT_TO);
 
@@ -89,6 +88,14 @@ export const WeightDashboard = (props: Props): ReactElement => {
   };
 
   const isDefaultRange = dateFrom === DEFAULT_FROM() && dateTo === DEFAULT_TO();
+
+  if (series.length === 0) {
+    return (
+      <div style={{ border: "1px solid #ddd", padding: "16px", fontSize: "13px", color: "#898989", lineHeight: 1.6 }}>
+        Weight data is unavailable in this local build because BigQuery credentials are not configured.
+      </div>
+    );
+  }
 
   return (
     <>
