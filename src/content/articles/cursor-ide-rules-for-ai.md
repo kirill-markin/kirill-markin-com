@@ -27,9 +27,9 @@ Cursor IDE implements three levels of cursor rules:
 
 I'm sharing my base-level cursor project rules here - the global settings I use in Cursor IDE. These rules form the foundation for all my development work. When combined with repository-level and dynamic rules, they create a powerful system that maintains code quality while keeping my development practices consistent.
 
-> **Prefer Video Tutorial?** I've created a comprehensive video walkthrough of this entire cursor rules system. [Watch Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx) to see these techniques implemented step-by-step.
+> **Prefer Video Tutorial?** I've created a comprehensive video walkthrough of this entire cursor rules system. [Watch Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://www.youtube.com/watch?v=gw8otRr2zpw) to see these techniques implemented step-by-step.
 
-[![Cursor IDE Rules configuration and implementation in action](/articles/cursor-ide-rules-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![Cursor IDE Rules configuration and implementation in action](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 ## How to Configure Cursor Rules for Optimal AI Coding Performance
 
@@ -414,7 +414,7 @@ The real advantage isn't in which tool provides the most customization options, 
 
 If you prefer learning visually, I've created a comprehensive video tutorial that demonstrates the complete implementation of this three-tier cursor rules system:
 
-[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 The video walks through:
 - Setting up global cursor rules in Cursor IDE settings
