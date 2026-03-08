@@ -52,7 +52,7 @@ If you prefer to deploy to a different hosting provider:
    ```
 
 2. **Hosting Requirements**
-   - Node.js environment (v18+)
+   - Node.js environment (v24.x)
    - Support for server-side rendering
    - Support for API routes
    - SSL certificate
