@@ -1,13 +1,14 @@
 ---
-title: "Claude Code Rules for AI: Global Instructions for a More Reliable Coding Agent"
+title: "Claude Code Rules for AI: Global Instructions for Coding Agent"
 date: 2026-03-08
 slug: "claude-code-rules-for-ai"
 description: "My Claude Code rules for AI: the global instructions I keep in CLAUDE.md, plus how I split personal and project rules to make the agent more consistent."
 tags: [productivity, claude-code, ai, llm]
 publish: true
+thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"
 ---
 
-# Claude Code Rules for AI: Global Instructions for a More Reliable Coding Agent
+# Claude Code Rules for AI: Global Instructions for Coding Agent
 
 Claude Code got much better for me when I stopped re-explaining myself in every chat. I have been coding with AI for about two years, using Claude Code for roughly the last six months, and the most useful improvement was embarrassingly simple: put my default rules into `~/.claude/CLAUDE.md` and let the agent start there.
 

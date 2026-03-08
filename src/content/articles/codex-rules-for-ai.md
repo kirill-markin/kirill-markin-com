@@ -5,6 +5,7 @@ slug: "codex-rules-for-ai"
 description: "My Codex rules for AI: the global instructions I keep in the new Codex Mac app, plus how personal AGENTS.md and repo guidance make the agent more reliable."
 tags: [productivity, codex, openai, ai]
 publish: true
+thumbnailUrl: "/articles/codex-personalization-custom-instructions.jpg"
 ---
 
 # Codex Rules for AI: Global Instructions for a Better Coding Agent
