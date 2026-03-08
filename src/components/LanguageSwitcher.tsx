@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import {
-    SUPPORTED_LANGUAGES,
     LANGUAGE_NAMES,
+    SUPPORTED_LANGUAGES,
     getUrlForLanguage
 } from '@/lib/localization';
+import type { Language } from '@/lib/localization';
 import { Translation } from '@/types/article';
 import styles from './LanguageSwitcher.module.css';
 
@@ -11,7 +12,7 @@ interface LanguageSwitcherProps {
     currentLanguage: string;
     currentPath: string;
     translations?: Translation[];
-    availableLanguages?: string[];
+    availableLanguages?: Language[];
     className?: string;
 }
 

@@ -42,18 +42,25 @@ export type TranslationSection = keyof typeof translations;
  * @param language Language code
  * @returns Translation object for the requested section, falling back to default language
  */
-export function getTranslation<T extends TranslationSection>(
-    section: T,
-    language: string
-): typeof translations[T][typeof DEFAULT_LANGUAGE] {
+export function getTranslation(section: 'common', language: string): typeof common.en;
+export function getTranslation(section: 'navigation', language: string): typeof navigation.en;
+export function getTranslation(section: 'personalInfo', language: string): typeof personalInfo.en;
+export function getTranslation(section: 'footer', language: string): typeof footer.en;
+export function getTranslation(section: 'home', language: string): typeof home.en;
+export function getTranslation(section: 'articles', language: string): typeof articles.en;
+export function getTranslation(section: 'services', language: string): typeof services.en;
+export function getTranslation(section: 'meet', language: string): typeof meet.en;
+export function getTranslation(section: 'pay', language: string): typeof pay.en;
+export function getTranslation(section: 'subscribe', language: string): typeof subscribe.en;
+export function getTranslation(section: 'emailPopup', language: string): typeof emailPopup.en;
+export function getTranslation(section: 'notFound', language: string): typeof notFound.en;
+export function getTranslation(section: TranslationSection, language: string) {
     if (!translations[section]) {
-        return {} as typeof translations[T][typeof DEFAULT_LANGUAGE];
+        return {};
     }
 
     const sectionTranslations = translations[section];
+    const localizedTranslations = sectionTranslations as Record<string, unknown>;
 
-    return (
-        sectionTranslations[language as keyof typeof sectionTranslations] ||
-        sectionTranslations[DEFAULT_LANGUAGE]
-    ) as typeof translations[T][typeof DEFAULT_LANGUAGE];
+    return localizedTranslations[language] || localizedTranslations[DEFAULT_LANGUAGE];
 }

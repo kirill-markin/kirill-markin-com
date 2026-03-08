@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, PATH_SEGMENTS } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, PATH_SEGMENTS, isValidLanguage } from '@/lib/localization';
 import type { NextRequest } from 'next/server';
 
 /** All known page names across all languages (articles, articulos, zhishi, services, etc.) */
@@ -24,7 +24,7 @@ export function middleware(request: NextRequest) {
         // to avoid intercepting IndexNow key files
         if (ext === '.txt') {
             const segments = stripped.split('/').filter(Boolean);
-            const effectiveSegments = segments.length > 0 && SUPPORTED_LANGUAGES.includes(segments[0])
+            const effectiveSegments = segments.length > 0 && isValidLanguage(segments[0])
                 ? segments.slice(1)
                 : segments;
 
@@ -56,7 +56,7 @@ export function middleware(request: NextRequest) {
 
     let lang = DEFAULT_LANGUAGE;
 
-    if (pathParts.length > 0 && SUPPORTED_LANGUAGES.includes(pathParts[0])) {
+    if (pathParts.length > 0 && isValidLanguage(pathParts[0])) {
         lang = pathParts[0];
     }
 

@@ -1,6 +1,6 @@
 import { Translation } from '@/types/article';
 
-import { DEFAULT_LANGUAGE, Language, SUPPORTED_LANGUAGES } from './languages';
+import { DEFAULT_LANGUAGE, isValidLanguage } from './languages';
 import { getSubPathSegmentByLanguage, PATH_SEGMENTS, SUB_PATH_SEGMENTS } from './routes';
 import { translations as translationSections } from './translations';
 
@@ -115,7 +115,9 @@ function buildArticleUrl(targetLanguage: string, articleTranslations: Translatio
 
     const articlesSegment = targetLanguage === DEFAULT_LANGUAGE
         ? PATH_SEGMENTS.articles[DEFAULT_LANGUAGE]
-        : PATH_SEGMENTS.articles[targetLanguage as Language];
+        : isValidLanguage(targetLanguage)
+            ? PATH_SEGMENTS.articles[targetLanguage]
+            : PATH_SEGMENTS.articles[DEFAULT_LANGUAGE];
 
     if (targetLanguage === DEFAULT_LANGUAGE) {
         return `/${articlesSegment}/${targetTranslation.slug}/`;
@@ -127,7 +129,7 @@ function buildArticleUrl(targetLanguage: string, articleTranslations: Translatio
 function getBasePath(pathWithoutQuery: string): string[] {
     const pathSegments = pathWithoutQuery.split('/').filter(Boolean);
     const firstSegment = pathSegments[0];
-    const hasLanguagePrefix = SUPPORTED_LANGUAGES.includes(firstSegment as Language);
+    const hasLanguagePrefix = isValidLanguage(firstSegment);
 
     return hasLanguagePrefix ? pathSegments.slice(1) : pathSegments;
 }
@@ -173,19 +175,20 @@ function buildLocalizedPath(
     segmentIndex: number,
     queryString: string
 ): string {
-    const newSegment = PATH_SEGMENTS[segmentType][targetLanguage] || PATH_SEGMENTS[segmentType][DEFAULT_LANGUAGE];
+    const resolvedTargetLanguage = isValidLanguage(targetLanguage) ? targetLanguage : DEFAULT_LANGUAGE;
+    const newSegment = PATH_SEGMENTS[segmentType][resolvedTargetLanguage] || PATH_SEGMENTS[segmentType][DEFAULT_LANGUAGE];
     const currentSubsegment = basePath[segmentIndex + 1];
 
     if (currentSubsegment && SUB_PATH_SEGMENTS[segmentType]) {
         const subsegmentKey = resolveSubsegmentKey(segmentType, currentSubsegment);
 
         if (subsegmentKey) {
-            const newSubsegment = getSubPathSegmentByLanguage(segmentType, subsegmentKey, targetLanguage);
+            const newSubsegment = getSubPathSegmentByLanguage(segmentType, subsegmentKey, resolvedTargetLanguage);
             const remainingPath = basePath.slice(segmentIndex + 2).join('/');
             const remainingWithSlash = remainingPath ? `/${remainingPath}` : '';
-            const localizedPath = targetLanguage === DEFAULT_LANGUAGE
+            const localizedPath = resolvedTargetLanguage === DEFAULT_LANGUAGE
                 ? `/${newSegment}/${newSubsegment}${remainingWithSlash}/`
-                : `/${targetLanguage}/${newSegment}/${newSubsegment}${remainingWithSlash}/`;
+                : `/${resolvedTargetLanguage}/${newSegment}/${newSubsegment}${remainingWithSlash}/`;
 
             return `${localizedPath}${queryString}`;
         }
@@ -193,9 +196,9 @@ function buildLocalizedPath(
 
     const restOfPath = basePath.slice(segmentIndex + 1).join('/');
     const restWithSlash = restOfPath ? `/${restOfPath}` : '';
-    const localizedPath = targetLanguage === DEFAULT_LANGUAGE
+    const localizedPath = resolvedTargetLanguage === DEFAULT_LANGUAGE
         ? `/${newSegment}${restWithSlash}/`
-        : `/${targetLanguage}/${newSegment}${restWithSlash}/`;
+        : `/${resolvedTargetLanguage}/${newSegment}${restWithSlash}/`;
 
     return `${localizedPath}${queryString}`;
 }

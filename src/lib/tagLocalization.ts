@@ -1,4 +1,4 @@
-import { DEFAULT_LANGUAGE, getSubPathSegmentByLanguage, SUB_PATH_SEGMENTS } from './localization';
+import { DEFAULT_LANGUAGE, getSubPathSegmentByLanguage, SUB_PATH_SEGMENTS, isValidLanguage } from './localization';
 
 /**
  * Get the internal tag key (English) from a localized tag value
@@ -9,6 +9,10 @@ import { DEFAULT_LANGUAGE, getSubPathSegmentByLanguage, SUB_PATH_SEGMENTS } from
 export function getInternalTagKey(localizedTag: string, language: string): string {
     // If it's already English, return as is
     if (language === DEFAULT_LANGUAGE) {
+        return localizedTag;
+    }
+
+    if (!isValidLanguage(language)) {
         return localizedTag;
     }
 

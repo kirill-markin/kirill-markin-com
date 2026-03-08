@@ -26,7 +26,7 @@ export const LANGUAGE_NAMES: Record<Language, string> = {
  * @param language Language code to check
  * @returns Whether the language is supported
  */
-export function isValidLanguage(language: string): boolean {
+export function isValidLanguage(language: string): language is Language {
     return SUPPORTED_LANGUAGES.includes(language as Language);
 }
 

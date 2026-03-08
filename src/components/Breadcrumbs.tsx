@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Breadcrumbs.module.css';
-import { SUPPORTED_LANGUAGES, getTranslation } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getTranslation, isValidLanguage } from '@/lib/localization';
 import { SITE_URL } from '@/data/contacts';
 
 type BreadcrumbItem = {
@@ -25,8 +25,8 @@ const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   const breadcrumbs: BreadcrumbItem[] = [];
 
   // Check if the first segment is a language code
-  const hasLanguagePrefix = pathSegments.length > 0 && SUPPORTED_LANGUAGES.includes(pathSegments[0]);
-  const language = hasLanguagePrefix ? pathSegments[0] : 'en';
+  const hasLanguagePrefix = pathSegments.length > 0 && isValidLanguage(pathSegments[0]);
+  const language = hasLanguagePrefix ? pathSegments[0] : DEFAULT_LANGUAGE;
 
   // Add Home link with proper language handling
   // For non-English languages, use "English" as the label for the root path
