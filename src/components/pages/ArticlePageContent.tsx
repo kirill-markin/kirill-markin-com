@@ -1,17 +1,17 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { Article } from '@/lib/articles';
 import ArticleContent from '@/components/ArticleContent';
 import ArticleJsonLd from '@/components/ArticleJsonLd';
-import SocialShare from '@/components/SocialShare';
+import ArticlePreviewCard from '@/components/ArticlePreviewCard';
 import AuthorBlock from '@/components/AuthorBlock';
+import CopyMarkdownButton from '@/components/CopyMarkdownButton/CopyMarkdownButton';
+import Footer from '@/components/Footer';
 import SidebarRelatedArticles from '@/components/SidebarRelatedArticles';
 import SidebarVisibilityWrapper from '@/components/SidebarRelatedArticles/SidebarVisibilityWrapper';
-import Footer from '@/components/Footer';
-import CopyMarkdownButton from '@/components/CopyMarkdownButton/CopyMarkdownButton';
-import styles from '@/app/(default)/articles/articles.module.css';
+import SocialShare from '@/components/SocialShare';
+import { Article } from '@/lib/articles';
 import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { getLocalizedTag } from '@/lib/tagLocalization';
+import styles from './ArticlePageContent.module.css';
 
 interface ArticlePageContentProps {
     article: Article;
@@ -28,8 +28,6 @@ export default function ArticlePageContent({
     relatedArticles,
     language
 }: ArticlePageContentProps) {
-    const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
-
     // Determine the article link path based on language
     const getArticleLink = (slug: string, articleLanguage: string): string => {
         if (articleLanguage === 'en') {
@@ -54,7 +52,7 @@ export default function ArticlePageContent({
 
     return (
         <>
-            <div className={styles.articlePageContainer}>
+            <div className={styles.pageContainer}>
                 <ArticleJsonLd article={article} url={canonicalUrl} />
 
                 {/* Fixed social share buttons */}
@@ -71,7 +69,7 @@ export default function ArticlePageContent({
                                                 key={tag}
                                                 href={getTagLink(tag)}
                                             >
-                                                <span className={styles.tag}>
+                                                <span className={styles.articleTag}>
                                                     {getLocalizedTag(tag, language)}
                                                 </span>
                                             </Link>
@@ -98,10 +96,7 @@ export default function ArticlePageContent({
                         </div>
                     </header>
 
-                    <ArticleContent
-                        htmlContent={htmlContent}
-                        className={styles.articleContent}
-                    />
+                    <ArticleContent htmlContent={htmlContent} className={styles.articleContentWrapper} />
 
                     {/* Related Articles Section */}
                     {relatedArticles.length > 0 && (
@@ -115,78 +110,25 @@ export default function ArticlePageContent({
                                 }
                             </h2>
 
-                            <div className={styles.mediaMentions}>
-                                {relatedArticles.map((relatedArticle, index) => {
-                                    const isVideo = relatedArticle.metadata.isVideo ||
-                                        relatedArticle.metadata.type?.toLowerCase() === 'video';
-
-                                    return (
-                                        <article
-                                            key={relatedArticle.slug}
-                                            className={`${styles.mediaMention} ${isVideo ? styles.video : ''}`}
-                                        >
-                                            <Link
-                                                href={getArticleLink(relatedArticle.slug, relatedArticle.metadata.language)}
-                                                className={styles.mentionLink}
-                                            >
-                                                <div className={styles.language}>
-                                                    <div className={styles.text}>[{relatedArticle.metadata.language || 'en'}]</div>
-                                                </div>
-
-                                                {relatedArticle.metadata.type && (
-                                                    <div className={styles.type}>
-                                                        <div className={styles.text}>[{relatedArticle.metadata.type}]</div>
-                                                    </div>
-                                                )}
-
-                                                <div className={styles.thumbnailContainer}>
-                                                    <Image
-                                                        className={styles.thumbnail}
-                                                        src={relatedArticle.metadata.thumbnailUrl || PLACEHOLDER_IMAGE}
-                                                        alt={relatedArticle.metadata.title}
-                                                        width={640}
-                                                        height={360}
-                                                        sizes="(max-width: 640px) 320px, (max-width: 1200px) 640px, 640px"
-                                                        quality={75}
-                                                        priority={index < 2}
-                                                    />
-                                                </div>
-
-                                                <div className={styles.content}>
-                                                    <h3 className={styles.title}>{relatedArticle.metadata.title}</h3>
-
-                                                    {relatedArticle.metadata.description && (
-                                                        <p className={styles.description}>{relatedArticle.metadata.description}</p>
-                                                    )}
-
-                                                    <div className={styles.footer}>
-                                                        <div className={styles.date}>
-                                                            {relatedArticle.metadata.date && (
-                                                                <time dateTime={relatedArticle.metadata.date}>
-                                                                    {new Date(relatedArticle.metadata.date).toLocaleDateString(
-                                                                        relatedArticle.metadata.language === 'en' ? 'en-US' : relatedArticle.metadata.language,
-                                                                        {
-                                                                            year: 'numeric',
-                                                                            month: 'long',
-                                                                            day: 'numeric',
-                                                                        }
-                                                                    )}
-                                                                </time>
-                                                            )}
-                                                        </div>
-
-                                                        {relatedArticle.metadata.achievementValue && relatedArticle.metadata.achievementLabel && (
-                                                            <div className={styles.achievement}>
-                                                                <div className={styles.value}>{relatedArticle.metadata.achievementValue}</div>
-                                                                <div className={styles.label}>{relatedArticle.metadata.achievementLabel}</div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </article>
-                                    );
-                                })}
+                            <div className={styles.relatedArticlesGrid}>
+                                {relatedArticles.map((relatedArticle, index) => (
+                                    <ArticlePreviewCard
+                                        key={relatedArticle.slug}
+                                        href={getArticleLink(relatedArticle.slug, relatedArticle.metadata.language)}
+                                        title={relatedArticle.metadata.title}
+                                        description={relatedArticle.metadata.description}
+                                        thumbnailUrl={relatedArticle.metadata.thumbnailUrl}
+                                        languageLabel={relatedArticle.metadata.language || 'en'}
+                                        typeLabel={relatedArticle.metadata.type}
+                                        date={relatedArticle.metadata.date}
+                                        dateLocale={relatedArticle.metadata.language || 'en'}
+                                        achievementValue={relatedArticle.metadata.achievementValue}
+                                        achievementLabel={relatedArticle.metadata.achievementLabel}
+                                        isWide={false}
+                                        priority={index < 2}
+                                        titleTag="h3"
+                                    />
+                                ))}
                             </div>
                         </div>
                     )}
@@ -212,4 +154,4 @@ export default function ArticlePageContent({
             <Footer language={language} currentPath={canonicalUrl} translations={article.metadata.translations} />
         </>
     );
-} 
+}

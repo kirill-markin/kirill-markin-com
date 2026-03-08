@@ -35,7 +35,7 @@ const commonFiles = [
     'src/components/EmailPopup/index.ts',
 
     // Language and localization core files  
-    'src/lib/localization.ts',
+    'src/lib/localization/index.ts',
     'src/lib/popupConstants.ts'
 ];
 
@@ -105,8 +105,11 @@ export const pageFilesMap: Record<string, string[]> = {
     ],
     '/articles/': [
         'src/app/(default)/articles/page.tsx',
-        'src/app/(default)/articles/articles.module.css',
         'src/app/(default)/articles/layout.tsx',
+        'src/components/pages/ArticlesPageContent.tsx',
+        'src/components/pages/ArticlesPageContent.module.css',
+        'src/components/ArticlePreviewCard/ArticlePreviewCard.tsx',
+        'src/components/ArticlePreviewCard/ArticlePreviewCard.module.css',
         'src/lib/articles.ts',
         ...commonFiles
     ],
@@ -151,8 +154,13 @@ export const pageFilesMap: Record<string, string[]> = {
     // Add article slug page (for generic article page template)
     '/articles/[slug]/': [
         'src/app/(default)/articles/[slug]/page.tsx',
-        'src/app/(default)/articles/articles.module.css',
         'src/app/(default)/articles/layout.tsx',
+        'src/components/pages/ArticlePageContent.tsx',
+        'src/components/pages/ArticlePageContent.module.css',
+        'src/components/ArticleContent.tsx',
+        'src/components/ArticleContent.module.css',
+        'src/components/ArticlePreviewCard/ArticlePreviewCard.tsx',
+        'src/components/ArticlePreviewCard/ArticlePreviewCard.module.css',
         'src/lib/articles.ts',
         ...commonFiles
     ],
