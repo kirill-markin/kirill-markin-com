@@ -42,9 +42,9 @@ translations:
 
 मैं यहां अपने आधार-स्तर के कर्सर प्रोजेक्ट नियम साझा कर रहा हूं - वैश्विक सेटिंग्स जिन्हें मैं कर्सर आईडीई में उपयोग करता हूं। ये नियम मेरे सभी विकास कार्यों की नींव बनाते हैं। जब रिपॉजिटरी-स्तर और गतिशील नियमों के साथ संयोजित किए जाते हैं, तो वे एक शक्तिशाली प्रणाली बनाते हैं जो मेरी विकास प्रथाओं को सुसंगत रखते हुए कोड गुणवत्ता को बनाए रखती है।
 
-> **वीडियो ट्यूटोरियल पसंद करते हैं?** मैंने इस पूरे कर्सर नियम सिस्टम का एक व्यापक वीडियो वॉकथ्रू बनाया है। [Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025) देखें](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx) इन तकनीकों को चरणबद्ध तरीके से लागू होते देखने के लिए।
+> **वीडियो ट्यूटोरियल पसंद करते हैं?** मैंने इस पूरे कर्सर नियम सिस्टम का एक व्यापक वीडियो वॉकथ्रू बनाया है। [Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025) देखें](https://www.youtube.com/watch?v=gw8otRr2zpw) इन तकनीकों को चरणबद्ध तरीके से लागू होते देखने के लिए।
 
-[![कर्सर आईडीई नियम कॉन्फ़िगरेशन और कार्यान्वयन वास्तविक रूप में](/articles/cursor-ide-rules-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![कर्सर आईडीई नियम कॉन्फ़िगरेशन और कार्यान्वयन वास्तविक रूप में](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 ## इष्टतम एआई कोडिंग प्रदर्शन के लिए कर्सर नियम कैसे कॉन्फ़िगर करें
 
@@ -120,7 +120,7 @@ translations:
 
 यदि आप दृश्य रूप से सीखना पसंद करते हैं, तो मैंने एक व्यापक वीडियो ट्यूटोरियल बनाया है जो इस तीन-स्तरीय कर्सर नियम सिस्टम के पूर्ण कार्यान्वयन को प्रदर्शित करता है:
 
-[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 वीडियो में शामिल है:
 - कर्सर आईडीई सेटिंग्स में वैश्विक कर्सर नियम सेट करना

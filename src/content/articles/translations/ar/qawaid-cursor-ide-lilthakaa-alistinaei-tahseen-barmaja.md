@@ -40,9 +40,9 @@ translations:
 
 أشارك هنا قواعد مشروع كورسر على المستوى الأساسي - الإعدادات العالمية التي أستخدمها في بيئة تطوير كورسر المتكاملة. تشكل هذه القواعد الأساس لجميع أعمال التطوير التي أقوم بها. عند دمجها مع قواعد المستودع والقواعد الديناميكية، فإنها تُنشئ نظاماً قوياً يحافظ على جودة الكود مع الحفاظ على اتساق ممارسات التطوير الخاصة بي.
 
-> **هل تفضل درس فيديو؟** لقد أنشأت شرحًا شاملاً بالفيديو لنظام قواعد كورسر بأكمله. [شاهد Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx) لرؤية هذه التقنيات وهي تُطبق خطوة بخطوة.
+> **هل تفضل درس فيديو؟** لقد أنشأت شرحًا شاملاً بالفيديو لنظام قواعد كورسر بأكمله. [شاهد Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://www.youtube.com/watch?v=gw8otRr2zpw) لرؤية هذه التقنيات وهي تُطبق خطوة بخطوة.
 
-[![تكوين وتنفيذ قواعد كورسر IDE قيد التنفيذ](/articles/cursor-ide-rules-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![تكوين وتنفيذ قواعد كورسر IDE قيد التنفيذ](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 ## كيفية تكوين قواعد كورسر لتحقيق الأداء الأمثل للبرمجة بالذكاء الاصطناعي
 
@@ -426,7 +426,7 @@ translations:
 
 إذا كنت تفضل التعلم البصري، فقد أنشأت درسًا شاملاً بالفيديو يوضح التنفيذ الكامل لنظام قواعد كورسر ثلاثي المستويات:
 
-[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 يغطي الفيديو:
 - إعداد قواعد كورسر العامة في إعدادات كورسر IDE

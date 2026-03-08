@@ -30,9 +30,9 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 本文将重点解析我的全局规则配置，这些经过实战检验的设置构成了高效AI协作的基础框架。结合项目级和动态规则，这套系统能在保证代码质量的同时，显著提升日常开发效率。
 
-> **更倾向于视频教程？** 我制作了一个全面的视频演练，详细介绍了整个 cursor 规则系统。[观看 Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx) 来查看这些技术的分步实现。
+> **更倾向于视频教程？** 我制作了一个全面的视频演练，详细介绍了整个 cursor 规则系统。[观看 Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://www.youtube.com/watch?v=gw8otRr2zpw) 来查看这些技术的分步实现。
 
-[![Cursor IDE 规则配置和实施实际操作](/articles/cursor-ide-rules-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![Cursor IDE 规则配置和实施实际操作](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 ## 实战指南：如何配置Cursor AI编码规则实现最佳性能
 
@@ -487,7 +487,7 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 如果你更喜欢视觉学习，我制作了一个全面的视频教程，演示了这个三层 cursor 规则系统的完整实施：
 
-[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://youtu.be/gw8otRr2zpw?si=z5wE2PNHugtH9yrx)
+[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 视频涵盖内容：
 - 在 Cursor IDE 设置中配置全局 cursor 规则

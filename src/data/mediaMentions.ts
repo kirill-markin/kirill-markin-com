@@ -57,7 +57,7 @@ export const bigMediaMentions: MediaMention[] = [
   },
   {
     title: "Ultimate Cursor AI IDE Rules Guide: All 5 Levels and\u00A0.cursorrules (2025)",
-    url: "https://youtu.be/gw8otRr2zpw?si=z5dvTp0Fc05jlGEX",
+    url: "https://www.youtube.com/watch?v=gw8otRr2zpw",
     publisher: "YouTube",
     date: "2025-09-09",
     type: "Video",
@@ -86,7 +86,7 @@ export const smallMediaMentions: MediaMention[] = [
   },
   {
     title: "AI web\u00A0scraping - Data Collection reimagined",
-    url: "https://youtu.be/QDFDTN30YOs?si=fpeSOig9h1el2zkK",
+    url: "https://www.youtube.com/watch?v=QDFDTN30YOs",
     publisher: "noah-conference.com",
     date: "2023-12-14",
     type: "Conference Talk",
@@ -148,7 +148,7 @@ export const smallMediaMentions: MediaMention[] = [
   },
   {
     title: "How to\u00A0write code with\u00A0AI, ChatGPT? From\u00A0scratch to\u00A068 GitHub stars",
-    url: "https://youtu.be/9MyJJRMRCW0?si=T2o6DG8iSBheMFfG",
+    url: "https://www.youtube.com/watch?v=9MyJJRMRCW0",
     publisher: "Kirill Markin",
     date: "2024-01-21",
     type: "Video",
@@ -173,7 +173,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "CRM-система: как\u00A0сэкономить деньги и\u00A0выбрать наилучший вариант",
     alternativeTitle: "CRM System: How to\u00A0Save Money and\u00A0Choose the\u00A0Best Option",
-    url: "https://rb.ru/opinion/best-crm/",
+    url: "https://rb.ru/columns/best-crm/",
     publisher: "Rusbase",
     date: "2021-03-12",
     type: "Article",
@@ -248,7 +248,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "ML-гайд: сколько стоит, как\u00A0без ML, что\u00A0учить, если ты\u00A0продакт",
     alternativeTitle: "ML-guide: How Much It\u00A0Costs, How to\u00A0Do Without ML, What to\u00A0Study If\u00A0You Are a\u00A0Product Manager",
-    url: "https://youtu.be/-b1N4Si-CUQ?si=Pll8us45Eh5S0F7D",
+    url: "https://www.youtube.com/watch?v=-b1N4Si-CUQ",
     publisher: "Anna Podobrazhnykh youtube channel",
     date: "2023-09-16",
     type: "Video",
@@ -353,7 +353,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "За\u00A0жизнь: актер и\u00A0IT-специалист о\u00A0бомжевании",
     alternativeTitle: "For Life: Actor and\u00A0IT Specialist on\u00A0Homelessness",
-    url: "https://youtu.be/VD-ZF4wNT-E",
+    url: "https://www.youtube.com/watch?v=VD-ZF4wNT-E",
     publisher: "Blogger Tanya Rybakova youtube channel",
     date: "2018-08-05",
     type: "Video",
@@ -400,7 +400,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "«Жизнь после диплома» — интервью с\u00A0Кириллом Маркиным",
     alternativeTitle: "Life After Diploma: An\u00A0Interview with\u00A0Kirill Markin",
-    url: "https://vk.com/@bmstu1830-zhizn-posle-diploma-intervu-s-kirillom-markinym",
+    url: "https://m.vk.com/@bmstu1830-zhizn-posle-diploma-intervu-s-kirillom-markinym",
     publisher: "Bauman Moscow state technical University",
     date: "2021-10-28",
     type: "Interview",
@@ -411,7 +411,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "Голосовой чат GPT своими руками: пошаговое руководство для\u00A0начинающих",
     alternativeTitle: "Voice Chat GPT with\u00A0Your Own Hands: Step-by-Step Guide for\u00A0Beginners",
-    url: "https://vc.ru/chatgpt/734427-golosovoy-chat-gpt-svoimi-rukami-poshagovoe-rukovodstvo-dlya-nachinayushchih",
+    url: "https://vc.ru/chatgpt/734427-golosovoi-chat-gpt-svoimi-rukami-poshagovoe-rukovodstvo-dlya-nachinayushih",
     publisher: "vc.ru",
     date: "2023-06-23",
     type: "Article",
@@ -422,7 +422,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "Создание бота Telegram с\u00A0голосовой поддержкой для\u00A0чата GPT без\u00A0DevOps",
     alternativeTitle: "Creating a\u00A0Telegram Bot with\u00A0Voice Support for\u00A0GPT Chat Without DevOps",
-    url: "https://vc.ru/u/343006-kirill-markin/762087-sozdanie-bota-telegram-s-golosovoy-podderzhkoy-dlya-chata-gpt-bez-devops-podrobnyy-gayd",
+    url: "https://vc.ru/id343006/762087-sozdanie-bota-telegram-s-golosovoi-podderzhkoi-dlya-chata-gpt-bez-devops-podrobnyi-gaid",
     publisher: "vc.ru",
     date: "2023-07-18",
     type: "Article",
