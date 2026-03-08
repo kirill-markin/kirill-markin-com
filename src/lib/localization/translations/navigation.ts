@@ -1,0 +1,42 @@
+export const navigation = {
+    en: {
+        home: 'Home',
+        dashboards: 'DASHBOARDS',
+        articles: 'ARTICLES',
+        mainService: 'AI TECH MENTORSHIP',
+        talkToKirill: 'TALK TO KIRILL',
+        language: 'English',
+    },
+    es: {
+        home: 'Inicio',
+        dashboards: 'DASHBOARDS',
+        articles: 'ARTÍCULOS',
+        mainService: 'MENTORÍA TÉCNICA IA',
+        talkToKirill: 'HABLAR CON KIRILL',
+        language: 'Español',
+    },
+    zh: {
+        home: '首页',
+        dashboards: 'DASHBOARDS',
+        articles: '专业文章',
+        mainService: 'AI技术导师',
+        talkToKirill: '预约咨询',
+        language: '中文',
+    },
+    ar: {
+        home: 'الرئيسية',
+        dashboards: 'DASHBOARDS',
+        articles: 'المقالات',
+        mainService: 'إرشاد تقني بالذكاء الاصطناعي',
+        talkToKirill: 'تحدث مع كيريل',
+        language: 'العربية',
+    },
+    hi: {
+        home: 'होम',
+        dashboards: 'DASHBOARDS',
+        articles: 'लेख',
+        mainService: 'AI तकनीकी मेंटरशिप',
+        talkToKirill: 'किरिल से बात करें',
+        language: 'हिन्दी',
+    },
+} as const;
