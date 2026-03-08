@@ -29,7 +29,7 @@ export const socialLinks: SocialLink[] = [
     avatarContact: true,
     footerBottom: true,
     achievement: {
-      value: "8,500+",
+      value: "9,500+",
       label: "followers"
     }
   },
