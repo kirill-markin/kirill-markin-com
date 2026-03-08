@@ -44,20 +44,9 @@ const nextConfig: NextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Add cache control headers for static pages and SEO headers for non-production
+  // Add SEO headers for non-production
   async headers() {
-    const headers = [
-      // Cache control for all pages in production using Vercel-specific headers
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, s-maxage=86400, stale-while-revalidate=604800',
-          },
-        ],
-      },
-    ];
+    const headers = [];
 
     // Set X-Robots-Tag: noindex for all non-production environments
     // This ensures custom domains used for preview/staging are also not indexed
