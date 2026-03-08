@@ -235,7 +235,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "Агрегация и\u00A0аналитика данных в\u00A0масштабе ТОП-3 прокси-провайдера в\u00A0мире",
     alternativeTitle: "Aggregation and\u00A0Analytics of\u00A0Data at\u00A0the\u00A0Scale of\u00A0the\u00A0Top 3 Proxy Providers in\u00A0the\u00A0World",
-    url: "https://matemarketing.ru/video?v=MTAwMTk4PzIjMzI5Nw",
+    url: "https://lms.matemarketing.ru/content/talk/106",
     publisher: "matemarketing.ru",
     date: "2023-11-09",
     type: "Conference Talk",
