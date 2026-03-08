@@ -38,6 +38,10 @@ export default function DashboardsPage() {
     <section className={styles.dashboardsContainer}>
       <h1>Dashboards</h1>
       <p>Public personal metrics and data visualizations.</p>
+      <p>
+        Kirill Markin plans to publish links to dashboards with different datasets here. There
+        are not many of them yet, but more are planned in the future.
+      </p>
 
       <nav className={styles.dashboardsList} aria-label="Available dashboards">
         <Link href="/dashboards/body/" className={styles.dashboardCard}>
