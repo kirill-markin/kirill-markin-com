@@ -10,13 +10,14 @@ import {
   getPathSegmentByLanguage,
   getTranslation
 } from '@/lib/localization';
+import type { Language } from '@/lib/localization';
 import { Translation } from '@/types/article';
 
 interface FooterProps {
   language?: string;
   currentPath: string;
   translations?: Translation[];
-  availableLanguages?: string[];
+  availableLanguages?: Language[];
 }
 
 const Footer: React.FC<FooterProps> = ({

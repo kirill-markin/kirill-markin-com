@@ -1,4 +1,4 @@
-import { DEFAULT_LANGUAGE } from './languages';
+import { DEFAULT_LANGUAGE, isValidLanguage } from './languages';
 import { PathSegmentsMap, SubPathSegmentsMap } from './types';
 
 /**
@@ -175,11 +175,11 @@ export function getPathSegmentByLanguage(
     segment: string,
     language: string
 ): string {
-    if (language === DEFAULT_LANGUAGE || !PATH_SEGMENTS[segment]) {
+    if (language === DEFAULT_LANGUAGE || !PATH_SEGMENTS[segment] || !isValidLanguage(language)) {
         return segment;
     }
 
-    return PATH_SEGMENTS[segment]?.[language] || segment;
+    return PATH_SEGMENTS[segment][language] || segment;
 }
 
 /**
@@ -196,6 +196,7 @@ export function getSubPathSegmentByLanguage(
 ): string {
     if (
         language === DEFAULT_LANGUAGE ||
+        !isValidLanguage(language) ||
         !SUB_PATH_SEGMENTS[mainSegment] ||
         !SUB_PATH_SEGMENTS[mainSegment][subSegment]
     ) {

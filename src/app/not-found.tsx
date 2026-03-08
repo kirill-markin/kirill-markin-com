@@ -9,7 +9,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import GlitchFilters from '@/components/GlitchFilters';
 import './globals.css';
 import styles from './not-found.module.css';
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getTranslation, isValidLanguage } from '@/lib/localization';
 import { SecretModeProvider } from '@/lib/secretModeContext';
 
 // Note: In the App Router, we can't dynamically set metadata from client components.
@@ -25,7 +25,7 @@ export default function NotFound() {
     const pathParts = pathname.split('/').filter(Boolean);
 
     // If the first part of the path is a supported language, use it
-    if (pathParts.length > 0 && SUPPORTED_LANGUAGES.includes(pathParts[0])) {
+    if (pathParts.length > 0 && isValidLanguage(pathParts[0])) {
       setLanguage(pathParts[0]);
     } else {
       setLanguage(DEFAULT_LANGUAGE);
