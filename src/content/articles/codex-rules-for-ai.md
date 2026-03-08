@@ -1,14 +1,14 @@
 ---
-title: "Codex Rules for AI: Global Instructions for a Better Coding Agent"
+title: "Codex Rules: Global Instructions, AGENTS.md, and Mac App"
 date: 2026-03-08
 slug: "codex-rules-for-ai"
-description: "My Codex rules for AI: the global instructions I keep in the new Codex Mac app, plus how personal AGENTS.md and repo guidance make the agent more reliable."
+description: "My Codex rules for AI: how I use Codex custom instructions, AGENTS.md, and the Mac app to keep the same coding patterns across different repos."
 tags: [productivity, codex, openai, ai]
 publish: true
 thumbnailUrl: "/articles/codex-personalization-custom-instructions.jpg"
 ---
 
-# Codex Rules for AI: Global Instructions for a Better Coding Agent
+# Codex Rules: Global Instructions, AGENTS.md, and Mac App
 
 I have only been using Codex seriously for about a month, mostly after GPT-5.4 made it feel much more usable to me. So this is not a "five years of battle-tested wisdom" article. It is a much simpler observation: Codex got good for me the moment I stopped treating it like another fancy prompt box and started giving it stable instructions up front.
 
@@ -20,7 +20,7 @@ In practice, that lives in `Settings -> Personalization -> Custom instructions`.
 
 Under the hood, those app instructions map to personal `AGENTS.md`. Good. I get the nicer app experience without losing the CLI-style clarity of a real file.
 
-## Where Codex Global Instructions Actually Live
+## Where Codex Custom Instructions Actually Live
 
 If you only remember one screen from this article, make it this one.
 
