@@ -238,9 +238,40 @@ const computeWeightStats = (
 
 export async function renderDashboardsBodyMarkdown(): Promise<MarkdownResult> {
   const series = await getWeightSeries();
+  const canonicalUrl = `${SITE_URL}/dashboards/body/`;
+
+  if (series.length === 0) {
+    const lines: string[] = [
+      `# Body Dashboard`,
+      ``,
+      `Body metrics dashboard by ${VCARD_DATA.fullName}.`,
+      ``,
+      `## Facts`,
+      ``,
+      `| Metric | Value |`,
+      `|--------|-------|`,
+      `| Height | ${HEIGHT_CM} cm |`,
+      `| Date of birth | ${VCARD_DATA.birthday} |`,
+      `| Age | ${computeAge(VCARD_DATA.birthday)} |`,
+      ``,
+      `## Weight`,
+      ``,
+      `Weight data is unavailable in this local build because BigQuery credentials are not configured.`,
+      ``,
+      `## Raw Data`,
+      ``,
+      `- [Full Genome — SNP Genotyping Data (TSV, ~16 MB)](${GENOME_URL}) — Atlas Biomed, February 2022`,
+      ``,
+      `## Links`,
+      ``,
+      `- [Interactive dashboard](${canonicalUrl})`,
+    ];
+
+    return { markdown: lines.join('\n'), status: 200 };
+  }
+
   const stats = computeWeightStats(series, DEFAULT_RANGE_DAYS);
   const csvSizeKb = Math.round((series.length * 16) / 1024);
-  const canonicalUrl = `${SITE_URL}/dashboards/body/`;
 
   const weightChange = stats.latest.weightKg - stats.oldest.weightKg;
   const changeSign = weightChange >= 0 ? '+' : '';

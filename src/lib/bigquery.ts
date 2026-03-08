@@ -14,6 +14,15 @@ import { BigQuery } from '@google-cloud/bigquery';
 
 const PROJECT_ID = 'personal-analytics-km';
 
+export const hasBigQueryCredentials = (): boolean => (
+  typeof process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON === 'string' &&
+  process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON.length > 0
+);
+
+export const isVercelBuildEnvironment = (): boolean => (
+  typeof process.env.VERCEL_ENV === 'string' && process.env.VERCEL_ENV.length > 0
+);
+
 const getCredentials = (): Record<string, string> => {
   const raw = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
 

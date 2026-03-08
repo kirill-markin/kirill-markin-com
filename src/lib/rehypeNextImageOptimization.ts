@@ -27,6 +27,19 @@ interface ImageNode extends Node {
     };
 }
 
+const ARTICLE_IMAGE_WIDTHS = [384, 640, 750, 828, 1080, 1200, 1920, 2048] as const;
+const ARTICLE_IMAGE_DISPLAY_WIDTH = 800;
+
+function getArticleImageFallbackWidth(): number {
+    const fallbackWidth = ARTICLE_IMAGE_WIDTHS.find((width) => width >= ARTICLE_IMAGE_DISPLAY_WIDTH);
+
+    if (typeof fallbackWidth !== 'number') {
+        throw new Error('No valid fallback width configured for article images');
+    }
+
+    return fallbackWidth;
+}
+
 // Cache for image dimensions
 const imageDimensionsCache = new Map<string, ImageDimensions>();
 
@@ -88,20 +101,15 @@ export function rehypeNextImageOptimization(options = { publicDir: './public' })
                     // Transform src to URL for Next.js Image Optimization API
                     if (process.env.NODE_ENV === 'production') {
                         try {
+                            const fallbackWidth = getArticleImageFallbackWidth();
+
                             // In production use Next.js Image Optimization
-                            node.properties.srcSet = [
-                                `/_next/image?url=${encodeURIComponent(src)}&w=384&q=75 384w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=640&q=75 640w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=750&q=75 750w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=828&q=75 828w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=75 1080w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=1200&q=75 1200w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=1920&q=75 1920w`,
-                                `/_next/image?url=${encodeURIComponent(src)}&w=2048&q=75 2048w`,
-                            ].join(', ');
+                            node.properties.srcSet = ARTICLE_IMAGE_WIDTHS.map(
+                                (width) => `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=75 ${width}w`
+                            ).join(', ');
 
                             // Base src for browsers that don't support srcSet
-                            node.properties.src = `/_next/image?url=${encodeURIComponent(src)}&w=800&q=75`;
+                            node.properties.src = `/_next/image?url=${encodeURIComponent(src)}&w=${fallbackWidth}&q=75`;
                         } catch (err) {
                             console.error(`Error setting srcSet for image: ${src}, error: ${err}`);
                             // Keep original src on error
