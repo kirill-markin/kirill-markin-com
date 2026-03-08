@@ -1,0 +1,130 @@
+.pageContent {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    background-color: var(--white);
+}
+
+.pageColumn {
+    width: 100%;
+    background-color: var(--white);
+}
+
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.headerTitle {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+}
+
+.pageTitle {
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    color: var(--dark-gray);
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    hyphens: auto;
+}
+
+.categoryDescription {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    color: var(--medium-gray);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.categoryDescription p {
+    margin: 0;
+}
+
+.tagsMenu {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.tagsMenuLabel {
+    margin-bottom: 10px;
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+.tagsMenuItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tagMenuItem {
+    padding: 5px 15px;
+    border: 1px solid var(--dark-gray);
+    background: transparent;
+    color: var(--dark-gray);
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.tagMenuItem:hover {
+    background-color: var(--light-gray);
+}
+
+.active {
+    border-color: var(--dark-gray);
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+.articleCardsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .articleCardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .articleCardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pageColumn {
+        padding: 10px;
+    }
+
+    .headerTitle {
+        max-width: 100%;
+    }
+
+    .pageTitle {
+        font-size: 2.25rem;
+        line-height: 1.3;
+    }
+
+    .articleCardsGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
