@@ -1,119 +1,91 @@
 # AGENTS.md
 
-This file provides guidance to LLM agents when working with code in this repository.
+Guidance for working with this repository.
 
-Modern personal website built with Next.js 15. Migrated from Jekyll for performance.
+Modern personal website built with Next.js 15, migrated from Jekyll for performance.
 
-**Git Workflow**: Commit directly to `main` branch (no PRs). Deploy is automatic after push.
+**Git Workflow**: commit directly to `main`; deploy is automatic after push.
 
 ## Development Commands
 
-- `npm run dev` - Development server with ESLint and Turbopack
-- `npm run build` - Production build
-- `npm run lint` - ESLint linting
-- `npm test` / `npm run test:watch` / `npm run test:coverage` - Jest tests
-- `npm run validate-metadata` - Validate SEO metadata across all pages
-- `npx tsx scripts/test-cache-headers.ts` - Test cache headers
-- `npm run analyze` - Build with bundle analyzer (ANALYZE=true)
+- `npm run dev`: development server with ESLint and Turbopack
+- `npm run build`: production build
+- `npm run lint`: ESLint
+- `npm test` / `npm run test:watch` / `npm run test:coverage`: Jest tests
+- `npm run validate-metadata`: validate SEO metadata across all pages
+- `npx tsx scripts/test-cache-headers.ts`: test cache headers
+- `npm run analyze`: build with bundle analyzer (`ANALYZE=true`)
 
-## Tech Stack
+## Stack
 
-- Next.js 15 with App Router, TypeScript, React 19 Server Components
+- Next.js 15 App Router, TypeScript, React 19 Server Components
 - Tailwind CSS + CSS Modules
-- Markdown processing: gray-matter, remark, rehype
-- Testing: Jest + ts-jest
-- Path alias: `@/*` → `./src/*`
+- Markdown via `gray-matter`, `remark`, `rehype`
+- Testing: Jest + `ts-jest`
+- Path alias: `@/*` -> `./src/*`
 
 ## Core Principles
 
-**Static Generation First**: Pre-render all content at build time with `generateStaticParams`. Aggressive caching (86400s with stale-while-revalidate in next.config.ts). Zero server-side computation at request time. Dynamic pages only in rare exceptions.
-
-**Server Components First**: Client components only where interactivity required. Minimal JavaScript to browser.
+- Static generation first: pre-render content with `generateStaticParams`, keep aggressive caching (`86400` with `stale-while-revalidate` in `next.config.ts`), and avoid request-time server computation except for rare dynamic pages.
+- Server Components first: use client components only where interactivity is required and keep browser JavaScript minimal.
 
 ## Project Structure
 
-- **`src/app/(default)/`** — English static routes (`/articles/`, `/services/`, `/meet/`, `/pay/`, `/dashboards/`)
-- **`src/app/(i18n)/[lang]/`** — Localized dynamic routes
-- **`src/components/`** — UI components
-- **`src/components/charts/`** — D3.js chart components (client-side)
-- **`src/content/articles/`** — Markdown articles + `translations/[lang]/`
-- **`src/data/`** — Structured data (services, media)
-- **`src/lib/`** — Utils including `localization.ts`, `bigquery.ts`, `weight.ts`
-- **`src/types/`** — TypeScript types
+- `src/app/(default)/`: English static routes such as `/articles/`, `/services/`, `/meet/`, `/pay/`, `/dashboards/`
+- `src/app/(i18n)/[lang]/`: localized dynamic routes
+- `src/components/`: UI components
+- `src/components/charts/`: client-side D3 chart components
+- `src/content/articles/`: markdown articles plus `translations/[lang]/`
+- `src/data/`: structured data (`services`, `media`)
+- `src/lib/`: utilities including `localization.ts`, `bigquery.ts`, `weight.ts`
+- `src/types/`: TypeScript types
 
 ## Multilingual Architecture
 
-### Next.js 15: Async Params
-```typescript
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
-}
-```
-
-### Route Groups
-- `app/(default)/` - English static routes: `/articles/`, `/services/`, `/meet/short/`
-- `app/(i18n)/[lang]/` - Localized dynamic routes: `/es/articulos/`, `/zh/zixun/`, `/ar/mawid/majani/`
-- RTL support for Arabic via `dir="rtl"` in `(i18n)` layout
-
-### Path Mapping (same logical path, different words per language)
-- articles → articulos → zhishi → maqalat → gyan
-- services → servicios → zixun → khadamat → sevaen
-- meet/short → reservar/breve → yuyue/mianfei → mawid/majani
-
-**Key Files:**
-- `lib/localization.ts` - Path segment mapping and translations
-- `(i18n)/[lang]/[segment]/page.tsx` - Dynamic segment resolution
-- `(i18n)/[lang]/[segment]/[subsegment]/page.tsx` - Nested routes
-- `(default)/*/page.tsx` - Static English routes
-
-**Before modifying routes**: Check segment mappings in `localization.ts`
+- In Next.js 15, route `params` are async: type them as `Promise<...>` and `await` them inside the page.
+- Route groups:
+  - `app/(default)/` for English static routes such as `/articles/`, `/services/`, `/meet/short/`
+  - `app/(i18n)/[lang]/` for localized dynamic routes such as `/es/articulos/`, `/zh/zixun/`, `/ar/mawid/majani/`
+- Arabic uses RTL via `dir="rtl"` in the `(i18n)` layout.
+- Path mapping keeps logical routes aligned across languages:
+  - `articles -> articulos -> zhishi -> maqalat -> gyan`
+  - `services -> servicios -> zixun -> khadamat -> sevaen`
+  - `meet/short -> reservar/breve -> yuyue/mianfei -> mawid/majani`
+- Key files:
+  - `lib/localization.ts`: path segment mapping and translations
+  - `(i18n)/[lang]/[segment]/page.tsx`: dynamic segment resolution
+  - `(i18n)/[lang]/[segment]/[subsegment]/page.tsx`: nested routes
+  - `(default)/*/page.tsx`: static English routes
+- Before changing routes, check segment mappings in `localization.ts`.
 
 ## Content Structure
 
-- **Articles**: `src/content/articles/` + `translations/[lang]/` - Markdown with frontmatter, bidirectional translation refs
-- **Services**: `src/data/servicesOther.ts` - Category-based filtering
-- **Media**: `src/data/mediaMentions.ts` - Thumbnails 520x297 (16:9), logos in `public/logos/`
-- **Languages**: en, es, zh, ar, hi - Routes pre-generated with `generateStaticParams`
+- Articles: `src/content/articles/` plus `translations/[lang]/`; markdown with frontmatter and bidirectional translation references
+- Services: `src/data/servicesOther.ts`; category-based filtering
+- Media: `src/data/mediaMentions.ts`; thumbnails are `520x297` (`16:9`), logos live in `public/logos/`
+- Languages: `en`, `es`, `zh`, `ar`, `hi`; routes are pre-generated with `generateStaticParams`
 
 ## Development Patterns
 
-**New Pages:**
-1. Add route in `(default)` or `(i18n)` group
-2. Update `lib/localization.ts` if multilingual
-3. Add `generateStaticParams` for dynamic routes
-4. Create `generateMetadata()` function
-5. Update `pageFilesMap` in `lib/fileModification.ts` for sitemap
-
-**New Content:**
-1. Create markdown with frontmatter
-2. Add translations with bidirectional refs
-3. Run `npm run validate-metadata`
-
-**Before Committing:**
-- Run `npm test` and `npm run validate-metadata` — fix any failures before creating a commit
-
-**Best Practices:**
-- Server Components by default
-- CSS Modules for styling
-- Update `pageFilesMap` in `lib/fileModification.ts` for new pages (sitemap lastmod)
-
-**Translation Workflow:**
-- Structured process with key term discussion
-- Chinese translations reviewed with DeepSeek V3
-- SEO-friendly URLs with target language keywords
+- New pages:
+  1. add the route in `(default)` or `(i18n)`
+  2. update `lib/localization.ts` if the page is multilingual
+  3. add `generateStaticParams` for dynamic routes
+  4. implement `generateMetadata()`
+  5. update `pageFilesMap` in `lib/fileModification.ts` for sitemap `lastmod`
+- New content:
+  1. create markdown with frontmatter
+  2. add translations with bidirectional refs
+  3. run `npm run validate-metadata`
+- Before committing, run `npm test` and `npm run validate-metadata` and fix failures.
+- Best practices: default to Server Components, use CSS Modules for styling, and update `pageFilesMap` for new pages.
+- Translation workflow: use a structured process with key-term discussion; Chinese translations are reviewed with DeepSeek V3; keep URLs SEO-friendly in the target language.
 
 ## Dashboards
 
-Pages under `/dashboards/` display personal metrics as D3.js charts.
-Data is fetched from BigQuery at build time and baked into static HTML.
-Daily redeploy via GitHub Actions cron + Vercel Deploy Hook keeps data fresh.
-See `src/lib/bigquery.ts` and `src/lib/weight.ts` for details.
+Pages under `/dashboards/` render personal metrics as D3 charts. Data is fetched from BigQuery at build time and baked into static HTML. A daily GitHub Actions cron plus a Vercel Deploy Hook keeps the data fresh. See `src/lib/bigquery.ts` and `src/lib/weight.ts`.
 
 ## Reference
 
-- [docs/writing-style.md](docs/writing-style.md) — writing style guide
-- [docs/configuration.md](docs/configuration.md) — env vars, SEO, analytics, next.config
+- [docs/writing-style.md](docs/writing-style.md) - writing style guide
+- [docs/configuration.md](docs/configuration.md) - env vars, SEO, analytics, `next.config`
