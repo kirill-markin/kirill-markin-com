@@ -424,3 +424,8 @@ The video walks through:
 - Troubleshooting common issues and optimizing token usage
 
 You'll see the entire workflow in action, from initial setup to advanced multi-level configurations that transform how you collaborate with AI assistants.
+
+If you want the companion articles for other coding agents, they live here:
+
+- Claude Code Rules for AI: [https://kirill-markin.com/articles/claude-code-rules-for-ai/](https://kirill-markin.com/articles/claude-code-rules-for-ai/)
+- Codex Rules for AI: [https://kirill-markin.com/articles/codex-rules-for-ai/](https://kirill-markin.com/articles/codex-rules-for-ai/)
