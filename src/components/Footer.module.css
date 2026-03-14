@@ -59,7 +59,7 @@
 }
 
 .footerRolesSection {
-  width: 25%;
+  width: 22%;
   padding-right: 1rem;
   display: flex;
   flex-direction: column;
@@ -180,7 +180,7 @@
 }
 
 .footerLinksWrapper {
-  width: 75%;
+  width: 78%;
   display: flex;
 }
 
@@ -196,6 +196,7 @@
   padding-left: 2rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem 1.5rem;
   align-content: flex-start;
 }
 
@@ -213,18 +214,20 @@
 .footerOrgContactInfo,
 .footerOrgMoreInfo,
 .footerOrgMedia,
-.footerOrgOther {
+.footerOrgOther,
+.footerOrgProducts {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-bottom: 1.88rem;
-  flex: 1 1 11rem;
+  flex: 1 1 9rem;
 }
 
 .footerOrgContactInfo h3,
 .footerOrgMoreInfo h3,
 .footerOrgMedia h3,
-.footerOrgOther h3 {
+.footerOrgOther h3,
+.footerOrgProducts h3 {
   text-transform: uppercase;
   font-weight: 100;
   margin-bottom: 10px;
