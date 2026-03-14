@@ -1,6 +1,7 @@
 export const footer = {
     en: {
         contact: 'Contact',
+        products: 'Products',
         services: 'Services',
         social: 'Social',
         media: 'Media',
@@ -30,6 +31,7 @@ export const footer = {
     },
     es: {
         contact: 'Contacto',
+        products: 'Productos',
         services: 'Servicios',
         social: 'Social',
         media: 'Medios',
@@ -59,6 +61,7 @@ export const footer = {
     },
     zh: {
         contact: '联系方式',
+        products: '产品',
         services: '服务项目',
         social: '社交媒体',
         media: '媒体',
@@ -88,6 +91,7 @@ export const footer = {
     },
     ar: {
         contact: 'جهات الاتصال',
+        products: 'المنتجات',
         services: 'الخدمات',
         social: 'وسائل التواصل',
         media: 'الإعلام',
@@ -117,6 +121,7 @@ export const footer = {
     },
     hi: {
         contact: 'संपर्क',
+        products: 'प्रोडक्ट्स',
         services: 'सेवाएं',
         social: 'सामाजिक',
         media: 'मीडिया',

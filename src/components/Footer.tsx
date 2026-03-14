@@ -20,6 +20,12 @@ interface FooterProps {
   availableLanguages?: Language[];
 }
 
+interface FooterProductLink {
+  href: string;
+  label: string;
+  openInNewTab: boolean;
+}
+
 const Footer: React.FC<FooterProps> = ({
   language = DEFAULT_LANGUAGE,
   currentPath,
@@ -39,6 +45,24 @@ const Footer: React.FC<FooterProps> = ({
   const servicesPath = language === DEFAULT_LANGUAGE
     ? '/services/'
     : `/${language}/${getPathSegmentByLanguage('services', language)}/`;
+
+  const productLinks: FooterProductLink[] = [
+    {
+      href: 'https://flashcards-open-source-app.com/',
+      label: 'Pro Flashcards',
+      openInNewTab: true
+    },
+    {
+      href: 'https://expense-budget-tracker.com/',
+      label: 'Pro Expenses',
+      openInNewTab: true
+    },
+    {
+      href: servicesPath,
+      label: footerTranslations.services,
+      openInNewTab: false
+    }
+  ];
 
   const renderJobTitle = (title: string): { __html: string } => {
     return {
@@ -97,9 +121,6 @@ const Footer: React.FC<FooterProps> = ({
                     <Image src="/icons/phone.svg" alt="Phone icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.phone}
                   </a>
-                  <Link href={servicesPath} className={styles.footerLink}>
-                    {footerTranslations.services}
-                  </Link>
                 </div>
 
                 <div className={styles.footerOrgMoreInfo}>
@@ -154,6 +175,31 @@ const Footer: React.FC<FooterProps> = ({
                       </a>
                     ))
                   }
+                </div>
+
+                <div className={styles.footerOrgProducts}>
+                  <h3>{footerTranslations.products}</h3>
+                  {productLinks.map((link) => (
+                    link.openInNewTab ? (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.footerLink}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={styles.footerLink}
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  ))}
                 </div>
               </div>
             </div>
