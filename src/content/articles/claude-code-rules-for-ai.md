@@ -6,6 +6,12 @@ description: "My Claude Code rules using global CLAUDE.md instructions. How I sp
 tags: [productivity, claude-code, ai, llm]
 publish: true
 thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"
+language: "en"
+translations:
+  - language: "es"
+    slug: "reglas-claude-code-para-ia"
+  - language: "zh"
+    slug: "claude-code-ai-guize"
 ---
 
 # Claude Code Rules: CLAUDE.md Global Instructions for AI

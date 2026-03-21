@@ -6,6 +6,12 @@ description: "My Codex rules for AI: how I use Codex custom instructions, AGENTS
 tags: [productivity, codex, openai, ai]
 publish: true
 thumbnailUrl: "/articles/codex-personalization-custom-instructions.jpg"
+language: "en"
+translations:
+  - language: "es"
+    slug: "reglas-codex-para-ia"
+  - language: "zh"
+    slug: "codex-ai-guize"
 ---
 
 # Codex Rules: Global Instructions, AGENTS.md, and Mac App
