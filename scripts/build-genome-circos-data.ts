@@ -24,15 +24,6 @@ type CytoBand = {
   stain: string;
 };
 
-type WindowBin = {
-  /** 0-based bin index (position = index * WINDOW_SIZE) */
-  i: number;
-  /** Total SNP count in this window */
-  n: number;
-  /** Heterozygous SNP count */
-  het: number;
-};
-
 type ChromosomeOutput = {
   id: string;
   label: string;
