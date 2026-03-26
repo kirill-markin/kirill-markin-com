@@ -65,7 +65,7 @@
     "typescript": "^5.9.3"
   },
   "engines": {
-    "node": "25.x"
+    "node": "24.x"
   },
   "repository": {
     "type": "git",
