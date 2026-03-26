@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SQL-like DSL Thumbnail</title>
+    <style>
+        :root {
+            --bg-top: #07111f;
+            --bg-bottom: #0e2233;
+            --panel: rgba(6, 13, 24, 0.88);
+            --panel-border: rgba(124, 146, 173, 0.2);
+            --muted: #8ea2b8;
+            --text: #f2f6fb;
+            --accent: #8cff90;
+            --accent-soft: rgba(140, 255, 144, 0.18);
+            --warning: #ffb454;
+            --danger: #ff7b72;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 520px;
+            height: 297px;
+            margin: 0;
+            overflow: hidden;
+            font-family: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+            color: var(--text);
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(142, 162, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(142, 162, 184, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 95%);
+            pointer-events: none;
+        }
+
+        .frame {
+            position: relative;
+            display: grid;
+            grid-template-columns: 214px 1fr;
+            gap: 16px;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(36px);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .glowLeft {
+            top: -20px;
+            left: -30px;
+            width: 190px;
+            height: 120px;
+            background: rgba(82, 190, 255, 0.18);
+        }
+
+        .glowRight {
+            right: -40px;
+            bottom: -20px;
+            width: 220px;
+            height: 140px;
+            background: rgba(140, 255, 144, 0.16);
+        }
+
+        .left {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            padding: 4px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #d8e5f2;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            backdrop-filter: blur(12px);
+        }
+
+        h1 {
+            margin: 12px 0 0;
+            font-size: 35px;
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+        }
+
+        .subtitle {
+            max-width: 170px;
+            margin: 10px 0 0;
+            color: #c5d3e0;
+            font-size: 13px;
+            line-height: 1.25;
+        }
+
+        .toolCloud {
+            position: relative;
+            width: 100%;
+            height: 118px;
+            margin-top: 8px;
+        }
+
+        .tool {
+            position: absolute;
+            padding: 7px 9px;
+            border: 1px solid rgba(255, 123, 114, 0.24);
+            border-radius: 10px;
+            background: rgba(24, 14, 20, 0.72);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+            color: #ffd6d1;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .toolSmall {
+            padding: 6px 8px;
+            font-size: 10px;
+        }
+
+        .tool1 { top: 0; left: 0; transform: rotate(-6deg); }
+        .tool2 { top: 8px; left: 84px; transform: rotate(4deg); }
+        .tool3 { top: 38px; left: 18px; transform: rotate(2deg); }
+        .tool4 { top: 46px; left: 114px; transform: rotate(-5deg); }
+        .tool5 { top: 75px; left: 6px; transform: rotate(-4deg); }
+        .tool6 { top: 80px; left: 86px; transform: rotate(3deg); }
+        .tool7 { top: 88px; left: 150px; transform: rotate(-2deg); }
+
+        .count {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .countValue {
+            color: var(--warning);
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+        }
+
+        .countLabel {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .right {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .queryPanel {
+            position: relative;
+            overflow: hidden;
+            padding: 16px;
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+                var(--panel);
+            box-shadow:
+                0 18px 50px rgba(0, 0, 0, 0.36),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+        }
+
+        .queryPanel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(140, 255, 144, 0.18), transparent 28%),
+                linear-gradient(315deg, rgba(112, 203, 255, 0.12), transparent 36%);
+            pointer-events: none;
+        }
+
+        .panelTop {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .panelLabel {
+            color: #d8f5db;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .panelBadge {
+            padding: 5px 9px;
+            border: 1px solid rgba(140, 255, 144, 0.22);
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        pre {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: var(--text);
+            font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+            font-size: 12px;
+            line-height: 1.45;
+            white-space: pre-wrap;
+        }
+
+        .keyword {
+            color: #7dd7ff;
+            font-weight: 700;
+        }
+
+        .entity {
+            color: #ffffff;
+        }
+
+        .string {
+            color: #ffd08a;
+        }
+
+        .line {
+            color: #96abc1;
+        }
+
+        .bottomRow {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .singleSurface {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+        }
+
+        .singleSurface span {
+            color: var(--accent);
+        }
+
+        .tinyNote {
+            max-width: 140px;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.25;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow glowLeft"></div>
+    <div class="glow glowRight"></div>
+    <main class="frame">
+        <section class="left">
+            <div>
+                <div class="kicker">Agent API Design</div>
+                <h1>17 tools.<br>1 DSL.</h1>
+                <p class="subtitle">A SQL-like surface that LLMs can learn fast and reuse.</p>
+            </div>
+
+            <div class="toolCloud" aria-hidden="true">
+                <div class="tool tool1">list_cards</div>
+                <div class="tool tool2 toolSmall">search_cards</div>
+                <div class="tool tool3">update_cards</div>
+                <div class="tool tool4 toolSmall">list_due_cards</div>
+                <div class="tool tool5">create_decks</div>
+                <div class="tool tool6 toolSmall">get_tags</div>
+                <div class="tool tool7">review_history</div>
+            </div>
+
+            <div class="count">
+                <div class="countValue">17</div>
+                <div class="countLabel">tool calls removed</div>
+            </div>
+        </section>
+
+        <section class="right">
+            <div class="queryPanel">
+                <div class="panelTop">
+                    <div class="panelLabel">SQL-like endpoint</div>
+                    <div class="panelBadge">LLM-friendly</div>
+                </div>
+
+                <pre><span class="keyword">SELECT</span> <span class="entity">*</span> <span class="keyword">FROM</span> <span class="entity">cards</span>
+<span class="keyword">WHERE</span> <span class="entity">tags</span> <span class="keyword">OVERLAP</span> (<span class="string">'english'</span>)
+  <span class="keyword">AND</span> <span class="entity">effort_level</span> <span class="keyword">IN</span> (<span class="string">'fast'</span>, <span class="string">'medium'</span>)
+<span class="keyword">ORDER BY</span> <span class="entity">updated_at</span> <span class="keyword">DESC</span>
+<span class="keyword">LIMIT</span> <span class="line">20</span> <span class="keyword">OFFSET</span> <span class="line">0</span></pre>
+
+                <div class="bottomRow">
+                    <div class="singleSurface"><span>One surface</span><br>for reads and writes</div>
+                    <div class="tinyNote">The parser validates the DSL and compiles it into internal operations.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
