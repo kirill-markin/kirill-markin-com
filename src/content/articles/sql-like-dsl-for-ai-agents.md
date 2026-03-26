@@ -4,7 +4,7 @@ date: 2026-03-12
 description: "How I collapsed 17 agent tools in Flashcards Open Source App into one SQL-like DSL endpoint that internal and external LLMs can learn quickly."
 tags: [productivity, ai, llm]
 publish: true
-thumbnailUrl: "/articles/placeholder.webp"
+thumbnailUrl: "/articles/sql-like-dsl-for-ai-agents.webp"
 keywords: [
   "SQL-like DSL for AI agents",
   "AI agent API design",
@@ -33,6 +33,8 @@ This is the agent layer behind [flashcards-open-source-app.com](https://flashcar
 So I collapsed the whole thing into one SQL-like DSL endpoint.
 
 Not raw PostgreSQL. I am not that brave.
+
+![SQL-like DSL endpoint replacing 17 separate agent tools](/articles/sql-like-dsl-for-ai-agents.webp)
 
 ## 17 tools was too many
 
