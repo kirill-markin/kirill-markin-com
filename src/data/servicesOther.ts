@@ -25,6 +25,26 @@ export const servicesOtherData: ServiceOtherData[] = [
     buttonText: "View Plans",
     buttonUrl: "/services/mentorship/"
   },
+  {
+    serviceId: "expense_budget_tracker",
+    categoryId: "people",
+    name: "Expense Budget Tracker",
+    description: "Need a personal finance system that handles real-life budgets, multiple currencies, and full control over your data? Use the open-source tracker I built for people who want clarity instead of spreadsheet chaos.",
+    logoUrl: "/services/expense-budget-tracker.webp",
+    promoText: "",
+    buttonText: "Open Website",
+    buttonUrl: "https://expense-budget-tracker.com/"
+  },
+  {
+    serviceId: "flashcards_open_source_app",
+    categoryId: "people",
+    name: "Flashcards Open Source App",
+    description: "Want a spaced repetition app with AI workflows, self-hosting, and no lock-in? Use the open-source flashcards system I built for focused learning across web, mobile, and agent-driven workflows.",
+    logoUrl: "/services/flashcards-open-source-app.webp",
+    promoText: "",
+    buttonText: "Open Website",
+    buttonUrl: "https://flashcards-open-source-app.com/"
+  },
   // {
   //   serviceId: "telegram_chatgpt_subscription",
   //   categoryId: "people",
@@ -70,4 +90,3 @@ export const servicesOtherData: ServiceOtherData[] = [
     buttonUrl: "/services/police/"
   },
 ];
-
