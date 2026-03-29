@@ -84,6 +84,15 @@ Cursor -> Configuración -> Configuración de Cursor -> Reglas para IA:
 - When a dependency is installed locally (node_modules, .venv, etc.), read its source code directly even if it's gitignored — this is the best way to understand how a library works
 - Update project configuration files when adding dependencies
 
+## Testing
+
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
+
 ## Terminal Usage
 
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
@@ -350,9 +359,11 @@ He encontrado que los archivos de reglas de cursor especializados son particular
 
 #### Reglas de pruebas (`directrices-pruebas.mdc`)
 
-- Patrones de nomenclatura de pruebas
-- Directrices de estrategia de mocking
-- Expectativas de cobertura de pruebas
+- Respeta la estrategia de pruebas existente del repositorio
+- Prefiere cobertura de integración y smoke tests en lugar de agregar nuevos unit tests
+- Evita mocks cuando las llamadas reales sean prácticas
+- Prefiere gastar un poco de dinero en llamadas reales antes que construir pruebas frágiles basadas en mocks
+- Define solo la cobertura mínima necesaria para la tarea actual
 
 #### Reglas de integración de API (`estandares-api.mdc`)
 
@@ -428,4 +439,3 @@ El video cubre:
 - Solución de problemas comunes y optimización del uso de tokens
 
 Verás todo el flujo de trabajo en acción, desde la configuración inicial hasta configuraciones multinivel avanzadas que transforman cómo colaboras con asistentes de IA.
-

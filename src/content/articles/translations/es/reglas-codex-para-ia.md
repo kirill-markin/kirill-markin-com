@@ -90,6 +90,15 @@ Esta es la base que quiero que Codex traiga a cualquier repositorio antes de ver
 - Add dependencies to project config files, not as one-off manual installs
 - Read installed dependency source code when needed instead of guessing behavior
 
+## Testing
+
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
+
 ## Codex Workflow
 
 - Inspect the repository before editing

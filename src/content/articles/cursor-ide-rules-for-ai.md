@@ -80,6 +80,15 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - When a dependency is installed locally (node_modules, .venv, etc.), read its source code directly even if it's gitignored — this is the best way to understand how a library works
 - Update project configuration files when adding dependencies
 
+## Testing
+
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
+
 ## Terminal Usage
 
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
@@ -344,9 +353,11 @@ I've found specialized cursor project rules files particularly effective for the
 
 #### Testing Rules (`test-guidelines.mdc`)
 
-- Test naming patterns
-- Mocking strategy guidelines
-- Test coverage expectations
+- Respect the repository's existing testing strategy
+- Prefer integration and smoke coverage over adding new unit tests
+- Avoid mocks when real calls are practical
+- Prefer spending a little money on real calls over building fragile mock-based tests
+- Define only the minimum coverage needed for the current task
 
 #### API Integration Rules (`api-standards.mdc`)
 

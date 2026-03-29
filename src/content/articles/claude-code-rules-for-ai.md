@@ -86,6 +86,15 @@ This block is boring on purpose. Good rules usually are. I am not trying to desc
 - If a dependency is installed locally, read its source code when needed instead of guessing
 - Update project configuration files when adding dependencies
 
+## Testing
+
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
+
 ## Terminal Usage
 
 - Prefer non-interactive commands with flags over interactive ones
