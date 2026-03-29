@@ -93,6 +93,15 @@ translations:
 - When a dependency is installed locally (node_modules, .venv, etc.), read its source code directly even if it's gitignored — this is the best way to understand how a library works
 - Update project configuration files when adding dependencies
 
+## Testing
+
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
+
 ## Terminal Usage
 
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
@@ -358,9 +367,11 @@ translations:
 
 #### قواعد الاختبار (`test-guidelines.mdc`)
 
-- أنماط تسمية الاختبارات
-- إرشادات استراتيجية المحاكاة
-- توقعات تغطية الاختبار
+- احترم استراتيجية الاختبار الحالية في المستودع ومجموعة الاختبارات الموجودة
+- فضّل اختبارات التكامل و smoke tests بدلًا من إضافة unit tests جديدة
+- تجنب الـ mocks عندما تكون الاستدعاءات الحقيقية عملية
+- غالبًا من الأفضل إنفاق القليل على الاستدعاءات الحقيقية بدلًا من بناء اختبارات هشة تعتمد على الـ mocks
+- حدّد فقط الحد الأدنى من التغطية المطلوبة للمهمة الحالية
 
 #### قواعد تكامل واجهة برمجة التطبيقات (`api-standards.mdc`)
 

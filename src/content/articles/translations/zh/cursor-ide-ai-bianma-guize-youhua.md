@@ -89,6 +89,15 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 - When a dependency is installed locally (node_modules, .venv, etc.), read its source code directly even if it's gitignored — this is the best way to understand how a library works
 - Update project configuration files when adding dependencies
 
+## Testing
+
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
+
 ## Terminal Usage
 
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
@@ -391,10 +400,11 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 ### 专项任务规则模板
 
 #### 测试规则 (`test-guidelines.mdc`)
-- **命名模式**：统一测试命名规范
-- **模拟策略**：定义mock数据标准
-- **覆盖率**：设置最低覆盖率要求
-- **断言风格**：统一断言方法
+- **仓库策略**：尊重仓库当前已有的测试策略和现有测试套件
+- **测试类型**：优先使用集成测试和 smoke tests，而不是新增 unit tests
+- **真实调用**：如果可行，避免 mocks，优先验证真实行为
+- **成本取舍**：通常多花一点真实 API 或服务调用成本，也比维护脆弱的 mock 测试更值得
+- **覆盖范围**：只为当前任务定义最小必要覆盖
 
 #### API集成规则 (`api-standards.mdc`)
 - **错误处理**：定义重试逻辑和超时
