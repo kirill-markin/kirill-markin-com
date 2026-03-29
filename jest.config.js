@@ -1,12 +1,20 @@
 module.exports = {
-    preset: 'ts-jest',
     testEnvironment: 'node',
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1',
     },
     transform: {
-        '^.+\\.(ts|tsx)$': ['ts-jest', {
-            tsconfig: 'tsconfig.json',
+        '^.+\\.(ts|tsx)$': ['@swc/jest', {
+            jsc: {
+                parser: {
+                    syntax: 'typescript',
+                    tsx: true,
+                },
+                target: 'es2021',
+            },
+            module: {
+                type: 'commonjs',
+            },
         }],
     },
     testMatch: ['**/__tests__/**/*.test.(ts|tsx)'],
