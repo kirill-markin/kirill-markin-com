@@ -66,17 +66,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To run tests:
+To validate the project:
 
 ```bash
-# Run all tests
-npm test
+# Run ESLint
+npm run lint
 
-# Run tests in watch mode
-npm run test:watch
+# Build the production bundle
+npm run build
 
-# Generate test coverage report
-npm run test:coverage
+# Validate SEO metadata
+npm run validate-metadata
+
+# Check cache headers
+npm run test-cache
 ```
 
 ## Environment Variables
@@ -130,7 +133,7 @@ The deployment process automatically:
 - **TypeScript**: For type safety
 - **CSS Modules**: For component-scoped styling
 - **ESLint**: For code quality
-- **Jest**: For unit testing and SEO validation
+- **Metadata validation scripts**: For SEO and cache-header checks
 - **Vercel**: For deployment and hosting
 
 ## Additional Resources
@@ -145,5 +148,5 @@ The deployment process automatically:
 - `npm run dev` - Development server
 - `npm run build` - Production build
 - `npm run lint` - Run ESLint
-- `npm test` - Run tests
 - `npm run validate-metadata` - Validate SEO metadata across all pages
+- `npm run test-cache` - Check cache headers
