@@ -11,7 +11,6 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - `npm run dev`: development server with ESLint and Turbopack
 - `npm run build`: production build
 - `npm run lint`: ESLint
-- `npm test` / `npm run test:watch` / `npm run test:coverage`: Jest tests
 - `npm run validate-metadata`: validate SEO metadata across all pages
 - `npx tsx scripts/test-cache-headers.ts`: test cache headers
 - `npm run analyze`: build with bundle analyzer (`ANALYZE=true`)
@@ -21,7 +20,6 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - Next.js 15 App Router, TypeScript, React 19 Server Components
 - Tailwind CSS + CSS Modules
 - Markdown via `gray-matter`, `remark`, `rehype`
-- Testing: Jest + `ts-jest`
 - Path alias: `@/*` -> `./src/*`
 
 ## Core Principles
@@ -77,7 +75,7 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
   1. create markdown with frontmatter
   2. add translations with bidirectional refs
   3. run `npm run validate-metadata`
-- Before committing, run `npm test` and `npm run validate-metadata` and fix failures.
+- Before committing, run `npm run lint`, `npm run build`, and `npm run validate-metadata` and fix failures.
 - Best practices: default to Server Components, use CSS Modules for styling, and update `pageFilesMap` for new pages.
 - Translation workflow: use a structured process with key-term discussion; Chinese translations are reviewed with DeepSeek V3; keep URLs SEO-friendly in the target language.
 
