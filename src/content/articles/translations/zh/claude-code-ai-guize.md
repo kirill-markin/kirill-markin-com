@@ -92,7 +92,9 @@ Anthropic 的 [Claude Code 文档](https://docs.anthropic.com/en/docs/claude-cod
 
 - Respect the current repository testing strategy and existing test suite
 - Do not add new unit tests by default
-- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
 - Avoid mocks when real calls are practical
 - It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
 - Add only the minimum test coverage needed for the requested change

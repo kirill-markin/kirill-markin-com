@@ -97,7 +97,9 @@ translations:
 
 - Respect the current repository testing strategy and existing test suite
 - Do not add new unit tests by default
-- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
 - Avoid mocks when real calls are practical
 - It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
 - Add only the minimum test coverage needed for the requested change
@@ -368,7 +370,9 @@ translations:
 #### قواعد الاختبار (`test-guidelines.mdc`)
 
 - احترم استراتيجية الاختبار الحالية في المستودع ومجموعة الاختبارات الموجودة
-- فضّل اختبارات التكامل و smoke tests بدلًا من إضافة unit tests جديدة
+- فضّل اختبارات التكامل و end-to-end و smoke tests بدلًا من إضافة unit tests جديدة
+- استخدم unit tests فقط نادرًا، وبالأساس مع مجموعات بيانات مستقرة أو تحويلات بيانات نقية
+- لا تضف unit tests فقط لرفع أرقام التغطية
 - تجنب الـ mocks عندما تكون الاستدعاءات الحقيقية عملية
 - غالبًا من الأفضل إنفاق القليل على الاستدعاءات الحقيقية بدلًا من بناء اختبارات هشة تعتمد على الـ mocks
 - حدّد فقط الحد الأدنى من التغطية المطلوبة للمهمة الحالية

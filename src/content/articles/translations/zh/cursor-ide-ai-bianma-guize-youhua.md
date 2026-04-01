@@ -93,7 +93,9 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 - Respect the current repository testing strategy and existing test suite
 - Do not add new unit tests by default
-- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
 - Avoid mocks when real calls are practical
 - It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
 - Add only the minimum test coverage needed for the requested change
@@ -401,7 +403,9 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 
 #### 测试规则 (`test-guidelines.mdc`)
 - **仓库策略**：尊重仓库当前已有的测试策略和现有测试套件
-- **测试类型**：优先使用集成测试和 smoke tests，而不是新增 unit tests
+- **测试类型**：优先使用集成测试、端到端测试和 smoke tests，而不是新增 unit tests
+- **单元测试**：只在少数情况下使用，主要用于稳定数据集或纯数据转换
+- **覆盖率**：不要只是为了提高覆盖率数字而新增 unit tests
 - **真实调用**：如果可行，避免 mocks，优先验证真实行为
 - **成本取舍**：通常多花一点真实 API 或服务调用成本，也比维护脆弱的 mock 测试更值得
 - **覆盖范围**：只为当前任务定义最小必要覆盖
