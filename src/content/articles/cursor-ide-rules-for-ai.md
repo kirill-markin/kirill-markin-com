@@ -84,7 +84,9 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 - Respect the current repository testing strategy and existing test suite
 - Do not add new unit tests by default
-- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
 - Avoid mocks when real calls are practical
 - It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
 - Add only the minimum test coverage needed for the requested change
@@ -354,7 +356,9 @@ I've found specialized cursor project rules files particularly effective for the
 #### Testing Rules (`test-guidelines.mdc`)
 
 - Respect the repository's existing testing strategy
-- Prefer integration and smoke coverage over adding new unit tests
+- Prefer integration, end-to-end, and smoke coverage over adding new unit tests
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
 - Avoid mocks when real calls are practical
 - Prefer spending a little money on real calls over building fragile mock-based tests
 - Define only the minimum coverage needed for the current task

@@ -88,7 +88,9 @@ Cursor -> Configuración -> Configuración de Cursor -> Reglas para IA:
 
 - Respect the current repository testing strategy and existing test suite
 - Do not add new unit tests by default
-- When tests are needed, prefer integration tests or smoke tests that validate real behavior
+- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
 - Avoid mocks when real calls are practical
 - It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
 - Add only the minimum test coverage needed for the requested change
@@ -360,7 +362,9 @@ He encontrado que los archivos de reglas de cursor especializados son particular
 #### Reglas de pruebas (`directrices-pruebas.mdc`)
 
 - Respeta la estrategia de pruebas existente del repositorio
-- Prefiere cobertura de integración y smoke tests en lugar de agregar nuevos unit tests
+- Prefiere pruebas de integración, end-to-end y smoke tests en lugar de agregar nuevos unit tests
+- Usa unit tests solo en casos raros, principalmente para datasets estables o transformaciones de datos puras
+- Nunca agregues unit tests solo para inflar los números de cobertura
 - Evita mocks cuando las llamadas reales sean prácticas
 - Prefiere gastar un poco de dinero en llamadas reales antes que construir pruebas frágiles basadas en mocks
 - Define solo la cobertura mínima necesaria para la tarea actual
