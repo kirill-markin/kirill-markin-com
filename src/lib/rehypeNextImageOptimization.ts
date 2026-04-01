@@ -4,7 +4,6 @@ import { promisify } from 'util';
 import sizeOf from 'image-size';
 import fs from 'fs';
 import { Node } from 'unist';
-import { ISizeCalculationResult } from 'image-size/dist/types/interface';
 
 const readFile = promisify(fs.readFile);
 
@@ -71,7 +70,7 @@ export function rehypeNextImageOptimization(options = { publicDir: './public' })
                     const buffer = await readFile(imagePath);
 
                     // Use the buffer with image-size
-                    const dimensions = sizeOf(buffer) as ISizeCalculationResult;
+                    const dimensions = sizeOf(buffer);
 
                     // Create a properly typed result
                     const result: ImageDimensions = {
