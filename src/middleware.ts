@@ -10,6 +10,12 @@ const KNOWN_PAGE_NAMES: Set<string> = new Set(
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
+    if (pathname.endsWith('.md/') || pathname.endsWith('.txt/')) {
+        const redirectUrl = request.nextUrl.clone();
+        redirectUrl.pathname = pathname.replace(/\/+$/, '');
+        return NextResponse.redirect(redirectUrl, 308);
+    }
+
     // --- Markdown serving: .md / .txt extension ---
     if (pathname.endsWith('.md') || pathname.endsWith('.txt')) {
         // Exclude /llms.txt and /robots.txt — they have their own handlers

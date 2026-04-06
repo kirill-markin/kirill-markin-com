@@ -61,8 +61,8 @@ function getLanguageAlternates(
 
 /**
  * Derive the Markdown-alternate URL from a canonical URL.
- * Strips trailing slashes and query parameters, appends `.md`.
- * Root path maps to `/home.md` to match the markdown API route.
+ * Strips trailing slashes and query parameters, appends `.md`,
+ * and returns an absolute URL to avoid root-path serialization quirks.
  */
 function getMarkdownPath(canonicalUrl: string): string {
     let path: string;
@@ -72,7 +72,8 @@ function getMarkdownPath(canonicalUrl: string): string {
         path = canonicalUrl.split('?')[0];
     }
     path = path.replace(/\/+$/, '');
-    return path === '' ? '/.md' : `${path}.md`;
+    const markdownPath = path === '' ? '/.md' : `${path}.md`;
+    return `${SITE_URL}${markdownPath}`;
 }
 
 /**
@@ -125,7 +126,6 @@ export function generateHomePageMetadata(language: string): Metadata {
         alternates: {
             canonical: canonicalUrl,
             languages: alternates,
-            types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
         },
     };
 }
