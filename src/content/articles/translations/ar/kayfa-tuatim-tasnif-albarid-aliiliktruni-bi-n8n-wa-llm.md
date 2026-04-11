@@ -1,93 +1,96 @@
 ---
 keywords: [
-  "automate email categorization",
-  "n8n email workflow",
-  "AI email sorting",
-  "LLM email automation",
-  "Gmail automation n8n",
-  "email categorization system",
-  "n8n workflow tutorial",
-  "GPT email filtering",
-  "automated email labels",
-  "email productivity automation"
+  "أتمتة تصنيف البريد الإلكتروني",
+  "سير عمل البريد في n8n",
+  "فرز البريد بالذكاء الاصطناعي",
+  "أتمتة البريد باستخدام LLM",
+  "أتمتة Gmail مع n8n",
+  "نظام تصنيف البريد الإلكتروني",
+  "شرح سير عمل n8n",
+  "تصفية البريد باستخدام GPT",
+  "وسوم بريد آلية",
+  "أتمتة إنتاجية البريد الإلكتروني"
 ]
-title: "How to Automate Email Categorization with n8n and LLM"
-date: 2025-09-27
-description: "My 3-month proven system for automating email categorization using n8n workflows and GPT-5-nano. Archive, read, or answer - let AI decide for you."
+title: "كيف تؤتمت تصنيف البريد الإلكتروني باستخدام n8n و LLM"
+date: 2026-04-11
+description: "نظامي المجرب لمدة 3 أشهر لأتمتة تصنيف البريد الإلكتروني باستخدام سير عمل n8n و GPT-5-nano. أرشف أو اقرأ أو أجب، واترك الذكاء الاصطناعي يقرر."
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
-language: "en"
+language: "ar"
+originalArticle:
+  language: "en"
+  slug: "how-to-automate-email-categorization-with-n8n-and-llm"
 translations:
+  - language: "en"
+    slug: "how-to-automate-email-categorization-with-n8n-and-llm"
   - language: "es"
     slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
   - language: "zh"
     slug: "ruhe-yong-n8n-he-llm-zidong-fenlei-youjian"
   - language: "hi"
     slug: "n8n-aur-llm-se-email-vargikaran-automate-kaise-karen"
-  - language: "ar"
-    slug: "kayfa-tuatim-tasnif-albarid-aliiliktruni-bi-n8n-wa-llm"
 ---
 
-# How to Automate Email Categorization with n8n and LLM
+# كيف تؤتمت تصنيف البريد الإلكتروني باستخدام n8n و LLM
 
-I got tired of waiting for Gmail to figure out which emails actually matter to me. After three months of letting AI handle my personal email categorization, I can't imagine going back to manual sorting.
+سئمت من انتظار Gmail حتى يفهم وحده أي الرسائل تهمني فعلا. وبعد ثلاثة أشهر من ترك الذكاء الاصطناعي يدير تصنيف بريدي الشخصي، لم أعد أستطيع تخيل العودة إلى الفرز اليدوي.
 
-My system is embarrassingly simple: every email gets sorted into one of three buckets by GPT-5-nano. Archive it, read it, or answer it. That's it.
+نظامي بسيط بشكل محرج: GPT-5-nano يضع كل رسالة في واحدة من ثلاث خانات فقط. أرشفة، قراءة، أو رد. هذا كل شيء.
 
-The whole thing runs on n8n and costs me almost nothing since I'm using the cheapest OpenAI model with structured output. Sure, OpenAI now sees all my personal emails, but let's be honest—they probably know more about me from my ChatGPT conversations anyway.
+كل النظام يعمل على n8n، ويكلفني تقريبا لا شيء لأنني أستخدم أرخص نموذج من OpenAI مع مخرجات منظمة. نعم، OpenAI يرى الآن كل رسائلي الشخصية، لكن بصراحة ربما يعرفون عني أكثر مما يعرفونه من محادثاتي في ChatGPT أصلا.
 
-This isn't some theoretical concept I'm pitching. I've been running this in production for three months, and it saves me hours every week.
+هذه ليست فكرة نظرية أطرحها للتجربة. أنا أشغّل هذا النظام في بيئة إنتاج منذ ثلاثة أشهر، وهو يوفر علي ساعات كل أسبوع.
 
-## Why I Built This Email Automation System
+## لماذا بنيت نظام أتمتة البريد هذا
 
-I receive way too many emails. Newsletter subscriptions, service notifications, actual important messages from real humans—it all lands in the same inbox. Gmail's built-in categorization kept missing obvious patterns, and I was spending 20 minutes every morning just deciding what to read.
+أتلقى عددا كبيرا جدا من الرسائل. نشرات بريدية، إشعارات من الخدمات، ورسائل مهمة فعلا من أشخاص حقيقيين، وكل ذلك يهبط في صندوق وارد واحد. وكان التصنيف المدمج في Gmail يخطئ باستمرار في أنماط واضحة، بينما كنت أقضي 20 دقيقة كل صباح فقط لأقرر ما الذي يستحق أن أقرأه.
 
-The breaking point came when I realized I was archiving 80% of my emails without reading them. If most emails don't need my attention, why am I the one deciding which ones do?
+جاءت لحظة الحسم عندما أدركت أنني كنت أؤرشف 80% من رسائلي من دون أن أقرأها. إذا كانت أغلب الرسائل لا تحتاج إلى انتباهي، فلماذا أبقى أنا من يقرر أيها يحتاجه؟
 
-> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire email automation workflow. [Watch Email Automation with n8n and LLM Tutorial](https://www.youtube.com/watch?v=xn1RyMlZudE) to see the complete setup process in action.
+> **هل تفضل شرحا بالفيديو؟** لقد أنشأت عرضا مرئيا خطوة بخطوة يشرح سير عمل أتمتة البريد بالكامل. [شاهد شرح Email Automation with n8n and LLM](https://www.youtube.com/watch?v=xn1RyMlZudE) لترى عملية الإعداد كاملة أثناء التنفيذ.
 
-[![Email automation workflow with n8n and LLM demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+[![عرض توضيحي لسير عمل أتمتة البريد باستخدام n8n و LLM](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-## The Three-Category System That Actually Works
+## نظام الفئات الثلاث الذي يعمل فعلا
 
-My AI categorizes every email into exactly three options:
+الذكاء الاصطناعي عندي يصنف كل رسالة إلى واحدة من ثلاث حالات فقط:
 
-- **Archive** - Newsletters I subscribed to but never read, automated notifications, promotional emails
-- **Read** - Content I want to consume but don't need to respond to
-- **Answer** - Emails that require a human response from me
+- **Archive** - النشرات البريدية التي اشتركت بها ولا أقرأها، الإشعارات التلقائية، والرسائل الترويجية
+- **Read** - محتوى أريد قراءته لكن لا يحتاج إلى رد
+- **Answer** - رسائل تحتاج إلى رد بشري مني
 
-No complex folder structures. No priority levels. Just three simple actions that cover 100% of my email.
+لا توجد هياكل معقدة للمجلدات. ولا مستويات أولوية. فقط ثلاث إجراءات بسيطة تغطي 100% من بريدي.
 
-## Setting Up the n8n Workflow
+## إعداد سير عمل n8n
 
-Here's the complete n8n workflow that handles everything automatically:
+إليك سير عمل n8n الكامل الذي يتولى كل شيء تلقائيا:
 
-![n8n Email Categorization Workflow](/articles/assets/n8n-email-workflow-full.webp)
+![سير عمل تصنيف البريد الإلكتروني في n8n](/articles/assets/n8n-email-workflow-full.webp)
 
-The workflow triggers every time a new email arrives in my Gmail inbox. It grabs the email content, sends it to OpenAI for categorization, then applies the appropriate Gmail label and archives emails that don't need my attention.
+يتفعل هذا السير كلما وصلت رسالة جديدة إلى صندوق Gmail الخاص بي. يأخذ محتوى الرسالة، ويرسله إلى OpenAI لتصنيفها، ثم يطبق وسم Gmail المناسب ويؤرشف الرسائل التي لا تحتاج إلى انتباهي.
 
-### Required n8n Nodes
+### عقد n8n المطلوبة
 
-You'll need these nodes in your workflow:
+ستحتاج إلى هذه العقد داخل سير العمل:
 
-1. **Gmail Trigger** - Monitors for new emails
-2. **OpenAI Chat Model** - Categorizes the email content
-3. **Gmail** - Applies labels and archives emails
-4. **IF conditions** - Routes emails based on AI decision
+1. **Gmail Trigger** - يراقب الرسائل الجديدة
+2. **OpenAI Chat Model** - يصنف محتوى الرسالة
+3. **Gmail** - يطبق الوسوم ويؤرشف الرسائل
+4. **IF conditions** - يوجه الرسائل بناء على قرار الذكاء الاصطناعي
 
-The magic happens in the OpenAI node configuration. Here's how I set it up:
+السحر الحقيقي يحدث داخل إعداد عقدة OpenAI. هذه هي الطريقة التي ضبطتها بها:
 
-![OpenAI LLM Node Configuration in n8n](/articles/assets/n8n-llm-node-config.webp)
+![إعداد عقدة OpenAI LLM في n8n](/articles/assets/n8n-llm-node-config.webp)
 
-## The LLM Prompt That Makes It Work
+## الـ LLM Prompt الذي يجعل النظام يعمل
 
-The prompt is the heart of this system. After testing dozens of variations, this one gives me the most consistent results:
+الـ prompt هو قلب هذا النظام. وبعد اختبار عشرات الصيغ المختلفة، هذه هي الصيغة التي منحتني أكثر النتائج ثباتا:
 
-> **Note**: This is just the LLM prompt for email categorization. If you want the complete n8n workflow automation (including all nodes and connections), scroll down to the "Complete n8n Workflow JSON" section below.
+> **ملاحظة**: هذا مجرد prompt لتصنيف البريد الإلكتروني. إذا كنت تريد أتمتة n8n الكاملة، بما في ذلك جميع العقد والاتصالات، فانزل إلى قسم "Complete n8n Workflow JSON" أدناه.
 
 <details>
-<summary>Click to expand the full LLM prompt</summary>
+<summary>اضغط لعرض الـ LLM prompt الكامل</summary>
 
 ```
 Act as an Email classifier. You will get email data and need to return the correct label from the list of available labels.
@@ -153,60 +156,60 @@ Answer in JSON with two fields:
 
 </details>
 
-I use structured output to ensure the AI always returns a valid category. No parsing errors, no edge cases where the AI gets creative with its response format.
+أستخدم المخرجات المنظمة حتى أضمن أن الذكاء الاصطناعي يعيد دائما فئة صحيحة. لا أخطاء parsing، ولا حالات طرفية يبدأ فيها النموذج بابتكار تنسيق غريب للرد.
 
-## Three Months of Real-World Results
+## نتائج حقيقية بعد ثلاثة أشهر
 
-Since implementing this system:
+منذ أن طبقت هذا النظام:
 
-- **Time saved**: About 15-20 minutes per day on email triage
-- **Accuracy**: The AI correctly categorizes roughly 95% of emails
-- **Cost**: Under $3 per month using GPT-5-nano
-- **False positives**: Maybe 2-3 emails per week get miscategorized
+- **الوقت الموفَّر**: نحو 15 إلى 20 دقيقة يوميا في فرز البريد
+- **الدقة**: الذكاء الاصطناعي يصنف نحو 95% من الرسائل بشكل صحيح
+- **التكلفة**: أقل من 3 دولارات شهريا باستخدام GPT-5-nano
+- **الإيجابيات الكاذبة**: ربما 2 إلى 3 رسائل أسبوعيا تُصنف بشكل خاطئ
 
-The 5% error rate is totally manageable. When the AI gets it wrong, I just move the email to the right category and move on. Still faster than manually sorting everything.
+نسبة الخطأ البالغة 5% يمكن التعامل معها بسهولة. عندما يخطئ الذكاء الاصطناعي، أنقل الرسالة إلى الفئة الصحيحة وأكمل عملي. وما يزال ذلك أسرع بكثير من فرز كل شيء يدويا.
 
-## Security Considerations (And Why I'm Okay With Them)
+## اعتبارات الأمان والخصوصية (ولماذا أنا متصالح معها)
 
-Yes, OpenAI now processes all my personal emails. This isn't ideal from a privacy standpoint, but I made peace with it for a few reasons:
+نعم، OpenAI يعالج الآن كل رسائلي الشخصية. هذا ليس مثاليا من ناحية الخصوصية، لكنني تقبلته لعدة أسباب.
 
-First, I already use a password manager with 2FA codes (not email-based), so email compromise isn't catastrophic. Second, OpenAI already knows plenty about me from regular ChatGPT usage. Third, the time savings are worth the privacy trade-off for my personal workflow.
+أولا، أنا أستخدم بالفعل مدير كلمات مرور مع رموز 2FA لا تعتمد على البريد، لذلك اختراق البريد وحده ليس كارثيا. ثانيا، OpenAI يعرف عني الكثير أصلا من استخدامي المعتاد لـ ChatGPT. ثالثا، توفير الوقت يستحق هذا التنازل بالنسبة إلى سير عملي الشخصي.
 
-If you're handling sensitive business emails, you might want to use a local LLM instead of OpenAI's API. The n8n setup works the same way.
+إذا كنت تتعامل مع رسائل أعمال حساسة، فقد يكون من الأفضل استخدام LLM محلي بدلا من OpenAI API. أما إعداد n8n نفسه فيبقى كما هو.
 
-## Getting Started With Your Own Email Automation
+## كيف تبدأ ببناء أتمتة البريد الخاصة بك
 
-Here's how to build this system yourself:
+يمكنك بناء هذا النظام بنفسك عبر الخطوات التالية:
 
-1. **Set up n8n** - Either self-hosted or use n8n Cloud
-2. **Connect Gmail** - You'll need to authenticate your Gmail account
-3. **Get OpenAI API access** - Create an account and grab your API key
-4. **Import the workflow** - I'll share the JSON export if people want it
-5. **Customize the prompt** - Adjust the categories for your email patterns
-6. **Test with a few emails** - Start small before automating everything
+1. **إعداد n8n** - إما على خادمك الخاص أو عبر n8n Cloud
+2. **ربط Gmail** - ستحتاج إلى توثيق حساب Gmail الخاص بك
+3. **الحصول على OpenAI API** - أنشئ حسابا وخذ مفتاح API
+4. **استيراد سير العمل** - سأشارك ملف JSON إذا أراد الناس ذلك
+5. **تخصيص الـ prompt** - عدّل الفئات بحسب أنماط بريدك
+6. **الاختبار على عدد قليل من الرسائل** - ابدأ بشكل صغير قبل أتمتة كل شيء
 
-The whole setup takes about 30 minutes if you're familiar with n8n. Maybe an hour if you're starting from scratch.
+الإعداد الكامل يستغرق نحو 30 دقيقة إذا كنت تعرف n8n جيدا. وربما ساعة إذا كنت تبدأ من الصفر.
 
-## Why This Beats Gmail's Built-in Features
+## لماذا هذا أفضل من مزايا Gmail المدمجة
 
-Gmail's automatic categorization is designed for everyone, which means it's optimized for no one. My system learns my specific email patterns and preferences.
+التصنيف التلقائي في Gmail مصمم للجميع، وهذا يعني أنه ليس محسنا تماما لأي شخص بعينه. أما نظامي فهو يتعلم أنماط بريدي أنا وتفضيلاتي أنا.
 
-Plus, I can modify the logic anytime. Want to add a fourth category? Change the prompt. Need different handling for emails from specific senders? Add a condition node. Gmail's rules are rigid; this system adapts to whatever I need.
+وفوق ذلك، أستطيع تعديل المنطق في أي وقت. تريد فئة رابعة؟ عدّل الـ prompt. تحتاج إلى التعامل بطريقة مختلفة مع رسائل مرسلين محددين؟ أضف عقدة شرطية. قواعد Gmail جامدة، أما هذا النظام فيتكيف مع ما أحتاجه.
 
-## The Bottom Line
+## الخلاصة
 
-Three months in, this email automation system has become essential to my daily workflow. It's not perfect, but it's way better than manually sorting hundreds of emails every week.
+بعد ثلاثة أشهر، أصبح نظام أتمتة البريد هذا جزءا أساسيا من سير عملي اليومي. ليس مثاليا، لكنه أفضل بكثير من فرز مئات الرسائل يدويا كل أسبوع.
 
-The setup is straightforward, the ongoing costs are minimal, and the time savings are real. If you're drowning in email like I was, this approach might be worth trying.
+الإعداد مباشر، والتكلفة المستمرة منخفضة جدا، وتوفير الوقت حقيقي. إذا كنت تغرق في البريد كما كنت أنا، فقد تكون هذه المقاربة جديرة بالتجربة.
 
-Just remember: start simple, test thoroughly, and don't automate anything you can't easily undo.
+فقط تذكر: ابدأ ببساطة، اختبر جيدا، ولا تؤتمت أي شيء لا يمكنك التراجع عنه بسهولة.
 
 ## Complete n8n Workflow JSON
 
-For those ready to implement this system, here's the complete n8n workflow you can import directly:
+لمن هم مستعدون لتطبيق هذا النظام مباشرة، إليك سير عمل n8n الكامل الذي يمكنك استيراده مباشرة:
 
 <details>
-<summary>Click to expand the full JSON workflow</summary>
+<summary>اضغط لعرض JSON الكامل لسير العمل</summary>
 
 ```json
 {
@@ -805,23 +808,23 @@ For those ready to implement this system, here's the complete n8n workflow you c
 
 </details>
 
-### Import Instructions
+### تعليمات الاستيراد
 
-1. Copy the JSON above
-2. Save it to a file with the name `email-ai-automation-personal.json`
-3. In n8n, go to Workflows → Import from JSON
-4. Select the file you saved and click Import
-5. Configure your Gmail and OpenAI credentials
-6. Update the `__REPLACE_WITH_YOUR_PROCESSED_LABEL_ID__` with the ID of the label you want to use for the processed emails
-7. Setup email to send in case of error (fallback)
-8. Test with a few emails before enabling the trigger
+1. انسخ JSON أعلاه
+2. احفظه في ملف باسم `email-ai-automation-personal.json`
+3. في n8n اذهب إلى Workflows → Import from JSON
+4. اختر الملف الذي حفظته واضغط Import
+5. اضبط بيانات الاعتماد الخاصة بـ Gmail و OpenAI
+6. استبدل `__REPLACE_WITH_YOUR_PROCESSED_LABEL_ID__` بمعرف الوسم الذي تريد استخدامه للرسائل المعالجة
+7. اضبط البريد الذي سيُرسل في حالة الخطأ (fallback)
+8. اختبر على عدد قليل من الرسائل قبل تفعيل الـ trigger
 
-Remember to update the OpenAI API key and Gmail authentication after importing the workflow.
+تذكر أن تحدّث مفتاح OpenAI API ومصادقة Gmail بعد استيراد سير العمل.
 
-## Video Tutorial: Watch the Complete Email Automation Setup
+## شرح بالفيديو: شاهد الإعداد الكامل
 
-If you prefer learning visually, I've created a comprehensive video tutorial that walks through the entire process of setting up this email automation system:
+إذا كنت تفضل التعلم بصريا، فقد أنشأت شرحا مفصلا بالفيديو يمر على العملية كاملة لإعداد هذا النظام:
 
-[![Email Automation with n8n and LLM Video Tutorial](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+[![شرح فيديو لأتمتة البريد باستخدام n8n و LLM](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-The video demonstrates each step of creating the n8n workflow, configuring the OpenAI integration, setting up Gmail connections, and testing the complete automation. You'll see the exact node configurations, the LLM prompt in action, and how the system categorizes real emails in real-time.
+يعرض الفيديو كل خطوة من إنشاء سير عمل n8n، وضبط تكامل OpenAI، وإعداد اتصالات Gmail، واختبار الأتمتة كاملة. سترى إعدادات العقد كما هي، والـ LLM prompt أثناء التشغيل، وكيف يصنف النظام رسائل حقيقية في الوقت الفعلي.

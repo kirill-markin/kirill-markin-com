@@ -14,6 +14,15 @@ tags: [productivity, ai, llm, cursor-ide, management]
 publish: true
 thumbnailUrl: "/articles/creators-who-mock-their-own-craft-examples.webp"
 language: "en"
+translations:
+  - language: "zh"
+    slug: "chuangzuozhe-zifeng-ziji-gongyi-anli-yu-moshi"
+  - language: "hi"
+    slug: "rachnakar-apne-hi-kaam-ka-mazaak-udaate-hain-udaharan-aur-pattern"
+  - language: "es"
+    slug: "creadores-que-se-burlan-de-su-propio-oficio-ejemplos-y-patrones"
+  - language: "ar"
+    slug: "mubdieun-yaskharun-min-hirfatihim-amthila-wa-anmat"
 ---
 
 # Creators Who Mock Their Own Craft: Examples and Patterns

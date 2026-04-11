@@ -5,6 +5,15 @@ description: "My framework for distributing content across platforms to maximize
 tags: [productivity]
 publish: true
 thumbnailUrl: "/articles/content-distribution-strategy.webp"
+translations:
+  - language: "zh"
+    slug: "geren-pinpai-yu-yewu-neirong-fenfa-celue"
+  - language: "hi"
+    slug: "personal-brand-aur-business-ke-liye-content-distribution-strategy"
+  - language: "es"
+    slug: "estrategia-de-distribucion-de-contenido-para-marca-personal-y-negocio"
+  - language: "ar"
+    slug: "istratijiat-tawzie-almuhtawa-lilalamah-alshakhsia-walamal"
 ---
 
 # Content Distribution Strategy for Personal Brand and Business

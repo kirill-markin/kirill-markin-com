@@ -1,93 +1,96 @@
 ---
 keywords: [
-  "automate email categorization",
-  "n8n email workflow",
-  "AI email sorting",
-  "LLM email automation",
-  "Gmail automation n8n",
-  "email categorization system",
-  "n8n workflow tutorial",
-  "GPT email filtering",
-  "automated email labels",
-  "email productivity automation"
+  "自动化邮件分类",
+  "n8n 邮件工作流",
+  "AI 邮件分拣",
+  "LLM 邮件自动化",
+  "Gmail n8n 自动化",
+  "邮件分类系统",
+  "n8n 工作流教程",
+  "GPT 邮件过滤",
+  "自动邮件标签",
+  "邮件效率自动化"
 ]
-title: "How to Automate Email Categorization with n8n and LLM"
-date: 2025-09-27
-description: "My 3-month proven system for automating email categorization using n8n workflows and GPT-5-nano. Archive, read, or answer - let AI decide for you."
+title: "如何用 n8n 和 LLM 自动分类邮件、打标签、归档并建立一套稳定运行 3 个月的个人邮箱自动化系统"
+date: 2026-04-11
+description: "这是我已经稳定运行 3 个月的个人邮箱自动化系统，基于 n8n 工作流和 GPT-5-nano，对每封邮件自动判断该归档、阅读还是回复，并完成打标签、归档和后续处理，适合整理新闻邮件、服务通知、真人来信、Gmail 标签分流、低成本自动化筛选、后续回复判断与日常收件箱清理处理等。"
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
-language: "en"
+language: "zh"
+originalArticle:
+  language: "en"
+  slug: "how-to-automate-email-categorization-with-n8n-and-llm"
 translations:
+  - language: "en"
+    slug: "how-to-automate-email-categorization-with-n8n-and-llm"
   - language: "es"
     slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
-  - language: "zh"
-    slug: "ruhe-yong-n8n-he-llm-zidong-fenlei-youjian"
   - language: "hi"
     slug: "n8n-aur-llm-se-email-vargikaran-automate-kaise-karen"
   - language: "ar"
     slug: "kayfa-tuatim-tasnif-albarid-aliiliktruni-bi-n8n-wa-llm"
 ---
 
-# How to Automate Email Categorization with n8n and LLM
+# 如何用 n8n 和 LLM 自动分类邮件
 
-I got tired of waiting for Gmail to figure out which emails actually matter to me. After three months of letting AI handle my personal email categorization, I can't imagine going back to manual sorting.
+我已经厌倦了继续等 Gmail 自己搞明白哪些邮件对我真的重要。让 AI 接管我的个人邮件分类三个月之后，我已经无法想象再回到手动整理的状态。
 
-My system is embarrassingly simple: every email gets sorted into one of three buckets by GPT-5-nano. Archive it, read it, or answer it. That's it.
+我的系统简单得有点离谱：GPT-5-nano 会把每封邮件丢进三个桶里的一个。归档、阅读或者回复。就这么简单。
 
-The whole thing runs on n8n and costs me almost nothing since I'm using the cheapest OpenAI model with structured output. Sure, OpenAI now sees all my personal emails, but let's be honest—they probably know more about me from my ChatGPT conversations anyway.
+整套东西都跑在 n8n 上，因为我用的是 OpenAI 最便宜、又支持结构化输出的模型，所以成本几乎可以忽略不计。没错，现在 OpenAI 能看到我所有个人邮件了，但说实话，他们大概早就从我在 ChatGPT 里的对话里知道更多了。
 
-This isn't some theoretical concept I'm pitching. I've been running this in production for three months, and it saves me hours every week.
+这不是什么我拿出来兜售的理论概念。我已经把它在线上环境跑了三个月，而且它每周都在给我省下好几个小时。
 
-## Why I Built This Email Automation System
+## 我为什么做这套邮件自动化系统
 
-I receive way too many emails. Newsletter subscriptions, service notifications, actual important messages from real humans—it all lands in the same inbox. Gmail's built-in categorization kept missing obvious patterns, and I was spending 20 minutes every morning just deciding what to read.
+我收到的邮件实在太多了。新闻订阅、服务通知、真人发来的重要消息，全都落在同一个收件箱里。Gmail 自带的分类总是漏掉一些很明显的模式，而我每天早上都要花 20 分钟，仅仅是决定哪些邮件值得读。
 
-The breaking point came when I realized I was archiving 80% of my emails without reading them. If most emails don't need my attention, why am I the one deciding which ones do?
+真正让我受不了的时刻，是我意识到自己有 80% 的邮件其实都没看，直接就归档了。如果大多数邮件根本不需要我注意，那为什么还得由我来决定哪些需要？
 
-> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire email automation workflow. [Watch Email Automation with n8n and LLM Tutorial](https://www.youtube.com/watch?v=xn1RyMlZudE) to see the complete setup process in action.
+> **更喜欢视频教程？** 我录了一个完整的分步骤演示，把这套邮件自动化工作流从头到尾走了一遍。[查看用 n8n 和 LLM 做邮件自动化的教程](https://www.youtube.com/watch?v=xn1RyMlZudE)，可以直接看到完整配置过程。
 
-[![Email automation workflow with n8n and LLM demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+[![用 n8n 和 LLM 做邮件自动化工作流的演示](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-## The Three-Category System That Actually Works
+## 真正有效的三分类系统
 
-My AI categorizes every email into exactly three options:
+我的 AI 会把每一封邮件严格分成三类：
 
-- **Archive** - Newsletters I subscribed to but never read, automated notifications, promotional emails
-- **Read** - Content I want to consume but don't need to respond to
-- **Answer** - Emails that require a human response from me
+- **归档** - 我订阅了但基本不看的新闻邮件、自动通知、促销邮件
+- **阅读** - 我想看，但不需要回复的内容
+- **回复** - 需要我亲自回复的邮件
 
-No complex folder structures. No priority levels. Just three simple actions that cover 100% of my email.
+不需要复杂的文件夹结构，也不需要优先级体系。就三个简单动作，覆盖我 100% 的邮件。
 
-## Setting Up the n8n Workflow
+## 搭建 n8n 工作流
 
-Here's the complete n8n workflow that handles everything automatically:
+下面就是能把这一切自动跑起来的完整 n8n 工作流：
 
-![n8n Email Categorization Workflow](/articles/assets/n8n-email-workflow-full.webp)
+![n8n 邮件分类工作流](/articles/assets/n8n-email-workflow-full.webp)
 
-The workflow triggers every time a new email arrives in my Gmail inbox. It grabs the email content, sends it to OpenAI for categorization, then applies the appropriate Gmail label and archives emails that don't need my attention.
+每当 Gmail 收件箱里进来新邮件，这个工作流就会触发。它会抓取邮件内容，发给 OpenAI 做分类，然后在 Gmail 里打上对应标签，把那些不需要我关注的邮件直接归档。
 
-### Required n8n Nodes
+### 需要的 n8n 节点
 
-You'll need these nodes in your workflow:
+你的工作流里需要这些节点：
 
-1. **Gmail Trigger** - Monitors for new emails
-2. **OpenAI Chat Model** - Categorizes the email content
-3. **Gmail** - Applies labels and archives emails
-4. **IF conditions** - Routes emails based on AI decision
+1. **Gmail Trigger** - 监控新邮件
+2. **OpenAI Chat Model** - 分类邮件内容
+3. **Gmail** - 添加标签并归档邮件
+4. **IF conditions** - 根据 AI 的判断把邮件路由到不同分支
 
-The magic happens in the OpenAI node configuration. Here's how I set it up:
+真正的关键在 OpenAI 节点的配置上。下面是我的设置方式：
 
-![OpenAI LLM Node Configuration in n8n](/articles/assets/n8n-llm-node-config.webp)
+![n8n 中 OpenAI LLM 节点的配置](/articles/assets/n8n-llm-node-config.webp)
 
-## The LLM Prompt That Makes It Work
+## 真正让它跑起来的 LLM Prompt
 
-The prompt is the heart of this system. After testing dozens of variations, this one gives me the most consistent results:
+Prompt 是这套系统的核心。试了几十种变体之后，这一版给我的结果最稳定：
 
-> **Note**: This is just the LLM prompt for email categorization. If you want the complete n8n workflow automation (including all nodes and connections), scroll down to the "Complete n8n Workflow JSON" section below.
+> **说明**：下面只是邮件分类用的 LLM prompt。如果你想看完整的 n8n 自动化工作流（包括所有节点和连线），请直接往下滚到“完整 n8n Workflow JSON”那一节。
 
 <details>
-<summary>Click to expand the full LLM prompt</summary>
+<summary>点击展开完整 LLM prompt</summary>
 
 ```
 Act as an Email classifier. You will get email data and need to return the correct label from the list of available labels.
@@ -153,60 +156,60 @@ Answer in JSON with two fields:
 
 </details>
 
-I use structured output to ensure the AI always returns a valid category. No parsing errors, no edge cases where the AI gets creative with its response format.
+我用结构化输出，确保 AI 始终返回合法类别。这样就没有解析错误，也不会出现模型突然用奇怪格式作答的边角情况。
 
-## Three Months of Real-World Results
+## 三个月真实使用结果
 
-Since implementing this system:
+自从我把这套系统跑起来之后：
 
-- **Time saved**: About 15-20 minutes per day on email triage
-- **Accuracy**: The AI correctly categorizes roughly 95% of emails
-- **Cost**: Under $3 per month using GPT-5-nano
-- **False positives**: Maybe 2-3 emails per week get miscategorized
+- **节省时间**：每天大约省下 15 到 20 分钟的邮件分拣时间
+- **准确率**：AI 对邮件的分类准确率大约在 95%
+- **成本**：使用 GPT-5-nano 时每月不到 3 美元
+- **误判**：大概每周只有 2 到 3 封邮件会被分错
 
-The 5% error rate is totally manageable. When the AI gets it wrong, I just move the email to the right category and move on. Still faster than manually sorting everything.
+5% 的误差完全可以接受。AI 分错的时候，我只要把邮件移到正确类别就行，整体还是比手动分拣快得多。
 
-## Security Considerations (And Why I'm Okay With Them)
+## 安全性考虑（以及我为什么能接受）
 
-Yes, OpenAI now processes all my personal emails. This isn't ideal from a privacy standpoint, but I made peace with it for a few reasons:
+是的，OpenAI 现在会处理我所有个人邮件。从隐私角度看，这当然不完美，但我最终还是接受了，原因主要有几个。
 
-First, I already use a password manager with 2FA codes (not email-based), so email compromise isn't catastrophic. Second, OpenAI already knows plenty about me from regular ChatGPT usage. Third, the time savings are worth the privacy trade-off for my personal workflow.
+第一，我早就用密码管理器和不依赖邮件的 2FA 验证码，所以即便邮箱本身出问题，也不至于灾难性。第二，OpenAI 通过我平时用 ChatGPT，原本就已经知道不少关于我的事。第三，对我这种个人工作流来说，节省下来的时间值得这笔隐私交换。
 
-If you're handling sensitive business emails, you might want to use a local LLM instead of OpenAI's API. The n8n setup works the same way.
+如果你处理的是敏感的商业邮件，那你可能更适合用本地 LLM，而不是 OpenAI API。n8n 这套搭法本身不变。
 
-## Getting Started With Your Own Email Automation
+## 怎么开始搭你自己的邮件自动化
 
-Here's how to build this system yourself:
+你可以这样自己搭这套系统：
 
-1. **Set up n8n** - Either self-hosted or use n8n Cloud
-2. **Connect Gmail** - You'll need to authenticate your Gmail account
-3. **Get OpenAI API access** - Create an account and grab your API key
-4. **Import the workflow** - I'll share the JSON export if people want it
-5. **Customize the prompt** - Adjust the categories for your email patterns
-6. **Test with a few emails** - Start small before automating everything
+1. **搭好 n8n** - 自托管也行，用 n8n Cloud 也行
+2. **连接 Gmail** - 你需要完成 Gmail 账号授权
+3. **获取 OpenAI API 访问权限** - 注册账号并拿到 API key
+4. **导入工作流** - 如果有人需要，我会分享 JSON 导出文件
+5. **定制 prompt** - 按照你的邮件模式调整分类逻辑
+6. **先拿少量邮件测试** - 在全面自动化之前先小规模验证
 
-The whole setup takes about 30 minutes if you're familiar with n8n. Maybe an hour if you're starting from scratch.
+如果你已经熟悉 n8n，整个配置大概 30 分钟就够。要是从零开始，可能需要一个小时左右。
 
-## Why This Beats Gmail's Built-in Features
+## 为什么这比 Gmail 自带功能更好
 
-Gmail's automatic categorization is designed for everyone, which means it's optimized for no one. My system learns my specific email patterns and preferences.
+Gmail 的自动分类是为所有人设计的，也就意味着它不会为任何一个具体的人做到真正优化。我的系统学的是我自己的邮件模式和偏好。
 
-Plus, I can modify the logic anytime. Want to add a fourth category? Change the prompt. Need different handling for emails from specific senders? Add a condition node. Gmail's rules are rigid; this system adapts to whatever I need.
+而且我随时都能改逻辑。想加第四个类别？改 prompt。需要对某些发件人特殊处理？加一个条件节点。Gmail 的规则很僵硬，而这套系统可以跟着我的需求一起变。
 
-## The Bottom Line
+## 结论
 
-Three months in, this email automation system has become essential to my daily workflow. It's not perfect, but it's way better than manually sorting hundreds of emails every week.
+跑了三个月之后，这套邮件自动化系统已经成了我日常工作流里不可缺少的一部分。它并不完美，但和每周手动整理几百封邮件相比，已经好太多了。
 
-The setup is straightforward, the ongoing costs are minimal, and the time savings are real. If you're drowning in email like I was, this approach might be worth trying.
+配置不复杂，持续成本很低，节省时间也是真实的。如果你也像我之前一样被邮件淹没，这个方法值得试试看。
 
-Just remember: start simple, test thoroughly, and don't automate anything you can't easily undo.
+只要记住一点：先从简单开始，充分测试，不要自动化任何你没法轻松撤销的东西。
 
-## Complete n8n Workflow JSON
+## 完整 n8n Workflow JSON
 
-For those ready to implement this system, here's the complete n8n workflow you can import directly:
+如果你已经准备好亲手实现这套系统，下面就是可以直接导入的完整 n8n 工作流：
 
 <details>
-<summary>Click to expand the full JSON workflow</summary>
+<summary>点击展开完整 JSON 工作流</summary>
 
 ```json
 {
@@ -805,23 +808,23 @@ For those ready to implement this system, here's the complete n8n workflow you c
 
 </details>
 
-### Import Instructions
+### 导入说明
 
-1. Copy the JSON above
-2. Save it to a file with the name `email-ai-automation-personal.json`
-3. In n8n, go to Workflows → Import from JSON
-4. Select the file you saved and click Import
-5. Configure your Gmail and OpenAI credentials
-6. Update the `__REPLACE_WITH_YOUR_PROCESSED_LABEL_ID__` with the ID of the label you want to use for the processed emails
-7. Setup email to send in case of error (fallback)
-8. Test with a few emails before enabling the trigger
+1. 复制上面的 JSON
+2. 将它保存为名为 `email-ai-automation-personal.json` 的文件
+3. 在 n8n 里进入 Workflows → Import from JSON
+4. 选择你保存的文件，然后点击 Import
+5. 配置 Gmail 和 OpenAI 的凭据
+6. 把 `__REPLACE_WITH_YOUR_PROCESSED_LABEL_ID__` 替换成你要给已处理邮件使用的标签 ID
+7. 配置出错时发送的邮件（fallback）
+8. 在启用触发器之前，先用几封邮件测试
 
-Remember to update the OpenAI API key and Gmail authentication after importing the workflow.
+导入之后，记得更新 OpenAI API key 和 Gmail 认证信息。
 
-## Video Tutorial: Watch the Complete Email Automation Setup
+## 视频教程：看完整配置过程
 
-If you prefer learning visually, I've created a comprehensive video tutorial that walks through the entire process of setting up this email automation system:
+如果你更喜欢视频学习，我也录了一个完整教程，把这套邮件自动化系统的搭建过程全部走了一遍：
 
-[![Email Automation with n8n and LLM Video Tutorial](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+[![用 n8n 和 LLM 做邮件自动化的视频教程](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-The video demonstrates each step of creating the n8n workflow, configuring the OpenAI integration, setting up Gmail connections, and testing the complete automation. You'll see the exact node configurations, the LLM prompt in action, and how the system categorizes real emails in real-time.
+视频会展示创建 n8n 工作流、配置 OpenAI 集成、连接 Gmail，以及测试整个自动化流程的每一步。你会看到节点的精确配置、LLM prompt 的实际效果，以及系统如何实时分类真实邮件。

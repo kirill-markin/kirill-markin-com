@@ -1,93 +1,96 @@
 ---
 keywords: [
-  "automate email categorization",
-  "n8n email workflow",
-  "AI email sorting",
-  "LLM email automation",
-  "Gmail automation n8n",
-  "email categorization system",
-  "n8n workflow tutorial",
-  "GPT email filtering",
-  "automated email labels",
-  "email productivity automation"
+  "ईमेल वर्गीकरण ऑटोमेट करना",
+  "n8n ईमेल वर्कफ़्लो",
+  "AI ईमेल सॉर्टिंग",
+  "LLM ईमेल ऑटोमेशन",
+  "Gmail ऑटोमेशन n8n",
+  "ईमेल वर्गीकरण सिस्टम",
+  "n8n वर्कफ़्लो ट्यूटोरियल",
+  "GPT ईमेल फ़िल्टरिंग",
+  "ऑटोमेटेड ईमेल लेबल",
+  "ईमेल प्रोडक्टिविटी ऑटोमेशन"
 ]
-title: "How to Automate Email Categorization with n8n and LLM"
-date: 2025-09-27
-description: "My 3-month proven system for automating email categorization using n8n workflows and GPT-5-nano. Archive, read, or answer - let AI decide for you."
+title: "n8n और LLM से ईमेल वर्गीकरण ऑटोमेट कैसे करें: व्यावहारिक गाइड"
+date: 2026-04-11
+description: "मेरा 3 महीने से आज़माया हुआ सिस्टम, जो n8n workflows और GPT-5-nano की मदद से ईमेल वर्गीकरण ऑटोमेट करता है। Archive, read या answer, फैसला AI को करने दीजिए।"
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
-language: "en"
+language: "hi"
+originalArticle:
+  language: "en"
+  slug: "how-to-automate-email-categorization-with-n8n-and-llm"
 translations:
+  - language: "en"
+    slug: "how-to-automate-email-categorization-with-n8n-and-llm"
   - language: "es"
     slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
   - language: "zh"
     slug: "ruhe-yong-n8n-he-llm-zidong-fenlei-youjian"
-  - language: "hi"
-    slug: "n8n-aur-llm-se-email-vargikaran-automate-kaise-karen"
   - language: "ar"
     slug: "kayfa-tuatim-tasnif-albarid-aliiliktruni-bi-n8n-wa-llm"
 ---
 
-# How to Automate Email Categorization with n8n and LLM
+# n8n और LLM से ईमेल वर्गीकरण ऑटोमेट कैसे करें
 
-I got tired of waiting for Gmail to figure out which emails actually matter to me. After three months of letting AI handle my personal email categorization, I can't imagine going back to manual sorting.
+मैं Gmail का इंतज़ार करते-करते थक गया था कि वह खुद समझे कि कौन से ईमेल सच में मेरे लिए मायने रखते हैं। तीन महीने तक AI को मेरी personal email categorization संभालते देखने के बाद, अब manual sorting पर लौटना मुश्किल लगता है।
 
-My system is embarrassingly simple: every email gets sorted into one of three buckets by GPT-5-nano. Archive it, read it, or answer it. That's it.
+मेरा सिस्टम हैरान कर देने जितना simple है: GPT-5-nano हर ईमेल को तीन buckets में से एक में डाल देता है। Archive, read या answer. बस।
 
-The whole thing runs on n8n and costs me almost nothing since I'm using the cheapest OpenAI model with structured output. Sure, OpenAI now sees all my personal emails, but let's be honest—they probably know more about me from my ChatGPT conversations anyway.
+पूरा setup n8n पर चलता है और मुझे लगभग कुछ भी खर्च नहीं पड़ता, क्योंकि मैं structured output के साथ OpenAI का सबसे सस्ता model इस्तेमाल कर रहा हूं। हां, अब OpenAI मेरे personal emails देख सकता है, लेकिन ईमानदारी से कहूं तो उन्हें शायद मेरे ChatGPT conversations से पहले ही मेरे बारे में काफी कुछ पता होगा।
 
-This isn't some theoretical concept I'm pitching. I've been running this in production for three months, and it saves me hours every week.
+यह कोई theoretical idea नहीं है जो मैं pitch कर रहा हूं। मैं इसे तीन महीने से production में चला रहा हूं, और यह हर हफ्ते मेरे कई घंटे बचा रहा है।
 
-## Why I Built This Email Automation System
+## मैंने यह email automation system क्यों बनाया
 
-I receive way too many emails. Newsletter subscriptions, service notifications, actual important messages from real humans—it all lands in the same inbox. Gmail's built-in categorization kept missing obvious patterns, and I was spending 20 minutes every morning just deciding what to read.
+मुझे बहुत ज़्यादा emails मिलते हैं। Newsletter subscriptions, service notifications, और real humans के important messages, सब कुछ एक ही inbox में आता है। Gmail की built-in categorization बार-बार obvious patterns miss कर रही थी, और मैं हर सुबह 20 मिनट सिर्फ यह तय करने में लगा देता था कि क्या पढ़ना है।
 
-The breaking point came when I realized I was archiving 80% of my emails without reading them. If most emails don't need my attention, why am I the one deciding which ones do?
+Breaking point तब आया जब मुझे एहसास हुआ कि मैं अपने 80% emails बिना पढ़े archive कर देता हूं। अगर ज़्यादातर emails को मेरी attention चाहिए ही नहीं, तो फिर कौन से emails को चाहिए यह तय मैं ही क्यों करूं?
 
-> **Prefer Video Tutorial?** I've created a step-by-step video demonstration of this entire email automation workflow. [Watch Email Automation with n8n and LLM Tutorial](https://www.youtube.com/watch?v=xn1RyMlZudE) to see the complete setup process in action.
+> **वीडियो ट्यूटोरियल पसंद है?** मैंने इस पूरे email automation workflow का एक step-by-step video demo बनाया है। [Email Automation with n8n and LLM Tutorial देखें](https://www.youtube.com/watch?v=xn1RyMlZudE) और पूरा setup process action में समझें।
 
-[![Email automation workflow with n8n and LLM demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+[![n8n और LLM के साथ email automation workflow का demonstration](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-## The Three-Category System That Actually Works
+## तीन-category system जो वाकई काम करता है
 
-My AI categorizes every email into exactly three options:
+मेरा AI हर email को ठीक तीन options में से एक में categorize करता है:
 
-- **Archive** - Newsletters I subscribed to but never read, automated notifications, promotional emails
-- **Read** - Content I want to consume but don't need to respond to
-- **Answer** - Emails that require a human response from me
+- **Archive** - newsletters जिन्हें मैंने subscribe किया है लेकिन कभी पढ़ता नहीं, automated notifications, promotional emails
+- **Read** - ऐसा content जिसे मैं consume करना चाहता हूं लेकिन जिसका reply देना ज़रूरी नहीं
+- **Answer** - ऐसे emails जिन्हें मेरी तरफ से human response चाहिए
 
-No complex folder structures. No priority levels. Just three simple actions that cover 100% of my email.
+कोई complex folder structure नहीं। कोई priority levels नहीं। सिर्फ तीन simple actions जो मेरे 100% email को cover करते हैं।
 
-## Setting Up the n8n Workflow
+## n8n workflow setup करना
 
-Here's the complete n8n workflow that handles everything automatically:
+यहां वह complete n8n workflow है जो सब कुछ automatically handle करता है:
 
-![n8n Email Categorization Workflow](/articles/assets/n8n-email-workflow-full.webp)
+![n8n email categorization workflow](/articles/assets/n8n-email-workflow-full.webp)
 
-The workflow triggers every time a new email arrives in my Gmail inbox. It grabs the email content, sends it to OpenAI for categorization, then applies the appropriate Gmail label and archives emails that don't need my attention.
+जैसे ही मेरे Gmail inbox में कोई नया email आता है, workflow trigger हो जाता है। यह email content उठाता है, categorization के लिए OpenAI को भेजता है, फिर सही Gmail label लगाता है और उन emails को archive कर देता है जिन्हें मेरी attention की ज़रूरत नहीं।
 
-### Required n8n Nodes
+### ज़रूरी n8n nodes
 
-You'll need these nodes in your workflow:
+अपने workflow में आपको ये nodes चाहिए:
 
-1. **Gmail Trigger** - Monitors for new emails
-2. **OpenAI Chat Model** - Categorizes the email content
-3. **Gmail** - Applies labels and archives emails
-4. **IF conditions** - Routes emails based on AI decision
+1. **Gmail Trigger** - नए emails monitor करता है
+2. **OpenAI Chat Model** - email content को categorize करता है
+3. **Gmail** - labels apply करता है और emails archive करता है
+4. **IF conditions** - AI के decision के हिसाब से emails route करता है
 
-The magic happens in the OpenAI node configuration. Here's how I set it up:
+असली magic OpenAI node configuration में होता है। मैं इसे इस तरह set करता हूं:
 
-![OpenAI LLM Node Configuration in n8n](/articles/assets/n8n-llm-node-config.webp)
+![n8n में OpenAI LLM node की configuration](/articles/assets/n8n-llm-node-config.webp)
 
-## The LLM Prompt That Makes It Work
+## वह LLM prompt जो system को काम करवाता है
 
-The prompt is the heart of this system. After testing dozens of variations, this one gives me the most consistent results:
+Prompt इस system का दिल है। Dozens of variations test करने के बाद, यही version मुझे सबसे consistent results देता है:
 
-> **Note**: This is just the LLM prompt for email categorization. If you want the complete n8n workflow automation (including all nodes and connections), scroll down to the "Complete n8n Workflow JSON" section below.
+> **नोट**: यह सिर्फ email categorization के लिए LLM prompt है। अगर आप complete n8n workflow automation देखना चाहते हैं, जिसमें सभी nodes और connections शामिल हों, तो नीचे "पूरा n8n Workflow JSON" section तक scroll करें।
 
 <details>
-<summary>Click to expand the full LLM prompt</summary>
+<summary>पूरा LLM prompt देखने के लिए क्लिक करें</summary>
 
 ```
 Act as an Email classifier. You will get email data and need to return the correct label from the list of available labels.
@@ -153,60 +156,60 @@ Answer in JSON with two fields:
 
 </details>
 
-I use structured output to ensure the AI always returns a valid category. No parsing errors, no edge cases where the AI gets creative with its response format.
+मैं structured output इस्तेमाल करता हूं ताकि AI हमेशा valid category ही लौटाए। इससे न parsing errors आते हैं, न ऐसे edge cases जहां model response format में creativity दिखाने लगे।
 
-## Three Months of Real-World Results
+## तीन महीने के real-world results
 
-Since implementing this system:
+इस system को implement करने के बाद:
 
-- **Time saved**: About 15-20 minutes per day on email triage
-- **Accuracy**: The AI correctly categorizes roughly 95% of emails
-- **Cost**: Under $3 per month using GPT-5-nano
-- **False positives**: Maybe 2-3 emails per week get miscategorized
+- **Time saved**: email triage में लगभग 15-20 मिनट per day बचते हैं
+- **Accuracy**: AI करीब 95% emails को सही तरह categorize करता है
+- **Cost**: GPT-5-nano के साथ $3 per month से कम
+- **False positives**: हफ्ते में शायद 2-3 emails गलत category में चले जाते हैं
 
-The 5% error rate is totally manageable. When the AI gets it wrong, I just move the email to the right category and move on. Still faster than manually sorting everything.
+5% error rate मेरे लिए बिल्कुल manageable है। जब AI गलत होता है, मैं बस email को सही category में move करता हूं और आगे बढ़ जाता हूं। फिर भी यह सब manually sort करने से काफी तेज़ है।
 
-## Security Considerations (And Why I'm Okay With Them)
+## Security considerations (और मैं इससे क्यों ठीक हूं)
 
-Yes, OpenAI now processes all my personal emails. This isn't ideal from a privacy standpoint, but I made peace with it for a few reasons:
+हां, OpenAI अब मेरे सभी personal emails process करता है। Privacy के हिसाब से यह perfect नहीं है, लेकिन मैंने कुछ वजहों से इसे accept कर लिया।
 
-First, I already use a password manager with 2FA codes (not email-based), so email compromise isn't catastrophic. Second, OpenAI already knows plenty about me from regular ChatGPT usage. Third, the time savings are worth the privacy trade-off for my personal workflow.
+पहली बात, मैं पहले से password manager और 2FA codes इस्तेमाल करता हूं जो email पर depend नहीं करते, इसलिए email compromise catastrophic नहीं होगा। दूसरी बात, regular ChatGPT use की वजह से OpenAI को वैसे भी मेरे बारे में काफी कुछ पता है। तीसरी बात, मेरे personal workflow के लिए time savings इस privacy trade-off के लायक है।
 
-If you're handling sensitive business emails, you might want to use a local LLM instead of OpenAI's API. The n8n setup works the same way.
+अगर आप sensitive business emails handle कर रहे हैं, तो शायद OpenAI API के बजाय local LLM इस्तेमाल करना बेहतर हो। n8n setup वैसे का वैसा काम करेगा।
 
-## Getting Started With Your Own Email Automation
+## अपनी email automation कैसे शुरू करें
 
-Here's how to build this system yourself:
+यह system आप इस तरह बना सकते हैं:
 
-1. **Set up n8n** - Either self-hosted or use n8n Cloud
-2. **Connect Gmail** - You'll need to authenticate your Gmail account
-3. **Get OpenAI API access** - Create an account and grab your API key
-4. **Import the workflow** - I'll share the JSON export if people want it
-5. **Customize the prompt** - Adjust the categories for your email patterns
-6. **Test with a few emails** - Start small before automating everything
+1. **n8n setup करें** - self-hosted या n8n Cloud, दोनों चलेगा
+2. **Gmail connect करें** - अपने Gmail account को authenticate करना होगा
+3. **OpenAI API access लें** - account बनाएं और API key हासिल करें
+4. **Workflow import करें** - लोग चाहेंगे तो मैं JSON export share कर दूंगा
+5. **Prompt customize करें** - अपने email patterns के मुताबिक categories adjust करें
+6. **कुछ emails से test करें** - सब कुछ automate करने से पहले छोटे scale पर शुरू करें
 
-The whole setup takes about 30 minutes if you're familiar with n8n. Maybe an hour if you're starting from scratch.
+अगर आप n8n से वाकिफ हैं तो पूरा setup लगभग 30 मिनट लेता है। अगर बिल्कुल शुरुआत से आ रहे हैं तो एक घंटा लग सकता है।
 
-## Why This Beats Gmail's Built-in Features
+## यह Gmail के built-in features से बेहतर क्यों है
 
-Gmail's automatic categorization is designed for everyone, which means it's optimized for no one. My system learns my specific email patterns and preferences.
+Gmail की automatic categorization सबके लिए design की गई है, और इसी वजह से वह किसी एक व्यक्ति के लिए optimize नहीं होती। मेरा system मेरे specific email patterns और preferences को सीखता है।
 
-Plus, I can modify the logic anytime. Want to add a fourth category? Change the prompt. Need different handling for emails from specific senders? Add a condition node. Gmail's rules are rigid; this system adapts to whatever I need.
+और सबसे अच्छी बात, मैं जब चाहूं logic बदल सकता हूं। चौथी category चाहिए? Prompt बदल दीजिए। कुछ specific senders के emails को अलग handle करना है? एक condition node add कर दीजिए। Gmail के rules rigid होते हैं; यह system मेरी ज़रूरत के साथ adapt होता है।
 
-## The Bottom Line
+## निष्कर्ष
 
-Three months in, this email automation system has become essential to my daily workflow. It's not perfect, but it's way better than manually sorting hundreds of emails every week.
+तीन महीने बाद, यह email automation system मेरे daily workflow का essential हिस्सा बन चुका है। यह perfect नहीं है, लेकिन हर हफ्ते hundreds of emails manually sort करने से बहुत बेहतर है।
 
-The setup is straightforward, the ongoing costs are minimal, and the time savings are real. If you're drowning in email like I was, this approach might be worth trying.
+Setup सीधा है, ongoing cost बहुत कम है, और time savings बिल्कुल real है। अगर आप भी मेरी तरह email में डूब रहे हैं, तो यह approach try करने लायक हो सकती है।
 
-Just remember: start simple, test thoroughly, and don't automate anything you can't easily undo.
+बस इतना याद रखें: simple से शुरू करें, अच्छी तरह test करें, और ऐसी कोई चीज automate मत करें जिसे आप आसानी से undo न कर सकें।
 
-## Complete n8n Workflow JSON
+## पूरा n8n Workflow JSON
 
-For those ready to implement this system, here's the complete n8n workflow you can import directly:
+Jo log is system ko turant implement karna chahte hain, unke liye yahan poora n8n workflow diya gaya hai jise aap seedha import kar sakte hain:
 
 <details>
-<summary>Click to expand the full JSON workflow</summary>
+<summary>Pura JSON workflow dekhne ke liye click karen</summary>
 
 ```json
 {
@@ -805,23 +808,23 @@ For those ready to implement this system, here's the complete n8n workflow you c
 
 </details>
 
-### Import Instructions
+### Import instructions
 
-1. Copy the JSON above
-2. Save it to a file with the name `email-ai-automation-personal.json`
-3. In n8n, go to Workflows → Import from JSON
-4. Select the file you saved and click Import
-5. Configure your Gmail and OpenAI credentials
-6. Update the `__REPLACE_WITH_YOUR_PROCESSED_LABEL_ID__` with the ID of the label you want to use for the processed emails
-7. Setup email to send in case of error (fallback)
-8. Test with a few emails before enabling the trigger
+1. ऊपर दिया गया JSON copy करें
+2. इसे `email-ai-automation-personal.json` नाम की file में save करें
+3. n8n में Workflows → Import from JSON पर जाएं
+4. जो file save की थी उसे select करें और Import पर click करें
+5. अपने Gmail और OpenAI credentials configure करें
+6. `__REPLACE_WITH_YOUR_PROCESSED_LABEL_ID__` को उस label ID से replace करें जो आप processed emails के लिए इस्तेमाल करना चाहते हैं
+7. Error आने की स्थिति में भेजे जाने वाले email को setup करें (fallback)
+8. Trigger enable करने से पहले कुछ emails के साथ test करें
 
-Remember to update the OpenAI API key and Gmail authentication after importing the workflow.
+Import करने के बाद OpenAI API key और Gmail authentication को update करना याद रखें।
 
-## Video Tutorial: Watch the Complete Email Automation Setup
+## वीडियो ट्यूटोरियल: पूरा setup देखें
 
-If you prefer learning visually, I've created a comprehensive video tutorial that walks through the entire process of setting up this email automation system:
+अगर आप visual तरीके से सीखना पसंद करते हैं, तो मैंने एक detailed video tutorial बनाया है जो इस पूरे system को setup करने की process दिखाता है:
 
-[![Email Automation with n8n and LLM Video Tutorial](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
+[![n8n और LLM के साथ email automation video tutorial](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-The video demonstrates each step of creating the n8n workflow, configuring the OpenAI integration, setting up Gmail connections, and testing the complete automation. You'll see the exact node configurations, the LLM prompt in action, and how the system categorizes real emails in real-time.
+Video में n8n workflow बनाना, OpenAI integration configure करना, Gmail connection setup करना और पूरी automation को test करना हर step पर दिखाया गया है। आप exact node configurations, LLM prompt का real use और system को real-time में emails categorize करते हुए देखेंगे।

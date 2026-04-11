@@ -15,6 +15,10 @@ translations:
     slug: "codex-rules-for-ai"
   - language: "zh"
     slug: "codex-ai-guize"
+  - language: "hi"
+    slug: "codex-niyam-kritrim-buddhimatta-ke-liye"
+  - language: "ar"
+    slug: "qawaid-codex-lilthakaa-alistinaei"
 ---
 
 # Reglas de Codex para IA: instrucciones globales, AGENTS.md y la app de Mac
