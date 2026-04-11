@@ -18,6 +18,15 @@ keywords: [
   "LLM-friendly API design"
 ]
 language: "en"
+translations:
+  - language: "zh"
+    slug: "yige-lei-sql-dsl-qudai-17-ge-agent-gongju"
+  - language: "hi"
+    slug: "sql-jaisi-dsl-se-17-agent-tools-badale"
+  - language: "es"
+    slug: "reemplace-17-herramientas-de-agentes-por-un-dsl-tipo-sql"
+  - language: "ar"
+    slug: "istabdalat-17-adat-lilwukala-bi-dsl-shabih-bisql"
 ---
 
 # Why I Replaced 17 Agent Tools with One SQL-Like DSL

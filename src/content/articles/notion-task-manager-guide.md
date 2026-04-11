@@ -20,6 +20,15 @@ tags: [productivity, notion, task-management]
 publish: true
 thumbnailUrl: "/articles/notion-task-manager-guide.webp"
 language: "en"
+translations:
+  - language: "zh"
+    slug: "notion-renwu-guanli-zhinan-mubiao-xiangmu-renwu"
+  - language: "es"
+    slug: "guia-gestor-tareas-notion-objetivos-proyectos-tareas"
+  - language: "hi"
+    slug: "notion-task-manager-guide-goals-projects-tasks"
+  - language: "ar"
+    slug: "dalil-notion-lidarat-almaham-walahdaf-walmasharie"
 ---
 
 # My Complete Notion Task Manager: One Database for Goals, Projects & Daily Tasks

@@ -18,6 +18,15 @@ tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
 language: "en"
+translations:
+  - language: "es"
+    slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
+  - language: "zh"
+    slug: "ruhe-yong-n8n-he-llm-zidong-fenlei-youjian"
+  - language: "hi"
+    slug: "n8n-aur-llm-se-email-vargikaran-automate-kaise-karen"
+  - language: "ar"
+    slug: "kayfa-tuatim-tasnif-albarid-aliiliktruni-bi-n8n-wa-llm"
 ---
 
 # How to Automate Email Categorization with n8n and LLM
@@ -816,4 +825,3 @@ If you prefer learning visually, I've created a comprehensive video tutorial tha
 [![Email Automation with n8n and LLM Video Tutorial](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
 The video demonstrates each step of creating the n8n workflow, configuring the OpenAI integration, setting up Gmail connections, and testing the complete automation. You'll see the exact node configurations, the LLM prompt in action, and how the system categorizes real emails in real-time.
-

@@ -15,6 +15,10 @@ translations:
     slug: "claude-code-rules-for-ai"
   - language: "zh"
     slug: "claude-code-ai-guize"
+  - language: "hi"
+    slug: "claude-code-niyam-kritrim-buddhimatta-ke-liye"
+  - language: "ar"
+    slug: "qawaid-claude-code-lilthakaa-alistinaei"
 ---
 
 # Reglas de Claude Code para IA: instrucciones globales en CLAUDE.md

@@ -14,6 +14,10 @@ translations:
     slug: "claude-code-rules-for-ai"
   - language: "es"
     slug: "reglas-claude-code-para-ia"
+  - language: "hi"
+    slug: "claude-code-niyam-kritrim-buddhimatta-ke-liye"
+  - language: "ar"
+    slug: "qawaid-claude-code-lilthakaa-alistinaei"
 ---
 
 # Claude Code AI规则：用 CLAUDE.md 管理全局开发指令

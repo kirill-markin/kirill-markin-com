@@ -14,6 +14,10 @@ translations:
     slug: "codex-rules-for-ai"
   - language: "es"
     slug: "reglas-codex-para-ia"
+  - language: "hi"
+    slug: "codex-niyam-kritrim-buddhimatta-ke-liye"
+  - language: "ar"
+    slug: "qawaid-codex-lilthakaa-alistinaei"
 ---
 
 # Codex AI规则：全局指令、AGENTS.md 与 Mac 应用实战

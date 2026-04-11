@@ -18,6 +18,15 @@ keywords: [
   "AI financial management"
 ]
 language: "en"
+translations:
+  - language: "es"
+    slug: "como-uso-ia-para-gestionar-gastos-cuentas-bancarias-y-presupuesto"
+  - language: "zh"
+    slug: "wo-yong-ai-chuli-yinhang-zhanghu-kaizhi-yusuan"
+  - language: "hi"
+    slug: "ai-se-bank-account-kharch-budget-kaise-sambhalta-hoon"
+  - language: "ar"
+    slug: "kayfa-astakhdim-aldhaka-alistinaei-lidarat-masarifi-min-hisabat-bankia-wa-mizania"
 ---
 
 # How I Use AI to Handle My Expenses from Bank Accounts and Budget

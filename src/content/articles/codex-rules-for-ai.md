@@ -12,6 +12,10 @@ translations:
     slug: "reglas-codex-para-ia"
   - language: "zh"
     slug: "codex-ai-guize"
+  - language: "hi"
+    slug: "codex-niyam-kritrim-buddhimatta-ke-liye"
+  - language: "ar"
+    slug: "qawaid-codex-lilthakaa-alistinaei"
 ---
 
 # Codex Rules: Global Instructions, AGENTS.md, and Mac App
