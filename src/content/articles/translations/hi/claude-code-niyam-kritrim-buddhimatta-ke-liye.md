@@ -1,8 +1,8 @@
 ---
-title: "Claude Code नियम: AI के लिए Global CLAUDE.md Instructions"
+title: "Claude Code के नियम: AI के लिए मेरे CLAUDE.md के ग्लोबल निर्देश"
 date: 2026-04-11
 slug: "claude-code-niyam-kritrim-buddhimatta-ke-liye"
-description: "मेरे Claude Code नियम: global CLAUDE.md instructions के जरिए personal और project rules को अलग रखकर अलग-अलग repos में एक जैसी coding patterns बनाए रखना।"
+description: "मैं Claude Code में अपने CLAUDE.md के ग्लोबल नियम कैसे रखता हूं: निजी पसंद और project वाले निर्देश अलग, ताकि हर repository में कोडिंग का तरीका एक जैसा रहे।"
 tags: [productivity, claude-code, ai, llm]
 publish: true
 thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"
@@ -21,202 +21,202 @@ translations:
     slug: "qawaid-claude-code-lilthakaa-alistinaei"
 ---
 
-# Claude Code नियम: AI के लिए Global CLAUDE.md Instructions
+# Claude Code के नियम: AI के लिए मेरे CLAUDE.md के ग्लोबल निर्देश
 
-Claude Code मेरे लिए तब बहुत बेहतर हुआ जब मैंने हर chat में खुद को दोबारा समझाना बंद किया। मैं करीब दो साल से AI के साथ coding कर रहा हूं, Claude Code का इस्तेमाल लगभग पिछले छह महीनों से कर रहा हूं, और सबसे उपयोगी सुधार शर्मनाक रूप से सरल था: अपने default rules को `~/.claude/CLAUDE.md` में डाल दो और agent को वहीं से शुरू होने दो।
+Claude Code मेरे लिए तब सचमुच बेहतर हुआ, जब मैंने हर नई बातचीत में खुद को फिर से समझाना बंद किया। मैं करीब दो साल से AI के साथ कोड लिख रहा हूं, और पिछले लगभग छह महीनों से Claude Code इस्तेमाल कर रहा हूं। इस दौरान सबसे उपयोगी सुधार हैरान करने वाला आसान निकला: अपने बुनियादी नियम `~/.claude/CLAUDE.md` में रखो और एजेंट को वहीं से शुरू करने दो।
 
-उससे पहले मैं बार-बार वही बात लिखने में messages खर्च करता था। strict typing इस्तेमाल करो। वे fallbacks मत जोड़ो जो मैंने नहीं मांगे। diff छोटा रखो। सिर्फ उत्साहित होकर आधी file rewrite मत कर दो। Claude अक्सर सुन भी लेता था। लेकिन मुझे यह tax फिर भी बार-बार देना पड़ता था।
+इससे पहले मैं बार-बार एक जैसी बातों पर संदेश खर्च करता था। typing सख्त रखो। वे fallback मत जोड़ो जो मैंने नहीं मांगे। diff छोटा रखो। सिर्फ इसलिए आधी file दोबारा मत लिखो कि एजेंट कुछ ज़्यादा उत्साहित हो गया। Claude अक्सर मान भी लेता था। फिर भी हर बार वही कीमत चुकानी पड़ती थी।
 
-अब repo बातचीत में आने से पहले ही baseline मौजूद रहती है।
+अब repository बातचीत में आए, उससे पहले ही आधार तय रहता है।
 
-## मैं Claude Code की Global Instructions कहां रखता हूं
+## मैं Claude Code के ग्लोबल निर्देश कहां रखता हूं
 
-Anthropic की [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code/overview) इसे कुछ layers में बांटती हैं। `~/.claude/CLAUDE.md` user-wide file है। `./CLAUDE.md` या `./.claude/CLAUDE.md` shared project layer है। `CLAUDE.local.md` उन personal project notes के लिए है जिन्हें git से बाहर रहना चाहिए।
+Anthropic के [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code/overview) इस व्यवस्था को कुछ स्तरों में बांटते हैं। `~/.claude/CLAUDE.md` पूरे user के लिए file है। `./CLAUDE.md` या `./.claude/CLAUDE.md` project की साझा layer है। `CLAUDE.local.md` उन निजी project notes के लिए है जिन्हें git से बाहर रहना चाहिए।
 
-यह लगभग ठीक वैसा ही है जैसा मैं चाहता हूं:
+यह लगभग वैसा ही है जैसा मैं चाहता हूं:
 
-1. मेरी persistent coding preferences के लिए `~/.claude/CLAUDE.md`
+1. मेरी स्थायी coding पसंद के लिए `~/.claude/CLAUDE.md`
 2. repository-specific architecture और commands के लिए project `CLAUDE.md`
-3. ऐसी personal project notes के लिए `CLAUDE.local.md` जिन्हें git में नहीं जाना चाहिए
+3. ऐसी निजी project notes के लिए `CLAUDE.local.md` जिन्हें git में नहीं जाना चाहिए
 
-मैं हर repository में वही personal rules paste नहीं करना चाहता। अगर "silent fallbacks नहीं" एक global preference है, तो उसे global file में होना चाहिए। अगर "tests से पहले यह अजीब internal bootstrap command चलाओ" repo-specific है, तो उसे project file में होना चाहिए।
+मैं हर repository में वही निजी नियम दोहराकर paste नहीं करना चाहता। अगर "silent fallback नहीं" मेरी स्थायी पसंद है, तो उसे global file में होना चाहिए। अगर "tests चलाने से पहले यह अजीब internal bootstrap command चलाओ" किसी खास repo की बात है, तो वह project file में होना चाहिए।
 
-यह वह version है जिसे मैं अभी Claude Code में इस्तेमाल कर रहा हूं:
+यह वही रूप है जिसे मैं अभी Claude Code में इस्तेमाल कर रहा हूं:
 
-![persistent AI coding rules के लिए CLAUDE.md में Claude Code global instructions](/articles/claude-code-global-rules-terminal.jpg)
+![AI कोडिंग के स्थायी नियमों के लिए CLAUDE.md में Claude Code के ग्लोबल निर्देश](/articles/claude-code-global-rules-terminal.jpg)
 
-## वे Claude Code Rules जिन्हें मैं वास्तव में इस्तेमाल करता हूं
+## वे Claude Code नियम जिन्हें मैं सच में इस्तेमाल करता हूं
 
-यह block जानबूझकर boring है। अच्छी rules अक्सर ऐसी ही होती हैं। मैं हर edge case को पहले से describe नहीं करना चाहता। मैं सिर्फ चाहता हूं कि Claude Code वही अनुमानित गलतियां बार-बार करना बंद करे।
+यह हिस्सा जानबूझकर साधारण है। अच्छे नियम अक्सर ऐसे ही होते हैं। मैं हर संभावित स्थिति को पहले से लिखकर बंद नहीं करना चाहता। मैं सिर्फ इतना चाहता हूं कि Claude Code वही अनुमानित गलतियां बार-बार करना बंद करे।
 
 ```markdown
-# Global Rules
+# वैश्विक नियम
 
-## Code Style
+## कोड शैली
 
-- Comments in English only
-- Prefer functional programming over OOP
-- Use OOP classes only for connectors and interfaces to external systems
-- Write pure functions - only modify return values, never input parameters or global state
-- Follow DRY, KISS, and YAGNI principles
-- Use strict typing everywhere - function returns, variables, collections
-- Check if logic already exists before writing new code
-- Avoid untyped variables and generic types
-- Never use default parameter values - make all parameters explicit
-- Create proper type definitions for complex data structures
-- All imports at the top of the file
-- Write simple single-purpose functions - no multi-mode behavior, no flag parameters that switch logic
+- टिप्पणियां केवल English में हों
+- OOP की तुलना में functional programming को प्राथमिकता दें
+- OOP classes का उपयोग केवल connectors और external systems की interfaces के लिए करें
+- pure functions लिखें - केवल return values बदलें, input parameters या global state नहीं
+- DRY, KISS, और YAGNI सिद्धांतों का पालन करें
+- हर जगह strict typing का उपयोग करें - function returns, variables, collections
+- नया code लिखने से पहले जांचें कि वही logic पहले से मौजूद तो नहीं है
+- untyped variables और generic types से बचें
+- default parameter values कभी न दें - हर parameter स्पष्ट रखें
+- complex data structures के लिए सही type definitions बनाएं
+- सभी imports file के ऊपर हों
+- सरल, एक ही उद्देश्य वाली functions लिखें - multi-mode behavior नहीं, ऐसे flag parameters नहीं जो logic बदल दें
 
-## Error Handling
+## त्रुटि प्रबंधन
 
-- Always raise errors explicitly, never silently ignore them
-- Use specific error types that clearly indicate what went wrong
-- Avoid catch-all exception handlers that hide the root cause
-- Error messages should be clear and actionable
-- No fallbacks unless I explicitly ask for them
-- Fix root causes, not symptoms
-- External API or service calls: use retries with warnings, then raise the last error
-- Error messages must include enough context to debug: request params, response body, status codes
-- Logging should use structured fields instead of interpolating dynamic values into message strings
+- errors को हमेशा स्पष्ट रूप से raise करें, उन्हें चुपचाप ignore न करें
+- ऐसे specific error types इस्तेमाल करें जो साफ बताएं कि क्या गलत हुआ
+- ऐसे catch-all exception handlers से बचें जो मूल कारण छिपा दें
+- error messages साफ और कार्रवाई योग्य होने चाहिए
+- fallbacks तभी दें जब मैं उन्हें स्पष्ट रूप से मांगूं
+- लक्षण नहीं, मूल कारण ठीक करें
+- external API या service calls में warnings के साथ retries करें, फिर आखिरी error raise करें
+- error messages में debugging के लिए पर्याप्त context होना चाहिए: request params, response body, status codes
+- logging में structured fields का उपयोग करें, message strings में dynamic values जोड़कर नहीं
 
-## Language Specifics
+## भाषा संबंधी नियम
 
-- Prefer structured data models over loose dictionaries
-- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
-- Use modern package management files like `pyproject.toml` and `package.json`
-- Use the language's strict type features when available
+- loose dictionaries की तुलना में structured data models को प्राथमिकता दें
+- `Any`, `unknown`, या `List[Dict[str, Any]]` जैसे generic types से बचें
+- `pyproject.toml` और `package.json` जैसी modern package management files का उपयोग करें
+- जहां उपलब्ध हों, भाषा की strict type features का उपयोग करें
 
-## Libraries and Dependencies
+## लाइब्रेरी और dependencies
 
-- Install dependencies in project environments, not globally
-- Add dependencies to project config files, not as one-off manual installs
-- If a dependency is installed locally, read its source code when needed instead of guessing
-- Update project configuration files when adding dependencies
+- dependencies को globally नहीं, project environments में install करें
+- dependencies को एक-बार वाले manual installs की तरह नहीं, project config files में जोड़ें
+- अगर कोई dependency local रूप से install है, तो अंदाजा लगाने के बजाय जरूरत पड़ने पर उसका source code पढ़ें
+- dependencies जोड़ते समय project configuration files अपडेट करें
 
-## Testing
+## परीक्षण
 
-- Respect the current repository testing strategy and existing test suite
-- Do not add new unit tests by default
-- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
-- Use unit tests only rarely, mainly for stable datasets or pure data transformations
-- Never add unit tests just to increase coverage numbers
-- Avoid mocks when real calls are practical
-- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
-- Add only the minimum test coverage needed for the requested change
+- repository की मौजूदा testing strategy और existing test suite का सम्मान करें
+- default रूप से नए unit tests न जोड़ें
+- जब tests की जरूरत हो, तो integration, end-to-end, या smoke tests को प्राथमिकता दें जो वास्तविक behavior validate करें
+- unit tests केवल कभी-कभार उपयोग करें, मुख्यतः stable datasets या pure data transformations के लिए
+- केवल coverage numbers बढ़ाने के लिए unit tests कभी न जोड़ें
+- जहां वास्तविक calls व्यावहारिक हों, वहां mocks से बचें
+- नाजुक mock-based coverage बनाए रखने से बेहतर है कि वास्तविक API या service calls पर थोड़ा खर्च किया जाए
+- मांगे गए बदलाव के लिए जितना जरूरी हो, उतना ही test coverage जोड़ें
 
-## Terminal Usage
+## टर्मिनल उपयोग
 
-- Prefer non-interactive commands with flags over interactive ones
-- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
-- Prefer `rg` for searching code and files
+- interactive commands की तुलना में flags वाले non-interactive commands को प्राथमिकता दें
+- हमेशा non-interactive git diff इस्तेमाल करें: `git --no-pager diff` या `git diff | cat`
+- code और files खोजने के लिए `rg` को प्राथमिकता दें
 
-## Claude Code Workflow
+## Claude Code कार्यप्रवाह
 
-- Read the existing code and relevant `CLAUDE.md` files before editing
-- Keep changes minimal and related to the current request
-- Match the existing style of the repository even if it differs from my personal preference
-- Do not revert unrelated changes
-- If you are unsure, inspect the codebase instead of inventing patterns
-- When project instructions include test or lint commands, run them before finishing if the task changed code
+- edit करने से पहले existing code और relevant `CLAUDE.md` files पढ़ें
+- बदलाव छोटे रखें और मौजूदा request से जुड़े रखें
+- repository की existing style से मेल रखें, भले ही वह मेरी personal preference से अलग हो
+- unrelated changes को revert न करें
+- अगर संदेह हो, तो patterns गढ़ने के बजाय codebase देखें
+- अगर project instructions में test या lint commands शामिल हों, तो code बदलने पर समाप्त करने से पहले उन्हें चलाएं
 
-## Documentation
+## प्रलेखन
 
-- Code is the primary documentation - use clear naming, types, and docstrings
-- Keep documentation in docstrings of the functions or classes they describe, not in separate files
-- Separate docs files only when a concept cannot be expressed clearly in code
-- Never duplicate documentation across files
-- Store knowledge as current state, not as a changelog of modifications
+- code ही मुख्य documentation है - clear naming, types, और docstrings का उपयोग करें
+- documentation को उन्हीं functions या classes के docstrings में रखें जिनका वह वर्णन करती है, अलग files में नहीं
+- अलग docs files केवल तब बनाएं जब किसी concept को code में साफ-साफ व्यक्त न किया जा सके
+- documentation को कई files में दोहराएं नहीं
+- जानकारी को मौजूदा state के रूप में रखें, modifications के changelog की तरह नहीं
 ```
 
-यह block मेरी रोजमर्रा की लगभग सारी जरूरी चीजें कवर करता है।
+यह हिस्सा मेरी रोजमर्रा की लगभग सारी जरूरी चीजें समेट लेता है।
 
-इसके बिना Claude बहुत परिचित तरीकों से drift करता है। वह "just in case" fallback behavior जोड़ देता है। strict typing inconvenient लगने पर types चौड़ी कर देता है। simple functions पर extra layers चढ़ा देता है। exact होने की जगह accommodating बनने की कोशिश में गलत समस्या ठीक करने लगता है।
+इसके बिना Claude बहुत परिचित ढंग से भटकता है। वह "just in case" fallback behavior जोड़ देता है। types सख्त रखने में असुविधा लगे तो उन्हें ढीला कर देता है। सीधी-सी functions के ऊपर अतिरिक्त परतें चढ़ा देता है। ठीक समस्या पकड़ने के बजाय जरूरत से ज़्यादा accommodating बनने की कोशिश करता है।
 
-मैं एक बार दस मिनट देकर एक अच्छा global file लिखना पसंद करूंगा, बजाय इसके कि हर नए session में इन patterns को एक-एक करके सुधारता रहूं।
+मैं एक बार दस मिनट देकर अच्छी global file लिखना ज़्यादा पसंद करूंगा, बजाय इसके कि हर नए session में यही पैटर्न फिर से ठीक करता रहूं।
 
-## पहले Global CLAUDE.md, फिर Project CLAUDE.md
+## पहले global CLAUDE.md, फिर project CLAUDE.md
 
-मैं ऐसा एक giant `CLAUDE.md` नहीं चाहता जिसमें सब कुछ ठूंस दिया गया हो।
+मैं ऐसा एक विशाल `CLAUDE.md` नहीं चाहता जिसमें सब कुछ ठूंस दिया गया हो।
 
-मेरी global file को ऐसे सवालों के जवाब देने चाहिए:
+मेरी global file को ऐसे सवालों का जवाब देना चाहिए:
 
-- मैं typing को कितना strict चाहता हूं?
+- मैं typing को कितना सख्त रखना चाहता हूं?
 - मैं errors को कैसे handle करना चाहता हूं?
-- मुझे minimal diffs चाहिए या broad refactors?
-- मैं किस तरह की documentation अपेक्षित करता हूं?
+- मुझे minimal diff चाहिए या बड़े refactor?
+- मैं किस तरह की documentation की अपेक्षा करता हूं?
 
-मेरी project file को अलग सवालों के जवाब देने चाहिए:
+मेरी project file को अलग सवालों का जवाब देना चाहिए:
 
-- project कैसे चलाऊं?
-- कौन से commands safe और expected हैं?
+- project कैसे चलती है?
+- कौन से commands सुरक्षित और अपेक्षित हैं?
 - architecture की महत्वपूर्ण boundaries क्या हैं?
 - tests कहां रहते हैं?
-- कौन सी conventions सिर्फ इसी repo के लिए हैं?
+- कौन सी conventions सिर्फ इसी repo पर लागू होती हैं?
 
 व्यवहार में:
 
 - global `CLAUDE.md` बताता है कि मैं कैसे काम करता हूं
 - project `CLAUDE.md` बताता है कि यह repo कैसे काम करता है
 
-जब ये दोनों चीजें मिल जाती हैं, तो file कीचड़ बन जाती है। आधा हिस्सा बहुत generic, आधा बहुत local, और Claude को हर task में यह सब साथ लेकर चलना पड़ता है।
+जब ये दोनों चीजें एक ही file में घुलमिल जाती हैं, तो नतीजा कीचड़ जैसा हो जाता है। आधा हिस्सा बहुत generic होता है, आधा बहुत local, और Claude को हर task में यह सब साथ लेकर चलना पड़ता है।
 
-Anthropic भी recommend करता है कि इन files को concise रखा जाए। अच्छा है। लंबी instruction files अक्सर ऐसी लगती हैं जैसे किसी ने पूरा engineering handbook prompt में ठूंसने की कोशिश की हो। उसका अंत कभी अच्छा नहीं होता।
+Anthropic भी सलाह देता है कि इन files को संक्षिप्त रखा जाए। यह बात सही है। लंबी instruction files अक्सर ऐसी लगती हैं जैसे किसी ने पूरा engineering handbook prompt में ठूंसने की कोशिश की हो। उसका नतीजा आम तौर पर अच्छा नहीं होता।
 
-## Session के बीच में क्या टूटता है
+## लंबे session के बीच में क्या बिगड़ता है
 
-Rules मदद करती हैं। वे हमेशा के लिए messy session को नहीं बचातीं।
+Rules मदद करते हैं। लेकिन वे हमेशा किसी उलझे हुए session को बचा नहीं सकते।
 
-अगर मैं बीस messages तक किसी एक subsystem पर बात करूं और फिर अचानक किसी अलग problem पर switch कर दूं, तो Claude पहले वाले frame में mentally अटका रह सकता है। यह सामान्य है। मैं लंबी chats को sacred नहीं मानता।
+अगर मैं बीस संदेश तक किसी एक subsystem पर बात करूं और फिर अचानक बिल्कुल अलग problem पर पहुंच जाऊं, तो Claude पहले वाले frame में अटका रह सकता है। यह सामान्य है। मैं लंबी chats को कोई पवित्र चीज़ नहीं मानता।
 
 इसलिए व्यवहार में मैं यह करता हूं:
 
-- जब task exploration से implementation में बदलती है, तो fresh session शुरू करता हूं
-- जब मैं एक subsystem से बिल्कुल अलग subsystem पर जाता हूं, तो fresh session शुरू करता हूं
-- project instructions इतनी concise रखता हूं कि हर turn पर context tax न देना पड़े
+- जब task exploration से implementation में बदलती है, तो नया session शुरू करता हूं
+- जब मैं एक subsystem से बिल्कुल अलग subsystem पर जाता हूं, तो नया session शुरू करता हूं
+- project instructions इतनी संक्षिप्त रखता हूं कि हर turn पर context tax न देना पड़े
 
-इसी वजह से मुझे plans और notes के लिए markdown files पसंद हैं। अगर task बड़ी हो, तो मैं state को explicitly save करना पसंद करूंगा, बजाय इसके कि एक लंबी thread के साफ बने रहने पर भरोसा करूं।
+इसी वजह से मुझे plans और notes के लिए markdown files पसंद हैं। अगर task बड़ी हो, तो मैं उसकी state को साफ-साफ लिखकर बचाना पसंद करूंगा, बजाय इसके कि एक लंबी thread अपने-आप साफ बनी रहे।
 
-## Claude Code Rules के लिए मेरा Practical Rollout
+## Claude Code नियम लागू करने का मेरा व्यावहारिक तरीका
 
-अगर मैं इसे आज scratch से set up कर रहा होता, तो मैं इसे इसी क्रम में करता।
+अगर मैं इसे आज शून्य से सेट कर रहा होता, तो मैं यही क्रम अपनाता।
 
 ### 1. `~/.claude/CLAUDE.md` बनाइए
 
-अपनी non-negotiables से शुरुआत कीजिए। life advice नहीं। engineering manifestos नहीं। सिर्फ वे rules जो अलग-अलग repos में बार-बार मायने रखती हैं।
+शुरुआत उन बातों से कीजिए जिन पर आप समझौता नहीं करना चाहते। न जीवन-उपदेश, न इंजीनियरिंग घोषणापत्र। सिर्फ वे नियम जो अलग-अलग repositories में बार-बार मायने रखते हैं।
 
 मेरे लिए इसका मतलब है:
 
 - strict typing
 - explicit error handling
 - minimal edits
-- silent fallbacks नहीं
+- silent fallback नहीं
 - जहां documentation होनी चाहिए वहां docstrings
 - non-interactive terminal habits
 
-सिर्फ इतना ही output को ज्यादातर prompt tweaks से ज्यादा बदल देता है।
+सिर्फ इतनी बात ही नतीजों को prompt में किए गए ज्यादातर छोटे बदलावों से ज्यादा बदल देती है।
 
-### 2. एक Project `CLAUDE.md` जोड़िए
+### 2. एक project `CLAUDE.md` जोड़िए
 
-Repo file का इस्तेमाल commands, architecture, naming और boundaries के लिए कीजिए। Anthropic `/init` देता है ताकि आप एक draft बना सकें, और यह उपयोगी है। फिर भी मैं उसे हाथ से edit करता हूं, क्योंकि generated instructions एक draft होती हैं, final artifact नहीं।
+Repo file का इस्तेमाल commands, architecture, naming और boundaries के लिए कीजिए। Anthropic `/init` देता है, जिससे शुरुआती draft बनाना आसान हो जाता है। फिर भी मैं उसे हाथ से edit करता हूं, क्योंकि अपने-आप बने निर्देश एक शुरुआती मसौदा होते हैं, अंतिम artifact नहीं।
 
-### 3. Project Rules को छोटा रखिए
+### 3. Project rules को छोटा रखिए
 
-Project file को personal file की दूसरी copy मत बनाइए। Repo-specific commands, architecture notes और local conventions वहीं रखिए। अपनी durable preferences global file में छोड़िए।
+Project file को अपनी personal file की दूसरी copy मत बनाइए। Repo-specific commands, architecture notes और local conventions वहीं रखिए। अपनी टिकाऊ preferences global file में रहने दीजिए।
 
-## यह Clever Prompting से ज्यादा महत्वपूर्ण क्यों है
+## यह clever prompting से ज्यादा महत्वपूर्ण क्यों है
 
-Coding agents की "ultimate setup" वाली ज्यादातर content बहुत जल्दी theater में बदल जाती है।
+Coding agents की "ultimate setup" वाली सामग्री बहुत जल्दी दिखावे में बदल जाती है।
 
-जिस चीज़ ने मेरे day-to-day काम को वास्तव में बेहतर बनाया, वह इससे कहीं ज्यादा simple थी:
+जिस चीज़ ने मेरे रोजमर्रा के काम को सचमुच बेहतर बनाया, वह इससे कहीं ज्यादा सीधी थी:
 
-- एक stable user-wide `CLAUDE.md`
-- एक clean project `CLAUDE.md`
+- पूरे user के लिए एक स्थिर `CLAUDE.md`
+- एक साफ project `CLAUDE.md`
 
-यह stack Claude को ज्यादा calm बनाती है। random fallbacks कम, cute abstractions कम, और ऐसे sessions कम जहां मुझे दस मिनट बाद पता चले कि agent और मैं थोड़ी अलग समस्याएं हल कर रहे थे।
+यह संयोजन Claude को ज्यादा स्थिर बनाता है। बेवजह fallback कम होते हैं, अनावश्यक चतुर abstractions कम बनती हैं, और ऐसे sessions भी कम होते हैं जहां दस मिनट बाद पता चले कि एजेंट और मैं थोड़ी अलग समस्याएं हल कर रहे थे।
 
-अगर आप कई coding agents इस्तेमाल करते हैं, तो यही pattern दूसरी जगहों पर भी दिखती है। Product अलग, lesson वही: baseline एक बार set कीजिए और हर सुबह उसे फिर से renegotiate करना बंद कीजिए।
+अगर आप कई coding agents इस्तेमाल करते हैं, तो यही pattern दूसरी जगहों पर भी दिखता है। product बदल जाता है, सबक वही रहता है: आधार एक बार तय कीजिए और हर सुबह उसे फिर से तय करना बंद कीजिए।
 
-अगर आप companion articles पढ़ना चाहते हैं, तो वे यहां हैं:
+अगर आप इससे जुड़ी दूसरी articles पढ़ना चाहते हैं, तो वे यहां हैं:
 
-- Cursor IDE Rules for AI: [https://kirill-markin.com/hi/gyan/cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye/](https://kirill-markin.com/hi/gyan/cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye/)
-- Codex Rules for AI: [https://kirill-markin.com/hi/gyan/codex-niyam-kritrim-buddhimatta-ke-liye/](https://kirill-markin.com/hi/gyan/codex-niyam-kritrim-buddhimatta-ke-liye/)
+- AI के लिए Cursor IDE के नियम: [https://kirill-markin.com/hi/gyan/cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye/](https://kirill-markin.com/hi/gyan/cursor-ide-niyam-kritrim-buddhimatta-coding-ke-liye/)
+- AI के लिए Codex के नियम: [https://kirill-markin.com/hi/gyan/codex-niyam-kritrim-buddhimatta-ke-liye/](https://kirill-markin.com/hi/gyan/codex-niyam-kritrim-buddhimatta-ke-liye/)
