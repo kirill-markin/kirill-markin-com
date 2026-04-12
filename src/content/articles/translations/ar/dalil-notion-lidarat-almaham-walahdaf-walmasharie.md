@@ -10,10 +10,10 @@ keywords: [
   "ترتيب أولويات المهام في Notion",
   "قاعدة بيانات واحدة في Notion"
 ]
-title: "دليل إدارة المهام في Notion: قاعدة بيانات واحدة للأهداف والمشاريع والمهام"
+title: "دليل إدارة المهام في Notion: نظام واحد للأهداف والمشاريع والمهام"
 date: 2026-04-11
 slug: "dalil-notion-lidarat-almaham-walahdaf-walmasharie"
-description: "النظام الذي أستخدمه لإدارة المهام في Notion عبر قاعدة بيانات واحدة تجمع الأهداف الفصلية والمشاريع والمهام اليومية وصندوق الوارد، بهيكل هرمي واضح وأولويات عملية قابلة للاستمرار."
+description: "أشرح كيف أدير المهام في Notion عبر قاعدة بيانات واحدة تجمع الأهداف الفصلية والمشاريع والمهام اليومية وصندوق الوارد ضمن هيكل هرمي واضح وأولويات عملية."
 tags: [productivity, notion, task-management]
 publish: true
 thumbnailUrl: "/articles/notion-task-manager-guide.webp"

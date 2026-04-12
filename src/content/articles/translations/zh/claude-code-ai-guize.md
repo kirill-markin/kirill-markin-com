@@ -1,7 +1,7 @@
 ---
-title: "Claude Code 规则：用 CLAUDE.md 固定 AI 编码习惯"
+title: "Claude Code 规则：用全局 CLAUDE.md 固定 AI 编码习惯、错误处理与最小改动原则"
 date: 2026-03-21
-description: "我如何用全局 CLAUDE.md 管理 Claude Code 规则：把个人编码偏好和项目规范分开，让 AI 在不同仓库里稳定遵循同一套风格、错误处理方式和最小改动原则。"
+description: "我如何用全局 CLAUDE.md 管理 Claude Code 规则，把跨项目长期有效的编码偏好与仓库专属规范明确分层，让代理在进入仓库上下文前先读默认规则，减少每次开新对话都重复解释的成本，并结合项目级与本地文件分工，让 AI 在不同代码库里持续遵循严格类型、清晰报错、少做假设和最小改动原则。"
 tags: [productivity, claude-code, ai, llm]
 publish: true
 thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"

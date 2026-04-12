@@ -1,8 +1,8 @@
 ---
-title: "为什么我用一个类 SQL 的 DSL 取代了 17 个智能体工具"
+title: "为什么我把 Flashcards Open Source App 的 17 个智能体工具合并成一个类 SQL 的 DSL 端点"
 date: 2026-04-11
 slug: "yige-lei-sql-dsl-qudai-17-ge-agent-gongju"
-description: "我如何把 Flashcards Open Source App 中 17 个智能体工具收敛为一个类 SQL 的 DSL 端点，让内部和外部 LLM 都能更快学会查询、更新、删除与汇总。"
+description: "我在 Flashcards Open Source App 中把 17 个彼此独立的智能体工具收敛为一个类 SQL 的 DSL 端点，让内部和外部 LLM 都能更快学会查询、更新、删除、过滤与汇总，减少接口噪音、重复文档和工具选择成本，也让整个智能体 API 对模型来说更容易理解与调用。"
 tags: [productivity, ai, llm]
 publish: true
 thumbnailUrl: "/articles/sql-like-dsl-for-ai-agents.webp"

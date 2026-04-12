@@ -1,7 +1,7 @@
 ---
-title: "我如何用 AI 管理支出、银行账户和预算"
+title: "我如何用 AI 自动整理银行流水、管理多个银行账户余额，并维护滚动 12 个月个人预算与支出分类系统"
 date: 2026-04-11
-description: "我用 AI 自动整理银行流水、分类支出、核对账户余额，并维护滚动 12 个月预算。这是我多年一直在用的个人财务管理方法。"
+description: "这篇文章介绍我如何用 AI 自动整理银行流水、分类日常支出、核对多个银行账户余额，并维护一套滚动 12 个月个人预算系统，帮助我更早发现现金压力、推迟大额购买、评估手头可动用现金，也把 CSV、PDF 和截图里的交易录入、分类、对账、异常检查与月度复盘这些最枯燥的个人财务工作交给自动化处理。"
 tags: [productivity, ai, finance]
 publish: true
 thumbnailUrl: "/articles/ai-expense-tracking-budget-view.jpg"
