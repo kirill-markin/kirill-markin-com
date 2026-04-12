@@ -13,7 +13,7 @@ keywords: [
 ]
 title: "n8n और LLM की मदद से ईमेल वर्गीकरण अपने-आप कैसे करें"
 date: 2026-04-11
-description: "तीन महीने से इस्तेमाल किया हुआ मेरा n8n और GPT-5-nano आधारित सेटअप, जो ईमेल को अपने-आप छांटता है। कौन सा मेल संग्रहित करना है, क्या पढ़ना है और किसका जवाब देना है, यह फैसला AI करता है।"
+description: "तीन महीनों से इस्तेमाल किया मेरा n8n, LLM और GPT-5-nano आधारित सेटअप, जो ईमेल को अपने-आप छांटकर तय करता है कि क्या संग्रहित, पढ़ा या जवाब दिया जाए।"
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"

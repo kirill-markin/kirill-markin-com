@@ -11,9 +11,9 @@ keywords: [
   "自动邮件标签",
   "邮件效率自动化"
 ]
-title: "如何用 n8n 和 LLM 自动分类邮件"
+title: "如何用 n8n 与 LLM 自动分类个人邮件：基于 GPT-5-nano 的收件箱归档、阅读与回复自动化指南"
 date: 2026-04-11
-description: "这是我已经验证了 3 个月的个人邮箱自动化系统，基于 n8n 工作流和 GPT-5-nano，让 AI 自动判断每封邮件该归档、阅读还是回复。"
+description: "这是我已经连续验证 3 个月的个人邮箱自动化系统，基于 n8n 工作流和 GPT-5-nano，让 LLM 自动判断每封邮件该归档、稍后阅读还是立即回复，减少手动分拣时间，并让真正需要处理的邮件更快浮现出来，也让日常收件箱整理从重复劳动变成几乎无需思考、却依然长期可靠稳定的流程。"
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"

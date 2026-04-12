@@ -2,7 +2,6 @@
 
 import https from 'https';
 import http from 'http';
-import { parse } from 'url';
 import xml2js from 'xml2js';
 
 interface SitemapUrl {
@@ -34,24 +33,46 @@ interface CacheTestResult {
     error?: string;
 }
 
+const CACHED_VERCEL_STATUSES = new Set(['HIT', 'PRERENDER', 'STALE']);
+const VALID_FIRST_REQUEST_VERCEL_STATUSES = new Set(['MISS', ...CACHED_VERCEL_STATUSES]);
+
+function createRequestTarget(url: string): {
+    client: typeof http | typeof https;
+    options: http.RequestOptions;
+} {
+    const parsedUrl = new URL(url);
+    const isHttps = parsedUrl.protocol === 'https:';
+
+    return {
+        client: isHttps ? https : http,
+        options: {
+            hostname: parsedUrl.hostname,
+            port: parsedUrl.port || (isHttps ? 443 : 80),
+            path: `${parsedUrl.pathname}${parsedUrl.search}`,
+            timeout: 10000,
+        },
+    };
+}
+
+function normalizeVercelCacheStatus(status: string | undefined): string | undefined {
+    if (!status) {
+        return undefined;
+    }
+
+    return status.trim().toUpperCase();
+}
+
 /**
  * Fetch a URL and return response headers
  */
 function fetchHeaders(url: string): Promise<{ status: number; headers: Record<string, string> }> {
     return new Promise((resolve, reject) => {
-        const parsedUrl = parse(url);
-        const isHttps = parsedUrl.protocol === 'https:';
-        const client = isHttps ? https : http;
+        const { client, options } = createRequestTarget(url);
 
-        const options = {
-            hostname: parsedUrl.hostname,
-            port: parsedUrl.port || (isHttps ? 443 : 80),
-            path: encodeURI(parsedUrl.path || '/'), // Properly encode the path
+        const req = client.request({
+            ...options,
             method: 'HEAD', // Only fetch headers, not body
-            timeout: 10000, // 10 second timeout
-        };
-
-        const req = client.request(options, (res) => {
+        }, (res) => {
             resolve({
                 status: res.statusCode || 0,
                 headers: Object.fromEntries(
@@ -82,31 +103,20 @@ function fetchHeaders(url: string): Promise<{ status: number; headers: Record<st
  * Check if caching is working properly (considers warmup scenario)
  */
 function isCacheWorkingProperly(
-    firstRequest: { cacheControl: string | undefined; vercelCache: string | undefined; },
-    secondRequest: { cacheControl: string | undefined; vercelCache: string | undefined; }
+    firstRequest: { status: number; vercelCache: string | undefined; },
+    secondRequest: { status: number; vercelCache: string | undefined; }
 ): boolean {
-    // Check if we have proper cache headers
-    const firstHasGoodHeaders = firstRequest.cacheControl &&
-        firstRequest.cacheControl.includes('public') &&
-        firstRequest.cacheControl.includes('s-maxage');
-
-    const secondHasGoodHeaders = secondRequest.cacheControl &&
-        secondRequest.cacheControl.includes('public') &&
-        secondRequest.cacheControl.includes('s-maxage');
-
-    // At least one should have good headers
-    if (!firstHasGoodHeaders && !secondHasGoodHeaders) {
+    if (firstRequest.status !== 200 || secondRequest.status !== 200) {
         return false;
     }
 
-    // First request can be PRERENDER (static), MISS (cache miss), or HIT (already cached)
-    const firstIsValid = firstRequest.vercelCache === 'PRERENDER' ||
-        firstRequest.vercelCache === 'MISS' ||
-        firstRequest.vercelCache === 'HIT';
+    const firstStatus = normalizeVercelCacheStatus(firstRequest.vercelCache);
+    const secondStatus = normalizeVercelCacheStatus(secondRequest.vercelCache);
 
-    // Second request should be cached (HIT or PRERENDER)
-    const secondIsCached = secondRequest.vercelCache === 'HIT' ||
-        secondRequest.vercelCache === 'PRERENDER';
+    const firstIsValid = firstStatus !== undefined &&
+        VALID_FIRST_REQUEST_VERCEL_STATUSES.has(firstStatus);
+    const secondIsCached = secondStatus !== undefined &&
+        CACHED_VERCEL_STATUSES.has(secondStatus);
 
     return firstIsValid && secondIsCached;
 }
@@ -119,19 +129,12 @@ async function fetchSitemap(sitemapUrl: string): Promise<string[]> {
         console.log(`Fetching sitemap from: ${sitemapUrl}`);
 
         const response = await new Promise<{ data: string; status: number }>((resolve, reject) => {
-            const parsedUrl = parse(sitemapUrl);
-            const isHttps = parsedUrl.protocol === 'https:';
-            const client = isHttps ? https : http;
+            const { client, options } = createRequestTarget(sitemapUrl);
 
-            const options = {
-                hostname: parsedUrl.hostname,
-                port: parsedUrl.port || (isHttps ? 443 : 80),
-                path: encodeURI(parsedUrl.path || '/'), // Properly encode the path
+            const req = client.request({
+                ...options,
                 method: 'GET',
-                timeout: 10000,
-            };
-
-            const req = client.request(options, (res) => {
+            }, (res) => {
                 let data = '';
                 res.on('data', chunk => data += chunk);
                 res.on('end', () => {
@@ -187,8 +190,8 @@ async function testUrl(url: string): Promise<CacheTestResult> {
         const secondVercelCache = secondRequest.headers['x-vercel-cache'];
 
         const isProperlyCached = isCacheWorkingProperly(
-            { cacheControl: firstCacheControl, vercelCache: firstVercelCache },
-            { cacheControl: secondCacheControl, vercelCache: secondVercelCache }
+            { status: firstRequest.status, vercelCache: firstVercelCache },
+            { status: secondRequest.status, vercelCache: secondVercelCache }
         );
 
         return {
@@ -267,7 +270,7 @@ function generateReport(results: CacheTestResult[]): void {
     const successful = results.filter(r => r.firstRequest.status === 200);
     const cached = results.filter(r => r.isProperlyCached);
     const errors = results.filter(r => r.error);
-    const notCached = results.filter(r => r.firstRequest.status === 200 && !r.isProperlyCached);
+    const notCached = results.filter(r => !r.error && !r.isProperlyCached);
 
     console.log('\n=== CACHE TEST SUMMARY ===');
     console.log(`Total URLs tested: ${total}`);
@@ -300,6 +303,10 @@ function generateReport(results: CacheTestResult[]): void {
     }
 }
 
+function hasCacheIssues(results: CacheTestResult[]): boolean {
+    return results.some((result) => result.error !== undefined || !result.isProperlyCached);
+}
+
 /**
  * Main function
  */
@@ -315,6 +322,10 @@ async function main(): Promise<void> {
 
         // Generate report
         generateReport(results);
+
+        if (hasCacheIssues(results)) {
+            process.exitCode = 1;
+        }
 
     } catch (error) {
         console.error('Test failed:', error);

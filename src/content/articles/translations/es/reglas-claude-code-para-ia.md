@@ -1,8 +1,8 @@
 ---
-title: "Reglas de Claude Code para IA: instrucciones globales en CLAUDE.md"
+title: "Reglas de Claude Code para IA: instrucciones globales con CLAUDE.md"
 date: 2026-03-21
 slug: "reglas-claude-code-para-ia"
-description: "Mis reglas de Claude Code con CLAUDE.md global: separo preferencias y normas del proyecto para mantener estilo y diffs consistentes entre repositorios."
+description: "Mis reglas de Claude Code con un CLAUDE.md global: separo preferencias personales y normas del proyecto para mantener un estilo coherente entre repositorios."
 tags: [productivity, claude-code, ai, llm]
 publish: true
 thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"
@@ -21,17 +21,17 @@ translations:
     slug: "qawaid-claude-code-lilthakaa-alistinaei"
 ---
 
-# Reglas de Claude Code para IA: instrucciones globales en CLAUDE.md
+# Reglas de Claude Code para IA: instrucciones globales con CLAUDE.md
 
-Claude Code empezó a funcionarme mucho mejor cuando dejé de repetirle lo mismo en cada chat. Llevo cerca de dos años programando con IA, usando Claude Code desde hace unos seis meses, y la mejora más útil fue absurdamente simple: poner mis reglas por defecto en `~/.claude/CLAUDE.md` y dejar que el agente arrancara desde ahí.
+Claude Code empezó a darme mucho mejores resultados cuando dejé de repetirle lo mismo en cada chat. Llevo cerca de dos años programando con IA, uso Claude Code desde hace unos seis meses y la mejora más útil fue absurdamente simple: poner mis reglas por defecto en `~/.claude/CLAUDE.md` y dejar que el agente partiera de ahí.
 
-Antes de eso, desperdiciaba mensajes en lo mismo de siempre. Usa tipado estricto. No añadas fallbacks que no pedí. Mantén el diff pequeño. No reescribas medio archivo solo porque te emocionaste. Claude solía obedecer. Aun así, yo tenía que pagar ese impuesto una y otra vez.
+Antes de eso, malgastaba mensajes en lo de siempre. Usa tipado estricto. No añadas soluciones de reserva que no pedí. Mantén el diff pequeño. No reescribas medio archivo solo porque te viniste arriba. Claude solía obedecer. Aun así, yo tenía que pagar ese peaje una y otra vez.
 
-Ahora esa base ya está ahí incluso antes de que el repositorio entre en la conversación.
+Ahora esa base ya está ahí, incluso antes de que el repositorio entre en la conversación.
 
 ## Dónde guardo mis instrucciones globales de Claude Code
 
-La [documentación de Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) de Anthropic divide esto en varias capas. `~/.claude/CLAUDE.md` es el archivo global del usuario. `./CLAUDE.md` o `./.claude/CLAUDE.md` es la capa compartida del proyecto. `CLAUDE.local.md` sirve para notas personales del proyecto que no deberían entrar en git.
+La [documentación de Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) de Anthropic divide esto en varias capas. `~/.claude/CLAUDE.md` es el archivo global del usuario. `./CLAUDE.md` o `./.claude/CLAUDE.md` es la capa compartida del proyecto. `CLAUDE.local.md` sirve para notas personales del proyecto que no deberían acabar en git.
 
 Eso coincide casi exactamente con lo que yo quiero:
 
@@ -39,15 +39,15 @@ Eso coincide casi exactamente con lo que yo quiero:
 2. `CLAUDE.md` del proyecto para arquitectura y comandos específicos del repositorio
 3. `CLAUDE.local.md` cuando necesito notas personales del proyecto que deben quedarse fuera de git
 
-No quiero pegar las mismas reglas personales en cada repositorio que abro. Si "sin fallbacks silenciosos" es una preferencia global, debe vivir en el archivo global. Si "ejecuta este extraño comando interno antes de lanzar tests" es algo específico del repo, debe vivir en el archivo del proyecto.
+No quiero pegar las mismas reglas personales en cada repositorio que abro. Si "sin soluciones de respaldo silenciosas" es una preferencia global, debe vivir en el archivo global. Si "ejecuta este extraño comando interno antes de lanzar tests" es algo específico del repo, debe vivir en el archivo del proyecto.
 
-Esta es la versión que uso ahora mismo en Claude Code:
+Esta es la versión que estoy usando ahora mismo en Claude Code:
 
 ![Instrucciones globales de Claude Code en CLAUDE.md para reglas persistentes de programación con IA](/articles/claude-code-global-rules-terminal.jpg)
 
 ## Las reglas de Claude Code que realmente uso
 
-Este bloque es deliberadamente aburrido. Las buenas reglas suelen serlo. No intento describir todos los casos límite por adelantado. Solo quiero que Claude Code deje de cometer los mismos errores predecibles.
+Este bloque es aburrido a propósito. Las buenas reglas suelen serlo. No intento anticipar todos los casos límite. Solo quiero que Claude Code deje de cometer los mismos errores previsibles.
 
 ```markdown
 # Global Rules
@@ -128,24 +128,24 @@ Este bloque es deliberadamente aburrido. Las buenas reglas suelen serlo. No inte
 - Store knowledge as current state, not as a changelog of modifications
 ```
 
-Ese bloque cubre casi todo lo que me importa en el día a día.
+Ese bloque cubre casi todo lo que me importa en el trabajo diario.
 
-Sin él, Claude deriva de formas muy conocidas. Añade comportamiento de fallback "por si acaso". Relaja tipos porque el tipado estricto le parece incómodo. Envuelve funciones simples en capas extra. Corrige el problema equivocado porque intenta ser complaciente en vez de preciso.
+Sin él, Claude se desvía de formas muy reconocibles. Añade lógica de respaldo "por si acaso". Afloja los tipos porque el tipado estricto le resulta incómodo. Envuelve funciones simples en capas innecesarias. Corrige el problema equivocado porque intenta complacer en vez de acertar.
 
 Prefiero invertir diez minutos una vez en escribir un buen archivo global que seguir corrigiendo esos patrones uno por uno en cada sesión nueva.
 
 ## Primero el CLAUDE.md global, después el CLAUDE.md del proyecto
 
-No quiero un único `CLAUDE.md` gigante con todo metido a la fuerza.
+No quiero un único `CLAUDE.md` gigantesco con todo metido a presión.
 
-Mi archivo global debería responder preguntas como:
+Mi archivo global debería responder a preguntas como:
 
 - ¿Qué tan estricto quiero el tipado?
 - ¿Cómo quiero que se manejen los errores?
-- ¿Quiero diffs pequeños o refactors amplios?
+- ¿Quiero diffs pequeños o refactorizaciones amplias?
 - ¿Qué tipo de documentación espero?
 
-Mi archivo de proyecto debería responder preguntas distintas:
+Mi archivo del proyecto debería responder a preguntas distintas:
 
 - ¿Cómo ejecuto el proyecto?
 - ¿Qué comandos son seguros y esperados?
@@ -158,65 +158,65 @@ En la práctica:
 - `CLAUDE.md` global dice cómo trabajo yo
 - `CLAUDE.md` del proyecto dice cómo funciona este repo
 
-Cuando mezclas esas dos cosas, el archivo se convierte en lodo. La mitad es demasiado genérica, la otra mitad demasiado local, y Claude tiene que cargar con todo eso en cada tarea.
+Cuando mezclas esas dos cosas, el archivo se convierte en una mezcla informe. La mitad es demasiado genérica, la otra mitad demasiado local, y Claude tiene que arrastrar todo eso en cada tarea.
 
-Anthropic recomienda mantener estos archivos concisos. Bien. Los archivos de instrucciones largos suelen parecer el intento de meter todo un manual de ingeniería dentro del prompt. Eso nunca acaba bien.
+Anthropic recomienda mantener estos archivos concisos. Bien. Los archivos de instrucciones largos suelen parecer un intento de meter un manual entero de ingeniería dentro del prompt. Eso nunca acaba bien.
 
 ## Qué se rompe a mitad de sesión
 
-Las reglas ayudan. No salvan para siempre una sesión caótica.
+Las reglas ayudan. No rescatan para siempre una sesión caótica.
 
-Si paso veinte mensajes hablando de un subsistema y luego cambio de pronto a otro problema distinto, Claude puede quedarse mentalmente atrapado en el marco anterior. Es normal. No trato los chats largos como si fueran sagrados.
+Si paso veinte mensajes hablando de un subsistema y luego cambio de golpe a otro problema distinto, Claude puede quedarse mentalmente atrapado en el marco anterior. Es normal. No trato los chats largos como si fueran sagrados.
 
 Así que en la práctica hago esto:
 
-- Empiezo una sesión nueva cuando la tarea cambia de exploración a implementación
-- Empiezo una sesión nueva cuando paso de un subsistema a otro muy diferente
-- Mantengo las instrucciones del proyecto lo bastante concisas para no pagar un impuesto de contexto en cada turno
+- Empiezo una sesión nueva cuando la tarea pasa de exploración a implementación
+- Empiezo una sesión nueva cuando salto de un subsistema a otro muy distinto
+- Mantengo las instrucciones del proyecto lo bastante concisas para no pagar un peaje de contexto en cada turno
 
-Por eso también me gustan los archivos markdown para planes y notas. Si la tarea es grande, prefiero guardar el estado explícitamente antes que confiar en que un hilo larguísimo se mantenga limpio.
+Por eso también me gustan los archivos markdown para planes y notas. Si la tarea es grande, prefiero dejar el estado guardado de forma explícita antes que confiar en que un hilo larguísimo se mantenga limpio.
 
 ## Mi despliegue práctico de reglas para Claude Code
 
-Si tuviera que configurar esto desde cero hoy, lo haría en este orden.
+Si hoy tuviera que configurar esto desde cero, lo haría en este orden.
 
 ### 1. Crear `~/.claude/CLAUDE.md`
 
-Empieza por tus no negociables. No consejos de vida. No manifiestos de ingeniería. Solo las reglas que realmente importan una y otra vez entre repositorios.
+Empieza por tus líneas rojas. No consejos de vida. No manifiestos de ingeniería. Solo las reglas que de verdad importan una y otra vez entre repositorios.
 
 Para mí, eso significa:
 
 - tipado estricto
 - manejo explícito de errores
 - ediciones mínimas
-- sin fallbacks silenciosos
+- sin soluciones de respaldo silenciosas
 - docstrings donde la documentación debe vivir
 - hábitos de terminal no interactivos
 
-Solo eso ya cambia el resultado más que la mayoría de los trucos de prompt.
+Solo eso ya cambia más el resultado que la mayoría de los trucos de prompt.
 
 ### 2. Añadir un `CLAUDE.md` de proyecto
 
-Usa el archivo del repo para comandos, arquitectura, naming y límites. Anthropic te da `/init` para esbozar uno, y eso ayuda. Aun así, yo lo edito manualmente después porque las instrucciones generadas son un borrador, no un artefacto final.
+Usa el archivo del repo para comandos, arquitectura, convenciones de nombres y límites. Anthropic te da `/init` para esbozar uno, y eso ayuda. Aun así, yo lo edito a mano después porque las instrucciones generadas son un borrador, no una versión final.
 
 ### 3. Mantener cortas las reglas del proyecto
 
-No conviertas el archivo del proyecto en una segunda copia del personal. Pon ahí comandos específicos del repo, notas de arquitectura y convenciones locales. Deja tus preferencias duraderas en el archivo global.
+No conviertas el archivo del proyecto en una segunda copia del personal. Pon ahí comandos específicos del repo, notas de arquitectura y convenciones locales. Deja las preferencias duraderas en el archivo global.
 
 ## Por qué esto importa más que el prompting ingenioso
 
-Mucho contenido sobre la "configuración definitiva" de agentes de código termina derivando bastante rápido en teatro.
+Mucho contenido sobre la "configuración definitiva" de agentes de código acaba convirtiéndose bastante rápido en teatro.
 
 Lo que realmente mejoró mi trabajo del día a día fue mucho más simple:
 
-- un `CLAUDE.md` global y estable para todo el usuario
+- un `CLAUDE.md` global y estable a nivel de usuario
 - un `CLAUDE.md` de proyecto claro
 
-Esa combinación hace que Claude esté más calmado. Menos fallbacks aleatorios. Menos abstracciones graciosas. Menos sesiones en las que diez minutos después descubro que el agente y yo estábamos resolviendo problemas ligeramente distintos.
+Esa combinación hace que Claude trabaje con más calma. Menos soluciones de respaldo aleatorias. Menos abstracciones ingeniosas porque sí. Menos sesiones en las que diez minutos después descubro que el agente y yo estábamos resolviendo problemas ligeramente distintos.
 
-Si usas varios agentes de código, el mismo patrón aparece en otras herramientas. Distinto producto, misma lección: define la base una vez y deja de renegociarla cada mañana.
+Si usas varios agentes de código, el mismo patrón aparece también en otras herramientas. Distinto producto, misma lección: define la base una vez y deja de renegociarla cada mañana.
 
-Si quieres los artículos complementarios, están aquí:
+Si te interesan los artículos complementarios, aquí los tienes:
 
 - Reglas de Cursor IDE para IA: [https://kirill-markin.com/es/articulos/reglas-cursor-ide-para-ia/](https://kirill-markin.com/es/articulos/reglas-cursor-ide-para-ia/)
 - Reglas de Codex para IA: [https://kirill-markin.com/es/articulos/reglas-codex-para-ia/](https://kirill-markin.com/es/articulos/reglas-codex-para-ia/)

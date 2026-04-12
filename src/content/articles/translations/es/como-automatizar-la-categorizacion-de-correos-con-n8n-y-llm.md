@@ -14,7 +14,7 @@ keywords: [
 title: "Cómo automatizar la categorización de correos con n8n y LLM"
 date: 2026-04-11
 slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
-description: "El sistema que he usado durante tres meses para automatizar la categorización de correos con n8n y GPT-5-nano. Archivar, leer o responder: deja que la IA decida por ti."
+description: "El sistema que he usado durante tres meses para automatizar la categorización de correos con n8n y GPT-5-nano para archivar, leer o responder."
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"

@@ -1,8 +1,8 @@
 ---
-title: "Por qué reemplacé 17 herramientas para agentes por un único DSL tipo SQL"
+title: "Por qué reemplacé 17 herramientas por un DSL tipo SQL"
 date: 2026-04-11
 slug: "reemplace-17-herramientas-de-agentes-por-un-dsl-tipo-sql"
-description: "Cómo condensé 17 herramientas para agentes en Flashcards Open Source App en un único endpoint con un DSL tipo SQL que los LLM internos y externos pueden aprender rápido."
+description: "Cómo condensé 17 herramientas para agentes en Flashcards Open Source App en un único endpoint con un DSL tipo SQL que los LLM aprenden rápido."
 tags: [productivity, ai, llm]
 publish: true
 thumbnailUrl: "/articles/sql-like-dsl-for-ai-agents.webp"

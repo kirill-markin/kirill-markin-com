@@ -1,5 +1,5 @@
 ---
-title: "Reglas de Cursor IDE para IA: guía para un asistente de IA especializado"
+title: "Reglas de Cursor IDE para IA: guía práctica en español"
 date: 2025-05-06
 slug: "reglas-cursor-ide-para-ia"
 language: "es"

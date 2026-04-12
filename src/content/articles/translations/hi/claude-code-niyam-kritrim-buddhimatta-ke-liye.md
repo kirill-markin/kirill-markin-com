@@ -1,5 +1,5 @@
 ---
-title: "Claude Code के नियम: कृत्रिम बुद्धिमत्ता के लिए मेरे वैश्विक CLAUDE.md निर्देश"
+title: "Claude Code के नियम: कृत्रिम बुद्धिमत्ता के लिए CLAUDE.md निर्देश"
 date: 2026-04-11
 slug: "claude-code-niyam-kritrim-buddhimatta-ke-liye"
 description: "मैं Claude Code में अपने वैश्विक CLAUDE.md नियम कैसे रखता हूँ: निजी पसंद और परियोजना-विशेष निर्देश अलग, ताकि हर प्रोजेक्ट में काम करने का ढंग एक-सा बना रहे।"

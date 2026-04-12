@@ -2,7 +2,7 @@
 title: "Codex के नियम: वैश्विक निर्देश, AGENTS.md और Mac ऐप"
 date: 2026-04-11
 slug: "codex-niyam-kritrim-buddhimatta-ke-liye"
-description: "मैं Codex में custom instructions, AGENTS.md और Mac ऐप का उपयोग कैसे करता हूं, ताकि अलग-अलग रेपॉज़िटरीज़ में एक जैसी कोडिंग शैली, स्पष्ट त्रुटि-प्रबंधन और न्यूनतम बदलाव बनाए रख सकूं।"
+description: "मैं Codex, AGENTS.md और Mac ऐप के स्थायी निर्देशों से अलग-अलग रेपॉज़िटरी में एक जैसी कोडिंग शैली, स्पष्ट त्रुटि-प्रबंधन और न्यूनतम बदलाव बनाए रखता हूं।"
 tags: [productivity, codex, openai, ai]
 publish: true
 thumbnailUrl: "/articles/codex-personalization-custom-instructions.jpg"

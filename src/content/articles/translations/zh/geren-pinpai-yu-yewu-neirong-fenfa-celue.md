@@ -1,8 +1,8 @@
 ---
-title: "个人品牌与业务的内容分发策略"
+title: "个人品牌与业务内容分发策略：原创内容首发平台选择、跨平台内容再发布、流量引导与长期内容资产沉淀完整框架"
 date: 2026-04-11
 slug: "geren-pinpai-yu-yewu-neirong-fenfa-celue"
-description: "我在不同平台分发内容的框架，用来最大化个人品牌触达。这是一套在实践中不断打磨的实用系统。"
+description: "这篇文章系统说明我如何为个人品牌和业务内容制定分发策略：先确定视频或文章的原创首发平台，再判断是否保持独家或同步到 LinkedIn、Reddit、个人网站等渠道，同时用社交平台导入初始流量，并持续维护完整档案与精简资料页，让每次发布都能兼顾短期曝光、长期沉淀与跨平台一致性建设。"
 tags: [productivity]
 publish: true
 thumbnailUrl: "/articles/content-distribution-strategy.webp"

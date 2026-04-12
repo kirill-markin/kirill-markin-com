@@ -10,7 +10,7 @@ keywords: [
 title: "Creadores que se burlan de su propio oficio: ejemplos y patrones"
 date: 2026-04-11
 slug: "creadores-que-se-burlan-de-su-propio-oficio-ejemplos-y-patrones"
-description: "Ejemplos de creadores que desmontan su propio oficio: comediantes que cuestionan la comedia, ingenieros que automatizan la programación y sistemas pensados para volver prescindible a quien los diseña."
+description: "Ejemplos de creadores que desmontan su propio oficio: comediantes, ingenieros y sistemas pensados para volver prescindible a quien los crea."
 tags: [productivity, ai, llm, cursor-ide, management]
 publish: true
 thumbnailUrl: "/articles/creators-who-mock-their-own-craft-examples.webp"
