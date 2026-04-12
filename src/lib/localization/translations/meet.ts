@@ -38,11 +38,11 @@ export const meet = {
         title: 'Hablemos',
         description: 'Elige cuánto tiempo necesitas. Hay distintas duraciones para distintos tipos de conversación.',
         metaTitle: 'Reserva una reunión con Kirill Markin | Opciones de tiempo flexibles',
-        metaDescription: 'Programa una conversación con Kirill Markin y elige entre 15, 30 o 60 minutos según el tema que quieras tratar.',
+        metaDescription: 'Programa una conversación con Kirill Markin y elige entre 15, 30 o 60 minutos según el tema que quieras tratar y el tiempo que necesites para hablarlo bien.',
         shortMeeting: {
             title: 'Reunión de 15 Minutos',
             description: 'Una charla breve cuando no hace falta mucho tiempo. Va bien para una puesta al día, una pregunta puntual o simplemente saludar.',
-            metaTitle: 'Reserva una reunión de 15 minutos con Kirill Markin | Conversación rápida',
+            metaTitle: 'Reserva 15 minutos con Kirill Markin | Conversación rápida',
             metaDescription: 'Programa una reunión de 15 minutos con Kirill Markin. Ideal para una conversación rápida, una puesta al día breve o cuando solo necesitas unos minutos.',
         },
         mediumMeeting: {
@@ -72,13 +72,13 @@ export const meet = {
     zh: {
         title: '聊一聊',
         description: '选择你需要的时长。不同的对话，适合不同的会议时长。',
-        metaTitle: '与 Kirill Markin 预约会议 | 灵活选择会面时长',
-        metaDescription: '与 Kirill Markin 安排交流，可选择 15、30 或 60 分钟的会议时长，按你的议题和时间安排选择合适的时段。',
+        metaTitle: '与 Kirill Markin 预约会议 | 灵活选择适合你的交流时长、讨论节奏与会面安排方式参考说明',
+        metaDescription: '与 Kirill Markin 安排交流时，你可以根据议题重点、沟通深度与当天日程，在 15、30 或 60 分钟之间选择更合适的会议时长。无论是先做一次简短确认、集中讨论具体问题，还是留出完整时间深入展开，这里都能找到更贴合实际需求的安排，也方便你提前按目标准备问题与材料内容。',
         shortMeeting: {
             title: '15分钟会议',
             description: '时间不多时，适合快速聊一聊。适合简短跟进、快速提问，或者只是打个招呼。',
-            metaTitle: '预约与 Kirill Markin 的 15 分钟会议 | 快速交流',
-            metaDescription: '安排与 Kirill Markin 的 15 分钟会议。适合快速沟通、简短跟进，或只需要几分钟聊一聊的情况。',
+            metaTitle: '预约与 Kirill Markin 的 15 分钟会议 | 适合快速沟通、简短跟进与问题确认安排建议',
+            metaDescription: '安排与 Kirill Markin 的 15 分钟会议，适合快速沟通、简短跟进、集中确认一个问题，或在时间有限时先完成一次清晰而轻松的交流。这个时长特别适合先对齐背景、判断下一步方向，并为后续更深入的讨论预留空间，也能减少来回确认的成本，让沟通开始得更顺畅，也方便后续继续约更长时段。',
         },
         mediumMeeting: {
             title: '30分钟会议',
@@ -95,8 +95,8 @@ export const meet = {
         allMeetings: {
             title: '所有会议选项',
             description: '所有可选的会议时长都在这里。挑一个最适合你日程的安排。',
-            metaTitle: 'Kirill Markin 的全部会议选项 | 选择适合的时长',
-            metaDescription: '查看与 Kirill Markin 的全部会议选项，并根据你的安排和沟通需求选择 15、30 或 60 分钟的时长。',
+            metaTitle: 'Kirill Markin 的全部会议选项 | 按议题深度、日程安排与沟通目标挑选适合你的会议时长建议',
+            metaDescription: '查看与 Kirill Markin 的全部会议选项后，你可以结合自己的时间安排、沟通目标与议题复杂度，在 15、30 或 60 分钟之间选择最合适的一种会议时长。无论你需要快速同步、聚焦讨论，还是完整展开一场深入交流，都能找到更匹配的安排，并更从容地规划这次沟通与后续整体推进节奏。',
         },
         shortPageTitle: '15分钟会议',
         mediumPageTitle: '30分钟会议',
@@ -107,13 +107,13 @@ export const meet = {
     ar: {
         title: 'لنتحدث',
         description: 'اختر المدة التي تناسبك. لكل نوع من المحادثات وقت مختلف.',
-        metaTitle: 'احجز اجتماعاً مع كيريل ماركين | خيارات وقت مرنة',
-        metaDescription: 'رتّب مكالمة مع كيريل ماركين واختر بين 15 أو 30 أو 60 دقيقة بحسب الموضوع والوقت الذي تحتاجه.',
+        metaTitle: 'احجز اجتماعاً مع كيريل ماركين | اختر مدة مرنة تناسب نوع المحادثة',
+        metaDescription: 'رتّب مكالمة مع كيريل ماركين واختر بين 15 أو 30 أو 60 دقيقة بحسب الموضوع الذي تريد مناقشته وعمق الحوار المطلوب والوقت الذي يناسب جدولك خلال اليوم.',
         shortMeeting: {
             title: 'اجتماع لمدة 15 دقيقة',
             description: 'مكالمة سريعة عندما لا تحتاج إلى وقت طويل. مناسبة لمتابعة قصيرة أو سؤال سريع أو حتى مجرد إلقاء التحية.',
             metaTitle: 'احجز اجتماعاً لمدة 15 دقيقة مع كيريل ماركين | محادثة سريعة',
-            metaDescription: 'احجز اجتماعاً لمدة 15 دقيقة مع كيريل ماركين. مناسب لمحادثة سريعة أو متابعة قصيرة أو عندما تحتاج بضع دقائق فقط للحديث.',
+            metaDescription: 'احجز اجتماعاً لمدة 15 دقيقة مع كيريل ماركين. هذا الخيار مناسب لمحادثة سريعة أو متابعة قصيرة أو سؤال محدد عندما تحتاج بضع دقائق واضحة ومباشرة للحديث.',
         },
         mediumMeeting: {
             title: 'اجتماع لمدة 30 دقيقة',
@@ -131,7 +131,7 @@ export const meet = {
             title: 'جميع خيارات الاجتماعات',
             description: 'كل مدد الاجتماعات المتاحة في مكان واحد. اختر ما يناسب جدولك.',
             metaTitle: 'جميع خيارات الاجتماعات مع كيريل ماركين | اختر المدة المناسبة',
-            metaDescription: 'اطّلع على جميع خيارات الاجتماعات المتاحة مع كيريل ماركين واختر بين 15 أو 30 أو 60 دقيقة بحسب جدولك وطبيعة المحادثة.',
+            metaDescription: 'اطّلع على جميع خيارات الاجتماعات المتاحة مع كيريل ماركين واختر بين 15 أو 30 أو 60 دقيقة بحسب جدولك وهدف المحادثة ومستوى التفصيل الذي تحتاجه.',
         },
         shortPageTitle: 'اجتماع لمدة 15 دقيقة',
         mediumPageTitle: 'اجتماع لمدة 30 دقيقة',
@@ -143,7 +143,7 @@ export const meet = {
         title: 'आइए बात करें',
         description: 'जितना समय चाहिए, उतना चुनें। अलग-अलग तरह की बातचीत के लिए अलग-अलग अवधि उपलब्ध है।',
         metaTitle: 'किरिल मार्किन के साथ मीटिंग बुक करें | समय के लचीले विकल्प',
-        metaDescription: 'किरिल मार्किन के साथ बातचीत शेड्यूल करें। अपनी जरूरत के हिसाब से 15, 30 या 60 मिनट का समय चुनें।',
+        metaDescription: 'किरिल मार्किन के साथ बातचीत शेड्यूल करें और अपनी जरूरत, चर्चा की गहराई और दिन के उपलब्ध समय के हिसाब से 15, 30 या 60 मिनट का सही स्लॉट चुनें।',
         shortMeeting: {
             title: '15 मिनट की मीटिंग',
             description: 'जब ज्यादा समय न चाहिए, तब यह छोटा स्लॉट ठीक रहता है। छोटी अपडेट, जल्दी सवाल, या सिर्फ नमस्ते कहने के लिए अच्छा है।',
@@ -166,7 +166,7 @@ export const meet = {
             title: 'सभी मीटिंग विकल्प',
             description: 'सभी उपलब्ध मीटिंग अवधि एक ही जगह हैं। जो आपके शेड्यूल में सबसे बेहतर बैठे, वही चुनें।',
             metaTitle: 'किरिल मार्किन के साथ सभी मीटिंग विकल्प | अपनी अवधि चुनें',
-            metaDescription: 'किरिल मार्किन के साथ उपलब्ध सभी मीटिंग विकल्प देखें और अपनी जरूरत व शेड्यूल के अनुसार 15, 30 या 60 मिनट का समय चुनें।',
+            metaDescription: 'किरिल मार्किन के साथ उपलब्ध सभी मीटिंग विकल्प देखें और अपनी जरूरत, बातचीत की प्रकृति और शेड्यूल के अनुसार 15, 30 या 60 मिनट का सही समय चुनें।',
         },
         shortPageTitle: '15 मिनट की मीटिंग',
         mediumPageTitle: '30 मिनट की मीटिंग',

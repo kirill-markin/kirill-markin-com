@@ -8,7 +8,7 @@ keywords: [
   "تصور البيانات في Jupyter",
   "تحويل دفاتر Jupyter إلى PDF"
 ]
-title: "دفاتر Jupyter مع نماذج اللغة الكبيرة داخل Cursor IDE: تحليل بيانات أذكى"
+title: "دفاتر Jupyter مع نماذج اللغة الكبيرة داخل Cursor IDE لتحليل البيانات"
 date: 2026-04-11
 slug: "jupyter-notebooks-cursor-ide-llm-ai-ltahlil-albayanat"
 description: "تعرّف إلى طريقة استخدام دفاتر Jupyter داخل Cursor IDE مع الذكاء الاصطناعي لتحليل البيانات، وبناء التصورات، وكتابة التوثيق، وتصدير تقارير احترافية من بيئة واحدة."

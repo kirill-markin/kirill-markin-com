@@ -11,9 +11,9 @@ keywords: [
   "स्वचालित ईमेल लेबल",
   "ईमेल उत्पादकता ऑटोमेशन"
 ]
-title: "n8n और LLM के साथ ईमेल वर्गीकरण अपने-आप कैसे करें"
+title: "n8n और LLM के साथ ईमेल का वर्गीकरण अपने-आप कैसे करें"
 date: 2026-04-11
-description: "तीन महीने से आजमाया हुआ मेरा n8n वर्कफ़्लो और GPT-5-nano आधारित सिस्टम, जो तय करता है कि ईमेल संग्रहित हो, पढ़ा जाए या उसका जवाब दिया जाए।"
+description: "तीन महीने से आजमाया हुआ मेरा n8n वर्कफ़्लो और GPT-5-nano आधारित सिस्टम, जो तय करता है कि कौन-सा ईमेल संग्रहित हो, पढ़ा जाए या उसका जवाब दिया जाए।"
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"

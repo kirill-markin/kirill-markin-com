@@ -1,7 +1,7 @@
 ---
-title: "Claude Code 规则：给 AI 的 CLAUDE.md 全局指令"
+title: "Claude Code 规则实践：用 CLAUDE.md 全局指令固定 AI 的长期编码习惯与项目边界"
 date: 2026-03-21
-description: "我如何把默认规则写进 `~/.claude/CLAUDE.md`，把个人偏好和项目规则分开，让 Claude Code 不用在每次新对话里都重新听我解释一遍。"
+description: "这篇文章介绍我如何把长期稳定的 Claude Code 规则写进 `~/.claude/CLAUDE.md`，把个人编码偏好与仓库级命令、架构边界和本地约定拆开管理，让代理在不同项目和新会话里都能延续同一套工作方式，减少重复解释严格类型、最小化改动、不要静默 fallback 这些基础要求的上下文成本。"
 tags: [productivity, claude-code, ai, llm]
 publish: true
 thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"
@@ -20,7 +20,7 @@ translations:
     slug: "qawaid-claude-code-lilthakaa-alistinaei"
 ---
 
-# Claude Code 规则：给 AI 的 CLAUDE.md 全局指令
+# Claude Code 规则实践：用 CLAUDE.md 全局指令固定 AI 的长期编码习惯与项目边界
 
 当我不再在每次新对话里重复解释自己的工作方式时，Claude Code 对我来说就好用多了。我用 AI 写代码大约两年了，其中过去六个月左右主要在用 Claude Code。而最有用的改进，简单得甚至有点尴尬：把我的默认规则写进 `~/.claude/CLAUDE.md`，让代理从这里开始。
 

@@ -13,7 +13,7 @@ keywords: [
 ]
 title: "كيف تؤتمت تصنيف البريد الإلكتروني باستخدام n8n ونموذج لغوي كبير"
 date: 2026-04-11
-description: "هذا النظام جرّبته فعليا ثلاثة أشهر لأتمتة تصنيف البريد الإلكتروني عبر n8n وGPT-5-nano، بحيث يقرر الذكاء الاصطناعي ما إذا كانت الرسالة تُؤرشف أو تُقرأ أو تحتاج إلى رد."
+description: "نظام مجرَّب لثلاثة أشهر لأتمتة تصنيف البريد عبر n8n وGPT-5-nano، بحيث يحدد الذكاء الاصطناعي ما إذا كانت الرسالة تُؤرشف أو تُقرأ أو تحتاج إلى رد."
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
