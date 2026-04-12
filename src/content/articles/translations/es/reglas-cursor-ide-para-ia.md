@@ -1,9 +1,9 @@
 ---
-title: "Reglas de Cursor IDE para IA: guía práctica en español"
+title: "Reglas de Cursor IDE para IA: guía para un asistente de IA especializado"
 date: 2025-05-06
 slug: "reglas-cursor-ide-para-ia"
 language: "es"
-description: "Las reglas de Cursor IDE que uso en producción para mejorar la programación con IA con criterios claros de estilo, errores y flujo de trabajo."
+description: "Mis reglas de Cursor IDE probadas en producción para mejorar la programación con IA con criterios claros de estilo, manejo de errores y flujo de trabajo."
 tags: ["productivity", "cursor-ide", "ai", "llm"]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
@@ -29,13 +29,13 @@ Cursor IDE maneja tres niveles de reglas:
 2. Archivo `.cursor/index.mdc` con `Rule Type "Always"`: reglas específicas del repositorio que sustituyen al enfoque anterior basado en `.cursorrules`
 3. Archivos `.cursor/rules/*.mdc`: reglas dinámicas que solo se activan cuando la IA se enfrenta a tareas relacionadas con su descripción
 
-Aquí comparto mis reglas base de Cursor: la configuración global que uso en Cursor IDE. Son el punto de partida de todo mi trabajo de desarrollo. Combinadas con las reglas del repositorio y con las reglas contextuales, forman un sistema potente que mantiene la calidad del código sin perder consistencia en mi forma de trabajar.
+Aquí comparto mis reglas base de Cursor, es decir, la configuración global que uso en Cursor IDE. Son el punto de partida de todo mi trabajo de desarrollo. Combinadas con las reglas del repositorio y con las reglas contextuales, forman un sistema potente que mantiene la calidad del código sin perder consistencia en mi forma de trabajar.
 
 > **¿Prefieres un tutorial en video?** He grabado un recorrido completo por todo este sistema de reglas de Cursor. [Mira Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://youtu.be/ZbC11uEf8zA?si=Y-lDTKaNtyrNY7lF) para ver estas técnicas paso a paso.
 
 [![Configuración e implementación de reglas de Cursor IDE en acción](/articles/cursor-ide-rules-tutorial-es.webp)](https://youtu.be/ZbC11uEf8zA?si=Y-lDTKaNtyrNY7lF)
 
-## Cómo configurar las reglas de Cursor para obtener el mejor rendimiento al programar con IA
+## Cómo configurar las reglas de Cursor para sacar el máximo partido a la programación con IA
 
 `Cursor -> Settings -> Cursor Settings -> Rules for AI:`
 
@@ -120,7 +120,7 @@ Aquí comparto mis reglas base de Cursor: la configuración global que uso en Cu
 
 ## Cómo maximizar la eficiencia con una estrategia de reglas de Cursor en varios niveles
 
-Cuando trabajo con las funciones de IA de Cursor IDE, he comprobado que conviene optimizar las reglas en los tres niveles. La idea clave es reducir al mínimo la cantidad de tokens que se envían al modelo en cada conversación. Cuantos menos tokens se gasten en contexto, más margen tendrá para generar respuestas de calidad.
+Cuando trabajo con las funciones de IA de Cursor IDE, he comprobado que conviene afinar las reglas en los tres niveles. La idea clave es reducir al mínimo la cantidad de tokens que se envían al modelo en cada conversación. Cuantos menos tokens se gasten en contexto, más margen tendrá para generar respuestas de calidad.
 
 Si quieres profundizar en cómo funcionan estas reglas en Cursor, consulta la [documentación oficial de Cursor sobre Rules for AI](https://docs.cursor.com/context/rules).
 
@@ -143,7 +143,7 @@ Para mostrar cómo aplico estas reglas en distintos proyectos, aquí van algunos
 
 ### Archivos `.cursor/index.mdc` a nivel de repositorio: estructura e implementación
 
-Mis archivos `.cursor/index.mdc` con `Rule Type "Always"` funcionan como un `README.md` pensado específicamente para asistentes de IA. Aportan contexto sobre el propósito del proyecto, su arquitectura y los patrones de código. (Los archivos `.cursorrules`, ya heredados, siguen siendo compatibles, pero no se recomiendan en proyectos nuevos.)
+Mis archivos `.cursor/index.mdc` con `Rule Type "Always"` funcionan como un `README.md` pensado específicamente para asistentes de IA. Dan contexto sobre el propósito del proyecto, su arquitectura y los patrones de código. (Los archivos `.cursorrules`, ya heredados, siguen siendo compatibles, pero no se recomiendan en proyectos nuevos.)
 
 ![Ejemplo de archivo .cursorrules a nivel de repositorio](/articles/cursor-ide-rules-repo.webp)
 
@@ -177,9 +177,9 @@ Este enfoque mantiene a la IA centrada y evita saturarla con información irrele
 
 ### Uso de reglas a mitad de una conversación: limitaciones y buenas prácticas
 
-Hay una limitación importante que conviene tener en cuenta: las reglas `.mdc` contextuales funcionan mejor cuando se aplican al principio de una conversación nueva. Si ya estás en mitad de un intercambio con Cursor IDE y de pronto necesitas una regla especializada, como unas pautas para consultar la base de datos, la IA puede no abrir automáticamente ese archivo. Esto ocurre porque Cursor ya ha fijado el contexto de la conversación y no siempre vuelve a evaluar qué reglas debe aplicar en mitad del diálogo.
+Hay una limitación importante que conviene tener en cuenta: las reglas `.mdc` contextuales funcionan mejor cuando se aplican al principio de una conversación nueva. Si ya estás en mitad de un intercambio con Cursor IDE y de pronto necesitas una regla especializada, como unas pautas para consultar la base de datos, puede que la IA no cargue automáticamente ese archivo. Esto ocurre porque Cursor ya ha fijado el contexto de la conversación y no siempre vuelve a evaluar qué reglas debe aplicar en mitad del diálogo.
 
-En esos casos, menciono explícitamente la regla que necesito: "Por favor, sigue nuestras directrices para consultas a la base de datos en esta tarea". Eso empuja a Cursor a buscar y aplicar la regla correspondiente. Para tareas críticas que dependen de pautas concretas, me resulta más eficaz iniciar una conversación nueva, donde Cursor detectará y aplicará automáticamente todas las reglas contextuales relevantes desde el principio.
+En esos casos, menciono explícitamente la regla que necesito: "Por favor, sigue nuestras directrices para consultas a la base de datos en esta tarea". Eso hace que Cursor busque y aplique la regla correspondiente. Para tareas críticas que dependen de pautas concretas, me resulta más eficaz iniciar una conversación nueva, donde Cursor detectará y aplicará automáticamente todas las reglas contextuales relevantes desde el principio.
 
 ## Cómo evolucionaron mis reglas de Cursor: de la configuración global a los sistemas contextuales
 
@@ -191,7 +191,7 @@ Al principio metía todo en la configuración de Cursor IDE. Era simple y funcio
 
 ### Fase 2: reglas específicas de repositorio para fijar estándares de proyecto
 
-Cuando la configuración global empezó a llenarse de información irrelevante para cada proyecto, pasé a usar reglas a nivel de repositorio. Al principio eso significaba archivos `.cursorrules` en la raíz de cada repositorio, hoy ya considerados heredados. Ese se convirtió en mi enfoque principal, porque me permitía adaptar las reglas a cada proyecto sin perder coherencia. Hoy la opción recomendada es usar archivos `.cursor/index.mdc` con `Rule Type "Always"`.
+Cuando la configuración global empezó a llenarse de información irrelevante para cada proyecto, pasé a usar reglas a nivel de repositorio. Al principio eso significaba archivos `.cursorrules` en la raíz de cada repositorio, hoy ya considerados heredados. Ese fue mi enfoque principal durante bastante tiempo, porque me permitía adaptar las reglas a cada proyecto sin perder coherencia. Hoy la opción recomendada es usar archivos `.cursor/index.mdc` con `Rule Type "Always"`.
 
 ### Fase 3: reglas dinámicas y contextuales para tareas especializadas
 
@@ -339,9 +339,9 @@ Cuando trabajo con equipos, estas reglas ayudan a crear un marco común:
 - La colaboración entre perfiles técnicos y no técnicos mejora porque todos pueden remitirse a las mismas reglas
 - El conocimiento se transmite de forma automática a medida que la IA aplica las buenas prácticas con consistencia
 
-Lo he notado especialmente al incorporar desarrolladores junior: reciben feedback inmediato sobre buenas prácticas sin tener que esperar a la revisión de código.
+Lo he notado especialmente al incorporar desarrolladores junior: reciben feedback inmediato sobre buenas prácticas sin tener que esperar a una revisión de código.
 
-### Ganancias de productividad gracias a interacciones mejor afinadas con la IA de Cursor IDE
+### Ganancias de productividad gracias a una interacción mejor afinada con la IA de Cursor IDE
 
 Los números hablan por sí solos:
 
@@ -387,7 +387,7 @@ Al separar estas preocupaciones, cada archivo se mantiene enfocado y solo se act
 
 Para aprovechar al máximo la ventana de contexto efectiva de la IA:
 
-1. **Prioriza la recencia**: coloca las reglas más importantes al principio o al final del archivo
+1. **Prioriza la posición**: coloca las reglas más importantes al principio o al final del archivo
 2. **Usa una estructura jerárquica**: empieza por los principios generales y después baja al detalle
 3. **Elimina redundancias**: no repitas la misma regla en varios sitios
 4. **Escribe con concisión**: mejor listas de puntos que párrafos largos
@@ -425,7 +425,7 @@ Lo que une a todos estos enfoques es un principio básico: **minimizar el uso de
 La economía de tokens funciona igual en todas las herramientas basadas en LLM:
 1. Cada palabra que añades a las instrucciones consume tokens
 2. Los tokens dedicados a las instrucciones reducen el contexto disponible para entender el código
-3. Una guía excesivamente verbosa produce rendimientos decrecientes
+3. Una guía excesivamente verbosa acaba aportando cada vez menos valor
 
 Así que, tanto si usas el sistema de tres niveles de Cursor como las opciones de configuración de otra herramienta, conviene aspirar siempre a ser preciso y conciso. Centra tus instrucciones en los patrones y preferencias que realmente importan, y deja que la IA resuelva el resto.
 
@@ -448,5 +448,5 @@ Verás el flujo completo en acción, desde la configuración inicial hasta las c
 
 Si quieres leer los artículos equivalentes sobre otros agentes de programación, aquí los tienes:
 
-- Claude Code Rules for AI: [https://kirill-markin.com/articles/claude-code-rules-for-ai/](https://kirill-markin.com/articles/claude-code-rules-for-ai/)
-- Codex Rules for AI: [https://kirill-markin.com/articles/codex-rules-for-ai/](https://kirill-markin.com/articles/codex-rules-for-ai/)
+- Reglas de Claude Code para IA: [https://kirill-markin.com/es/articulos/reglas-claude-code-para-ia/](https://kirill-markin.com/es/articulos/reglas-claude-code-para-ia/)
+- Reglas de Codex para IA: [https://kirill-markin.com/es/articulos/reglas-codex-para-ia/](https://kirill-markin.com/es/articulos/reglas-codex-para-ia/)

@@ -5,23 +5,23 @@ export const notFound = {
         backToHome: 'BACK TO HOME',
     },
     es: {
-        title: 'Página No Encontrada',
-        message: 'La página que estás buscando no existe o ha sido movida. Tal vez quieras explorar nuestros artículos sobre estrategia de IA o consultar nuestros servicios.',
+        title: 'Página no encontrada',
+        message: 'La página que buscas no existe o se ha movido. Puedes explorar nuestros artículos sobre estrategia de IA o consultar nuestros servicios.',
         backToHome: 'VOLVER AL INICIO',
     },
     zh: {
         title: '页面未找到',
-        message: '请求的页面不存在或已移动。推荐浏览最新人工智能战略文章或查看专业服务方案。',
+        message: '您要查找的页面不存在或已被移动。您可以看看我们的 AI 战略文章，或改为浏览我们的服务。',
         backToHome: '返回首页',
     },
     ar: {
         title: 'الصفحة غير موجودة',
-        message: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها. قد ترغب في استكشاف مقالاتنا حول استراتيجية الذكاء الاصطناعي أو الاطلاع على خدماتنا بدلاً من ذلك.',
+        message: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها. يمكنك استكشاف مقالاتنا عن استراتيجية الذكاء الاصطناعي أو الاطلاع على خدماتنا بدلاً من ذلك.',
         backToHome: 'العودة إلى الصفحة الرئيسية',
     },
     hi: {
         title: 'पृष्ठ नहीं मिला',
-        message: 'आप जिस पृष्ठ की तलाश कर रहे हैं वह मौजूद नहीं है या स्थानांतरित कर दिया गया है। आप हमारे एआई रणनीति पर लेख या हमारी सेवाओं को देखना चाह सकते हैं।',
-        backToHome: 'मुख्य पृष्ठ पर वापस जाएं',
+        message: 'जिस पृष्ठ को आप खोज रहे हैं वह मौजूद नहीं है या उसे कहीं और ले जाया गया है। आप एआई रणनीति पर हमारे लेख देख सकते हैं या हमारी सेवाएं देख सकते हैं।',
+        backToHome: 'होम पेज पर वापस जाएं',
     },
 } as const;
