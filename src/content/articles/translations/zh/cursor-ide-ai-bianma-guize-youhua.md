@@ -1,7 +1,7 @@
 ---
-title: "Cursor IDE AI编码规则深度优化：提升开发效率与代码质量的最佳实践指南 - 专业开发者必备"
+title: "Cursor IDE 的 AI 规则：面向专业 AI 助手的指南"
 date: 2025-05-08
-description: "经过实战检验的Cursor IDE AI编码规则配置，通过定制代码风格和错误处理模式提升AI编程效率，实现高质量代码输出。本文详细解析了如何通过三级规则体系优化开发流程，提升代码质量与团队协作效率，适合专业开发者参考。了解如何通过最佳实践提升开发效率与代码质量，并优化日常开发流程。"
+description: "这是我在 Cursor IDE 中使用的一套基础规则，用来通过统一的代码风格、错误处理和工作流约定，让 AI 更稳定地生成高质量代码。"
 tags: ["productivity", "cursor-ide", "ai", "llm"]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
@@ -20,29 +20,23 @@ translations:
     slug: "qawaid-cursor-ide-lilthakaa-alistinaei-tahseen-barmaja"
 ---
 
-# Cursor IDE AI编码规则深度优化：提升开发效率的实战指南
+# Cursor IDE 的 AI 规则：面向专业 AI 助手的指南
 
-Cursor IDE通过三级规则体系实现智能编码辅助：
+Cursor IDE 目前有三层规则：
 
-1. **全局基础规则** - 跨项目通用编码标准
-2. **仓库级.cursor/index.mdc配置（Rule Type "Always"）** - 项目专属开发规范（替代传统.cursorrules方案）
-3. **动态.cursor/rules/*.mdc文件** - 任务导向的智能提示
+1. Cursor IDE 设置里的 Rules for AI：适用于所有项目的全局基础规则
+2. `.cursor/index.mdc` 文件，Rule Type 设为 "Always"：仓库级项目规则，用来替代旧的 `.cursorrules` 方案
+3. `.cursor/rules/*.mdc` 文件：按上下文动态启用的项目规则，只会在 AI 处理与其描述相关的任务时生效
 
-本文将重点解析我的全局规则配置，这些经过实战检验的设置构成了高效AI协作的基础框架。结合项目级和动态规则，这套系统能在保证代码质量的同时，显著提升日常开发效率。
+这里我分享的是自己的基础级规则，也就是我在 Cursor IDE 里使用的全局设置。它们是我所有开发工作的底层约束。和仓库级规则、动态规则结合后，这套体系既能保持代码质量，也能让我在不同项目里维持一致的开发习惯。
 
-> **更倾向于视频教程？** 我制作了一个全面的视频演练，详细介绍了整个 cursor 规则系统。[观看 Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://www.youtube.com/watch?v=gw8otRr2zpw) 来查看这些技术的分步实现。
+> **更喜欢视频教程？** 我录了一期完整的视频，演示这套 Cursor 规则系统的整体思路。[观看 Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://www.youtube.com/watch?v=gw8otRr2zpw)，可以看到这些做法是怎样一步步落地的。
 
-[![Cursor IDE 规则配置和实施实际操作](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
+[![Cursor IDE 规则配置与实际使用演示](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
-## 实战指南：如何配置Cursor AI编码规则实现最佳性能
+## 如何配置 Cursor 规则，以获得更好的 AI 编码效果
 
-根据我的经验，以下步骤能最大化AI编码效率：
-
-1. **导航到设置**  
-   Cursor -> 设置 -> Cursor设置 -> AI规则
-
-2. **配置全局规则**  
-   以下是我的基础配置，经过3个月迭代优化：
+Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 ```markdown
 # Global Rules
@@ -121,393 +115,337 @@ Cursor IDE通过三级规则体系实现智能编码辅助：
 - Store knowledge as current state, not as a changelog of modifications
 ```
 
-![Cursor IDE全局规则设置面板](/articles/cursor-ide-rules-global.webp)
+![Cursor IDE 设置面板中的全局规则配置](/articles/cursor-ide-rules-global.webp)
 
-## Cursor规则配置演进史
+## 用好多层 Cursor 项目规则，最大化效率
 
-我的规则配置经历了三个阶段的发展：
+在使用 Cursor IDE 的 AI 功能时，我发现关键在于把三层项目规则都配置好。核心思路只有一个：尽量减少每次对话里发给语言模型的 token。上下文占用越少，模型就越有空间生成更高质量的回答。
 
-### 阶段一：全局设置统一管理
-初期将所有规则放入全局设置，简单但效率低下。随着项目增多，配置变得臃肿
+如果你想进一步了解 Cursor 里的项目规则机制，可以看 [Cursor 官方关于 Rules for AI 的文档](https://docs.cursor.com/context/rules)。
 
-### 阶段二：仓库级规则定制化
-将项目特定规则迁移到仓库级配置。初期使用`.cursorrules`文件（现为传统方式），实现按仓库定制。如今推荐使用`.cursor/index.mdc`文件（Rule Type "Always"）
+### Cursor 项目规则的三步实施流程
 
-### 阶段三：智能情景规则系统
-引入`.cursor/*.mdc`动态规则后：
-- 全局设置保持最小化
-- 使用`.cursor/index.mdc`（Rule Type "Always"）定义项目标准（替代传统`.cursorrules`）
-- 情景规则处理专项任务
+1. **先只用 IDE 级设置**  
+   我会先从全局 Cursor IDE 设置开始，建立最基本的偏好。这让我可以先试验不同规则的写法，而不会把仓库弄得很杂。这个层级只放真正适用于所有项目的规则。
 
-这种分层架构实现了"即时指导"理念，根据当前任务提供精准建议
+2. **把项目专属规则移到仓库级**  
+   当我发现某些模式只适用于特定代码库，或者想把 AI 约束分享给团队成员时，我会把这些规则移到 `.cursor/index.mdc`，并把 Rule Type 设为 "Always"。这样既能形成团队共识，也能让全局设置保持精简。（补充说明：旧的 `.cursorrules` 仍然可用，但已经不再推荐。）
 
-## 三级规则体系：智能编码的黄金组合
+3. **必要时再拆成上下文感知规则**  
+   如果 `.cursorrules` 或仓库级规则文件变得太臃肿，我会继续拆成多个 `.cursor/*.mdc` 文件。这样做的好处是，只有在真正相关时才会加载对应规则，能减少 token 消耗。你可以把它理解成：不给模型塞一堆当前任务无关的说明，让它把注意力留给眼前的问题。
 
-通过200+小时的实践验证，我发现关键优化点在于：**精准控制token消耗**。更精简的上下文意味着更强大的代码生成能力。
+我的目标很简单：每次和 AI 助手对话时，只给它足够有用的上下文，而不是把不需要的信息也一起塞进去。
 
-有关Cursor中规则工作原理的更多信息，请查看[Cursor官方文档中关于AI规则的部分](https://docs.cursor.com/context/rules)。
+## 来自真实仓库的 Cursor 项目规则示例
 
-### 高效实施三步曲
+为了说明我是怎样在不同代码库里使用这些规则的，这里放几个真实例子。
 
-1. **全局规则筑基**  
-   从我的配置开始，建立跨项目统一标准。这个基线配置经过3个月迭代，平衡了灵活性和规范性。
+### 仓库级 `.cursor/index.mdc` 文件：结构与用法
 
-2. **项目规则定制**  
-   当识别出重复模式时，立即迁移到`.cursor/index.mdc`文件（Rule Type "Always"）。比如在Next.js项目中，我们添加了严格的SSR规范。（注：传统`.cursorrules`文件仍可使用但不再推荐）
+我会把 Rule Type 设为 "Always" 的 `.cursor/index.mdc` 当成一份专门写给 AI 助手看的 `README.md`。它主要提供项目用途、架构背景，以及应该遵循的编码模式。（旧版 `.cursorrules` 仍受支持，但新项目不建议再用。）
 
-3. **动态规则激活**  
-   大型项目必备技巧：当处理API集成时，自动加载REST规范；开发UI组件时激活设计系统规则。
+![仓库级 .cursorrules 文件示例](/articles/cursor-ide-rules-repo.webp)
 
-## 实战案例：生产环境规则配置解析
+#### 生产仓库里的实际示例
 
-以下是我在实际项目中应用的规则配置，展示了如何在不同场景下实现高效AI协作：
+1. **[repo-to-text](https://github.com/kirill-markin/repo-to-text/blob/main/.cursorrules)**：这个把仓库转换成文本的工具，规则里会说明项目目的、架构决策，以及需要遵循的代码模式。
 
-### 仓库级规则文件结构
+2. **[chatgpt-telegram-bot-telegraf](https://github.com/kirill-markin/chatgpt-telegram-bot-telegraf/blob/main/.cursorrules)**：这个 Telegram 机器人项目的规则更偏向架构说明、API 使用方式，以及消息和命令的处理约定。
 
-我的`.cursor/index.mdc`文件（Rule Type "Always"）就像为AI定制的README.md，它提供了：
+### `.cursor/*.mdc` 规则文件：何时使用，怎么使用
 
-*注：以下示例使用传统`.cursorrules`方法（仍然有效）。新项目建议使用`.cursor/index.mdc`配置。*
+当仓库级规则写得太多时，我会把它们拆成只在特定上下文中生效的 `.cursor/*.mdc` 文件。
 
-1. **项目目标** - 明确开发方向
-2. **架构说明** - 关键设计决策
-3. **编码模式** - 项目特定约定
+![Project Rules 区域中的上下文规则](/articles/cursor-ide-rules-specific.webp)
 
-![仓库级.cursorrules文件示例](/articles/cursor-ide-rules-repo.webp)
+#### 针对任务的规则示例
 
-#### 实际项目示例
-
-*注：这些示例使用传统`.cursorrules`方法（仍然有效）。新项目建议使用`.cursor/index.mdc`配置Rule Type "Always"。*
-
-1. **[repo-to-text](https://github.com/kirill-markin/repo-to-text/blob/main/.cursorrules)**  
-   这个工具专注于将代码仓库转换为文本格式，其规则包括：
-   - 大型文件处理策略
-   - 忽略模式配置
-   - 代码结构保存规范
-
-2. **[chatgpt-telegram-bot-telegraf](https://github.com/kirill-markin/chatgpt-telegram-bot-telegraf/blob/main/.cursorrules)**  
-   针对Telegram机器人的规则聚焦于：
-   - 架构设计原则
-   - 消息处理流程
-   - OpenAI API安全集成
-
-### 动态规则应用：注意事项与最佳实践
-
-当仓库级规则变得过于庞大时，我将它们拆分为特定上下文的`.cursor/*.mdc`文件，这些文件仅在相关时激活。
-
-![项目规则区中的特定上下文规则](/articles/cursor-ide-rules-specific.webp)
-
-#### 专项任务规则实现示例
-
-我个人网站仓库是很好的例子：
+一个很典型的例子是我的个人网站仓库：  
 **[website-next-js/.cursor/rules/](https://github.com/kirill-markin/website-next-js/tree/main/.cursor/rules)**
 
-在这个仓库中，我创建了多个针对不同任务的规则文件：
-- 内容管理工作流程
-- 图像优化要求
-- SEO最佳实践
+在这个仓库里，我把规则拆成了几个独立文件，分别用于：
+
+- 内容管理工作流
+- 图片优化要求
+- SEO 最佳实践
 - 组件架构模式
 - 部署流程
 
-这种方法使AI保持专注，避免在处理特定任务时被不相关的信息干扰。
+这样做的好处是，AI 能更专注，不会在处理某个具体任务时被无关信息干扰。
 
-### 对话中期规则激活的限制
+### 在对话中途引入规则的限制与最佳实践
 
-关键限制：上下文感知的`.mdc`规则在新对话开始时效果最佳。如果在现有对话中突然需要应用专门规则（如数据库查询指南），AI可能不会自动加载该规则文件。这是因为Cursor已经为对话建立了上下文，不会在对话中期重新评估需要哪些规则。
+有一个限制需要注意：这类上下文感知 `.mdc` 规则，在新对话开始时效果最好。如果你已经在 Cursor IDE 里进行到一半，突然又需要某条专门规则，比如数据库查询规范，AI 不一定会自动读取对应的规则文件。原因是 Cursor 已经为当前对话建立好了上下文，不一定会在中途重新判断应该加载哪些规则。
 
-### 解决方案
+遇到这种情况时，我会直接说明我要用哪条规则，比如：“请按我们的数据库查询规范处理这个任务。” 这样能提醒 Cursor 去查找并应用对应规则。对于那些非常依赖特定规范的任务，我一般更倾向于直接开一个新对话，这样 Cursor 会从一开始就自动识别并应用相关的上下文规则。
 
-1. **明确提示**  
-   直接说明需要的规则："请遵循我们的数据库查询指南完成此任务。"
+## Cursor 项目规则的演变：从全局设置到上下文系统
 
-2. **启动新对话**  
-   对于关键任务，建议启动新对话，Cursor将自动检测并应用所有相关规则。
+我对 Cursor 项目规则的使用，大致经历了几个阶段。
 
-### 最佳实践
+### 第一阶段：把所有规则都塞进全局设置
 
-1. **规则命名清晰**  
-   使用描述性文件名，如`database-queries.mdc`或`api-integration.mdc`
+一开始，我把所有东西都写进 Cursor IDE 设置里。最初这样很简单，也确实有效。但随着我在工作流中总结出的模式越来越多，全局规则也越写越长，最后变得很难维护，因为很多规则并不适用于所有项目。
 
-2. **保持规则简洁**  
-   每个文件专注单一主题，避免过度复杂
+### 第二阶段：把项目专属规则移到仓库级
 
-3. **定期审查规则**  
-   根据实际使用情况迭代优化规则内容
+当全局设置开始混入大量项目无关的信息时，我转向了仓库级规则。最早是把 `.cursorrules` 放在仓库根目录里，现在它已经属于旧方案。这个阶段成为我主要的做法，因为它能让我按项目定制规则，同时保留一致的标准。现在更推荐的是使用 Rule Type 设为 "Always" 的 `.cursor/index.mdc`。
 
-## 多级规则配置对比
+### 第三阶段：为专门任务使用动态上下文规则
 
-| 特性         | 全局设置       | 仓库级规则(.cursor/index.mdc "Always") | 情景规则(.cursor/*.mdc) |
-|--------------|----------------|----------------|------------------|
-| **适用范围**  | 所有项目       | 特定仓库       | 专项任务         |
-| **可见性**    | 仅本地可见     | 团队共享       | 团队共享         |
-| **持久性**    | 跨项目保持     | 与仓库绑定     | 与仓库绑定       |
-| **激活方式**  | 始终启用       | 仓库内始终有效 | 按任务动态激活   |
-| **最佳场景**  | 通用编码标准   | 项目架构规范   | 领域专业知识     |
-| **令牌效率**  | 低（始终存在） | 中（项目内始终存在）| 高（仅在需要时加载）|
-| **设置位置**  | Cursor设置界面 | .cursor/index.mdc文件 | .cursor/rules/*.mdc |
-| **可移植性**  | 每台设备需手动设置 | 随仓库克隆自动获取 | 随仓库克隆自动获取 |
-| **传统支持**  | 不适用 | .cursorrules仍可用（传统） | 不适用 |
+当 Cursor IDE 引入 `.cursor/*.mdc` 动态规则后，我重新整理了整套配置。这类上下文规则只会在 AI 处理相关任务时启用。这样我就可以：
 
-这种多层次方法使你能够在不同场景下优化令牌使用，同时保持一致的指导。
+- 让全局设置保持简短，而且足够通用
+- 用 Rule Type 为 "Always" 的 `.cursor/index.mdc` 保存项目级标准，替代旧的 `.cursorrules`
+- 为专门任务拆出聚焦的 `.cursor/*.mdc` 文件
 
-## Cursor规则分步实施指南
+这种分层方式，本质上是在我当前所做的事情上，及时给 AI 足够有用的提示，减少噪音，让它的帮助更贴题。
 
-### 全局规则设置步骤
+这套演变过程，其实也反映了我对如何与 AI 助手协作的理解在逐步加深：先从宽泛规则开始，再不断收敛到更贴合上下文、也更面向任务的项目规则。
 
-1. **打开设置**  
-   Cursor -> 设置 -> Cursor设置 -> AI规则
+## Cursor 项目规则三层对比：全局、仓库级、上下文感知
 
-2. **配置核心原则**  
-   - 添加跨项目通用的编码标准
-   - 定义基本的错误处理模式
-   - 设置默认的代码风格偏好
+下面是 Cursor IDE 这三层规则的简要对比：
 
-3. **保持简洁**  
-   - 限制全局规则数量 (建议不超过20条)
-   - 避免项目特定的细节
-   - 使用清晰的Markdown格式
+| Feature | Global IDE Settings | Repository Rules (.cursor/index.mdc "Always") | Context-Aware Rules (.cursor/*.mdc) |
+|---------|--------------------|-----------------------------|----------------------------------|
+| **Scope** | All projects | Specific repository | Specific tasks or contexts |
+| **Visibility** | Only you (local settings) | Entire team via repository | Entire team via repository |
+| **Persistence** | Stays across projects | Tied to the repository | Tied to the repository |
+| **Activation** | Always active | Always active for repository | Only when relevant to current task |
+| **Best for** | Universal cursor project rules | Project architecture patterns | Specialized domain knowledge |
+| **Token efficiency** | Low (always present) | Medium (always present for project) | High (only loads when needed) |
+| **Setup location** | Cursor settings UI | .cursor/index.mdc file | .cursor/rules/ directory |
+| **Portability** | Requires manual setup on each device | Automatic with repository clone | Automatic with repository clone |
+| **Legacy support** | N/A | .cursorrules still works (legacy) | N/A |
 
-4. **测试配置**  
-   - 通过简单prompt验证规则效果
-   - 检查生成的代码是否符合预期
-   - 迭代优化规则表述
+这种多层结构，可以在保持规则一致性的同时，更高效地利用 token。
 
-#### 高效管理本地Cursor IDE设置
+## 如何把 Cursor 项目规则真正用进日常开发流程
 
-- **多设备同步**：虽然设置存储在本地，但可以通过以下方式同步：
-  - 导出/导入设置文件
-  - 使用版本控制系统管理配置文件
-  - 创建共享的配置模板
+前面讲的是我的思路，下面说说你可以怎样把类似系统用到自己的开发工作里。
 
-- **团队协作**：
-  - 建立统一的全局规则模板
-  - 定期审查和更新规则
-  - 通过文档共享最佳实践
+### 为 AI 协作设置全局 Cursor 项目规则
 
-### 仓库级规则创建
+如果你想在 Cursor IDE 里建立自己的全局规则，可以这样做：
 
-1. **文件位置**  
-   在项目中创建`.cursor/index.mdc`
+1. 打开 Cursor IDE，进入 Settings（右上角按钮）
+2. 找到 Cursor Settings > Rules for AI
+3. 按照上面的格式写入你的核心规则
+4. 全局规则只保留真正适用于所有项目的通用编码标准
+5. 用一些简单提示测试，看看 AI 是否按你的要求响应
 
-2. **配置设置**  
-   - 设置Rule Type为"Always"（在Cursor界面或手动指定）
-   - 项目概述和技术栈
-   - 架构设计和关键决策
-   - 代码规范和风格指南
+#### 怎样更高效地管理本地 Cursor IDE 设置
 
-3. **最佳实践**  
-   - 保持文件长度<100行
-   - 使用清晰的Markdown标题
-   - 添加具体示例和代码片段
+关键在于平衡。规则太少，AI 不容易理解你的偏好；规则太多，又会把 token 浪费在当前无关的上下文上。
 
-注：传统`.cursorrules`文件仍可使用但不再推荐用于新项目。
+还要注意一点：这些设置保存在你本地的 Cursor IDE 中。你的同事默认是看不到的，除非他们也在自己的机器上做同样配置。如果你在多台电脑上使用 Cursor IDE，比如一台工作电脑、一台个人电脑，那每个环境都需要单独设置。
 
-#### 仓库级Cursor规则模板
+### 为团队创建仓库级 `.cursor/index.mdc` 文件
+
+项目级配置可以这样做：
+
+1. 在仓库中创建 `.cursor/index.mdc`
+2. 在 Cursor 界面中把 Rule Type 设为 "Always"（也可以手动写入）
+3. 先写一个简短的项目概述，比如项目做什么、技术栈是什么
+4. 写清楚 AI 需要理解的架构模式
+5. 加入这个项目特有的代码约定
+6. 为了更省 token，尽量把文件控制在 100 行以内
+
+补充说明：旧的 `.cursorrules` 仍然可用，但已经不是推荐方案。
+
+#### 一个可直接使用的仓库级规则模板
 
 ```markdown
-# 项目：[项目名称]
+# Project: [Project Name]
 
-## 概述
-- 目的：[简短描述]
-- 技术栈：[关键技术]
-- 架构：[关键模式 - MVC、微服务等]
+## Overview
+- Purpose: [Brief description]
+- Stack: [Key technologies]
+- Architecture: [Key pattern - MVC, microservices, etc.]
 
-## 代码模式
-- [列出项目特定模式]
+## Code Patterns
+- [List project-specific patterns]
 
-## 风格要求
-- [项目特定风格指南]
-
-## 错误处理
-- [定义异常处理策略]
-
-## 测试规范
-- [描述测试方法和覆盖率要求]
+## Style Requirements
+- [Project-specific style guidelines]
 ```
 
-### 智能情景规则配置
+### 为专门任务建立上下文感知的 `.mdc` 规则文件
 
-1. **目录结构**  
-   创建`.cursor/rules/`目录
+如果你想做更细的配置，可以这样：
 
-2. **文件命名**  
-   - 使用描述性文件名
-   - 按功能或技术领域分类
-   - 保持文件名简洁但明确
+1. 在仓库里创建 `.cursor/rules/` 目录
+2. 为不同上下文分别建立 `.mdc` 文件
+3. 用能准确表达用途的文件名
+4. 每个文件只处理一个具体问题
+5. 在文件开头写一句简短说明，帮助 AI 判断什么时候该用这条规则
 
-3. **内容组织**  
-   - 每个文件专注单一主题
-   - 使用Markdown标题结构
-   - 添加具体示例和代码片段
+#### 创建规则文件：手动写，还是用 Cursor IDE 界面
 
-#### 创建规则：手动vs Cursor IDE界面方法
+你可以手动创建这些文件，也可以直接通过 Cursor IDE 的界面完成：
 
-- **手动创建**  
-  - 完全控制文件结构和内容
-  - 适合复杂或定制化规则
-  - 需要熟悉Markdown语法
+1. 进入 Settings > Rules
+2. 点击 "Add Rule"
+3. 输入规则名称和说明
+4. 写入你的规则内容
+5. 保存后，Cursor 会在仓库里自动创建对应的 `.mdc` 文件
 
-- **Cursor界面**  
-  - 提供指导性的创建流程
-  - 自动生成标准文件结构
-  - 适合快速创建简单规则
+两种方式都可以。手动创建更方便你控制文件结构，而界面方式会更有引导感。
 
-#### React开发的规则文件示例
+#### React 开发中的规则文件示例
+
+比如，一个 React 组件规则文件可以长这样：
 
 ```markdown
-# React组件指南
+# React Component Guidelines
 
-## 组件结构
-- 使用函数组件
-- 定义清晰的TypeScript接口
-- 复杂状态管理使用自定义hooks
+These rules apply when working with React components in this project.
 
-## 样式设计
-- 使用styled components
-- 避免内联样式
-- 遵循设计系统规范
+## Component Structure
+- Functional components with TypeScript interfaces for props
+- Custom hooks for complex state management
+- Styled components for styling
 
-## 命名约定
-- 组件文件：PascalCase.tsx
-- Hook文件：use[Name].ts
-- 样式文件：[name].styles.ts
-
-## 最佳实践
-- 保持组件单一职责
-- 使用React.memo优化性能
-- 避免不必要的重新渲染
+## Naming Conventions
+- Component files: PascalCase.tsx
+- Hook files: use[Name].ts
+- Style files: [name].styles.ts
 ```
 
-## 规则配置的量化收益
+## 使用 Cursor 项目规则后，能带来哪些实际收益
 
-### 代码质量提升
-- **风格一致性**：PR评论减少50%
-- **类型安全**：类型错误下降35%
-- **代码复用**：重复率降低42%
-- **可维护性**：代码审查时间缩短30%
+在把这套多层规则体系真正用起来之后，我在几个方面都看到了比较明确的改进。
 
-### 团队协作优化
-- **新人上手**：培训时间减少60%
-- **跨团队沟通**：效率提升40%
-- **知识共享**：规则文件作为统一参考
-- **代码审查**：聚焦业务逻辑而非风格问题
+### 通过一致规则提升代码质量
 
-### 开发效率增益
-- **初始提交**：速度加快35%
-- **风格修复**：提交减少40%
-- **认知负荷**：降低55%
-- **专注度**：更多时间用于解决实际问题
+最直接的变化，是代码质量变得更稳定了。因为我的偏好已经写进规则里，AI 生成的代码会更自然地：
 
-## 高级技巧：专业开发者的规则优化
+- 持续遵守函数式编程原则
+- 在不需要额外提醒的情况下做好错误处理
+- 自动补上合适的类型定义
+- 维持统一的命名风格
 
-### 专项任务规则模板
+这意味着代码审查里的风格类评论会变少，花在样式修正上的时间也更少。有一个项目在引入这些规则之后，和代码风格相关的 PR 评论减少了 50%。
 
-#### 测试规则 (`test-guidelines.mdc`)
-- **仓库策略**：尊重仓库当前已有的测试策略和现有测试套件
-- **测试类型**：优先使用集成测试、端到端测试和 smoke tests，而不是新增 unit tests
-- **单元测试**：只在少数情况下使用，主要用于稳定数据集或纯数据转换
-- **覆盖率**：不要只是为了提高覆盖率数字而新增 unit tests
-- **真实调用**：如果可行，避免 mocks，优先验证真实行为
-- **成本取舍**：通常多花一点真实 API 或服务调用成本，也比维护脆弱的 mock 测试更值得
-- **覆盖范围**：只为当前任务定义最小必要覆盖
+### 用共享规则改善团队协作
 
-#### API集成规则 (`api-standards.mdc`)
-- **错误处理**：定义重试逻辑和超时
-- **认证流程**：统一认证机制
-- **日志记录**：规范API调用日志
-- **版本控制**：定义API版本策略
+在团队环境里，项目规则也能带来统一预期：
 
-#### 状态管理规则 (`state-patterns.mdc`)
-- **命名约定**：统一action和reducer命名
-- **正规化**：定义状态结构标准
-- **副作用**：规范异步操作处理
-- **性能优化**：定义memoization策略
+- 新成员可以通过 `.cursorrules` 更快理解团队要求
+- 工程师和非工程角色都可以基于同一套规则沟通
+- AI 会稳定应用最佳实践，知识共享会自然发生
 
-### Token优化策略
-1. **优先级**：将关键规则放在文件开头
-2. **层次结构**：从通用到具体
-3. **简洁性**：避免冗余描述
-4. **格式化**：使用Markdown标题和列表
-5. **模块化**：拆分大型规则文件
+我尤其觉得这对带新人很有帮助。他们能更早收到关于最佳实践的反馈，而不用一直等到代码评审阶段。
 
-### 常见问题排查指南
+### 优化 Cursor IDE 交互后带来的效率提升
 
-#### 规则未生效
-- **检查冲突**：确保不同级别规则一致
-- **验证激活**：确认规则文件被正确加载
-- **测试响应**：通过简单prompt验证效果
+从结果上看，也有一些比较直观的收益：
 
-#### 性能问题
-- **优化上下文**：减少不必要的信息
-- **拆分规则**：将大型文件拆分为专注模块
-- **定期审查**：移除过时或冗余规则
+- 向新成员解释代码规范所花的时间减少了大约 60%
+- 初次提交 PR 的速度提升了大约 35%，返工轮次更少
+- 因为“修风格”而产生的 commit 数量减少了大约 40%
 
-#### 团队协作
-- **统一模板**：创建共享的规则模板
-- **版本控制**：将规则文件纳入Git管理
-- **文档化**：为复杂规则添加说明
+但我觉得最有价值的，其实是认知负担降低了。把风格和约束交给 AI 处理后，开发者能把注意力放回真正的问题上，而不是反复记忆格式细节。
 
-## 与其他AI工具对比
+## 面向专业开发者的进阶 Cursor 项目规则技巧
 
-百度Comate: 项目级配置通过`.comate/config.yaml`
-阿里云Cosy: 使用工作区预设模板
-讯飞iFlyCode: 通过`code_rules.json`管理规范
+当你已经熟悉基本规则结构后，可以继续尝试一些更进阶的做法，让 AI 的配合更稳定。
 
-虽然Cursor有一个特别精心设计的规则系统，但其他AI编码助手也有类似的自定义方法：
+### 为常见开发场景建立专门规则
 
-- GitHub Copilot 提供 `.github/copilot/settings.yml` 进行项目级配置
-- JetBrains AI Assistant 有项目级代码片段和模板
-- 带有各种AI扩展的VS Code支持工作区设置和自定义文件
+我发现下面这些场景，很适合拆成独立的规则文件：
 
-### 令牌经济学：优化所有工具的AI性能
+#### 测试规则（`test-guidelines.mdc`）
 
-所有这些方法的共同点是一个基本原则：**最小化令牌使用对获取最佳结果至关重要**。无论你使用哪种AI编码助手，在不让模型负担过重的情况下提供恰到好处的上下文是成功的关键。
+- 尊重仓库现有的测试策略
+- 优先做集成测试、端到端测试和 smoke test，而不是默认新增单元测试
+- 单元测试只在少数情况下使用，主要用于稳定数据集或纯数据转换
+- 不要为了提高覆盖率数字而新增单元测试
+- 如果真实调用可行，就尽量少用 mock
+- 与其维护脆弱的 mock 测试，通常更值得为真实调用多花一点成本
+- 只补当前任务真正需要的最小测试覆盖
 
-令牌经济学在所有基于LLM的工具中的工作方式相同：
-1. 你添加到指令中的每个词都会消耗令牌
-2. 用于指令的令牌会减少用于代码理解的可用上下文
-3. 极度冗长的指导会导致收益递减
+#### API 集成规则（`api-standards.mdc`）
 
-因此，无论你是使用Cursor的三层规则系统还是其他工具的配置选项，始终要力求精确和简洁。将你的指导集中在最重要的特定模式和偏好上，让AI处理其余部分。
+- 错误处理预期
+- 重试逻辑模式
+- 认证流程标准
 
-## 技术术语表：帮助初学者理解关键概念
+#### 状态管理规则（`state-patterns.mdc`）
 
-为了帮助初学者更好地理解本文中使用的技术术语，以下是一些核心概念的解释：
+- Redux action 的命名约定
+- 状态规范化的指导原则
+- 副作用处理模式
 
-| 术语 | 英文原文 | 解释 |
-|------|--------|------|
-| **令牌** | Token | 大语言模型处理文本的基本单位，一个令牌可能是一个单词、部分单词或标点符号。令牌数量直接影响AI响应质量和处理速度。 |
-| **上下文窗口** | Context window | 大语言模型在生成回复时能考虑的文本范围，以令牌数量计算。 |
-| **规则文件** | Rules file | 在Cursor IDE中定义AI行为准则的配置文件，可以是全局设置、仓库级`.cursor/index.mdc`文件或情景特定`.mdc`文件。 |
-| **纯函数** | Pure function | 仅依赖于输入参数且不产生副作用的函数，对于相同的输入总是返回相同的输出。 |
-| **函数式编程** | Functional programming | 编程范式，强调使用纯函数、避免共享状态和可变数据。 |
-| **DRY原则** | DRY (Don't Repeat Yourself) | 软件开发原则，提倡减少代码重复，每个知识点在系统中应当有唯一、明确的表示。 |
-| **KISS原则** | KISS (Keep It Simple, Stupid) | 设计原则，主张简单性应该是首要目标，避免不必要的复杂性。 |
-| **YAGNI原则** | YAGNI (You Aren't Gonna Need It) | 极限编程原则，建议只有当真正需要某个功能时才实现它。 |
-| **类型系统** | Type system | 编程语言中对变量、表达式、函数等分配类型的规则集合，帮助捕获错误并提高代码可读性。 |
-| **错误处理** | Error handling | 程序中检测、报告和处理异常情况的方法。 |
-| **副作用** | Side effect | 函数调用中除了返回值外对程序状态的任何更改，如修改全局变量或进行I/O操作。 |
-| **存储库/仓库** | Repository | 存储代码和其相关资源的地方，通常使用版本控制系统如Git管理。 |
-| **PR (拉取请求)** | Pull Request | 开发者提议将其代码更改合并到项目主分支的请求。 |
-| **命名参数** | Named parameters | 在函数调用中明确指定参数名称，提高代码可读性和降低出错可能性。 |
-| **强类型** | Strongly typed | 编程语言特性，要求明确指定变量类型，限制不同类型间的自动转换。 |
-| **.cursorrules** | .cursorrules | Cursor IDE中用于配置AI助手行为的传统文件，存放在代码仓库根目录。现已被`.cursor/index.mdc`取代，但仍然兼容。 |
-| **.cursor/rules/*.mdc** | .cursor/rules/*.mdc | Cursor IDE中用于特定任务或上下文的动态规则文件，只有在相关任务时才会激活。 |
+这样拆分后，每个文件都更聚焦，也只会在真正相关的时候被启用。
 
-这些概念对于理解如何有效配置和使用Cursor IDE的AI功能至关重要。随着你对这些概念的熟悉，你将能够更有效地创建和管理适合你开发工作流程的AI规则。
+### 如何优化 Cursor 项目规则里的 token 使用
 
-真正的优势不在于哪个工具提供最多的自定义选项，而在于你如何周到地使用可用选项来传达你的期望，而不浪费令牌在不必要的冗长表述上。
+为了更有效地利用 AI 的上下文窗口，我会注意以下几点：
 
-## 视频教程：观看完整的 Cursor IDE 规则实施
+1. **优先级靠前**：把最重要的规则放在文件开头或结尾
+2. **层级清晰**：先写总原则，再写具体要求
+3. **避免重复**：同一条规则不要在多个地方反复出现
+4. **语言简洁**：尽量用要点式表达，而不是长段落
+5. **利用 Markdown 结构**：用标题把规则分类清楚
 
-如果你更喜欢视觉学习，我制作了一个全面的视频教程，演示了这个三层 cursor 规则系统的完整实施：
+一个经验判断是：如果某个规则文件已经超过 100 行，通常说明它承担的内容太多了，应该继续拆开。
+
+### 常见问题与排查方法
+
+如果你的 Cursor 项目规则没有达到预期效果，可以先检查这些问题：
+
+1. **规则冲突**：看看不同层级里是否有彼此矛盾的要求
+2. **过于笼统**：可以把规则写得更具体一些，最好带明确例子
+3. **过于狭窄**：太局限的规则可能无法迁移到相似场景
+4. **token 限制**：如果规则被截断，就要重新排序并删减
+5. **上下文不足**：AI 可能还需要更多相关文件，才能正确应用规则
+6. **规则过载**：如果同一轮对话里同时出现太多规则，模型会更难同时记住并遵守它们
+
+我的经验是，把 AI 生成的代码重新对照规则回看，再持续调整规则写法，往往能不断提高协作质量。
+
+## Cursor IDE 与其他 AI 编码助手：配置方式对比
+
+虽然 Cursor 的规则系统设计得尤其完整，但其他 AI 编码助手也有类似的自定义方式：
+
+- GitHub Copilot 可以用 `.github/copilot/settings.yml` 做项目级配置
+- JetBrains AI Assistant 有项目级片段和模板
+- VS Code 配合不同的 AI 扩展，也支持工作区设置和自定义文件
+
+顺带一提，Cursor 从旧的 `.cursorrules` 逐步演进到 Rule Type 为 "Always" 的 `.cursor/index.mdc`，也说明这类系统本身还在持续改进，以便提供更灵活、更清晰的组织方式。
+
+### Token 经济：在所有工具里都尽量留出更多上下文
+
+这些做法背后有一个共同原则：**想要获得更好的结果，就要尽量节省 token。** 不管你用的是哪种 AI 编码助手，关键都在于给它刚刚好的上下文，而不是把模型淹没在大量说明里。
+
+在所有基于大语言模型的工具里，token 的基本逻辑都是一样的：
+
+1. 你写进指令里的每个词都会消耗 token
+2. 用于指令的 token 越多，留给代码理解的上下文就越少
+3. 指导写得极度冗长，收益会越来越低
+
+所以，不管你是在用 Cursor 的三层规则系统，还是别的工具提供的配置方式，原则都一样：尽量精确，也尽量简洁。把说明集中在真正重要的模式和偏好上，其余部分交给 AI。
+
+真正的优势，不在于哪个工具能配置得最多，而在于你是否能用现有能力，把自己的预期表达清楚，同时不把 token 浪费在不必要的冗长内容上。
+
+## 视频教程：完整看一遍 Cursor IDE 规则的实际配置
+
+如果你更习惯看视频，我也做了一期完整教程，演示这套三层 Cursor 规则系统是怎样搭建的：
 
 [![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
-视频涵盖内容：
-- 在 Cursor IDE 设置中配置全局 cursor 规则
-- 创建仓库级规则文件：新方法`.cursor/index.mdc`（Rule Type "Always"）和传统方法`.cursorrules`（legacy）
-- 实施专门任务的上下文感知 `.cursor/*.mdc` 文件
-- 演示每个级别如何协同工作以优化 AI 协助
-- 故障排除常见问题和优化令牌使用
+视频内容包括：
 
-你将看到整个工作流程的实际操作，从初始设置到高级多级配置，这些配置改变了你与 AI 助手的协作方式。
+- 如何在 Cursor IDE 设置里配置全局规则
+- 如何结合真实案例创建仓库级 `.cursorrules` 文件
+- 如何为专门任务建立上下文感知的 `.cursor/*.mdc` 文件
+- 这几个层级是怎样协同工作的
+- 常见问题的排查，以及 token 使用的优化方法
+
+你可以看到从最初设置到多层配置的完整过程，也能更直观地理解这种方式会怎样改变你和 AI 助手的协作方式。
+
+如果你还想看面向其他编码代理的配套文章，也可以继续看这里：
+
+- Claude Code Rules for AI: [https://kirill-markin.com/articles/claude-code-rules-for-ai/](https://kirill-markin.com/articles/claude-code-rules-for-ai/)
+- Codex Rules for AI: [https://kirill-markin.com/articles/codex-rules-for-ai/](https://kirill-markin.com/articles/codex-rules-for-ai/)

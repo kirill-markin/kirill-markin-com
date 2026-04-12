@@ -1,8 +1,8 @@
 ---
-title: "Cursor IDE me Jupyter Notebooks aur LLM: AI-powered data analysis"
+title: "Cursor IDE में LLM के साथ Jupyter Notebooks: AI-संचालित डेटा विश्लेषण"
 date: 2026-04-11
 slug: "cursor-ide-jupyter-notebooks-llm-ai-data-analysis"
-description: "Seekhen ki Cursor IDE me Jupyter Notebooks aur AI ko kaise use karein, taki data analysis, visualization aur documentation kam tool switching ke saath ho sake."
+description: "जानें कि Cursor IDE में Jupyter Notebooks और AI का उपयोग करके कम टूल बदलते हुए डेटा विश्लेषण, चित्रांकन और दस्तावेज़ीकरण कैसे करें।"
 tags: [productivity, cursor-ide, ai, llm]
 publish: true
 thumbnailUrl: "/articles/jupyter-2025-04-25.webp"
@@ -21,70 +21,70 @@ translations:
     slug: "jupyter-notebooks-cursor-ide-llm-ai-ltahlil-albayanat"
 ---
 
-# Frustration se flow tak: Cursor IDE me Jupyter Notebooks aur LLM ke saath mera safar
+# हताशा से सहज प्रवाह तक: Cursor IDE में Jupyter Notebooks और LLM के साथ मेरी यात्रा
 
-## Problem: LLMs aur Jupyter Notebooks naturally achchhe dost nahi hote
+## समस्या: LLM और Jupyter Notebooks की पटरी आसानी से नहीं बैठती
 
-Raat ke 2 baje maine finally maan liya ki main atak gaya hoon. Mera genomic sequencing analysis isliye ruk gaya tha kyunki Cursor IDE ke andar LLM assistant meri Jupyter notebook ki complex JSON structure ko sahi tarah samajh nahi pa raha tha. Jab bhi main AI se visualization code me help mangta, woh broken JSON de deta jo load hi nahi hota tha. Maine snippets bhejne ki bhi koshish ki, lekin usse preprocessing context chala jata tha. Upar se teen alag windows khuli hoti thi: browser me Jupyter, “real coding” ke liye VSCode, aur documentation ke liye ek aur editor. Jupyter format aur LLM limitations ka combo, plus constant context switching, data work ko almost impossible bana raha tha. Iris jaisi simple benchmark dataset par bhi ye basic incompatibility meri productivity ko kill kar rahi thi.
+रात के 2 बजे मैंने आखिर मान लिया कि मैं फंस गया हूँ। मेरा जीनोम अनुक्रमण विश्लेषण इसलिए अटक गया था क्योंकि Cursor IDE के भीतर मौजूद LLM सहायक मेरी Jupyter notebook की जटिल JSON संरचना को ठीक से समझ नहीं पा रहा था। जब भी मैं चित्रांकन वाले कोड में मदद मांगता, बदले में टूटा हुआ JSON मिलता जो खुलता ही नहीं था। मैंने छोटे-छोटे अंश भेजकर देखने की भी कोशिश की, लेकिन उससे preprocessing का पूरा संदर्भ गायब हो जाता था। ऊपर से तीन अलग-अलग विंडो खुली रहती थीं: ब्राउज़र में Jupyter, "असली" coding के लिए VSCode, और दस्तावेज़ लिखने के लिए एक अलग संपादक। Jupyter के फ़ॉर्मैट, LLM की सीमाएँ और लगातार टूल बदलने की मजबूरी, इन सबने मिलकर आँकड़ों पर जटिल काम लगभग असंभव बना दिया था। Iris जैसे अपेक्षाकृत सरल मानक डेटा सेट पर भी यही बुनियादी असंगति मेरी उत्पादकता खत्म कर रही थी।
 
-Kya ye familiar lag raha hai? Data science workflows me context switching especially painful hoti hai. Aap lagatar in cheezon ke beech bounce karte ho:
-- “Serious” programming ke liye code editors
-- Exploration ke liye Jupyter notebooks
-- Findings share karne ke liye documentation tools
-- Charts banane ke liye visualization software
-- Browser me khule ChatGPT aur Claude
+क्या यह परिचित लगता है? डेटा विज्ञान के काम में बार-बार टूल बदलना खास तौर पर थकाने वाला होता है। आप लगातार इन चीजों के बीच आते-जाते रहते हैं:
+- गंभीर programming के लिए कोड संपादक
+- शुरुआती पड़ताल के लिए Jupyter notebook
+- निष्कर्ष साझा करने के लिए दस्तावेज़ीकरण के औज़ार
+- charts बनाने के लिए चित्रांकन सॉफ़्टवेयर
+- सवाल पूछने के लिए ब्राउज़र में खुले ChatGPT और Claude
 
-Har switch mental energy leta hai aur discovery ko slow karta hai. Lekin agar isse better tareeka ho to?
+हर बार टूल बदलने पर मानसिक ऊर्जा खर्च होती है और नई समझ तक पहुंचने की रफ्तार धीमी पड़ जाती है। लेकिन अगर इससे बेहतर तरीका मौजूद हो तो?
 
-> **Video tutorial pasand hai?** Maine is poore workflow ka step-by-step video banaya hai. [Jupyter Notebooks in Cursor IDE Tutorial with AI-Powered Data Analysis dekhen](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL).
+> **वीडियो ट्यूटोरियल देखना पसंद है?** मैंने इस पूरे कार्यप्रवाह का चरण-दर-चरण वीडियो बनाया है। [AI-Powered Data Analysis के साथ Jupyter Notebooks in Cursor IDE Tutorial देखें](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)।
 
-[![Cursor IDE me data visualization ke saath final Jupyter workflow](/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+[![Cursor IDE में डेटा चित्रांकन के साथ अंतिम Jupyter कार्यप्रवाह](/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
-## Discovery: Cursor IDE me unified data science workflow
+## खोज: Cursor IDE में एकीकृत डेटा विज्ञान कार्यप्रवाह
 
-Phir mujhe ek aisa solution mila jisne mera workflow badal diya: Jupyter notebooks ko direct Cursor IDE ke andar use karna, AI ki help ke saath. Is approach me ye sab combine hota hai:
+तभी मुझे एक ऐसा समाधान मिला जिसने मेरा कार्यप्रवाह बदल दिया: Jupyter notebooks को सीधे Cursor IDE के भीतर चलाना, और उसके ऊपर AI की ताकत जोड़ना। इस तरीके में एक साथ ये फायदे मिलते हैं:
 
-- Jupyter ki interactive cell-based execution
-- Proper IDE ki editing aur navigation powers
-- AI assistance jo code aur data science dono context samajhti hai
-- Plain text files jo version control ke saath bahut achchha kaam karti hain
+- Jupyter की अंतःक्रियात्मक, cell-based execution
+- एक सधे हुए IDE की शक्तिशाली संपादन और नेविगेशन सुविधाएँ
+- ऐसी AI सहायता जो code और डेटा विज्ञान, दोनों का संदर्भ समझती है
+- साधारण पाठ वाला फ़ाइल स्वरूप, जो version control के साथ बेहद अच्छी तरह काम करता है
 
-Is article ke end tak aap dekhenge ki maine aisa integrated environment kaise banaya jahan main:
+इस लेख के अंत तक मैं दिखाऊंगा कि मैंने ऐसा एकीकृत वातावरण कैसे बनाया, जिसमें मैं:
 
-- Minimal coding ke saath datasets analyze aur visualize kar sakta hoon
-- Hidden patterns dikhane wali 3D visualizations bana sakta hoon
-- Findings ko code ke saath hi document kar sakta hoon
-- Ek command me professional reports export kar sakta hoon
-- Ye sab alag tools ke beech switch kiye bina kar sakta hoon
+- बहुत कम हाथ से कोड लिखकर डेटा सेट्स का विश्लेषण और दृश्यांकन कर सकता हूँ
+- ऐसे 3D visualizations बना सकता हूँ जो data में छिपे पैटर्न सामने लाएं
+- अपने निष्कर्षों को code के साथ ही साफ-सुथरे तरीके से दर्ज कर सकता हूँ
+- एक ही command से पेशेवर गुणवत्ता वाली रिपोर्टें निर्यात कर सकता हूँ
+- और यह सब अलग-अलग टूल्स के बीच भटके बिना कर सकता हूँ
 
-Chaliye shuru karte hain.
+अगर आप बार-बार टूल बदलने की इस थकान से बाहर निकलना चाहते हैं, तो चलिए शुरू करते हैं।
 
-## Cursor IDE me Jupyter environment setup karna
+## Cursor IDE में Jupyter परिवेश तैयार करना: बुनियाद
 
-Har achchhe workflow ko thodi preparation chahiye hoti hai. Jupyter ko Cursor IDE me sahi tarah setup karne ke liye hume tools install karne aur environment configure karna hoga.
+हर अच्छी व्यवस्था के पीछे थोड़ी तैयारी होती है। Cursor IDE में Jupyter को ठीक से चलाने के लिए हमें सही tools install करने और परिवेश को ठीक ढंग से विन्यस्त करने की जरूरत है।
 
-### Jupyter extension install karna
+### Jupyter extension इंस्टॉल करना
 
-Magic Jupyter extension se shuru hoti hai:
+सारी शुरुआत Jupyter extension से होती है:
 
-1. Cursor IDE kholen aur project folder banayen
-2. Sidebar me Extensions par jayen
-3. “Jupyter” search karein aur official extension dhoonden
-4. “Install” par click karein
+1. Cursor IDE खोलें और एक project folder बनाएं
+2. Sidebar में `Extensions` पर जाएं
+3. `Jupyter` खोजें और official extension चुनें
+4. `Install` पर क्लिक करें
 
-Ye extension traditional notebooks aur IDE ke beech bridge ka kaam karti hai. Isse ek powerful feature milta hai: aap regular Python files me special markers use karke executable cells bana sakte ho. Matlab `.ipynb` ke complex JSON ke bajay plain text Python use kar sakte ho.
+यह extension traditional notebooks और IDE के बीच पुल का काम करती है। इसी की मदद से आप सामान्य Python files में special syntax markers लिखकर executable cells बना सकते हैं। यानी जटिल `.ipynb` फ़ाइलों के बजाय साधारण पाठ वाली Python files के साथ काम करना संभव हो जाता है।
 
-Jupyter Notebook ke bare me aur detail chahiye ho to [official documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html) dekhen.
+Jupyter Notebooks की क्षमताओं के बारे में और जानकारी के लिए [official Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html) देखें।
 
-### Python environment prepare karna
+### Python परिवेश तैयार करना
 
-Extension install ho jane ke baad ek clean Python environment banate hain:
+Extension install होने के बाद एक साफ़-सुथरा Python परिवेश बनाते हैं:
 
 ```bash
 python -m venv .venv
 ```
 
-Phir dependencies manage karne ke liye `pyproject.toml` banayen:
+अब निर्भरताएँ संभालने के लिए `pyproject.toml` फ़ाइल बनाएं:
 
 ```toml
 [build-system]
@@ -106,21 +106,21 @@ seaborn = "^0.13.0"
 scikit-learn = "^1.2.0"
 ```
 
-Dependencies install karein:
+फिर virtual environment में निर्भरताएँ install करें:
 
 ```bash
 pip install -e .
 ```
 
-Maine ye hard way se seekha ki version conflicts strange errors la sakte hain. Jab AI kisi library ka import suggest kare, pehle verify karein ki woh environment me installed hai.
+मैंने अनुभव से सीखा है कि version conflicts बहुत उलझाऊ errors पैदा कर सकते हैं। जब AI किसी library का import सुझाए, तो पहले यह पक्का कर लें कि वह आपके परिवेश में सचमुच स्थापित है।
 
-## Apna pehla notebook banana: plain text ka fayda
+## अपनी पहली notebook बनाना: साधारण पाठ की ताकत
 
-Traditional Jupyter notebooks `.ipynb` format use karti hain, jo ek complex JSON structure hota hai. Use directly edit karna mushkil hai, aur AI ke liye ise safely modify karna aur bhi mushkil. Isliye hum ek plain text approach use karenge.
+पारंपरिक Jupyter notebooks `.ipynb` format का उपयोग करती हैं, जो असल में एक जटिल JSON structure होता है। उसे सीधे edit करना मुश्किल है, और AI tools के लिए बिना फ़ॉर्मैट तोड़े उसमें बदलाव करना उससे भी कठिन। इसलिए हम एक ऐसे साधारण पाठ वाले तरीके का उपयोग करेंगे जो दोनों दुनिया के फायदे देता है।
 
-### Original Jupyter notebooks ki problem
+### मूल Jupyter notebooks की समस्या
 
-Text editor me ek traditional `.ipynb` kuch is tarah dikhta hai:
+अगर आप एक पारंपरिक `.ipynb` फ़ाइल को किसी पाठ-संपादक में खोलें, तो वह कुछ इस तरह दिखती है:
 
 ```json
 {
@@ -161,130 +161,138 @@ Text editor me ek traditional `.ipynb` kuch is tarah dikhta hai:
 }
 ```
 
-LLM ke liye ye structure mushkil hota hai kyunki:
+यह संरचना खास तौर पर LLM के लिए कठिन है, क्योंकि:
 
-[![Traditional Jupyter notebook file ki complex JSON structure](/articles/assets/jupyter-notebooks/jupyter-json-structure.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+[![पारंपरिक Jupyter notebook फ़ाइल की जटिल JSON संरचना](/articles/assets/jupyter-notebooks/jupyter-json-structure.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
-1. JSON me bahut saare irrelevant symbols aur nesting hoti hai
-2. Har cell ka content strings ke array me store hota hai
-3. Code aur outputs alag-alag jagah par hote hain
-4. Chhota edit bhi poori JSON schema ko respect karne ki demand karta hai
-5. Chhote content changes bhi bade diffs banate hain
+1. JSON format में बहुत सारे symbols और nested structures होते हैं, जिनका असली सामग्री से सीधा संबंध नहीं होता
+2. हर cell की सामग्री strings की array में रखी जाती है, जहां newlines और quotes के लिए escape characters आते हैं
+3. Code और उसके outputs संरचना के अलग-अलग हिस्सों में बंटे होते हैं
+4. छोटा-सा edit भी पूरी JSON schema को समझे बिना सुरक्षित तरीके से नहीं किया जा सकता
+5. सामग्री में छोटे बदलाव भी JSON में बड़े diffs पैदा करते हैं, इसलिए AI के लिए सटीक edits देना कठिन हो जाता है
 
-Isi wajah se LLM aksar format tod deti hai.
+जब LLM इस format को बदलने की कोशिश करता है, तो वह अक्सर सार्थक बदलाव करते हुए सही JSON structure बनाए नहीं रख पाता। परिणाम यह होता है कि notebook टूट जाती है और फिर न खुलती है, न चलती है।
 
-### Cell markers ka magic
+### Cell markers का कमाल
 
-`main.py` naam ki file banayen aur pehla cell add karein:
+`main.py` नाम की फ़ाइल बनाइए और उसमें पहला cell जोड़िए:
 
 ```python
 # %%
-# Import necessary libraries
+# आवश्यक libraries import करें
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Display settings for better visualization
+# बेहतर दृश्यांकन के लिए display settings
 pd.set_option('display.max_columns', None)
 plt.style.use('ggplot')
 
-print("Environment ready for data analysis!")
+print("Data analysis के लिए environment तैयार है!")
 ```
 
-Upar ka `# %%` hi magic marker hai. Jupyter extension ise code cell ke roop me samajhti hai. Iske saath run buttons dikhne lagte hain aur aap sirf wahi cell execute kar sakte ho.
+ऊपर दिख रहा `# %%` वही खास marker है, जो Jupyter extension को बताता है कि "यह code cell है"। जैसे ही आप यह marker जोड़ते हैं, उसके पास run buttons दिखाई देने लगते हैं। आप सिर्फ इसी cell को चला सकते हैं और उसके परिणाम संपादक के भीतर ही देख सकते हैं।
 
-Ab documentation ke liye ek markdown cell add karein:
+अब दस्तावेज़ीकरण के लिए एक markdown cell जोड़ते हैं:
 
 ```python
 # %% [markdown]
 """
-# Iris Dataset Analysis
+# Iris dataset analysis
 
-This notebook explores the famous Iris flower dataset to understand:
-- The relationships between different flower measurements
-- How these measurements can distinguish between species
-- Which features provide the best separation between species
+यह notebook प्रसिद्ध Iris flower dataset की मदद से इन बातों को समझती है:
+- फूलों के अलग-अलग measurements के बीच क्या संबंध हैं
+- इन measurements की मदद से species को कैसे अलग पहचाना जा सकता है
+- कौन-से features species के बीच सबसे साफ़ अंतर दिखाते हैं
 
-Each flower in the dataset belongs to one of three species:
+Dataset में हर flower निम्न तीन species में से एक से संबंधित है:
 1. Setosa
 2. Versicolor
 3. Virginica
 """
 ```
 
-Ye combination powerful hai: executable code aur rich documentation same plain text file me. Na special file format ki tension, na browser-based editing ki limits.
+यही इस तरीके की असली ताकत है: executable code और समृद्ध दस्तावेज़ीकरण, दोनों एक ही साधारण पाठ वाली फ़ाइल में। कोई विशेष file format नहीं, browser-based editing की कोई बंदिश नहीं, सिर्फ साफ़ टेक्स्ट जो version control के साथ अच्छी तरह निभता है।
 
-## LLM assistant ko unleash karna
+जैसे-जैसे notebook तैयार होगी, हम यह ढांचा अपनाएंगे:
 
-Is workflow ko truly useful banati hai Cursor Composer ke saath integration. Ye sirf autocomplete nahi, balki ek collaborative assistant jaisa feel hota hai.
+- code cells के लिए `# %%` का उपयोग
+- दस्तावेज़ीकरण के लिए triple quotes के साथ `# %% [markdown]`
+- data loading से पड़ताल और फिर visualization तक तार्किक क्रम
+- पूरे रास्ते प्रक्रिया और निष्कर्षों का स्पष्ट लेखा-जोखा
 
-### Agent Mode: AI-powered data science companion
+## LLM assistant को साथ लाना: आपका डेटा विज्ञान सहयोगी
 
-Cursor IDE me “Composer” button par click karein aur “Agent Mode” select karein. Ye ek advanced assistant activate karta hai jo:
-- Multiple interactions me context maintain karta hai
-- Dataset aur analysis goals samajhta hai
-- Proper Jupyter syntax ke saath complete code cells generate karta hai
-- Data ke hisab se visualizations create karta hai
+इस कार्यप्रवाह को वास्तव में अलग बनाती है Cursor के AI Composer के साथ इसकी integration। यह सिर्फ autocomplete नहीं है, बल्कि एक सहयोगी साथी की तरह काम करता है जो डेटा विज्ञान का संदर्भ समझता है।
 
-Chaliye ise data import karne ko bolte hain:
+### Agent Mode: AI-संचालित डेटा विज्ञान साथी
+
+Cursor IDE में `Composer` button पर क्लिक करें और `Agent Mode` चुनें। इससे एक अधिक सक्षम AI सहायक सक्रिय होता है, जो:
+
+- कई interactions के दौरान संदर्भ बनाए रखता है
+- आपके डेटा सेट और analysis goals को समझता है
+- सही Jupyter syntax के साथ पूरे code cells बना देता है
+- आपके data के अनुसार visualizations तैयार करता है
+
+आइए सबसे पहले उससे डेटा सेट import करने को कहें:
 
 ```text
 Please import the Iris dataset in this notebook format
 ```
 
-AI ek complete executable cell generate karegi:
+AI एक पूरा executable cell तैयार कर देती है:
 
 ```python
 # %%
-# Import necessary libraries
+# आवश्यक libraries import करें
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 
-# Load the Iris dataset
+# Iris dataset load करें
 iris = load_iris()
 
-# Convert to pandas DataFrame
+# pandas DataFrame में बदलें
 df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
 df['species'] = iris.target
 
-# Display the first few rows
+# शुरुआती rows दिखाएं
 print(df.head())
 ```
 
-Ek simple prompt aur hamare paas formatted code cell ready hai.
+सिर्फ एक अनुरोध, और हमारे पास डेटा सेट load करने वाला पूरी तरह तैयार code cell है। न exact syntax याद रखने की जरूरत, न function names खोजने की। AI यह हिस्सा संभाल लेता है।
 
-Visualization ke liye jab maine ye prompt diya:
+लेकिन असली कमाल तब दिखता है जब हम उससे visualization मांगते हैं:
 
 ```text
 Generate a 3D scatter plot for the iris dataset showing the three species in different colors
 ```
 
-AI ne ek sophisticated 3D visualization generate ki:
+AI घूर्णन के साथ एक उन्नत 3D visualization तैयार करती है:
 
-[![Iris dataset clusters dikhane wali 3D scatter plot visualization](/articles/assets/jupyter-notebooks/jupyter-3d-visualization.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+[![Iris dataset clusters दिखाने वाला 3D scatter plot visualization](/articles/assets/jupyter-notebooks/jupyter-3d-visualization.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
 ```python
 # %%
-# Create 3D scatter plot
+# 3D scatter plot बनाएं
 from mpl_toolkits.mplot3d import Axes3D
 
-# Create figure and 3D axis
+# Figure और 3D axis बनाएं
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
-# Get the three species
+# तीनों species लें
 species_names = iris.target_names
 colors = ['blue', 'red', 'green']
 
-# Plot each species with a different color
+# हर species को अलग रंग में plot करें
 for species_id, species_name in enumerate(species_names):
-    # Filter data for this species
+    # इस species का data चुनें
     species_data = df[df['species'] == species_id]
     
-    # Plot this species
+    # species plot करें
     ax.scatter(
         species_data['sepal length (cm)'],
         species_data['sepal width (cm)'],
@@ -295,14 +303,14 @@ for species_id, species_name in enumerate(species_names):
         alpha=0.8
     )
 
-# Set labels and title
+# Labels और title सेट करें
 ax.set_xlabel('Sepal Length (cm)')
 ax.set_ylabel('Sepal Width (cm)')
 ax.set_zlabel('Petal Length (cm)')
 ax.set_title('3D Scatter Plot of Iris Dataset')
 ax.legend()
 
-# Add rotation for better visualization
+# बेहतर दृश्यांकन के लिए घूर्णन जोड़ें
 for angle in range(0, 360, 5):
     ax.view_init(30, angle)
     plt.draw()
@@ -311,15 +319,15 @@ for angle in range(0, 360, 5):
 plt.show()
 ```
 
-Ye sirf simple chart nahi hai. Ye animated 3D visualization hai jo data ko alag-alag angles se dikhati hai.
+यह सिर्फ एक साधारण chart नहीं है। यह animated 3D visualization है, जो अलग-अलग कोणों से डेटा दिखाती है और labels, colors तथा formatting भी ठीक से संभालती है। और यह सब एक ही अनुरोध से।
 
-## Better code generation ke liye Cursor Rules
+## बेहतर code generation के लिए Cursor Rules से दिशा देना
 
-Maine discover kiya ki main `.cursorrules` file add karke AI ko aur useful bana sakta hoon. Ye file project root me rehti hai aur batati hai ki AI ko code kis style me generate karna chahiye.
+मुझे बाद में पता चला कि project root में `.cursorrules` फ़ाइल जोड़कर AI को और उपयोगी बनाया जा सकता है। इस फ़ाइल में वे निर्देश लिखे जाते हैं, जिनके आधार पर AI code generate करती है।
 
-Cursor rules ko effectively use karne ke liye meri detailed guide [yahan](/articles/cursor-ide-rules-for-ai) mil jayegi.
+Cursor rules को प्रभावी ढंग से सेट करने और उपयोग करने पर मेरी विस्तृत मार्गदर्शिका [यहां](/articles/cursor-ide-rules-for-ai) उपलब्ध है।
 
-Example ke liye maine ye rules add kiye:
+उदाहरण के लिए, मैंने ये rules जोड़े:
 
 ```text
 <cursorrules_code_style>
@@ -335,11 +343,11 @@ Example ke liye maine ye rules add kiye:
 </cursorrules_python_specifics>
 ```
 
-In rules ke baad AI ne zyada type-safe aur meri preferred style ka code generate karna shuru kiya:
+इन rules के बाद AI ने मेरी पसंद के अनुरूप, सख़्त typing वाला code generate करना शुरू किया:
 
 ```python
 # %%
-# Define a Pydantic model for better type safety
+# बेहतर type safety के लिए Pydantic model परिभाषित करें
 from pydantic import BaseModel
 from typing import List, Optional
 
@@ -351,7 +359,7 @@ class IrisFeatures(BaseModel):
     species: int
     species_name: Optional[str] = None
 
-# Function to convert DataFrame rows to Pydantic models
+# DataFrame rows को Pydantic models में बदलने वाला function
 def convert_to_models(df: pd.DataFrame) -> List[IrisFeatures]:
     species_map = {0: "setosa", 1: "versicolor", 2: "virginica"}
     
@@ -367,41 +375,43 @@ def convert_to_models(df: pd.DataFrame) -> List[IrisFeatures]:
         for _, row in df.iterrows()
     ]
 
-# Convert a sample for demonstration
+# उदाहरण के लिए कुछ rows convert करें
 iris_models = convert_to_models(df.head())
 for model in iris_models:
     print(model)
 ```
 
-## Iris dataset explore karna
+AI ने rules का ठीक वैसा ही पालन किया जैसा मैंने चाहा था: साफ़ typing, functional style और Pydantic model के साथ।
 
-Environment ready hai aur AI assistant bhi तैयार hai, to ab actual analysis shuru karte hain.
+## Python के साथ Iris डेटा सेट की पड़ताल: हमारा विश्लेषण अभियान
 
-### Data ko pehli baar dekhna
+अब परिवेश भी तैयार है और AI assistant भी, तो चलिए Iris डेटा सेट के भीतर झांकते हैं।
 
-Dataset load ho chuka hai. Ab uska structure dekhte hain:
+### Data पर पहली नजर
+
+डेटा सेट हमने पहले ही load कर लिया है। अब इसकी संरचना समझते हैं:
 
 ```python
 # %%
-# Get basic information about the dataset
+# Dataset की बुनियादी जानकारी देखें
 print("Dataset shape:", df.shape)
 print("\nClass distribution:")
 print(df['species'].value_counts())
 
-# Create a more readable species column
+# अधिक स्पष्ट species column बनाएं
 species_names = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
 df['species_name'] = df['species'].map(species_names)
 
-# Display descriptive statistics
+# Descriptive statistics दिखाएं
 print("\nDescriptive statistics:")
 print(df.describe())
 ```
 
-Ye batata hai ki dataset me 150 samples hain, har species ke 50, aur 4 features hain. Ab in features ko visualize karte hain:
+इससे पता चलता है कि हमारे पास 150 नमूने हैं, हर species के 50, और फूलों के अलग-अलग हिस्सों को मापने वाले 4 features हैं। अब देखते हैं कि ये features species के अनुसार कैसे बदलते हैं:
 
 ```python
 # %%
-# Create boxplots for each feature by species
+# हर feature के लिए species-wise boxplot बनाएं
 plt.figure(figsize=(12, 10))
 
 for i, feature in enumerate(iris.feature_names):
@@ -414,41 +424,43 @@ plt.tight_layout()
 plt.show()
 ```
 
-Boxplots se clear patterns milte hain: Setosa ke sepals relatively wide hain, aur Virginica ke petals sabse bade hain.
+इन boxplots से कई रोचक बातें सामने आती हैं। Setosa के sepals अपेक्षाकृत चौड़े हैं, लेकिन petals छोटे हैं। Virginica के petals सबसे बड़े दिखाई देते हैं। अब सवाल यह है कि कौन-से features species को सबसे साफ़ तरीके से अलग करते हैं।
 
-### Hidden patterns dhoondhna
+### छिपे हुए पैटर्न सामने लाना
 
-Features ke relationships dekhne ke liye:
+इसका जवाब पाने के लिए हमें features के बीच संबंध देखने होंगे:
 
 ```python
 # %%
-# Create a pairplot to visualize relationships between features
+# Features के बीच संबंध देखने के लिए pairplot बनाएं
 sns.pairplot(df, hue='species_name', height=2.5)
 plt.suptitle('Iris Dataset Pairwise Relationships', y=1.02)
 plt.show()
 ```
 
-Is pairplot se turant samajh aata hai:
+यह pairplot आंखें खोल देने वाला है। इससे तुरंत दिखता है कि:
 
-1. Petal measurements aane par Setosa clearly alag hoti hai
-2. Versicolor aur Virginica me kuch overlap hai
-3. Petal length aur width sabse clear separation deti hain
+1. Petal measurements वाले किसी भी plot में Setosa बाकी species से साफ़ अलग दिखती है
+2. Versicolor और Virginica में कुछ आंशिक मेल है, लेकिन फिर भी उन्हें अलग किया जा सकता है
+3. Petal length और petal width, तीनों species के बीच सबसे स्पष्ट separation देती हैं
 
-Advanced analysis ke liye [scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html) useful resource hai.
+सबसे प्रभावशाली visualization वही 3D scatter plot है, जिसमें तीनों species त्रि-आयामी space में अलग समूह बनाती दिखती हैं। Rotation के दौरान कुछ कोण ऐसे सामने आते हैं, जहां यह separation बिल्कुल स्पष्ट हो जाती है। यह ऐसी समझ है जिसे स्थिर 2D charts से पकड़ना मुश्किल होता।
 
-## Dependency issues aur troubleshooting
+अधिक उन्नत visualization और data analysis techniques के लिए [scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html) एक उत्कृष्ट संदर्भ है।
 
-Jab maine thodi complex visualizations banani shuru ki, mujhe Seaborn ke saath ye error mila:
+## Jupyter integration की रुकावटें दूर करना: निर्भरताओं की जांच-पड़ताल
+
+हर कार्यप्रवाह में कुछ न कुछ रुकावटें आती हैं। जब मैंने थोड़ा अधिक जटिल visualization बनाना शुरू किया, तो Seaborn import से जुड़ी एक समस्या सामने आई:
 
 ```text
 ImportError: Seaborn not valid package style
 ```
 
-Data science libraries me version incompatibility common hoti hai. Diagnose karne ke liye maine installed versions check ki:
+डेटा विज्ञान की libraries के साथ version incompatibilities आम बात हैं। इसकी जांच करने के लिए मैंने स्थापित versions देखने वाला एक cell जोड़ा:
 
 ```python
 # %%
-# Check installed package versions
+# Installed package versions जांचें
 import pkg_resources
 print("Installed packages:")
 for package in ['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn']:
@@ -459,28 +471,30 @@ for package in ['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn']:
         print(f"{package}: Not installed")
 ```
 
-Pata chala Seaborn aur NumPy versions incompatible the. Solution simple tha:
+यहीं पता चला कि मेरी Seaborn version, NumPy version के साथ compatible नहीं थी। समाधान के लिए मैंने Cursor की pop-out terminal सुविधा का उपयोग किया:
 
-1. Bottom panel me terminal icon par click karein
-2. “Pop out terminal” select karein
-3. Run karein:
+1. नीचे वाले panel में terminal icon पर क्लिक करें
+2. `Pop out terminal` चुनें
+3. यह command चलाएं:
    ```bash
    pip install seaborn --upgrade
    ```
 
-Yahan Cursor IDE ki strength saamne aati hai: dependency fix karne ke liye tool switch nahi karna padta.
+यहीं Cursor IDE की असली ताकत महसूस होती है। मुझे निर्भरता से जुड़ी समस्या ठीक करने के लिए टूल बदलना नहीं पड़ा, न विश्लेषण से बाहर आना पड़ा।
 
-## Better visualizations banana
+इससे भी बेहतर बात यह रही कि मैंने error message AI को दिखाया, और उसने वही command सुझाई जिसकी जरूरत थी। Pop-out terminal और AI सहायता का यह मेल समस्या-सुलझाव को पारंपरिक व्यवस्था की तुलना में काफी तेज बना देता है।
 
-Environment sahi chalne ke baad maine aise charts banana chaha jo data ke patterns ko clearly reveal kar sakein.
+## ऐसे visualizations बनाना जो data को सचमुच खोल दें
 
-### Simple charts se 3D visualizations tak
+अब जब परिवेश ठीक से चल रहा था, तो मेरा लक्ष्य ऐसे charts बनाना था जो data में छिपे पैटर्नों को वास्तव में सामने ला सकें।
 
-Maine petal dimensions ke simple scatter plot se start kiya:
+### साधारण charts से 3D visualization तक
+
+मैंने शुरुआत petals के dimensions पर आधारित एक सरल scatter plot से की:
 
 ```python
 # %%
-# Create a scatter plot of petal dimensions
+# Petal dimensions का scatter plot बनाएं
 plt.figure(figsize=(10, 6))
 for species_id, species_name in enumerate(iris.target_names):
     species_data = df[df['species'] == species_id]
@@ -500,16 +514,16 @@ plt.grid(True, alpha=0.3)
 plt.show()
 ```
 
-Is plot me Setosa neeche left side par tight cluster banati dikhti hai.
+यह plot तुरंत दिखा देता है कि petal measurements species को अलग करने में कितनी उपयोगी हैं। Setosa नीचे बाईं ओर एक सघन समूह बनाती दिखाई देती है।
 
-Phir maine correlation heatmap banaya:
+रिश्तों को और गहराई से समझने के लिए मैंने correlation heatmap बनाई:
 
 ```python
 # %%
-# Calculate correlation matrix
+# Correlation matrix निकालें
 correlation_matrix = df.drop(columns=['species_name']).corr()
 
-# Create a heatmap
+# Heatmap बनाएं
 plt.figure(figsize=(10, 8))
 sns.heatmap(
     correlation_matrix, 
@@ -523,76 +537,84 @@ plt.title('Correlation Matrix of Iris Features')
 plt.show()
 ```
 
-Heatmap ne dikhaya ki petal length aur petal width ke beech 0.96 ka strong correlation hai.
+Heatmap ने दिखाया कि petal length और petal width के बीच 0.96 का बहुत मजबूत correlation है। यानी प्रकृति में ये दोनों features साथ-साथ बदलते हैं।
 
-Lekin sabse impressive visualization wahi rotating 3D scatter plot thi. Different angles par species clusters bahut clearly dikhne lagte hain.
+लेकिन सबसे उल्लेखनीय visualization वही animated 3D scatter plot रही, जिसे हमने पहले बनाया था। अलग-अलग viewing angles पर घूमते हुए उसने ऐसे क्षण दिखाए, जहां तीनों species पूरी तरह अलग नज़र आती हैं। यही interactive data visualization की असली ताकत है: अमूर्त संख्याओं को सहज, लगभग अनुभवजन्य समझ में बदल देना।
 
-## Findings share karna: analysis se presentation tak
+## अपनी खोजों को साझा करना: विश्लेषण से प्रस्तुति तक
 
-Insights milne ke baad mujhe unhe un colleagues ke saath share karna tha jinke paas Python ya Jupyter installed nahi tha. Yahan export capabilities kaafi useful hain.
+इन निष्कर्षों को सामने लाने के बाद अगली जरूरत थी उन्हें उन साथियों के साथ साझा करना, जिनके सिस्टम पर Python या Jupyter स्थापित नहीं था। यहां Jupyter extension की export capabilities बेहद काम आती हैं।
 
-### Professional reports banana
+### पेशेवर रिपोर्टें बनाना
 
-Shareable report banane ke liye:
+एक साझा की जा सकने वाली रिपोर्ट तैयार करने के लिए मैंने यह किया:
 
-1. Main ensure karta hoon ki sab cells execute ho chuke hon
-2. Methodology aur findings explain karne ke liye markdown cells add karta hoon
-3. “Export as HTML” use karta hoon
-4. Browser me HTML khol kar “Save as PDF” karta hoon
+1. पहले सुनिश्चित किया कि सभी cells execute हो चुके हों और outputs दिखाई दे रहे हों
+2. कार्यविधि और निष्कर्ष समझाने के लिए markdown cells जोड़े
+3. Jupyter extension में `Export as HTML` विकल्प का उपयोग किया
+4. browser में HTML खोला और `Save as PDF` के जरिए सुघड़ दस्तावेज़ बनाया
 
-[![Jupyter notebook ko professional PDF report me convert karna](/articles/assets/jupyter-notebooks/jupyter-pdf-export.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+[![Jupyter notebook को professional PDF report में बदलना](/articles/assets/jupyter-notebooks/jupyter-pdf-export.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
-Result ek aisa report hota hai jisme code, explanations aur visualizations sab hote hain. Presentation quality ke liye main often ye use karta hoon:
+अंतिम रिपोर्ट में code, व्याख्या और visualizations, सब कुछ ऐसे स्वरूप में आ गया जिसे कोई भी देख सकता था। Markdown formatting पर दिया गया ध्यान यहां काम आया: section headings, bullet points और emphasis सब अंतिम दस्तावेज़ में ठीक से बने रहे।
+
+गैर-तकनीकी हितधारकों के लिए प्रस्तुतियाँ बनाते समय मैं visualizations का आकार उपयुक्त रखता हूँ, जैसे `figsize=(10, 6)`, और print quality के लिए high DPI का उपयोग करता हूँ:
 
 ```python
 plt.figure(figsize=(10, 6), dpi=300)
 ```
 
-3D visualizations ke case me main export se pehle sabse informative angle choose karta hoon.
+इससे PDF export में charts साफ़ और पढ़ने योग्य बने रहते हैं।
 
-## Workflow transformation
+3D visualizations के मामले में, export से पहले मैं उन्हें उस कोण पर सेट करता हूँ जहां pattern सबसे स्पष्ट दिखाई दे। क्योंकि rotation animation अंततः एक स्थिर image के रूप में ही capture होती है, इसलिए सही कोण चुनना रिपोर्ट में सही बिंदु उभारने के लिए बहुत महत्वपूर्ण है।
 
-Peechhe mudkar dekho to transformation kaafi clear hai. Jo kaam pehle teen alag tools aur constant context switching me hota tha, woh ab ek hi environment me hota hai:
+## कार्यप्रवाह में आया वास्तविक बदलाव: Cursor IDE में LLM-संचालित डेटा विज्ञान
 
-1. **Explore**: AI ki help se data load aur initial visualizations
-2. **Discover**: Jupyter cells ke saath analysis refine karna
-3. **Document**: Findings ko code ke saath hi likhna
-4. **Share**: Final analysis ko report ke roop me export karna
+पीछे मुड़कर देखूं तो यह बदलाव काफी बड़ा है। जो काम पहले तीन अलग tools और लगातार context switching के साथ होता था, वह अब एक ही परिवेश में सहज रूप से हो जाता है। मेरा कार्यप्रवाह अब कुछ ऐसा है:
 
-Jupyter ki interactivity, Cursor IDE ki editing power, aur AI assistance ka combination friction ko kaafi kam kar deta hai.
+1. **Explore**: AI की मदद से डेटा load करना और शुरुआती visualizations बनाना
+2. **Discover**: Jupyter की cell-based execution के सहारे analysis को इंटरैक्टिव तरीके से refine करना
+3. **Document**: निष्कर्षों को सीधे code के साथ markdown cells में लिखना
+4. **Share**: पूरे analysis को एक command से पेशेवर रिपोर्ट में export करना
 
-Ek aur bonus hai: kyunki main original `.ipynb` ke bajay plain text files use kar raha hoon, mera analysis git me properly version-controlled hota hai.
+Jupyter की interactivity, Cursor IDE की editing शक्ति और AI सहायता के मेल ने वह friction खत्म कर दिया है जो पहले मेरा ध्यान बार-बार तोड़ देता था। अब मैं लगातार टूल बदलने की कीमत चुकाए बिना अपनी जिज्ञासा के पीछे जा सकता हूँ।
 
-## Comparison: traditional Jupyter vs LLM-enhanced Cursor IDE
+और एक अप्रत्याशित लाभ भी मिला: क्योंकि मैं मूल `.ipynb` notebooks की बजाय साधारण पाठ वाली files का उपयोग कर रहा हूँ, मेरा पूरा analysis अब Git में ठीक से दर्ज रहता है। मैं साफ़-साफ़ देख सकता हूँ कि versions के बीच क्या बदला, साथ काम करने वालों के साथ विलय टकरावों के बिना काम कर सकता हूँ, और अपने काम का साफ़ इतिहास बनाए रख सकता हूँ।
 
-Yeh quick comparison key differences ko summarize karta hai:
+यह तरीका सिर्फ समय नहीं बचाता, बल्कि data analysis के बारे में मेरी सोच भी बदल देता है। जब बार-बार context टूटता नहीं, तो flow state बनाए रखना आसान हो जाता है। इससे analysis अधिक गहरी होती है, documentation अधिक पूरी होती है, और visualizations अधिक प्रभावशाली बनती हैं।
 
-| Feature | Traditional Jupyter Notebooks | Cursor IDE with Plain Text Jupyter |
-|---------|-------------------------------|-----------------------------------|
-| **File Format** | Complex JSON (.ipynb) | Plain text Python (.py) |
-| **Version Control** | Difficult (large diffs, merge conflicts) | Excellent (standard git workflow) |
-| **IDE Features** | Limited code navigation and refactoring | Full IDE capabilities (search, replace, navigation) |
-| **AI Assistance** | Limited | Powerful LLM integration with context awareness |
-| **Cell Execution** | Browser-based interface | Native IDE environment |
-| **Context Switching** | Required for advanced editing | Everything in one environment |
-| **Performance** | Can be slow with large notebooks | Native editor performance |
-| **Debugging** | Limited debugging capabilities | Full IDE debugging tools |
-| **Export Options** | HTML, PDF, various formats | Same capabilities through extension |
-| **Collaboration** | Challenging with version control | Standard code collaboration workflows |
-| **Dependencies** | Managed in separate environment files | Integrated environment management |
-| **Hidden State Issues** | Common problem with out-of-order execution | Reduced by linear execution encouragement |
-| **Markdown Support** | Native | Through cell markers with same capabilities |
-| **Typechecking** | None | Full IDE static analysis support |
-| **Extension Ecosystem** | Jupyter extensions | IDE extensions + Jupyter extensions |
+अगर आप भी डेटा विज्ञान के काम के लिए कई tools संभालते-संभालते थक चुके हैं, तो इस एकीकृत तरीके को जरूर आजमाइए। Cursor IDE में Jupyter की व्यवस्था कीजिए, AI assistant का सहारा लीजिए, और इस एकजुट कार्यप्रवाह का लाभ महसूस कीजिए। आपका भविष्य वाला स्वरूप, खासकर रात के 2 बजे वाला, आपको इसके लिए धन्यवाद देगा।
 
-Isi wajah se mujhe lagta hai ki serious data analysis work ke liye Cursor IDE approach kaafi zyada practical hai.
+## तुलना: पारंपरिक Jupyter बनाम LLM-सक्षम Cursor IDE
 
-Jupyter architecture aur ecosystem ke liye [Project Jupyter Documentation](https://docs.jupyter.org/en/latest/) dekhen.
+नीचे एक त्वरित तुलना दी गई है, जो traditional Jupyter Notebook approach और Cursor IDE के plain text Jupyter कार्यप्रवाह के बीच मुख्य अंतर बताती है:
 
-## Video tutorial
+| विशेषता | पारंपरिक Jupyter Notebooks | plain text Jupyter के साथ Cursor IDE |
+|---------|-----------------------------|--------------------------------------|
+| **फ़ाइल स्वरूप** | जटिल JSON (`.ipynb`) | साधारण पाठ Python (`.py`) |
+| **संस्करण नियंत्रण** | कठिन, बड़े अंतर और विलय टकराव | कहीं बेहतर, सामान्य Git कार्यप्रवाह |
+| **IDE सुविधाएँ** | सीमित नेविगेशन और कोड पुनर्संरचना | पूरी IDE सुविधाएँ, खोज, बदलना और नेविगेशन |
+| **AI सहायता** | सीमित | संदर्भ समझने वाला शक्तिशाली LLM एकीकरण |
+| **Cell चलाना** | ब्राउज़र आधारित interface | IDE के भीतर ही |
+| **बार-बार टूल बदलना** | उन्नत संपादन के लिए अक्सर ज़रूरी | लगभग सब कुछ एक ही स्थान पर |
+| **गति** | बड़ी notebooks पर धीमी हो सकती है | स्थानीय संपादक जैसी तेज़ी |
+| **त्रुटि-जांच** | सीमित debugging सुविधाएँ | IDE के पूरे debugging tools |
+| **निर्यात विकल्प** | HTML, PDF और अन्य formats | extension के जरिए वही विकल्प |
+| **साझा कार्य** | version control के साथ चुनौतीपूर्ण | सामान्य साझा-विकास कार्यप्रवाह |
+| **निर्भरताएँ** | अलग environment files में managed | परिवेश के भीतर एकीकृत प्रबंधन |
+| **छिपी हुई state की समस्या** | out-of-order execution के कारण आम समस्या | क्रमवार execution के प्रोत्साहन से कम |
+| **Markdown समर्थन** | मूल रूप से उपलब्ध | cell markers के माध्यम से, लगभग वही क्षमता |
+| **Typechecking** | लगभग नहीं के बराबर | IDE का पूरा स्थिर विश्लेषण समर्थन |
+| **विस्तार तंत्र** | Jupyter extensions | IDE और Jupyter, दोनों के extensions |
 
-Agar aap visual learning prefer karte hain, to maine ek detailed video tutorial bhi banaya hai:
+यह तुलना साफ़ दिखाती है कि गंभीर data analysis काम के लिए, खासकर तब जब आप AI capabilities और बिना टूटे कार्यप्रवाह का लाभ लेना चाहते हों, Cursor IDE वाला तरीका कई मायनों में अधिक उपयोगी है।
 
-[![Jupyter Notebooks in Cursor IDE video tutorial](/articles/assets/jupyter-notebooks/video-thumbnail.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+Jupyter की architecture और ecosystem के बारे में विस्तार से समझने के लिए [Project Jupyter Documentation](https://docs.jupyter.org/en/latest/) देखें।
 
-Video me Cursor IDE me Jupyter notebooks setup karna, AI integration use karna, visualizations banana aur results export karna sab kuch real-time dikhaya gaya hai.
+## वीडियो ट्यूटोरियल: Cursor IDE में पूरा Jupyter workflow देखें
+
+अगर आप चीजें देखकर सीखना पसंद करते हैं, तो मैंने इस लेख की सभी बातों को समेटता हुआ एक विस्तृत वीडियो ट्यूटोरियल भी बनाया है:
+
+[![Cursor IDE में Jupyter Notebooks का वीडियो ट्यूटोरियल](/articles/assets/jupyter-notebooks/video-thumbnail.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+
+इस वीडियो में Cursor IDE के साथ Jupyter notebooks की व्यवस्था करना, AI integration का उपयोग करना, visualizations बनाना और परिणाम export करना, सब कुछ वास्तविक समय में दिखाया गया है। इससे आप पूरे कार्यप्रवाह को एक ही जगह, बिना context टूटे, काम करते हुए देख सकते हैं।
