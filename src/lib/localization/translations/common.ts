@@ -11,18 +11,18 @@ export const common = {
         aboutAuthor: 'About Author',
     },
     es: {
-        siteName: 'Kirill Markin | Asesor de Estrategia de IA',
+        siteName: 'Kirill Markin | Asesor en estrategia de IA',
         language: 'Español',
-        viewAllLink: 'Ver Todo',
+        viewAllLink: 'Ver todo',
         dateFormat: {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
         },
-        aboutAuthor: 'Sobre el Autor',
+        aboutAuthor: 'Sobre el autor',
     },
     zh: {
-        siteName: 'Kirill Markin | 人工智能战略顾问',
+        siteName: 'Kirill Markin | AI战略顾问',
         language: '中文',
         viewAllLink: '查看全部',
         dateFormat: {
@@ -30,10 +30,10 @@ export const common = {
             month: 'long',
             day: 'numeric',
         },
-        aboutAuthor: '关于作者',
+        aboutAuthor: '作者简介',
     },
     ar: {
-        siteName: 'Kirill Markin | مستشار استراتيجية الذكاء الاصطناعي',
+        siteName: 'Kirill Markin | مستشار استراتيجيات الذكاء الاصطناعي',
         language: 'العربية',
         viewAllLink: 'عرض الكل',
         dateFormat: {
@@ -41,17 +41,17 @@ export const common = {
             month: 'long',
             day: 'numeric',
         },
-        aboutAuthor: 'عن المؤلف',
+        aboutAuthor: 'نبذة عن المؤلف',
     },
     hi: {
         siteName: 'Kirill Markin | एआई रणनीति सलाहकार',
-        language: 'हिन्दी',
+        language: 'हिंदी',
         viewAllLink: 'सभी देखें',
         dateFormat: {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
         },
-        aboutAuthor: 'लेखक के बारे में',
+        aboutAuthor: 'लेखक परिचय',
     },
 } as const;
