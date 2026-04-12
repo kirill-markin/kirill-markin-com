@@ -1,5 +1,5 @@
 ---
-title: "Reglas de Codex para IA: instrucciones globales, AGENTS.md y la app para Mac"
+title: "Reglas de Codex para IA: instrucciones globales y AGENTS.md"
 date: 2026-03-21
 slug: "reglas-codex-para-ia"
 description: "Así uso las instrucciones personalizadas de Codex, AGENTS.md y la app para Mac para mantener los mismos patrones de desarrollo en distintos repositorios."
@@ -21,7 +21,7 @@ translations:
     slug: "qawaid-codex-lilthakaa-alistinaei"
 ---
 
-# Reglas de Codex para IA: instrucciones globales, AGENTS.md y la app para Mac
+# Reglas de Codex para IA: instrucciones globales y AGENTS.md
 
 Solo llevo usando Codex en serio alrededor de un mes, sobre todo desde que GPT-5.4 hizo que me resultara mucho más útil. Así que este no es un artículo de "cinco años de sabiduría curtida en mil batallas". La observación es bastante más simple: Codex empezó a funcionar de verdad para mí en cuanto dejé de tratarlo como otra caja bonita para prompts y empecé a darle instrucciones estables desde el principio.
 

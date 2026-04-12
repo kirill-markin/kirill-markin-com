@@ -1,7 +1,7 @@
 ---
-title: "Cursor IDE 的 AI 规则：为专业 AI 助手建立清晰、一致的编码约束"
+title: "Cursor IDE 的 AI 规则：如何用全局规范为专业开发场景建立稳定一致的 AI 编码约束体系"
 date: 2025-05-08
-description: "分享我在 Cursor IDE 中长期使用的一套全局 AI 规则，以及如何与仓库级和上下文规则配合使用，帮助 AI 更稳定地遵循代码风格、错误处理、类型约束和开发流程。"
+description: "这篇文章完整介绍我在 Cursor IDE 中长期使用的一套全局 AI 规则，说明它们怎样作为所有项目的基础约束，与仓库级规则和按上下文触发的规则协同工作，帮助 AI 在代码风格、类型约束、错误处理、调试方式与开发流程上长期保持稳定、一致、可预期的输出质量，并减少无关上下文对生成结果的干扰。"
 tags: ["productivity", "cursor-ide", "ai", "llm"]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"

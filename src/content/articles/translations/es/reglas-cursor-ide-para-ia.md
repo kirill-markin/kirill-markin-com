@@ -1,5 +1,5 @@
 ---
-title: "Reglas de Cursor IDE para IA: guía para un asistente de IA especializado"
+title: "Reglas de Cursor IDE para IA: guía para asistentes especializados"
 date: 2025-05-06
 slug: "reglas-cursor-ide-para-ia"
 language: "es"
@@ -21,7 +21,7 @@ translations:
     slug: "qawaid-cursor-ide-lilthakaa-alistinaei-tahseen-barmaja"
 ---
 
-# Reglas de Cursor IDE para IA: guía para un asistente de IA especializado
+# Reglas de Cursor IDE para IA: guía para asistentes especializados
 
 Cursor IDE maneja tres niveles de reglas:
 

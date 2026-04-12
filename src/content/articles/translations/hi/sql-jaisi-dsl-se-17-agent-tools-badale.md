@@ -2,7 +2,7 @@
 title: "मैंने 17 एजेंट टूल्स की जगह एक SQL-जैसी DSL क्यों अपनाई"
 date: 2026-04-11
 slug: "sql-jaisi-dsl-se-17-agent-tools-badale"
-description: "Flashcards Open Source App में 17 अलग-अलग एजेंट टूल्स समेटकर मैंने एक SQL-जैसी DSL बनाई, ताकि आंतरिक और बाहरी LLM उसे जल्दी समझ सकें।"
+description: "Flashcards Open Source App में मैंने 17 अलग-अलग एजेंट टूल्स समेटकर एक SQL-जैसी DSL बनाई, ताकि आंतरिक और बाहरी LLM उसे जल्दी और सहजता से सीख सकें।"
 tags: [productivity, ai, llm]
 publish: true
 thumbnailUrl: "/articles/sql-like-dsl-for-ai-agents.webp"
@@ -252,7 +252,7 @@ WHERE card_id IN (
 );
 ```
 
-review event की कुल संख्या देखना:
+review events की कुल संख्या देखना:
 
 ```sql
 SELECT review_grade, COUNT(*) AS total_reviews
