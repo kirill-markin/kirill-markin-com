@@ -11,10 +11,10 @@ keywords: [
   "etiquetas automáticas en Gmail",
   "automatización de productividad con correo electrónico"
 ]
-title: "Cómo automatizar la categorización de correos con n8n y un LLM"
+title: "Cómo automatizar la clasificación del correo con n8n y un LLM"
 date: 2026-04-11
 slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
-description: "El sistema que llevo tres meses usando para automatizar la categorización de correos con n8n y GPT-5 nano. Archivar, leer o responder: la IA decide."
+description: "El sistema que llevo tres meses usando para clasificar mi correo con n8n y GPT-5 nano. Archivar, leer o responder: la IA decide por mí."
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
@@ -33,23 +33,23 @@ translations:
     slug: "kayfa-tuatim-tasnif-albarid-aliiliktruni-bi-n8n-wa-llm"
 ---
 
-# Cómo automatizar la categorización de correos con n8n y un LLM
+# Cómo automatizar la clasificación del correo con n8n y un LLM
 
-Me cansé de esperar a que Gmail entendiera cuáles de mis correos realmente me importan. Después de tres meses dejando que la IA clasifique mi correo personal, no me imagino volver a hacerlo a mano.
+Me cansé de esperar a que Gmail entendiera qué correos me importan de verdad. Después de tres meses dejando la clasificación de mi correo personal en manos de la IA, no me imagino volver a ordenarlo a mano.
 
-Mi sistema es ridículamente simple: GPT-5-nano clasifica cada correo en una de tres categorías: archivar, leer o responder. Nada más.
+Mi sistema es absurdamente simple: GPT-5-nano clasifica cada correo en una de tres categorías: archivar, leer o responder. Nada más.
 
-Todo corre sobre n8n y me cuesta casi nada, porque uso el modelo más barato de OpenAI con salida estructurada. Sí, ahora OpenAI ve todos mis correos personales, pero, siendo sinceros, probablemente ya sepan más de mí por mis conversaciones en ChatGPT.
+Todo funciona con n8n y me cuesta casi nada, porque uso el modelo más barato de OpenAI con salida estructurada. Sí, ahora OpenAI ve todos mis correos personales, pero, seamos sinceros, probablemente ya sepan más de mí por mis conversaciones en ChatGPT.
 
-No estoy vendiendo una idea teórica. Llevo tres meses usándolo en producción y me ahorra horas cada semana.
+No estoy vendiendo humo ni presentando una idea teórica. Llevo tres meses usándolo en producción y me ahorra horas cada semana.
 
 ## Por qué construí este sistema de automatización del correo
 
-Recibo demasiados correos. Boletines a los que estoy suscrito, notificaciones de servicios y mensajes realmente importantes de personas reales: todo cae en la misma bandeja de entrada. La categorización nativa de Gmail seguía fallando en patrones obvios, y yo me pasaba 20 minutos cada mañana solo decidiendo qué leer.
+Recibo demasiados correos. Boletines a los que estoy suscrito, notificaciones de servicios y mensajes realmente importantes de personas de verdad: todo acaba en la misma bandeja de entrada. La categorización nativa de Gmail seguía fallando en patrones bastante obvios, y yo me pasaba 20 minutos cada mañana solo decidiendo qué leer.
 
-El momento decisivo llegó cuando me di cuenta de que archivaba el 80% de mis correos sin leerlos. Si la mayoría no necesita mi atención, ¿por qué seguía siendo yo quien decidía cuáles sí la merecen?
+El punto de inflexión llegó cuando me di cuenta de que archivaba el 80% de mis correos sin leerlos. Si la mayoría no necesita mi atención, ¿por qué seguía siendo yo quien decidía cuáles sí la merecían?
 
-> **¿Prefieres un tutorial en video?** He grabado una demostración paso a paso de todo este flujo de automatización del correo. [Mira el tutorial de automatización del correo con n8n y LLM](https://www.youtube.com/watch?v=xn1RyMlZudE) para ver el proceso completo en acción.
+> **¿Prefieres verlo en video?** He grabado una demostración paso a paso de todo este flujo de automatización del correo. [Mira el tutorial de automatización del correo con n8n y LLM](https://www.youtube.com/watch?v=xn1RyMlZudE) para ver todo el proceso en acción.
 
 [![Demostración del flujo de automatización del correo con n8n y LLM](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
@@ -57,11 +57,11 @@ El momento decisivo llegó cuando me di cuenta de que archivaba el 80% de mis co
 
 Mi IA clasifica cada correo en una de estas tres opciones:
 
-- **Archivar** - boletines a los que me suscribí pero nunca leo, notificaciones automáticas y correos promocionales
-- **Leer** - contenido que quiero consumir, pero al que no necesito responder
-- **Responder** - correos que requieren una respuesta humana por mi parte
+- **Archivar** - boletines a los que me suscribí pero que nunca leo, notificaciones automáticas y correos promocionales
+- **Leer** - contenido que quiero consumir, pero que no requiere respuesta
+- **Responder** - correos que necesitan una respuesta humana de mi parte
 
-Sin estructuras de carpetas complejas. Sin niveles de prioridad. Solo tres acciones sencillas que cubren el 100% de mis correos.
+Sin estructuras de carpetas complicadas. Sin niveles de prioridad. Solo tres acciones sencillas que cubren el 100% de mis correos.
 
 ## Cómo configurar el flujo en n8n
 
@@ -69,18 +69,18 @@ Este es el flujo completo de n8n que se encarga de todo automáticamente:
 
 ![Flujo de categorización de correos en n8n](/articles/assets/n8n-email-workflow-full.webp)
 
-El flujo se activa cada vez que entra un correo nuevo en mi bandeja de Gmail. Toma el contenido del mensaje, lo envía a OpenAI para que lo clasifique y después aplica la etiqueta correspondiente en Gmail y archiva los correos que no necesitan mi atención.
+El flujo se activa cada vez que entra un correo nuevo en mi bandeja de Gmail. Extrae el contenido del mensaje, lo envía a OpenAI para clasificarlo y después aplica la etiqueta correspondiente en Gmail y archiva los correos que no necesitan mi atención.
 
 ### Nodos de n8n necesarios
 
 Necesitarás estos nodos en tu flujo:
 
-1. **`Gmail Trigger`** - monitoriza los correos nuevos
+1. **`Gmail Trigger`** - vigila la llegada de correos nuevos
 2. **`OpenAI Chat Model`** - clasifica el contenido del correo
 3. **`Gmail`** - aplica etiquetas y archiva correos
-4. **Condiciones `IF`** - enrutan los correos según la decisión de la IA
+4. **Condiciones `IF`** - dirigen los correos según la decisión de la IA
 
-La parte clave está en la configuración del nodo de OpenAI. Así lo tengo montado:
+La parte clave está en la configuración del nodo de OpenAI. Yo lo tengo montado así:
 
 ![Configuración del nodo LLM de OpenAI en n8n](/articles/assets/n8n-llm-node-config.webp)
 
@@ -90,7 +90,7 @@ El prompt es el corazón de este sistema. Después de probar decenas de variante
 
 > **Nota**: Esto es solo el prompt del LLM para categorizar correos. Si quieres la automatización completa de n8n, con todos los nodos y conexiones, baja hasta la sección "JSON completo del flujo de n8n".
 >
-> Mantengo el bloque en inglés porque es el texto literal que pego en el nodo de n8n. Si quieres reutilizarlo tal cual, conviene copiarlo sin traducir. La lógica es simple: `to_read` equivale a "leer", `to_hide` a "archivar" y `to_answer` a "responder".
+> Mantengo el bloque en inglés porque es el texto literal que pego en el nodo de n8n. Si quieres reutilizarlo tal cual, lo mejor es copiarlo sin traducir. La lógica es simple: `to_read` equivale a "leer", `to_hide` a "archivar" y `to_answer` a "responder".
 
 <details>
 <summary>Haz clic para desplegar el prompt completo del LLM</summary>
@@ -159,51 +159,51 @@ Answer in JSON with two fields:
 
 </details>
 
-Uso salida estructurada para asegurarme de que la IA siempre devuelva una categoría válida. Así evito errores al interpretar la respuesta y esos casos raros en los que el modelo decide ponerse creativo con el formato.
+Uso salida estructurada para asegurarme de que la IA siempre devuelva una categoría válida. Así evito errores al procesar la respuesta y esos casos raros en los que el modelo decide ponerse creativo con el formato.
 
 ## Tres meses de resultados reales
 
 Desde que implementé este sistema:
 
-- **Tiempo ahorrado**: unos 15-20 minutos al día en la revisión inicial del correo
-- **Precisión**: la IA categoriza correctamente alrededor del 95% de los correos
+- **Tiempo ahorrado**: unos 15-20 minutos al día en el primer repaso del correo
+- **Precisión**: la IA clasifica correctamente alrededor del 95% de los correos
 - **Coste**: menos de 3 dólares al mes usando GPT-5-nano
-- **Falsos positivos**: quizá 2-3 correos a la semana quedan mal clasificados
+- **Falsos positivos**: quizá 2-3 correos a la semana acaban mal clasificados
 
-Ese 5% de error es totalmente manejable. Cuando la IA se equivoca, simplemente muevo el correo a la categoría correcta y sigo adelante. Aun así, sigue siendo mucho más rápido que ordenar todo manualmente.
+Ese 5% de error es totalmente manejable. Cuando la IA se equivoca, simplemente muevo el correo a la categoría correcta y sigo. Aun así, sigue siendo mucho más rápido que ordenar todo manualmente.
 
 ## Consideraciones de seguridad (y por qué me compensa)
 
-Sí, OpenAI ahora procesa todos mis correos personales. No es ideal desde el punto de vista de la privacidad, pero he aceptado ese intercambio por varias razones.
+Sí, OpenAI ahora procesa todos mis correos personales. No es ideal desde el punto de vista de la privacidad, pero he asumido ese intercambio por varias razones.
 
 Primero, ya uso un gestor de contraseñas con códigos 2FA que no dependen del correo electrónico, así que una cuenta de correo comprometida no sería catastrófica. Segundo, OpenAI ya sabe bastante sobre mí por mi uso habitual de ChatGPT. Tercero, el ahorro de tiempo compensa esa cesión de privacidad en mi flujo personal.
 
-Si trabajas con correos empresariales sensibles, quizá prefieras usar un LLM local en lugar de la API de OpenAI. En n8n, el planteamiento es el mismo.
+Si trabajas con correos empresariales sensibles, quizá prefieras usar un LLM local en lugar de la API de OpenAI. En n8n, la idea es la misma.
 
 ## Cómo empezar con tu propia automatización de correo
 
 Así puedes montar tu propia versión de este sistema:
 
-1. **Configura n8n** - autoalojado o usando n8n Cloud
+1. **Configura n8n** - autoalojado o en n8n Cloud
 2. **Conecta Gmail** - tendrás que autenticar tu cuenta
 3. **Consigue acceso a la API de OpenAI** - crea una cuenta y obtén tu clave de API
 4. **Importa el flujo** - más abajo tienes el JSON completo para importarlo directamente
 5. **Personaliza el prompt** - ajusta las categorías a tus patrones de correo
 6. **Prueba con unos pocos correos** - empieza poco a poco antes de automatizarlo todo
 
-Montarlo todo lleva unos 30 minutos si ya conoces n8n. Quizá una hora si empiezas desde cero.
+Montarlo todo lleva unos 30 minutos si ya conoces n8n. Quizá una hora si partes de cero.
 
 ## Por qué esto supera las funciones integradas de Gmail
 
-La categorización automática de Gmail está diseñada para todo el mundo, y eso significa que no está optimizada para nadie en particular. Mi sistema refleja mis patrones y mis preferencias concretas.
+La categorización automática de Gmail está diseñada para todo el mundo, y eso significa que no está optimizada para nadie en particular. Mi sistema se ajusta a mis patrones y a mis preferencias concretas.
 
-Además, puedo cambiar la lógica cuando quiera. ¿Quieres añadir una cuarta categoría? Cambia el prompt. ¿Necesitas tratar de otra forma los correos de ciertos remitentes? Añade un nodo condicional. Las reglas de Gmail son rígidas; este sistema se adapta a lo que yo necesito.
+Además, puedo cambiar la lógica cuando quiera. ¿Quieres añadir una cuarta categoría? Cambia el prompt. ¿Necesitas tratar de otra forma los correos de ciertos remitentes? Añade un nodo condicional. Las reglas de Gmail son rígidas; este sistema se adapta a lo que necesito.
 
 ## En resumen
 
 Después de tres meses, este sistema de automatización del correo se ha vuelto esencial en mi rutina diaria. No es perfecto, pero es muchísimo mejor que clasificar manualmente cientos de correos cada semana.
 
-La configuración es directa, el coste continuo es mínimo y el ahorro de tiempo es real. Si sientes que te ahogas en el correo, como me pasaba a mí, quizá merezca la pena probar este enfoque.
+La configuración es sencilla, el coste continuo es mínimo y el ahorro de tiempo es real. Si sientes que te ahogas en el correo, como me pasaba a mí, quizá merezca la pena probar este enfoque.
 
 Solo recuerda: empieza simple, prueba bien y no automatices nada que no puedas deshacer con facilidad.
 
