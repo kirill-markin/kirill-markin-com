@@ -17,10 +17,10 @@ export const navigation = {
     },
     zh: {
         home: '首页',
-        dashboards: '仪表盘',
+        dashboards: '数据看板',
         articles: '文章',
-        mainService: 'AI 技术辅导',
-        talkToKirill: '和 Kirill 聊聊',
+        mainService: 'AI技术指导',
+        talkToKirill: '联系 Kirill',
         language: '中文',
     },
     ar: {
@@ -32,10 +32,10 @@ export const navigation = {
         language: 'العربية',
     },
     hi: {
-        home: 'होम',
-        dashboards: 'डैशबोर्ड्स',
+        home: 'मुखपृष्ठ',
+        dashboards: 'आंकड़े',
         articles: 'लेख',
-        mainService: 'एआई टेक मेंटरशिप',
+        mainService: 'एआई तकनीकी मार्गदर्शन',
         talkToKirill: 'किरिल से बात करें',
         language: 'हिन्दी',
     },

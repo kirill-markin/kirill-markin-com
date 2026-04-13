@@ -49,6 +49,7 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
   - `articles -> articulos -> zhishi -> maqalat -> gyan`
   - `services -> servicios -> zixun -> khadamat -> sevaen`
   - `meet/short -> reservar/breve -> yuyue/mianfei -> mawid/majani`
+- Do not change existing localized route segments or URL slugs unless the user explicitly requests it; changing them can hurt SEO and break already indexed URLs.
 - Key files:
   - `lib/localization.ts`: path segment mapping and translations
   - `(i18n)/[lang]/[segment]/page.tsx`: dynamic segment resolution
