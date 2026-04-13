@@ -2,7 +2,7 @@
 title: "Cursor IDE में LLM के साथ Jupyter Notebooks: AI-संचालित डेटा विश्लेषण"
 date: 2026-04-11
 slug: "cursor-ide-jupyter-notebooks-llm-ai-data-analysis"
-description: "जानें कि Cursor IDE में Jupyter Notebooks और LLM की मदद से कम संदर्भ-बदलाव के साथ डेटा विश्लेषण, दृश्यांकन और दस्तावेज़ीकरण को एक ही कार्यप्रवाह में कैसे जोड़ा जाए।"
+description: "जानें कि Cursor IDE में Jupyter Notebooks और LLM की मदद से डेटा विश्लेषण, दृश्यांकन और दस्तावेज़ीकरण को एक ही कार्यप्रवाह में कैसे जोड़ा जाए।"
 tags: [productivity, cursor-ide, ai, llm]
 publish: true
 thumbnailUrl: "/articles/jupyter-2025-04-25.webp"

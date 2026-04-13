@@ -7,10 +7,10 @@ keywords: [
   "بناء أنظمة تستغني عن المدير",
   "كيف يبني المبدعون ما يستغني عنهم"
 ]
-title: "مبدعون يسخرون من حرفتهم: أمثلة وأنماط"
+title: "مبدعون يسخرون من حرفتهم ويجعلونها أقل ضرورة: أمثلة وأنماط"
 date: 2026-04-11
 slug: "mubdieun-yaskharun-min-hirfatihim-amthila-wa-anmat"
-description: "أمثلة على مبدعين يؤتمتون عملهم أو يقوضون ضرورتهم: كوميديون يسخرون من الكوميديا، ومهندسون يبنون ما قد يستبدل المبرمجين، ولماذا تبدو هذه المفارقة مغرية إلى هذا الحد."
+description: "أمثلة على مبدعين يؤتمتون عملهم أو يقوضون ضرورتهم: كوميديون يسخرون من الكوميديا، ومهندسون يبنون ما قد يستبدل المبرمجين، ولماذا يغرينا هذا التناقض."
 tags: [productivity, ai, llm, cursor-ide, management]
 publish: true
 thumbnailUrl: "/articles/creators-who-mock-their-own-craft-examples.webp"

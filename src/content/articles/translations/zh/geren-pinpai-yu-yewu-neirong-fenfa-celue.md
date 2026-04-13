@@ -1,8 +1,8 @@
 ---
-title: "个人品牌与业务的内容分发策略"
+title: "个人品牌与业务增长的内容分发策略：如何选择首发平台、安排独家或同步发布，并建立长期内容归档与复用体系"
 date: 2026-04-11
 slug: "geren-pinpai-yu-yewu-neirong-fenfa-celue"
-description: "这是我用来把内容分发到不同平台的一套方法：如何选首发平台、决定独家还是同步发布，以及维护长期内容档案。"
+description: "这篇文章总结了我在不同平台分发内容时反复打磨的一套实际方法：先根据视频、文章和社交媒体短帖的特点选择首发平台，再决定内容应保持独家还是跨平台同步发布，并把表现稳定的作品持续整理进长期内容档案和简版资料页，用更低的重复投入维持长期触达与品牌积累，也方便后续把同一主题延展成更多适合不同平台的内容形式。"
 tags: [productivity]
 publish: true
 thumbnailUrl: "/articles/content-distribution-strategy.webp"

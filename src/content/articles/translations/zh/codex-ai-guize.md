@@ -1,7 +1,7 @@
 ---
-title: "Codex 规则：用全局指令、个人 AGENTS.md 和 Mac 应用统一我的开发基线"
+title: "Codex 规则：用全局指令、个人 AGENTS.md 和 Mac 应用统一我的长期开发基线与协作习惯"
 date: 2026-03-21
-description: "我如何用 Codex 自定义指令、个人 AGENTS.md 和 Mac 应用，把跨仓库都适用的编码习惯和协作规则固定下来，让应用与 CLI 默认共享同一套开发基线，减少每次进入新项目时重复解释和重新校准的成本。"
+description: "这篇文章介绍我如何借助 Codex 自定义指令、个人 AGENTS.md 和 Mac 应用，把严格类型、最小改动、显式报错等长期规则固定下来，让不同仓库默认共享同一套开发与协作基线，减少每次进入新项目时重复说明、反复校准和来回纠偏的成本，也避免每个新任务都要从头重新再讲一遍规则。"
 tags: [productivity, codex, openai, ai]
 publish: true
 thumbnailUrl: "/articles/codex-personalization-custom-instructions.jpg"

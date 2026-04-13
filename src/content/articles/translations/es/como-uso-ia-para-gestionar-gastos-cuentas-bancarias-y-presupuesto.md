@@ -1,5 +1,5 @@
 ---
-title: "Cómo uso la IA para gestionar mis gastos, cuentas bancarias y presupuesto"
+title: "Cómo uso la IA para gestionar gastos, cuentas bancarias y presupuesto"
 date: 2026-04-11
 slug: "como-uso-ia-para-gestionar-gastos-cuentas-bancarias-y-presupuesto"
 description: "Mi sistema personal para seguir gastos, controlar cuentas bancarias y gestionar un presupuesto con IA, automatización y herramientas de código abierto."
