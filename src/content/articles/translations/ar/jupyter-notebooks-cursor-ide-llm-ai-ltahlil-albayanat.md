@@ -5,13 +5,13 @@ keywords: [
   "نماذج اللغة الكبيرة مع Jupyter",
   "Cursor IDE لتحليل البيانات",
   "بديل نصي لملفات ipynb",
-  "تصور البيانات في Jupyter",
-  "تحويل دفاتر Jupyter إلى PDF"
+  "التصورات البيانية في Jupyter",
+  "تصدير دفاتر Jupyter إلى PDF"
 ]
 title: "دفاتر Jupyter مع نماذج اللغة الكبيرة داخل Cursor IDE لتحليل البيانات"
 date: 2026-04-11
 slug: "jupyter-notebooks-cursor-ide-llm-ai-ltahlil-albayanat"
-description: "تعرّف إلى طريقة استخدام دفاتر Jupyter داخل Cursor IDE مع الذكاء الاصطناعي لتحليل البيانات، وبناء التصورات، وكتابة التوثيق، وتصدير تقارير احترافية من بيئة واحدة."
+description: "تعرّف إلى استخدام دفاتر Jupyter داخل Cursor IDE مع الذكاء الاصطناعي لتحليل البيانات، وإنشاء تصورات بيانية، وكتابة التوثيق، وتصدير تقارير احترافية من مكان واحد."
 tags: [productivity, cursor-ide, ai, llm]
 publish: true
 thumbnailUrl: "/articles/jupyter-2025-04-25.webp"
@@ -34,20 +34,20 @@ translations:
 
 ## المشكلة: نماذج اللغة الكبيرة ودفاتر Jupyter لا تتفاهم بسهولة
 
-كانت الساعة الثانية صباحًا حين اعترفت أخيرًا بالهزيمة. كان تحليل التسلسل الجيني الذي أعمل عليه متعطلًا لأن مساعدي القائم على نماذج اللغة الكبيرة داخل Cursor IDE لم يستطع التعامل جيدًا مع بنية JSON المعقدة في دفتر Jupyter. وكل محاولة لطلب مساعدة من الذكاء الاصطناعي في شيفرة التصور البصري كانت تنتهي بملف JSON معطوب لا يفتح أصلًا. حاولت إرسال مقتطفات صغيرة بدلًا من الملف كاملًا، لكن ذلك انتزع كل السياق المتعلق بخطوات المعالجة المسبقة. وفي الوقت نفسه كنت أتنقل بين ثلاث نوافذ: Jupyter في المتصفح، وVSCode للبرمجة "الجدية"، ومحرر آخر للتوثيق. هذا المزيج من قيود نماذج اللغة وصيغة Jupyter وتبديل السياق المستمر جعل العمل المعقد على البيانات شبه مستحيل. وحتى مع مجموعات بيانات أبسط مثل Iris، كانت هذه الفجوة الأساسية تقتل إنتاجيتي.
+كانت الساعة الثانية صباحًا حين اعترفت أخيرًا بالهزيمة. تعطّل تحليل التسلسل الجيني الذي أعمل عليه لأن مساعدي القائم على نماذج اللغة الكبيرة داخل Cursor IDE لم يستطع التعامل كما ينبغي مع بنية JSON المعقدة في دفتر Jupyter. وكل محاولة لطلب مساعدة في شيفرة الرسوم البيانية كانت تنتهي بملف JSON معطوب لا يفتح أصلًا. حاولت إرسال مقتطفات صغيرة بدل الملف كاملًا، لكن ذلك جرّد الذكاء الاصطناعي من سياق مهم يتعلق بخطوات المعالجة المسبقة. وفي الوقت نفسه كنت أتنقل بين ثلاث نوافذ: Jupyter في المتصفح، وVS Code للبرمجة "الجدية"، ومحرر آخر للتوثيق. هذا المزيج من قيود نماذج اللغة وصيغة Jupyter وتبديل السياق المستمر جعل العمل المعقد على البيانات شبه مستحيل. وحتى مع مجموعات بيانات أبسط مثل Iris، كانت هذه الفجوة الأساسية تخنق إنتاجيتي.
 
 هل يبدو لك هذا مألوفًا؟ سير العمل في علم البيانات مرهق أصلًا بسبب كثرة التنقل بين الأدوات. فأنت تقفز باستمرار بين:
 - محررات الشيفرة للبرمجة "الجدية"
 - دفاتر Jupyter للاستكشاف
 - أدوات التوثيق لمشاركة النتائج
-- برامج التصور لإنشاء الرسوم
+- أدوات الرسم البياني لإنشاء الرسوم
 - ChatGPT وClaude المفتوحين في المتصفح لطرح الأسئلة
 
 كل انتقال يستهلك قدرًا من طاقتك الذهنية ويضيف احتكاكًا يبطئ الاكتشاف. لكن ماذا لو وُجدت طريقة أفضل؟
 
-> **تفضل شرحًا بالفيديو؟** أعددت عرضًا عمليًا خطوة بخطوة لهذا المسار كاملًا. [شاهد الشرح الكامل لاستخدام Jupyter Notebooks داخل Cursor IDE لتحليل البيانات بالذكاء الاصطناعي](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL) لترى هذه الأساليب أثناء التطبيق.
+> **تفضّل شرحًا بالفيديو؟** أعددت عرضًا عمليًا خطوة بخطوة لهذا المسار كاملًا. [شاهد الشرح الكامل لاستخدام Jupyter Notebooks داخل Cursor IDE لتحليل البيانات بالذكاء الاصطناعي](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL) لترى هذه الأساليب أثناء التطبيق.
 
-[![النتيجة النهائية لسير عمل Jupyter داخل Cursor IDE مع تصور البيانات](/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
+[![النتيجة النهائية لسير عمل Jupyter داخل Cursor IDE مع التصورات البيانية](/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
 ## الاكتشاف: سير عمل موحد لعلم البيانات داخل Cursor IDE
 
@@ -60,9 +60,9 @@ translations:
 
 وبحلول نهاية هذا المقال، سأريك كيف بنيت بيئة متكاملة تسمح لي بأن:
 
-- أحلل مجموعات البيانات وأنشئ التصورات بأقل قدر ممكن من الكتابة اليدوية
+- أحلل مجموعات البيانات وأنشئ تصورات بيانية بأقل قدر ممكن من الكتابة اليدوية
 - أبني رسومًا ثلاثية الأبعاد تكشف أنماطًا خفية في البيانات
-- أوثق نتائجي إلى جانب الشيفرة في صيغة أنيقة وواضحة
+- أوثق نتائجي إلى جانب الشيفرة بصيغة أنيقة وواضحة
 - أصدّر تقارير احترافية بأمر واحد
 - أفعل كل ذلك من دون التنقل بين أدوات متفرقة
 
@@ -81,7 +81,7 @@ translations:
 3. ابحث عن "Jupyter" واختر الإضافة الرسمية
 4. اضغط "Install"
 
-هذه الإضافة هي الجسر بين دفاتر Jupyter التقليدية وبيئة التطوير. كما أنها تفتح لك ميزة مهمة جدًا: القدرة على استخدام علامات صياغية خاصة داخل ملفات Python العادية لإنشاء خلايا قابلة للتنفيذ. وبهذا لا تعود مضطرًا للتعامل مع ملفات `.ipynb` ذات البنية المعقدة، بل يمكنك استخدام ملف Python نصي بسيط مع بعض العلامات الخاصة.
+هذه الإضافة هي الجسر بين دفاتر Jupyter التقليدية وبيئة التطوير. كما أنها تفتح لك ميزة مهمة جدًا: القدرة على استخدام علامات خاصة داخل ملفات Python العادية لإنشاء خلايا قابلة للتنفيذ. وبهذا لا تعود مضطرًا للتعامل مع ملفات `.ipynb` ذات البنية المعقدة، بل يمكنك استخدام ملف Python نصي بسيط مع بعض العلامات الواضحة.
 
 إذا أردت معرفة المزيد عن دفاتر Jupyter وقدراتها، فراجع [الوثائق الرسمية لـ Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html)، فهي تقدم شرحًا شاملًا للميزات وطريقة الاستخدام.
 
@@ -93,32 +93,35 @@ translations:
 python -m venv .venv
 ```
 
-بعد ذلك أنشئ ملف `pyproject.toml` لإدارة الاعتماديات:
+بعد ذلك أنشئ ملف `pyproject.toml` لإدارة الاعتماديات بصورة حديثة ودقيقة:
 
 ```toml
 [build-system]
-requires = ["setuptools>=42.0", "wheel"]
+requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "jupyter-cursor-project"
 version = "0.1.0"
-description = "Data analysis with Jupyter in Cursor IDE"
-   
-[tool.poetry.dependencies]
-python = "^3.9"
-jupyter = "^1.0.0"
-pandas = "^2.1.0"
-numpy = "^1.25.0"
-matplotlib = "^3.8.0"
-seaborn = "^0.13.0"
-scikit-learn = "^1.2.0"
+description = "تحليل البيانات باستخدام Jupyter داخل Cursor IDE"
+requires-python = ">=3.11"
+dependencies = [
+  "jupyter>=1.0.0",
+  "pandas>=2.1.0",
+  "numpy>=1.25.0",
+  "matplotlib>=3.8.0",
+  "seaborn>=0.13.0",
+  "scikit-learn>=1.2.0"
+]
+
+[tool.setuptools]
+py-modules = []
 ```
 
 ثم ثبّت هذه الاعتماديات داخل البيئة الافتراضية:
 
 ```bash
-pip install -e .
+python -m pip install -e .
 ```
 
 تعلمت بالطريقة الصعبة أن تضارب الإصدارات قد يسبب أخطاء غامضة ومربكة. وعندما يقترح عليك الذكاء الاصطناعي شيفرة تستورد مكتبات معينة، تحقق أولًا من أن هذه المكتبات مثبتة فعلًا في بيئتك.
@@ -138,8 +141,8 @@ pip install -e .
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "# My Notebook Title\n",
-        "This is a markdown cell with text."
+        "# عنوان الدفتر\n",
+        "هذه خلية Markdown تحتوي على نص."
       ]
     },
     {
@@ -150,11 +153,11 @@ pip install -e .
         {
           "name": "stdout",
           "output_type": "stream",
-          "text": ["Hello, world!"]
+          "text": ["مرحبًا بالعالم!"]
         }
       ],
       "source": [
-        "print(\"Hello, world!\")"
+        "print(\"مرحبًا بالعالم!\")"
       ]
     }
   ],
@@ -188,17 +191,17 @@ pip install -e .
 
 ```python
 # %%
-# Import necessary libraries
+# استيراد المكتبات الأساسية
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Display settings for better visualization
+# إعدادات العرض لقراءة الجداول والرسوم بوضوح أكبر
 pd.set_option('display.max_columns', None)
 plt.style.use('ggplot')
 
-print("Environment ready for data analysis!")
+print("أصبحت البيئة جاهزة لتحليل البيانات")
 ```
 
 هل ترى العلامة `# %%` في الأعلى؟ هذه هي العلامة السحرية التي تخبر إضافة Jupyter بأن هذا الجزء خلية شيفرة. وعندما تضيفها ستلاحظ ظهور أزرار تشغيل بجانبها. يمكنك تنفيذ هذه الخلية وحدها، وستظهر النتائج مباشرة داخل المحرر.
@@ -208,14 +211,14 @@ print("Environment ready for data analysis!")
 ```python
 # %% [markdown]
 """
-# Iris Dataset Analysis
+# تحليل مجموعة بيانات Iris
 
-This notebook explores the famous Iris flower dataset to understand:
-- The relationships between different flower measurements
-- How these measurements can distinguish between species
-- Which features provide the best separation between species
+يستكشف هذا الدفتر مجموعة بيانات زهرة Iris الشهيرة بهدف فهم:
+- العلاقات بين القياسات المختلفة للزهور
+- كيف تساعد هذه القياسات في التمييز بين الأنواع
+- أي الخصائص تقدم أوضح فصل بين الأنواع
 
-Each flower in the dataset belongs to one of three species:
+تنتمي كل زهرة في هذه المجموعة إلى أحد ثلاثة أنواع:
 1. Setosa
 2. Versicolor
 3. Virginica
@@ -227,12 +230,12 @@ Each flower in the dataset belongs to one of three species:
 وأثناء بناء الدفتر، سنسير وفق هذا النمط:
 - استخدم `# %%` لخلايا الشيفرة
 - استخدم `# %% [markdown]` مع علامات الاقتباس الثلاثية لخلايا التوثيق
-- حافظ على تسلسل منطقي يبدأ بتحميل البيانات ثم الاستكشاف ثم التصور
+- حافظ على تسلسل منطقي يبدأ بتحميل البيانات ثم الاستكشاف ثم الرسوم البيانية
 - وثّق خطواتك ونتائجك أثناء التقدم
 
 ## إطلاق مساعد نماذج اللغة الكبيرة: شريكك في علم البيانات
 
-ما يجعل هذا الأسلوب مختلفًا فعلًا هو الدمج مع AI Composer في Cursor. لا نتحدث هنا عن إكمال تلقائي بسيط، بل عن شريك تعاوني يفهم تحليل البيانات.
+ما يجعل هذا الأسلوب مختلفًا فعلًا هو الدمج مع Composer في Cursor. لا نتحدث هنا عن إكمال تلقائي بسيط، بل عن شريك تعاوني يفهم تحليل البيانات.
 
 ### وضع "Agent Mode": رفيق علم بيانات مدعوم بالذكاء الاصطناعي
 
@@ -240,41 +243,41 @@ Each flower in the dataset belongs to one of three species:
 - يحافظ على السياق عبر عدة تفاعلات
 - يفهم مجموعة البيانات وأهداف التحليل
 - يولد خلايا كاملة مع صياغة Jupyter الصحيحة
-- ينشئ تصورات مناسبة لبياناتك الفعلية
+- ينشئ تصورات بيانية مناسبة لبياناتك الفعلية
 
 لنبدأ بطلب استيراد مجموعة بيانات:
 
 ```text
-Please import the Iris dataset in this notebook format
+استورد مجموعة بيانات Iris في هذا الدفتر باستخدام تنسيق الخلايا نفسه
 ```
 
 سيولد الذكاء الاصطناعي خلية كاملة قابلة للتنفيذ:
 
 ```python
 # %%
-# Import necessary libraries
+# استيراد المكتبات المطلوبة
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 
-# Load the Iris dataset
+# تحميل مجموعة بيانات Iris
 iris = load_iris()
 
-# Convert to pandas DataFrame
+# تحويلها إلى DataFrame
 df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
 df['species'] = iris.target
 
-# Display the first few rows
+# عرض الصفوف الأولى
 print(df.head())
 ```
 
 بمجرد طلب بسيط واحد، تحصل على خلية مكتملة ومنسقة لتحميل البيانات. لا حاجة إلى تذكر الصياغة الدقيقة أو أسماء الدوال؛ الذكاء الاصطناعي يتولى ذلك.
 
-لكن السحر الحقيقي يظهر عندما تطلب تصورًا بصريًا أكثر طموحًا:
+لكن الفائدة الحقيقية تظهر عندما تطلب رسمًا أكثر طموحًا:
 
 ```text
-Generate a 3D scatter plot for the iris dataset showing the three species in different colors
+أنشئ رسمًا مبعثرًا ثلاثي الأبعاد لمجموعة بيانات Iris مع تمييز الأنواع الثلاثة بألوان مختلفة
 ```
 
 عندها ينشئ تصورًا ثلاثي الأبعاد متقدمًا مع حركة دوران:
@@ -283,23 +286,21 @@ Generate a 3D scatter plot for the iris dataset showing the three species in dif
 
 ```python
 # %%
-# Create 3D scatter plot
+# إنشاء رسم مبعثر ثلاثي الأبعاد
 from mpl_toolkits.mplot3d import Axes3D
 
-# Create figure and 3D axis
+# إنشاء الشكل والمحور ثلاثي الأبعاد
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
-# Get the three species
+# أسماء الأنواع والألوان المستخدمة
 species_names = iris.target_names
 colors = ['blue', 'red', 'green']
 
-# Plot each species with a different color
+# رسم كل نوع بلون مختلف
 for species_id, species_name in enumerate(species_names):
-    # Filter data for this species
     species_data = df[df['species'] == species_id]
-    
-    # Plot this species
+
     ax.scatter(
         species_data['sepal length (cm)'],
         species_data['sepal width (cm)'],
@@ -310,14 +311,14 @@ for species_id, species_name in enumerate(species_names):
         alpha=0.8
     )
 
-# Set labels and title
-ax.set_xlabel('Sepal Length (cm)')
-ax.set_ylabel('Sepal Width (cm)')
-ax.set_zlabel('Petal Length (cm)')
-ax.set_title('3D Scatter Plot of Iris Dataset')
+# ضبط العناوين والمحاور
+ax.set_xlabel('طول السبلة (سم)')
+ax.set_ylabel('عرض السبلة (سم)')
+ax.set_zlabel('طول البتلة (سم)')
+ax.set_title('رسم مبعثر ثلاثي الأبعاد لمجموعة Iris')
 ax.legend()
 
-# Add rotation for better visualization
+# إضافة دوران لإظهار البيانات من زوايا متعددة
 for angle in range(0, 360, 5):
     ax.view_init(30, angle)
     plt.draw()
@@ -326,7 +327,7 @@ for angle in range(0, 360, 5):
 plt.show()
 ```
 
-هذا ليس مجرد رسم بسيط، بل تصور ثلاثي الأبعاد متحرك يدور ليعرض البيانات من زوايا متعددة، مع تسميات صحيحة وألوان وتنسيق كامل. وكل ذلك انطلاقًا من طلب واحد.
+هذا ليس مجرد رسم بسيط، بل تصور ثلاثي الأبعاد متحرك يدور ليعرض البيانات من زوايا متعددة، مع عناوين واضحة وألوان مناسبة وتنسيق كامل. وكل ذلك انطلاقًا من طلب واحد.
 
 ## توجيه نموذج اللغة بقواعد Cursor للحصول على شيفرة أفضل
 
@@ -338,15 +339,15 @@ plt.show()
 
 ```text
 <cursorrules_code_style>
-- Prefer functional programming over OOP
-- Use pure functions with clear input/output
-- Use strict typing for all variables and functions
+- فضّل البرمجة الوظيفية على البرمجة الكائنية
+- استخدم دوال نقية بمدخلات ومخرجات واضحة
+- استخدم أنواعًا صريحة لكل المتغيرات والدوال
 </cursorrules_code_style>
 
 <cursorrules_python_specifics>
-- Prefer Pydantic over TypedDict for data models
-- Use pyproject.toml over requirements.txt
-- For complex structures, avoid generic collections
+- فضّل نماذج Pydantic بدل TypedDict للهياكل المعقدة
+- استخدم pyproject.toml بدل requirements.txt
+- تجنب المجموعات العامة عند التعامل مع البنى المركبة
 </cursorrules_python_specifics>
 ```
 
@@ -354,9 +355,9 @@ plt.show()
 
 ```python
 # %%
-# Define a Pydantic model for better type safety
+# تعريف نموذج Pydantic لضبط الأنواع بوضوح
 from pydantic import BaseModel
-from typing import List, Optional
+
 
 class IrisFeatures(BaseModel):
     sepal_length: float
@@ -364,12 +365,13 @@ class IrisFeatures(BaseModel):
     petal_length: float
     petal_width: float
     species: int
-    species_name: Optional[str] = None
+    species_name: str
 
-# Function to convert DataFrame rows to Pydantic models
-def convert_to_models(df: pd.DataFrame) -> List[IrisFeatures]:
-    species_map = {0: "setosa", 1: "versicolor", 2: "virginica"}
-    
+
+# تحويل صفوف DataFrame إلى نماذج قوية الأنواع
+def convert_to_models(df: pd.DataFrame) -> list[IrisFeatures]:
+    species_map = {0: "Setosa", 1: "Versicolor", 2: "Virginica"}
+
     return [
         IrisFeatures(
             sepal_length=row["sepal length (cm)"],
@@ -382,7 +384,8 @@ def convert_to_models(df: pd.DataFrame) -> List[IrisFeatures]:
         for _, row in df.iterrows()
     ]
 
-# Convert a sample for demonstration
+
+# تحويل عينة صغيرة لأغراض العرض
 iris_models = convert_to_models(df.head())
 for model in iris_models:
     print(model)
@@ -400,31 +403,31 @@ for model in iris_models:
 
 ```python
 # %%
-# Get basic information about the dataset
-print("Dataset shape:", df.shape)
-print("\nClass distribution:")
+# عرض معلومات أساسية عن مجموعة البيانات
+print("أبعاد مجموعة البيانات:", df.shape)
+print("\nتوزيع الفئات:")
 print(df['species'].value_counts())
 
-# Create a more readable species column
-species_names = {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
+# إنشاء عمود أوضح لأسماء الأنواع
+species_names = {0: 'Setosa', 1: 'Versicolor', 2: 'Virginica'}
 df['species_name'] = df['species'].map(species_names)
 
-# Display descriptive statistics
-print("\nDescriptive statistics:")
+# عرض الإحصاءات الوصفية
+print("\nالإحصاءات الوصفية:")
 print(df.describe())
 ```
 
-يُظهر هذا أن لدينا 150 عينة، بواقع 50 عينة لكل نوع، مع أربع خصائص تقيس أجزاء مختلفة من الزهرة. والآن لنصوّر كل خاصية لنرى كيف تتغير عبر الأنواع:
+يُظهر هذا أن لدينا 150 عينة، بواقع 50 عينة لكل نوع، مع أربع خصائص تقيس أجزاء مختلفة من الزهرة. والآن لنرسم كل خاصية لنرى كيف تتغير عبر الأنواع:
 
 ```python
 # %%
-# Create boxplots for each feature by species
+# إنشاء رسوم صندوقية لكل خاصية بحسب النوع
 plt.figure(figsize=(12, 10))
 
 for i, feature in enumerate(iris.feature_names):
-    plt.subplot(2, 2, i+1)
+    plt.subplot(2, 2, i + 1)
     sns.boxplot(x='species_name', y=feature, data=df)
-    plt.title(f'Distribution of {feature} by Species')
+    plt.title(f'توزيع {feature} بحسب النوع')
     plt.xticks(rotation=45)
 
 plt.tight_layout()
@@ -439,21 +442,21 @@ plt.show()
 
 ```python
 # %%
-# Create a pairplot to visualize relationships between features
+# إنشاء pairplot لإظهار العلاقات بين الخصائص
 sns.pairplot(df, hue='species_name', height=2.5)
-plt.suptitle('Iris Dataset Pairwise Relationships', y=1.02)
+plt.suptitle('العلاقات الثنائية بين خصائص Iris', y=1.02)
 plt.show()
 ```
 
-هذا المخطط يوضح بسرعة أن:
+هذا الرسم يوضح بسرعة أن:
 
-1. Setosa منفصل تمامًا تقريبًا عن بقية الأنواع في أي رسم يتضمن قياسات البتلات
+1. Setosa منفصل تقريبًا بالكامل عن بقية الأنواع في أي رسم يتضمن قياسات البتلات
 2. هناك بعض التداخل بين Versicolor وVirginica، لكنه لا يمنع تمييزهما
 3. طول البتلة وعرضها يقدمان أوضح فصل بين الأنواع الثلاثة
 
 لكن أكثر تصور لافت كان الرسم الثلاثي الأبعاد الذي أنشأناه سابقًا. فمع دوران المشهد، تظهر زوايا يصبح فيها الفصل بين المجموعات شديد الوضوح، وهو نوع من الفهم يصعب الوصول إليه عبر رسوم ثنائية الأبعاد ثابتة.
 
-إذا أردت التوسع في تقنيات التحليل والتصور، فيمكنك الرجوع إلى [دليل مستخدم scikit-learn](https://scikit-learn.org/stable/user_guide.html)، فهو مرجع ممتاز في التعلم الآلي ومعالجة البيانات.
+إذا أردت التوسع في تقنيات التحليل والتمثيل البصري للبيانات، فيمكنك الرجوع إلى [دليل مستخدم scikit-learn](https://scikit-learn.org/stable/user_guide.html)، فهو مرجع ممتاز في التعلم الآلي ومعالجة البيانات.
 
 ## تجاوز عقبات تكامل Jupyter: تشخيص مشكلات الاعتماديات
 
@@ -467,15 +470,16 @@ ImportError: Seaborn not valid package style
 
 ```python
 # %%
-# Check installed package versions
+# التحقق من إصدارات الحزم المثبتة
 import pkg_resources
-print("Installed packages:")
+
+print("الحزم المثبتة:")
 for package in ['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn']:
     try:
         version = pkg_resources.get_distribution(package).version
         print(f"{package}: {version}")
     except pkg_resources.DistributionNotFound:
-        print(f"{package}: Not installed")
+        print(f"{package}: غير مثبت")
 ```
 
 اكتشفت أن إصدار Seaborn لم يكن متوافقًا مع إصدار NumPy المثبت لدي. وكان الحل استخدام ميزة الطرفية المنبثقة في Cursor:
@@ -484,7 +488,7 @@ for package in ['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn']:
 2. اختر "Pop out terminal"
 3. شغّل أمر التحديث التالي:
    ```bash
-   pip install seaborn --upgrade
+   python -m pip install --upgrade seaborn
    ```
 
 وهنا تحديدًا تظهر قوة Cursor IDE: استطعت حل مشكلة الاعتماديات من دون مغادرة البيئة أو فقدان مكاني في التحليل.
@@ -501,7 +505,7 @@ for package in ['numpy', 'pandas', 'matplotlib', 'seaborn', 'scikit-learn']:
 
 ```python
 # %%
-# Create a scatter plot of petal dimensions
+# إنشاء مخطط تبعثر لأبعاد البتلات
 plt.figure(figsize=(10, 6))
 for species_id, species_name in enumerate(iris.target_names):
     species_data = df[df['species'] == species_id]
@@ -513,9 +517,9 @@ for species_id, species_name in enumerate(iris.target_names):
         s=70
     )
 
-plt.title('Petal Dimensions by Species')
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Petal Width (cm)')
+plt.title('أبعاد البتلات بحسب النوع')
+plt.xlabel('طول البتلة (سم)')
+plt.ylabel('عرض البتلة (سم)')
 plt.legend()
 plt.grid(True, alpha=0.3)
 plt.show()
@@ -527,20 +531,20 @@ plt.show()
 
 ```python
 # %%
-# Calculate correlation matrix
+# حساب مصفوفة الارتباط
 correlation_matrix = df.drop(columns=['species_name']).corr()
 
-# Create a heatmap
+# إنشاء خريطة حرارية
 plt.figure(figsize=(10, 8))
 sns.heatmap(
-    correlation_matrix, 
+    correlation_matrix,
     annot=True,
     cmap='coolwarm',
     linewidths=0.5,
-    vmin=-1, 
+    vmin=-1,
     vmax=1
 )
-plt.title('Correlation Matrix of Iris Features')
+plt.title('مصفوفة ارتباط خصائص Iris')
 plt.show()
 ```
 
@@ -548,7 +552,7 @@ plt.show()
 
 لكن التصور الأكثر لفتًا للنظر ظل الرسم الثلاثي الأبعاد المتحرك الذي أنشأناه سابقًا. فمع انتقاله بين زوايا الرؤية المختلفة، ظهرت لحظات تصبح فيها الأنواع الثلاثة منفصلة تمامًا، كاشفة أنماطًا لا يمكن ملاحظتها بالسهولة نفسها في الرسوم الثنائية الثابتة.
 
-هذه هي قوة التصور التفاعلي للبيانات: إنه يحول الأرقام المجردة إلى فهم بصري مباشر وحسي.
+هذه هي قوة التمثيل البصري التفاعلي للبيانات: إنه يحول الأرقام المجردة إلى فهم بصري مباشر.
 
 ## مشاركة النتائج: من التحليل إلى العرض
 
@@ -581,7 +585,7 @@ plt.figure(figsize=(10, 6), dpi=300)
 
 عندما أنظر إلى هذه الرحلة، يبدو التحول كبيرًا فعلًا. فما كان يتطلب ثلاث أدوات منفصلة وتبديلًا مستمرًا للسياق أصبح يحدث بسلاسة داخل بيئة واحدة. صار سير عملي كالتالي:
 
-1. **الاستكشاف:** أستخدم الذكاء الاصطناعي للمساعدة في تحميل البيانات وإنشاء التصورات الأولى
+1. **الاستكشاف:** أستخدم الذكاء الاصطناعي للمساعدة في تحميل البيانات وإنشاء الرسوم الأولى
 2. **الاكتشاف:** أستفيد من تنفيذ الخلايا في Jupyter لتحسين التحليل بصورة تفاعلية
 3. **التوثيق:** أضيف خلايا `Markdown` لشرح النتائج مباشرة إلى جانب الشيفرة
 4. **المشاركة:** أصدّر التحليل كاملًا كتقرير احترافي بأمر واحد
@@ -598,8 +602,8 @@ plt.figure(figsize=(10, 6), dpi=300)
 
 يلخص الجدول التالي الفروقات الأساسية بين أسلوب Jupyter Notebook التقليدي وبين العمل داخل Cursor IDE باستخدام Jupyter بصيغة نصية:
 
-| الميزة | Jupyter Notebooks التقليدية | Cursor IDE مع Jupyter النصي |
-|--------|------------------------------|------------------------------|
+| الميزة | دفاتر Jupyter التقليدية | Cursor IDE مع Jupyter النصي |
+|--------|--------------------------|------------------------------|
 | **صيغة الملف** | JSON معقدة بصيغة `.ipynb` | ملف Python نصي عادي بصيغة `.py` |
 | **التحكم بالإصدارات** | صعب بسبب الفروقات الكبيرة وتعارضات الدمج | ممتاز ضمن سير عمل Git المعتاد |
 | **قدرات الـ IDE** | محدودة في التنقل وإعادة الهيكلة | قدرات IDE كاملة مثل البحث والاستبدال والتنقل |
@@ -626,4 +630,4 @@ plt.figure(figsize=(10, 6), dpi=300)
 
 [![فيديو Jupyter Notebooks داخل Cursor IDE](/articles/assets/jupyter-notebooks/video-thumbnail.webp)](https://youtu.be/eOSfeBIBzr0?si=M-DfJWF5y1WLt-vL)
 
-يعرض الفيديو كل خطوة عمليًا: إعداد دفاتر Jupyter داخل Cursor IDE، واستخدام التكامل مع الذكاء الاصطناعي، وإنشاء التصورات، ثم تصدير النتائج، وكل ذلك من دون مغادرة بيئة العمل نفسها.
+يعرض الفيديو كل خطوة عمليًا: إعداد دفاتر Jupyter داخل Cursor IDE، واستخدام التكامل مع الذكاء الاصطناعي، وإنشاء التصورات البيانية، ثم تصدير النتائج، وكل ذلك من دون مغادرة بيئة العمل نفسها.
