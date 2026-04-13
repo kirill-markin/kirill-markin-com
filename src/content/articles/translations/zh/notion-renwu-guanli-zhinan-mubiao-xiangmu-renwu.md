@@ -7,10 +7,10 @@ keywords: [
   "notion 任务排序",
   "jobs to be done"
 ]
-title: "Notion 任务管理指南：一个数据库管理目标、项目和任务"
+title: "我的完整 Notion 任务管理指南：用一个数据库统一管理人生方向、目标、项目、日常任务与收件箱工作流"
 date: 2026-04-11
 slug: "notion-renwu-guanli-zhinan-mubiao-xiangmu-renwu"
-description: "我长期使用的一套 Notion 任务系统：把目标、项目、日常任务和零散想法放进同一个数据库，用层级结构、收件箱处理和 S0-S4 排序避免任务雪崩。"
+description: "这套经过长期实践的 Notion 任务系统，把人生方向、季度目标、项目计划、日常任务和零散想法都放进同一个数据库，再通过父子层级、收件箱清理和 S0-S4 优先级排序，把每天该做的事从杂乱待办中筛出来，减少上下文切换，也避免任务越积越多时的失控感，适合想用一套简单结构长期管理个人事务的人。"
 tags: [productivity, notion, task-management]
 publish: true
 thumbnailUrl: "/articles/notion-task-manager-guide.webp"

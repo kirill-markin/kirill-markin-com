@@ -1,7 +1,7 @@
 ---
-title: "Claude Code 规则：用 CLAUDE.md 固定 AI 的长期编码习惯与项目边界"
+title: "Claude Code 规则：用 CLAUDE.md 固定 AI 的长期编码习惯、项目边界与协作方式"
 date: 2026-03-21
-description: "我把长期有效的 Claude Code 规则写进 `~/.claude/CLAUDE.md`，把个人偏好和项目约束分层管理，让 AI 在不同仓库里都按同一套方式工作，少掉一遍遍重申严格类型、最小改动和不要乱加兜底逻辑的成本。"
+description: "我把长期有效的 Claude Code 规则写进 `~/.claude/CLAUDE.md`，把个人偏好和项目约束分层管理，让 AI 在不同仓库和新会话里都按同一套方式工作，减少反复重申严格类型、最小改动和不要乱加兜底逻辑的成本，也让项目级 CLAUDE.md 只保留仓库特有架构和命令。"
 tags: [productivity, claude-code, ai, llm]
 publish: true
 thumbnailUrl: "/articles/claude-code-global-rules-terminal.jpg"

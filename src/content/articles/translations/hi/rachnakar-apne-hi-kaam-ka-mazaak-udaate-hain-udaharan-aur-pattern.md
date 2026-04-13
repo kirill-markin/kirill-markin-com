@@ -10,7 +10,7 @@ keywords: [
 title: "रचनाकार अपने ही काम का मज़ाक उड़ाते हैं: उदाहरण और पैटर्न"
 date: 2026-04-11
 slug: "rachnakar-apne-hi-kaam-ka-mazaak-udaate-hain-udaharan-aur-pattern"
-description: "ऐसे रचनाकारों के उदाहरण जो अपने ही काम को अप्रासंगिक बना देते हैं: कॉमेडियन जो कॉमेडी को भीतर से काटते हैं, इंजीनियर जो AI से प्रोग्रामरों की जगह लेने वाली प्रणालियाँ बनाते हैं।"
+description: "उन रचनाकारों के उदाहरण जो अपने ही काम को अप्रासंगिक बनाते हैं: कॉमेडियन कॉमेडी पर कटाक्ष करते हैं, इंजीनियर AI से प्रोग्रामरों को बदलते हैं।"
 tags: [productivity, ai, llm, cursor-ide, management]
 publish: true
 thumbnailUrl: "/articles/creators-who-mock-their-own-craft-examples.webp"

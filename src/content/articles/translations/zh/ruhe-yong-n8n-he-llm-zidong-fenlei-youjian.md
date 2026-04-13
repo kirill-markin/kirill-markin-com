@@ -11,10 +11,10 @@ keywords: [
   "自动邮件标签",
   "邮件效率自动化"
 ]
-title: "如何用 n8n 和 LLM 自动分类邮件"
+title: "如何用 n8n、GPT-5-nano 和 LLM 自动分类个人邮件：三个月实测稳定的低成本实战工作流"
 date: 2026-04-11
 slug: "ruhe-yong-n8n-he-llm-zidong-fenlei-youjian"
-description: "我用 n8n 和 GPT-5-nano 把个人邮件自动分成归档、阅读和回复三类。跑了三个月，成本很低，也确实帮我省下了每天整理收件箱的时间。"
+description: "我用 n8n 和 GPT-5-nano 搭了一个自动分类个人邮件的工作流，让 AI 把每封邮件分到归档、阅读或回复三类。它已经稳定跑了三个月，成本很低，逻辑也足够简单，不是什么纸上谈兵的概念，确实帮我省下了每天手动整理收件箱、判断优先级和处理杂乱邮件的时间，也让我更少漏掉真正需要及时处理的邮件。"
 tags: [productivity, ai]
 publish: true
 thumbnailUrl: "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp"
