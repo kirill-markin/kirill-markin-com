@@ -33,12 +33,12 @@ export const pay = {
         metaTitle: '安全支付选项 | AI 战略咨询、顾问合作、项目支持与国际客户服务 | Kirill Markin 官网',
         metaDescription: 'Kirill Markin 提供的 AI 战略咨询、顾问合作与项目支持服务均可安全付款。您可以根据自己的偏好选择受信赖的支付方式，并通过可靠的国际支付平台顺畅完成交易，适用于个人咨询、团队合作、阶段项目、长期顾问支持以及跨境客户的专业服务付款需求，帮助您清晰安排咨询、执行与后续合作费用。',
         stripe: {
-            title: '使用Stripe支付',
-            description: '通过 Stripe 使用信用卡或借记卡进行快速、安全的支付处理',
+            title: '使用 Stripe 支付',
+            description: '通过 Stripe 使用信用卡或借记卡快速、安全地完成支付',
             metaTitle: 'Stripe 安全支付 | AI 战略咨询、顾问合作与项目支持 | Kirill Markin 官网',
             metaDescription: '通过 Stripe 的受保护支付处理，为 Kirill Markin 的 AI 战略咨询、顾问合作与项目支持服务安全付款。您可以使用信用卡、借记卡或其他受支持的支付方式，并借助可靠的平台顺畅完成个人咨询、项目合作、长期顾问服务及跨境业务相关费用的支付流程，让每笔专业服务结算都更清晰省心。',
         },
-        stripePageTitle: '通过 STRIPE 安全支付',
+        stripePageTitle: '通过 Stripe 安全支付',
         formLoading: '正在加载安全支付表单...',
     },
     ar: {

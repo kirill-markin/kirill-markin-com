@@ -3,6 +3,7 @@ import { PathSegmentsMap, SubPathSegmentsMap } from './types';
 
 /**
  * Path segment mapping for URLs in different languages
+ * SEO-sensitive public URL contract: do not change these values unless the user explicitly requests a URL migration/change.
  */
 export const PATH_SEGMENTS: PathSegmentsMap = {
     articles: {
@@ -37,6 +38,7 @@ export const PATH_SEGMENTS: PathSegmentsMap = {
 
 /**
  * Sub-path segment mapping for URLs in different languages
+ * SEO-sensitive public URL contract: do not change these values unless the user explicitly requests a URL migration/change.
  */
 export const SUB_PATH_SEGMENTS: SubPathSegmentsMap = {
     meet: {

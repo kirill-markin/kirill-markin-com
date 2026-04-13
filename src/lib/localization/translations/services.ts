@@ -33,14 +33,14 @@ export const services = {
     },
     es: {
         title: 'Servicios',
-        description: 'Servicios especializados de estrategia e implementación de IA para particulares, empresas y profesionales de los medios. Desde orientación profesional hasta la transformación empresarial con IA, ofrezco soluciones expertas adaptadas a sus necesidades.',
+        description: 'Servicios especializados de estrategia e implementación de IA para particulares, empresas, periodistas y otros profesionales de medios. Desde la orientación profesional hasta la transformación empresarial con IA, ofrezco soluciones expertas adaptadas a sus necesidades.',
         metaTitle: 'Servicios de estrategia e implementación de IA | Kirill Markin',
         metaDescription: 'Consultoría estratégica de IA para empresas. Integro IA, aprendizaje automático y ciencia de datos para impulsar crecimiento, eficiencia e innovación.',
         serviceCategories: {
             all: 'Todos los servicios',
             people: 'Para particulares',
             business: 'Para empresas',
-            journalists: 'Para medios',
+            journalists: 'Para periodistas y profesionales de medios',
             police: 'Para la policía',
         },
         categoriesLabel: 'Categorías de servicios',
@@ -54,8 +54,8 @@ export const services = {
                 metaDescription: 'Servicios integrales de estrategia de IA para empresas. Incluyen análisis de datos, integración de IA y experiencia en transformación digital para su negocio.',
             },
             journalists: {
-                metaTitle: 'IA para medios | Consultoría para periodistas | Kirill Markin',
-                metaDescription: 'Consultoría experta de IA para profesionales de los medios y periodistas. Información técnica, ponencias y colaboración en artículos sobre temas de IA.',
+                metaTitle: 'IA para periodistas y medios | Consultoría experta | Kirill Markin',
+                metaDescription: 'Consultoría experta de IA para periodistas y otros profesionales de medios. Incluye contexto técnico, ponencias y colaboración en artículos sobre IA.',
             },
             police: {
                 metaTitle: 'IA para la policía | Consultoría tecnológica | Kirill Markin',

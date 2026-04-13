@@ -36,7 +36,7 @@ export const footer = {
         social: 'Redes sociales',
         media: 'Medios',
         other: 'Otros',
-        legalEntity: 'Entidad jurídica',
+        legalEntity: 'Información legal',
         talkToKirill: 'Habla con Kirill',
         copyright: '© {year} Kirill Markin',
         socialNetworks: {

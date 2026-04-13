@@ -15,7 +15,7 @@ export const personalInfo = {
         tertiaryTitle: '人工智能与数据工程师',
     },
     ar: {
-        jobTitle: 'كبير مسؤولي التكنولوجيا',
+        jobTitle: 'المدير التنفيذي للتقنية',
         secondaryTitle: 'المؤسس السابق لـ ozma.io',
         tertiaryTitle: 'مهندس الذكاء الاصطناعي والبيانات',
     },
