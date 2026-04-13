@@ -1,7 +1,7 @@
 ---
-title: "Cursor IDE 的 AI 规则：如何用全局规范为专业开发场景建立稳定一致的 AI 编码约束体系"
+title: "Cursor IDE 的 AI 规则优化实践指南：如何建立稳定一致、可复用的 AI 编码规范体系与流程"
 date: 2025-05-08
-description: "这篇文章完整介绍我在 Cursor IDE 中长期使用的一套全局 AI 规则，说明它们怎样作为所有项目的基础约束，与仓库级规则和按上下文触发的规则协同工作，帮助 AI 在代码风格、类型约束、错误处理、调试方式与开发流程上长期保持稳定、一致、可预期的输出质量，并减少无关上下文对生成结果的干扰。"
+description: "这篇文章介绍我在 Cursor IDE 中长期使用的一套 AI 全局规则，并说明它们如何与仓库级规则、上下文规则协同工作，让 AI 在代码风格、类型约束、错误处理与开发流程上持续保持更稳定、更一致的输出，从而减少反复修正、统一团队习惯，并在多项目场景中提升日常开发效率与协作质量。"
 tags: ["productivity", "cursor-ide", "ai", "llm"]
 publish: true
 thumbnailUrl: "/articles/cursor-ide-rules-for-ai.webp"
@@ -20,7 +20,7 @@ translations:
     slug: "qawaid-cursor-ide-lilthakaa-alistinaei-tahseen-barmaja"
 ---
 
-# Cursor IDE 的 AI 规则：为专业 AI 助手准备的指南
+# Cursor IDE 的 AI 规则：如何建立稳定一致的 AI 编码规范
 
 Cursor IDE 目前支持三层规则体系：
 
@@ -30,13 +30,15 @@ Cursor IDE 目前支持三层规则体系：
 
 这篇文章里，我分享的是自己的基础层规则，也就是我放在 Cursor IDE 全局设置中的那一套。它们构成了我所有开发工作的底层约束。再配合仓库级规则和动态规则，就能形成一套既能维持代码质量、又能让开发习惯保持一致的完整系统。
 
-> **更喜欢视频教程？** 我录制了一期完整视频，详细演示这整套 Cursor 规则系统的搭建方式。[观看 Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](https://www.youtube.com/watch?v=gw8otRr2zpw)，可以逐步看到这些方法是如何落地的。
+> **想看视频版？** 我录制了一期完整演示，详细讲解这套 Cursor 规则系统是怎么搭起来的。[点这里观看视频《Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)》](https://www.youtube.com/watch?v=gw8otRr2zpw)，可以直接看到这些方法一步步落地的过程。
 
 [![Cursor IDE 规则配置与实际使用演示](/articles/cursor-ide-rules-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 ## 如何配置 Cursor 规则，获得更好的 AI 编码表现
 
 Cursor -> Settings -> Cursor Settings -> Rules for AI:
+
+下面这段规则我保留英文原文，方便你直接复制到 Cursor 设置里使用：
 
 ```markdown
 # Global Rules
@@ -117,9 +119,9 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 ![Cursor IDE 设置面板中的全局规则配置](/articles/cursor-ide-rules-global.webp)
 
-## 用好多层 Cursor 项目规则，最大化效率
+## 用多层 Cursor 项目规则提高效率
 
-在使用 Cursor IDE 的 AI 功能时，我发现关键在于把三层项目规则搭配好。核心思路其实只有一个：尽量减少每次对话里发送给语言模型的 token 数量。上下文占用越少，模型就越有空间生成高质量回答。
+在使用 Cursor IDE 的 AI 功能时，我越来越确信，关键不在于规则写得有多长，而在于这三层规则是否分工清楚。核心原则其实只有一个：尽量减少每次对话里发送给语言模型的 `token` 数量。无关上下文越少，模型就越有余量去生成更高质量的结果。
 
 如果你想进一步了解 Cursor 中项目规则的工作方式，可以参考 [Cursor 官方关于 Rules for AI 的文档](https://docs.cursor.com/context/rules)。
 
@@ -132,7 +134,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
    当我发现某些模式只适用于特定代码库，或者希望把对 AI 的要求共享给团队成员时，我就会把这些规则移到 `.cursor/index.mdc`，并将 Rule Type 设为 "Always"。这样既能形成团队共识，也能让我的全局设置保持精简。（补充说明：旧版 `.cursorrules` 仍然可用，但已经不再推荐。）
 
 3. **必要时再拆成上下文感知规则**  
-   如果 `.cursorrules` 文件变得过于臃肿，我就会进一步拆成 `.cursor/*.mdc` 文件。这样做可以降低 token 消耗，因为只有相关规则才会在需要时加载。你可以把它理解成：不给模型塞一堆无关说明，而是让它把更多注意力留给当前任务。
+   如果 `.cursorrules` 文件变得过于臃肿，我就会进一步拆成 `.cursor/*.mdc` 文件。这样可以降低 `token` 消耗，因为只有相关规则才会在需要时加载。你可以把它理解成：别让模型背一整本手册，而是只在合适的时候把合适的说明递给它。
 
 我的目标很简单：在和 AI 助手的每一轮对话中，只给它刚好足够、有实际价值的上下文，而不是浪费它的容量去记住眼下不需要的信息。
 
@@ -177,7 +179,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 这里有一个很重要的限制：上下文感知的 `.mdc` 规则，在新对话开始时效果最好。如果你已经在 Cursor IDE 中进行到一半，突然又需要应用某条专门规则，比如数据库查询规范，AI 可能不会自动读取对应的规则文件。原因在于 Cursor 已经为当前对话建立了上下文，它不一定会在中途重新评估应该加载哪些规则。
 
-遇到这种情况时，我会直接点明需要遵循的规则，比如：“Please follow our database querying guidelines for this task.” 这样会提示 Cursor 去查找并应用相关规则。对于那些高度依赖特定规范的关键任务，我通常更倾向于直接开启一轮新对话，这样 Cursor 就能从一开始自动识别并应用所有相关的上下文规则。
+遇到这种情况时，我会直接点明需要遵循的规则，比如：`请按我们项目的数据库查询规范处理这个任务。` 这样能明确提示 Cursor 去查找并应用对应规则。对于那些高度依赖特定规范的关键任务，我通常更倾向于直接开启一轮新对话，这样 Cursor 就能从一开始自动识别并应用所有相关的上下文规则。
 
 ## Cursor 项目规则的演变：从全局设置到上下文感知系统
 
@@ -219,7 +221,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 | **可移植性** | 每台设备都要手动配置 | 克隆仓库后自动获得 | 克隆仓库后自动获得 |
 | **旧方案兼容** | 不适用 | `.cursorrules` 仍可用，但属于旧方案 | 不适用 |
 
-这种多层结构，让你既能保持规则一致性，又能更高效地利用 token。
+这种多层结构，既能让规则保持一致，也能更高效地使用 `token`。
 
 ## 如何把 Cursor 项目规则真正落到日常开发流程中
 
@@ -237,7 +239,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 #### 如何更高效地管理本地 Cursor IDE 设置
 
-关键在于找到平衡点：规则太少，AI 无法充分理解你的偏好；规则太多，又会把 token 浪费在当前并不相关的上下文上。
+关键在于找到平衡点：规则太少，AI 无法充分理解你的偏好；规则太多，又会把 `token` 浪费在当前并不相关的上下文上。
 
 还需要注意一点，这些设置是保存在你本地 Cursor IDE 安装里的。你的同事默认看不到，除非他们也在自己的机器上做同样配置。另外，如果你会在多台电脑上使用 Cursor IDE，比如分开使用工作账号和个人账号，那就需要在每个安装环境里分别配置一次。
 
@@ -250,13 +252,13 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 3. 从简短的项目概述开始，比如项目做什么、使用什么技术栈
 4. 记录 AI 需要理解的架构模式
 5. 补充这个项目特有的代码约定
-6. 为了更高的 token 使用效率，尽量把文件控制在 100 行以内
+6. 为了提高 `token` 使用效率，尽量把文件控制在 100 行以内
 
 补充说明：旧版 `.cursorrules` 仍然可用，但已经不是推荐方式。
 
 #### 仓库级 Cursor 项目规则模板
 
-下面是一个可以直接起步的最小模板：
+下面这个最小模板保留英文，方便你直接复制后再按项目实际情况改写：
 
 ```markdown
 # Project: [Project Name]
@@ -293,11 +295,11 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 4. 添加自定义规则内容
 5. 保存后，Cursor 会在仓库中自动创建对应的 `.mdc` 文件
 
-两种方法都可行。手动创建能让你更细致地控制文件结构，而使用 Cursor 界面则会更有引导性。
+两种方法都可行。手动创建更方便你精确控制文件结构，而 Cursor 界面则更适合按步骤完成配置。
 
 #### React 开发中的规则文件示例
 
-例如，一个 React 组件规则文件可以长这样：
+下面是一个 React 组件规则文件示例。这里保留英文写法，方便直接复用：
 
 ```markdown
 # React Component Guidelines
@@ -328,7 +330,7 @@ These rules apply when working with React components in this project.
 - 自动补上合适的类型定义
 - 保持一致的命名约定
 
-这会直接转化成更少的代码审查意见，也减少了花在风格修正上的时间。就有一个项目在引入这些 Cursor 项目规则后，和代码风格相关的 PR 评论减少了 50%。
+这会直接转化成更少的代码审查意见，也减少了花在风格修正上的时间。有个项目在引入这些 Cursor 项目规则后，PR 中与代码风格相关的评论减少了 50%。
 
 ### 共享的 Cursor 项目规则如何改善团队协作
 
@@ -345,7 +347,7 @@ These rules apply when working with React components in this project.
 数据本身已经很能说明问题：
 
 - 向新成员解释代码规范所花的时间减少了大约 60%
-- 首次提交 PR 的速度提升了大约 35%，返工轮次也更少
+- 首次提交 PR 的速度提升了大约 35%，后续返工轮次也更少
 - 因为“修风格”产生的 commit 数量减少了大约 40%
 
 但我认为最有价值的指标，其实是认知负担下降了。把风格层面的事情交给 AI 后，开发者就能把更多心力放在真正的问题上，而不是反复记忆格式和约定。
@@ -361,7 +363,7 @@ These rules apply when working with React components in this project.
 #### 测试规则（`test-guidelines.mdc`）
 
 - 尊重仓库现有的测试策略
-- 优先使用集成测试、端到端测试和 smoke test，而不是默认新增单元测试
+- 优先使用集成测试、端到端测试和冒烟测试（smoke test），而不是默认新增单元测试
 - 只在少数情况下使用单元测试，主要针对稳定数据集或纯数据转换
 - 不要为了提高覆盖率数字而新增单元测试
 - 只要真实调用可行，就尽量避免使用 mock
@@ -382,7 +384,7 @@ These rules apply when working with React components in this project.
 
 通过这样的拆分，每个文件都能保持聚焦，并且只会在与你当前任务相关时才激活。
 
-### 如何优化 Cursor 项目规则中的 token 使用
+### 如何优化 Cursor 项目规则中的 `token` 使用
 
 为了尽可能提高 AI 上下文窗口的利用效率，我通常会注意下面几点：
 
@@ -401,7 +403,7 @@ These rules apply when working with React components in this project.
 1. **规则冲突**：看看不同层级之间是否存在互相矛盾的要求
 2. **过于笼统**：把 Cursor 项目规则写得更具体一些，最好带上明确例子
 3. **过于狭窄**：过度局限的规则可能无法泛化到相似场景
-4. **token 限制**：如果 Cursor 项目规则被截断，就需要重新排序并精简
+4. **`token` 限制**：如果 Cursor 项目规则被截断，就需要重新排序并精简
 5. **上下文缺失**：AI 可能需要额外的文件上下文，才能正确应用规则
 6. **规则过载**：如果同一轮对话里同时出现太多 Cursor 项目规则，模型会更难同时记住并遵守它们
 
@@ -419,23 +421,23 @@ These rules apply when working with React components in this project.
 
 ### Token 经济：在所有工具中都尽量节省上下文
 
-这些方法背后有一个共同原则：**想要得到更好的结果，就必须尽量节省 token。** 不管你使用的是哪种 AI 编码助手，关键都在于给模型提供刚刚好的上下文，而不是让它淹没在冗长说明里。
+这些方法背后有一个共同原则：**想要得到更好的结果，就必须尽量节省 `token`。** 不管你使用的是哪种 AI 编码助手，关键都在于给模型提供刚刚好的上下文，而不是让它淹没在冗长说明里。
 
-在所有基于大语言模型的工具中，token 经济遵循同样的逻辑：
+在所有基于大语言模型的工具中，`token` 这笔“上下文预算”都遵循同样的逻辑：
 
-1. 你写进指令里的每一个词都会消耗 token
-2. 用于指令的 token 越多，留给代码理解的上下文就越少
+1. 你写进指令里的每一个词都会消耗 `token`
+2. 用于指令的 `token` 越多，留给代码理解的上下文就越少
 3. 指导内容一旦过度冗长，收益就会开始递减
 
-所以，无论你使用的是 Cursor 的三层规则系统，还是别的工具提供的配置方式，都应该追求准确和简洁。把指导集中在真正重要的模式与偏好上，其余部分交给 AI 处理。
+所以，无论你使用的是 Cursor 的三层规则系统，还是别的工具提供的配置方式，都应该追求准确和简洁。把指导集中在真正重要的模式与偏好上，其余部分交给 AI 处理就好。
 
-真正的优势，不在于哪个工具提供了最多的自定义选项，而在于你是否能有意识地使用这些选项，把自己的预期清楚表达出来，同时避免把 token 浪费在不必要的冗长内容上。
+真正的优势，不在于哪个工具提供了最多的自定义选项，而在于你是否能有意识地使用这些选项，把自己的预期清楚表达出来，同时避免把 `token` 浪费在不必要的冗长内容上。
 
 ## 视频教程：完整演示 Cursor IDE 规则的实现过程
 
 如果你更习惯通过视频学习，我也制作了一期完整教程，演示这套三层 Cursor 规则系统的完整实现方式：
 
-[![Ultimate Cursor AI IDE Rules Guide: All 5 Levels and .cursorrules (2025)](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
+[![Cursor IDE 规则完整视频教程封面](/articles/cursor-ide-rules-video-tutorial.webp)](https://www.youtube.com/watch?v=gw8otRr2zpw)
 
 视频中会演示：
 
@@ -443,11 +445,11 @@ These rules apply when working with React components in this project.
 - 如何结合真实案例创建仓库专属的 `.cursorrules` 文件
 - 如何为专门任务实现上下文感知的 `.cursor/*.mdc` 文件
 - 这几个层级如何协同工作，从而优化 AI 辅助效果
-- 如何排查常见问题，以及如何优化 token 使用
+- 如何排查常见问题，以及如何优化 `token` 使用
 
 你会看到整套工作流如何从初始设置一路延伸到进阶的多层配置，也能更直观地理解这种方式会如何改变你与 AI 助手的协作方式。
 
-如果你还想看面向其他编码代理的配套文章，也可以继续读这里：
+如果你还想看面向其他编码代理的配套文章，也可以继续往下看：
 
-- Claude Code Rules for AI: [https://kirill-markin.com/articles/claude-code-rules-for-ai/](https://kirill-markin.com/articles/claude-code-rules-for-ai/)
-- Codex Rules for AI: [https://kirill-markin.com/articles/codex-rules-for-ai/](https://kirill-markin.com/articles/codex-rules-for-ai/)
+- Claude Code 相关文章：[Claude Code Rules for AI](https://kirill-markin.com/articles/claude-code-rules-for-ai/)
+- Codex 相关文章：[Codex Rules for AI](https://kirill-markin.com/articles/codex-rules-for-ai/)

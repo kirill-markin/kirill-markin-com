@@ -8,10 +8,10 @@ keywords: [
   "jtbd",
   "jobs to be done"
 ]
-title: "Notion 任务管理指南：一个数据库装下目标、项目与日常任务"
+title: "Notion 任务管理完整实战指南：用一个数据库统筹人生方向、季度目标、项目、日常任务与收件箱工作流"
 date: 2026-04-11
 slug: "notion-renwu-guanli-zhinan-mubiao-xiangmu-renwu"
-description: "我长期使用的一套 Notion 任务管理系统：把人生方向、季度目标、项目、日常任务和零散想法都放进同一个数据库，再用父子层级、收件箱处理流程和 S0-S4 排序位减少切换成本，避免人为截止日期带来的任务雪崩。"
+description: "我长期使用的一套 Notion 任务管理系统：把人生方向、季度目标、项目、日常任务和零散想法都放进同一个数据库，再借助父子层级、收件箱处理流程与 S0-S4 排序位减少切换成本，避免人为截止日期引发任务雪崩，让系统在忙碌时期也能保持清晰、稳定、可执行，并持续推进真正重要的事与长期节奏。"
 tags: [productivity, notion, task-management]
 publish: true
 thumbnailUrl: "/articles/notion-task-manager-guide.webp"
