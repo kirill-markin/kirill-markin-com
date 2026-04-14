@@ -1,8 +1,8 @@
 ---
-title: "为什么我在 Flashcards Open Source App 里用 SQL 风格 DSL 替掉了 17 个智能体工具"
+title: "为什么我用一种类 SQL 的 DSL 取代了 17 个智能体工具，让 LLM 的查询、写入和过滤都更简单"
 date: 2026-04-11
 slug: "yige-lei-sql-dsl-qudai-17-ge-agent-gongju"
-description: "我在 Flashcards Open Source App 里把 17 个分散的智能体工具收敛成一个 SQL 风格的 DSL 接口，让内部和外部 LLM 更容易学会查询、更新、删除、过滤和汇总，也让这套面向智能体的 API 更一致、更好教、更少噪音，并显著降低文档维护和工具选择成本。"
+description: "我在 Flashcards Open Source App 里把 17 个分散的智能体工具收敛成一个类 SQL 的 DSL 接口，让内部和外部 LLM 更容易学会查询、更新、删除、过滤和汇总，也让这套面向智能体的 API 更一致、更容易上手，同时显著减少提示词负担和工具选择成本。"
 tags: [productivity, ai, llm]
 publish: true
 thumbnailUrl: "/articles/sql-like-dsl-for-ai-agents.webp"
@@ -31,7 +31,7 @@ translations:
     slug: "istabdalat-17-adat-lilwukala-bi-dsl-shabih-bisql"
 ---
 
-# 为什么我用一种 SQL 风格的 DSL 替掉了 17 个智能体工具
+# 为什么我用一种类 SQL 的 DSL 取代了 17 个智能体工具
 
 上周二，我在重读 Flashcards Open Source App 的智能体文档时，又撞上了那种熟悉的后端工程师时刻：一切都很规整、类型齐全、定义明确，同时也让人有点受不了。
 

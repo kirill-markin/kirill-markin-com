@@ -23,11 +23,11 @@ translations:
 
 # Reglas de Codex: instrucciones globales, AGENTS.md y app para Mac
 
-Solo llevo usando Codex en serio cosa de un mes, sobre todo desde que GPT-5.4 hizo que me resultara bastante más útil. Así que este no es un artículo de "cinco años de sabiduría curtida en mil batallas". La observación es mucho más simple: Codex empezó a funcionarme de verdad cuando dejé de tratarlo como otra interfaz vistosa para escribir prompts y empecé a darle instrucciones estables desde el arranque.
+Solo llevo usando Codex en serio cosa de un mes, sobre todo desde que GPT-5.4 hizo que me resultara bastante más útil. Así que este no es un artículo de "cinco años de sabiduría curtida en mil batallas". La observación es mucho más simple: Codex empezó a funcionarme de verdad cuando dejé de tratarlo como otro cuadro vistoso para escribir instrucciones y empecé a darle pautas estables desde el arranque.
 
 OpenAI ofrece tanto Codex CLI como la app para Mac. En mi caso, ambos parten de la misma idea general: instrucciones persistentes, `AGENTS.md`, reglas del repositorio y un agente que arranca con mis patrones de desarrollo ya cargados. Prefiero la app para Mac porque, sencillamente, me resulta bastante más agradable que sumar otra ventana de terminal.
 
-Codex CLI ya hace bien esa parte. La app para Mac me da una capa más agradable sobre el mismo flujo de trabajo de Codex. Yo sigo queriendo las mismas pautas persistentes: tipado estricto, diffs mínimos, errores explícitos, nada de soluciones de respaldo añadidas por si acaso y docstrings en el código en vez de explicaciones desperdigadas. No quiero tener que enseñarle todo eso a Codex desde cero en cada tarea nueva. Quiero que esa base ya esté ahí desde el primer momento.
+Codex CLI ya hace bien esa parte. La app para Mac me da una capa más agradable sobre el mismo flujo de trabajo de Codex. Yo sigo queriendo las mismas pautas persistentes: tipado estricto, diffs mínimos, errores explícitos, nada de planes B añadidos por si acaso y docstrings en el código en vez de explicaciones desperdigadas. No quiero tener que enseñarle todo eso a Codex desde cero en cada tarea nueva. Quiero que esa base ya esté ahí desde el primer momento.
 
 En la práctica, eso está en `Settings -> Personalization -> Custom instructions`.
 
@@ -56,6 +56,8 @@ Aquí está la pantalla:
 ## Las reglas de Codex que quiero tener cargadas en todas partes
 
 Esta es la base que quiero que Codex traiga a cualquier repositorio antes de ver instrucciones específicas del proyecto.
+
+Lo dejo en inglés porque es el contenido literal de mi `AGENTS.md` personal y está pensado para reutilizarse tal cual. En la práctica, el bloque se divide en estilo de código, manejo de errores, herramientas y dependencias, pruebas, flujo de trabajo y documentación.
 
 ```markdown
 # Personal AGENTS.md
@@ -132,7 +134,7 @@ Existe para eliminar fricción repetida:
 
 - que Codex se invente refactorizaciones amplias cuando yo quería un parche mínimo
 - que Codex oculte la incertidumbre detrás de un lenguaje demasiado blando
-- que Codex añada soluciones de respaldo "por seguridad"
+- que Codex añada un plan B "por seguridad"
 - que Codex se salte convenciones del repositorio porque la petición estaba demasiado acotada
 
 Una vez cargadas estas reglas, la sesión se vuelve mucho más tranquila.
@@ -164,7 +166,7 @@ Versión corta:
 
 Si mezclo esas dos cosas, acabo con duplicación, deriva y un archivo que nadie quiere mantener.
 
-Esa es una de las razones por las que Codex me funciona mejor de lo que esperaba. La jerarquía de instrucciones es explícita. Se parece menos a un juego de prompts ocultos y más a un sistema real.
+Esa es una de las razones por las que Codex me funciona mejor de lo que esperaba. La jerarquía de instrucciones es explícita. Se parece menos a un juego de instrucciones ocultas y más a un sistema real.
 
 ## La app para Mac es la interfaz principal, y eso importa
 
@@ -199,7 +201,7 @@ Si abro un repositorio cualquiera y Codex se comporta mal, quiero diagnosticarlo
 2. faltan instrucciones del repositorio
 3. la tarea es demasiado amplia
 
-No algo como: "ya no sé cuál de las siete capas ocultas ganó esta ruleta de prompts".
+No algo como: "ya no sé cuál de las siete capas ocultas ganó esta ruleta de instrucciones".
 
 ## Dónde encaja el CLI en mi configuración de Codex
 
@@ -228,7 +230,7 @@ La arquitectura del proyecto no va aquí. Aquí van las reglas duraderas de desa
 
 - tipado estricto
 - errores explícitos
-- sin soluciones de respaldo silenciosas
+- sin planes B silenciosos
 - diffs mínimos
 - docstrings en lugar de documentación dispersa
 - hábitos de terminal limpios

@@ -2,7 +2,7 @@
 title: "لماذا استبدلت 17 أداة للوكلاء بلغة استعلام متخصصة تشبه SQL"
 date: 2026-04-11
 slug: "istabdalat-17-adat-lilwukala-bi-dsl-shabih-bisql"
-description: "كيف اختزلت 17 أداة للوكلاء في Flashcards Open Source App إلى نقطة وصول واحدة بلغة استعلام متخصصة تشبه SQL، بحيث تتعلمها النماذج الداخلية والخارجية بسرعة."
+description: "كيف اختزلت 17 أداة للوكلاء في Flashcards Open Source App إلى واجهة واحدة بلغة استعلام متخصصة تشبه SQL، بحيث تتعلمها النماذج الداخلية والخارجية بسرعة."
 tags: [productivity, ai, llm]
 publish: true
 thumbnailUrl: "/articles/sql-like-dsl-for-ai-agents.webp"
@@ -43,7 +43,7 @@ translations:
 
 هذه هي طبقة الوكلاء التي تقف خلف [flashcards-open-source-app.com](https://flashcards-open-source-app.com/)، لذلك كان يهمني أن تبقى الواجهة العامة سهلة التعلّم، لا أن تكون صحيحة تقنيًا فحسب.
 
-لذلك اختزلت كل ذلك في نقطة وصول واحدة تعتمد لغة استعلام متخصصة تشبه SQL.
+لذلك اختزلت كل ذلك في واجهة واحدة تعتمد لغة استعلام متخصصة تشبه SQL.
 
 وليست PostgreSQL خامًا. لست جسورًا إلى هذا الحد.
 

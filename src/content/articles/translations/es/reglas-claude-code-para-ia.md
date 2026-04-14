@@ -25,7 +25,7 @@ translations:
 
 Claude Code empezó a rendirme mucho mejor cuando dejé de explicarle lo mismo en cada conversación. Llevo cerca de dos años programando con IA, uso Claude Code desde hace unos seis meses y la mejora más útil fue ridículamente simple: poner mis reglas por defecto en `~/.claude/CLAUDE.md` y hacer que el agente arranque desde ahí.
 
-Antes de eso, desperdiciaba mensajes siempre en lo mismo. Usa tipado estricto. No añadas soluciones de respaldo que no te pedí. Mantén los cambios acotados. No reescribas medio archivo solo porque te has venido arriba. Claude solía hacerme caso. Aun así, yo tenía que pagar ese peaje una y otra vez.
+Antes de eso, desperdiciaba mensajes siempre en lo mismo. Usa tipado estricto. No añadas planes B que no te pedí. Mantén los cambios acotados. No reescribas medio archivo solo porque te has venido arriba. Claude solía hacerme caso. Aun así, yo tenía que pagar ese peaje una y otra vez.
 
 Ahora esa base ya está ahí, incluso antes de que el repositorio entre en escena.
 
@@ -39,7 +39,7 @@ Eso coincide casi exactamente con lo que yo quiero:
 2. `CLAUDE.md` del proyecto para arquitectura y comandos específicos del repositorio
 3. `CLAUDE.local.md` cuando necesito notas personales del proyecto que deben quedarse fuera de git
 
-No quiero copiar las mismas reglas personales en cada repositorio que abro. Si "nada de soluciones de respaldo silenciosas" es una preferencia global, debe ir en el archivo global. Si "ejecuta este extraño comando interno antes de lanzar las pruebas" es algo específico del repositorio, debe ir en el archivo del proyecto.
+No quiero copiar las mismas reglas personales en cada repositorio que abro. Si "nada de planes B silenciosos" es una preferencia global, debe ir en el archivo global. Si "ejecuta este extraño comando interno antes de lanzar las pruebas" es algo específico del repositorio, debe ir en el archivo del proyecto.
 
 Esta es la versión que estoy usando ahora mismo en Claude Code:
 
@@ -48,6 +48,8 @@ Esta es la versión que estoy usando ahora mismo en Claude Code:
 ## Las reglas de Claude Code que realmente uso
 
 Este bloque es deliberadamente aburrido. Las buenas reglas suelen serlo. No intento anticipar todos los casos límite. Solo quiero que Claude Code deje de cometer los mismos errores previsibles.
+
+Lo mantengo en inglés porque es el contenido literal de mi `~/.claude/CLAUDE.md` y está pensado para copiarse tal cual. Aun así, la estructura es simple: estilo de código, manejo de errores, particularidades del lenguaje, dependencias, pruebas, terminal, flujo de trabajo y documentación.
 
 ```markdown
 # Global Rules
@@ -130,7 +132,7 @@ Este bloque es deliberadamente aburrido. Las buenas reglas suelen serlo. No inte
 
 Ese bloque cubre casi todo lo que me importa en el día a día.
 
-Sin él, Claude se descarrila de maneras muy reconocibles. Añade lógica de respaldo "por si acaso". Relaja los tipos porque el tipado estricto le resulta incómodo. Mete capas innecesarias alrededor de funciones sencillas. Corrige el problema equivocado porque intenta agradar en vez de ser preciso.
+Sin él, Claude se descarrila de maneras muy reconocibles. Añade un plan B "por si acaso". Relaja los tipos porque el tipado estricto le resulta incómodo. Mete capas innecesarias alrededor de funciones sencillas. Corrige el problema equivocado porque intenta agradar en vez de ser preciso.
 
 Prefiero dedicar diez minutos una vez a escribir un buen archivo global que seguir corrigiendo esos patrones uno por uno en cada sesión nueva.
 
@@ -189,7 +191,7 @@ Para mí, eso significa:
 - tipado estricto
 - manejo explícito de errores
 - ediciones mínimas
-- sin soluciones de respaldo silenciosas
+- sin planes B silenciosos
 - docstrings donde la documentación debe vivir
 - hábitos de terminal no interactivos
 
@@ -209,10 +211,10 @@ Mucho contenido sobre la "configuración definitiva" de agentes de código acaba
 
 Lo que de verdad mejoró mi trabajo del día a día fue mucho más simple:
 
-- un `CLAUDE.md` global y estable a nivel de usuario
+- un `CLAUDE.md` global y estable en mi cuenta
 - un `CLAUDE.md` de proyecto claro
 
-Esa combinación hace que Claude trabaje con más aplomo. Menos soluciones de respaldo aleatorias. Menos abstracciones ingeniosas porque sí. Menos sesiones en las que, diez minutos después, descubro que el agente y yo estábamos resolviendo problemas ligeramente distintos.
+Esa combinación hace que Claude trabaje con más aplomo. Menos planes B metidos porque sí. Menos abstracciones ingeniosas porque sí. Menos sesiones en las que, diez minutos después, descubro que el agente y yo estábamos resolviendo problemas ligeramente distintos.
 
 Si usas varios agentes de código, el mismo patrón aparece también en otras herramientas. Distinto producto, misma lección: define la base una vez y deja de renegociarla cada mañana.
 

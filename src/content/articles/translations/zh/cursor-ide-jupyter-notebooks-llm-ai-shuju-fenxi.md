@@ -1,8 +1,8 @@
 ---
-title: "在 Cursor IDE 中结合 LLM 使用 Jupyter Notebook：AI 辅助数据分析"
+title: "在 Cursor IDE 里用 Jupyter Notebook 和 LLM 做数据分析的完整工作流"
 date: 2026-04-11
 slug: "cursor-ide-jupyter-notebooks-llm-ai-shuju-fenxi"
-description: "一步步介绍如何在 Cursor IDE 中把 Jupyter Notebook 与 LLM 纳入同一工作流，用纯文本笔记本完成数据分析、可视化、文档整理与报告导出，并让 AI 在保留上下文的同时协助编写、调试和改写代码，减少工具切换带来的摩擦，适合想把实验、分析与写作整合到同一环境中的数据工作者。"
+description: "一步步介绍如何在 Cursor IDE 中把 Jupyter Notebook 与 LLM 纳入同一工作流，用纯文本笔记本完成数据分析、可视化、文档整理与报告导出，并让 AI 在保留上下文的同时协助编写、调试和改写代码，减少工具切换带来的摩擦，避免在编辑器、笔记本、图表和文档之间反复切换。"
 tags: [productivity, cursor-ide, ai, llm]
 publish: true
 thumbnailUrl: "/articles/jupyter-2025-04-25.webp"
@@ -225,11 +225,11 @@ print("数据分析环境已就绪！")
 
 ## 让 LLM 真正帮上忙：把它当成数据分析助手
 
-真正让这套工作流有价值的，是它和 Cursor AI Composer 的整合。它不只是自动补全，而更像一个能理解数据分析语境的协作助手。
+真正让这套工作流有价值的，是它和 Cursor `Composer` 的整合。它不只是自动补全，而更像一个能理解数据分析语境的协作助手。
 
-### Agent Mode：LLM 驱动的数据分析助手
+### Agent 模式：让 LLM 真正参与数据分析
 
-在 Cursor IDE 中点击 `Composer`，然后选择 `Agent Mode`。这样会启用一个更完整的 AI 助手，它能够：
+在 Cursor IDE 中点击 `Composer`，然后切换到 `Agent` 模式。这样会启用一个更完整的 AI 助手，它能够：
 
 - 在多轮交互中保留上下文
 - 理解你的数据集和分析目标
@@ -322,11 +322,11 @@ plt.show()
 
 这已经不只是“画一张图”了，而是一张会旋转、能从多个角度观察数据的 3D 可视化，标签、颜色和格式也都处理妥当，而且只来自一句提示词。
 
-## 用 Cursor Rules 引导 LLM 生成更贴合习惯的代码
+## 用 Cursor 规则引导 LLM 生成更贴合习惯的代码
 
 我后来发现，还可以在项目根目录创建一个 `.cursorrules` 文件，让 AI 生成的代码更贴近自己的习惯。这个文件里放的是自定义说明，用来约束 AI 该如何写代码。
 
-如果你想系统了解如何配置和使用 Cursor rules，可以参考我另一篇更详细的文章：[如何用 Cursor rules 优化 AI 编码体验](/articles/cursor-ide-rules-for-ai)。
+如果你想系统了解如何配置和使用 Cursor 规则，可以参考我另一篇更详细的文章：[如何用 Cursor 规则优化 AI 编码体验](/articles/cursor-ide-rules-for-ai)。
 
 例如，我加入了这些规则：
 
