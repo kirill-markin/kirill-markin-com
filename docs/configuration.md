@@ -26,7 +26,7 @@ Built-in: `SITE_URL=https://kirill-markin.com/`, `SITE_NAME=Kirill Markin`
 ## SEO & Performance
 
 - Metadata via `generateMetadata()` per route, translations from `lib/localization.ts`, unique per language
-- Sitemap with GitHub API for lastmod dates (update `pageFilesMap` in `lib/fileModification.ts` for new pages)
+- Sitemap emits article `lastmod` only from article frontmatter
 - Server-side `lang` and `dir` attributes (RTL for Arabic)
 - Images: WebP for photos, SVG for icons, specific dimensions (thumbnails 520x297, services 600x400)
 - Validation: `npm run validate-metadata` checks titles (30-60 chars), descriptions (120-155 chars), duplicates

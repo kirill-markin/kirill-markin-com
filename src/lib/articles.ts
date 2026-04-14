@@ -4,17 +4,26 @@ import matter from 'gray-matter';
 import {
   ArticleFrontmatter,
   ArticleMetadata,
-  ArticleModifiedDateSource,
 } from '@/types/article';
 import { DEFAULT_LANGUAGE } from './localization';
 
-const articlesDirectory = path.join(process.cwd(), 'src', 'content', 'articles');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 
-type ResolvedModifiedDate = {
-  value?: string;
-  source: ArticleModifiedDateSource;
-};
+function getArticlesDirectory(): string {
+  return path.join(process.cwd(), 'src', 'content', 'articles');
+}
+
+function getTranslationDirectory(language: string): string {
+  return path.join(getArticlesDirectory(), 'translations', language);
+}
+
+function getArticleFilePath(slug: string, language: string): string {
+  if (language === DEFAULT_LANGUAGE) {
+    return path.join(getArticlesDirectory(), `${slug}.md`);
+  }
+
+  return path.join(getTranslationDirectory(language), `${slug}.md`);
+}
 
 /**
  * Cleans markdown symbols from a description string
@@ -38,23 +47,6 @@ function toIsoDate(dateValue: string | undefined): string {
   return new Date(dateValue).toISOString();
 }
 
-function resolveLastModified(frontmatter: ArticleFrontmatter): ResolvedModifiedDate {
-  const explicitModifiedDate = frontmatter.lastmod ?? frontmatter.dateModified ?? frontmatter.updated;
-  const resolvedModifiedDate = toIsoDate(explicitModifiedDate);
-
-  if (resolvedModifiedDate) {
-    return {
-      value: resolvedModifiedDate,
-      source: 'frontmatter',
-    };
-  }
-
-  return {
-    source: 'none',
-    value: undefined,
-  };
-}
-
 export type Article = {
   slug: string;
   content: string;
@@ -65,7 +57,7 @@ export type Article = {
  * Get all article slugs for the default language (English)
  */
 export async function getAllArticleSlugs(): Promise<string[]> {
-  const fileNames = await fs.readdir(articlesDirectory);
+  const fileNames = await fs.readdir(getArticlesDirectory());
   return fileNames
     .filter((fileName) => fileName.endsWith('.md') && fileName !== 'index.md')
     .map((fileName) => fileName.replace(/\.md$/, ''));
@@ -80,7 +72,7 @@ export async function getAllArticleSlugsByLanguage(language: string): Promise<st
   }
 
   try {
-    const translationDir = path.join(articlesDirectory, 'translations', language);
+    const translationDir = getTranslationDirectory(language);
     const fileNames = await fs.readdir(translationDir);
     return fileNames
       .filter((fileName) => fileName.endsWith('.md'))
@@ -105,20 +97,7 @@ export async function getArticleBySlug(
   }
 
   try {
-    let fullPath;
-
-    if (language === DEFAULT_LANGUAGE) {
-      fullPath = path.join(articlesDirectory, `${slug}.md`);
-    } else {
-      fullPath = path.join(
-        articlesDirectory,
-        'translations',
-        language,
-        `${slug}.md`
-      );
-    }
-
-    const fileContents = await fs.readFile(fullPath, 'utf8');
+    const fileContents = await fs.readFile(getArticleFilePath(slug, language), 'utf8');
     const { data, content } = matter(fileContents);
     const frontmatter = data as ArticleFrontmatter;
 
@@ -135,7 +114,7 @@ export async function getArticleBySlug(
       ? cleanDescription(frontmatter.description)
       : cleanDescription(contentPreview);
     const publishedAt = toIsoDate(frontmatter.date);
-    const resolvedLastModified = resolveLastModified(frontmatter);
+    const lastModified = toIsoDate(frontmatter.lastmod);
 
     const metadata: ArticleMetadata = {
       slug,
@@ -143,8 +122,7 @@ export async function getArticleBySlug(
       date: publishedAt,
       tags: (frontmatter.tags || []).map((tag) => tag.toLowerCase()),
       publish: frontmatter.publish || false,
-      lastmod: resolvedLastModified.value,
-      modifiedDateSource: resolvedLastModified.source,
+      lastmod: lastModified || undefined,
       thumbnailUrl: frontmatter.thumbnailUrl || PLACEHOLDER_IMAGE,
       description: cleanedDescription,
       type: frontmatter.type || 'Article',
@@ -227,7 +205,7 @@ async function getEnglishArticles(): Promise<Article[]> {
  * Get translated articles for a specific language
  */
 async function getTranslatedArticles(language: string): Promise<Article[]> {
-  const translationDir = path.join(articlesDirectory, 'translations', language);
+  const translationDir = getTranslationDirectory(language);
 
   try {
     // Check if directory exists before attempting to read it

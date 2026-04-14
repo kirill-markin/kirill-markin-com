@@ -71,13 +71,12 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
   2. update `lib/localization.ts` if the page is multilingual
   3. add `generateStaticParams` for dynamic routes
   4. implement `generateMetadata()`
-  5. update `pageFilesMap` in `lib/fileModification.ts` for sitemap `lastmod`
 - New content:
   1. create markdown with frontmatter
   2. add translations with bidirectional refs
   3. run `npm run validate-metadata`
 - Before committing, run `npm run lint`, `npm run build`, and `npm run validate-metadata` and fix failures.
-- Best practices: default to Server Components, use CSS Modules for styling, and update `pageFilesMap` for new pages.
+- Best practices: default to Server Components, use CSS Modules for styling, and keep article `lastmod` explicit in frontmatter when content is materially updated.
 - Translation workflow: use a structured process with key-term discussion; Chinese translations are reviewed with DeepSeek V3; keep URLs SEO-friendly in the target language.
 
 ## Dashboards

@@ -1,6 +1,7 @@
 ---
 title: "在 Cursor IDE 里用 Jupyter Notebook 和 LLM 做数据分析的完整工作流"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "cursor-ide-jupyter-notebooks-llm-ai-shuju-fenxi"
 description: "一步步介绍如何在 Cursor IDE 中把 Jupyter Notebook 与 LLM 纳入同一工作流，用纯文本笔记本完成数据分析、可视化、文档整理与报告导出，并让 AI 在保留上下文的同时协助编写、调试和改写代码，减少工具切换带来的摩擦，避免在编辑器、笔记本、图表和文档之间反复切换。"
 tags: [productivity, cursor-ide, ai, llm]

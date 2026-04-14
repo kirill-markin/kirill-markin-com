@@ -1,6 +1,7 @@
 ---
 title: "Codex Rules: Global Instructions, AGENTS.md, and Mac App"
 date: 2026-03-08
+lastmod: 2026-04-11
 slug: "codex-rules-for-ai"
 description: "My Codex rules for AI: how I use Codex custom instructions, AGENTS.md, and the Mac app to keep the same coding patterns across different repos."
 tags: [productivity, codex, openai, ai]

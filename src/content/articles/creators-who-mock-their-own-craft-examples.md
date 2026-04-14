@@ -9,6 +9,7 @@ keywords: [
 ]
 title: "Creators Who Mock Their Own Craft: Examples and Patterns"
 date: 2025-09-01
+lastmod: 2026-04-11
 description: "Examples of creators who automate their own work: comedians mocking comedy, engineers building AI to replace programmers, and why we enjoy our obsolescence."
 tags: [productivity, ai, llm, cursor-ide, management]
 publish: true

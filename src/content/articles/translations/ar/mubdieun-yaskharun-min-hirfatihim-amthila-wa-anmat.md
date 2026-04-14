@@ -9,6 +9,7 @@ keywords: [
 ]
 title: "مبدعون يسخرون من حرفتهم نفسها: أمثلة وأنماط متكررة"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "mubdieun-yaskharun-min-hirfatihim-amthila-wa-anmat"
 description: "أمثلة على مبدعين يقوّضون مهنتهم بأيديهم: كوميديون يسخرون من الكوميديا، ومهندسون يبنون ذكاءً اصطناعيًا قد يستبدلهم، ولماذا ننجذب لصنع ما يجعلنا زائدين عن الحاجة."
 tags: [productivity, ai, llm, cursor-ide, management]

@@ -3,8 +3,6 @@ export type Translation = {
     slug: string;
 };
 
-export type ArticleModifiedDateSource = 'frontmatter' | 'none';
-
 export type ArticleMetadata = {
     slug: string;
     title: string;
@@ -12,7 +10,6 @@ export type ArticleMetadata = {
     tags: string[];
     publish: boolean;
     lastmod?: string;
-    modifiedDateSource: ArticleModifiedDateSource;
     thumbnailUrl?: string;
     description?: string;
     type?: string;
@@ -28,9 +25,7 @@ export type ArticleMetadata = {
 export type ArticleFrontmatter = {
     title?: string;
     date?: string;
-    dateModified?: string;
     lastmod?: string;
-    updated?: string;
     tags?: string[];
     publish?: boolean;
     thumbnailUrl?: string;

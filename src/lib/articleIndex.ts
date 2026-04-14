@@ -9,12 +9,23 @@ export type PublishedArticleReference = {
     slug: string;
 };
 
+export type PublishedArticleSitemapEntry = {
+    language: string;
+    lastmod?: string;
+    slug: string;
+};
+
 export type MarkdownArticleSummary = {
+    achievementLabel?: string;
+    achievementValue?: string;
     date: string;
     description: string;
+    language: string;
     slug: string;
     tags: string[];
+    thumbnailUrl?: string;
     title: string;
+    type?: string;
 };
 
 export type MarkdownArticle = MarkdownArticleSummary & {
@@ -97,12 +108,17 @@ function toMarkdownArticle(
     }
 
     return {
+        achievementLabel: frontmatter.achievementLabel,
+        achievementValue: frontmatter.achievementValue,
         content,
         date: toIsoDate(frontmatter.date),
         description: toArticleDescription(frontmatter, content),
+        language: frontmatter.language || DEFAULT_LANGUAGE,
         slug,
         tags: (frontmatter.tags ?? []).map((tag) => tag.toLowerCase()),
+        thumbnailUrl: frontmatter.thumbnailUrl,
         title: frontmatter.title,
+        type: frontmatter.type || 'Article',
     };
 }
 
@@ -170,12 +186,48 @@ export async function getPublishedMarkdownArticles(language: string): Promise<Ma
             return -1;
         })
         .map((article) => ({
+            achievementLabel: article.achievementLabel,
+            achievementValue: article.achievementValue,
             date: article.date,
             description: article.description,
+            language: article.language,
             slug: article.slug,
             tags: article.tags,
+            thumbnailUrl: article.thumbnailUrl,
             title: article.title,
+            type: article.type,
         }));
+}
+
+export async function getPublishedArticleSitemapEntries(
+    language: string
+): Promise<PublishedArticleSitemapEntry[]> {
+    const articleReferences = await getPublishedArticleReferencesByLanguage(language);
+    const sitemapEntries = await Promise.all(
+        articleReferences.map(async ({ slug }) => {
+            const fileContents = await fs.readFile(getArticleFilePath(slug, language), 'utf8');
+            const { data } = matter(fileContents);
+            const frontmatter = data as ArticleFrontmatter;
+
+            if (frontmatter.publish !== true) {
+                return null;
+            }
+
+            return {
+                language,
+                lastmod: toIsoDate(frontmatter.lastmod) || undefined,
+                slug,
+            };
+        })
+    );
+
+    return sitemapEntries.reduce<PublishedArticleSitemapEntry[]>((entries, entry) => {
+        if (entry) {
+            entries.push(entry);
+        }
+
+        return entries;
+    }, []);
 }
 
 export async function getRecentLlmsArticleSummaries(limit: number): Promise<LlmsArticleSummary[]> {

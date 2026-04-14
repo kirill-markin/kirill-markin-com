@@ -13,6 +13,7 @@ keywords: [
 ]
 title: "How to Automate Email Categorization with n8n and LLM"
 date: 2025-09-27
+lastmod: 2026-04-11
 description: "My 3-month proven system for automating email categorization using n8n workflows and GPT-5-nano. Archive, read, or answer - let AI decide for you."
 tags: [productivity, ai]
 publish: true

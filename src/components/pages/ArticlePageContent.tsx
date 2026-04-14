@@ -35,7 +35,7 @@ export default function ArticlePageContent({
     const publishedDate = article.metadata.date
         ? new Date(article.metadata.date).toLocaleDateString(publicationLocale, commonTranslations.dateFormat)
         : null;
-    const modifiedDate = article.metadata.modifiedDateSource === 'frontmatter' && article.metadata.lastmod
+    const modifiedDate = article.metadata.lastmod
         ? new Date(article.metadata.lastmod).toLocaleDateString(publicationLocale, commonTranslations.dateFormat)
         : null;
 

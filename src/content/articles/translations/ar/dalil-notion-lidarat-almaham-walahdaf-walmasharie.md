@@ -12,6 +12,7 @@ keywords: [
 ]
 title: "دليل إدارة المهام في Notion: قاعدة واحدة للأهداف والمشاريع والمهام"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "dalil-notion-lidarat-almaham-walahdaf-walmasharie"
 description: "النظام الذي أعتمد عليه في Notion لإدارة مئات المهام داخل قاعدة بيانات واحدة: هيكل هرمي واضح، أهداف فصلية، وصندوق وارد يظل تحت السيطرة من دون إنهاك."
 tags: [productivity, notion, task-management]

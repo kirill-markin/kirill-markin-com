@@ -1,6 +1,7 @@
 ---
 title: "Claude Code के नियम: कृत्रिम बुद्धिमत्ता के लिए CLAUDE.md निर्देश"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "claude-code-niyam-kritrim-buddhimatta-ke-liye"
 description: "मैं Claude Code में अपने वैश्विक `CLAUDE.md` नियम अलग रखता हूँ, ताकि निजी पसंद और परियोजना-विशेष निर्देश साफ़ रहें और एजेंट हर रिपॉज़िटरी में एक जैसा काम करे।"
 tags: [productivity, claude-code, ai, llm]

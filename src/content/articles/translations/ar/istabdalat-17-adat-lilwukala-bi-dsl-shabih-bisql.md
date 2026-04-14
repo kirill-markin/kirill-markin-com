@@ -1,6 +1,7 @@
 ---
 title: "لماذا استبدلت 17 أداة للوكلاء بلغة استعلام متخصصة تشبه SQL"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "istabdalat-17-adat-lilwukala-bi-dsl-shabih-bisql"
 description: "كيف اختزلت 17 أداة للوكلاء في Flashcards Open Source App إلى واجهة واحدة بلغة استعلام متخصصة تشبه SQL، بحيث تتعلمها النماذج الداخلية والخارجية بسرعة."
 tags: [productivity, ai, llm]

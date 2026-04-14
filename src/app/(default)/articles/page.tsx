@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
+import { getPublishedMarkdownArticles } from '@/lib/articleIndex';
 import { generateArticlesPageMetadata } from '@/lib/metadata';
-import { getAllArticles } from '@/lib/articles';
 
 // Force static generation even with searchParams
 export const dynamic = 'force-static';
@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ArticlesPage() {
   // Load all articles on server and pass to client component
-  const articles = await getAllArticles(DEFAULT_LANGUAGE);
+  const articles = await getPublishedMarkdownArticles(DEFAULT_LANGUAGE);
 
   return <ArticlesPageContent language={DEFAULT_LANGUAGE} articles={articles} />;
 } 

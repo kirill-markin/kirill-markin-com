@@ -10,6 +10,7 @@ keywords: [
 ]
 title: "دفاتر Jupyter مع LLM في Cursor IDE: تحليل البيانات بالذكاء الاصطناعي"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "jupyter-notebooks-cursor-ide-llm-ai-ltahlil-albayanat"
 description: "تعرّف إلى دمج دفاتر Jupyter مع Cursor IDE للاستفادة من الذكاء الاصطناعي في تحليل البيانات، وإنشاء الرسوم البيانية، وتصدير تقارير احترافية من مكان واحد."
 tags: [productivity, cursor-ide, ai, llm]

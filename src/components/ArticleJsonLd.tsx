@@ -52,7 +52,7 @@ interface ArticleSchema {
  * Implements Schema.org Article type for better SEO
  */
 export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
-  const schemaDateModified = article.metadata.modifiedDateSource === 'frontmatter'
+  const schemaDateModified = article.metadata.lastmod
     ? { 'dateModified': article.metadata.lastmod }
     : {};
   const schema: ArticleSchema = {

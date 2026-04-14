@@ -1,6 +1,7 @@
 ---
 title: "Reglas de Cursor IDE para IA: cómo especializar tu asistente de IA"
 date: 2025-05-06
+lastmod: 2026-04-14
 slug: "reglas-cursor-ide-para-ia"
 language: "es"
 description: "Mis reglas de Cursor IDE, probadas en proyectos reales, para que la IA programe con estilo consistente, errores bien gestionados y un flujo claro."

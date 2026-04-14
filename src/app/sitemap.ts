@@ -1,12 +1,11 @@
 import { MetadataRoute } from 'next';
-import { getPublishedArticleReferencesByLanguage } from '@/lib/articleIndex';
-import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
+import { getPublishedArticleSitemapEntries } from '@/lib/articleIndex';
 import { SUPPORTED_LANGUAGES, getArticleUrl, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
 import { SITE_URL } from '@/data/contacts';
 
 /**
  * Generates a sitemap.xml file for the website using Next.js Metadata API
- * Includes all routes with lastModified dates from Git commit history
+ * Includes article routes with lastModified dates from frontmatter
  * 
  * @returns {MetadataRoute.Sitemap} Sitemap configuration
  */
@@ -14,14 +13,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = `${SITE_URL}/`;
   const entries: MetadataRoute.Sitemap = [];
 
-  const articleReferencesByLanguage = await Promise.all(
+  const articleEntriesByLanguage = await Promise.all(
     SUPPORTED_LANGUAGES.map(async (lang) => {
-      const articleReferences = await getPublishedArticleReferencesByLanguage(lang);
-      return { articleReferences, lang };
+      const articleEntries = await getPublishedArticleSitemapEntries(lang);
+      return { articleEntries, lang };
     })
   );
 
-  const allArticleReferences = articleReferencesByLanguage.flatMap(({ articleReferences }) => articleReferences);
+  const allArticleEntries = articleEntriesByLanguage.flatMap(({ articleEntries }) => articleEntries);
 
   // Add static routes for default language (English)
   const defaultRoutes = [
@@ -41,7 +40,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const defaultRoutePromises = defaultRoutes.map(async (routePath) => {
     const url = `${baseUrl}${routePath.startsWith('/') ? routePath.substring(1) : routePath}`;
-    const lastModified = await getPageLastModifiedDate(routePath);
 
     // Define change frequency and priority based on page type
     let changeFrequency: 'daily' | 'weekly' | 'monthly' | 'yearly' = 'monthly';
@@ -63,7 +61,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return {
       url,
-      lastModified,
       changeFrequency,
       priority,
     };
@@ -88,29 +85,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       return localizedRoutes.map(async (routePath) => {
         const url = `${baseUrl}${routePath.startsWith('/') ? routePath.substring(1) : routePath}`;
-        // For now, use the same last modified date as the English equivalent
-        const englishPath = routePath
-          .replace(`/${lang}/`, '/')
-          .replace(`/${getPathSegmentByLanguage('services', lang)}/`, '/services/')
-          .replace(`/${getPathSegmentByLanguage('articles', lang)}/`, '/articles/')
-          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'short', lang)}/`, '/meet/short/')
-          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'medium', lang)}/`, '/meet/medium/')
-          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'long', lang)}/`, '/meet/long/')
-          .replace(`/${getPathSegmentByLanguage('meet', lang)}/${getSubPathSegmentByLanguage('meet', 'all', lang)}/`, '/meet/all/')
-          .replace(`/${getPathSegmentByLanguage('meet', lang)}/`, '/meet/')
-          .replace(`/${getPathSegmentByLanguage('pay', lang)}/${getSubPathSegmentByLanguage('pay', 'stripe', lang)}/`, '/pay/stripe/')
-          .replace(`/${getPathSegmentByLanguage('pay', lang)}/`, '/pay/');
-
-
-
-        const lastModified = await getPageLastModifiedDate(englishPath);
-
         // Lower priority for localized pages (but still important)
         const priority = routePath === `/${lang}/` ? 0.9 : 0.6;
 
         return {
           url,
-          lastModified,
           changeFrequency: 'monthly' as const,
           priority,
         };
@@ -121,31 +100,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   entries.push(...await Promise.all(defaultRoutePromises));
   entries.push(...await Promise.all(localizedRoutePromises));
 
-  // Add CV.pdf file (CTO version only in sitemap)
-  const cvCtoLastModified = await getFileLastCommitDate('public/data/cv-kirill-markin-cto.pdf');
-  entries.push({
-    url: `${baseUrl}data/cv-kirill-markin-cto.pdf`,
-    lastModified: cvCtoLastModified,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  });
-
-  // Generate article routes with Git commit dates
-  for (const articleReference of allArticleReferences) {
-    const { language, slug } = articleReference;
-
-    let filePath;
-    if (language === DEFAULT_LANGUAGE) {
-      filePath = `src/content/articles/${slug}.md`;
-    } else {
-      filePath = `src/content/articles/translations/${language}/${slug}.md`;
-    }
-
-    const lastModified = await getFileLastCommitDate(filePath);
-
+  // Generate article routes with frontmatter lastmod dates
+  for (const articleEntry of allArticleEntries) {
+    const { language, lastmod, slug } = articleEntry;
     entries.push({
       url: getArticleUrl(slug, language),
-      lastModified,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: language === DEFAULT_LANGUAGE ? 0.7 : 0.6,
     });

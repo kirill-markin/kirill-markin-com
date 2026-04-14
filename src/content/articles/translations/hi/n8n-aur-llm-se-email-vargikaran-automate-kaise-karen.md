@@ -14,6 +14,7 @@ keywords: [
 title: "n8n और LLM की मदद से ईमेल वर्गीकरण अपने-आप कैसे करें"
 slug: "n8n-aur-llm-se-email-vargikaran-automate-kaise-karen"
 date: 2026-04-11
+lastmod: 2026-04-13
 description: "n8n और GPT-5-nano पर आधारित मेरा तीन महीने से परखा हुआ तरीका, जो तय करता है कि किस ईमेल को संग्रहित करना है, क्या पढ़ना है और किसका जवाब देना है।"
 tags: [productivity, ai]
 publish: true

@@ -13,6 +13,7 @@ keywords: [
 ]
 title: "Mi sistema de tareas en Notion para proyectos, objetivos y tareas"
 date: 2026-04-11
+lastmod: 2026-04-13
 slug: "guia-gestor-tareas-notion-objetivos-proyectos-tareas"
 description: "Cómo organizo en Notion objetivos trimestrales, proyectos y tareas diarias dentro de una sola base de datos, sin fechas artificiales ni agobios."
 tags: [productivity, notion, task-management]

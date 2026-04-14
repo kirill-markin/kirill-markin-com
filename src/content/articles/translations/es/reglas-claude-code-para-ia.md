@@ -1,6 +1,7 @@
 ---
 title: "Reglas de Claude Code para IA: instrucciones globales en CLAUDE.md"
 date: 2026-03-21
+lastmod: 2026-04-14
 slug: "reglas-claude-code-para-ia"
 description: "Mis reglas de Claude Code con un CLAUDE.md global: separo reglas personales y del proyecto para que el agente mantenga mi forma de programar."
 tags: [productivity, claude-code, ai, llm]

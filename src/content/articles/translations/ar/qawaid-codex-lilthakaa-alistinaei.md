@@ -1,6 +1,7 @@
 ---
 title: "قواعد Codex: التعليمات العامة وملف AGENTS.md وتطبيق ماك"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "qawaid-codex-lilthakaa-alistinaei"
 description: "كيف أستخدم التعليمات المخصصة في Codex وملف AGENTS.md وتطبيق ماك للحفاظ على أسلوب برمجي ثابت عبر المشاريع المختلفة من دون إعادة شرح قواعدي في كل مرة."
 tags: [productivity, codex, openai, ai]

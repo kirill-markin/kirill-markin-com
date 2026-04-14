@@ -6,14 +6,14 @@ import ArticlePreviewCard from '@/components/ArticlePreviewCard';
 import ArticlesListJsonLd from '@/components/ArticlesListJsonLd';
 import Footer from '@/components/Footer';
 import { SITE_URL } from '@/data/contacts';
-import { Article } from '@/lib/articles';
+import type { MarkdownArticleSummary } from '@/lib/articleIndex';
 import { getPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import { getInternalTagKey, getLocalizedTag } from '@/lib/tagLocalization';
 import styles from './ArticlesPageContent.module.css';
 
 interface ArticlesPageContentProps {
     language: string;
-    articles: Article[]; // Articles passed from server as props
+    articles: MarkdownArticleSummary[];
 }
 
 export default function ArticlesPageContent({ language, articles }: ArticlesPageContentProps) {
@@ -30,11 +30,11 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
     const filteredArticles = currentInternalTag === 'all'
         ? articles
         : articles.filter(article =>
-            article.metadata.tags && article.metadata.tags.includes(currentInternalTag)
+            article.tags && article.tags.includes(currentInternalTag)
         );
 
     // Get all unique internal tags for the tags menu, then localize them
-    const allInternalTags = articles.flatMap(article => article.metadata.tags || []);
+    const allInternalTags = articles.flatMap(article => article.tags || []);
     const uniqueInternalTags = Array.from(new Set(allInternalTags)).filter(tag => tag);
 
     // Convert internal tags to localized tags for display
@@ -114,7 +114,7 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
                                     internal,
                                     localized,
                                     count: articles.filter(article =>
-                                        article.metadata.tags && article.metadata.tags.includes(internal)
+                                        article.tags && article.tags.includes(internal)
                                     ).length
                                 }))
                                 .sort((a, b) => b.count - a.count)
@@ -138,15 +138,15 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
                                 <ArticlePreviewCard
                                     key={article.slug}
                                     href={`${articlesBasePath}/${article.slug}/`}
-                                    title={article.metadata.title}
-                                    description={article.metadata.description}
-                                    thumbnailUrl={article.metadata.thumbnailUrl}
-                                    languageLabel={article.metadata.language || language}
-                                    typeLabel={article.metadata.type}
-                                    date={article.metadata.date}
+                                    title={article.title}
+                                    description={article.description}
+                                    thumbnailUrl={article.thumbnailUrl}
+                                    languageLabel={article.language || language}
+                                    typeLabel={article.type}
+                                    date={article.date}
                                     dateLocale={language}
-                                    achievementValue={article.metadata.achievementValue}
-                                    achievementLabel={article.metadata.achievementLabel}
+                                    achievementValue={article.achievementValue}
+                                    achievementLabel={article.achievementLabel}
                                     isWide={isWide}
                                     priority={index < 4}
                                     titleTag="h2"

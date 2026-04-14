@@ -1,6 +1,7 @@
 ---
 title: "व्यक्तिगत ब्रांड और व्यवसाय के लिए सामग्री-वितरण की रणनीति"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "personal-brand-aur-business-ke-liye-content-distribution-strategy"
 description: "अलग-अलग मंचों पर सामग्री पहुँचाकर व्यक्तिगत ब्रांड और व्यवसाय की पहुँच बढ़ाने के लिए मेरा व्यावहारिक ढांचा। अनुभव से तराशी हुई, सीधी और उपयोगी प्रणाली।"
 tags: [productivity]

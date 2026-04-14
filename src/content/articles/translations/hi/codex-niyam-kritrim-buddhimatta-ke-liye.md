@@ -1,6 +1,7 @@
 ---
 title: "Codex के नियम: वैश्विक निर्देश, AGENTS.md और Mac ऐप"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "codex-niyam-kritrim-buddhimatta-ke-liye"
 description: "मैं Codex के स्थायी निर्देशों, AGENTS.md और Mac ऐप की मदद से अलग-अलग रिपॉज़िटरी में एकसार कोडिंग ढंग, साफ त्रुटि-प्रबंधन और छोटे-सटीक बदलाव कैसे बनाए रखता हूं।"
 tags: [productivity, codex, openai, ai]
