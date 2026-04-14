@@ -1,7 +1,6 @@
 import fs from 'fs/promises';
 import matter from 'gray-matter';
 import path from 'path';
-import { fileURLToPath } from 'node:url';
 import type { ArticleFrontmatter } from '@/types/article';
 import { DEFAULT_LANGUAGE } from '@/lib/localization';
 
@@ -32,10 +31,8 @@ type LlmsArticleCandidate = LlmsArticleSummary & {
     publishedAt: number;
 };
 
-const repositoryRootDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-
 function getArticlesDirectory(): string {
-    return path.join(repositoryRootDirectory, 'src', 'content', 'articles');
+    return path.join(process.cwd(), 'src', 'content', 'articles');
 }
 
 function getArticlesDirectoryByLanguage(language: string): string {

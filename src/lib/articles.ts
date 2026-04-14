@@ -1,22 +1,18 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import { fileURLToPath } from 'node:url';
 import {
   ArticleFrontmatter,
   ArticleMetadata,
   ArticleModifiedDateSource,
 } from '@/types/article';
-import { getFileLastCommitDate } from './fileModification';
 import { DEFAULT_LANGUAGE } from './localization';
 
-const repositoryRootDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const articlesDirectory = path.join(repositoryRootDirectory, 'src', 'content', 'articles');
+const articlesDirectory = path.join(process.cwd(), 'src', 'content', 'articles');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
-const articleLastModifiedCache = new Map<string, Promise<ResolvedModifiedDate>>();
 
 type ResolvedModifiedDate = {
-  value: string;
+  value?: string;
   source: ArticleModifiedDateSource;
 };
 
@@ -42,14 +38,7 @@ function toIsoDate(dateValue: string | undefined): string {
   return new Date(dateValue).toISOString();
 }
 
-function toRepoRelativePath(filePath: string): string {
-  return path.relative(repositoryRootDirectory, filePath).split(path.sep).join('/');
-}
-
-async function resolveLastModified(
-  frontmatter: ArticleFrontmatter,
-  articleFilePath: string
-): Promise<ResolvedModifiedDate> {
+function resolveLastModified(frontmatter: ArticleFrontmatter): ResolvedModifiedDate {
   const explicitModifiedDate = frontmatter.lastmod ?? frontmatter.dateModified ?? frontmatter.updated;
   const resolvedModifiedDate = toIsoDate(explicitModifiedDate);
 
@@ -60,20 +49,10 @@ async function resolveLastModified(
     };
   }
 
-  const cachedLastModified = articleLastModifiedCache.get(articleFilePath);
-
-  if (cachedLastModified) {
-    return cachedLastModified;
-  }
-
-  const lastModifiedPromise = getFileLastCommitDate(articleFilePath).then((lastCommitDate) => ({
-    value: lastCommitDate.toISOString(),
-    source: 'git' as const,
-  }));
-
-  articleLastModifiedCache.set(articleFilePath, lastModifiedPromise);
-
-  return lastModifiedPromise;
+  return {
+    source: 'none',
+    value: undefined,
+  };
 }
 
 export type Article = {
@@ -156,8 +135,7 @@ export async function getArticleBySlug(
       ? cleanDescription(frontmatter.description)
       : cleanDescription(contentPreview);
     const publishedAt = toIsoDate(frontmatter.date);
-    const articleFilePath = toRepoRelativePath(fullPath);
-    const resolvedLastModified = await resolveLastModified(frontmatter, articleFilePath);
+    const resolvedLastModified = resolveLastModified(frontmatter);
 
     const metadata: ArticleMetadata = {
       slug,
