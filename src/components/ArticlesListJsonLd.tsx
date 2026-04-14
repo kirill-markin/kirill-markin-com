@@ -3,9 +3,12 @@
 import type { MarkdownArticleSummary } from '@/lib/articleIndex';
 import { personalInfo } from '@/data/personalInfo';
 import { SITE_URL } from '@/data/contacts';
+import { DEFAULT_LANGUAGE, getArticleUrl, getTranslation } from '@/lib/localization';
 
 type ArticlesListJsonLdProps = {
   articles: MarkdownArticleSummary[];
+  baseUrl: string;
+  language: string;
   url: string;
   tag?: string;
 };
@@ -14,12 +17,26 @@ type ArticlesListJsonLdProps = {
  * Component that renders JSON-LD structured data for articles listing page
  * Implements Schema.org ItemList and CollectionPage types for better SEO
  */
-export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJsonLdProps) {
+export default function ArticlesListJsonLd({
+  articles,
+  baseUrl,
+  language,
+  url,
+  tag
+}: ArticlesListJsonLdProps) {
+  const navigationTranslations = getTranslation('navigation', language);
+  const articlesTranslations = getTranslation('articles', language);
+  const homeUrl = language === DEFAULT_LANGUAGE
+    ? `${SITE_URL}/`
+    : `${SITE_URL}/${language}/`;
+
   // Build collection schema
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    'name': tag ? `${tag.charAt(0).toUpperCase() + tag.slice(1)} Articles - ${personalInfo.name}` : `Articles - ${personalInfo.name}`,
+    'name': tag
+      ? `${tag.charAt(0).toUpperCase() + tag.slice(1)} - ${articlesTranslations.title}`
+      : articlesTranslations.title,
     'description': tag
       ? `Articles tagged with "${tag}" from Kirill Markin - expert analysis and perspectives.`
       : 'Welcome to my digital garden – a curated collection of interconnected notes, thoughts, and insights made available for public access. Unlike a traditional blog, this space represents a subset of my personal knowledge management system, with content organized through natural connections between ideas.',
@@ -34,7 +51,7 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
       'itemListElement': articles.map((article, index) => ({
         '@type': 'ListItem',
         'position': index + 1,
-        'url': `${SITE_URL}/articles/${article.slug}/`,
+        'url': getArticleUrl(article.slug, article.language),
         'name': article.title
       }))
     }
@@ -48,14 +65,14 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
       {
         '@type': 'ListItem',
         'position': 1,
-        'name': 'Home',
-        'item': `${SITE_URL}/`
+        'name': navigationTranslations.home,
+        'item': homeUrl
       },
       {
         '@type': 'ListItem',
         'position': 2,
-        'name': 'Articles',
-        'item': `${SITE_URL}/articles/`
+        'name': navigationTranslations.articles,
+        'item': baseUrl
       },
       ...(tag ? [
         {

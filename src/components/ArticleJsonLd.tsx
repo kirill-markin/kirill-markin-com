@@ -5,32 +5,42 @@ import { personalInfo } from '@/data/personalInfo';
 import { SITE_URL } from '@/data/contacts';
 import { getArticleUrl, getLocaleForLanguage } from '@/lib/localization';
 
+const DEFAULT_ARTICLE_IMAGE_PATH = '/articles/placeholder.webp';
+const PUBLISHER_LOGO_PATH = '/favicons/apple-touch-icon.png';
+
 type ArticleJsonLdProps = {
   article: Article;
   url: string;
 };
+
+interface ImageObjectSchema {
+  '@type': string;
+  url: string;
+}
+
+interface PersonSchema {
+  '@type': string;
+  name: string;
+  url: string;
+}
+
+interface OrganizationSchema {
+  '@type': string;
+  name: string;
+  url: string;
+  logo?: ImageObjectSchema;
+}
 
 interface ArticleSchema {
   '@context': string;
   '@type': string;
   headline: string;
   description: string;
-  image: string | undefined;
+  image: string;
   datePublished: string;
   dateModified?: string;
-  author: {
-    '@type': string;
-    name: string;
-    url: string;
-  };
-  publisher: {
-    '@type': string;
-    name: string;
-    logo: {
-      '@type': string;
-      url: string;
-    };
-  };
+  author: PersonSchema;
+  publisher: OrganizationSchema;
   mainEntityOfPage: {
     '@type': string;
     '@id': string;
@@ -47,33 +57,43 @@ interface ArticleSchema {
   sameAs?: string[];
 }
 
+function toAbsoluteUrl(pathOrUrl: string): string {
+  if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {
+    return pathOrUrl;
+  }
+
+  if (pathOrUrl.startsWith('/')) {
+    return `${SITE_URL}${pathOrUrl}`;
+  }
+
+  return `${SITE_URL}/${pathOrUrl}`;
+}
+
 /**
  * Component that renders JSON-LD structured data specifically for articles
  * Implements Schema.org Article type for better SEO
  */
 export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
-  const schemaDateModified = article.metadata.lastmod
-    ? { 'dateModified': article.metadata.lastmod }
-    : {};
+  const imageUrl = toAbsoluteUrl(article.metadata.thumbnailUrl || DEFAULT_ARTICLE_IMAGE_PATH);
   const schema: ArticleSchema = {
     '@context': 'https://schema.org',
     '@type': article.metadata.type === 'Video' ? 'VideoObject' : 'Article',
     'headline': article.metadata.title,
     'description': article.metadata.description || '',
-    'image': article.metadata.thumbnailUrl,
+    'image': imageUrl,
     'datePublished': article.metadata.date,
-    ...schemaDateModified,
     'author': {
       '@type': 'Person',
       'name': personalInfo.name,
       'url': `${SITE_URL}/`
     },
     'publisher': {
-      '@type': 'Person',
+      '@type': 'Organization',
       'name': article.metadata.publisher || personalInfo.name,
+      'url': `${SITE_URL}/`,
       'logo': {
         '@type': 'ImageObject',
-        'url': `${SITE_URL}/images/logo.png`
+        'url': toAbsoluteUrl(PUBLISHER_LOGO_PATH)
       }
     },
     'mainEntityOfPage': {
@@ -86,7 +106,7 @@ export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
 
   // Add video-specific properties if it's a video
   if (article.metadata.type === 'Video') {
-    schema.thumbnailUrl = article.metadata.thumbnailUrl;
+    schema.thumbnailUrl = imageUrl;
     schema.uploadDate = article.metadata.date;
   }
 

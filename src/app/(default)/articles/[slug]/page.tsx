@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getAllArticleSlugs, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
-import { markdownToHtml } from '@/lib/markdown';
+import { getFirstMarkdownHeading, markdownToHtml } from '@/lib/markdown';
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
 import { getMarkdownPath } from '@/lib/metadata';
 import { getArticleLanguageAlternates, getArticleUrl, getLocaleForLanguage } from '@/lib/localization';
@@ -79,7 +79,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
-  const htmlContent = await markdownToHtml(article.content);
+  const firstHeading = getFirstMarkdownHeading(article.content);
+  const visibleTitle = firstHeading?.depth === 1 ? firstHeading.text : article.metadata.title;
+  const htmlContent = await markdownToHtml(article.content, { stripFirstHeading: firstHeading?.depth === 1 });
   const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
 
   // Get related articles based on tags
@@ -97,6 +99,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       canonicalUrl={canonicalUrl}
       relatedArticles={relatedArticles}
       language="en"
+      visibleTitle={visibleTitle}
     />
   );
 } 

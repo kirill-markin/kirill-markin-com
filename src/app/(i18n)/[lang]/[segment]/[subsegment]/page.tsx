@@ -13,7 +13,7 @@ import { redirect, notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getAllArticles, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
-import { markdownToHtml } from '@/lib/markdown';
+import { getFirstMarkdownHeading, markdownToHtml } from '@/lib/markdown';
 import { generateMeetPageMetadata, generatePayPageMetadata, getMarkdownPath } from '@/lib/metadata';
 
 // Force static generation
@@ -280,7 +280,9 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
         }
 
         // Convert Markdown to HTML
-        const htmlContent = await markdownToHtml(article.content);
+        const firstHeading = getFirstMarkdownHeading(article.content);
+        const visibleTitle = firstHeading?.depth === 1 ? firstHeading.text : article.metadata.title;
+        const htmlContent = await markdownToHtml(article.content, { stripFirstHeading: firstHeading?.depth === 1 });
 
         const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
 
@@ -299,6 +301,7 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
                 canonicalUrl={canonicalUrl}
                 relatedArticles={relatedArticles}
                 language={lang}
+                visibleTitle={visibleTitle}
             />
         );
     }
