@@ -1,10 +1,15 @@
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+
 /**
- * Utilities for determining file modification dates using GitHub API
- * 
+ * Utilities for determining file modification dates using Git metadata
+ *
  * This module provides functions to:
- * 1. Get last modification dates for files using GitHub commit history
+ * 1. Get last modification dates for files using local Git or GitHub commit history
  * 2. Map pages to their source files for lastmod calculation in sitemap
  */
+
+const execFileAsync = promisify(execFile);
 
 // Common files that affect all pages
 const commonFiles = [
@@ -238,12 +243,52 @@ async function retryFetch(url: string, options: RequestInit, maxRetries = 3): Pr
 }
 
 /**
- * Gets the last Git commit date for a file using GitHub API
+ * Gets the last Git commit date for a file from the local checkout
+ * @param filePath Path to the file
+ * @returns The date of the last local commit that modified the file or null when unavailable
+ */
+async function getLocalGitLastCommitDate(filePath: string): Promise<Date | null> {
+    try {
+        const { stdout } = await execFileAsync(
+            'git',
+            ['log', '-1', '--format=%cI', '--', filePath],
+            { cwd: process.cwd() }
+        );
+
+        const trimmedDate = stdout.trim();
+
+        if (!trimmedDate) {
+            console.warn('No local git history found for file', { filePath });
+            return null;
+        }
+
+        const lastCommitDate = new Date(trimmedDate);
+
+        if (Number.isNaN(lastCommitDate.getTime())) {
+            console.warn('Invalid local git commit date for file', { filePath, trimmedDate });
+            return null;
+        }
+
+        return lastCommitDate;
+    } catch (error) {
+        console.warn('Error getting local git commit date for file', { filePath, error });
+        return null;
+    }
+}
+
+/**
+ * Gets the last Git commit date for a file using local Git or GitHub API
  * @param filePath Path to the file
  * @returns The date of the last commit that modified the file
  */
 export async function getFileLastCommitDate(filePath: string): Promise<Date> {
     try {
+        const localCommitDate = await getLocalGitLastCommitDate(filePath);
+
+        if (localCommitDate) {
+            return localCommitDate;
+        }
+
         // Get GitHub token and repo info from environment
         const token = process.env.GITHUB_TOKEN;
         const owner = process.env.VERCEL_GIT_REPO_OWNER;

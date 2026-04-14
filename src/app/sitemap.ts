@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllArticles, buildArticleConnections } from '@/lib/articles';
 import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
-import { SUPPORTED_LANGUAGES, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
+import { SUPPORTED_LANGUAGES, getArticleUrl, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
 import { SITE_URL } from '@/data/contacts';
 
 /**
@@ -143,21 +143,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const { language } = metadata;
 
     let filePath;
-    let url;
-
     if (language === DEFAULT_LANGUAGE) {
       filePath = `src/content/articles/${slug}.md`;
-      url = `${baseUrl}articles/${slug}/`;
     } else {
       filePath = `src/content/articles/translations/${language}/${slug}.md`;
-      const articlesSegment = getPathSegmentByLanguage('articles', language);
-      url = `${baseUrl}${language}/${articlesSegment}/${slug}/`;
     }
 
     const lastModified = await getFileLastCommitDate(filePath);
 
     entries.push({
-      url,
+      url: getArticleUrl(slug, language),
       lastModified,
       changeFrequency: 'monthly',
       priority: language === DEFAULT_LANGUAGE ? 0.7 : 0.6,

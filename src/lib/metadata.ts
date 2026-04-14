@@ -64,7 +64,7 @@ function getLanguageAlternates(
  * Strips trailing slashes and query parameters, appends `.md`,
  * and returns an absolute URL to avoid root-path serialization quirks.
  */
-function getMarkdownPath(canonicalUrl: string): string {
+export function getMarkdownPath(canonicalUrl: string): string {
     let path: string;
     if (canonicalUrl.startsWith('http')) {
         path = new URL(canonicalUrl).pathname;

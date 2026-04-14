@@ -3,7 +3,7 @@
 import { Article } from '@/lib/articles';
 import { personalInfo } from '@/data/personalInfo';
 import { SITE_URL } from '@/data/contacts';
-import { getLocaleForLanguage, getPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
+import { getArticleUrl, getLocaleForLanguage } from '@/lib/localization';
 
 type ArticleJsonLdProps = {
   article: Article;
@@ -17,7 +17,7 @@ interface ArticleSchema {
   description: string;
   image: string | undefined;
   datePublished: string;
-  dateModified: string;
+  dateModified?: string;
   author: {
     '@type': string;
     name: string;
@@ -48,24 +48,13 @@ interface ArticleSchema {
 }
 
 /**
- * Generate a URL for an article based on its language and slug
- */
-function getArticleUrl(slug: string, language: string): string {
-  const baseUrl = `${SITE_URL}/`;
-
-  if (language === DEFAULT_LANGUAGE) {
-    return `${baseUrl}articles/${slug}/`;
-  } else {
-    const articlesSegment = getPathSegmentByLanguage('articles', language);
-    return `${baseUrl}${language}/${articlesSegment}/${slug}/`;
-  }
-}
-
-/**
  * Component that renders JSON-LD structured data specifically for articles
  * Implements Schema.org Article type for better SEO
  */
 export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
+  const schemaDateModified = article.metadata.modifiedDateSource === 'frontmatter'
+    ? { 'dateModified': article.metadata.lastmod }
+    : {};
   const schema: ArticleSchema = {
     '@context': 'https://schema.org',
     '@type': article.metadata.type === 'Video' ? 'VideoObject' : 'Article',
@@ -73,7 +62,7 @@ export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
     'description': article.metadata.description || '',
     'image': article.metadata.thumbnailUrl,
     'datePublished': article.metadata.date,
-    'dateModified': article.metadata.lastmod,
+    ...schemaDateModified,
     'author': {
       '@type': 'Person',
       'name': personalInfo.name,
