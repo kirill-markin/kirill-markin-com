@@ -9,6 +9,9 @@ export const common = {
             day: 'numeric',
         },
         aboutAuthor: 'About Author',
+        by: 'By',
+        published: 'Published',
+        updated: 'Updated',
     },
     es: {
         siteName: 'Kirill Markin | Asesor en estrategia de IA',
@@ -20,6 +23,9 @@ export const common = {
             day: 'numeric',
         },
         aboutAuthor: 'Sobre el autor',
+        by: 'Por',
+        published: 'Publicado',
+        updated: 'Actualizado',
     },
     zh: {
         siteName: 'Kirill Markin | AI战略顾问',
@@ -31,6 +37,9 @@ export const common = {
             day: 'numeric',
         },
         aboutAuthor: '作者简介',
+        by: '作者',
+        published: '发布于',
+        updated: '更新于',
     },
     ar: {
         siteName: 'Kirill Markin | مستشار استراتيجيات الذكاء الاصطناعي',
@@ -42,6 +51,9 @@ export const common = {
             day: 'numeric',
         },
         aboutAuthor: 'نبذة عن المؤلف',
+        by: 'بقلم',
+        published: 'نُشر',
+        updated: 'حُدث',
     },
     hi: {
         siteName: 'Kirill Markin | एआई रणनीति सलाहकार',
@@ -53,5 +65,8 @@ export const common = {
             day: 'numeric',
         },
         aboutAuthor: 'लेखक परिचय',
+        by: 'लेखक',
+        published: 'प्रकाशित',
+        updated: 'अपडेट',
     },
 } as const;

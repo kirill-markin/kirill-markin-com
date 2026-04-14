@@ -13,7 +13,13 @@ export {
     getSubPathSegmentByLanguage,
 } from './routes';
 export type { PathSegmentKey, SubPathSegmentGroupKey } from './routes';
-export { getUrlForLanguage, hasTranslation } from './url';
+export {
+    getArticleLanguageAlternates,
+    getArticlePath,
+    getArticleUrl,
+    getUrlForLanguage,
+    hasTranslation,
+} from './url';
 export { getTranslation, translations } from './translations';
 export type { TranslationSection } from './translations';
 export type { LocalizedTextMap, PathSegmentsMap, SubPathSegmentsMap } from './types';

@@ -1,13 +1,20 @@
 import { MeetingPageTemplate } from '@/components/pages/meet';
 import { StripePaymentPage } from '@/components/pages/pay';
-import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, getSubPathSegmentByLanguage, isValidLanguage } from '@/lib/localization';
+import {
+    DEFAULT_LANGUAGE,
+    getArticleLanguageAlternates,
+    getArticleUrl,
+    getLocaleForLanguage,
+    getPathSegmentByLanguage,
+    getSubPathSegmentByLanguage,
+    isValidLanguage,
+} from '@/lib/localization';
 import { redirect, notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getAllArticles, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
 import { markdownToHtml } from '@/lib/markdown';
-import { generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
-import { SITE_URL } from '@/data/contacts';
+import { generateMeetPageMetadata, generatePayPageMetadata, getMarkdownPath } from '@/lib/metadata';
 
 // Force static generation
 export const dynamic = 'force-static';
@@ -155,50 +162,18 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
             return {};
         }
 
-        // Create canonical URL
-        const canonicalUrl = lang === DEFAULT_LANGUAGE
-            ? `${SITE_URL}/articles/${subsegment}`
-            : `${SITE_URL}/${lang}/${articlesSegment}/${subsegment}`;
-
-        // Создаем объект для языковых альтернатив
-        const languageAlternates: Record<string, string> = {};
-
-        // Добавляем текущую страницу в альтернативы
-        languageAlternates[lang] = canonicalUrl;
-
-        // Добавляем все доступные переводы
-        if (article.metadata.translations && article.metadata.translations.length > 0) {
-            for (const translation of article.metadata.translations) {
-                const translatedSegment = translation.language === DEFAULT_LANGUAGE
-                    ? 'articles'
-                    : getPathSegmentByLanguage('articles', translation.language);
-
-                const translatedUrl = translation.language === DEFAULT_LANGUAGE
-                    ? `${SITE_URL}/articles/${translation.slug}`
-                    : `${SITE_URL}/${translation.language}/${translatedSegment}/${translation.slug}`;
-
-                languageAlternates[translation.language] = translatedUrl;
-            }
-        }
-
-        // Если это перевод, добавляем ссылку на оригинальную статью
-        if (article.metadata.originalArticle) {
-            const { language, slug: originalSlug } = article.metadata.originalArticle;
-            const originalSegment = language === DEFAULT_LANGUAGE
-                ? 'articles'
-                : getPathSegmentByLanguage('articles', language);
-
-            const originalUrl = language === DEFAULT_LANGUAGE
-                ? `${SITE_URL}/articles/${originalSlug}`
-                : `${SITE_URL}/${language}/${originalSegment}/${originalSlug}`;
-
-            languageAlternates[language] = originalUrl;
-        }
+        const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
+        const languageAlternates = getArticleLanguageAlternates(article.metadata);
+        const openGraphModifiedTime = article.metadata.modifiedDateSource === 'frontmatter'
+            ? { modifiedTime: article.metadata.lastmod }
+            : {};
 
         // Generate metadata for article
         return {
             title: article.metadata.title,
             description: article.metadata.description || '',
+            keywords: article.metadata.tags,
+            authors: [{ name: article.metadata.publisher || 'Kirill Markin' }],
             openGraph: {
                 title: article.metadata.title,
                 description: article.metadata.description || '',
@@ -212,6 +187,11 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
                         alt: article.metadata.title,
                     }
                 ],
+                locale: getLocaleForLanguage(article.metadata.language),
+                publishedTime: article.metadata.date,
+                ...openGraphModifiedTime,
+                tags: article.metadata.tags,
+                siteName: 'Kirill Markin',
             },
             twitter: {
                 card: 'summary_large_image',
@@ -222,7 +202,7 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
             alternates: {
                 canonical: canonicalUrl,
                 languages: languageAlternates,
-                types: { 'text/markdown': `${canonicalUrl}.md` },
+                types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
             },
         };
     }
@@ -267,7 +247,7 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
         } else if (segment === paySegment && subsegment === stripeSubsegment) {
             redirect('/pay/stripe');
         } else if (segment === articlesSegment) {
-            redirect(`/articles/${subsegment}`);
+            redirect(`/articles/${subsegment}/`);
         }
     }
 
@@ -302,10 +282,7 @@ export default async function SubsegmentPage({ params }: SubsegmentPageProps) {
         // Convert Markdown to HTML
         const htmlContent = await markdownToHtml(article.content);
 
-        // Create URL for JSON-LD
-        const canonicalUrl = lang === DEFAULT_LANGUAGE
-            ? `${SITE_URL}/articles/${subsegment}`
-            : `${SITE_URL}/${lang}/${articlesSegment}/${subsegment}`;
+        const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
 
         // Get related articles
         const relatedArticles = await getRelatedArticlesByTags(

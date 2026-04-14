@@ -1,11 +1,22 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import { ArticleMetadata } from '@/types/article';
+import {
+  ArticleFrontmatter,
+  ArticleMetadata,
+  ArticleModifiedDateSource,
+} from '@/types/article';
+import { getFileLastCommitDate } from './fileModification';
 import { DEFAULT_LANGUAGE } from './localization';
 
 const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
+const articleLastModifiedCache = new Map<string, Promise<ResolvedModifiedDate>>();
+
+type ResolvedModifiedDate = {
+  value: string;
+  source: ArticleModifiedDateSource;
+};
 
 /**
  * Cleans markdown symbols from a description string
@@ -19,6 +30,48 @@ function cleanDescription(description: string | undefined): string {
   // Check if this is the beginning of the content which typically starts with an H1
   // And remove the entire H1 line if present
   return withoutHeadingMarkers.replace(/^(.*?)\n/, '');
+}
+
+function toIsoDate(dateValue: string | undefined): string {
+  if (!dateValue) {
+    return '';
+  }
+
+  return new Date(dateValue).toISOString();
+}
+
+function toRepoRelativePath(filePath: string): string {
+  return path.relative(process.cwd(), filePath).split(path.sep).join('/');
+}
+
+async function resolveLastModified(
+  frontmatter: ArticleFrontmatter,
+  articleFilePath: string
+): Promise<ResolvedModifiedDate> {
+  const explicitModifiedDate = frontmatter.lastmod ?? frontmatter.dateModified ?? frontmatter.updated;
+  const resolvedModifiedDate = toIsoDate(explicitModifiedDate);
+
+  if (resolvedModifiedDate) {
+    return {
+      value: resolvedModifiedDate,
+      source: 'frontmatter',
+    };
+  }
+
+  const cachedLastModified = articleLastModifiedCache.get(articleFilePath);
+
+  if (cachedLastModified) {
+    return cachedLastModified;
+  }
+
+  const lastModifiedPromise = getFileLastCommitDate(articleFilePath).then((lastCommitDate) => ({
+    value: lastCommitDate.toISOString(),
+    source: 'git' as const,
+  }));
+
+  articleLastModifiedCache.set(articleFilePath, lastModifiedPromise);
+
+  return lastModifiedPromise;
 }
 
 export type Article = {
@@ -86,41 +139,42 @@ export async function getArticleBySlug(
 
     const fileContents = await fs.readFile(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
+    const frontmatter = data as ArticleFrontmatter;
 
     // Validate that this is a published article
-    if (data.publish !== true) {
+    if (frontmatter.publish !== true) {
       return null;
     }
-
-    // Get file's last modification date from the file system
-    const fileStats = await fs.stat(fullPath);
-    const lastModificationDate = fileStats.mtime;
 
     // Use the first section of the content (length limited in code) for description if none exists in frontmatter
     const contentPreview = content.replace(/^# .*$/m, '').substring(0, 200).replace(/\n/g, ' ').trim();
 
     // Clean description if it exists by removing markdown symbols
-    const cleanedDescription = data.description
-      ? cleanDescription(data.description)
+    const cleanedDescription = frontmatter.description
+      ? cleanDescription(frontmatter.description)
       : cleanDescription(contentPreview);
+    const publishedAt = toIsoDate(frontmatter.date);
+    const articleFilePath = toRepoRelativePath(fullPath);
+    const resolvedLastModified = await resolveLastModified(frontmatter, articleFilePath);
 
     const metadata: ArticleMetadata = {
       slug,
-      title: data.title || '',
-      date: data.date ? new Date(data.date).toISOString() : '',
-      tags: (data.tags || []).map((tag: string) => tag.toLowerCase()),
-      publish: data.publish || false,
-      lastmod: lastModificationDate.toISOString(),
-      thumbnailUrl: data.thumbnailUrl || PLACEHOLDER_IMAGE,
+      title: frontmatter.title || '',
+      date: publishedAt,
+      tags: (frontmatter.tags || []).map((tag) => tag.toLowerCase()),
+      publish: frontmatter.publish || false,
+      lastmod: resolvedLastModified.value,
+      modifiedDateSource: resolvedLastModified.source,
+      thumbnailUrl: frontmatter.thumbnailUrl || PLACEHOLDER_IMAGE,
       description: cleanedDescription,
-      type: data.type || 'Article',
-      language: data.language || language,
-      publisher: data.publisher || 'Kirill Markin',
-      achievementValue: data.achievementValue,
-      achievementLabel: data.achievementLabel,
-      isVideo: data.isVideo || false,
-      translations: data.translations || [],
-      originalArticle: data.originalArticle,
+      type: frontmatter.type || 'Article',
+      language: frontmatter.language || language,
+      publisher: frontmatter.publisher || 'Kirill Markin',
+      achievementValue: frontmatter.achievementValue,
+      achievementLabel: frontmatter.achievementLabel,
+      isVideo: frontmatter.isVideo || false,
+      translations: frontmatter.translations || [],
+      originalArticle: frontmatter.originalArticle,
     };
 
     // For non-English articles with original article reference, add the original English

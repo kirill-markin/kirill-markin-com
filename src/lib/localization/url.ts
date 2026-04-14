@@ -1,4 +1,5 @@
-import { Translation } from '@/types/article';
+import { SITE_URL } from '@/data/contacts';
+import { ArticleMetadata, Translation } from '@/types/article';
 
 import { DEFAULT_LANGUAGE, isValidLanguage } from './languages';
 import { getSubPathSegmentByLanguage, PATH_SEGMENTS, SUB_PATH_SEGMENTS } from './routes';
@@ -113,17 +114,46 @@ function buildArticleUrl(targetLanguage: string, articleTranslations: Translatio
         return null;
     }
 
-    const articlesSegment = targetLanguage === DEFAULT_LANGUAGE
+    return getArticlePath(targetTranslation.slug, targetTranslation.language);
+}
+
+export function getArticlePath(slug: string, language: string): string {
+    const articlesSegment = language === DEFAULT_LANGUAGE
         ? PATH_SEGMENTS.articles[DEFAULT_LANGUAGE]
-        : isValidLanguage(targetLanguage)
-            ? PATH_SEGMENTS.articles[targetLanguage]
+        : isValidLanguage(language)
+            ? PATH_SEGMENTS.articles[language]
             : PATH_SEGMENTS.articles[DEFAULT_LANGUAGE];
 
-    if (targetLanguage === DEFAULT_LANGUAGE) {
-        return `/${articlesSegment}/${targetTranslation.slug}/`;
+    if (language === DEFAULT_LANGUAGE) {
+        return `/${articlesSegment}/${slug}/`;
     }
 
-    return `/${targetLanguage}/${articlesSegment}/${targetTranslation.slug}/`;
+    return `/${language}/${articlesSegment}/${slug}/`;
+}
+
+export function getArticleUrl(slug: string, language: string): string {
+    return `${SITE_URL}${getArticlePath(slug, language)}`;
+}
+
+export function getArticleLanguageAlternates(
+    metadata: Pick<ArticleMetadata, 'slug' | 'language' | 'translations' | 'originalArticle'>
+): Record<string, string> {
+    const alternates: Record<string, string> = {
+        [metadata.language]: getArticleUrl(metadata.slug, metadata.language),
+    };
+
+    for (const translation of metadata.translations || []) {
+        alternates[translation.language] = getArticleUrl(translation.slug, translation.language);
+    }
+
+    if (metadata.originalArticle) {
+        alternates[metadata.originalArticle.language] = getArticleUrl(
+            metadata.originalArticle.slug,
+            metadata.originalArticle.language
+        );
+    }
+
+    return alternates;
 }
 
 function getBasePath(pathWithoutQuery: string): string[] {

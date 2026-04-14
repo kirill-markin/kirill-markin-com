@@ -8,8 +8,9 @@ import Footer from '@/components/Footer';
 import SidebarRelatedArticles from '@/components/SidebarRelatedArticles';
 import SidebarVisibilityWrapper from '@/components/SidebarRelatedArticles/SidebarVisibilityWrapper';
 import SocialShare from '@/components/SocialShare';
+import { personalInfo } from '@/data/personalInfo';
 import { Article } from '@/lib/articles';
-import { getPathSegmentByLanguage, getSubPathSegmentByLanguage } from '@/lib/localization';
+import { DEFAULT_LANGUAGE, getArticlePath, getPathSegmentByLanguage, getSubPathSegmentByLanguage, getTranslation } from '@/lib/localization';
 import { getLocalizedTag } from '@/lib/tagLocalization';
 import styles from './ArticlePageContent.module.css';
 
@@ -28,21 +29,19 @@ export default function ArticlePageContent({
     relatedArticles,
     language
 }: ArticlePageContentProps) {
-    // Determine the article link path based on language
-    const getArticleLink = (slug: string, articleLanguage: string): string => {
-        if (articleLanguage === 'en') {
-            return `/articles/${slug}/`;
-        } else {
-            // Use getPathSegmentByLanguage to get the correct segment
-            const segment = getPathSegmentByLanguage('articles', articleLanguage);
-            return `/${articleLanguage}/${segment}/${slug}/`;
-        }
-    };
+    const commonTranslations = getTranslation('common', language);
+    const authorLink = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
+    const publicationLocale = language === DEFAULT_LANGUAGE ? 'en-US' : language;
+    const publishedDate = article.metadata.date
+        ? new Date(article.metadata.date).toLocaleDateString(publicationLocale, commonTranslations.dateFormat)
+        : null;
+    const modifiedDate = article.metadata.modifiedDateSource === 'frontmatter' && article.metadata.lastmod
+        ? new Date(article.metadata.lastmod).toLocaleDateString(publicationLocale, commonTranslations.dateFormat)
+        : null;
 
-    // Also update tag link generation using getPathSegmentByLanguage
     const getTagLink = (tag: string): string => {
         const localizedTag = getSubPathSegmentByLanguage('articles', tag, language);
-        if (language === 'en') {
+        if (language === DEFAULT_LANGUAGE) {
             return `/articles/?tag=${localizedTag}`;
         } else {
             const segment = getPathSegmentByLanguage('articles', language);
@@ -78,19 +77,36 @@ export default function ArticlePageContent({
                                 </div>
 
                                 <div className={styles.metaRight}>
-                                    {article.metadata.date && (
-                                        <time className={styles.articleDate} dateTime={article.metadata.date}>
-                                            {new Date(article.metadata.date).toLocaleDateString(
-                                                language === 'en' ? 'en-US' : language,
-                                                {
-                                                    year: 'numeric',
-                                                    month: 'long',
-                                                    day: 'numeric',
-                                                }
-                                            )}
-                                        </time>
-                                    )}
                                     <CopyMarkdownButton content={article.content} />
+                                </div>
+                            </div>
+
+                            <div className={styles.bylineRow}>
+                                <div className={styles.byline}>
+                                    <span className={styles.bylineLabel}>{commonTranslations.by}</span>
+                                    <Link href={authorLink} className={styles.bylineAuthor}>
+                                        {personalInfo.name}
+                                    </Link>
+                                </div>
+
+                                <div className={styles.publicationMeta}>
+                                    {publishedDate && (
+                                        <span className={styles.publicationMetaItem}>
+                                            <span className={styles.publicationLabel}>{commonTranslations.published}</span>
+                                            <time className={styles.articleDate} dateTime={article.metadata.date}>
+                                                {publishedDate}
+                                            </time>
+                                        </span>
+                                    )}
+
+                                    {modifiedDate && (
+                                        <span className={styles.publicationMetaItem}>
+                                            <span className={styles.publicationLabel}>{commonTranslations.updated}</span>
+                                            <time className={styles.articleDate} dateTime={article.metadata.lastmod}>
+                                                {modifiedDate}
+                                            </time>
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -114,7 +130,7 @@ export default function ArticlePageContent({
                                 {relatedArticles.map((relatedArticle, index) => (
                                     <ArticlePreviewCard
                                         key={relatedArticle.slug}
-                                        href={getArticleLink(relatedArticle.slug, relatedArticle.metadata.language)}
+                                        href={getArticlePath(relatedArticle.slug, relatedArticle.metadata.language)}
                                         title={relatedArticle.metadata.title}
                                         description={relatedArticle.metadata.description}
                                         thumbnailUrl={relatedArticle.metadata.thumbnailUrl}

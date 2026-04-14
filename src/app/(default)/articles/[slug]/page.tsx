@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import { getAllArticleSlugs, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
 import { markdownToHtml } from '@/lib/markdown';
 import ArticlePageContent from '@/components/pages/ArticlePageContent';
-import { getPathSegmentByLanguage } from '@/lib/localization';
-import { SITE_URL } from '@/data/contacts';
+import { getMarkdownPath } from '@/lib/metadata';
+import { getArticleLanguageAlternates, getArticleUrl, getLocaleForLanguage } from '@/lib/localization';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -22,34 +22,11 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     };
   }
 
-  const canonicalUrl = `${SITE_URL}/articles/${slug}`;
-
-  // Создаем объект для языковых альтернатив
-  const languageAlternates: Record<string, string> = {};
-
-  // Добавляем текущую страницу в альтернативы
-  languageAlternates[article.metadata.language] = canonicalUrl;
-
-  // Добавляем все доступные переводы
-  if (article.metadata.translations && article.metadata.translations.length > 0) {
-    for (const translation of article.metadata.translations) {
-      const translatedUrl = translation.language === 'en'
-        ? `${SITE_URL}/articles/${translation.slug}`
-        : `${SITE_URL}/${translation.language}/${getPathSegmentByLanguage('articles', translation.language)}/${translation.slug}`;
-
-      languageAlternates[translation.language] = translatedUrl;
-    }
-  }
-
-  // Если это перевод, добавляем ссылку на оригинальную статью
-  if (article.metadata.originalArticle) {
-    const { language, slug: originalSlug } = article.metadata.originalArticle;
-    const originalUrl = language === 'en'
-      ? `${SITE_URL}/articles/${originalSlug}`
-      : `${SITE_URL}/${language}/${getPathSegmentByLanguage('articles', language)}/${originalSlug}`;
-
-    languageAlternates[language] = originalUrl;
-  }
+  const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
+  const languageAlternates = getArticleLanguageAlternates(article.metadata);
+  const openGraphModifiedTime = article.metadata.modifiedDateSource === 'frontmatter'
+    ? { modifiedTime: article.metadata.lastmod }
+    : {};
 
   return {
     title: `${article.metadata.title}`,
@@ -69,9 +46,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
           alt: article.metadata.title,
         }
       ],
-      locale: article.metadata.language === 'ru' ? 'ru_RU' : 'en_US',
+      locale: getLocaleForLanguage(article.metadata.language),
       publishedTime: article.metadata.date,
-      modifiedTime: article.metadata.lastmod,
+      ...openGraphModifiedTime,
       tags: article.metadata.tags,
       siteName: 'Kirill Markin'
     },
@@ -84,7 +61,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     alternates: {
       canonical: canonicalUrl,
       languages: languageAlternates,
-      types: { 'text/markdown': `${canonicalUrl}.md` },
+      types: { 'text/markdown': getMarkdownPath(canonicalUrl) },
     }
   };
 }
@@ -103,7 +80,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const htmlContent = await markdownToHtml(article.content);
-  const canonicalUrl = `${SITE_URL}/articles/${slug}`;
+  const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
 
   // Get related articles based on tags
   const relatedArticles = await getRelatedArticlesByTags(

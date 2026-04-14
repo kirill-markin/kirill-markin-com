@@ -3,6 +3,8 @@ export type Translation = {
     slug: string;
 };
 
+export type ArticleModifiedDateSource = 'frontmatter' | 'git';
+
 export type ArticleMetadata = {
     slug: string;
     title: string;
@@ -10,6 +12,7 @@ export type ArticleMetadata = {
     tags: string[];
     publish: boolean;
     lastmod: string;
+    modifiedDateSource: ArticleModifiedDateSource;
     thumbnailUrl?: string;
     description?: string;
     type?: string;
@@ -20,4 +23,24 @@ export type ArticleMetadata = {
     isVideo?: boolean;
     translations?: Translation[];
     originalArticle?: Translation;
-}; 
+};
+
+export type ArticleFrontmatter = {
+    title?: string;
+    date?: string;
+    dateModified?: string;
+    lastmod?: string;
+    updated?: string;
+    tags?: string[];
+    publish?: boolean;
+    thumbnailUrl?: string;
+    description?: string;
+    type?: string;
+    language?: string;
+    publisher?: string;
+    achievementValue?: string;
+    achievementLabel?: string;
+    isVideo?: boolean;
+    translations?: Translation[];
+    originalArticle?: Translation;
+};
