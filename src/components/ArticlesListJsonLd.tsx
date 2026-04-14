@@ -1,11 +1,11 @@
 'use client';
 
-import { Article } from '@/lib/articles';
+import type { MarkdownArticleSummary } from '@/lib/articleIndex';
 import { personalInfo } from '@/data/personalInfo';
 import { SITE_URL } from '@/data/contacts';
 
 type ArticlesListJsonLdProps = {
-  articles: Article[];
+  articles: MarkdownArticleSummary[];
   url: string;
   tag?: string;
 };
@@ -35,7 +35,7 @@ export default function ArticlesListJsonLd({ articles, url, tag }: ArticlesListJ
         '@type': 'ListItem',
         'position': index + 1,
         'url': `${SITE_URL}/articles/${article.slug}/`,
-        'name': article.metadata.title
+        'name': article.title
       }))
     }
   };

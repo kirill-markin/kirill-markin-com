@@ -1,6 +1,7 @@
 ---
 title: "استراتيجية توزيع المحتوى لبناء العلامة الشخصية وتنمية الأعمال"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "istratijiat-tawzie-almuhtawa-lilalamah-alshakhsia-walamal"
 description: "هذا هو الإطار الذي أعتمده لتوزيع المحتوى عبر المنصات بما يوسّع الوصول ويدعم بناء العلامة الشخصية. نظام عملي صقلته بالتجربة وراجعته مع الوقت."
 tags: [productivity]

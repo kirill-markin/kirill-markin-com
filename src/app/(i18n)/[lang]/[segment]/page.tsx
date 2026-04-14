@@ -3,10 +3,10 @@ import { DEFAULT_LANGUAGE, getPathSegmentByLanguage, isValidLanguage } from '@/l
 import { redirect, notFound } from 'next/navigation';
 import ArticlesPageContent from '@/components/pages/ArticlesPageContent';
 import ServicesPageContent from '@/components/pages/ServicesPageContent';
+import { getPublishedMarkdownArticles } from '@/lib/articleIndex';
 import { generateArticlesPageMetadata, generateServicesPageMetadata, generateMeetPageMetadata, generatePayPageMetadata } from '@/lib/metadata';
 import { MeetPage } from '@/components/pages/meet';
 import { PayPage } from '@/components/pages/pay';
-import { getAllArticles } from '@/lib/articles';
 import { servicesOtherData } from '@/data/servicesOther';
 
 // Force static generation even with searchParams
@@ -133,7 +133,7 @@ export default async function SegmentPage({ params, searchParams }: SegmentPageP
         return <PayPage language={lang} />;
     } else if (segment === articlesSegment) {
         // Load articles on server and pass to client component
-        const articles = await getAllArticles(lang);
+        const articles = await getPublishedMarkdownArticles(lang);
         return <ArticlesPageContent language={lang} articles={articles} />;
     } else if (segment === servicesSegment) {
         // Pass services data to client component

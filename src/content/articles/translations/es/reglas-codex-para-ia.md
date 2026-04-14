@@ -1,6 +1,7 @@
 ---
 title: "Reglas de Codex: instrucciones globales, AGENTS.md y app para Mac"
 date: 2026-03-21
+lastmod: 2026-04-14
 slug: "reglas-codex-para-ia"
 description: "Así uso las instrucciones personalizadas de Codex, AGENTS.md y la app para Mac para mantener los mismos patrones de desarrollo en distintos repositorios."
 tags: [productivity, codex, openai, ai]

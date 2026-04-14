@@ -1,6 +1,7 @@
 ---
 title: "Content Distribution Strategy for Personal Brand and Business"
 date: 2025-04-14
+lastmod: 2026-04-11
 description: "My framework for distributing content across platforms to maximize reach for personal branding. A practical system refined through experience."
 tags: [productivity]
 publish: true

@@ -13,6 +13,7 @@ keywords: [
 ]
 title: "如何用 n8n 和 LLM 自动分类个人邮件：三个月实测稳定的低成本工作流，适合个人邮箱长期自动运行"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "ruhe-yong-n8n-he-llm-zidong-fenlei-youjian"
 description: "我用 n8n 和 GPT-5-nano 搭了一个自动分类个人邮件的工作流，让 AI 把每封邮件分到“直接归档”“稍后阅读”和“需要回复”三类。它已经稳定跑了三个月，成本很低，逻辑也足够简单，确实帮我省下了每天手动整理收件箱和判断优先级的时间，而且后续几乎不需要额外人工维护和持续盯盘。"
 tags: [productivity, ai]

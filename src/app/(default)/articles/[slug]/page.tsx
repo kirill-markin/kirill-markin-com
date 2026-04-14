@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   const canonicalUrl = getArticleUrl(article.slug, article.metadata.language);
   const languageAlternates = getArticleLanguageAlternates(article.metadata);
-  const openGraphModifiedTime = article.metadata.modifiedDateSource === 'frontmatter'
+  const openGraphModifiedTime = article.metadata.lastmod
     ? { modifiedTime: article.metadata.lastmod }
     : {};
 

@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Rules: CLAUDE.md Global Instructions for AI"
 date: 2026-03-08
+lastmod: 2026-04-11
 slug: "claude-code-rules-for-ai"
 description: "My Claude Code rules using global CLAUDE.md instructions. How I split personal and project rules so the agent keeps my coding patterns across repos."
 tags: [productivity, claude-code, ai, llm]

@@ -1,6 +1,7 @@
 ---
 title: "Why I Replaced 17 Agent Tools with One SQL-Like DSL"
 date: 2026-03-12
+lastmod: 2026-04-11
 description: "How I collapsed 17 agent tools in Flashcards Open Source App into one SQL-like DSL endpoint that internal and external LLMs can learn quickly."
 tags: [productivity, ai, llm]
 publish: true

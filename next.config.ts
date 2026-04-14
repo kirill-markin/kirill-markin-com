@@ -37,20 +37,6 @@ const nextConfig: NextConfig = {
     SITE_URL: 'https://kirill-markin.com/',
     SITE_NAME: 'Kirill Markin',
   },
-  outputFileTracingExcludes: {
-    '/*': [
-      './AGENTS.md',
-      './DEPLOYMENT.md',
-      './README.md',
-      './docs/**/*',
-      './scripts/**/*',
-      './src/content/README.md',
-      './public/samo-danni-eood/README.md',
-      './next.config.ts',
-      './tsconfig.json',
-      './tsconfig.tsbuildinfo',
-    ],
-  },
   // Add optimization settings
   compiler: {
     // Remove console.log/info/debug in production, but keep error/warn for Sentry

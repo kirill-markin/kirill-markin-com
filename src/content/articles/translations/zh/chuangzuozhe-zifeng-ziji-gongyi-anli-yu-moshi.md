@@ -9,6 +9,7 @@ keywords: [
 ]
 title: "那些一边拆解自己手艺一边继续创作的人：从喜剧演员、管理者到工程师的自嘲、自动化与自我淘汰的共同模式解析"
 date: 2026-04-11
+lastmod: 2026-04-13
 slug: "chuangzuozhe-zifeng-ziji-gongyi-anli-yu-moshi"
 description: "这篇文章梳理一种反复出现的创作冲动：喜剧演员拆解喜剧，管理者建立不依赖自己的系统，工程师用 AI 自动化自己的工作。作者借这些例子讨论，为什么人会主动削弱自身的重要性，以及这种自我拆解为何反而可能让作品、团队和职业判断更有价值。它关注的不是口号式反技术，而是熟悉这门手艺的人，如何亲手把自己变得没那么必要。"
 tags: [productivity, ai, llm, cursor-ide, management]

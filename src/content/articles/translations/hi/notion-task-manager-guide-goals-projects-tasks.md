@@ -16,6 +16,7 @@ keywords:
   ]
 title: "मेरा Notion कार्य-प्रबंधक: लक्ष्य, प्रोजेक्ट और कामों के लिए एक तालिका"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "notion-task-manager-guide-goals-projects-tasks"
 description: "मेरी परखी हुई Notion कार्य-प्रबंधन प्रणाली, जिसमें त्रैमासिक लक्ष्य, प्रोजेक्ट और रोज़मर्रा के काम एक ही डेटाबेस में रहते हैं और इनबॉक्स सिर पर नहीं चढ़ता।"
 tags: [productivity, notion, task-management]

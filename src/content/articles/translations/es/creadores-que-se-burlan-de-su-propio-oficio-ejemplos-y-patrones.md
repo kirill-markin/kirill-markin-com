@@ -9,6 +9,7 @@ keywords: [
 ]
 title: "Creadores que se burlan de su propio trabajo: ejemplos y patrones"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "creadores-que-se-burlan-de-su-propio-oficio-ejemplos-y-patrones"
 description: "Creadores que automatizan su propio trabajo: comediantes que se burlan de la comedia, ingenieros que crean IA y por qué disfrutamos de nuestra obsolescencia."
 tags: [productivity, ai, llm, cursor-ide, management]

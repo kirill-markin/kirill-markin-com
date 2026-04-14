@@ -1,6 +1,7 @@
 ---
 title: "Codex 规则：如何用全局指令、AGENTS.md 和 Mac 应用在不同仓库中保持一致默认开发规则"
 date: 2026-03-21
+lastmod: 2026-04-14
 description: "这篇文章介绍我如何使用 Codex 自定义指令、个人与仓库级 AGENTS.md，以及 Mac 应用，让不同代码仓库从一开始就共享同一套编码规则、显式报错要求、最小改动原则和文档习惯，不必在每个新任务里反复重新说明，也让 Codex 进入任何仓库前就先带着这些长期有效的开发模式。"
 tags: [productivity, codex, openai, ai]
 publish: true

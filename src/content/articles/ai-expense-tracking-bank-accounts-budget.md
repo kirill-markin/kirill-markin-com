@@ -1,6 +1,7 @@
 ---
 title: "How I Use AI to Handle My Expenses from Bank Accounts and Budget"
 date: 2026-03-05
+lastmod: 2026-04-11
 description: "My personal system for tracking expenses, managing bank accounts, and budgeting with AI. Open-source tools, automation, and practical workflows."
 tags: [productivity, ai, finance]
 publish: true

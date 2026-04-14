@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { bigMediaMentions, smallMediaMentions, buildWallItems } from '@/data/mediaMentions';
-import { getAllArticles } from '@/lib/articles';
+import { getPublishedMarkdownArticles } from '@/lib/articleIndex';
 import PersonalInfo from '@/components/PersonalInfo';
 import { MediaMentionCard } from '@/components/MediaMentionCard';
 import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
@@ -21,7 +21,7 @@ export default async function HomePageContent({ language }: HomePageContentProps
     const t = getTranslation('home', language);
 
     // Get articles for the specified language
-    const articles = await getAllArticles(language);
+    const articles = await getPublishedMarkdownArticles(language);
 
     // Get localized URL segment for articles
     const articlesSegment = getPathSegmentByLanguage('articles', language);
@@ -66,7 +66,7 @@ export default async function HomePageContent({ language }: HomePageContentProps
 
                             {/* Adding articles to the end of the list */}
                             {articles.map((article) => {
-                                const isVideo = article.metadata.isVideo || article.metadata.type?.toLowerCase() === 'video';
+                                const isVideo = article.type?.toLowerCase() === 'video';
 
                                 return (
                                     <article
@@ -75,20 +75,20 @@ export default async function HomePageContent({ language }: HomePageContentProps
                                     >
                                         <Link href={`${articlesBasePath}/${article.slug}/`} className={styles.mentionLink}>
                                             <div className={styles.language}>
-                                                <div className={styles.text}>[{article.metadata.language || language}]</div>
+                                                <div className={styles.text}>[{article.language}]</div>
                                             </div>
 
-                                            {article.metadata.type && (
+                                            {article.type && (
                                                 <div className={styles.type}>
-                                                    <div className={styles.text}>[{article.metadata.type}]</div>
+                                                    <div className={styles.text}>[{article.type}]</div>
                                                 </div>
                                             )}
 
                                             <div className={styles.thumbnailContainer}>
                                                 <Image
                                                     className={styles.thumbnail}
-                                                    src={article.metadata.thumbnailUrl || PLACEHOLDER_IMAGE}
-                                                    alt={article.metadata.title}
+                                                    src={article.thumbnailUrl || PLACEHOLDER_IMAGE}
+                                                    alt={article.title}
                                                     width={640}
                                                     height={360}
                                                     sizes="(max-width: 640px) 320px, (max-width: 1200px) 640px, 640px"
@@ -98,7 +98,7 @@ export default async function HomePageContent({ language }: HomePageContentProps
                                             </div>
 
                                             <div className={styles.content}>
-                                                <h3 className={styles.title}>{article.metadata.title}</h3>
+                                                <h3 className={styles.title}>{article.title}</h3>
 
                                                 <div className={styles.footer}>
                                                     <div className={styles.divider} />
@@ -110,11 +110,11 @@ export default async function HomePageContent({ language }: HomePageContentProps
                                                             width={25}
                                                             height={25}
                                                         />
-                                                        {article.metadata.achievementValue && (
+                                                        {article.achievementValue && (
                                                             <div className={styles.achievement}>
-                                                                <div className={styles.value}>{article.metadata.achievementValue}</div>
-                                                                {article.metadata.achievementLabel && (
-                                                                    <div className={styles.label}>{article.metadata.achievementLabel}</div>
+                                                                <div className={styles.value}>{article.achievementValue}</div>
+                                                                {article.achievementLabel && (
+                                                                    <div className={styles.label}>{article.achievementLabel}</div>
                                                                 )}
                                                             </div>
                                                         )}

@@ -1,6 +1,7 @@
 ---
 title: "Por qué reemplacé 17 herramientas para agentes por un DSL tipo SQL"
 date: 2026-04-11
+lastmod: 2026-04-13
 slug: "reemplace-17-herramientas-de-agentes-por-un-dsl-tipo-sql"
 description: "Cómo sustituí 17 herramientas de la capa de agentes de Flashcards Open Source App por un único DSL tipo SQL que los LLM pueden aprender con rapidez."
 tags: [productivity, ai, llm]

@@ -1,6 +1,7 @@
 ---
 title: "Jupyter Notebooks en Cursor IDE para análisis de datos con IA"
 date: 2026-04-11
+lastmod: 2026-04-13
 slug: "jupyter-notebooks-cursor-ide-llm-ia-analisis-datos"
 description: "Aprende a usar Jupyter Notebooks en Cursor IDE con asistentes de IA para analizar datos, crear visualizaciones y documentar hallazgos en un solo entorno."
 tags: [productivity, cursor-ide, ai, llm]

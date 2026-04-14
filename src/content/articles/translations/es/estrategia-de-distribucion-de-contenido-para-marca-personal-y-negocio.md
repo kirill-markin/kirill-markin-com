@@ -1,6 +1,7 @@
 ---
 title: "Estrategia de distribución de contenido para marca personal y negocio"
 date: 2026-04-11
+lastmod: 2026-04-14
 slug: "estrategia-de-distribucion-de-contenido-para-marca-personal-y-negocio"
 description: "Mi sistema para distribuir contenido entre plataformas y ampliar el alcance de una marca personal y un negocio. Un enfoque práctico afinado con la experiencia."
 tags: [productivity]
