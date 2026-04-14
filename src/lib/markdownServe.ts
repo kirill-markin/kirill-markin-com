@@ -1,4 +1,4 @@
-import { getAllArticles, getArticleBySlug } from '@/lib/articles';
+import { getPublishedMarkdownArticles, getPublishedMarkdownArticleBySlug } from '@/lib/articleIndex';
 import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
 import { servicesOtherData } from '@/data/servicesOther';
 import { SITE_URL, VCARD_DATA, HEIGHT_CM } from '@/data/contacts';
@@ -28,7 +28,7 @@ function formatMediaMention(m: MediaMention): string {
 export async function renderHomeMarkdown(language: string): Promise<MarkdownResult> {
   const home = getTranslation('home', language);
   const personalInfo = getTranslation('personalInfo', language);
-  const articles = await getAllArticles(language);
+  const articles = await getPublishedMarkdownArticles(language);
   const recentArticles = articles.slice(0, 5);
   const articlesSegment = getPathSegmentByLanguage('articles', language);
   const servicesSegment = getPathSegmentByLanguage('services', language);
@@ -45,7 +45,7 @@ export async function renderHomeMarkdown(language: string): Promise<MarkdownResu
     `## Recent Articles`,
     ``,
     ...recentArticles.map(a =>
-      `- [${a.metadata.title}](${SITE_URL}${langPrefix}/${articlesSegment}/${a.slug}/) — ${a.metadata.date ? new Date(a.metadata.date).toISOString().slice(0, 10) : ''}`
+      `- [${a.title}](${SITE_URL}${langPrefix}/${articlesSegment}/${a.slug}/) — ${a.date ? new Date(a.date).toISOString().slice(0, 10) : ''}`
     ),
     ``,
     `[All articles](${SITE_URL}${langPrefix}/${articlesSegment}/)`,
@@ -82,7 +82,7 @@ export async function renderHomeMarkdown(language: string): Promise<MarkdownResu
 
 export async function renderArticlesListingMarkdown(language: string): Promise<MarkdownResult> {
   const articlesTranslation = getTranslation('articles', language);
-  const articles = await getAllArticles(language);
+  const articles = await getPublishedMarkdownArticles(language);
   const articlesSegment = getPathSegmentByLanguage('articles', language);
   const langPrefix = language === 'en' ? '' : `/${language}`;
 
@@ -94,14 +94,14 @@ export async function renderArticlesListingMarkdown(language: string): Promise<M
   ];
 
   for (const a of articles) {
-    const date = a.metadata.date ? new Date(a.metadata.date).toISOString().slice(0, 10) : '';
-    const tags = a.metadata.tags.length > 0 ? ` [${a.metadata.tags.join(', ')}]` : '';
-    lines.push(`## [${a.metadata.title}](${SITE_URL}${langPrefix}/${articlesSegment}/${a.slug}/)`);
+    const date = a.date ? new Date(a.date).toISOString().slice(0, 10) : '';
+    const tags = a.tags.length > 0 ? ` [${a.tags.join(', ')}]` : '';
+    lines.push(`## [${a.title}](${SITE_URL}${langPrefix}/${articlesSegment}/${a.slug}/)`);
     lines.push(``);
     lines.push(`${date}${tags}`);
-    if (a.metadata.description) {
+    if (a.description) {
       lines.push(``);
-      lines.push(a.metadata.description);
+      lines.push(a.description);
     }
     lines.push(``);
   }
@@ -110,7 +110,7 @@ export async function renderArticlesListingMarkdown(language: string): Promise<M
 }
 
 export async function renderArticleMarkdown(slug: string, language: string): Promise<MarkdownResult> {
-  const article = await getArticleBySlug(slug, language);
+  const article = await getPublishedMarkdownArticleBySlug(slug, language);
   if (!article) {
     return { markdown: `# 404\n\nArticle not found: ${slug}`, status: 404 };
   }

@@ -44,6 +44,14 @@ const nextConfig: NextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
+  turbopack: {
+    ignoreIssue: [
+      {
+        path: '**/next.config.ts',
+        title: 'Encountered unexpected file in NFT list',
+      },
+    ],
+  },
   // Add SEO headers for non-production
   async headers() {
     const headers = [];

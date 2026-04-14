@@ -1,4 +1,6 @@
 import { execFile } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 /**
@@ -10,6 +12,7 @@ import { promisify } from 'node:util';
  */
 
 const execFileAsync = promisify(execFile);
+const repositoryRootDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 // Common files that affect all pages
 const commonFiles = [
@@ -252,7 +255,7 @@ async function getLocalGitLastCommitDate(filePath: string): Promise<Date | null>
         const { stdout } = await execFileAsync(
             'git',
             ['log', '-1', '--format=%cI', '--', filePath],
-            { cwd: process.cwd() }
+            { cwd: repositoryRootDirectory }
         );
 
         const trimmedDate = stdout.trim();

@@ -7,7 +7,7 @@ const KNOWN_PAGE_NAMES: Set<string> = new Set(
     Object.values(PATH_SEGMENTS).flatMap(locales => Object.values(locales))
 );
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     if (pathname.endsWith('.md/') || pathname.endsWith('.txt/')) {

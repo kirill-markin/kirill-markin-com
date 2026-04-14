@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getAllArticles } from '@/lib/articles';
-import { DEFAULT_LANGUAGE } from '@/lib/localization';
 import { SITE_URL } from '@/data/contacts';
+import { getRecentLlmsArticleSummaries } from '@/lib/articleIndex';
 
 /**
  * Generates an llms.txt file for the website following the llms.txt specification
@@ -13,8 +12,7 @@ export async function GET(): Promise<NextResponse> {
     const baseUrl = SITE_URL;
 
     // Get articles for content examples
-    const articles = await getAllArticles(DEFAULT_LANGUAGE);
-    const recentArticles = articles.slice(0, 3); // Get 3 most recent articles
+    const recentArticles = await getRecentLlmsArticleSummaries(3);
 
     const llmsContent = `# Kirill Markin - AI & Data Engineering Expert
 
@@ -32,7 +30,7 @@ Key areas of expertise:
 ## Articles & Insights
 
 ${recentArticles.map(article =>
-        `- [${article.metadata.title}](${baseUrl}/articles/${article.slug}/): ${article.metadata.description}`
+        `- [${article.title}](${baseUrl}/articles/${article.slug}/): ${article.description}`
     ).join('\n')}
 - [All Articles](${baseUrl}/articles/): Complete collection of articles on AI, data engineering, and technology
 
