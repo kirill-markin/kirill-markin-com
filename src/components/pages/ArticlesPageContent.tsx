@@ -57,6 +57,7 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
     const canonicalUrl = currentLocalizedTag === 'all'
         ? `${SITE_URL}${articlesBasePath}/`
         : `${SITE_URL}${articlesBasePath}/?tag=${currentLocalizedTag}`;
+    const articlesBaseUrl = `${SITE_URL}${articlesBasePath}/`;
 
     // Function to get tag description
     const getTagDescription = () => {
@@ -79,6 +80,8 @@ export default function ArticlesPageContent({ language, articles }: ArticlesPage
             <div className={styles.pageContent}>
                 <ArticlesListJsonLd
                     articles={filteredArticles}
+                    baseUrl={articlesBaseUrl}
+                    language={language}
                     url={canonicalUrl}
                     tag={currentInternalTag !== 'all' ? getLocalizedTag(currentInternalTag, language) : undefined}
                 />

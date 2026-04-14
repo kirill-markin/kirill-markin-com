@@ -20,6 +20,7 @@ interface ArticlePageContentProps {
     canonicalUrl: string;
     relatedArticles: Article[];
     language: string;
+    visibleTitle: string;
 }
 
 export default function ArticlePageContent({
@@ -27,7 +28,8 @@ export default function ArticlePageContent({
     htmlContent,
     canonicalUrl,
     relatedArticles,
-    language
+    language,
+    visibleTitle
 }: ArticlePageContentProps) {
     const commonTranslations = getTranslation('common', language);
     const authorLink = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
@@ -80,6 +82,8 @@ export default function ArticlePageContent({
                                     <CopyMarkdownButton content={article.content} />
                                 </div>
                             </div>
+
+                            <h1 className={styles.articleTitle}>{visibleTitle}</h1>
 
                             <div className={styles.bylineRow}>
                                 <div className={styles.byline}>
