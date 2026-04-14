@@ -23,7 +23,7 @@ translations:
 
 # Estrategia de distribución de contenido para marca personal y negocio
 
-Este es el sistema personal que sigo para distribuir contenido en distintas plataformas. Lo uso para mantener la coherencia al compartir ideas y aprendizajes propios. Aunque es mi flujo de trabajo, lo publico porque puede resultar útil a cualquiera que esté diseñando su propia estrategia de distribución de contenido.
+Este es el sistema personal que sigo para distribuir contenido en distintas plataformas. Lo uso para mantener una línea coherente al compartir ideas y aprendizajes propios. Aunque es mi forma de trabajar, lo publico porque puede resultar útil a quien esté diseñando su propia estrategia de distribución de contenido.
 
 ## Guía rápida
 
@@ -34,10 +34,10 @@ Principios clave de esta estrategia de distribución:
    - Cada formato necesita su propia estrategia de distribución
 
 2. Proceso de distribución:
-   - Elegir la plataforma principal donde vivirá el contenido original
+   - Elegir la plataforma principal donde se publicará el contenido original
    - Definir la estrategia de republicación: exclusividad o publicación cruzada
    - Activar fuentes iniciales de tráfico si compensa buscar alcance adicional
-   - Actualizar los archivos permanentes donde mantengo el contenido:
+   - Actualizar los espacios permanentes donde reúno el contenido:
      - Archivo completo: añadir todos los enlaces y mantenerlo ordenado
      - Perfiles resumidos: añadir o actualizar solo las piezas con mejor rendimiento
 
@@ -52,40 +52,40 @@ En este documento detallo cada paso del proceso, con plataformas y criterios con
 - Videos creados para subreddits concretos en Reddit
   - Si un video se hace para un subreddit concreto, conviene mantenerlo en exclusiva y dejar claro que fue creado específicamente para esa comunidad
 
-Las fuentes iniciales de tráfico y los enlaces permanentes siguen la misma estrategia que describo en la sección de artículos.
+Las fuentes iniciales de tráfico y los enlaces permanentes se rigen por la misma estrategia que describo en la sección de artículos.
 
 **De video a texto:**
-Por cada video que distribuyo, también preparo una versión en artículo, cuidada y de alta calidad, y la distribuyo siguiendo la estrategia de contenido escrito que explico más abajo. Así amplío el alcance y permito que la audiencia consuma la misma idea en el formato que prefiera.
+Por cada video que distribuyo, también preparo una versión en formato artículo, bien trabajada, y la distribuyo siguiendo la estrategia de contenido escrito que explico más abajo. Así amplío el alcance y permito que la audiencia consuma esa misma idea en el formato que prefiera.
 
 ### Contenido escrito (artículos)
 
 - Artículos en medios (contactar con periodistas y medios relevantes del sector)
 - Publicaciones personales en Reddit: [Perfil](https://www.reddit.com/user/Kirmark)
-  - Recuerda aprobarla una vez publicada
+  - Recuerda aprobar la publicación una vez salga
 - Artículos en LinkedIn: [Boletín](https://www.linkedin.com/newsletters/articles-from-kirill-markin-7072862354891255810/)
 - Artículos en mi web personal: [Artículos](/es/articulos/)
 
 **Estrategia de republicación del contenido:**
-Cuando un contenido se publica en un medio, prefiero mantenerlo en exclusiva para respetar el trabajo del periodista y cuidar la relación. En cambio, si el contenido apareció primero en Reddit o en otra plataforma propia, siempre lo republico también como artículo en LinkedIn para maximizar el alcance y la interacción.
+Cuando un contenido se publica en un medio, prefiero mantenerlo en exclusiva para respetar el trabajo del periodista y cuidar la relación. En cambio, si el contenido apareció primero en Reddit o en otra plataforma propia, siempre lo republico también como artículo en LinkedIn para maximizar el alcance y la participación.
 
 ## Fuentes iniciales de tráfico
 
 **Estrategia para compartir enlaces:**
 Comparto enlaces al contenido original solo cuando tiene sentido llevar a la audiencia de una plataforma a otra, por ejemplo, para conseguir suscripciones en YouTube. En el caso del contenido escrito, prefiero publicar de forma nativa en cada plataforma en lugar de limitarme a compartir un enlace, porque eso suele aumentar la lectura: la mayoría de la gente prefiere consumir el contenido dentro de la plataforma que ya está usando.
 
-- Publicaciones en el feed de LinkedIn (perfil personal + empresa + republicaciones de colaboradores externos)
+- Publicaciones en el muro de LinkedIn (perfil personal, empresa y republicaciones desde cuentas de colaboradores externos)
   - Al compartir contenido externo, deja el enlace en el primer comentario
-- Mi perfil personal de Twitter: [Twitter](https://twitter.com)
+- Mi cuenta personal de Twitter: [Twitter](https://twitter.com)
 - Actualizaciones en Bluesky: [Bluesky](https://bsky.app)
 - Actualizaciones en Threads: [Threads](https://www.threads.com/@kirill.markin.ai)
-- Perfil de Twitter de la empresa
+- Cuenta de Twitter de la empresa
 - Envíos a Hacker News: [News](https://news.ycombinator.com/news)
   - Sigue las [normas de publicación](https://news.ycombinator.com/newsguidelines.html)
 - Publicaciones en Indie Hackers (con imágenes): [Perfil](https://www.indiehackers.com/)
 - Historias y destacados en Instagram: [Instagram](https://www.instagram.com/kirill.markin.ai)
 - Historias en Facebook
 - Historias en Telegram
-- Actualizaciones en canales de Telegram compartidos con amigos
+- Actualizaciones en canales de Telegram con amigos
 - Publicaciones en la pestaña Comunidad de YouTube
 
 ## Enlaces permanentes al contenido
@@ -119,17 +119,17 @@ Estos perfiles deberían incluir solo el contenido más importante:
 
 ## Cómo entiendo las distintas fuentes de distribución de contenido
 
-He ordenado mis canales de contenido en tres grupos según lo que realmente hacen por mí, no según lo que prometen:
+He agrupado mis canales de contenido en tres grupos según lo que realmente hacen por mí, no según lo que prometen:
 
 ### Fuentes de descubrimiento: atraer audiencias nuevas
 
 Estos son los canales que te ponen delante de personas que nunca habían oído hablar de ti:
 
 - **Artículos optimizados para buscadores**: cuando alguien busca en Google un problema que ya resolviste, aparece tu artículo. No te estaba buscando a ti, pero te encuentra igual.
-- **Algoritmo de YouTube**: esto roza la magia cuando funciona. Me han escrito completos desconocidos para decirme: "YouTube me recomendó tu video y acabé viendo todo lo que has publicado".
+- **Algoritmo de YouTube**: esto roza la magia cuando funciona. Me han escrito personas que no me conocían de nada para decirme: "YouTube me recomendó tu video y terminé viendo todo lo que has publicado".
 - **TikTok e Instagram Reels**: te gusten o no, le enseñan tu cara a gente que jamás pidió verla. En marketing, eso vale oro.
 - **Comunidades de Reddit**: publica algo realmente útil en un subreddit y, de pronto, miles de personas de ese nicho saben que existes.
-- **Entrevistas en podcasts**: otra persona pasó años construyendo una audiencia y te deja hablarle durante una hora. Poco más se puede pedir.
+- **Entrevistas en podcasts**: otra persona pasó años construyendo una audiencia y ahora te cede el micrófono durante una hora. Poco más se puede pedir.
 
 Lo que hace especiales a estos canales es que siguen trabajando para ti mucho después de que tú ya hayas pasado a otra cosa.
 
@@ -137,7 +137,7 @@ Lo que hace especiales a estos canales es que siguen trabajando para ti mucho de
 
 Puede que no te traigan mucha gente nueva, pero cambian por completo la percepción cuando alguien te está evaluando:
 
-- **Menciones en medios**: que te citen en Forbes quizá no te traiga demasiado tráfico, pero sí puede hacer que esa segunda reunión contigo ocurra.
+- **Menciones en medios**: que te citen en Forbes quizá no te traiga demasiado tráfico, pero sí puede hacer que alguien acepte esa segunda reunión contigo.
 - **Ponencias en conferencias**: a veces el valor no está en la sala, sino en poder decir "Como comenté en [evento importante del sector]..." durante años.
 - **Publicaciones académicas o del sector**: ¿aburridas? Muchas veces. ¿Impresionantes para la gente adecuada? Siempre.
 
@@ -147,13 +147,13 @@ Estas son las fuentes que convierten "¿Quién es esta persona?" en "Ah, ESTA pe
 
 Estas plataformas llegan, sobre todo, a gente que ya te conoce:
 
-- **Publicaciones en el feed de LinkedIn**: a veces bromeo diciendo que LinkedIn es el sitio al que van mis publicaciones para que las vea mi madre y mis antiguos compañeros.
+- **Publicaciones en LinkedIn**: a veces bromeo diciendo que LinkedIn es el sitio al que van mis publicaciones para que las vean mi madre y mis antiguos compañeros.
 - **Boletines por correo electrónico**: el equivalente digital a colarte en el salón de alguien. Ya te dieron permiso, pero más te vale ser interesante.
 - **Actualizaciones en Twitter/X**: la plaza del pueblo donde hablas con las mismas doce personas mientras, de vez en cuando, pasa alguien nuevo.
-- **Publicaciones en la página de Facebook**: ¿te acuerdas de cuando esto hacía llegar tus contenidos a gente nueva? Yo tampoco, pero quienes ya me siguen todavía se pasan por ahí.
+- **Publicaciones en la página de Facebook**: ¿te acuerdas de cuando esto hacía que te descubriera gente nueva? Yo tampoco, pero quienes ya me siguen todavía se pasan por ahí.
 - **Canales de Telegram**: mi opción favorita para los "fans de verdad". Ahí reciben la versión sin filtrar que no publicaría en otros sitios.
 
-He dejado de esperar que estos canales hagan crecer mi audiencia. Ahora los uso para cuidar las relaciones que ya construí. Se parecen más a un café para ponerse al día que a un discurso de ventas.
+He dejado de esperar que estos canales hagan crecer mi audiencia. Ahora los uso para cuidar las relaciones que ya construí. Se parecen más a una conversación para ponerse al día que a un discurso de ventas.
 
 Intento equilibrar las tres categorías, pero no voy a mentir: últimamente estoy obsesionado con las fuentes de descubrimiento. No hay nada como llegar a gente que ni siquiera sabía que te estaba buscando.
 
@@ -163,17 +163,17 @@ Mi forma de distribuir contenido ha dado varios giros bruscos con los años. He 
 
 ### La ilusión de las redes sociales
 
-Cuando empecé, hice lo que todo el mundo decía: publicar con constancia en redes sociales. Preparaba cada actualización con cuidado, compartía enlaces a cosas que me parecían interesantes y me metía en hilos de comentarios. La gente interactuaba. Éxito, ¿no?
+Cuando empecé, hice lo que todo el mundo decía: publicar con constancia en redes sociales. Redactaba cada actualización con cuidado, compartía enlaces a cosas que me parecían interesantes y me sumaba a hilos de comentarios. La gente interactuaba. Éxito, ¿no?
 
 No exactamente. Después de unos meses empecé a notar algo frustrante: las mismas 50-100 personas reaccionaban a todo. Mi audiencia se había estancado. No importaba lo ingeniosas que fueran mis publicaciones ni lo constante que fuera mi ritmo: no conseguía pasar de ahí.
 
-Nadie me había dicho que la mayoría de las plataformas sociales están diseñadas para conectarte con gente que ya conoces, no para ayudarte a encontrar audiencias nuevas. Mi número de seguidores acabó pareciéndose demasiado al tamaño de mi red fuera de internet. Sin una estrategia deliberada para salir de esa burbuja, no estaba haciendo más que hablarle a la misma gente dentro de una cámara de eco digital.
+Nadie me había dicho que la mayoría de las plataformas sociales están diseñadas para conectarte con gente que ya conoces, no para ayudarte a encontrar audiencias nuevas. Mi número de seguidores terminó reflejando demasiado el tamaño de mi red fuera de internet. Sin una estrategia deliberada para salir de esa burbuja, no estaba haciendo más que hablarle a la misma gente dentro de una cámara de eco digital.
 
 ### La etapa del circuito de conferencias
 
-Cuando entendí que necesitaba conocer gente nueva, me lancé de lleno a la vía presencial: charlas, encuentros del sector, aparecer en todas las mesas redondas que encontraba. Eso sí funcionó mejor que limitarme a publicar en el vacío.
+Cuando entendí que necesitaba conocer gente nueva, me lancé de lleno a la vía presencial: charlas, encuentros del sector, aparecer en todas las mesas redondas que encontraba. Eso sí funcionó mejor que limitarme a publicar al vacío.
 
-Mi red pasó de un puñado de contactos a varios cientos. La gente empezó a escribirme por charlas que había dado. Pero luego choqué con otro límite. A menos que la conferencia se grabara y esa grabación se promocionara después, algo que rara vez ocurre, mi alcance quedaba limitado a quienes estaban en la sala ese día.
+Mi red pasó de un puñado de contactos a varios cientos. La gente empezó a escribirme a raíz de charlas que había dado. Pero luego choqué con otro límite. A menos que la conferencia se grabara y esa grabación se promocionara después, algo que rara vez ocurre, mi alcance quedaba limitado a quienes estaban en la sala ese día.
 
 Después de seis meses agotadores proponiendo charlas, preparando material, viajando y hablando, hice unas cuentas rápidas. Si dedicaba 20 horas a preparar una charla para 200 personas, cada nueva conexión me costaba 6 minutos de trabajo. A ese ritmo, llegar a 10.000 personas me llevaría... ¿1.000 horas? Tenía que haber una forma mejor.
 
@@ -181,8 +181,8 @@ Después de seis meses agotadores proponiendo charlas, preparando material, viaj
 
 El cambio de verdad llegó cuando empecé a pensar en plataformas diseñadas específicamente para ayudar a la gente a descubrir contenido nuevo:
 
-- Publiqué un video en YouTube que el algoritmo empezó a recomendar y llegó a 3.000 vistas sin ninguna promoción. Y sigue creciendo. ([Míralo aquí](https://youtu.be/eOSfeBIBzr0?si=ly6DnjT_W-M0hirE))
-- Escribí una publicación detallada en Reddit respondiendo a una pregunta habitual de mi sector y llegó a 55.000 vistas. ([Léela aquí](https://www.reddit.com/r/cursor/comments/1ikq9m6/cursor_ide_setup_and_workflow_in_larger_projects/))
+- Publiqué un video en YouTube que el algoritmo empezó a recomendar y alcanzó 3.000 vistas sin ninguna promoción. Y sigue creciendo. ([Míralo aquí](https://youtu.be/eOSfeBIBzr0?si=ly6DnjT_W-M0hirE))
+- Escribí una publicación detallada en Reddit respondiendo a una pregunta habitual de mi sector y sumó 55.000 vistas. ([Léela aquí](https://www.reddit.com/r/cursor/comments/1ikq9m6/cursor_ide_setup_and_workflow_in_larger_projects/))
 - Probé con videos cortos que explicaban temas complejos de forma sencilla y las vistas empezaron a acumularse.
 - Publiqué artículos orientados a búsquedas concretas que la gente ya estaba haciendo.
 

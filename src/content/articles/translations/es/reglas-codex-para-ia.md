@@ -1,5 +1,5 @@
 ---
-title: "Reglas de Codex para IA: instrucciones globales y AGENTS.md"
+title: "Reglas de Codex: instrucciones globales, AGENTS.md y app para Mac"
 date: 2026-03-21
 slug: "reglas-codex-para-ia"
 description: "Así uso las instrucciones personalizadas de Codex, AGENTS.md y la app para Mac para mantener los mismos patrones de desarrollo en distintos repositorios."
@@ -21,33 +21,33 @@ translations:
     slug: "qawaid-codex-lilthakaa-alistinaei"
 ---
 
-# Reglas de Codex para IA: instrucciones globales y AGENTS.md
+# Reglas de Codex: instrucciones globales, AGENTS.md y app para Mac
 
-Solo llevo usando Codex en serio alrededor de un mes, sobre todo desde que GPT-5.4 hizo que me resultara mucho más útil. Así que este no es un artículo de "cinco años de sabiduría curtida en mil batallas". La observación es bastante más simple: Codex empezó a funcionar de verdad para mí en cuanto dejé de tratarlo como otra caja bonita para prompts y empecé a darle instrucciones estables desde el principio.
+Solo llevo usando Codex en serio cosa de un mes, sobre todo desde que GPT-5.4 hizo que me resultara bastante más útil. Así que este no es un artículo de "cinco años de sabiduría curtida en mil batallas". La observación es mucho más simple: Codex empezó a funcionarme de verdad cuando dejé de tratarlo como otra interfaz vistosa para escribir prompts y empecé a darle instrucciones estables desde el arranque.
 
-OpenAI ofrece tanto Codex CLI como la app para Mac. Para mí, ambos funcionan sobre la misma idea general: instrucciones persistentes, `AGENTS.md`, reglas del repositorio y un agente que arranca con mis patrones de desarrollo ya cargados. Prefiero la app para Mac porque, sencillamente, me resulta mucho más agradable de usar que otra ventana de terminal.
+OpenAI ofrece tanto Codex CLI como la app para Mac. En mi caso, ambos parten de la misma idea general: instrucciones persistentes, `AGENTS.md`, reglas del repositorio y un agente que arranca con mis patrones de desarrollo ya cargados. Prefiero la app para Mac porque, sencillamente, me resulta bastante más agradable que sumar otra ventana de terminal.
 
-Codex CLI ya resuelve bien esa parte. La app para Mac me da una capa más agradable y mejor resuelta sobre el mismo flujo de trabajo de Codex. Yo sigo queriendo las mismas pautas persistentes: tipado estricto, diffs mínimos, errores explícitos, nada de soluciones de respaldo metidas porque sí y docstrings en el código en vez de explicaciones desperdigadas. No quiero enseñarle todo eso a Codex desde cero en cada tarea nueva. Quiero que esa base ya esté ahí desde el principio.
+Codex CLI ya hace bien esa parte. La app para Mac me da una capa más agradable sobre el mismo flujo de trabajo de Codex. Yo sigo queriendo las mismas pautas persistentes: tipado estricto, diffs mínimos, errores explícitos, nada de soluciones de respaldo añadidas por si acaso y docstrings en el código en vez de explicaciones desperdigadas. No quiero tener que enseñarle todo eso a Codex desde cero en cada tarea nueva. Quiero que esa base ya esté ahí desde el primer momento.
 
-En la práctica, eso vive en `Settings -> Personalization -> Custom instructions`.
+En la práctica, eso está en `Settings -> Personalization -> Custom instructions`.
 
-Por debajo, esas instrucciones de la app terminan en mi `AGENTS.md` personal. Perfecto. Consigo una experiencia más agradable sin perder la claridad de tener un archivo real por detrás, al estilo del CLI.
+Detrás de esa pantalla, esas instrucciones se vuelcan en mi `AGENTS.md` personal. Perfecto. Así tengo una experiencia más agradable sin perder la claridad de contar con un archivo real detrás, al estilo del CLI.
 
 ## Dónde viven realmente las instrucciones personalizadas de Codex
 
 Si solo te fueras a quedar con una pantalla de este artículo, que sea esta.
 
-En la app, las instrucciones globales viven en `Settings -> Personalization -> Custom instructions`. Yo empezaría por mostrar esa pantalla.
+En la app, las instrucciones globales están en `Settings -> Personalization -> Custom instructions`. Yo enseñaría esa pantalla primero.
 
 La [documentación de Codex](https://developers.openai.com/codex/) de OpenAI dice que Codex puede leer un archivo global de instrucciones desde tu directorio de Codex, normalmente `~/.codex/AGENTS.md`. La [documentación de configuración de Codex](https://developers.openai.com/codex/config/) también explica que, al editar las instrucciones personalizadas, se actualiza tu archivo `AGENTS.md`.
 
 Ese es exactamente el modelo que quiero. Puedo usar la app como interfaz principal sin perder la claridad de saber que hay un archivo real detrás.
 
-Así se ve mi modelo mental:
+Mi modelo mental es este:
 
-1. `~/.codex/AGENTS.md` personal para mis criterios base entre proyectos
+1. `~/.codex/AGENTS.md` personal para mis criterios básicos entre proyectos
 2. `AGENTS.md` del repositorio para las reglas del equipo y del propio repositorio
-3. Los ajustes de la app de Codex y la guía del repositorio a partir de esas reglas
+3. Los ajustes de la app de Codex y la guía del repositorio que se apoyan en esas reglas
 
 Aquí está la pantalla:
 
@@ -126,27 +126,27 @@ Esta es la base que quiero que Codex traiga a cualquier repositorio antes de ver
 - Store knowledge as current state, not as a changelog of modifications
 ```
 
-Este archivo es aburrido en el mejor sentido posible.
+Este archivo es aburrido en el mejor sentido de la palabra.
 
 Existe para eliminar fricción repetida:
 
-- que Codex se invente refactors amplios cuando yo quería un parche mínimo
+- que Codex se invente refactorizaciones amplias cuando yo quería un parche mínimo
 - que Codex oculte la incertidumbre detrás de un lenguaje demasiado blando
 - que Codex añada soluciones de respaldo "por seguridad"
-- que Codex se salte convenciones del repositorio porque el prompt era demasiado estrecho
+- que Codex se salte convenciones del repositorio porque la petición estaba demasiado acotada
 
 Una vez cargadas estas reglas, la sesión se vuelve mucho más tranquila.
 
 ## Por qué pongo las reglas globales por encima de las del repositorio
 
-Codex soporta bien la jerarquía de `AGENTS.md`. OpenAI documenta un archivo global en `~/.codex/AGENTS.md` y, después, archivos de repositorio y de directorios anidados a medida que el directorio de trabajo se vuelve más específico.
+Codex maneja bien la jerarquía de `AGENTS.md`. OpenAI documenta un archivo global en `~/.codex/AGENTS.md` y, después, archivos de repositorio y de directorios anidados a medida que el directorio de trabajo se vuelve más específico.
 
 Esa jerarquía es útil, pero la primera capa tiene que ser mía.
 
 Mi archivo personal debería responder:
 
 - qué tan estricto quiero el estilo de código
-- qué considero un manejo aceptable de errores
+- qué considero un tratamiento aceptable de los errores
 - cuán agresivo debe ser el agente con los cambios
 - qué significa "terminado" en el trabajo normal de programación
 
@@ -164,31 +164,31 @@ Versión corta:
 
 Si mezclo esas dos cosas, acabo con duplicación, deriva y un archivo que nadie quiere mantener.
 
-Esa es una de las razones por las que Codex me funciona mejor de lo que esperaba. La jerarquía de instrucciones es explícita. Se parece menos a un juego oculto de prompts y más a un sistema de verdad.
+Esa es una de las razones por las que Codex me funciona mejor de lo que esperaba. La jerarquía de instrucciones es explícita. Se parece menos a un juego de prompts ocultos y más a un sistema real.
 
 ## La app para Mac es la interfaz principal, y eso importa
 
-La nueva app de Codex para Mac es la parte que más disfruto ahora mismo.
+La nueva app de Codex para Mac es la parte que más estoy disfrutando ahora mismo.
 
-No porque el CLI sea flojo. El CLI ya es muy bueno. La app es, sencillamente, mucho más agradable para el día a día. El mismo Codex por debajo, una experiencia bastante más agradable por encima.
+No porque el CLI se quede corto. El CLI ya es muy bueno. La app es, sencillamente, mucho más agradable para el día a día. Es el mismo Codex por dentro, pero con una experiencia bastante más agradable.
 
 Por eso no quiero centrar este artículo en el CLI, aunque el CLI importe. La app es la forma más agradable de usar el mismo sistema.
 
-Lo que hace que la app sea sólida y no solo cosmética es que las instrucciones siguen estando respaldadas por `AGENTS.md`. La documentación de la app dice que editar las instrucciones personalizadas actualiza las instrucciones personales en `AGENTS.md`, y esa es exactamente la relación que quiero:
+Lo que hace que la app sea sólida y no solo un lavado de cara es que las instrucciones siguen estando respaldadas por `AGENTS.md`. La documentación de la app dice que editar las instrucciones personalizadas actualiza las instrucciones personales en `AGENTS.md`, y esa es exactamente la relación que quiero:
 
-- ajustes de la app para comodidad
-- instrucciones basadas en archivos para durabilidad
+- ajustes en la app por comodidad
+- instrucciones en archivos por durabilidad
 
-Eso también hace que el uso del CLI sea fácil de razonar después, porque las mismas instrucciones base se mantienen.
+Eso también hace que luego el uso del CLI resulte fácil de entender, porque las mismas instrucciones de base se mantienen.
 
 ## El AGENTS.md del proyecto sigue importando, pero no es el protagonista
 
-No quiero que este artículo se convierta en un tutorial sobre el anidamiento de `AGENTS.md`, aunque Codex soporte eso perfectamente.
+No quiero que este artículo se convierta en un tutorial sobre cómo anidar `AGENTS.md`, aunque Codex soporte eso perfectamente.
 
 Mi versión es más simple:
 
 - mi `AGENTS.md` personal le da a Codex mi comportamiento de partida
-- `AGENTS.md` del repositorio le da a Codex expectativas específicas de ese repositorio
+- `AGENTS.md` del repositorio le da a Codex expectativas concretas de ese repositorio
 - los archivos anidados son para los casos raros que de verdad los necesitan
 
 Eso mantiene el sistema fácil de entender.
@@ -199,7 +199,7 @@ Si abro un repositorio cualquiera y Codex se comporta mal, quiero diagnosticarlo
 2. faltan instrucciones del repositorio
 3. la tarea es demasiado amplia
 
-No algo como: "olvidé cuál de las siete capas ocultas ganó esta ruleta de prompts".
+No algo como: "ya no sé cuál de las siete capas ocultas ganó esta ruleta de prompts".
 
 ## Dónde encaja el CLI en mi configuración de Codex
 
@@ -207,8 +207,8 @@ La app para Mac es mi interfaz principal. El CLI no es una alternativa de segund
 
 El CLI sigue importando por varias razones:
 
-- hace muy obvia la configuración basada en archivos
-- facilita inspeccionar o automatizar comportamientos concretos
+- hace muy evidente la configuración basada en archivos
+- facilita inspeccionar o automatizar el comportamiento exacto
 
 No quiero una forma distinta de entender el producto para el CLI. Quiero el mismo `AGENTS.md` personal, la misma guía del repositorio y las mismas salvaguardas en ambos entornos.
 
@@ -216,15 +216,15 @@ Esa continuidad es una gran parte de por qué el producto se siente coherente.
 
 ## Mi configuración práctica de Codex ahora mismo
 
-Si lo estuviera montando desde cero hoy en un Mac, lo haría en este orden.
+Si tuviera que montarlo hoy desde cero en un Mac, lo haría en este orden.
 
 ### 1. Escribir primero las instrucciones personales en la app
 
 Abre los ajustes de la app de Codex con `Cmd+,`, ve a `Personalization` y escribe ahí primero las instrucciones personalizadas. Yo sigo pensando en términos de `~/.codex/AGENTS.md`, pero la app es el lugar principal donde las configuro y reviso.
 
-### 2. Mantener el archivo personal corto y con criterio
+### 2. Mantener el archivo personal breve y con criterio claro
 
-La arquitectura del proyecto no va aquí. Sí van las reglas duraderas de desarrollo:
+La arquitectura del proyecto no va aquí. Aquí van las reglas duraderas de desarrollo:
 
 - tipado estricto
 - errores explícitos
