@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllArticles, buildArticleConnections } from '@/lib/articles';
+import { getPublishedArticleReferencesByLanguage } from '@/lib/articleIndex';
 import { getPageLastModifiedDate, getFileLastCommitDate } from '@/lib/fileModification';
 import { SUPPORTED_LANGUAGES, getArticleUrl, getPathSegmentByLanguage, getSubPathSegmentByLanguage, DEFAULT_LANGUAGE } from '@/lib/localization';
 import { SITE_URL } from '@/data/contacts';
@@ -14,21 +14,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = `${SITE_URL}/`;
   const entries: MetadataRoute.Sitemap = [];
 
-  // Get all articles for all languages
-  const articlesByLanguage = await Promise.all(
+  const articleReferencesByLanguage = await Promise.all(
     SUPPORTED_LANGUAGES.map(async (lang) => {
-      const articles = await getAllArticles(lang);
-      return { lang, articles };
+      const articleReferences = await getPublishedArticleReferencesByLanguage(lang);
+      return { articleReferences, lang };
     })
   );
 
-  // Flatten articles from all languages
-  const allArticles = articlesByLanguage.flatMap(({ articles }) => articles);
-
-  // Build connections between original and translated articles
-  const connectedArticles = await buildArticleConnections(allArticles);
-
-
+  const allArticleReferences = articleReferencesByLanguage.flatMap(({ articleReferences }) => articleReferences);
 
   // Add static routes for default language (English)
   const defaultRoutes = [
@@ -138,9 +131,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   // Generate article routes with Git commit dates
-  for (const article of connectedArticles) {
-    const { slug, metadata } = article;
-    const { language } = metadata;
+  for (const articleReference of allArticleReferences) {
+    const { language, slug } = articleReference;
 
     let filePath;
     if (language === DEFAULT_LANGUAGE) {

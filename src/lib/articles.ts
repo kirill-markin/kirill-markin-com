@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
+import { fileURLToPath } from 'node:url';
 import {
   ArticleFrontmatter,
   ArticleMetadata,
@@ -9,7 +10,8 @@ import {
 import { getFileLastCommitDate } from './fileModification';
 import { DEFAULT_LANGUAGE } from './localization';
 
-const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
+const repositoryRootDirectory = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const articlesDirectory = path.join(repositoryRootDirectory, 'src', 'content', 'articles');
 const PLACEHOLDER_IMAGE = '/articles/placeholder.webp';
 const articleLastModifiedCache = new Map<string, Promise<ResolvedModifiedDate>>();
 
@@ -41,7 +43,7 @@ function toIsoDate(dateValue: string | undefined): string {
 }
 
 function toRepoRelativePath(filePath: string): string {
-  return path.relative(process.cwd(), filePath).split(path.sep).join('/');
+  return path.relative(repositoryRootDirectory, filePath).split(path.sep).join('/');
 }
 
 async function resolveLastModified(
