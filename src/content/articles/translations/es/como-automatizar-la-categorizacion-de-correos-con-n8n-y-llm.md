@@ -11,7 +11,7 @@ keywords: [
   "etiquetas automáticas en Gmail",
   "automatización de productividad con correo electrónico"
 ]
-title: "Cómo automatizar la clasificación del correo con n8n y un LLM"
+title: "Cómo automatizar la categorización de correos con n8n y un LLM"
 date: 2026-04-11
 slug: "como-automatizar-la-categorizacion-de-correos-con-n8n-y-llm"
 description: "El sistema que llevo tres meses usando para clasificar mi correo con n8n y GPT-5 nano. Archivar, leer o responder: deja que la IA decida por ti."
@@ -33,9 +33,9 @@ translations:
     slug: "kayfa-tuatim-tasnif-albarid-aliiliktruni-bi-n8n-wa-llm"
 ---
 
-# Cómo automatizar la clasificación del correo con n8n y un LLM
+# Cómo automatizar la categorización de correos con n8n y un LLM
 
-Me cansé de esperar a que Gmail entendiera qué correos me importan de verdad. Después de tres meses dejando la clasificación de mi correo personal en manos de la IA, no me imagino volver a ordenarlo a mano.
+Me cansé de esperar a que Gmail entendiera qué correos me importan de verdad. Después de tres meses dejando la categorización de mis correos personales en manos de la IA, no me imagino volver a ordenarlos a mano.
 
 Mi sistema es absurdamente simple: GPT-5-nano clasifica cada correo en una de tres categorías: archivar, leer o responder. Nada más.
 
@@ -84,16 +84,16 @@ La parte clave está en la configuración del nodo de OpenAI. Yo lo tengo montad
 
 ![Configuración del nodo LLM de OpenAI en n8n](/articles/assets/n8n-llm-node-config.webp)
 
-## El prompt del LLM que lo hace funcionar
+## La instrucción del LLM que hace que funcione
 
-El prompt es el corazón de este sistema. Después de probar decenas de variantes, este es el que me da los resultados más consistentes:
+La instrucción que le paso al modelo es el corazón de este sistema. Después de probar decenas de variantes, esta es la que me da los resultados más consistentes:
 
-> **Nota**: Esto es solo el prompt del LLM para categorizar correos. Si quieres la automatización completa de n8n, con todos los nodos y conexiones, baja hasta la sección "JSON completo del flujo de n8n".
+> **Nota**: Esto es solo la instrucción del LLM para categorizar correos. Si quieres la automatización completa de n8n, con todos los nodos y conexiones, baja hasta la sección "JSON completo del flujo de n8n".
 >
 > Mantengo el bloque en inglés porque es el texto literal que pego en el nodo de n8n. Si quieres reutilizarlo tal cual, lo mejor es copiarlo sin traducir. La lógica es simple: `to_read` equivale a "leer", `to_hide` a "archivar" y `to_answer` a "responder".
 
 <details>
-<summary>Haz clic para desplegar el prompt completo del LLM</summary>
+<summary>Haz clic para desplegar el bloque completo de instrucciones del LLM</summary>
 
 ```
 Act as an Email classifier. You will get email data and need to return the correct label from the list of available labels.
@@ -188,7 +188,7 @@ Así puedes montar tu propia versión de este sistema:
 2. **Conecta Gmail** - tendrás que autenticar tu cuenta
 3. **Consigue acceso a la API de OpenAI** - crea una cuenta y obtén tu clave de API
 4. **Importa el flujo** - más abajo tienes el JSON completo para importarlo directamente
-5. **Personaliza el prompt** - ajusta las categorías a tus patrones de correo
+5. **Personaliza la instrucción** - ajusta las categorías a tus patrones de correo
 6. **Prueba con unos pocos correos** - empieza poco a poco antes de automatizarlo todo
 
 Montarlo todo lleva unos 30 minutos si ya conoces n8n. Quizá una hora si partes de cero.
@@ -197,7 +197,7 @@ Montarlo todo lleva unos 30 minutos si ya conoces n8n. Quizá una hora si partes
 
 La categorización automática de Gmail está diseñada para todo el mundo, y eso significa que no está optimizada para nadie en particular. Mi sistema se ajusta a mis patrones y a mis preferencias concretas.
 
-Además, puedo cambiar la lógica cuando quiera. ¿Quieres añadir una cuarta categoría? Cambia el prompt. ¿Necesitas tratar de otra forma los correos de ciertos remitentes? Añade un nodo condicional. Las reglas de Gmail son rígidas; este sistema se adapta a lo que necesito.
+Además, puedo cambiar la lógica cuando quiera. ¿Quieres añadir una cuarta categoría? Cambia la instrucción. ¿Necesitas tratar de otra forma los correos de ciertos remitentes? Añade un nodo condicional. Las reglas de Gmail son rígidas; este sistema se adapta a lo que necesito.
 
 ## En resumen
 
@@ -830,4 +830,4 @@ Si prefieres una explicación visual, he creado un tutorial en video que recorre
 
 [![Tutorial en video de automatización de correo con n8n y LLM](https://img.youtube.com/vi/xn1RyMlZudE/maxresdefault.jpg)](https://www.youtube.com/watch?v=xn1RyMlZudE)
 
-El video muestra cada paso de la creación del flujo de n8n, la configuración de la integración con OpenAI, la conexión con Gmail y las pruebas de la automatización completa. Verás la configuración exacta de los nodos, el prompt del LLM en acción y cómo el sistema clasifica correos reales en tiempo real.
+El video muestra cada paso de la creación del flujo de n8n, la configuración de la integración con OpenAI, la conexión con Gmail y las pruebas de la automatización completa. Verás la configuración exacta de los nodos, el bloque de instrucciones del LLM en acción y cómo el sistema clasifica correos reales en tiempo real.

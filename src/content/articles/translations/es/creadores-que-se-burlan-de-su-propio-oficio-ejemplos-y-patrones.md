@@ -7,10 +7,10 @@ keywords: [
   "Factorio automatización en videojuegos",
   "sistemas de gestión autosuficientes"
 ]
-title: "Creadores que se burlan de su propio oficio: ejemplos y patrones"
+title: "Creadores que se burlan de su propio trabajo: ejemplos y patrones"
 date: 2026-04-11
 slug: "creadores-que-se-burlan-de-su-propio-oficio-ejemplos-y-patrones"
-description: "Creadores que automatizan su propio oficio: comediantes que se burlan de la comedia, ingenieros que crean IA y por qué disfrutamos de nuestra obsolescencia."
+description: "Creadores que automatizan su propio trabajo: comediantes que se burlan de la comedia, ingenieros que crean IA y por qué disfrutamos de nuestra obsolescencia."
 tags: [productivity, ai, llm, cursor-ide, management]
 publish: true
 thumbnailUrl: "/articles/creators-who-mock-their-own-craft-examples.webp"
@@ -29,7 +29,7 @@ translations:
     slug: "mubdieun-yaskharun-min-hirfatihim-amthila-wa-anmat"
 ---
 
-# Creadores que se burlan de su propio oficio: ejemplos y patrones
+# Creadores que se burlan de su propio trabajo: ejemplos y patrones
 
 ¿Pueden los ingenieros construir sistemas de IA tan buenos que terminen sustituyendo por completo a los propios ingenieros? Y, si pueden, ¿por qué iban a querer hacerlo?
 
@@ -39,7 +39,7 @@ Creo que sí lo haremos. No porque tengamos que hacerlo, sino porque queremos ha
 
 Los comediantes dedican monólogos enteros a explicar por qué la comedia no significa nada. Los diseñadores de videojuegos crean juegos cuyo objetivo es volver innecesario al jugador. Quienes dirigen equipos construyen sistemas diseñados precisamente para eliminar su propia importancia.
 
-Hay algo extrañamente atractivo en crear tu propia obsolescencia. Cuanto mejor se te da tu oficio, más te atrae la idea de volverlo innecesario.
+Hay algo extrañamente atractivo en crear tu propia obsolescencia. Cuanto mejor se te da lo tuyo, más te atrae la idea de volverlo innecesario.
 
 La semana pasada estaba depurando un código de automatización que había escrito, un sistema que evita tener que procesar datos a mano, algo que antes le costaba a nuestro equipo horas al día. Mientras lo corregía, me di cuenta de que estaba usando IA para ayudarme a escribir mejor código que sustituye trabajo humano de forma más eficiente.
 

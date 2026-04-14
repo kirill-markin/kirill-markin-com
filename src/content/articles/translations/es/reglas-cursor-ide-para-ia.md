@@ -135,7 +135,7 @@ Si quieres profundizar en cómo funcionan estas reglas en Cursor, consulta la [d
    Cuando detecto patrones propios de una base de código concreta o quiero compartir mis pautas para la IA con el equipo, muevo esas reglas a un archivo `.cursor/index.mdc` con `Rule Type "Always"`. Así creo un marco común sin recargar la configuración global. (Nota: el archivo heredado `.cursorrules` sigue funcionando, pero ya no es la opción recomendada).
 
 3. **Las separo en reglas contextuales cuando hace falta**  
-   Si el archivo de reglas del repositorio empieza a crecer demasiado, lo divido en archivos `.cursor/rules/*.mdc`. Así reduzco el consumo de tokens, porque solo se activan las reglas relevantes cuando hacen falta. Es como darle al modelo más espacio mental para pensar en la tarea concreta, en vez de obligarlo a cargar con un montón de directrices que no vienen al caso.
+   Si el archivo de reglas del repositorio empieza a crecer demasiado, lo divido en archivos `.cursor/rules/*.mdc`. Así reduzco el consumo de tokens, porque solo se activan las reglas relevantes cuando hacen falta. Eso le deja más margen al modelo para centrarse en la tarea concreta, en vez de obligarlo a cargar con un montón de directrices que no vienen al caso.
 
 Mi objetivo es simple: en cada conversación con el asistente de IA, darle justo el contexto necesario para que sea útil, sin gastar capacidad en información que no necesita en ese momento.
 
@@ -418,11 +418,11 @@ Aunque Cursor tiene un sistema de reglas especialmente bien diseñado, otros asi
 
 Nota: la evolución de Cursor, desde `.cursorrules` hasta `.cursor/index.mdc` con `Rule Type "Always"`, muestra cómo este tipo de sistemas sigue mejorando en flexibilidad y organización.
 
-### La economía de los tokens: cómo maximizar el rendimiento de la IA en cualquier herramienta
+### Uso eficiente de tokens: cómo sacar más partido a la IA en cualquier herramienta
 
 Lo que une a todos estos enfoques es un principio básico: **minimizar el uso de tokens es esencial para obtener buenos resultados**. Da igual qué asistente de programación con IA uses: la clave está en aportar el contexto justo, sin saturar al modelo.
 
-La economía de tokens funciona igual en todas las herramientas basadas en LLM:
+La gestión de tokens funciona igual en todas las herramientas basadas en LLM:
 1. Cada palabra que añades a las instrucciones consume tokens
 2. Los tokens dedicados a las instrucciones reducen el contexto disponible para entender el código
 3. Una guía excesivamente verbosa acaba aportando cada vez menos valor

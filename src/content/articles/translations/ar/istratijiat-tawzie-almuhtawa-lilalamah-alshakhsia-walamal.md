@@ -102,7 +102,7 @@ translations:
 
 ### الملفات التعريفية المختصرة (أهم الروابط فقط)
 يجب أن تتضمن هذه الملفات أهم المواد فقط:
-- الملف الرسمي على Google (شخصي): [نتيجة البحث](https://www.google.com/search?q=Kirill+Markin)
+- نتيجة البحث باسمك على Google (شخصي): [نتيجة البحث](https://www.google.com/search?q=Kirill+Markin)
 - تحديثات Crunchbase (شخصي): [الملف الشخصي](https://www.crunchbase.com/)
 - لوحة Pinterest (شخصي): [اللوحة](https://nl.pinterest.com/kirill_markin/)
 
