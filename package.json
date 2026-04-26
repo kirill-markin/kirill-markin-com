@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@google-cloud/bigquery": "^8.1.1",
-    "@sentry/nextjs": "^10.49.0",
+    "@sentry/nextjs": "^10.50.0",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/speed-insights": "^2.0.0",
     "d3": "^7.9.0",
@@ -55,7 +55,7 @@
     "node-fetch": "^3.3.2",
     "postcss": "^8.5.10",
     "tailwindcss": "^4.2.4",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": "24.x"
