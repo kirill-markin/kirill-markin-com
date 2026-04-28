@@ -16,7 +16,7 @@
     "test-cache": "npx tsx scripts/test-cache-headers.ts"
   },
   "dependencies": {
-    "@google-cloud/bigquery": "^8.1.1",
+    "@google-cloud/bigquery": "^8.3.0",
     "@sentry/nextjs": "^10.50.0",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/speed-insights": "^2.0.0",
@@ -51,9 +51,9 @@
     "chalk": "^5.6.2",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.4",
-    "jsdom": "^29.0.2",
+    "jsdom": "^29.1.0",
     "node-fetch": "^3.3.2",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.12",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3"
   },
