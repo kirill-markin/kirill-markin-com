@@ -8,7 +8,7 @@ export const revalidate = false;
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Dashboards | ${VCARD_DATA.fullName}`;
-  const description = `Public personal dashboards by ${VCARD_DATA.fullName}. Body metrics, health data, and more — updated daily.`;
+  const description = `Public dashboards by ${VCARD_DATA.fullName} with personal metrics, health data, and product activity data updated daily.`;
   const canonicalUrl = `${SITE_URL}/dashboards/`;
 
   return {
@@ -39,8 +39,7 @@ export default function DashboardsPage() {
       <h1>Dashboards</h1>
       <p>Public personal metrics and data visualizations.</p>
       <p>
-        Kirill Markin plans to publish links to dashboards with different datasets here. There
-        are not many of them yet, but more are planned in the future.
+        Kirill Markin publishes dashboards with personal metrics and product activity data here.
       </p>
 
       <nav className={styles.dashboardsList} aria-label="Available dashboards">
@@ -50,6 +49,17 @@ export default function DashboardsPage() {
             <p>Weight tracking, body measurements, and genome data</p>
           </div>
         </Link>
+        <a
+          href="https://flashcards-open-source-app.com/dashboards/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.dashboardCard}
+        >
+          <div className={styles.dashboardCardDetails}>
+            <h2>Flashcards Open Source App: Public Activity</h2>
+            <p>Daily unique reviewers and review events by platform from the public API</p>
+          </div>
+        </a>
       </nav>
     </section>
   );
