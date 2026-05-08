@@ -124,6 +124,12 @@ OpenAI 的 [Codex 文档](https://developers.openai.com/codex/)说明，Codex �
 - Separate docs files only when a concept cannot be expressed clearly in code
 - Never duplicate documentation across files
 - Store knowledge as current state, not as a changelog of modifications
+
+## Commits
+
+- Never create a git commit unless the user explicitly asks for one
+- Uncommitted changes are the user's review state — they read the diff before deciding what to commit
+- Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```
 
 这个文件最大的优点，就是它足够无聊。
