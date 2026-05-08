@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import { EXIT_INTENT_THRESHOLD, SCROLL_UP_THRESHOLD, SCROLL_DEBOUNCE_MS } from '@/lib/popupConstants';
 
@@ -37,9 +37,30 @@ export function useExitIntent(options: ExitIntentOptions): ExitIntentState {
     const scrollTriggeredRef = useRef(false);
     const lastScrollPositionRef = useRef<number>(0);
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [triggerState, setTriggerState] = useState<ExitIntentState>({
+        mouseTriggered: false,
+        scrollTriggered: false,
+        hasTriggered: false,
+    });
 
     // Handle exit intent trigger
     const triggerExitIntent = useCallback((trigger: ExitIntentTrigger) => {
+        if (trigger === 'mouse') {
+            mouseTriggeredRef.current = true;
+            setTriggerState({
+                mouseTriggered: true,
+                scrollTriggered: false,
+                hasTriggered: true,
+            });
+        } else {
+            scrollTriggeredRef.current = true;
+            setTriggerState({
+                mouseTriggered: false,
+                scrollTriggered: true,
+                hasTriggered: true,
+            });
+        }
+
         // Track general exit intent event
         trackEvent('exit_intent', {
             trigger_type: trigger
@@ -59,10 +80,9 @@ export function useExitIntent(options: ExitIntentOptions): ExitIntentState {
                 !mouseTriggeredRef.current &&
                 !scrollTriggeredRef.current &&
                 Date.now() - startTimeRef.current >= minTimeOnPage
-            ) {
-                mouseTriggeredRef.current = true;
-                triggerExitIntent('mouse');
-            }
+                ) {
+                    triggerExitIntent('mouse');
+                }
         };
 
         document.addEventListener('mouseleave', handleMouseLeave);
@@ -94,7 +114,6 @@ export function useExitIntent(options: ExitIntentOptions): ExitIntentState {
                     !scrollTriggeredRef.current &&
                     Date.now() - startTimeRef.current >= minTimeOnPage
                 ) {
-                    scrollTriggeredRef.current = true;
                     triggerExitIntent('scroll');
                 }
 
@@ -113,10 +132,5 @@ export function useExitIntent(options: ExitIntentOptions): ExitIntentState {
         };
     }, [enableScrollDetection, scrollThreshold, scrollDebounce, minTimeOnPage, triggerExitIntent]);
 
-    // Return current state
-    return {
-        mouseTriggered: mouseTriggeredRef.current,
-        scrollTriggered: scrollTriggeredRef.current,
-        hasTriggered: mouseTriggeredRef.current || scrollTriggeredRef.current,
-    };
-} 
+    return triggerState;
+}
