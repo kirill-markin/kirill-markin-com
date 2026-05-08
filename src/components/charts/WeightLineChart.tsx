@@ -1,7 +1,7 @@
 "use client";
 
 import { brushX, curveCatmullRom, extent, line, max, min, scaleLinear, scaleTime, select, utcFormat } from "d3";
-import type { D3BrushEvent } from "d3";
+import type { D3BrushEvent, ScaleTime } from "d3";
 import type { ReactElement } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
@@ -112,10 +112,13 @@ export const WeightLineChart = (props: Props): ReactElement => {
   const { series, onDateRangeChange } = props;
   const svgRef = useRef<SVGSVGElement>(null);
   const brushRef = useRef<SVGGElement>(null);
-  const xScaleRef = useRef<ReturnType<typeof scaleTime> | null>(null);
+  const xScaleRef = useRef<ScaleTime<number, number> | null>(null);
   const onDateRangeChangeRef = useRef(onDateRangeChange);
-  onDateRangeChangeRef.current = onDateRangeChange;
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
+
+  useEffect(() => {
+    onDateRangeChangeRef.current = onDateRangeChange;
+  }, [onDateRangeChange]);
 
   const data = useMemo<ReadonlyArray<ParsedPoint>>(() => {
     return series.map((point) => ({
@@ -128,6 +131,26 @@ export const WeightLineChart = (props: Props): ReactElement => {
   const width = 900;
   const height = 420;
   const margin = { top: 24, right: 24, bottom: 44, left: 58 } as const;
+
+  let xMin: Date | null = null;
+  let xMax: Date | null = null;
+  let xScale: ScaleTime<number, number> | null = null;
+  if (data.length >= 2) {
+    const xDomain = extent(data, (d) => d.date);
+    xMin = xDomain[0] ?? null;
+    xMax = xDomain[1] ?? null;
+    if (xMin === null || xMax === null) {
+      throw new Error("Failed to compute X domain.");
+    }
+
+    xScale = scaleTime<number, number>()
+      .domain([xMin, xMax])
+      .range([margin.left, width - margin.right]);
+  }
+
+  useEffect(() => {
+    xScaleRef.current = xScale;
+  }, [xScale]);
 
   const handleBrushEnd = useCallback((event: D3BrushEvent<unknown>) => {
     const selection = event.selection as [number, number] | null;
@@ -169,16 +192,9 @@ export const WeightLineChart = (props: Props): ReactElement => {
     );
   }
 
-  const xDomain = extent(data, (d) => d.date);
-  const xMin = xDomain[0];
-  const xMax = xDomain[1];
-  if (xMin === undefined || xMax === undefined) {
-    throw new Error("Failed to compute X domain.");
+  if (xMin === null || xMax === null || xScale === null) {
+    throw new Error("Failed to compute X scale.");
   }
-
-  const xScale = scaleTime()
-    .domain([xMin, xMax])
-    .range([margin.left, width - margin.right]);
 
   const yMinRaw = min(data, (d) => d.weightKg);
   const yMaxRaw = max(data, (d) => d.weightKg);
@@ -209,8 +225,6 @@ export const WeightLineChart = (props: Props): ReactElement => {
   if (fullPath === null) {
     throw new Error("Failed to generate full line path.");
   }
-
-  xScaleRef.current = xScale;
 
   const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>): void => {
     const svgElement = svgRef.current;
