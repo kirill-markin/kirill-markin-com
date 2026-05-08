@@ -127,6 +127,12 @@ Lo dejo en inglés porque es el contenido literal de mi `AGENTS.md` personal y e
 - Separate docs files only when a concept cannot be expressed clearly in code
 - Never duplicate documentation across files
 - Store knowledge as current state, not as a changelog of modifications
+
+## Commits
+
+- Never create a git commit unless the user explicitly asks for one
+- Uncommitted changes are the user's review state — they read the diff before deciding what to commit
+- Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```
 
 Este archivo es aburrido en el mejor sentido de la palabra.
