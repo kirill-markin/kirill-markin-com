@@ -92,7 +92,7 @@ export const WeightDashboard = (props: Props): ReactElement => {
   if (series.length === 0) {
     return (
       <div style={{ border: "1px solid #ddd", padding: "16px", fontSize: "13px", color: "#898989", lineHeight: 1.6 }}>
-        Weight data is unavailable in this local build because BigQuery credentials are not configured.
+        Weight data is unavailable because the generated weight series is empty.
       </div>
     );
   }

@@ -12,14 +12,15 @@ LEMLIST_API_KEY=your_lemlist_api_key
 LEMLIST_SUBSCRIPTION_COMPANY_ID=your_company_id
 ```
 
-## Environment (required for dashboards build)
+## Dashboards Build Data
 
-```bash
-GOOGLE_APPLICATION_CREDENTIALS_JSON=<service account key JSON>
-```
-
-The service account only needs read access to public curated views — never to raw private data.
-See [`src/lib/bigquery.ts`](../src/lib/bigquery.ts) for details.
+The body dashboard fetches public weight data from
+`https://auto.kirill-markin.com/api/v1/public/personal-metrics/weight-series.json`
+through `npm run generate-weight-data` before `next build`, then writes the
+stable static CSV download to `public/data/body-metrics-weight-series.csv`.
+Runtime dashboard and Markdown rendering read this generated CSV; they do not
+call the AWS endpoint. No Google service-account credential is required for the
+website build.
 
 Built-in: `SITE_URL=https://kirill-markin.com/`, `SITE_NAME=Kirill Markin`
 
