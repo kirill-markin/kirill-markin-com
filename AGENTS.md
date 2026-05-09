@@ -35,7 +35,7 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - `src/components/charts/`: client-side D3 chart components
 - `src/content/articles/`: markdown articles plus `translations/[lang]/`
 - `src/data/`: structured data (`services`, `media`)
-- `src/lib/`: utilities including `localization.ts`, `bigquery.ts`, `weight.ts`
+- `src/lib/`: utilities including `localization.ts`, `weight.ts`
 - `src/types/`: TypeScript types
 
 ## Multilingual Architecture
@@ -81,7 +81,7 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 
 ## Dashboards
 
-Pages under `/dashboards/` render personal metrics as D3 charts. Data is fetched from BigQuery at build time and baked into static HTML. A daily GitHub Actions cron plus a Vercel Deploy Hook keeps the data fresh. See `src/lib/bigquery.ts` and `src/lib/weight.ts`.
+Pages under `/dashboards/` render personal metrics as D3 charts. Weight data is fetched from the public AWS personal metrics endpoint before `next build`, written to `public/data/body-metrics-weight-series.csv`, and then baked into static HTML/Markdown from that local artifact. A daily GitHub Actions cron plus a Vercel Deploy Hook keeps the data fresh. See `src/lib/weight.ts`.
 
 ## Reference
 

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { getWeightSeries } from '@/lib/weight';
-import { generateWeightCsv, removeWeightCsv } from '@/lib/generateWeightCsv';
+import { getWeightCsvMetadata, WEIGHT_CSV_PUBLIC_PATH } from '@/lib/generateWeightCsv';
 import { getGenomeCircosData } from '@/lib/genome';
 import { BodyFacts } from '@/components/charts/BodyFacts';
 import { WeightDashboard } from '@/components/charts/WeightDashboard';
@@ -42,19 +42,16 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BodyDashboardPage() {
   const weightSeries = await getWeightSeries();
   const genomeData = getGenomeCircosData();
-  if (weightSeries.length === 0) {
-    removeWeightCsv();
-  }
-  const csvMeta = weightSeries.length > 0 ? generateWeightCsv(weightSeries) : null;
-  const csvSizeKb = csvMeta !== null ? Math.round(csvMeta.fileSizeBytes / 1024) : null;
+  const csvMeta = getWeightCsvMetadata(weightSeries);
+  const csvSizeKb = Math.round(csvMeta.fileSizeBytes / 1024);
   const rawDataCards = [
-    ...(csvMeta !== null ? [{
+    {
       title: 'Body Metrics — Weight Series',
       subtitle: `Daily weight measurements in kilograms. ${csvMeta.rowCount} data points, updated daily.`,
       format: 'CSV',
       size: `~${csvSizeKb} KB`,
-      url: '/data/body-metrics-weight-series.csv',
-    }] : []),
+      url: WEIGHT_CSV_PUBLIC_PATH,
+    },
     {
       title: 'Full Genome — SNP Genotyping Data',
       subtitle: 'Complete SNP genotyping results from Atlas Biomed (atlas.ru), February 2022. Contains rsID, chromosome, position, and genotype for each variant.',
