@@ -49,3 +49,6 @@ tmp/
 
 # Cached raw genome data (downloaded by scripts/build-genome-circos-data.ts)
 scripts/genome-data/genome_snps.txt
+
+# Build-generated dashboard exports
+public/data/body-metrics-weight-series.csv

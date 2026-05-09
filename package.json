@@ -7,16 +7,16 @@
   "license": "MIT",
   "scripts": {
     "dev": "eslint . && next dev  --turbopack",
-    "build": "next build",
+    "build": "npm run generate-weight-data && next build",
     "start": "next start",
     "lint": "eslint .",
-    "analyze": "ANALYZE=true next build",
-    "vercel-build": "next build",
-    "validate-metadata": "npx tsx scripts/validate-metadata.ts",
-    "test-cache": "npx tsx scripts/test-cache-headers.ts"
+    "analyze": "npm run generate-weight-data && ANALYZE=true next build",
+    "vercel-build": "npm run generate-weight-data && next build",
+    "validate-metadata": "tsx scripts/validate-metadata.ts",
+    "generate-weight-data": "tsx scripts/generate-weight-data.ts",
+    "test-cache": "tsx scripts/test-cache-headers.ts"
   },
   "dependencies": {
-    "@google-cloud/bigquery": "^8.3.0",
     "@sentry/nextjs": "^10.52.0",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/speed-insights": "^2.0.0",
@@ -55,6 +55,7 @@
     "node-fetch": "^3.3.2",
     "postcss": "^8.5.14",
     "tailwindcss": "^4.3.0",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   },
   "engines": {
