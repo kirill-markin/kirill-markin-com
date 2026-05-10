@@ -6,6 +6,7 @@ import { socialLinks } from '@/data/socialLinks';
 import { bigMediaMentions, smallMediaMentions, type MediaMention } from '@/data/mediaMentions';
 import { getWeightSeries } from '@/lib/weight';
 import { getWeightCsvMetadata, WEIGHT_CSV_PUBLIC_PATH } from '@/lib/generateWeightCsv';
+import { GENOME_MANIFEST_URL, GENOME_RAW_URL } from '@/lib/genomeUrls';
 import type { WeightPoint } from '@/types/weight';
 
 type MarkdownResult = {
@@ -197,7 +198,6 @@ export async function renderMeetMarkdown(language: string): Promise<MarkdownResu
 }
 
 const DEFAULT_RANGE_DAYS = 365;
-const GENOME_URL = 'https://storage.googleapis.com/personal-public-data-km/raw/genome_snps-kirill_markin-atlas_ru-2022_02_22.txt';
 
 const computeAge = (birthDate: string): number => {
   const birth = new Date(birthDate);
@@ -280,7 +280,8 @@ export async function renderDashboardsBodyMarkdown(): Promise<MarkdownResult> {
     `## Raw Data`,
     ``,
     `- [Body Metrics — Weight Series (CSV, ~${csvSizeKb} KB)](${SITE_URL}${WEIGHT_CSV_PUBLIC_PATH}) — ${csvMeta.rowCount} data points, updated daily`,
-    `- [Full Genome — SNP Genotyping Data (TSV, ~16 MB)](${GENOME_URL}) — Atlas Biomed, February 2022`,
+    `- [Full Genome — SNP Genotyping Data (TSV, ~16 MB)](${GENOME_RAW_URL}) — Atlas Biomed, February 2022`,
+    `- [Genome Data Catalog (JSON)](${GENOME_MANIFEST_URL}) — manifest for public genome files and metadata`,
     ``,
     `## Links`,
     ``,

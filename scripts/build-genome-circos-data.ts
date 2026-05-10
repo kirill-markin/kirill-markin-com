@@ -5,12 +5,17 @@
  * computes per-window (1 Mb) SNP density and heterozygosity rate,
  * outputs a compact JSON consumed by the GenomeCircos component.
  *
- * Usage:  npx tsx scripts/build-genome-circos-data.ts
+ * Usage:  npx tsx scripts/build-genome-circos-data.ts [--use-cache]
+ *
+ * By default, downloads SNP data from GENOME_RAW_URL and refreshes the local
+ * cache. Pass --use-cache to read scripts/genome-data/genome_snps.txt when it
+ * exists.
  * Output: public/data/genome-circos.json
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve } from "path";
+import { GENOME_RAW_URL } from "../src/lib/genomeUrls";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -70,7 +75,7 @@ const CHROM_LABEL_MAP: Record<string, string> = {
 
 const ROOT = resolve(__dirname, "..");
 const GENOME_DATA_DIR = resolve(__dirname, "genome-data");
-const SNP_URL = "https://storage.googleapis.com/personal-public-data-km/raw/genome_snps-kirill_markin-atlas_ru-2022_02_22.txt";
+const USE_CACHE_FLAG = "--use-cache";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -87,11 +92,34 @@ const normalizeChrom = (raw: string): string => {
   return `chr${trimmed}`;
 };
 
+type CliOptions = {
+  useCache: boolean;
+};
+
+const parseCliOptions = (args: ReadonlyArray<string>): CliOptions => {
+  let useCache = false;
+
+  for (const arg of args) {
+    if (arg === USE_CACHE_FLAG) {
+      useCache = true;
+      continue;
+    }
+
+    throw new Error(
+      `Unsupported argument: ${arg}. Usage: npx tsx scripts/build-genome-circos-data.ts [${USE_CACHE_FLAG}]`,
+    );
+  }
+
+  return { useCache };
+};
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
 async function main(): Promise<void> {
+  const options = parseCliOptions(process.argv.slice(2));
+
   console.log("=== Building genome Circos data ===");
 
   // 1. Load chromosome sizes
@@ -124,20 +152,27 @@ async function main(): Promise<void> {
     }
   }
 
-  // 3. Download or read cached SNP data
+  // 3. Download SNP data and refresh cache unless cache use is explicit
   const snpCachePath = resolve(GENOME_DATA_DIR, "genome_snps.txt");
   let snpRaw: string;
 
-  if (existsSync(snpCachePath)) {
-    console.log("Reading cached SNP data...");
+  if (options.useCache && existsSync(snpCachePath)) {
+    console.log(`Reading cached SNP data from ${snpCachePath} because ${USE_CACHE_FLAG} was provided.`);
     snpRaw = readFileSync(snpCachePath, "utf-8");
   } else {
-    console.log(`Downloading SNP data from ${SNP_URL}...`);
-    const response = await fetch(SNP_URL);
-    if (!response.ok) {
-      throw new Error(`Failed to download SNP data: ${response.status} ${response.statusText}`);
+    if (options.useCache) {
+      console.log(`Cache requested but missing at ${snpCachePath}; downloading SNP data from ${GENOME_RAW_URL}.`);
+    } else {
+      console.log(`Downloading SNP data from ${GENOME_RAW_URL} and refreshing cache. Pass ${USE_CACHE_FLAG} to read existing cache.`);
     }
-    snpRaw = await response.text();
+    const response = await fetch(GENOME_RAW_URL);
+    const responseBody = await response.text();
+    if (!response.ok) {
+      throw new Error(
+        `Failed to download SNP data: url=${GENOME_RAW_URL} status=${response.status} statusText=${response.statusText} body=${responseBody}`,
+      );
+    }
+    snpRaw = responseBody;
     writeFileSync(snpCachePath, snpRaw);
     console.log(`Cached SNP data to ${snpCachePath}`);
   }

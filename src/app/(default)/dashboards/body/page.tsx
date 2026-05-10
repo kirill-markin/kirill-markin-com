@@ -3,6 +3,7 @@ import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { getWeightSeries } from '@/lib/weight';
 import { getWeightCsvMetadata, WEIGHT_CSV_PUBLIC_PATH } from '@/lib/generateWeightCsv';
 import { getGenomeCircosData } from '@/lib/genome';
+import { GENOME_MANIFEST_URL, GENOME_RAW_URL } from '@/lib/genomeUrls';
 import { BodyFacts } from '@/components/charts/BodyFacts';
 import { WeightDashboard } from '@/components/charts/WeightDashboard';
 import { GenomeCircos } from '@/components/charts/GenomeCircos';
@@ -57,7 +58,14 @@ export default async function BodyDashboardPage() {
       subtitle: 'Complete SNP genotyping results from Atlas Biomed (atlas.ru), February 2022. Contains rsID, chromosome, position, and genotype for each variant.',
       format: 'TSV',
       size: '~16 MB',
-      url: 'https://storage.googleapis.com/personal-public-data-km/raw/genome_snps-kirill_markin-atlas_ru-2022_02_22.txt',
+      url: GENOME_RAW_URL,
+    },
+    {
+      title: 'Genome Data Catalog',
+      subtitle: 'Manifest for the public genome dataset, including available files and metadata.',
+      format: 'JSON',
+      size: 'Catalog',
+      url: GENOME_MANIFEST_URL,
     },
   ] as const;
 
