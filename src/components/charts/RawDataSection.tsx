@@ -5,6 +5,11 @@ type RawDataCard = Readonly<{
   subtitle: string;
   format: string;
   size: string;
+  actions: ReadonlyArray<RawDataAction>;
+}>;
+
+type RawDataAction = Readonly<{
+  label: string;
   url: string;
 }>;
 
@@ -33,7 +38,6 @@ const styles = {
     minWidth: '280px',
     border: '1px solid #ddd',
     padding: '16px',
-    textDecoration: 'none',
     color: 'inherit',
     display: 'block',
   },
@@ -62,6 +66,12 @@ const styles = {
     textDecoration: 'underline',
     textUnderlineOffset: '2px',
   },
+  actions: {
+    display: 'flex',
+    gap: '12px',
+    alignItems: 'center',
+    flexWrap: 'wrap' as const,
+  },
 } as const;
 
 export const RawDataSection = (props: Props): ReactElement => {
@@ -72,11 +82,8 @@ export const RawDataSection = (props: Props): ReactElement => {
       <h2 style={styles.heading}>Raw Data</h2>
       <div style={styles.grid}>
         {cards.map((card) => (
-          <a
+          <article
             key={card.title}
-            href={card.url}
-            target="_blank"
-            rel="noopener noreferrer"
             style={styles.card}
           >
             <h3 style={styles.cardTitle}>{card.title}</h3>
@@ -84,9 +91,21 @@ export const RawDataSection = (props: Props): ReactElement => {
             <div style={styles.cardMeta}>
               <span>{card.format}</span>
               <span>{card.size}</span>
-              <span style={styles.downloadLabel}>Download</span>
+              <span style={styles.actions}>
+                {card.actions.map((action) => (
+                  <a
+                    key={action.label}
+                    href={action.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={styles.downloadLabel}
+                  >
+                    {action.label}
+                  </a>
+                ))}
+              </span>
             </div>
-          </a>
+          </article>
         ))}
       </div>
     </section>
