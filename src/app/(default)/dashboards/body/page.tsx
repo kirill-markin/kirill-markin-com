@@ -51,21 +51,28 @@ export default async function BodyDashboardPage() {
       subtitle: `Daily weight measurements in kilograms. ${csvMeta.rowCount} data points, updated daily.`,
       format: 'CSV',
       size: `~${csvSizeKb} KB`,
-      url: WEIGHT_CSV_PUBLIC_PATH,
+      actions: [
+        {
+          label: 'Download',
+          url: WEIGHT_CSV_PUBLIC_PATH,
+        },
+      ],
     },
     {
       title: 'Full Genome — SNP Genotyping Data',
       subtitle: 'Complete SNP genotyping results from Atlas Biomed (atlas.ru), February 2022. Contains rsID, chromosome, position, and genotype for each variant.',
       format: 'TSV',
       size: '~16 MB',
-      url: GENOME_RAW_URL,
-    },
-    {
-      title: 'Genome Data Catalog',
-      subtitle: 'Manifest for the public genome dataset, including available files and metadata.',
-      format: 'JSON',
-      size: 'Catalog',
-      url: GENOME_MANIFEST_URL,
+      actions: [
+        {
+          label: 'Download',
+          url: GENOME_RAW_URL,
+        },
+        {
+          label: 'Open manifest',
+          url: GENOME_MANIFEST_URL,
+        },
+      ],
     },
   ] as const;
 
