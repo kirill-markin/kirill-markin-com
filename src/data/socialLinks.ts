@@ -34,9 +34,9 @@ export const socialLinks: SocialLink[] = [
     }
   },
   {
-    name: "CV CTO",
+    name: "CV",
     url: "/data/cv-kirill-markin-cto.pdf",
-    username: "CV CTO",
+    username: "CV",
     socialLogoUrlDefault: "/social/cv.svg",
     socialLogoUrlHover: "/social/cv_hover.svg",
     avatarContact: true,
