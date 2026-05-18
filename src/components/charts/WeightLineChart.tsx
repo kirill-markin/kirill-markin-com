@@ -170,6 +170,7 @@ export const WeightLineChart = (props: Props): ReactElement => {
     const brush = brushX()
       .extent([[margin.left, margin.top], [width - margin.right, height - margin.bottom]])
       .on("end", (event: D3BrushEvent<unknown>) => {
+        if (event.selection === null) return;
         handleBrushEnd(event);
         select(node).call(brush.move, null);
       });
