@@ -78,13 +78,6 @@ Sentry.init({
   // Enable logs to be sent to Sentry
   enableLogs: true,
 
-  // Capture console.error and console.warn calls
-  integrations: [
-    Sentry.captureConsoleIntegration({
-      levels: ['error', 'warn'],
-    }),
-  ],
-
   // Filter out errors caused by browser extensions
   beforeSend(event) {
     if (isExtensionError(event)) {
