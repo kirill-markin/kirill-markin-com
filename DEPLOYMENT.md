@@ -70,6 +70,8 @@ The following environment variables should be set in your production environment
 |----------|-------------|----------|
 | `NEXT_PUBLIC_SITE_URL` | The full URL of the site | Yes |
 | `NODE_ENV` | Set to "production" for production builds | Yes |
+| `SENTRY_ENVIRONMENT` | Set to "production" for server and edge Sentry events | Yes |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | Set to "production" for browser Sentry events | Yes |
 
 ## Post-Deployment Checks
 
