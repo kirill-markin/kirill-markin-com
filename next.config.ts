@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
   },
   // Add optimization settings
   compiler: {
-    // Remove console.log/info/debug in production, but keep error/warn for Sentry
+    // Remove noisy console output in production while preserving warnings/errors for browser diagnostics
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],
     } : false,
