@@ -4,7 +4,7 @@ Guidance for working with this repository.
 
 Modern personal website built with Next.js 15, migrated from Jekyll for performance.
 
-**Git Workflow**: commit directly to `main`; deploy is automatic after push.
+**Git Workflow**: commit directly to `main`; production deploys happen only by pushing or merging to `main`, not by running Vercel CLI deploys.
 
 ## Development Commands
 
