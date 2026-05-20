@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Rules: CLAUDE.md Global Instructions for AI"
 date: 2026-03-08
-lastmod: 2026-04-11
+lastmod: 2026-05-20
 slug: "claude-code-rules-for-ai"
 description: "My Claude Code rules using global CLAUDE.md instructions. How I split personal and project rules so the agent keeps my coding patterns across repos."
 tags: [productivity, claude-code, ai, llm]
@@ -128,6 +128,7 @@ This block is boring on purpose. Good rules usually are. I am not trying to desc
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```
