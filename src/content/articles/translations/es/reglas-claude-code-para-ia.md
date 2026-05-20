@@ -1,7 +1,7 @@
 ---
 title: "Reglas de Claude Code para IA: instrucciones globales en CLAUDE.md"
 date: 2026-03-21
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 slug: "reglas-claude-code-para-ia"
 description: "Mis reglas de Claude Code con un CLAUDE.md global: separo reglas personales y del proyecto para que el agente mantenga mi forma de programar."
 tags: [productivity, claude-code, ai, llm]
@@ -133,6 +133,7 @@ Lo mantengo en inglés porque es el contenido literal de mi `~/.claude/CLAUDE.md
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```

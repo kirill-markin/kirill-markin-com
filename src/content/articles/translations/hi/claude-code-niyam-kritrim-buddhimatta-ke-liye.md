@@ -1,7 +1,7 @@
 ---
 title: "Claude Code के नियम: कृत्रिम बुद्धिमत्ता के लिए CLAUDE.md निर्देश"
 date: 2026-04-11
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 slug: "claude-code-niyam-kritrim-buddhimatta-ke-liye"
 description: "मैं Claude Code में अपने वैश्विक `CLAUDE.md` नियम अलग रखता हूँ, ताकि निजी पसंद और परियोजना-विशेष निर्देश साफ़ रहें और एजेंट हर रिपॉज़िटरी में एक जैसा काम करे।"
 tags: [productivity, claude-code, ai, llm]
@@ -131,6 +131,7 @@ Anthropic के [Claude Code docs](https://docs.anthropic.com/en/docs/claude-co
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```

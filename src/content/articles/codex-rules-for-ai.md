@@ -1,7 +1,7 @@
 ---
 title: "Codex Rules: Global Instructions, AGENTS.md, and Mac App"
 date: 2026-03-08
-lastmod: 2026-04-11
+lastmod: 2026-05-20
 slug: "codex-rules-for-ai"
 description: "My Codex rules for AI: how I use Codex custom instructions, AGENTS.md, and the Mac app to keep the same coding patterns across different repos."
 tags: [productivity, codex, openai, ai]
@@ -126,6 +126,7 @@ This is the baseline I want Codex to bring into any repository before it sees pr
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```

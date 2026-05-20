@@ -1,7 +1,7 @@
 ---
 title: "Cursor IDE Rules for AI: Guidelines for Specialized AI Assistant"
 date: 2025-04-19
-lastmod: 2026-04-01
+lastmod: 2026-05-20
 description: "My battle-tested Cursor IDE rules that enhance AI coding with tailored style, error handling, and workflow patterns for consistent, quality results."
 tags: [productivity, cursor-ide, ai, llm]
 publish: true
@@ -95,6 +95,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 ## Terminal Usage
 
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Prefer non-interactive commands with flags over interactive ones
 
 ## Code Changes
