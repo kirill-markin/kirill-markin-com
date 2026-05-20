@@ -11,7 +11,7 @@ keywords: [
 ]
 title: "قواعد Cursor IDE للذكاء الاصطناعي: إرشادات لمساعد ذكاء اصطناعي متخصص"
 date: 2025-05-09
-lastmod: 2026-04-13
+lastmod: 2026-05-20
 description: "القواعد التي أستخدمها في Cursor IDE لتحسين البرمجة بمساعدة الذكاء الاصطناعي، من خلال أسلوب شفرة واضح، ومعالجة صارمة للأخطاء، وسير عمل متسق بين المشاريع."
 tags: ["productivity", "cursor-ide", "ai", "llm"]
 publish: true
@@ -50,80 +50,81 @@ translations:
 Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 ```markdown
-# القواعد العامة
+# Global Rules
 
-## أسلوب الشفرة
+## Code Style
 
-- اكتب التعليقات باللغة الإنجليزية فقط
-- فضّل البرمجة الوظيفية على البرمجة كائنية التوجه
-- استخدم الفئات الكائنية فقط مع الموصلات والواجهات التي تتعامل مع أنظمة خارجية
-- اكتب دوال نقية؛ عدّل القيم المُعادة فقط، ولا تعدّل معاملات الإدخال أو الحالة العامة
-- التزم بمبادئ DRY وKISS وYAGNI
-- استخدم تعريفًا صارمًا للأنواع في كل مكان: قيم الإرجاع والمتغيرات والمجموعات
-- تحقّق أولًا مما إذا كان المنطق موجودًا بالفعل قبل كتابة منطق جديد
-- تجنّب المتغيرات غير المعرّفة نوعيًا والأنواع العامة
-- لا تستخدم قيمًا افتراضية للمعاملات؛ اجعل جميع المعاملات صريحة
-- أنشئ تعريفات أنواع مناسبة لهياكل البيانات المعقدة
-- ضع جميع عمليات الاستيراد في أعلى الملف
-- اكتب دوال بسيطة ذات غرض واحد، من دون سلوك متعدد الأوضاع أو معاملات منطقية تغيّر السلوك. وإذا احتاج المستخدم إلى عدة أوضاع فسيطلبها صراحةً
+- Comments in English only
+- Prefer functional programming over OOP
+- Use OOP classes only for connectors and interfaces to external systems
+- Write pure functions - only modify return values, never input parameters or global state
+- Follow DRY, KISS, and YAGNI principles
+- Use strict typing everywhere - function returns, variables, collections
+- Check if logic already exists before writing new code
+- Avoid untyped variables and generic types
+- Never use default parameter values - make all parameters explicit
+- Create proper type definitions for complex data structures
+- All imports at the top of the file
+- Write simple single-purpose functions — no multi-mode behavior, no flag parameters that switch logic. If the user needs multiple modes, they will ask explicitly
 
-## معالجة الأخطاء
+## Error Handling
 
-- ارفع الأخطاء صراحةً دائمًا، ولا تتجاهلها بصمت
-- استخدم أنواع أخطاء محددة توضّح بدقة ما الذي حدث
-- تجنّب معالجات الاستثناءات العامة التي تُخفي السبب الجذري للمشكلة
-- يجب أن تكون رسائل الخطأ واضحة وتقود إلى الإجراء المطلوب
-- لا تستخدم أي حلول بديلة تلقائية: يجب أن ينجح الكود أو يفشل برسالة خطأ واضحة. ولا يُسمح بالحلول البديلة إلا إذا طلبها المستخدم صراحةً، لأنها تُخفي المشكلات الحقيقية
-- اجعل تشخيص الأعطال واضحًا: عند وقوع مشكلة، اشرح بدقة ما الذي فشل ولماذا
-- أصلِح السبب الجذري لا الأعراض؛ فالحلول البديلة تُخفي مشكلات حقيقية تحتاج إلى معالجة
-- في استدعاءات API أو الخدمات الخارجية، استخدم إعادة المحاولة مع تحذيرات، ثم ارفع آخر خطأ إذا فشلت كل المحاولات
-- يجب أن تتضمن رسائل الخطأ سياقًا كافيًا للتشخيص، مثل معاملات الطلب وجسم الاستجابة ورموز الحالة، من دون عبارات عامة من نوع "حدث خطأ ما"
-- في السجلات، لا تُدرج القيم المتغيرة داخل نص الرسالة؛ مرّرها كبيانات منظَّمة أو حقول إضافية. ويمكن استخدام `f-strings` داخل الاستثناءات لسهولة القراءة
+- Always raise errors explicitly, never silently ignore them
+- Use specific error types that clearly indicate what went wrong
+- Avoid catch-all exception handlers that hide the root cause
+- Error messages should be clear and actionable
+- NO FALLBACKS: Code should either succeed or fail with a clear error. Fallbacks are only allowed if the user explicitly asks for them. Never add automatic fallbacks — they hide real problems
+- Transparent debugging: When something fails, show exactly what went wrong and why
+- Fix root causes, not symptoms - fallbacks hide real problems that need solving
+- External API/service calls: use retries with warnings, raise the last error if all attempts fail
+- Error messages must include enough context to debug (request params, response body, status codes) — no generic "something went wrong"
+- Logging: no dynamic values interpolated into log message strings — pass them as structured data or extra fields. Exceptions can use f-strings for readability
 
-## اعتبارات خاصة باللغة
+## Language Specifics
 
-- فضّل نماذج البيانات المنظمة على القواميس غير المنضبطة مثل Pydantic أو الواجهات
-- تجنّب الأنواع العامة مثل `Any` و`unknown` و`List[Dict[str, Any]]`
-- استخدم إدارة الحزم الحديثة مثل `pyproject.toml` و`package.json`
-- استفد من ميزات الأنواع الخاصة باللغة مثل `discriminated unions` و`enums`
+- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
+- Use modern package management (pyproject.toml, package.json)
+- Leverage language-specific type features (discriminated unions, enums)
 
-## المكتبات والاعتماديات
+## Libraries and Dependencies
 
-- ثبّت الاعتماديات داخل بيئات معزولة، لا على مستوى النظام كله
-- أضف الاعتماديات إلى ملفات إعداد المشروع، لا كعمليات تثبيت منفصلة لمرة واحدة
-- عندما تكون الاعتمادية مثبتة محليًا مثل `node_modules` أو `.venv`، اقرأ شفرتها المصدرية مباشرة حتى لو كانت ضمن الملفات المتجاهلة في git، فهذه أفضل طريقة لفهم آلية عمل المكتبة
-- حدّث ملفات إعداد المشروع عند إضافة أي اعتماديات جديدة
+- Install in virtual environments, not globally
+- Add to project configs, not one-off installs
+- When a dependency is installed locally (node_modules, .venv, etc.), read its source code directly even if it's gitignored — this is the best way to understand how a library works
+- Update project configuration files when adding dependencies
 
-## الاختبارات
+## Testing
 
-- احترم استراتيجية الاختبار الحالية في المستودع ومجموعة الاختبارات الموجودة
-- لا تضف اختبارات وحدات جديدة افتراضيًا
-- عند الحاجة إلى اختبارات، فضّل اختبارات التكامل والاختبارات الشاملة من البداية إلى النهاية واختبارات التحقق السريعة التي تتأكد من السلوك الحقيقي
-- استخدم اختبارات الوحدات نادرًا، وبالدرجة الأولى مع مجموعات البيانات المستقرة أو تحويلات البيانات النقية
-- لا تضف اختبارات وحدات فقط لرفع أرقام التغطية
-- تجنّب استخدام `mocks` عندما تكون الاستدعاءات الحقيقية عملية
-- غالبًا ما يكون من الأفضل إنفاق قدر بسيط على الاستدعاءات الحقيقية بدلًا من صيانة اختبارات هشة مبنية على `mocks`
-- أضف الحد الأدنى فقط من التغطية المطلوبة للتغيير المطلوب
+- Respect the current repository testing strategy and existing test suite
+- Do not add new unit tests by default
+- When tests are needed, prefer integration, end-to-end, or smoke tests that validate real behavior
+- Use unit tests only rarely, mainly for stable datasets or pure data transformations
+- Never add unit tests just to increase coverage numbers
+- Avoid mocks when real calls are practical
+- It is usually better to spend a little money on real API or service calls than to maintain fragile mock-based coverage
+- Add only the minimum test coverage needed for the requested change
 
-## استخدام الطرفية
+## Terminal Usage
 
-- استخدم دائمًا `git --no-pager diff` أو `git diff | cat` لعرض الفروق بشكل غير تفاعلي
-- فضّل الأوامر غير التفاعلية المرفقة بأعلام على الأوامر التفاعلية
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
+- Prefer non-interactive commands with flags over interactive ones
 
-## تغييرات الشفرة
+## Code Changes
 
-- مطابقة أسلوب الشفرة القائم أهم من الأسلوب "المثالي" أو "الصحيح" نظريًا؛ يجب أن تبدو الشفرة الجديدة وكأن الكاتب نفسه كتبها
-- اقترح أقل قدر ممكن من التعديلات المرتبطة بالمحادثة الحالية
-- غيّر أقل عدد ممكن من الأسطر ما دمت تحل المشكلة
-- ركّز فقط على ما يطلبه المستخدم، من دون تحسينات إضافية
+- Matching the existing code style is more important than "correct" or "ideal" style — new code must look like it was written by the same author
+- Suggest only minimal changes related to current dialog
+- Change as few lines as possible while solving the problem
+- Focus only on what user is asking for - no extra improvements
 
-## التوثيق
+## Documentation
 
-- الشفرة هي التوثيق الأساسي، لذا استخدم أسماء واضحة وأنواعًا دقيقة وسلاسل توثيق (`docstrings`) مناسبة
-- أبقِ التوثيق داخل سلاسل التوثيق الخاصة بالدوال أو الفئات التي تصفه، لا في ملفات منفصلة
-- لا تنشئ ملفات توثيق منفصلة داخل `docs/` إلا إذا تعذّر شرح الفكرة بوضوح داخل الشفرة، ومع ملف واحد فقط لكل موضوع
-- لا تكرر التوثيق بين عدة ملفات، بل أشر إلى المصادر الأخرى عند الحاجة
-- خزّن المعرفة بوصفها الحالة الحالية، لا كسجل تغييرات تاريخي
+- Code is the primary documentation — use clear naming, types, and docstrings
+- Keep documentation in docstrings of the functions/classes they describe, not in separate files
+- Separate docs files (in `docs/`) only when a concept cannot be expressed in code — and only one file per topic
+- Never duplicate documentation across files — reference other sources instead
+- Store knowledge as current state, not as a changelog of modifications
 ```
 
 ![إعداد القواعد العامة في Cursor IDE داخل لوحة الإعدادات](/articles/cursor-ide-rules-global.webp)
@@ -270,18 +271,18 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 إليك قالبًا بسيطًا للبداية:
 
 ```markdown
-# المشروع: [اسم المشروع]
+# Project: [Project Name]
 
-## نظرة عامة
-- الغرض: [وصف مختصر]
-- المكدس التقني: [التقنيات الأساسية]
-- البنية: [النمط الرئيسي مثل MVC أو الخدمات المصغرة]
+## Overview
+- Purpose: [Brief description]
+- Stack: [Key technologies]
+- Architecture: [Key pattern - MVC, microservices, etc.]
 
-## أنماط الشفرة
-- [اكتب هنا الأنماط الخاصة بالمشروع]
+## Code Patterns
+- [List project-specific patterns]
 
-## متطلبات الأسلوب
-- [اكتب هنا إرشادات الأسلوب الخاصة بالمشروع]
+## Style Requirements
+- [Project-specific style guidelines]
 ```
 
 ### بناء ملفات قواعد `.mdc` مرتبطة بالسياق للمهام المتخصصة
@@ -311,19 +312,19 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 على سبيل المثال، قد يبدو ملف قواعد مكونات React على هذا النحو:
 
 ```markdown
-# إرشادات مكونات React
+# React Component Guidelines
 
-تُطبَّق هذه القواعد عند العمل على مكونات React في هذا المشروع.
+These rules apply when working with React components in this project.
 
-## بنية المكوّن
-- مكونات وظيفية مع واجهات TypeScript للخصائص
-- استخدام الخطافات المخصصة لإدارة الحالة المعقدة
-- استخدام `styled-components` للتنسيق
+## Component Structure
+- Functional components with TypeScript interfaces for props
+- Custom hooks for complex state management
+- Styled components for styling
 
-## اتفاقيات التسمية
-- ملفات المكونات: PascalCase.tsx
-- ملفات الخطافات: use[Name].ts
-- ملفات التنسيق: [name].styles.ts
+## Naming Conventions
+- Component files: PascalCase.tsx
+- Hook files: use[Name].ts
+- Style files: [name].styles.ts
 ```
 
 ## فوائد ملموسة لاستخدام قواعد مشروع Cursor في البرمجة بمساعدة الذكاء الاصطناعي

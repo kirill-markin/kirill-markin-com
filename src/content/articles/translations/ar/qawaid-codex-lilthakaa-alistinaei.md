@@ -1,7 +1,7 @@
 ---
 title: "قواعد Codex: التعليمات العامة وملف AGENTS.md وتطبيق ماك"
 date: 2026-04-11
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 slug: "qawaid-codex-lilthakaa-alistinaei"
 description: "كيف أستخدم التعليمات المخصصة في Codex وملف AGENTS.md وتطبيق ماك للحفاظ على أسلوب برمجي ثابت عبر المشاريع المختلفة من دون إعادة شرح قواعدي في كل مرة."
 tags: [productivity, codex, openai, ai]
@@ -129,6 +129,7 @@ translations:
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```

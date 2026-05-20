@@ -1,7 +1,7 @@
 ---
 title: "قواعد Claude Code: تعليمات CLAUDE.md العامة للذكاء الاصطناعي"
 date: 2026-04-11
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 slug: "qawaid-claude-code-lilthakaa-alistinaei"
 description: "قواعدي في Claude Code عبر تعليمات CLAUDE.md العامة، وكيف أفصل بين تفضيلاتي الشخصية وتعليمات كل مشروع ليحافظ Claude على أسلوبي البرمجي عبر المستودعات."
 tags: [productivity, claude-code, ai, llm]
@@ -131,6 +131,7 @@ translations:
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```
