@@ -1,7 +1,7 @@
 ---
 title: "Claude Code 规则：用全局 CLAUDE.md 指令让 AI 在不同仓库保持一致编码习惯与边界"
 date: 2026-03-21
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 description: "我把默认规则写进 `~/.claude/CLAUDE.md`，把个人偏好和项目规则分开管理，让 Claude Code 在不同仓库里都沿用同一套编码习惯、改动边界和协作方式，不必在每次新对话里重复解释严格类型、不要乱加兜底逻辑、尽量保持小改动，以及别因为一时兴起就重写半个文件这些基础要求。"
 tags: [productivity, claude-code, ai, llm]
 publish: true
@@ -130,6 +130,7 @@ Anthropic 的 [Claude Code 文档](https://docs.anthropic.com/en/docs/claude-cod
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```

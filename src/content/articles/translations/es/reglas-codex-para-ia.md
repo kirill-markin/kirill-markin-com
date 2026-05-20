@@ -1,7 +1,7 @@
 ---
 title: "Reglas de Codex: instrucciones globales, AGENTS.md y app para Mac"
 date: 2026-03-21
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 slug: "reglas-codex-para-ia"
 description: "Así uso las instrucciones personalizadas de Codex, AGENTS.md y la app para Mac para mantener los mismos patrones de desarrollo en distintos repositorios."
 tags: [productivity, codex, openai, ai]
@@ -131,6 +131,7 @@ Lo dejo en inglés porque es el contenido literal de mi `AGENTS.md` personal y e
 ## Commits
 
 - Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Uncommitted changes are the user's review state — they read the diff before deciding what to commit
 - Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```

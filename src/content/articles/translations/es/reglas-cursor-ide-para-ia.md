@@ -1,7 +1,7 @@
 ---
 title: "Reglas de Cursor IDE para IA: cómo especializar tu asistente de IA"
 date: 2025-05-06
-lastmod: 2026-04-14
+lastmod: 2026-05-20
 slug: "reglas-cursor-ide-para-ia"
 language: "es"
 description: "Mis reglas de Cursor IDE, probadas en proyectos reales, para que la IA programe con estilo consistente, errores bien gestionados y un flujo claro."
@@ -101,6 +101,7 @@ Yo pego este bloque tal cual en Cursor. Lo dejo en inglés porque está pensado 
 ## Terminal Usage
 
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Prefer non-interactive commands with flags over interactive ones
 
 ## Code Changes
@@ -262,18 +263,18 @@ Nota: los archivos `.cursorrules` heredados siguen funcionando, pero ya no son l
 Aquí tienes una plantilla sencilla para empezar:
 
 ```markdown
-# Proyecto: [Nombre del proyecto]
+# Project: [Project Name]
 
-## Visión general
-- Propósito: [Breve descripción]
-- Stack: [Tecnologías principales]
-- Arquitectura: [Patrón principal: MVC, microservicios, etc.]
+## Overview
+- Purpose: [Brief description]
+- Stack: [Key technologies]
+- Architecture: [Key pattern - MVC, microservices, etc.]
 
-## Patrones de código
-- [Lista de patrones específicos del proyecto]
+## Code Patterns
+- [List project-specific patterns]
 
-## Requisitos de estilo
-- [Directrices de estilo específicas del proyecto]
+## Style Requirements
+- [Project-specific style guidelines]
 ```
 
 ### Crear archivos `.mdc` contextuales para tareas especializadas
@@ -302,19 +303,19 @@ Ambos enfoques funcionan bien. Crear el archivo a mano te da más control sobre 
 Este ejemplo sí lo traduzco al español porque es una plantilla orientativa, no un bloque pensado para copiarse literalmente:
 
 ```markdown
-# Directrices para componentes de React
+# React Component Guidelines
 
-Estas reglas se aplican al trabajar con componentes de React en este proyecto.
+These rules apply when working with React components in this project.
 
-## Estructura de componentes
-- Componentes funcionales con interfaces de TypeScript para las props
-- Hooks personalizados para la gestión de estado compleja
-- `styled-components` para los estilos
+## Component Structure
+- Functional components with TypeScript interfaces for props
+- Custom hooks for complex state management
+- Styled components for styling
 
-## Convenciones de nombres
-- Archivos de componentes: PascalCase.tsx
-- Archivos de hooks: use[Nombre].ts
-- Archivos de estilos: [nombre].styles.ts
+## Naming Conventions
+- Component files: PascalCase.tsx
+- Hook files: use[Name].ts
+- Style files: [name].styles.ts
 ```
 
 ## Beneficios medibles de usar reglas de Cursor para programar con ayuda de IA
