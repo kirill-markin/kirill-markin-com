@@ -80,6 +80,14 @@ Sentry.init({
   // Enable logs to be sent to Sentry
   enableLogs: true,
 
+  integrations: (integrations) => [
+    ...integrations,
+    Sentry.thirdPartyErrorFilterIntegration({
+      filterKeys: ['kirill-markin-com'],
+      behaviour: 'drop-error-if-exclusively-contains-third-party-frames',
+    }),
+  ],
+
   // Filter out errors caused by browser extensions
   beforeSend(event) {
     if (isExtensionError(event)) {
