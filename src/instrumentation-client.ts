@@ -84,7 +84,7 @@ Sentry.init({
     ...integrations,
     Sentry.thirdPartyErrorFilterIntegration({
       filterKeys: ['kirill-markin-com'],
-      behaviour: 'drop-error-if-exclusively-contains-third-party-frames',
+      behaviour: 'drop-error-if-contains-third-party-frames',
     }),
   ],
 
