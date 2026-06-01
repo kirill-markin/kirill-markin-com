@@ -6,6 +6,42 @@ import type { NextRequest } from 'next/server';
 const KNOWN_PAGE_NAMES: Set<string> = new Set(
     Object.values(PATH_SEGMENTS).flatMap(locales => Object.values(locales))
 );
+const PUBLIC_ASSET_PATH_PREFIXES: ReadonlyArray<string> = [
+    '/api/',
+    '/data/',
+    '/articles/assets/',
+    '/samo-danni-eood/',
+];
+const FILE_EXTENSION_PATTERN = /\/[^/]+\.[^/]+$/u;
+const MARKDOWN_EXTENSION_PATTERN = /\.(?:md|txt)$/u;
+
+const hasFileExtension = (pathname: string): boolean => {
+    return FILE_EXTENSION_PATTERN.test(pathname);
+};
+
+const hasMarkdownExtension = (pathname: string): boolean => {
+    return MARKDOWN_EXTENSION_PATTERN.test(pathname);
+};
+
+const isPublicAssetPath = (pathname: string): boolean => {
+    return PUBLIC_ASSET_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+};
+
+const shouldBypassProxy = (pathname: string): boolean => {
+    if (pathname === '/llms.txt' || pathname === '/robots.txt') {
+        return true;
+    }
+
+    if (isPublicAssetPath(pathname)) {
+        return true;
+    }
+
+    return hasFileExtension(pathname) && !hasMarkdownExtension(pathname);
+};
+
+const shouldAdvertiseMarkdown = (pathname: string): boolean => {
+    return !shouldBypassProxy(pathname) && !hasFileExtension(pathname);
+};
 
 export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -16,13 +52,12 @@ export function proxy(request: NextRequest) {
         return NextResponse.redirect(redirectUrl, 308);
     }
 
+    if (shouldBypassProxy(pathname)) {
+        return NextResponse.next();
+    }
+
     // --- Markdown serving: .md / .txt extension ---
     if (pathname.endsWith('.md') || pathname.endsWith('.txt')) {
-        // Exclude /llms.txt and /robots.txt — they have their own handlers
-        if (pathname === '/llms.txt' || pathname === '/robots.txt') {
-            return NextResponse.next();
-        }
-
         const ext = pathname.endsWith('.md') ? '.md' : '.txt';
         const stripped = pathname.slice(1, -ext.length); // remove leading / and extension
 
@@ -48,6 +83,7 @@ export function proxy(request: NextRequest) {
     const accept = request.headers.get('accept') || '';
     if (
         accept.includes('text/markdown') &&
+        shouldAdvertiseMarkdown(pathname) &&
         !pathname.startsWith('/api/') &&
         !pathname.startsWith('/_next/')
     ) {
@@ -70,10 +106,12 @@ export function proxy(request: NextRequest) {
     response.headers.set('x-language', lang);
     response.headers.set('Vary', 'Accept');
 
-    // Advertise Markdown alternate via standard Link header
-    const cleanPath = pathname.replace(/\/+$/, '');
-    const mdPath = cleanPath === '' ? '/.md' : `${cleanPath}.md`;
-    response.headers.set('Link', `<${mdPath}>; rel="alternate"; type="text/markdown"`);
+    if (shouldAdvertiseMarkdown(pathname)) {
+        // Advertise Markdown alternate via standard Link header
+        const cleanPath = pathname.replace(/\/+$/, '');
+        const mdPath = cleanPath === '' ? '/.md' : `${cleanPath}.md`;
+        response.headers.set('Link', `<${mdPath}>; rel="alternate"; type="text/markdown"`);
+    }
 
     return response;
 }
