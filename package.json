@@ -7,13 +7,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "eslint . && next dev  --turbopack",
-    "build": "npm run generate-weight-data && next build",
+    "build": "npm run generate-public-data && next build",
     "start": "next start",
     "lint": "eslint .",
-    "analyze": "npm run generate-weight-data && ANALYZE=true next build",
-    "vercel-build": "npm run generate-weight-data && next build",
+    "analyze": "npm run generate-public-data && ANALYZE=true next build",
+    "vercel-build": "npm run generate-public-data && next build",
     "validate-metadata": "tsx scripts/validate-metadata.ts",
+    "generate-public-data": "npm run generate-weight-data && npm run generate-genome-public-data",
     "generate-weight-data": "tsx scripts/generate-weight-data.ts",
+    "generate-genome-public-data": "tsx scripts/generate-genome-public-data.ts",
     "test-cache": "tsx scripts/test-cache-headers.ts"
   },
   "dependencies": {
