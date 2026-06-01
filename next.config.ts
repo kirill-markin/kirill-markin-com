@@ -1,5 +1,17 @@
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from "next";
+import { GENOME_MANIFEST_PUBLIC_PATH, GENOME_RAW_PUBLIC_PATH } from './src/lib/genomeUrls';
+
+const RAW_DATA_HEADERS = [
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=86400, stale-while-revalidate=604800',
+  },
+  {
+    key: 'X-Robots-Tag',
+    value: 'noindex',
+  },
+];
 
 const nextConfig: NextConfig = {
   // Vercel will handle the deployment - no need for static export
@@ -46,7 +58,28 @@ const nextConfig: NextConfig = {
   },
   // Add SEO headers for non-production
   async headers() {
-    const headers = [];
+    const headers = [
+      {
+        source: '/data/body-metrics-weight-series.csv',
+        headers: RAW_DATA_HEADERS,
+      },
+      {
+        source: GENOME_RAW_PUBLIC_PATH,
+        headers: RAW_DATA_HEADERS,
+      },
+      {
+        source: GENOME_MANIFEST_PUBLIC_PATH,
+        headers: RAW_DATA_HEADERS,
+      },
+      {
+        source: '/data/genome-circos.json',
+        headers: RAW_DATA_HEADERS,
+      },
+      {
+        source: '/data/chatgpt-telegram-bot-telegraf_settings.yaml',
+        headers: RAW_DATA_HEADERS,
+      },
+    ];
 
     // Set X-Robots-Tag: noindex for all non-production environments
     // This ensures custom domains used for preview/staging are also not indexed

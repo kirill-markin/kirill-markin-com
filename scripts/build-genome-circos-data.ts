@@ -7,7 +7,7 @@
  *
  * Usage:  npx tsx scripts/build-genome-circos-data.ts [--use-cache]
  *
- * By default, downloads SNP data from GENOME_RAW_URL and refreshes the local
+ * By default, downloads SNP data from GENOME_RAW_SOURCE_URL and refreshes the local
  * cache. Pass --use-cache to read scripts/genome-data/genome_snps.txt when it
  * exists.
  * Output: public/data/genome-circos.json
@@ -15,7 +15,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve } from "path";
-import { GENOME_RAW_URL } from "../src/lib/genomeUrls";
+import { GENOME_RAW_SOURCE_URL } from "../src/lib/genomeUrls";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -161,15 +161,15 @@ async function main(): Promise<void> {
     snpRaw = readFileSync(snpCachePath, "utf-8");
   } else {
     if (options.useCache) {
-      console.log(`Cache requested but missing at ${snpCachePath}; downloading SNP data from ${GENOME_RAW_URL}.`);
+      console.log(`Cache requested but missing at ${snpCachePath}; downloading SNP data from ${GENOME_RAW_SOURCE_URL}.`);
     } else {
-      console.log(`Downloading SNP data from ${GENOME_RAW_URL} and refreshing cache. Pass ${USE_CACHE_FLAG} to read existing cache.`);
+      console.log(`Downloading SNP data from ${GENOME_RAW_SOURCE_URL} and refreshing cache. Pass ${USE_CACHE_FLAG} to read existing cache.`);
     }
-    const response = await fetch(GENOME_RAW_URL);
+    const response = await fetch(GENOME_RAW_SOURCE_URL);
     const responseBody = await response.text();
     if (!response.ok) {
       throw new Error(
-        `Failed to download SNP data: url=${GENOME_RAW_URL} status=${response.status} statusText=${response.statusText} body=${responseBody}`,
+        `Failed to download SNP data: url=${GENOME_RAW_SOURCE_URL} status=${response.status} statusText=${response.statusText} body=${responseBody}`,
       );
     }
     snpRaw = responseBody;
