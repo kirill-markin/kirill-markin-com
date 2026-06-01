@@ -52,3 +52,5 @@ scripts/genome-data/genome_snps.txt
 
 # Build-generated dashboard exports
 public/data/body-metrics-weight-series.csv
+public/data/genome-manifest.json
+public/data/genome-snps-atlas-ru-2022-02-22.txt

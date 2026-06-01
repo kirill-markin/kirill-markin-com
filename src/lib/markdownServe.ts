@@ -6,7 +6,7 @@ import { socialLinks } from '@/data/socialLinks';
 import { bigMediaMentions, smallMediaMentions, type MediaMention } from '@/data/mediaMentions';
 import { getWeightSeries } from '@/lib/weight';
 import { getWeightCsvMetadata, WEIGHT_CSV_PUBLIC_PATH } from '@/lib/generateWeightCsv';
-import { GENOME_MANIFEST_URL, GENOME_RAW_URL } from '@/lib/genomeUrls';
+import { GENOME_MANIFEST_PUBLIC_PATH, GENOME_RAW_PUBLIC_PATH } from '@/lib/genomeUrls';
 import type { WeightPoint } from '@/types/weight';
 
 type MarkdownResult = {
@@ -280,7 +280,7 @@ export async function renderDashboardsBodyMarkdown(): Promise<MarkdownResult> {
     `## Raw Data`,
     ``,
     `- [Body Metrics — Weight Series (CSV, ~${csvSizeKb} KB)](${SITE_URL}${WEIGHT_CSV_PUBLIC_PATH}) — ${csvMeta.rowCount} data points, updated daily`,
-    `- [Full Genome — SNP Genotyping Data (TSV, ~16 MB)](${GENOME_RAW_URL}) — Atlas Biomed, February 2022; [manifest JSON](${GENOME_MANIFEST_URL})`,
+    `- [Full Genome — SNP Genotyping Data (TSV, ~16 MB)](${SITE_URL}${GENOME_RAW_PUBLIC_PATH}) — Atlas Biomed, February 2022; [manifest JSON](${SITE_URL}${GENOME_MANIFEST_PUBLIC_PATH})`,
     ``,
     `## Links`,
     ``,

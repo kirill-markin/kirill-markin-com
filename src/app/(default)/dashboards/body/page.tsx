@@ -3,7 +3,7 @@ import { SITE_URL, VCARD_DATA } from '@/data/contacts';
 import { getWeightSeries } from '@/lib/weight';
 import { getWeightCsvMetadata, WEIGHT_CSV_PUBLIC_PATH } from '@/lib/generateWeightCsv';
 import { getGenomeCircosData } from '@/lib/genome';
-import { GENOME_MANIFEST_URL, GENOME_RAW_URL } from '@/lib/genomeUrls';
+import { GENOME_MANIFEST_PUBLIC_PATH, GENOME_RAW_PUBLIC_PATH } from '@/lib/genomeUrls';
 import { BodyFacts } from '@/components/charts/BodyFacts';
 import { WeightDashboard } from '@/components/charts/WeightDashboard';
 import { GenomeCircos } from '@/components/charts/GenomeCircos';
@@ -66,11 +66,11 @@ export default async function BodyDashboardPage() {
       actions: [
         {
           label: 'Download',
-          url: GENOME_RAW_URL,
+          url: GENOME_RAW_PUBLIC_PATH,
         },
         {
           label: 'Open manifest',
-          url: GENOME_MANIFEST_URL,
+          url: GENOME_MANIFEST_PUBLIC_PATH,
         },
       ],
     },
