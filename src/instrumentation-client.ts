@@ -5,7 +5,7 @@
 import * as Sentry from "@sentry/nextjs";
 
 // Patterns indicating browser extension interference
-const EXTENSION_ERROR_PATTERNS = [
+const EXTENSION_ERROR_PATTERNS: readonly RegExp[] = [
   // Extension URLs in stack traces
   /chrome-extension:\/\//,
   /moz-extension:\/\//,
@@ -18,8 +18,11 @@ const EXTENSION_ERROR_PATTERNS = [
   /<anonymous>:\d+:\d+.*(?:fetch|clone)/,
 ];
 
-// Error messages typically caused by extensions or external scripts modifying DOM
-const EXTENSION_ERROR_MESSAGES = [
+const NEXT_RSC_PAYLOAD_ERROR_MESSAGE = 'Failed to fetch RSC payload';
+const SERIALIZED_ERROR_TEXT_FIELDS: readonly string[] = ['message', 'name', 'stack'];
+
+// Error messages typically caused by extensions, external scripts, or noisy framework fallbacks
+const IGNORED_CLIENT_ERROR_MESSAGES: readonly string[] = [
   'req.clone is not a function',
   'Request.clone',
   'ResizeObserver loop', // Often caused by extensions observing DOM
@@ -28,20 +31,69 @@ const EXTENSION_ERROR_MESSAGES = [
   "Failed to execute 'insertBefore' on 'Node'",
   "Failed to execute 'appendChild' on 'Node'",
   // Next.js RSC prefetch failures (network issues, user navigating away, etc.)
-  'Failed to fetch RSC payload',
+  NEXT_RSC_PAYLOAD_ERROR_MESSAGE,
   'Failed to fetch',
   'Load failed',
   // Non-Error promise rejections (usually from third-party scripts)
   'Non-Error promise rejection captured',
 ];
 
-function isExtensionError(event: Sentry.ErrorEvent): boolean {
-  const message = event.message || '';
+function getObjectStringField(value: object, fieldName: string): string | null {
+  if (!(fieldName in value)) {
+    return null;
+  }
+
+  const fieldValue = value[fieldName as keyof typeof value];
+  return typeof fieldValue === 'string' ? fieldValue : null;
+}
+
+function getStringFragmentsFromUnknown(value: unknown): string[] {
+  if (typeof value === 'string') {
+    return [value];
+  }
+
+  if (value instanceof Error) {
+    return [value.message, value.stack].filter((fragment): fragment is string => typeof fragment === 'string');
+  }
+
+  if (Array.isArray(value)) {
+    return value.flatMap(getStringFragmentsFromUnknown);
+  }
+
+  if (value !== null && typeof value === 'object') {
+    return SERIALIZED_ERROR_TEXT_FIELDS
+      .map((fieldName) => getObjectStringField(value, fieldName))
+      .filter((fragment): fragment is string => fragment !== null);
+  }
+
+  return [];
+}
+
+function getEventOwnedTextFragments(event: Sentry.ErrorEvent): string[] {
   const exceptionValues = event.exception?.values || [];
 
+  return [
+    event.message,
+    event.logentry?.message,
+    ...exceptionValues.flatMap((exc) => [exc.type, exc.value]),
+    ...getStringFragmentsFromUnknown(event.extra?.arguments),
+    ...getStringFragmentsFromUnknown(event.extra?.__serialized__),
+  ].filter((fragment): fragment is string => typeof fragment === 'string');
+}
+
+function isIgnoredClientError(event: Sentry.ErrorEvent): boolean {
+  const message = event.message || '';
+  const exceptionValues = event.exception?.values || [];
+  const eventOwnedTextFragments = getEventOwnedTextFragments(event);
+
   // Check error message
-  for (const pattern of EXTENSION_ERROR_MESSAGES) {
+  for (const pattern of IGNORED_CLIENT_ERROR_MESSAGES) {
     if (message.includes(pattern)) {
+      return true;
+    }
+    const isNextRscPayloadError = pattern === NEXT_RSC_PAYLOAD_ERROR_MESSAGE
+      && eventOwnedTextFragments.some((fragment) => fragment.includes(pattern));
+    if (isNextRscPayloadError) {
       return true;
     }
     for (const exc of exceptionValues) {
@@ -88,9 +140,9 @@ Sentry.init({
     }),
   ],
 
-  // Filter out errors caused by browser extensions
+  // Filter out known noisy client-side errors
   beforeSend(event) {
-    if (isExtensionError(event)) {
+    if (isIgnoredClientError(event)) {
       return null; // Drop the event
     }
     return event;
