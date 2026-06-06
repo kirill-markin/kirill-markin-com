@@ -19,6 +19,9 @@ const EXTENSION_ERROR_PATTERNS: readonly RegExp[] = [
 ];
 
 const NEXT_RSC_PAYLOAD_ERROR_MESSAGE = 'Failed to fetch RSC payload';
+const CHROME_EXTENSION_ASYNC_RESPONSE_ERROR_MESSAGE = 'A listener indicated an asynchronous response by returning true';
+const GLOBAL_UNHANDLED_REJECTION_MECHANISM = 'auto.browser.global_handlers.onunhandledrejection';
+const CHROME_BROWSER_PATTERN = /chrome|chromium/i;
 const SERIALIZED_ERROR_TEXT_FIELDS: readonly string[] = ['message', 'name', 'stack'];
 
 // Error messages typically caused by extensions, external scripts, or noisy framework fallbacks
@@ -81,10 +84,53 @@ function getEventOwnedTextFragments(event: Sentry.ErrorEvent): string[] {
   ].filter((fragment): fragment is string => typeof fragment === 'string');
 }
 
+function hasExceptionStackFrames(event: Sentry.ErrorEvent): boolean {
+  const exceptionValues = event.exception?.values || [];
+
+  return exceptionValues.some((exc) => (exc.stacktrace?.frames?.length || 0) > 0);
+}
+
+function getBrowserTextFragments(event: Sentry.ErrorEvent): string[] {
+  const browserContext = event.contexts?.browser;
+  const requestUserAgent = event.request?.headers?.['User-Agent'] ?? null;
+
+  if (browserContext === undefined) {
+    return [requestUserAgent].filter((fragment): fragment is string => fragment !== null);
+  }
+
+  return [
+    getObjectStringField(browserContext, 'name'),
+    getObjectStringField(browserContext, 'browser'),
+    requestUserAgent,
+  ].filter((fragment): fragment is string => fragment !== null);
+}
+
+function isChromeExtensionMessagingNoise(event: Sentry.ErrorEvent): boolean {
+  const exceptionValues = event.exception?.values || [];
+  const hasUnhandledRejectionMechanism = exceptionValues.some(
+    (exc) => exc.mechanism?.type === GLOBAL_UNHANDLED_REJECTION_MECHANISM,
+  );
+
+  if (!hasUnhandledRejectionMechanism || hasExceptionStackFrames(event)) {
+    return false;
+  }
+
+  const isChromeBrowser = getBrowserTextFragments(event).some((fragment) => CHROME_BROWSER_PATTERN.test(fragment));
+
+  return isChromeBrowser
+    && getEventOwnedTextFragments(event).some((fragment) => (
+      fragment.includes(CHROME_EXTENSION_ASYNC_RESPONSE_ERROR_MESSAGE)
+    ));
+}
+
 function isIgnoredClientError(event: Sentry.ErrorEvent): boolean {
   const message = event.message || '';
   const exceptionValues = event.exception?.values || [];
   const eventOwnedTextFragments = getEventOwnedTextFragments(event);
+
+  if (isChromeExtensionMessagingNoise(event)) {
+    return true;
+  }
 
   // Check error message
   for (const pattern of IGNORED_CLIENT_ERROR_MESSAGES) {
