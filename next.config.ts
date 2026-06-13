@@ -2,11 +2,23 @@ import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from "next";
 import { GENOME_MANIFEST_PUBLIC_PATH, GENOME_RAW_PUBLIC_PATH } from './src/lib/genomeUrls';
 
-const RAW_DATA_HEADERS = [
+type ResponseHeader = {
+  key: string;
+  value: string;
+};
+
+const RAW_DATA_HEADERS: ResponseHeader[] = [
   {
     key: 'Cache-Control',
     value: 'public, max-age=86400, stale-while-revalidate=604800',
   },
+  {
+    key: 'X-Robots-Tag',
+    value: 'noindex',
+  },
+];
+
+const NON_INDEXABLE_RESOURCE_HEADERS: ResponseHeader[] = [
   {
     key: 'X-Robots-Tag',
     value: 'noindex',
@@ -56,9 +68,13 @@ const nextConfig: NextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Add SEO headers for non-production
+  // Add SEO headers for resources and non-production environments
   async headers() {
     const headers = [
+      {
+        source: '/_next/static/:path*',
+        headers: NON_INDEXABLE_RESOURCE_HEADERS,
+      },
       {
         source: '/data/body-metrics-weight-series.csv',
         headers: RAW_DATA_HEADERS,
