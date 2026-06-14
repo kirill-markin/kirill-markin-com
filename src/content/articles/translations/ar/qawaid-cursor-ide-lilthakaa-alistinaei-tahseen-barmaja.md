@@ -65,7 +65,7 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Never use default parameter values - make all parameters explicit
 - Create proper type definitions for complex data structures
 - All imports at the top of the file
-- Write simple single-purpose functions — no multi-mode behavior, no flag parameters that switch logic. If the user needs multiple modes, they will ask explicitly
+- Write simple single-purpose functions - no multi-mode behavior, no flag parameters that switch logic. If the user needs multiple modes, they will ask explicitly
 
 ## Error Handling
 
@@ -73,25 +73,25 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 - Use specific error types that clearly indicate what went wrong
 - Avoid catch-all exception handlers that hide the root cause
 - Error messages should be clear and actionable
-- NO FALLBACKS: Code should either succeed or fail with a clear error. Fallbacks are only allowed if the user explicitly asks for them. Never add automatic fallbacks — they hide real problems
-- Transparent debugging: When something fails, show exactly what went wrong and why
-- Fix root causes, not symptoms - fallbacks hide real problems that need solving
-- External API/service calls: use retries with warnings, raise the last error if all attempts fail
-- Error messages must include enough context to debug (request params, response body, status codes) — no generic "something went wrong"
-- Logging: no dynamic values interpolated into log message strings — pass them as structured data or extra fields. Exceptions can use f-strings for readability
+- No fallbacks unless I explicitly ask for them; code should either succeed or fail with a clear error
+- Transparent debugging: when something fails, show exactly what went wrong and why
+- Fix root causes, not symptoms; fallbacks hide real problems that need solving
+- External API or service calls: use retries with warnings, then raise the last error
+- Error messages must include enough context to debug: request params, response body, status codes; no generic "something went wrong"
+- Logging should use structured fields instead of interpolating dynamic values into message strings
 
 ## Language Specifics
 
-- Prefer structured data models over loose dictionaries (Pydantic, interfaces)
+- Prefer structured data models over loose dictionaries, such as Pydantic models or typed interfaces
 - Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
-- Use modern package management (pyproject.toml, package.json)
-- Leverage language-specific type features (discriminated unions, enums)
+- Use modern package management files like `pyproject.toml` and `package.json`
+- Use the language's strict type features when available, such as discriminated unions and enums
 
 ## Libraries and Dependencies
 
-- Install in virtual environments, not globally
-- Add to project configs, not one-off installs
-- When a dependency is installed locally (node_modules, .venv, etc.), read its source code directly even if it's gitignored — this is the best way to understand how a library works
+- Install dependencies in project environments, not globally
+- Add dependencies to project config files, not as one-off manual installs
+- If a dependency is installed locally, read its source code when needed instead of guessing, even if it is gitignored
 - Update project configuration files when adding dependencies
 
 ## Testing
@@ -107,24 +107,36 @@ Cursor -> Settings -> Cursor Settings -> Rules for AI:
 
 ## Terminal Usage
 
-- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
-- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
 - Prefer non-interactive commands with flags over interactive ones
+- Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
+- Prefer `rg` for searching code and files
 
-## Code Changes
+## Workflow
 
-- Matching the existing code style is more important than "correct" or "ideal" style — new code must look like it was written by the same author
-- Suggest only minimal changes related to current dialog
+- Read the existing code and relevant project instructions before editing
+- Keep changes minimal and related to the current request
+- Match the existing style of the repository even if it differs from my personal preference; new code must look like it was written by the same author
+- Do not revert unrelated changes
+- If you are unsure, inspect the codebase instead of inventing patterns
+- Suggest only minimal changes related to the current dialog
 - Change as few lines as possible while solving the problem
-- Focus only on what user is asking for - no extra improvements
+- Focus only on what the user is asking for; no extra improvements
+- When project instructions include test or lint commands, run them before finishing if the task changed code
 
 ## Documentation
 
-- Code is the primary documentation — use clear naming, types, and docstrings
-- Keep documentation in docstrings of the functions/classes they describe, not in separate files
-- Separate docs files (in `docs/`) only when a concept cannot be expressed in code — and only one file per topic
-- Never duplicate documentation across files — reference other sources instead
+- Code is the primary documentation - use clear naming, types, and docstrings
+- Keep documentation in docstrings of the functions or classes they describe, not in separate files
+- Separate docs files only when a concept cannot be expressed clearly in code, and only one file per topic
+- Never duplicate documentation across files; reference other sources instead
 - Store knowledge as current state, not as a changelog of modifications
+
+## Commits
+
+- Never create a git commit unless the user explicitly asks for one
+- Prefer `git merge` over `git squash` whenever possible, unless the user explicitly asks for squash.
+- Uncommitted changes are the user's review state - they read the diff before deciding what to commit
+- Keep changes uncommitted until asked, so the diff stays clean and reviewable
 ```
 
 ![إعداد القواعد العامة في Cursor IDE داخل لوحة الإعدادات](/articles/cursor-ide-rules-global.webp)
