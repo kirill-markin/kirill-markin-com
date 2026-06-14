@@ -52,12 +52,10 @@ Yo pego este bloque tal cual en Cursor. Lo dejo en inglés porque está pensado 
 - Use OOP classes only for connectors and interfaces to external systems
 - Write pure functions - only modify return values, never input parameters or global state
 - Follow DRY, KISS, and YAGNI principles
-- Use strict typing everywhere - function returns, variables, collections
+- Prefer simple solutions and avoid premature abstractions
+- Use strict typing for returns, variables, collections, and complex data; prefer structured models or typed interfaces over loose dictionaries; avoid weak generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`; use strict language features such as discriminated unions and enums
 - Check if logic already exists before writing new code
-- Avoid untyped variables and generic types
 - Never use default parameter values - make all parameters explicit
-- Create proper type definitions for complex data structures
-- All imports at the top of the file
 - Write simple single-purpose functions - no multi-mode behavior, no flag parameters that switch logic. If the user needs multiple modes, they will ask explicitly
 
 ## Error Handling
@@ -65,27 +63,16 @@ Yo pego este bloque tal cual en Cursor. Lo dejo en inglés porque está pensado 
 - Always raise errors explicitly, never silently ignore them
 - Use specific error types that clearly indicate what went wrong
 - Avoid catch-all exception handlers that hide the root cause
-- Error messages should be clear and actionable
-- No fallbacks unless I explicitly ask for them; code should either succeed or fail with a clear error
-- Transparent debugging: when something fails, show exactly what went wrong and why
-- Fix root causes, not symptoms; fallbacks hide real problems that need solving
+- No fallbacks unless I explicitly ask for them; fix root causes instead of masking symptoms, and make code either succeed or fail with a clear error
 - External API or service calls: use retries with warnings, then raise the last error
-- Error messages must include enough context to debug: request params, response body, status codes; no generic "something went wrong"
+- Error messages must be clear, actionable, and specific: explain what failed and why, include request params, response body, status codes, and avoid generic "something went wrong"
 - Logging should use structured fields instead of interpolating dynamic values into message strings
-
-## Language Specifics
-
-- Prefer structured data models over loose dictionaries, such as Pydantic models or typed interfaces
-- Avoid generic types like `Any`, `unknown`, or `List[Dict[str, Any]]`
-- Use modern package management files like `pyproject.toml` and `package.json`
-- Use the language's strict type features when available, such as discriminated unions and enums
 
 ## Libraries and Dependencies
 
-- Install dependencies in project environments, not globally
-- Add dependencies to project config files, not as one-off manual installs
+- Use modern package management files like `pyproject.toml` and `package.json`; install dependencies in project environments, not globally
+- Add or update dependencies in project config files, not as one-off manual installs
 - If a dependency is installed locally, read its source code when needed instead of guessing, even if it is gitignored
-- Update project configuration files when adding dependencies
 
 ## Testing
 
@@ -102,18 +89,14 @@ Yo pego este bloque tal cual en Cursor. Lo dejo en inglés porque está pensado 
 
 - Prefer non-interactive commands with flags over interactive ones
 - Always use non-interactive git diff: `git --no-pager diff` or `git diff | cat`
-- Prefer `rg` for searching code and files
 
 ## Workflow
 
 - Read the existing code and relevant project instructions before editing
-- Keep changes minimal and related to the current request
+- Keep changes minimal and tightly scoped to the current request: make the smallest useful diff, change only the lines needed to solve the problem, and avoid unrelated improvements unless the user asks for them
 - Match the existing style of the repository even if it differs from my personal preference; new code must look like it was written by the same author
 - Do not revert unrelated changes
 - If you are unsure, inspect the codebase instead of inventing patterns
-- Suggest only minimal changes related to the current dialog
-- Change as few lines as possible while solving the problem
-- Focus only on what the user is asking for; no extra improvements
 - When project instructions include test or lint commands, run them before finishing if the task changed code
 
 ## Documentation
