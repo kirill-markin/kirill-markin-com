@@ -19,10 +19,19 @@ const EXTENSION_ERROR_PATTERNS: readonly RegExp[] = [
 ];
 
 const NEXT_RSC_PAYLOAD_ERROR_MESSAGE = 'Failed to fetch RSC payload';
-const CHROME_EXTENSION_ASYNC_RESPONSE_ERROR_MESSAGE = 'A listener indicated an asynchronous response by returning true';
 const GLOBAL_UNHANDLED_REJECTION_MECHANISM = 'auto.browser.global_handlers.onunhandledrejection';
-const CHROME_BROWSER_PATTERN = /chrome|chromium/i;
+const SENTRY_APPLICATION_KEY = 'kirill-markin-com';
+const SENTRY_BUNDLER_PLUGIN_APP_KEY_PREFIX = '_sentryBundlerPluginAppKey:';
 const SERIALIZED_ERROR_TEXT_FIELDS: readonly string[] = ['message', 'name', 'stack'];
+const EXTENSION_MESSAGING_API_PATTERNS: readonly RegExp[] = [
+  /runtime\.sendMessage/i,
+  /chrome\.runtime/i,
+  /browser\.runtime/i,
+];
+const CHROME_EXTENSION_ASYNC_RESPONSE_ERROR_MESSAGE = 'A listener indicated an asynchronous response by returning true';
+const FIRST_PARTY_FRAME_PATTERNS: readonly RegExp[] = [
+  /webpack-internal:\/\/\/(?:\([^)]+\)\/)?\.\/src\//,
+];
 
 // Error messages typically caused by extensions, external scripts, or noisy framework fallbacks
 const IGNORED_CLIENT_ERROR_MESSAGES: readonly string[] = [
@@ -73,41 +82,121 @@ function getStringFragmentsFromUnknown(value: unknown): string[] {
 }
 
 function getEventOwnedTextFragments(event: Sentry.ErrorEvent): string[] {
-  const exceptionValues = event.exception?.values || [];
-
   return [
     event.message,
     event.logentry?.message,
-    ...exceptionValues.flatMap((exc) => [exc.type, exc.value]),
+    ...getExceptionValues(event).flatMap((exc) => [exc.type, exc.value]),
     ...getStringFragmentsFromUnknown(event.extra?.arguments),
     ...getStringFragmentsFromUnknown(event.extra?.__serialized__),
   ].filter((fragment): fragment is string => typeof fragment === 'string');
 }
 
-function hasExceptionStackFrames(event: Sentry.ErrorEvent): boolean {
-  const exceptionValues = event.exception?.values || [];
+type SentryException = NonNullable<NonNullable<Sentry.ErrorEvent['exception']>['values']>[number];
+type SentryStackFrame = NonNullable<NonNullable<SentryException['stacktrace']>['frames']>[number];
 
-  return exceptionValues.some((exc) => (exc.stacktrace?.frames?.length || 0) > 0);
+function getExceptionValues(event: Sentry.ErrorEvent): SentryException[] {
+  return event.exception?.values || [];
 }
 
-function getBrowserTextFragments(event: Sentry.ErrorEvent): string[] {
-  const browserContext = event.contexts?.browser;
-  const requestUserAgent = event.request?.headers?.['User-Agent'] ?? null;
+function getExceptionStackFrames(event: Sentry.ErrorEvent): SentryStackFrame[] {
+  return getExceptionValues(event).flatMap((exc) => exc.stacktrace?.frames || []);
+}
 
-  if (browserContext === undefined) {
-    return [requestUserAgent].filter((fragment): fragment is string => fragment !== null);
+function hasExceptionStackFrames(event: Sentry.ErrorEvent): boolean {
+  return getExceptionStackFrames(event).length > 0;
+}
+
+function getObjectKeys(value: unknown): string[] {
+  if (value === null || typeof value !== 'object') {
+    return [];
   }
 
-  return [
-    getObjectStringField(browserContext, 'name'),
-    getObjectStringField(browserContext, 'browser'),
-    requestUserAgent,
-  ].filter((fragment): fragment is string => fragment !== null);
+  return Object.keys(value);
 }
 
-function isChromeExtensionMessagingNoise(event: Sentry.ErrorEvent): boolean {
-  const exceptionValues = event.exception?.values || [];
-  const hasUnhandledRejectionMechanism = exceptionValues.some(
+function hasApplicationKeyFrame(event: Sentry.ErrorEvent): boolean {
+  const applicationKeyMetadataName = `${SENTRY_BUNDLER_PLUGIN_APP_KEY_PREFIX}${SENTRY_APPLICATION_KEY}`;
+
+  return getExceptionStackFrames(event).some((frame) => (
+    getObjectKeys(frame.module_metadata).includes(applicationKeyMetadataName)
+  ));
+}
+
+function hasFirstPartyFrame(event: Sentry.ErrorEvent): boolean {
+  return getExceptionStackFrames(event).some((frame) => (
+    [frame.filename, frame.abs_path, frame.module]
+      .filter((fragment): fragment is string => typeof fragment === 'string')
+      .some((fragment) => FIRST_PARTY_FRAME_PATTERNS.some((pattern) => pattern.test(fragment)))
+  ));
+}
+
+function getAppErrorOrigin(event: Sentry.ErrorEvent): string | null {
+  const origin = event.tags?.app_error_origin;
+  return typeof origin === 'string' && origin.length > 0 ? origin : null;
+}
+
+function isTrueTagValue(value: unknown): boolean {
+  return value === true || value === 'true' || value === 'True';
+}
+
+function hasAppErrorTag(event: Sentry.ErrorEvent): boolean {
+  return isTrueTagValue(event.tags?.app_error);
+}
+
+function hasThirdPartyCodeTag(event: Sentry.ErrorEvent): boolean {
+  return isTrueTagValue(event.tags?.third_party_code);
+}
+
+function withAppOriginTags(event: Sentry.ErrorEvent): Sentry.ErrorEvent {
+  const appErrorOrigin = getAppErrorOrigin(event);
+
+  if (appErrorOrigin !== null) {
+    return {
+      ...event,
+      tags: {
+        ...event.tags,
+        app_error: true,
+      },
+    };
+  }
+
+  if (hasAppErrorTag(event)) {
+    return {
+      ...event,
+      tags: {
+        ...event.tags,
+        app_error: true,
+        app_error_origin: 'explicit_capture',
+      },
+    };
+  }
+
+  if (hasApplicationKeyFrame(event) || hasFirstPartyFrame(event)) {
+    return {
+      ...event,
+      tags: {
+        ...event.tags,
+        app_error: true,
+        app_error_origin: 'first_party_stack',
+      },
+    };
+  }
+
+  if (!hasExceptionStackFrames(event)) {
+    return {
+      ...event,
+      tags: {
+        ...event.tags,
+        app_error_origin: 'stackless_unknown',
+      },
+    };
+  }
+
+  return event;
+}
+
+function isExtensionMessagingNoise(event: Sentry.ErrorEvent): boolean {
+  const hasUnhandledRejectionMechanism = getExceptionValues(event).some(
     (exc) => exc.mechanism?.type === GLOBAL_UNHANDLED_REJECTION_MECHANISM,
   );
 
@@ -115,12 +204,10 @@ function isChromeExtensionMessagingNoise(event: Sentry.ErrorEvent): boolean {
     return false;
   }
 
-  const isChromeBrowser = getBrowserTextFragments(event).some((fragment) => CHROME_BROWSER_PATTERN.test(fragment));
-
-  return isChromeBrowser
-    && getEventOwnedTextFragments(event).some((fragment) => (
-      fragment.includes(CHROME_EXTENSION_ASYNC_RESPONSE_ERROR_MESSAGE)
-    ));
+  return getEventOwnedTextFragments(event).some((fragment) => (
+    EXTENSION_MESSAGING_API_PATTERNS.some((pattern) => pattern.test(fragment))
+    || fragment.includes(CHROME_EXTENSION_ASYNC_RESPONSE_ERROR_MESSAGE)
+  ));
 }
 
 function isIgnoredClientError(event: Sentry.ErrorEvent): boolean {
@@ -128,7 +215,11 @@ function isIgnoredClientError(event: Sentry.ErrorEvent): boolean {
   const exceptionValues = event.exception?.values || [];
   const eventOwnedTextFragments = getEventOwnedTextFragments(event);
 
-  if (isChromeExtensionMessagingNoise(event)) {
+  if (isExtensionMessagingNoise(event)) {
+    return true;
+  }
+
+  if (hasThirdPartyCodeTag(event) && !hasAppErrorTag(event)) {
     return true;
   }
 
@@ -149,16 +240,18 @@ function isIgnoredClientError(event: Sentry.ErrorEvent): boolean {
     }
   }
 
-  // Check stack traces for extension patterns
-  for (const exc of exceptionValues) {
-    const frames = exc.stacktrace?.frames || [];
-    for (const frame of frames) {
-      const filename = frame.filename || '';
-      const functionName = frame.function || '';
+  if (!hasAppErrorTag(event)) {
+    // Check stack traces for extension patterns
+    for (const exc of exceptionValues) {
+      const frames = exc.stacktrace?.frames || [];
+      for (const frame of frames) {
+        const filename = frame.filename || '';
+        const functionName = frame.function || '';
 
-      for (const pattern of EXTENSION_ERROR_PATTERNS) {
-        if (pattern.test(filename) || pattern.test(functionName)) {
-          return true;
+        for (const pattern of EXTENSION_ERROR_PATTERNS) {
+          if (pattern.test(filename) || pattern.test(functionName)) {
+            return true;
+          }
         }
       }
     }
@@ -182,16 +275,18 @@ Sentry.init({
     ...integrations,
     Sentry.thirdPartyErrorFilterIntegration({
       filterKeys: ['kirill-markin-com'],
-      behaviour: 'drop-error-if-contains-third-party-frames',
+      behaviour: 'apply-tag-if-exclusively-contains-third-party-frames',
     }),
   ],
 
   // Filter out known noisy client-side errors
   beforeSend(event) {
-    if (isIgnoredClientError(event)) {
+    const taggedEvent = withAppOriginTags(event);
+
+    if (isIgnoredClientError(taggedEvent)) {
       return null; // Drop the event
     }
-    return event;
+    return taggedEvent;
   },
 
   // Only send errors in production
