@@ -93,7 +93,6 @@ const Footer: React.FC<FooterProps> = ({
                   dangerouslySetInnerHTML={renderJobTitle(personalInfoTranslations.jobTitle)}
                 />
                 <p className={styles.secondaryTitleFooter}>{personalInfoTranslations.secondaryTitle}</p>
-                <p className={styles.tertiaryTitleFooter}>{personalInfoTranslations.tertiaryTitle}</p>
               </div>
 
               <div className={styles.footerCta}>

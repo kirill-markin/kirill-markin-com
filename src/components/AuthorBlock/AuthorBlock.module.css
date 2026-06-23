@@ -73,15 +73,6 @@
     text-transform: uppercase;
 }
 
-.authorTertiaryTitle {
-    font-size: 14px;
-    margin: 0;
-    line-height: 1.2;
-    color: #232323;
-    opacity: 0.4;
-    text-transform: uppercase;
-}
-
 .authorSubtitle {
     display: none;
 }
@@ -202,14 +193,9 @@
     }
 
     .authorTitle,
-    .authorSecondaryTitle,
-    .authorTertiaryTitle {
+    .authorSecondaryTitle {
         font-size: 14px;
         margin: 0 0 3px;
         line-height: 1.4;
-    }
-
-    .authorTertiaryTitle {
-        margin-bottom: 0;
     }
 }
