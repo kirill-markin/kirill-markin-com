@@ -536,7 +536,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 98.99%;
-  white-space: nowrap;
 }
 
 .contactButtonsContainer {
@@ -568,10 +567,6 @@
 
   .personalTitles {
     text-align: left;
-  }
-
-  .mainTitle {
-    white-space: normal;
   }
 
   .contactButtonsContainer {
