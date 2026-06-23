@@ -40,7 +40,7 @@ export async function renderHomeMarkdown(language: string): Promise<MarkdownResu
   const lines: string[] = [
     `# Kirill Markin`,
     ``,
-    `${personalInfo.jobTitle} | ${personalInfo.secondaryTitle} | ${personalInfo.tertiaryTitle}`,
+    `${personalInfo.jobTitle} | ${personalInfo.secondaryTitle}`,
     ``,
     home.description,
     ``,

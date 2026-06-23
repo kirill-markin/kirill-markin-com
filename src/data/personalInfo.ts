@@ -7,7 +7,6 @@ export interface PersonalInfo {
   image: string;
   jobTitle: string;
   secondaryTitle: string;
-  tertiaryTitle: string;
 }
 
 export const personalInfo: PersonalInfo = {
@@ -15,7 +14,6 @@ export const personalInfo: PersonalInfo = {
   email: EMAIL,
   phone: PHONE_NUMBER,
   image: "/avatars/Kirill-Markin.webp",
-  jobTitle: "Hands-on Engineering Manager",
-  secondaryTitle: "ex-Founder of ozma.io",
-  tertiaryTitle: "AI & Data Engineer"
+  jobTitle: "Staff Software Engineer",
+  secondaryTitle: "Founder"
 }; 

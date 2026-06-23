@@ -1,27 +1,22 @@
 export const personalInfo = {
     en: {
-        jobTitle: 'Hands-on Engineering Manager',
-        secondaryTitle: 'ex-Founder of ozma.io',
-        tertiaryTitle: 'AI & Data Engineer',
+        jobTitle: 'Staff Software Engineer',
+        secondaryTitle: 'Founder',
     },
     es: {
-        jobTitle: 'Responsable de Ingeniería práctico',
-        secondaryTitle: 'Exfundador de ozma.io',
-        tertiaryTitle: 'Ingeniero de IA y datos',
+        jobTitle: 'Ingeniero de Software Staff',
+        secondaryTitle: 'Fundador',
     },
     zh: {
-        jobTitle: '实干型工程经理',
-        secondaryTitle: 'ozma.io 前创始人',
-        tertiaryTitle: '人工智能与数据工程师',
+        jobTitle: 'Staff 软件工程师',
+        secondaryTitle: '创始人',
     },
     ar: {
-        jobTitle: 'مدير هندسة عملي',
-        secondaryTitle: 'المؤسس السابق لـ ozma.io',
-        tertiaryTitle: 'مهندس الذكاء الاصطناعي والبيانات',
+        jobTitle: 'مهندس برمجيات Staff',
+        secondaryTitle: 'مؤسس',
     },
     hi: {
-        jobTitle: 'व्यावहारिक इंजीनियरिंग प्रबंधक',
-        secondaryTitle: 'ozma.io के पूर्व संस्थापक',
-        tertiaryTitle: 'एआई और डेटा इंजीनियर',
+        jobTitle: 'स्टाफ सॉफ्टवेयर इंजीनियर',
+        secondaryTitle: 'संस्थापक',
     },
 } as const;
