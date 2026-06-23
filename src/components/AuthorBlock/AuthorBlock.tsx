@@ -39,7 +39,6 @@ const AuthorBlock: React.FC<AuthorBlockProps> = ({
                     <p className={styles.authorName}>{personalInfo.name}</p>
                     <p className={styles.authorTitle}>{personalInfoTranslations.jobTitle}</p>
                     <p className={styles.authorSecondaryTitle}>{personalInfoTranslations.secondaryTitle}</p>
-                    <p className={styles.authorTertiaryTitle}>{personalInfoTranslations.tertiaryTitle}</p>
                 </div>
             </div>
             <div className={styles.achievementSticker}>

@@ -14,9 +14,9 @@ export async function GET(): Promise<NextResponse> {
     // Get articles for content examples
     const recentArticles = await getRecentLlmsArticleSummaries(3);
 
-    const llmsContent = `# Kirill Markin - AI & Data Engineering Expert
+    const llmsContent = `# Kirill Markin - Staff Software Engineer
 
-> Personal website of Kirill Markin — Hands-on Engineering Manager, ex-Founder of ozma.io, AI & Data Engineer. Specializes in AI/LLM implementation, data engineering, startup guidance, and technical consulting across multiple languages and industries.
+> Personal website of Kirill Markin — Staff Software Engineer, Founder. Specializes in AI/LLM implementation, data engineering, startup guidance, and technical consulting across multiple languages and industries.
 
 Kirill Markin is an experienced AI and data engineering professional who helps businesses and individuals leverage artificial intelligence and data technologies. His expertise spans from technical implementation to strategic consulting, with a focus on practical, real-world applications.
 

@@ -99,16 +99,11 @@
   text-decoration-thickness: 1px;
 }
 
-.secondaryTitleFooter,
-.tertiaryTitleFooter {
+.secondaryTitleFooter {
   font-size: 1rem;
   color: #aaa;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
-}
-
-.tertiaryTitleFooter {
-  color: #646464;
 }
 
 .footerCta {
