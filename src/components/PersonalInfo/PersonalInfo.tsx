@@ -90,8 +90,9 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             />
           </div>
           <div className={styles.personalTitles}>
-            <p className={styles.mainTitle}>{personalInfoTranslations.jobTitle}</p>
-            <p className={styles.secondaryTitle}>{personalInfoTranslations.secondaryTitle}</p>
+            <p className={styles.mainTitle}>
+              {personalInfoTranslations.jobTitle}, {personalInfoTranslations.secondaryTitle}
+            </p>
           </div>
         </div>
 
