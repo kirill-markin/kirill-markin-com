@@ -48,6 +48,10 @@ const IGNORED_CLIENT_ERROR_MESSAGES: readonly string[] = [
   'Load failed',
   // Non-Error promise rejections (usually from third-party scripts)
   'Non-Error promise rejection captured',
+  // Object/ErrorEvent rejections — Sentry SDK eventbuilder wording
+  // ("Object captured as promise rejection with keys: ..."); covers crypto-wallet
+  // and other browser-extension providers that reject with a plain object.
+  'captured as promise rejection',
 ];
 
 function getObjectStringField(value: object, fieldName: string): string | null {
