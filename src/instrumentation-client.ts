@@ -20,6 +20,7 @@ const EXTENSION_ERROR_PATTERNS: readonly RegExp[] = [
 
 const NEXT_RSC_PAYLOAD_ERROR_MESSAGE = 'Failed to fetch RSC payload';
 const GLOBAL_UNHANDLED_REJECTION_MECHANISM = 'auto.browser.global_handlers.onunhandledrejection';
+const STACKLESS_UNKNOWN_ORIGIN = 'stackless_unknown';
 const SENTRY_APPLICATION_KEY = 'kirill-markin-com';
 const SENTRY_BUNDLER_PLUGIN_APP_KEY_PREFIX = '_sentryBundlerPluginAppKey:';
 const SERIALIZED_ERROR_TEXT_FIELDS: readonly string[] = ['message', 'name', 'stack'];
@@ -191,7 +192,7 @@ function withAppOriginTags(event: Sentry.ErrorEvent): Sentry.ErrorEvent {
       ...event,
       tags: {
         ...event.tags,
-        app_error_origin: 'stackless_unknown',
+        app_error_origin: STACKLESS_UNKNOWN_ORIGIN,
       },
     };
   }
@@ -214,12 +215,25 @@ function isExtensionMessagingNoise(event: Sentry.ErrorEvent): boolean {
   ));
 }
 
+function isStacklessUnhandledRejection(event: Sentry.ErrorEvent): boolean {
+  const hasUnhandledRejectionMechanism = getExceptionValues(event).some(
+    (exc) => exc.mechanism?.type === GLOBAL_UNHANDLED_REJECTION_MECHANISM,
+  );
+
+  return hasUnhandledRejectionMechanism
+    && getAppErrorOrigin(event) === STACKLESS_UNKNOWN_ORIGIN;
+}
+
 function isIgnoredClientError(event: Sentry.ErrorEvent): boolean {
   const message = event.message || '';
   const exceptionValues = event.exception?.values || [];
   const eventOwnedTextFragments = getEventOwnedTextFragments(event);
 
   if (isExtensionMessagingNoise(event)) {
+    return true;
+  }
+
+  if (isStacklessUnhandledRejection(event)) {
     return true;
   }
 
