@@ -71,8 +71,8 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             soldOut: true,
             soldOutMainText: 'SOLD OUT',
             soldOutAdditionalText: 'my wife said not more than 80 hours per week',
-            buttonText: 'Read My CTO CV',
-            buttonUrl: '/data/cv-kirill-markin-cto.pdf'
+            buttonText: 'Read My Staff Software Engineer CV',
+            buttonUrl: '/data/cv-kirill-markin-staff-software-engineer.pdf'
         },
         {
             planId: 'custom',
@@ -90,4 +90,4 @@ export const servicesFractionalCTOData: ServiceFractionalCTOData = {
             buttonUrl: getServiceWhatsAppUrl('Custom', SERVICE_NAME)
         }
     ]
-}; 
+};
