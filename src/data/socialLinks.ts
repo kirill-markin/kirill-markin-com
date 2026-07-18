@@ -34,27 +34,13 @@ export const socialLinks: SocialLink[] = [
     }
   },
   {
-    name: "CV",
-    url: "/data/cv-kirill-markin-cto.pdf",
-    username: "CV",
+    name: "Staff Software Engineer CV",
+    url: "/data/cv-kirill-markin-staff-software-engineer.pdf",
+    username: "Staff SWE CV",
     socialLogoUrlDefault: "/social/cv.svg",
     socialLogoUrlHover: "/social/cv_hover.svg",
     avatarContact: true,
     footerBottom: true,
-    achievement: {
-      value: "12+",
-      label: "years"
-    }
-  },
-  {
-    name: "CV DE",
-    url: "/data/cv-kirill-markin-data-engineer.pdf",
-    username: "CV DE",
-    socialLogoUrlDefault: "/social/cv.svg",
-    socialLogoUrlHover: "/social/cv_hover.svg",
-    avatarContact: true,
-    footerBottom: true,
-    hidden: true,
     achievement: {
       value: "12+",
       label: "years"
