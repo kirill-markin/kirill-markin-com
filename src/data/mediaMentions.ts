@@ -19,15 +19,15 @@ export interface MediaMention {
 // Big cards (span 2 grid columns)
 export const bigMediaMentions: MediaMention[] = [
   {
-    title: "Cursor IDE: Setup and Workflow in\u00A0Larger Projects",
-    url: "https://www.reddit.com/r/cursor/comments/1ikq9m6/cursor_ide_setup_and_workflow_in_larger_projects/",
+    title: "My wife gave me Meta Ray-Ban glasses for my birthday — I\u00A0spent the next two days adding custom AI\u00A0tools to\u00A0them",
+    url: "https://www.reddit.com/r/RaybanMeta/comments/1q4iw5u/my_wife_gave_me_meta_rayban_glasses_for_my/",
     publisher: "Reddit",
-    date: "2025-02-08",
+    date: "2024-11-04",
     type: "Article",
     language: "en",
-    thumbnailUrl: "/articles/reddit-2025-02-08.webp",
-    websiteLogoUrl: "/logos/cursor.png",
-    achievementValue: "108,000+",
+    thumbnailUrl: "/articles/reddit-2024-11-04.webp",
+    websiteLogoUrl: "/logos/meta.png",
+    achievementValue: "126,000+",
     achievementLabel: "views"
   },
   {
@@ -39,20 +39,20 @@ export const bigMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/youtube-2025-02-18.webp",
     websiteLogoUrl: "/logos/youtube.png",
-    achievementValue: "18,000+",
+    achievementValue: "21,000+",
     achievementLabel: "views",
     isVideo: true
   },
   {
-    title: "My wife gave me Meta Ray-Ban glasses for my birthday — I\u00A0spent the next two days adding custom AI\u00A0tools to\u00A0them",
-    url: "https://www.reddit.com/r/RaybanMeta/comments/1q4iw5u/my_wife_gave_me_meta_rayban_glasses_for_my/",
+    title: "Cursor IDE: Setup and Workflow in\u00A0Larger Projects",
+    url: "https://www.reddit.com/r/cursor/comments/1ikq9m6/cursor_ide_setup_and_workflow_in_larger_projects/",
     publisher: "Reddit",
-    date: "2024-11-04",
+    date: "2025-02-08",
     type: "Article",
     language: "en",
-    thumbnailUrl: "/articles/reddit-2024-11-04.webp",
-    websiteLogoUrl: "/logos/meta.png",
-    achievementValue: "52,000+",
+    thumbnailUrl: "/articles/reddit-2025-02-08.webp",
+    websiteLogoUrl: "/logos/cursor.png",
+    achievementValue: "113,000+",
     achievementLabel: "views"
   },
   {
@@ -65,7 +65,7 @@ export const bigMediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/youtube-2025-09-09.webp",
     websiteLogoUrl: "/logos/youtube.png",
     isVideo: true,
-    achievementValue: "6,600+",
+    achievementValue: "7,700+",
     achievementLabel: "views"
   },
 ];
@@ -118,7 +118,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-repo-to-text-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "190+",
+    achievementValue: "210+",
     achievementLabel: "stars"
   },
   {
@@ -256,7 +256,7 @@ export const smallMediaMentions: MediaMention[] = [
     thumbnailUrl: "/articles/youtube-2023-09-16-1.webp",
     websiteLogoUrl: "/logos/youtube.png",
     isVideo: true,
-    achievementValue: "1,600+",
+    achievementValue: "1,700+",
     achievementLabel: "views"
   },
   {
@@ -546,7 +546,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-chrome-auto-image-blocker-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "78",
+    achievementValue: "83",
     achievementLabel: "stars"
   },
   {
@@ -558,7 +558,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-ozma-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "35",
+    achievementValue: "47",
     achievementLabel: "stars"
   },
   {
@@ -570,7 +570,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-example-mcp-server-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "35",
+    achievementValue: "37",
     achievementLabel: "stars"
   },
   {
@@ -582,7 +582,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-ab-test-advanced-toolkit-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "28",
+    achievementValue: "32",
     achievementLabel: "stars"
   },
   {
@@ -594,7 +594,7 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/github-chatgpt-telegram-bot-telegraf-2025.webp",
     websiteLogoUrl: "/logos/github-with-text.png",
-    achievementValue: "25",
+    achievementValue: "40",
     achievementLabel: "stars"
   },
 ];
