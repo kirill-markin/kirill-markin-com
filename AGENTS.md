@@ -84,7 +84,6 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
   3. run `npm run validate-metadata`
 - Before committing, run `npm run lint`, `npm run build`, and `npm run validate-metadata` and fix failures.
 - Best practices: default to Server Components, use CSS Modules for styling, and keep article `lastmod` explicit in frontmatter when content is materially updated.
-- Translation workflow: use a structured process with key-term discussion; Chinese translations are reviewed with DeepSeek V3; keep URLs SEO-friendly in the target language.
 - The reusable global LLM rules code block in Cursor, Claude Code, and Codex articles must stay byte-identical across all languages; keep the block tool-neutral, do not translate it, and update every copy together.
 
 ## Dashboards
@@ -93,5 +92,4 @@ Pages under `/dashboards/` render personal metrics as D3 charts. Weight data is 
 
 ## Reference
 
-- [docs/writing-style.md](docs/writing-style.md) - writing style guide
 - [docs/configuration.md](docs/configuration.md) - env vars, SEO, analytics, `next.config`
