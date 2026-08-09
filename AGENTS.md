@@ -15,6 +15,13 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - `npx tsx scripts/test-cache-headers.ts`: test cache headers
 - `npm run analyze`: build with bundle analyzer (`ANALYZE=true`)
 
+## BigQuery Analytics
+
+- BigQuery contains the Google Search Console bulk export for `kirill-markin.com`, enabled on 2026-08-09. Use it for page and query clicks, search impressions, CTR, and average position; do not expect exported data from before this date.
+- Use `npm run bigquery:query` with GoogleSQL on stdin for Search Console and SEO analysis; the implementation is `scripts/queryBigQuery.ts`.
+- The ignored `.env.bigquery.local` stores the local key path, project ID, location, and per-query byte limit. The service-account JSON stays outside the repository.
+- Never use or modify `gcloud` authentication for this integration, and never commit local configuration or credentials. If the configuration, key, or API access is unavailable, ask the user to provision or restore it instead of falling back to another Google identity.
+
 ## Stack
 
 - Next.js 15 App Router, TypeScript, React 19 Server Components
