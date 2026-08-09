@@ -6,6 +6,7 @@
   "author": "Kirill Markin",
   "license": "MIT",
   "scripts": {
+    "bigquery:query": "node --env-file=.env.bigquery.local --import tsx scripts/queryBigQuery.ts",
     "dev": "eslint . && next dev  --turbopack",
     "build": "npm run generate-public-data && next build",
     "start": "next start",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.6",
+    "@google-cloud/bigquery": "^9.0.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/d3": "^7.4.3",
     "@types/jsdom": "^28.0.3",
