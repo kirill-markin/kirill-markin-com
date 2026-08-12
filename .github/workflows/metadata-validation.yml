@@ -21,7 +21,7 @@ jobs:
         cache: 'npm'
         
     - name: Install dependencies
-      run: npx --yes npm@12.0.1 ci
+      run: npx --yes npm@12.0.2 ci
       
     - name: Run metadata validation
       run: npm run validate-metadata
