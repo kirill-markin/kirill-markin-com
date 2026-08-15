@@ -125,11 +125,11 @@ This command:
 
 ```bash
 # Check source image
-identify -format "%wx%h" /Users/kirill/Downloads/service-source.png
+identify -format "%wx%h" "${HOME}/Downloads/service-source.png"
 # 1536x1024 (perfect 3:2 ratio)
 
 # Process image for service card
-magick /Users/kirill/Downloads/service-source.png -resize 600x400 -quality 90 public/services/my-service.webp
+magick "${HOME}/Downloads/service-source.png" -resize 600x400 -quality 90 public/services/my-service.webp
 
 # Verify the result
 ls -la public/services/my-service.webp
@@ -178,11 +178,11 @@ Always check the final result on the website to ensure:
 
 ```bash
 # Check source image
-identify -format "%wx%h" /Users/kirill/Downloads/source-image.png
+identify -format "%wx%h" "${HOME}/Downloads/source-image.png"
 # 1800x1200
 
 # Process image to dimensions for article content
-magick /Users/kirill/Downloads/source-image.png -resize 800x -quality 90 public/articles/assets/article-slug/content-image.webp
+magick "${HOME}/Downloads/source-image.png" -resize 800x -quality 90 public/articles/assets/article-slug/content-image.webp
 
 # Verify the result
 ls -la public/articles/assets/article-slug/content-image.webp
@@ -193,11 +193,11 @@ identify -verbose public/articles/assets/article-slug/content-image.webp | grep 
 
 ```bash
 # Check source image
-identify -format "%wx%h" /Users/kirill/Downloads/source-image.png
+identify -format "%wx%h" "${HOME}/Downloads/source-image.png"
 # 1252x710
 
 # Process image to exact thumbnail dimensions
-magick /Users/kirill/Downloads/source-image.png -resize 520x297^ -gravity center -extent 520x297 -quality 100 public/articles/publisher-2023-01-01.webp
+magick "${HOME}/Downloads/source-image.png" -resize 520x297^ -gravity center -extent 520x297 -quality 100 public/articles/publisher-2023-01-01.webp
 
 # Verify the result
 ls -la public/articles/publisher-2023-01-01.webp
