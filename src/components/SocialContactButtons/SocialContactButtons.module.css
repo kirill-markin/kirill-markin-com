@@ -23,7 +23,7 @@
   transition: none;
   background-color: white;
   border: 1px solid #232323;
-  padding: 2px;
+  padding: 1px;
   position: relative;
   overflow: hidden;
 }
@@ -81,23 +81,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background-color: white;
   overflow: hidden;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
 }
 
 .label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  padding-right: 5px;
+  padding-right: 4px;
 }
 
 /* Achievement badge styles for LinkedIn */
@@ -107,21 +107,21 @@
   align-items: center;
   justify-content: center;
   background-color: var(--badge-bg-primary);
-  padding: 0 6px;
-  height: 25px;
-  margin-left: 4px;
-  margin-right: 2px;
+  padding: 0 5px;
+  height: 23px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .achievement .value {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1;
   color: #232323;
 }
 
 .achievement .label {
-  font-size: 8px;
+  font-size: 7px;
   font-weight: 500;
   line-height: 1;
   color: #232323;
