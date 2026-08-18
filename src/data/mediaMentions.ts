@@ -182,17 +182,6 @@ export const smallMediaMentions: MediaMention[] = [
     websiteLogoUrl: "/logos/rusbase.png"
   },
   {
-    title: "Write article as\u00A0programmer: IDE Cursor and\u00A0LLM magic",
-    url: "https://youtu.be/ySA8_aVqu5I?si=muBLOwv3Smjltt3u",
-    publisher: "Kirill Markin",
-    date: "2024-09-04",
-    type: "Video",
-    language: "en",
-    thumbnailUrl: "/articles/kirill-2024-09-04.webp",
-    websiteLogoUrl: "/logos/youtube.png",
-    isVideo: true
-  },
-  {
     title: "Как\u00A0сделать таск-трекер под\u00A0себя на\u00A0low-code конструкторе",
     alternativeTitle: "How to\u00A0Make a\u00A0Task Tracker for\u00A0Yourself on\u00A0a\u00A0Low-Code Constructor",
     url: "https://habr.com/ru/articles/673874/",
@@ -285,7 +274,7 @@ export const smallMediaMentions: MediaMention[] = [
   {
     title: "Как\u00A0с\u00A0помощью ChatGPT автоматизировать техподдержку за\u00A02 дня",
     alternativeTitle: "How to\u00A0Automate Customer Support with\u00A0ChatGPT in\u00A02 Days",
-    url: "https://my.epicgrowth.io/programs/markin?category_id=135092",
+    url: "https://academy.productsense.io/videos/markin",
     publisher: "epicgrowth.io",
     date: "2023-06-08",
     type: "Video",
