@@ -93,8 +93,8 @@ export const smallMediaMentions: MediaMention[] = [
     language: "en",
     thumbnailUrl: "/articles/openai-2024-04-01.webp",
     websiteLogoUrl: "/logos/openai.png",
-    achievementValue: "1 PR",
-    achievementLabel: "merged"
+    achievementValue: "1,800+",
+    achievementLabel: "stars"
   },
   {
     title: "AI web\u00A0scraping - Data Collection reimagined",
