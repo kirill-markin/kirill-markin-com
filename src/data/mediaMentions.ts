@@ -88,7 +88,7 @@ export const smallMediaMentions: MediaMention[] = [
     title: "Merged pull request to OpenAI repository",
     url: "https://github.com/openai/openai-cua-sample-app/pull/11",
     publisher: "openai",
-    date: "2024-04-01",
+    date: "2025-03-17",
     type: "Contribution",
     language: "en",
     thumbnailUrl: "/articles/openai-2024-04-01.webp",
