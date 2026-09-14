@@ -73,6 +73,18 @@ export const bigMediaMentions: MediaMention[] = [
 // Small cards (1 grid column)
 export const smallMediaMentions: MediaMention[] = [
   {
+    title: "Merged pull request to Raycast's Google Chrome extension",
+    url: "https://github.com/raycast/extensions/pull/31075",
+    publisher: "raycast",
+    date: "2026-09-14",
+    type: "Contribution",
+    language: "en",
+    thumbnailUrl: "/articles/raycast-2026-09-14.webp",
+    websiteLogoUrl: "/logos/raycast.png",
+    achievementValue: "538,000+",
+    achievementLabel: "installs"
+  },
+  {
     title: "Merged pull request to OpenAI repository",
     url: "https://github.com/openai/openai-cua-sample-app/pull/11",
     publisher: "openai",
