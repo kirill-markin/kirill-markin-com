@@ -1,6 +1,6 @@
 export const home = {
     en: {
-        title: 'AI Strategy Advisor | Digital Transformation Expert',
+        title: '❀ Staff Software Engineer ┇ Founder',
         description: 'Expert in AI implementation strategy for businesses. Specializing in machine learning, data science, and digital transformation to drive innovation and growth.',
         metaTitle: 'Kirill Markin - AI Strategy Advisor | Digital Transformation Expert',
         metaDescription: 'Expert in AI implementation strategy for businesses. Specializing in machine learning, data science, and digital transformation to drive innovation and growth.',
