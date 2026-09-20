@@ -6,6 +6,7 @@ description: "Learn how to integrate Jupyter Notebooks with Cursor IDE using AI 
 tags: [productivity, cursor-ide, ai, llm]
 publish: true
 thumbnailUrl: "/articles/jupyter-2025-04-25.webp"
+language: "en"
 translations:
   - language: "zh"
     slug: "cursor-ide-jupyter-notebooks-llm-ai-shuju-fenxi"
