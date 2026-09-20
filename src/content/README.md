@@ -64,6 +64,15 @@ originalArticle:
 El contenido de tu artículo aquí...
 ```
 
+## Frontmatter Validation
+
+`npm run validate-frontmatter` checks the frontmatter of every article and runs as the first step of `npm run build` and in CI, so malformed metadata fails the build instead of dropping or mis-dating an article.
+
+- Allowed keys: `title`, `date`, `lastmod`, `description`, `tags`, `publish`, `thumbnailUrl`, `language`, `translations`, `originalArticle`, `slug`, `keywords`, `type`, `publisher`, `achievementValue`, `achievementLabel`, `isVideo`. Any other key, including a typo such as `publsh`, fails the build.
+- Required keys: `title`, `date`, `description`, `tags`, `publish`, `language`. Everything else is optional; `lastmod` is only set when content is materially updated.
+- `date` and `lastmod` must be calendar dates in `YYYY-MM-DD` form, `slug` must match the file name, `language` must match the directory, and every `translations` and `originalArticle` reference must point at an existing file.
+- Drafts in `articles/drafts/` are checked only for allowed keys and value types.
+
 ## Asset Handling
 
 When adding images:
