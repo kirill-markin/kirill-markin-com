@@ -11,6 +11,7 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - `npm run dev`: development server with ESLint and Turbopack
 - `npm run build`: production build
 - `npm run lint`: ESLint
+- `npm run validate-frontmatter`: validate article frontmatter; runs first in `npm run build` and fails it
 - `npm run validate-metadata`: validate SEO metadata across all pages
 - `npx tsx scripts/test-cache-headers.ts`: test cache headers
 - `npm run analyze`: build with bundle analyzer (`ANALYZE=true`)
@@ -81,7 +82,7 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - New content:
   1. create markdown with frontmatter
   2. add translations with bidirectional refs
-  3. run `npm run validate-metadata`
+  3. run `npm run validate-frontmatter` and `npm run validate-metadata`
 - Before committing, run `npm run lint`, `npm run build`, and `npm run validate-metadata` and fix failures.
 - Best practices: default to Server Components, use CSS Modules for styling, and keep article `lastmod` explicit in frontmatter when content is materially updated.
 - The reusable global LLM rules code block in Cursor, Claude Code, and Codex articles must stay byte-identical across all languages; keep the block tool-neutral, do not translate it, and update every copy together.

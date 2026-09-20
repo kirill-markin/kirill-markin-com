@@ -23,16 +23,16 @@ jobs:
     - name: Install dependencies
       run: npx --yes npm@12.0.2 ci
       
+    - name: Run frontmatter validation
+      run: npm run validate-frontmatter
+
     - name: Run metadata validation
       run: npm run validate-metadata
       
     - name: Report validation results
       if: failure()
       run: |
-        echo "❌ Metadata validation failed!"
-        echo "Please check the output above and fix any SEO metadata issues."
-        echo "The following issues were found:"
-        echo "- Title length must be 50-70 characters"
-        echo "- Description length must be 140-160 characters" 
-        echo "- No duplicate titles or descriptions allowed"
-        echo "- All pages must have titles and descriptions" 
+        echo "❌ Validation failed!"
+        echo "Please check the output above: it lists every file and every problem found."
+        echo "Frontmatter rules are documented in src/content/README.md."
+        echo "SEO metadata rules: titles 50-70 characters, descriptions 140-160 characters, no duplicates, present on every page." 

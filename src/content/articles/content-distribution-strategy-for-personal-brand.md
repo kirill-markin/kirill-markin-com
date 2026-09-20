@@ -6,6 +6,7 @@ description: "My framework for distributing content across platforms to maximize
 tags: [productivity]
 publish: true
 thumbnailUrl: "/articles/content-distribution-strategy.webp"
+language: "en"
 translations:
   - language: "zh"
     slug: "geren-pinpai-yu-yewu-neirong-fenfa-celue"
