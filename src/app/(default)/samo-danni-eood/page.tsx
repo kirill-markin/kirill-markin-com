@@ -43,7 +43,8 @@ const organizationJsonLd = {
                 'postalCode': address.postalCode,
                 'addressCountry': address.countryCode
             },
-            'founder': { '@id': `${SITE_URL}/#person` }
+            'founder': { '@id': `${SITE_URL}/#person` },
+            'sameAs': samoDanniEood.sameAs
         },
         ...samoDanniEood.apps.map(app => ({
             '@type': 'SoftwareApplication',

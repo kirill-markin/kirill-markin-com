@@ -28,6 +28,7 @@ export interface Company {
   logoPath: string;
   schemaLogoUrl: string;
   address: CompanyAddress;
+  sameAs: string[];
   apps: CompanyApp[];
 }
 
@@ -54,6 +55,10 @@ export const samoDanniEood: Company = {
     countryName: 'Bulgaria',
     countryCode: 'BG',
   },
+  sameAs: [
+    'https://apps.apple.com/us/developer/samo-danni-eood/id6780428455',
+    'https://play.google.com/store/apps/dev?id=6698442103294061634',
+  ],
   apps: [
     {
       schemaId: 'https://nibomo.com/#software',
