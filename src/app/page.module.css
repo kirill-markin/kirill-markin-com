@@ -252,8 +252,7 @@ a.secondary {
 .articlesHeading {
   font-size: var(--font-size-large);
   text-transform: none !important;
-  /* Line-height slack below the baseline already matches the slack above the cap height under the nav */
-  margin-bottom: 0;
+  margin-bottom: 0.75rem;
   position: relative;
   font-style: normal;
   font-weight: 500;
