@@ -48,8 +48,8 @@ const Footer: React.FC<FooterProps> = ({
 
   const productLinks: FooterProductLink[] = [
     {
-      href: 'https://flashcards-open-source-app.com/',
-      label: 'Pro Flashcards',
+      href: 'https://nibomo.com/',
+      label: 'Nibomo',
       openInNewTab: true
     },
     {
