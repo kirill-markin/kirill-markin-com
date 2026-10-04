@@ -4,6 +4,7 @@ import { personalInfo } from '@/data/personalInfo';
 import { socialLinks } from '@/data/socialLinks';
 import { servicesOtherData } from '@/data/servicesOther';
 import { SITE_URL } from '@/data/contacts';
+import { additionalFacts } from '@/data/additionalFacts';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
 interface JsonLdSchemaProps {
@@ -22,10 +23,20 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
   // Include all social media links for comprehensive coverage
   const sameAs = socialLinks.map(link => link.url);
 
+  const personId = `${SITE_URL}/#person`;
+
+  const foundedOrganizations = additionalFacts.flatMap(fact => fact.kind === 'founder' ? fact.links : []);
+  const siblings = additionalFacts.flatMap(fact => fact.kind === 'sibling' ? fact.links : []);
+  const almaMaters = additionalFacts.flatMap(fact => fact.kind === 'alumni' ? fact.links : []);
+  const memberships = additionalFacts.flatMap(fact =>
+    fact.kind === 'jury' || fact.kind === 'judge' ? fact.links : []
+  );
+
   // Create enhanced person schema
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': personId,
     'name': personalInfo.name,
     'jobTitle': [
       personalInfoTranslations.jobTitle,
@@ -44,8 +55,36 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
       'Analytics',
       'Low-code Development',
       'Startup Advisory'
-    ]
+    ],
+    'alumniOf': almaMaters.map(school => ({
+      '@type': 'CollegeOrUniversity',
+      'name': school.name,
+      ...(school.url ? { 'url': school.url } : {})
+    })),
+    'sibling': siblings.map(sibling => ({
+      '@type': 'Person',
+      'name': sibling.name,
+      'url': sibling.url
+    })),
+    'memberOf': memberships.map(membership => ({
+      '@type': 'OrganizationRole',
+      'memberOf': {
+        '@type': 'Organization',
+        'name': membership.name,
+        'url': membership.url
+      },
+      'roleName': membership.roleName,
+      'startDate': membership.startDate
+    }))
   };
+
+  const foundedOrganizationSchemas = foundedOrganizations.map(organization => ({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': organization.name,
+    'url': organization.url,
+    'founder': { '@id': personId }
+  }));
 
   // Create professional service schema with more details
   const servicesSchema = {
@@ -106,6 +145,13 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
+      {foundedOrganizationSchemas.map(organizationSchema => (
+        <script
+          key={organizationSchema.url}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
