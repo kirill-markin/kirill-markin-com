@@ -65,12 +65,15 @@ const Footer: React.FC<FooterProps> = ({
     }
   ];
 
-  const contactMessengerLinks = ['WhatsApp', 'Telegram'].map((name) => {
+  const contactMessengerLinks = [
+    { name: 'WhatsApp', iconSrc: '/icons/whatsapp.svg' },
+    { name: 'Telegram', iconSrc: '/icons/telegram.svg' }
+  ].map(({ name, iconSrc }) => {
     const link = socialLinks.find(socialLink => socialLink.name === name);
     if (!link) {
       throw new Error(`Footer contact link "${name}" is missing from socialLinks`);
     }
-    return link;
+    return { ...link, iconSrc };
   });
 
   const familyLinks = [
@@ -138,6 +141,7 @@ const Footer: React.FC<FooterProps> = ({
                       rel="me noopener noreferrer"
                       className={styles.footerLink}
                     >
+                      <Image src={link.iconSrc} alt={`${link.name} icon`} className={styles.footerIcon} width={16} height={16} />
                       {getLocalizedSocialName(link.name)}
                     </a>
                   ))}
