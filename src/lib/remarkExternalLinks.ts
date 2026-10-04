@@ -1,10 +1,12 @@
 import { visit } from 'unist-util-visit';
 import { Node } from 'unist';
-import { SITE_DOMAIN } from '@/data/contacts';
+import { SITE_DOMAIN, SOCIAL_URLS } from '@/data/contacts';
 
 // Whitelist of domains that we don't need to add rel="nofollow" to
 const DOMAIN_WHITELIST = [
     SITE_DOMAIN,
+    'nibomo.com',
+    'expense-budget-tracker.com',
 ];
 
 // Whitelist of specific URLs that we don't need to add rel="nofollow" to
@@ -49,9 +51,22 @@ function getDomainFromUrl(url: string): string | null {
     }
 }
 
+// Own social profiles and any path under them; the "/" boundary keeps
+// https://github.com/kirill-markin from matching https://github.com/kirill-markin-other
+function isOwnProfileUrl(url: string): boolean {
+    return Object.values(SOCIAL_URLS).some(profileUrl => {
+        const profileBase = profileUrl.endsWith('/') ? profileUrl.slice(0, -1) : profileUrl;
+        return url === profileBase || url.startsWith(`${profileBase}/`);
+    });
+}
+
 function isWhitelistedDomain(url: string): boolean {
     // First check if the exact URL is in the URL whitelist
     if (URL_WHITELIST.includes(url)) {
+        return true;
+    }
+
+    if (isOwnProfileUrl(url)) {
         return true;
     }
 
