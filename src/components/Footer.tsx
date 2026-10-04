@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './Footer.module.css';
 import { personalInfo } from '../data/personalInfo';
 import { socialLinks } from '../data/socialLinks';
+import { additionalFacts } from '../data/additionalFacts';
 import LanguageSwitcher from './LanguageSwitcher';
 import {
   DEFAULT_LANGUAGE,
@@ -63,6 +64,8 @@ const Footer: React.FC<FooterProps> = ({
       openInNewTab: false
     }
   ];
+
+  const siblingLinks = additionalFacts.flatMap(fact => fact.kind === 'sibling' ? fact.links : []);
 
   const renderJobTitle = (title: string): { __html: string } => {
     return {
@@ -138,6 +141,22 @@ const Footer: React.FC<FooterProps> = ({
                       </a>
                     ))
                   }
+                </div>
+
+                <div className={styles.footerOrgSiblings}>
+                  <h3>{footerTranslations.siblings}</h3>
+                  {/* Siblings' sites intentionally stay dofollow: no nofollow, ugc, or sponsored. */}
+                  {siblingLinks.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener"
+                      className={styles.footerLink}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
                 </div>
 
                 <div className={styles.footerOrgMedia}>
