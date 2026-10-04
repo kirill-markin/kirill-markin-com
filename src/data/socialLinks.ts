@@ -145,6 +145,11 @@ export const socialLinks: SocialLink[] = [
     username: "@kirill.markin.kira"
   },
   {
+    name: "Instagram (AI)",
+    url: SOCIAL_URLS.instagramAi,
+    username: "@kirill.markin.ai"
+  },
+  {
     name: "Medium",
     url: SOCIAL_URLS.medium,
     username: "@kirill-markin",
