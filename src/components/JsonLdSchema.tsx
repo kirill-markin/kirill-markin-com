@@ -1,9 +1,8 @@
 'use client';
 
 import { personalInfo } from '@/data/personalInfo';
-import { socialLinks } from '@/data/socialLinks';
 import { servicesOtherData } from '@/data/servicesOther';
-import { SITE_URL } from '@/data/contacts';
+import { SITE_URL, SOCIAL_URLS, getTelegramUrl } from '@/data/contacts';
 import { additionalFacts } from '@/data/additionalFacts';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
@@ -20,8 +19,8 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
   // Get personal info translations
   const personalInfoTranslations = getTranslation('personalInfo', language);
 
-  // Include all social media links for comprehensive coverage
-  const sameAs = socialLinks.map(link => link.url);
+  // sameAs lists external profile pages only, per Google guidance
+  const sameAs = [...Object.values(SOCIAL_URLS), getTelegramUrl()];
 
   const personId = `${SITE_URL}/#person`;
 
