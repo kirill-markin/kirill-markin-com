@@ -3,6 +3,7 @@ import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
 import { servicesOtherData } from '@/data/servicesOther';
 import { SITE_URL, VCARD_DATA, HEIGHT_CM } from '@/data/contacts';
 import { socialLinks } from '@/data/socialLinks';
+import { additionalFacts, fillAdditionalFactTemplate, type AdditionalFactLink } from '@/data/additionalFacts';
 import { bigMediaMentions, smallMediaMentions, type MediaMention } from '@/data/mediaMentions';
 import { getWeightSeries } from '@/lib/weight';
 import { getWeightCsvMetadata, WEIGHT_CSV_PUBLIC_PATH } from '@/lib/generateWeightCsv';
@@ -25,6 +26,10 @@ function formatMediaMention(m: MediaMention): string {
   }
   const suffix = parts.length > 0 ? ` — ${parts.join(', ')}` : '';
   return `- [${title}](${m.url})${suffix}`;
+}
+
+function formatAdditionalFactLink(link: AdditionalFactLink): string {
+  return link.url ? `[${link.name}](${link.url})` : link.name;
 }
 
 export async function renderHomeMarkdown(language: string): Promise<MarkdownResult> {
@@ -72,6 +77,16 @@ export async function renderHomeMarkdown(language: string): Promise<MarkdownResu
     `## Media & Publications`,
     ``,
     ...[...bigMediaMentions, ...smallMediaMentions].map(formatMediaMention),
+    ``,
+    `## ${personalInfo.additionalFactsTitle}`,
+    ``,
+    ...additionalFacts.map(fact =>
+      `- ${fillAdditionalFactTemplate(
+        personalInfo.additionalFactTemplates[fact.kind],
+        fact.links.map(formatAdditionalFactLink),
+        personalInfo.additionalFactsConjunction
+      ).join('')}`
+    ),
     ``,
     `## Contact`,
     ``,
