@@ -39,10 +39,6 @@ export const additionalFacts: AdditionalFact[] = [
     links: [{ name: 'Alex Markin', url: 'https://alex-markin.com/' }],
   },
   {
-    kind: 'alumni',
-    links: [{ name: 'Bauman Moscow State Technical University' }],
-  },
-  {
     kind: 'jury',
     links: [
       {
@@ -69,6 +65,10 @@ export const additionalFacts: AdditionalFact[] = [
         startDate: '2024-03',
       },
     ],
+  },
+  {
+    kind: 'alumni',
+    links: [{ name: 'Bauman Moscow State Technical University' }],
   },
 ];
 
