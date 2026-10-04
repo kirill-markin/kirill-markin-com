@@ -42,7 +42,7 @@ Tenía 17 herramientas distintas expuestas a los agentes. `list_cards`, `get_car
 
 Simplemente hacía ruido, justo de la forma en que las APIs para LLM acaban haciendo ruido. Un ingeniero humano puede leer la documentación una vez, montar un cliente y seguir adelante. Un LLM no tiene ese lujo. Tiene que volver a aprender la interfaz a partir de ejemplos, descripciones y errores. Si repartes una intención sencilla entre demasiadas herramientas, el modelo paga ese coste cada vez.
 
-Esta es la capa de agentes que hay detrás de [flashcards-open-source-app.com](https://flashcards-open-source-app.com/), así que me importaba bastante que la API externa fuera fácil de aprender, no solo técnicamente correcta.
+Esta es la capa de agentes que hay detrás de [nibomo.com](https://nibomo.com/), así que me importaba bastante que la API externa fuera fácil de aprender, no solo técnicamente correcta.
 
 Así que concentré todo en un único endpoint con un DSL tipo SQL.
 
@@ -324,6 +324,6 @@ A veces la respuesta no es otro endpoint.
 
 A veces es un lenguaje pequeño.
 
-Si quieres ver el producto, está aquí: [flashcards-open-source-app.com](https://flashcards-open-source-app.com/)
+Si quieres ver el producto, está aquí: [nibomo.com](https://nibomo.com/)
 
 Si quieres ver el código, el proyecto en GitHub está aquí: [github.com/kirill-markin/flashcards-open-source-app](https://github.com/kirill-markin/flashcards-open-source-app). Es mi proyecto de código abierto con licencia MIT.

@@ -38,7 +38,7 @@ I had 17 separate tool calls for agents. `list_cards`, `get_cards`, `search_card
 
 It was just noisy in exactly the way LLM APIs tend to get noisy. A human engineer can skim the docs once, build a client, and move on. An LLM does not get that luxury. It has to keep re-learning the surface from examples, descriptions, and errors. If you split one simple intent across too many tools, the model pays for that every time.
 
-This is the agent layer behind [flashcards-open-source-app.com](https://flashcards-open-source-app.com/), so I cared quite a bit about keeping the external surface learnable, not just technically correct.
+This is the agent layer behind [nibomo.com](https://nibomo.com/), so I cared quite a bit about keeping the external surface learnable, not just technically correct.
 
 So I collapsed the whole thing into one SQL-like DSL endpoint.
 
@@ -320,6 +320,6 @@ Sometimes the answer is not another endpoint.
 
 Sometimes it is a tiny language.
 
-If you want to see the product itself, it is here: [flashcards-open-source-app.com](https://flashcards-open-source-app.com/)
+If you want to see the product itself, it is here: [nibomo.com](https://nibomo.com/)
 
 If you want the code, the GitHub project is here: [github.com/kirill-markin/flashcards-open-source-app](https://github.com/kirill-markin/flashcards-open-source-app). It is my MIT-licensed open-source project.
