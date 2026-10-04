@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getLocaleForLanguage, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getPathSegmentByLanguage, getTranslation, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { SITE_URL, VCARD_DATA } from '@/data/contacts';
+import { samoDanniEood } from '@/data/samoDanniEood';
 
 /**
  * Generate base metadata for all pages
@@ -792,6 +793,45 @@ export function generatePolicePageMetadata(): Metadata {
             'business:contact_data:locality': 'Global',
             'business:contact_data:region': 'Remote',
             'business:contact_data:country_name': 'Worldwide',
+        },
+    };
+}
+
+/**
+ * Generate metadata for the SAMO DANNI EOOD company page (English only, no Markdown route)
+ */
+export function generateSamoDanniEoodPageMetadata(): Metadata {
+    const title = `${samoDanniEood.name} - Bulgarian Software Company by ${VCARD_DATA.fullName}`;
+    const description = `${samoDanniEood.name} is a Bulgarian software company founded by ${VCARD_DATA.fullName}: legal details, UIC, VAT number, registered address, and open-source apps it builds.`;
+    const images = [
+        {
+            url: samoDanniEood.schemaLogoUrl,
+            width: 150,
+            height: 150,
+            alt: `${samoDanniEood.name} logo`,
+        }
+    ];
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            type: 'website',
+            url: samoDanniEood.url,
+            siteName: VCARD_DATA.fullName,
+            locale: getLocaleForLanguage(DEFAULT_LANGUAGE),
+            images,
+        },
+        twitter: {
+            card: 'summary',
+            title,
+            description,
+            images: [samoDanniEood.schemaLogoUrl],
+        },
+        alternates: {
+            canonical: samoDanniEood.url,
         },
     };
 }

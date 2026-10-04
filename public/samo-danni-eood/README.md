@@ -11,5 +11,8 @@ Purpose:
 Current contents:
 
 - `google-play-developer/` - final selected assets for the Google Play developer profile: `header.html`, `header-google-play-v2.jpg`, and `logo.png`
+- `logo.svg` - company logo shown on the `/samo-danni-eood/` company page
+
+The `/samo-danni-eood/` URL itself is the company page, rendered by `src/app/(default)/samo-danni-eood/page.tsx`.
 
 These files are intended to be served as static files from the website and reused later when preparing company profiles, store assets, and other background materials.
