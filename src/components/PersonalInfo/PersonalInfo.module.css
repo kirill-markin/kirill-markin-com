@@ -542,6 +542,48 @@
   margin-top: 1.5rem;
 }
 
+.additionalFacts {
+  margin-top: 1.5rem;
+}
+
+.additionalFactsTitle {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #232323;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 98.99%;
+}
+
+.additionalFactsList {
+  list-style: none;
+  border: 1px solid #232323;
+  background-color: #ffffff;
+  text-align: start;
+}
+
+.additionalFact {
+  padding: 4px 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #232323;
+}
+
+.additionalFact + .additionalFact {
+  border-top: 1px solid #232323;
+}
+
+.additionalFactLink {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.additionalFactLink:hover {
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .personalInfoContainer {
     width: 100% !important;

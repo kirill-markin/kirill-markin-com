@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import styles from './PersonalInfo.module.css';
 import { personalInfo } from '../../data/personalInfo';
+import { additionalFacts, fillAdditionalFactTemplate } from '../../data/additionalFacts';
 import SocialContactButtons from '../SocialContactButtons';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
@@ -101,6 +102,35 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
             <SocialContactButtons variant="horizontal" showLabels={true} />
           </div>
         )}
+
+        <section className={styles.additionalFacts}>
+          <h3 className={styles.additionalFactsTitle}>
+            {personalInfoTranslations.additionalFactsTitle}
+          </h3>
+          <ul className={styles.additionalFactsList}>
+            {additionalFacts.map((fact) => (
+              <li key={fact.links.map(link => link.name).join('|')} className={styles.additionalFact}>
+                {fillAdditionalFactTemplate(
+                  personalInfoTranslations.additionalFactTemplates[fact.kind],
+                  fact.links.map(link => link.url ? (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener"
+                      className={styles.additionalFactLink}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <span key={link.name}>{link.name}</span>
+                  )),
+                  personalInfoTranslations.additionalFactsConjunction
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );
