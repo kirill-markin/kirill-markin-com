@@ -10,7 +10,7 @@ const PUBLIC_ASSET_PATH_PREFIXES: ReadonlyArray<string> = [
     '/api/',
     '/data/',
     '/articles/assets/',
-    '/samo-danni-eood/',
+    '/samo-danni-eood/google-play-developer/',
 ];
 const FILE_EXTENSION_PATTERN = /\/[^/]+\.[^/]+$/u;
 const MARKDOWN_EXTENSION_PATTERN = /\.(?:md|txt)$/u;

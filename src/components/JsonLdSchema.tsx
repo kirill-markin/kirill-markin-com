@@ -4,6 +4,7 @@ import { personalInfo } from '@/data/personalInfo';
 import { servicesOtherData } from '@/data/servicesOther';
 import { SITE_URL, SOCIAL_URLS, getTelegramUrl } from '@/data/contacts';
 import { additionalFacts } from '@/data/additionalFacts';
+import { getCompanyApp, samoDanniEood } from '@/data/samoDanniEood';
 import { DEFAULT_LANGUAGE, getTranslation } from '@/lib/localization';
 
 interface JsonLdSchemaProps {
@@ -24,7 +25,7 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
 
   const personId = `${SITE_URL}/#person`;
 
-  const foundedOrganizations = additionalFacts.flatMap(fact => fact.kind === 'founder' ? fact.links : []);
+  const foundedApps = additionalFacts.flatMap(fact => fact.kind === 'founder' ? fact.links : []);
   const siblings = additionalFacts.flatMap(fact => fact.kind === 'sibling' ? fact.links : []);
   const almaMaters = additionalFacts.flatMap(fact => fact.kind === 'alumni' ? fact.links : []);
   const memberships = additionalFacts.flatMap(fact =>
@@ -77,12 +78,19 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     }))
   };
 
-  const foundedOrganizationSchemas = foundedOrganizations.map(organization => ({
+  const foundedAppSchemas = foundedApps.map(app => ({
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    'name': organization.name,
-    'url': organization.url,
-    'founder': { '@id': personId }
+    '@type': 'SoftwareApplication',
+    '@id': getCompanyApp(app.url).schemaId,
+    'name': app.name,
+    'url': app.url,
+    'creator': { '@id': personId },
+    'publisher': {
+      '@type': 'Organization',
+      '@id': samoDanniEood.organizationId,
+      'name': samoDanniEood.name,
+      'url': samoDanniEood.url
+    }
   }));
 
   // Create professional service schema with more details
@@ -144,11 +152,11 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      {foundedOrganizationSchemas.map(organizationSchema => (
+      {foundedAppSchemas.map(appSchema => (
         <script
-          key={organizationSchema.url}
+          key={appSchema.url}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
         />
       ))}
       <script
