@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({
     },
     {
       href: 'https://expense-budget-tracker.com/',
-      label: 'Pro Expenses',
+      label: 'Expenses',
       openInNewTab: true
     },
     {
@@ -64,6 +64,14 @@ const Footer: React.FC<FooterProps> = ({
       openInNewTab: false
     }
   ];
+
+  const contactMessengerLinks = ['WhatsApp', 'Telegram'].map((name) => {
+    const link = socialLinks.find(socialLink => socialLink.name === name);
+    if (!link) {
+      throw new Error(`Footer contact link "${name}" is missing from socialLinks`);
+    }
+    return link;
+  });
 
   const familyLinks = [
     ...additionalFacts.flatMap(fact => fact.kind === 'sibling' ? fact.links : []),
@@ -122,6 +130,17 @@ const Footer: React.FC<FooterProps> = ({
                     <Image src="/icons/email.svg" alt="Email icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.email}
                   </a>
+                  {contactMessengerLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="me noopener noreferrer"
+                      className={styles.footerLink}
+                    >
+                      {getLocalizedSocialName(link.name)}
+                    </a>
+                  ))}
                   <a href={`tel:${personalInfo.phone}`} className={styles.footerPhone}>
                     <Image src="/icons/phone.svg" alt="Phone icon" className={styles.footerIcon} width={16} height={16} />
                     {personalInfo.phone}
@@ -131,7 +150,7 @@ const Footer: React.FC<FooterProps> = ({
                 <div className={styles.footerOrgMoreInfo}>
                   <h3>{footerTranslations.social}</h3>
                   {socialLinks
-                    .filter(link => ['GitHub', 'LinkedIn', 'Twitter', 'Facebook', 'Instagram', 'Instagram (AI)'].includes(link.name))
+                    .filter(link => ['GitHub', 'LinkedIn', 'Twitter'].includes(link.name))
                     .map((link, index) => (
                       <a
                         key={index}
@@ -183,7 +202,7 @@ const Footer: React.FC<FooterProps> = ({
                 <div className={styles.footerOrgOther}>
                   <h3>{footerTranslations.other}</h3>
                   {socialLinks
-                    .filter(link => ['Telegram', 'WhatsApp', 'GitLab', 'Bluesky', 'Email'].includes(link.name))
+                    .filter(link => ['GitLab', 'Bluesky', 'Facebook', 'Instagram', 'Instagram (AI)'].includes(link.name))
                     .map((link, index) => (
                       <a
                         key={index}
