@@ -221,6 +221,8 @@ a.secondary {
 
   .articlesHeading {
     font-size: calc(var(--font-size-large) / 1.5) !important;
+    /* Below the personal info column, match its ~40px gap above the cap height */
+    margin-bottom: 1.75rem !important;
   }
 }
 
@@ -250,7 +252,8 @@ a.secondary {
 .articlesHeading {
   font-size: var(--font-size-large);
   text-transform: none !important;
-  margin-bottom: 1.5rem;
+  /* Line-height slack below the baseline already matches the slack above the cap height under the nav */
+  margin-bottom: 0;
   position: relative;
   font-style: normal;
   font-weight: 500;
