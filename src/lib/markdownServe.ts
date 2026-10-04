@@ -32,6 +32,10 @@ function formatAdditionalFactLink(link: AdditionalFactLink): string {
   return link.url ? `[${link.name}](${link.url})` : link.name;
 }
 
+function resolveServiceUrl(buttonUrl: string): string {
+  return buttonUrl.startsWith('http') ? buttonUrl : `${SITE_URL}${buttonUrl}`;
+}
+
 export async function renderHomeMarkdown(language: string): Promise<MarkdownResult> {
   const home = getTranslation('home', language);
   const personalInfo = getTranslation('personalInfo', language);
@@ -60,7 +64,7 @@ export async function renderHomeMarkdown(language: string): Promise<MarkdownResu
     `## Services`,
     ``,
     ...servicesOtherData.map(s =>
-      `- [${s.name}](${SITE_URL}${s.buttonUrl}): ${s.description}`
+      `- [${s.name}](${resolveServiceUrl(s.buttonUrl)}): ${s.description}`
     ),
     ``,
     `[All services](${SITE_URL}${langPrefix}/${servicesSegment}/)`,
@@ -162,7 +166,7 @@ export async function renderServicesListingMarkdown(language: string): Promise<M
         lines.push(s.description);
         if (s.buttonUrl) {
           lines.push(``);
-          lines.push(`[${s.buttonText}](${SITE_URL}${s.buttonUrl})`);
+          lines.push(`[${s.buttonText}](${resolveServiceUrl(s.buttonUrl)})`);
         }
         lines.push(``);
       }
