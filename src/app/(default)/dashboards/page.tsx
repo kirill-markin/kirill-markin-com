@@ -50,13 +50,13 @@ export default function DashboardsPage() {
           </div>
         </Link>
         <a
-          href="https://flashcards-open-source-app.com/dashboards/"
+          href="https://nibomo.com/dashboards/"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.dashboardCard}
         >
           <div className={styles.dashboardCardDetails}>
-            <h2>Flashcards Open Source App: Public Activity</h2>
+            <h2>Nibomo: Public Activity</h2>
             <p>Daily unique reviewers and review events by platform from the public API</p>
           </div>
         </a>
