@@ -131,13 +131,13 @@ const Footer: React.FC<FooterProps> = ({
                 <div className={styles.footerOrgMoreInfo}>
                   <h3>{footerTranslations.social}</h3>
                   {socialLinks
-                    .filter(link => ['GitHub', 'LinkedIn', 'Twitter', 'Facebook', 'Instagram'].includes(link.name))
+                    .filter(link => ['GitHub', 'LinkedIn', 'Twitter', 'Facebook', 'Instagram', 'Instagram (AI)'].includes(link.name))
                     .map((link, index) => (
                       <a
                         key={index}
                         href={link.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="me noopener noreferrer"
                         className={styles.footerLink}
                       >
                         {getLocalizedSocialName(link.name)}
@@ -171,7 +171,7 @@ const Footer: React.FC<FooterProps> = ({
                         key={index}
                         href={link.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="me noopener noreferrer"
                         className={styles.footerLink}
                       >
                         {getLocalizedSocialName(link.name)}
@@ -189,7 +189,7 @@ const Footer: React.FC<FooterProps> = ({
                         key={index}
                         href={link.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="me noopener noreferrer"
                         className={styles.footerLink}
                       >
                         {getLocalizedSocialName(link.name)}
@@ -237,7 +237,7 @@ const Footer: React.FC<FooterProps> = ({
                 key={index}
                 href={link.url}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className={styles.socialLink}
               >
                 <Image
