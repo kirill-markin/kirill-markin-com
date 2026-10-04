@@ -135,6 +135,16 @@ export const socialLinks: SocialLink[] = [
     footerBottomGreenLine: true
   },
   {
+    name: "Facebook",
+    url: SOCIAL_URLS.facebook,
+    username: "kirill.markin.kira"
+  },
+  {
+    name: "Instagram",
+    url: SOCIAL_URLS.instagram,
+    username: "@kirill.markin.kira"
+  },
+  {
     name: "Medium",
     url: SOCIAL_URLS.medium,
     username: "@kirill-markin",
