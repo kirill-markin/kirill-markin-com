@@ -35,7 +35,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/pay/',
     '/pay/stripe/',
     '/articles/',
-    '/subscribe/'
+    '/subscribe/',
+    '/samo-danni-eood/'
   ];
 
   const defaultRoutePromises = defaultRoutes.map(async (routePath) => {

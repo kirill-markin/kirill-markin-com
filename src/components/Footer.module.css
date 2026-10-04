@@ -352,6 +352,15 @@
   text-transform: uppercase;
 }
 
+.legalEntityLink {
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.legalEntityLink:hover {
+  color: #00ff00;
+}
+
 .footerLanguageSwitcher {
   display: flex;
   gap: 1rem;
