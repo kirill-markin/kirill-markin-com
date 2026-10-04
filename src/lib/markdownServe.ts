@@ -312,7 +312,7 @@ export async function renderDashboardsListingMarkdown(): Promise<MarkdownResult>
     `Public dashboards by ${VCARD_DATA.fullName} with personal metrics, health data, and product activity data.`,
     ``,
     `- [Body Dashboard](${SITE_URL}/dashboards/body/) — weight tracking, body facts, raw data downloads`,
-    `- [Flashcards Open Source App: Public Activity](https://flashcards-open-source-app.com/dashboards/) — daily unique reviewers and review events by platform from the public API`,
+    `- [Nibomo: Public Activity](https://nibomo.com/dashboards/) — daily unique reviewers and review events by platform from the public API`,
   ];
 
   return { markdown: lines.join('\n'), status: 200 };

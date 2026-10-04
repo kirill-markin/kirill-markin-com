@@ -38,12 +38,12 @@ export const servicesOtherData: ServiceOtherData[] = [
   {
     serviceId: "flashcards_open_source_app",
     categoryId: "people",
-    name: "Flashcards Open Source App",
-    description: "Want a spaced repetition app with AI workflows, self-hosting, and no lock-in? Use the open-source flashcards system I built for focused learning across web, mobile, and agent-driven workflows.",
+    name: "Nibomo",
+    description: "Want to actually remember what you learn? Use Nibomo, the free open-source flashcards app I built with FSRS spaced repetition, AI-assisted card creation, offline study that syncs across web, iOS, and Android, an MCP server for AI agents, and self-hosting.",
     logoUrl: "/services/flashcards-open-source-app.webp",
     promoText: "",
     buttonText: "Open Website",
-    buttonUrl: "https://flashcards-open-source-app.com/"
+    buttonUrl: "https://nibomo.com/"
   },
   // {
   //   serviceId: "telegram_chatgpt_subscription",
