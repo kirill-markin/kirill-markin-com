@@ -40,7 +40,7 @@ translations:
 
 只是这种设计会制造一种很典型的 LLM API 噪音。人类工程师可以扫一遍文档，写个客户端，然后继续往前走。LLM 没有这种奢侈。它得靠示例、说明和报错，一遍又一遍地重学这层接口。如果你把一个简单意图拆进太多工具里，模型每次都得重新为这件事买单。
 
-这套智能体接口服务的就是 [flashcards-open-source-app.com](https://flashcards-open-source-app.com/)，所以我很在意对外接口是不是足够容易让模型学会，而不只是技术上说得过去。
+这套智能体接口服务的就是 [nibomo.com](https://nibomo.com/)，所以我很在意对外接口是不是足够容易让模型学会，而不只是技术上说得过去。
 
 所以我把整套对外接口收成了一个 SQL 风格的 DSL 接口。
 
@@ -322,6 +322,6 @@ LIMIT 10 OFFSET 0;
 
 有时候答案是一门小语言。
 
-如果你想看这个产品本身，在这里：[flashcards-open-source-app.com](https://flashcards-open-source-app.com/)
+如果你想看这个产品本身，在这里：[nibomo.com](https://nibomo.com/)
 
 如果你想看代码，GitHub 项目在这里：[github.com/kirill-markin/flashcards-open-source-app](https://github.com/kirill-markin/flashcards-open-source-app)。这是我的 MIT 许可开源项目。
