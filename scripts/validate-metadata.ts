@@ -27,7 +27,8 @@ import {
     generateMeetPageMetadata,
     generatePayPageMetadata,
     generateFractionalAICTOPageMetadata,
-    generateSubscribePageMetadata
+    generateSubscribePageMetadata,
+    generateSamoDanniEoodPageMetadata
 } from '../src/lib/metadata';
 import {
     getAllArticles,
@@ -159,6 +160,13 @@ function validateGeneratedMetadata() {
             type: 'subscribe',
             subType: null,
             generator: () => generateSubscribePageMetadata(),
+            availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
+        },
+        {
+            name: 'SAMO DANNI EOOD',
+            type: 'samo-danni-eood',
+            subType: null,
+            generator: () => generateSamoDanniEoodPageMetadata(),
             availableLanguages: [DEFAULT_LANGUAGE], // Only available in English
         }
     ];

@@ -55,6 +55,10 @@ const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
     let label = formatLabel(segment);
 
     // Special case handling for specific paths
+    if (segment === 'samo-danni-eood') {
+      label = 'SAMO DANNI EOOD';
+    }
+
     if (segment === 'meet' || segment === 'reunirse' || segment === 'huijian' || segment === 'liqaa' || segment === 'milna') {
       // Check if next segment is 'short' or its localized version
       const nextSegment = segmentsToProcess[index + 1];

@@ -292,7 +292,7 @@ const Footer: React.FC<FooterProps> = ({
             {footerTranslations.copyright.replace('{year}', new Date().getFullYear().toString())}
           </div>
           <div className={styles.legalEntity}>
-            {footerTranslations.legalEntity}: SAMO DANNI EOOD · VAT: BG207395566 · Country: Bulgaria
+            {footerTranslations.legalEntity}: <Link href="/samo-danni-eood/" className={styles.legalEntityLink}>SAMO DANNI EOOD</Link> · VAT: BG207395566 · Country: Bulgaria
           </div>
         </div>
         <LanguageSwitcher
