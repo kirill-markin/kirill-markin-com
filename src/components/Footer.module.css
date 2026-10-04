@@ -1,6 +1,9 @@
 /* Footer Styles */
 .footer {
   background-color: #000000;
+  /* Paint the black background out to the viewport edges beyond the 1470px main
+     container without changing layout or creating scrollable overflow. */
+  border-image: linear-gradient(#000000 0 0) fill 0 / 0 / 0 100vmax;
   color: #ffffff;
   padding: 2rem 0 0 0;
 }
