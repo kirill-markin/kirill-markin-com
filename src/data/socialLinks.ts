@@ -150,6 +150,11 @@ export const socialLinks: SocialLink[] = [
     username: "@kirill.markin.ai"
   },
   {
+    name: "Threads",
+    url: SOCIAL_URLS.threads,
+    username: "@kirill.markin.ai"
+  },
+  {
     name: "Medium",
     url: SOCIAL_URLS.medium,
     username: "@kirill-markin",
