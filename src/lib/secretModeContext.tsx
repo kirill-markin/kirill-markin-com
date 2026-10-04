@@ -34,19 +34,19 @@ export function SecretModeProvider({ children }: SecretModeProviderProps) {
         setIsHydrated(true);
     }, []);
 
-    // Persist to sessionStorage when unlocked
+    // Persist to sessionStorage; wait for restoration so the initial false state cannot erase a stored 'true'
     useEffect(() => {
-        if (isSecretModeUnlocked) {
-            sessionStorage.setItem(SESSION_STORAGE_KEY, 'true');
-        }
-    }, [isSecretModeUnlocked]);
-
-    const handleHeaderClick = useCallback((event: MouseEvent<HTMLElement>) => {
-        // If already unlocked, do nothing
-        if (isSecretModeUnlocked) {
+        if (!isHydrated) {
             return;
         }
+        if (isSecretModeUnlocked) {
+            sessionStorage.setItem(SESSION_STORAGE_KEY, 'true');
+        } else {
+            sessionStorage.removeItem(SESSION_STORAGE_KEY);
+        }
+    }, [isSecretModeUnlocked, isHydrated]);
 
+    const handleHeaderClick = useCallback((event: MouseEvent<HTMLElement>) => {
         // Check if click originated from an interactive element (link, button)
         const target = event.target as HTMLElement;
         if (target.closest('a, button, [role="button"]')) {
@@ -61,34 +61,28 @@ export function SecretModeProvider({ children }: SecretModeProviderProps) {
         // Increment click counter
         clickCountRef.current += 1;
 
-        // Check if we reached required clicks
+        // Toggle secret mode once the required clicks are reached
         if (clickCountRef.current >= REQUIRED_CLICKS) {
-            setIsSecretModeUnlocked(true);
+            setIsSecretModeUnlocked((previous) => !previous);
             clickCountRef.current = 0;
+            timeoutRef.current = null;
         } else {
             // Set timeout to reset counter
             timeoutRef.current = setTimeout(() => {
                 clickCountRef.current = 0;
             }, CLICK_TIMEOUT_MS);
         }
-    }, [isSecretModeUnlocked]);
+    }, []);
 
-    // Cleanup timeout on unmount or when secret mode is unlocked
+    // Cleanup timeout on unmount
     useEffect(() => {
-        // Clear timeout when secret mode is unlocked
-        if (isSecretModeUnlocked && timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-            timeoutRef.current = null;
-        }
-
-        // Cleanup on unmount
         return () => {
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
                 timeoutRef.current = null;
             }
         };
-    }, [isSecretModeUnlocked]);
+    }, []);
 
     return (
         <SecretModeContext.Provider value={{ isSecretModeUnlocked, isHydrated, handleHeaderClick }}>
