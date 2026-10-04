@@ -65,7 +65,10 @@ const Footer: React.FC<FooterProps> = ({
     }
   ];
 
-  const siblingLinks = additionalFacts.flatMap(fact => fact.kind === 'sibling' ? fact.links : []);
+  const familyLinks = [
+    ...additionalFacts.flatMap(fact => fact.kind === 'sibling' ? fact.links : []),
+    { name: 'Syndicate M', url: 'https://syndicate-m.com/' }
+  ];
 
   const renderJobTitle = (title: string): { __html: string } => {
     return {
@@ -143,10 +146,10 @@ const Footer: React.FC<FooterProps> = ({
                   }
                 </div>
 
-                <div className={styles.footerOrgSiblings}>
-                  <h3>{footerTranslations.siblings}</h3>
-                  {/* Siblings' sites intentionally stay dofollow: no nofollow, ugc, or sponsored. */}
-                  {siblingLinks.map((link) => (
+                <div className={styles.footerOrgFamily}>
+                  <h3>{footerTranslations.family}</h3>
+                  {/* Family sites intentionally stay dofollow: no nofollow, ugc, or sponsored. */}
+                  {familyLinks.map((link) => (
                     <a
                       key={link.url}
                       href={link.url}
