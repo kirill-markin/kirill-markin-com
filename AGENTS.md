@@ -4,7 +4,7 @@ Guidance for working with this repository.
 
 Modern personal website built with Next.js 15, migrated from Jekyll for performance.
 
-**Git Workflow**: commit directly to `main`; production deploys happen only by pushing or merging to `main`, not by running Vercel CLI deploys.
+**Git Workflow and media**: follow [publishing, Git safeguards and protected delivery](docs/media.md).
 
 ## Development Commands
 
@@ -82,8 +82,8 @@ Modern personal website built with Next.js 15, migrated from Jekyll for performa
 - New content:
   1. create markdown with frontmatter
   2. add translations with bidirectional refs
-  3. run `npm run validate-frontmatter` and `npm run validate-metadata`
-- Before committing, run `npm run lint`, `npm run build`, and `npm run validate-metadata` and fix failures.
+  3. require cloud frontmatter and metadata validation
+- Require cloud lint, build and metadata validation; do not run project checks locally.
 - Best practices: default to Server Components, use CSS Modules for styling, and keep article `lastmod` explicit in frontmatter when content is materially updated.
 - The reusable global LLM rules code block in Cursor, Claude Code, and Codex articles must stay byte-identical across all languages; keep the block tool-neutral, do not translate it, and update every copy together.
 
