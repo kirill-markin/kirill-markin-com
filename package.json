@@ -22,7 +22,10 @@
     "media:add": "tsx scripts/addMedia.ts",
     "media:replace": "tsx scripts/replaceMedia.ts",
     "media:migrate": "tsx scripts/migrateMedia.ts",
-    "test:media": "NODE_ENV=production node --import tsx --test scripts/mediaFiles.test.ts scripts/mediaRendering.test.tsx"
+    "test:media": "NODE_ENV=production node --import tsx --test scripts/mediaFiles.test.ts scripts/mediaRendering.test.tsx",
+    "media:hooks": "node scripts/installMediaHooks.ts",
+    "media:check": "node scripts/checkMediaGit.ts",
+    "test:media-git": "node --test scripts/checkMediaGit.test.mjs"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.70.0",
