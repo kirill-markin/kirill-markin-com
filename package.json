@@ -18,7 +18,11 @@
     "generate-public-data": "npm run generate-weight-data && npm run generate-genome-public-data",
     "generate-weight-data": "tsx scripts/generate-weight-data.ts",
     "generate-genome-public-data": "tsx scripts/generate-genome-public-data.ts",
-    "test-cache": "tsx scripts/test-cache-headers.ts"
+    "test-cache": "tsx scripts/test-cache-headers.ts",
+    "media:add": "tsx scripts/addMedia.ts",
+    "media:replace": "tsx scripts/replaceMedia.ts",
+    "media:migrate": "tsx scripts/migrateMedia.ts",
+    "test:media": "node --import tsx --test scripts/mediaFiles.test.ts"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.70.0",
@@ -61,7 +65,9 @@
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.12",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "@vercel/blob": "2.8.2",
+    "sharp": "0.35.3"
   },
   "engines": {
     "node": "24.x"
@@ -91,6 +97,7 @@
     "@sentry/cli@2.58.6": true,
     "esbuild@0.28.1": true,
     "fsevents@2.3.3": true,
-    "unrs-resolver@1.12.2": true
+    "unrs-resolver@1.12.2": true,
+    "sharp@0.35.3": true
   }
 }
