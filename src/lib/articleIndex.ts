@@ -1,3 +1,4 @@
+import { resolveMediaUrl } from './mediaUrls';
 import fs from 'fs/promises';
 import matter from 'gray-matter';
 import path from 'path';
@@ -116,7 +117,7 @@ function toMarkdownArticle(
         language: frontmatter.language || DEFAULT_LANGUAGE,
         slug,
         tags: (frontmatter.tags ?? []).map((tag) => tag.toLowerCase()),
-        thumbnailUrl: frontmatter.thumbnailUrl,
+        thumbnailUrl: frontmatter.thumbnailUrl ? resolveMediaUrl(frontmatter.thumbnailUrl) : undefined,
         title: frontmatter.title,
         type: frontmatter.type || 'Article',
     };

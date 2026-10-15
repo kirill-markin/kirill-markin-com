@@ -1,3 +1,4 @@
+import { resolveMarkdownMedia } from './markdownMedia';
 import { getPublishedMarkdownArticles, getPublishedMarkdownArticleBySlug } from '@/lib/articleIndex';
 import { getTranslation, getPathSegmentByLanguage } from '@/lib/localization';
 import { servicesOtherData } from '@/data/servicesOther';
@@ -136,7 +137,7 @@ export async function renderArticleMarkdown(slug: string, language: string): Pro
     return { markdown: `# 404\n\nArticle not found: ${slug}`, status: 404 };
   }
 
-  return { markdown: article.content, status: 200 };
+  return { markdown: await resolveMarkdownMedia(article.content), status: 200 };
 }
 
 export async function renderServicesListingMarkdown(language: string): Promise<MarkdownResult> {

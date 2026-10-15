@@ -1,5 +1,6 @@
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from "next";
+import { mediaHeaders, mediaRedirects, mediaRemotePatterns } from './src/lib/mediaRouting';
 import { GENOME_MANIFEST_PUBLIC_PATH, GENOME_RAW_PUBLIC_PATH } from './src/lib/genomeUrls';
 
 type ResponseHeader = {
@@ -33,6 +34,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
+      ...mediaRemotePatterns,
       {
         protocol: 'https',
         hostname: 'kirill-markin.com',
@@ -71,6 +73,7 @@ const nextConfig: NextConfig = {
   // Add SEO headers for resources and non-production environments
   async headers() {
     const headers = [
+      ...mediaHeaders,
       {
         source: '/_next/static/:path*',
         headers: NON_INDEXABLE_RESOURCE_HEADERS,
@@ -138,6 +141,7 @@ const nextConfig: NextConfig = {
   // Add redirect for /ru/
   async redirects() {
     return [
+      ...mediaRedirects,
       {
         source: '/ru/',
         destination: '/',

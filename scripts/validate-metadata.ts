@@ -1,3 +1,4 @@
+import { getMarketingMedia } from '../src/lib/mediaUrls';
 /**
  * Metadata Validation Script
  * 
@@ -388,16 +389,15 @@ function validateSingleArticle(article: Article, language: string) {
         // This validation will be handled by the cross-reference check function
     }
 
-    // Validate thumbnailUrl points to an existing file
     if (metadata.thumbnailUrl) {
         const publicDir = path.resolve(process.cwd(), 'public');
         const thumbnailPath = path.join(publicDir, metadata.thumbnailUrl);
-        if (!fs.existsSync(thumbnailPath)) {
+        if (!getMarketingMedia(metadata.thumbnailUrl) && !fs.existsSync(thumbnailPath)) {
             issues.push({
                 path: articlePath,
                 language,
                 type: 'missing_thumbnail',
-                details: `Thumbnail file not found: ${metadata.thumbnailUrl}`
+                details: `Thumbnail not found in media manifest or public files: ${metadata.thumbnailUrl}`
             });
         }
     }

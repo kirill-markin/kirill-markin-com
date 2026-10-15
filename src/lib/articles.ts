@@ -1,3 +1,4 @@
+import { resolveMediaUrl } from './mediaUrls';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -123,7 +124,7 @@ export async function getArticleBySlug(
       tags: (frontmatter.tags || []).map((tag) => tag.toLowerCase()),
       publish: frontmatter.publish || false,
       lastmod: lastModified || undefined,
-      thumbnailUrl: frontmatter.thumbnailUrl || PLACEHOLDER_IMAGE,
+      thumbnailUrl: resolveMediaUrl(frontmatter.thumbnailUrl || PLACEHOLDER_IMAGE),
       description: cleanedDescription,
       type: frontmatter.type || 'Article',
       language: frontmatter.language || language,

@@ -1,3 +1,4 @@
+import { mediaImageMetadata, resolveMediaUrl } from '@/lib/mediaUrls';
 import { MeetingPageTemplate } from '@/components/pages/meet';
 import { StripePaymentPage } from '@/components/pages/pay';
 import {
@@ -181,9 +182,7 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
                 type: 'article',
                 images: [
                     {
-                        url: article.metadata.thumbnailUrl || '/articles/placeholder.webp',
-                        width: 1200,
-                        height: 630,
+                        ...mediaImageMetadata(article.metadata.thumbnailUrl || '/articles/placeholder.webp', { width: 1200, height: 630 }),
                         alt: article.metadata.title,
                     }
                 ],
@@ -197,7 +196,7 @@ export async function generateMetadata({ params }: SubsegmentPageProps): Promise
                 card: 'summary_large_image',
                 title: article.metadata.title,
                 description: article.metadata.description || '',
-                images: [article.metadata.thumbnailUrl || '/articles/placeholder.webp'],
+                images: [resolveMediaUrl(article.metadata.thumbnailUrl || '/articles/placeholder.webp')],
             },
             alternates: {
                 canonical: canonicalUrl,

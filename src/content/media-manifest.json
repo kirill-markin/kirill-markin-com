@@ -1,1 +1,752 @@
-[]
+[
+  {
+    "publicPath": "/articles/ai-expense-tracking-budget-view.jpg",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/08cf13659e97d3ba52bf562a1221af60b1dbc4671cd4a8d00db98bae8ee11909.jpg",
+    "width": 3624,
+    "height": 2030,
+    "sha256": "08cf13659e97d3ba52bf562a1221af60b1dbc4671cd4a8d00db98bae8ee11909",
+    "bytes": 495324
+  },
+  {
+    "publicPath": "/articles/articles-hero.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/77428753384de556891ddd06955c3e461b40250290fc0cdc16b95a91164e95ba.webp",
+    "width": 945,
+    "height": 630,
+    "sha256": "77428753384de556891ddd06955c3e461b40250290fc0cdc16b95a91164e95ba",
+    "bytes": 47550
+  },
+  {
+    "publicPath": "/articles/articles-screen-saver-1.png",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/02648eb081f341cda156f1f7c17f0302dc42031a752473269f6dc72f1a1a2e61.png",
+    "width": 640,
+    "height": 360,
+    "sha256": "02648eb081f341cda156f1f7c17f0302dc42031a752473269f6dc72f1a1a2e61",
+    "bytes": 183693
+  },
+  {
+    "publicPath": "/articles/articles-screen-saver-2.png",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/3f11a1f2a44186cd75b34399c1fe43bc73cc6f6722654991e7b313e18648b7c6.png",
+    "width": 640,
+    "height": 360,
+    "sha256": "3f11a1f2a44186cd75b34399c1fe43bc73cc6f6722654991e7b313e18648b7c6",
+    "bytes": 168825
+  },
+  {
+    "publicPath": "/articles/assets/archives/Generative-AI-Customer-Support.pdf",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/819c2138f21337b5384cbf4fd69ecc372dbc4fab48a810fb87bf84370e43a558.pdf",
+    "sha256": "819c2138f21337b5384cbf4fd69ecc372dbc4fab48a810fb87bf84370e43a558",
+    "bytes": 1354671
+  },
+  {
+    "publicPath": "/articles/assets/archives/how-crm-makes-life-easier.pdf",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/eb20ac6eb68074c8dd4861dcbfc5eca77536cbc4e97760d50023630aafd07ed8.pdf",
+    "sha256": "eb20ac6eb68074c8dd4861dcbfc5eca77536cbc4e97760d50023630aafd07ed8",
+    "bytes": 484128
+  },
+  {
+    "publicPath": "/articles/assets/jupyter-notebooks/jupyter-3d-visualization.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/7f47cc97448a7ec1f88ceff6166330cfdbfe3dd5775a9849b0bd419c746f99a0.webp",
+    "width": 1200,
+    "height": 762,
+    "sha256": "7f47cc97448a7ec1f88ceff6166330cfdbfe3dd5775a9849b0bd419c746f99a0",
+    "bytes": 283474
+  },
+  {
+    "publicPath": "/articles/assets/jupyter-notebooks/jupyter-json-structure.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/7c1e89382fcdacd7bcda45e0bdf0af22f71e5cba53a22687ef2b0ae34914f1f5.webp",
+    "width": 1200,
+    "height": 761,
+    "sha256": "7c1e89382fcdacd7bcda45e0bdf0af22f71e5cba53a22687ef2b0ae34914f1f5",
+    "bytes": 212256
+  },
+  {
+    "publicPath": "/articles/assets/jupyter-notebooks/jupyter-pdf-export.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/f9081c4a9ff8f2795a8fc075d6b8dfeca1e69adf0c66c9720bf2d65202fd3770.webp",
+    "width": 1200,
+    "height": 764,
+    "sha256": "f9081c4a9ff8f2795a8fc075d6b8dfeca1e69adf0c66c9720bf2d65202fd3770",
+    "bytes": 163758
+  },
+  {
+    "publicPath": "/articles/assets/jupyter-notebooks/jupyter-workflow-result.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/1d2615b0082901e194b52d590f509dbf1b44131354b5646a22d5abe136fe3176.webp",
+    "width": 2424,
+    "height": 1538,
+    "sha256": "1d2615b0082901e194b52d590f509dbf1b44131354b5646a22d5abe136fe3176",
+    "bytes": 972852
+  },
+  {
+    "publicPath": "/articles/assets/jupyter-notebooks/video-thumbnail.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/406901467429419603faa02dedebe403fb26254072b8eaae926cadc6d7648083.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "406901467429419603faa02dedebe403fb26254072b8eaae926cadc6d7648083",
+    "bytes": 97184
+  },
+  {
+    "publicPath": "/articles/assets/n8n-email-workflow-full.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/54ec0e2a448b4542199ef0b4d54bfd9165cf1564a7dc48e8319ceb662c414213.webp",
+    "width": 2532,
+    "height": 1240,
+    "sha256": "54ec0e2a448b4542199ef0b4d54bfd9165cf1564a7dc48e8319ceb662c414213",
+    "bytes": 195060
+  },
+  {
+    "publicPath": "/articles/assets/n8n-llm-node-config.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/11ca4819eed8e28d2fb162422b14f50eb0625a35bee8e708972d85e123bed26f.webp",
+    "width": 2940,
+    "height": 1664,
+    "sha256": "11ca4819eed8e28d2fb162422b14f50eb0625a35bee8e708972d85e123bed26f",
+    "bytes": 70224
+  },
+  {
+    "publicPath": "/articles/assets/notion-task-manager-guide/notion-daily-workflow.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/b09e7ed1b907f900257965895572f64d85a1b07d913696836828769f65e1f3dd.webp",
+    "width": 1200,
+    "height": 729,
+    "sha256": "b09e7ed1b907f900257965895572f64d85a1b07d913696836828769f65e1f3dd",
+    "bytes": 47800
+  },
+  {
+    "publicPath": "/articles/assets/notion-task-manager-guide/notion-database-structure.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/b859259ff9e976e92d0e3502b045367169033b27249be373f83d10ddf3ee56d0.webp",
+    "width": 1200,
+    "height": 732,
+    "sha256": "b859259ff9e976e92d0e3502b045367169033b27249be373f83d10ddf3ee56d0",
+    "bytes": 76552
+  },
+  {
+    "publicPath": "/articles/assets/notion-task-manager-guide/notion-system-overview.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/ad60c1451a8ad72228665efb9b1e680c0f4a43a63ad6d114f19b758cc59454fc.webp",
+    "width": 1200,
+    "height": 642,
+    "sha256": "ad60c1451a8ad72228665efb9b1e680c0f4a43a63ad6d114f19b758cc59454fc",
+    "bytes": 63554
+  },
+  {
+    "publicPath": "/articles/assets/notion-task-manager-guide/notion-weekly-goals.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/a06fe2aab51b1d69bab75616ed335dcfd66a6473b3cd87f6a3b9def78649b53d.webp",
+    "width": 1200,
+    "height": 680,
+    "sha256": "a06fe2aab51b1d69bab75616ed335dcfd66a6473b3cd87f6a3b9def78649b53d",
+    "bytes": 63934
+  },
+  {
+    "publicPath": "/articles/assets/notion-task-manager/video-thumbnail.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/fb0eb245e2c9809bfa1068c0f297610118daa6b4903d5a4d7ebaec062bca0769.webp",
+    "width": 1280,
+    "height": 720,
+    "sha256": "fb0eb245e2c9809bfa1068c0f297610118daa6b4903d5a4d7ebaec062bca0769",
+    "bytes": 66440
+  },
+  {
+    "publicPath": "/articles/assets/prioritizing-important-over-urgent-tasks/notion-task-priorities-example.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/2e165ed02c8867d688137f7a9e2bd68c34b2a5fc86349b3c28864255f0894ba1.webp",
+    "width": 3164,
+    "height": 2062,
+    "sha256": "2e165ed02c8867d688137f7a9e2bd68c34b2a5fc86349b3c28864255f0894ba1",
+    "bytes": 113970
+  },
+  {
+    "publicPath": "/articles/aws-cloudformation-stack-refactoring-failed.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/f4de2d42ca21ebf8960f4b2d5b1f78bcc48ff4fcabb8b6061bb2e0c3fdf5f9d9.webp",
+    "width": 1672,
+    "height": 941,
+    "sha256": "f4de2d42ca21ebf8960f4b2d5b1f78bcc48ff4fcabb8b6061bb2e0c3fdf5f9d9",
+    "bytes": 470970
+  },
+  {
+    "publicPath": "/articles/claude-code-global-rules-terminal.jpg",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/afb5461cd113b79a5f4edad482279ba359c90f4c0ccf05f7952c9831d196b43a.jpg",
+    "width": 3164,
+    "height": 2040,
+    "sha256": "afb5461cd113b79a5f4edad482279ba359c90f4c0ccf05f7952c9831d196b43a",
+    "bytes": 883088
+  },
+  {
+    "publicPath": "/articles/codex-personalization-custom-instructions.jpg",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/5c193dd90e7c5ec027a192fd36178809b4be2198da11d6978bffbe9cbcffd33d.jpg",
+    "width": 3164,
+    "height": 2070,
+    "sha256": "5c193dd90e7c5ec027a192fd36178809b4be2198da11d6978bffbe9cbcffd33d",
+    "bytes": 638533
+  },
+  {
+    "publicPath": "/articles/content-distribution-strategy.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/54abb315c1c23f6e4671951ab61afd77d706e0124804b18b246cf2adfa9b9050.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "54abb315c1c23f6e4671951ab61afd77d706e0124804b18b246cf2adfa9b9050",
+    "bytes": 229176
+  },
+  {
+    "publicPath": "/articles/creators-who-mock-their-own-craft-examples.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/ddc98fd4b385e17b5c3d55ae9c56995de3a6187a49a4718bd647288af8223f59.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "ddc98fd4b385e17b5c3d55ae9c56995de3a6187a49a4718bd647288af8223f59",
+    "bytes": 180296
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-for-ai.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/5bd479110314d9ba4c5cb36e19f48303445fab545f5d660dd14b7c0be6b120a5.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "5bd479110314d9ba4c5cb36e19f48303445fab545f5d660dd14b7c0be6b120a5",
+    "bytes": 205586
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-global.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/7be3e335ac0b537b680cf67b2f770dfad38d98bd0647bc13ee09e3715dd58410.webp",
+    "width": 1200,
+    "height": 780,
+    "sha256": "7be3e335ac0b537b680cf67b2f770dfad38d98bd0647bc13ee09e3715dd58410",
+    "bytes": 74912
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-repo.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/41ae0104b830e0f8f95f42996b80422bd6312ea44c821dd42f764df87aa29c68.webp",
+    "width": 1200,
+    "height": 780,
+    "sha256": "41ae0104b830e0f8f95f42996b80422bd6312ea44c821dd42f764df87aa29c68",
+    "bytes": 85744
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-specific.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/bd566cb018a3039f732c031dd7f1548d15645f9f98d7a7d15f1ffff3a8ae66d3.webp",
+    "width": 1200,
+    "height": 780,
+    "sha256": "bd566cb018a3039f732c031dd7f1548d15645f9f98d7a7d15f1ffff3a8ae66d3",
+    "bytes": 71694
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-tutorial-es.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/72af039aa4afcae40d3e55fb16035e8575fedd7ccc00c160b86c286f37f7386a.webp",
+    "width": 800,
+    "height": 450,
+    "sha256": "72af039aa4afcae40d3e55fb16035e8575fedd7ccc00c160b86c286f37f7386a",
+    "bytes": 45794
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-tutorial.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/39a6b60c93174e8c14cae31be5e3a2346d830f3d07442484e1d7a97fa1643e7c.webp",
+    "width": 800,
+    "height": 450,
+    "sha256": "39a6b60c93174e8c14cae31be5e3a2346d830f3d07442484e1d7a97fa1643e7c",
+    "bytes": 45750
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-video-tutorial-es.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/abc300613663832b080d6a3bb110736574f4476f8e7f8672be481ef3e6801839.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "abc300613663832b080d6a3bb110736574f4476f8e7f8672be481ef3e6801839",
+    "bytes": 107028
+  },
+  {
+    "publicPath": "/articles/cursor-ide-rules-video-tutorial.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/82313fe94311410fbabf47046db27089e3fce3c560608dbefe5208a4ef1fdd6a.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "82313fe94311410fbabf47046db27089e3fce3c560608dbefe5208a4ef1fdd6a",
+    "bytes": 113770
+  },
+  {
+    "publicPath": "/articles/epicgrowth-2023-06-08.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/50da0b6f54b0d4bda3b62a4f4287c2d23b7d30b32a1516ea0cf2452359f6e2c9.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "50da0b6f54b0d4bda3b62a4f4287c2d23b7d30b32a1516ea0cf2452359f6e2c9",
+    "bytes": 114642
+  },
+  {
+    "publicPath": "/articles/epicgrowth-2024-03-12.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/7586af395a186ed85ca48029822b88c7b89f1aa14b1caa2525be4feab950a50b.webp",
+    "width": 1024,
+    "height": 576,
+    "sha256": "7586af395a186ed85ca48029822b88c7b89f1aa14b1caa2525be4feab950a50b",
+    "bytes": 104706
+  },
+  {
+    "publicPath": "/articles/epicgrowth-2024-03-14.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/643f539af612f711e48d4437af39d4c108907fe5ad1f55c80cd1d3f663b7c35f.webp",
+    "width": 1820,
+    "height": 1024,
+    "sha256": "643f539af612f711e48d4437af39d4c108907fe5ad1f55c80cd1d3f663b7c35f",
+    "bytes": 201880
+  },
+  {
+    "publicPath": "/articles/github-ab-test-advanced-toolkit-2025.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/810b8ecad7ca28413ae6ec6344350dea6358eb62e5e4b27143eb97abbfa1fd21.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "810b8ecad7ca28413ae6ec6344350dea6358eb62e5e4b27143eb97abbfa1fd21",
+    "bytes": 47936
+  },
+  {
+    "publicPath": "/articles/github-chatgpt-telegram-bot-telegraf-2025.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/62cab23234db93bad376fc3baec8d440b4ed96289fb7c3703ffbff86146ee206.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "62cab23234db93bad376fc3baec8d440b4ed96289fb7c3703ffbff86146ee206",
+    "bytes": 52720
+  },
+  {
+    "publicPath": "/articles/github-chrome-auto-image-blocker-2025.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/576d7ce6bddf2490ce7e266ea4ea30c6e62baa4e744f23ce1c0e92fece6e394b.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "576d7ce6bddf2490ce7e266ea4ea30c6e62baa4e744f23ce1c0e92fece6e394b",
+    "bytes": 49080
+  },
+  {
+    "publicPath": "/articles/github-example-mcp-server-2025.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/f0a1e2d12cb50a16ab53e8bdba5d518793bed342dcebdc235a081ba77d3f4766.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "f0a1e2d12cb50a16ab53e8bdba5d518793bed342dcebdc235a081ba77d3f4766",
+    "bytes": 46666
+  },
+  {
+    "publicPath": "/articles/github-ozma-2025.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/aebf43d43b55edda8c1ec01182604428f76f8bcb68cf5fa80a658b8be3f2bcbb.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "aebf43d43b55edda8c1ec01182604428f76f8bcb68cf5fa80a658b8be3f2bcbb",
+    "bytes": 24294
+  },
+  {
+    "publicPath": "/articles/github-repo-to-text-2025.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/446b16c6e9a5129c3ffce6362b1c09671a743daa11ea2df168960aad612fd80b.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "446b16c6e9a5129c3ffce6362b1c09671a743daa11ea2df168960aad612fd80b",
+    "bytes": 42418
+  },
+  {
+    "publicPath": "/articles/habr-2022-07-12.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/112b15cd01b984de5e65d458fdb59627e0888c9b7f4737d8f7c9799e35777508.jpg",
+    "width": 1001,
+    "height": 581,
+    "sha256": "112b15cd01b984de5e65d458fdb59627e0888c9b7f4737d8f7c9799e35777508",
+    "bytes": 169507
+  },
+  {
+    "publicPath": "/articles/how-to-automate-email-categorization-with-n8n-and-llm.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/bbdd2d13d73bb57346f46db275dde3642c2ca7588221a6c53cb9338d585bbeb2.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "bbdd2d13d73bb57346f46db275dde3642c2ca7588221a6c53cb9338d585bbeb2",
+    "bytes": 35838
+  },
+  {
+    "publicPath": "/articles/jupyter-2025-04-25.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/1d2615b0082901e194b52d590f509dbf1b44131354b5646a22d5abe136fe3176.webp",
+    "width": 2424,
+    "height": 1538,
+    "sha256": "1d2615b0082901e194b52d590f509dbf1b44131354b5646a22d5abe136fe3176",
+    "bytes": 972852
+  },
+  {
+    "publicPath": "/articles/kirill-2024-01-21.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/614467ede15ed5bbfdf88eb17220f6fd36c4c18d6f5f321307328feb2ec6a7b7.webp",
+    "width": 520,
+    "height": 293,
+    "sha256": "614467ede15ed5bbfdf88eb17220f6fd36c4c18d6f5f321307328feb2ec6a7b7",
+    "bytes": 63442
+  },
+  {
+    "publicPath": "/articles/kirill-2024-09-04.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/9738bede0a6b72bf33046535ccbb193b5fbbbccd10b943225c7af2bb2f92b965.webp",
+    "width": 520,
+    "height": 293,
+    "sha256": "9738bede0a6b72bf33046535ccbb193b5fbbbccd10b943225c7af2bb2f92b965",
+    "bytes": 55130
+  },
+  {
+    "publicPath": "/articles/medium-2023-06-08.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/e3445d0308d241c8dea03f966a33972c4fbd1cc47745f21f050f84141a303c97.webp",
+    "width": 520,
+    "height": 292,
+    "sha256": "e3445d0308d241c8dea03f966a33972c4fbd1cc47745f21f050f84141a303c97",
+    "bytes": 4292
+  },
+  {
+    "publicPath": "/articles/medium-2023-06-22.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/ea51d2e3865f28e4692ef6da081b1ab170379eb18a1cdab017f1e907fbe71088.webp",
+    "width": 520,
+    "height": 292,
+    "sha256": "ea51d2e3865f28e4692ef6da081b1ab170379eb18a1cdab017f1e907fbe71088",
+    "bytes": 22808
+  },
+  {
+    "publicPath": "/articles/noah-2023-12-14.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/49bf00f61dacf7a932b014a6f759638bd974d3fa50bdecdc3a29d698acf3ec48.webp",
+    "width": 1280,
+    "height": 720,
+    "sha256": "49bf00f61dacf7a932b014a6f759638bd974d3fa50bdecdc3a29d698acf3ec48",
+    "bytes": 42978
+  },
+  {
+    "publicPath": "/articles/notion-task-manager-guide.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/18021eafd5c22f2e4ce8fcaf3cf461ed67b0df1e6889d95eb5d2bb247967bb61.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "18021eafd5c22f2e4ce8fcaf3cf461ed67b0df1e6889d95eb5d2bb247967bb61",
+    "bytes": 110230
+  },
+  {
+    "publicPath": "/articles/openai-2024-04-01.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/923cb3a19ccff81cdcea074d0c1eb05ac8c8558e5c72f41c15509f7b29bb2574.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "923cb3a19ccff81cdcea074d0c1eb05ac8c8558e5c72f41c15509f7b29bb2574",
+    "bytes": 102468
+  },
+  {
+    "publicPath": "/articles/oreilly-2025-05-01.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/df345157b882ec9c85f8e3bc78d3023f1cd2a8f75e6a1b19a30e56320434561a.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "df345157b882ec9c85f8e3bc78d3023f1cd2a8f75e6a1b19a30e56320434561a",
+    "bytes": 66190
+  },
+  {
+    "publicPath": "/articles/ozma-2022-08-27.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/ad928591701c4c27feefa13578680eff4d263dda74b019172912df956f48e19c.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "ad928591701c4c27feefa13578680eff4d263dda74b019172912df956f48e19c",
+    "bytes": 8876
+  },
+  {
+    "publicPath": "/articles/ozma-2022-10-03.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/111ce18e2baa158f81eec87f5d239124fbf68ef9f7b34c4917afb85998fd8cba.webp",
+    "width": 520,
+    "height": 292,
+    "sha256": "111ce18e2baa158f81eec87f5d239124fbf68ef9f7b34c4917afb85998fd8cba",
+    "bytes": 10934
+  },
+  {
+    "publicPath": "/articles/ozma-2023-06-04.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/18a4182d300b127627ce53326046cc805c59c1424116b1ed080291504357f5a3.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "18a4182d300b127627ce53326046cc805c59c1424116b1ed080291504357f5a3",
+    "bytes": 45664
+  },
+  {
+    "publicPath": "/articles/ozma-2024-04-01.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/7bf13ec511461a296db31762670a1ed8df77922d53ed421c0be2611ee6f262b1.webp",
+    "width": 448,
+    "height": 252,
+    "sha256": "7bf13ec511461a296db31762670a1ed8df77922d53ed421c0be2611ee6f262b1",
+    "bytes": 14692
+  },
+  {
+    "publicPath": "/articles/placeholder.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/02648eb081f341cda156f1f7c17f0302dc42031a752473269f6dc72f1a1a2e61.png",
+    "width": 640,
+    "height": 360,
+    "sha256": "02648eb081f341cda156f1f7c17f0302dc42031a752473269f6dc72f1a1a2e61",
+    "bytes": 183693
+  },
+  {
+    "publicPath": "/articles/podlodka-2024-03-21.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/735ad1345a16b2104f093cc735fa05797f023cbd91bfea8ddb69370a378321c5.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "735ad1345a16b2104f093cc735fa05797f023cbd91bfea8ddb69370a378321c5",
+    "bytes": 162030
+  },
+  {
+    "publicPath": "/articles/preview-main.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/291511e9d9aff3e0a52fd595ec2c3d1461e4718034808c64992e024de661efa9.webp",
+    "width": 3164,
+    "height": 2062,
+    "sha256": "291511e9d9aff3e0a52fd595ec2c3d1461e4718034808c64992e024de661efa9",
+    "bytes": 347374
+  },
+  {
+    "publicPath": "/articles/raycast-2026-09-14.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/ce2a9c58dec3f1feda22c5cd8202deaeffce73f3481dacfc8eaaa0666c141f1f.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "ce2a9c58dec3f1feda22c5cd8202deaeffce73f3481dacfc8eaaa0666c141f1f",
+    "bytes": 8216
+  },
+  {
+    "publicPath": "/articles/reddit-2024-11-04.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/8e7433198023920c83fafcf50dd6ced28ab6652c6e393e2379bfd1851ac90549.webp",
+    "width": 1080,
+    "height": 607,
+    "sha256": "8e7433198023920c83fafcf50dd6ced28ab6652c6e393e2379bfd1851ac90549",
+    "bytes": 99124
+  },
+  {
+    "publicPath": "/articles/reddit-2025-02-08.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/376f3f25682b10b03a4e6b827f7f0bd9844097c1b3fc73ba9e342fa6e383f247.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "376f3f25682b10b03a4e6b827f7f0bd9844097c1b3fc73ba9e342fa6e383f247",
+    "bytes": 64698
+  },
+  {
+    "publicPath": "/articles/rusbase-2021-03-12.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/01b007f19de208fe0742f54b0edfb031d071fbbdcc2cc784479e39ef48e4375a.webp",
+    "width": 720,
+    "height": 405,
+    "sha256": "01b007f19de208fe0742f54b0edfb031d071fbbdcc2cc784479e39ef48e4375a",
+    "bytes": 33050
+  },
+  {
+    "publicPath": "/articles/sql-like-dsl-for-ai-agents.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/80a55429a31b906fc90900df68cb906ae3d3a3d8801be1ec1ee66e9bd36e4b69.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "80a55429a31b906fc90900df68cb906ae3d3a3d8801be1ec1ee66e9bd36e4b69",
+    "bytes": 20016
+  },
+  {
+    "publicPath": "/articles/verigram-2023-09-08.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/8229d1dbacc04c5762ea64d9a9849d563326153e3e4104b5bd95471e02f2a9f6.webp",
+    "width": 621,
+    "height": 349,
+    "sha256": "8229d1dbacc04c5762ea64d9a9849d563326153e3e4104b5bd95471e02f2a9f6",
+    "bytes": 21480
+  },
+  {
+    "publicPath": "/articles/youtube-2015-02-23.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/54ce5490798c5d3c888efd9f93721e8dadccaf5adffa1d0a2fc6d3fd7daa5f51.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "54ce5490798c5d3c888efd9f93721e8dadccaf5adffa1d0a2fc6d3fd7daa5f51",
+    "bytes": 44246
+  },
+  {
+    "publicPath": "/articles/youtube-2018-08-05.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/32c28b639db050bde240d8d9d439449f15385b486389334eda6d108187b05e8c.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "32c28b639db050bde240d8d9d439449f15385b486389334eda6d108187b05e8c",
+    "bytes": 137396
+  },
+  {
+    "publicPath": "/articles/youtube-2023-09-16-1.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/7c470c56ffc518f5197869dafe5ad165b63d19abd118a05ad1381dacd923a8d8.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "7c470c56ffc518f5197869dafe5ad165b63d19abd118a05ad1381dacd923a8d8",
+    "bytes": 162662
+  },
+  {
+    "publicPath": "/articles/youtube-2023-09-16-2.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/74f92f4cb30dc4b235453e5f6c9723249d4435287162d18fc32ec64ab43bad6f.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "74f92f4cb30dc4b235453e5f6c9723249d4435287162d18fc32ec64ab43bad6f",
+    "bytes": 95872
+  },
+  {
+    "publicPath": "/articles/youtube-2024-02-06.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/92bc3c4e339894782df6773d975a83ed09184afdd293d4b706ad0de2e57a715e.webp",
+    "width": 520,
+    "height": 293,
+    "sha256": "92bc3c4e339894782df6773d975a83ed09184afdd293d4b706ad0de2e57a715e",
+    "bytes": 209146
+  },
+  {
+    "publicPath": "/articles/youtube-2025-02-18.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/b870461b3ea81cc05daffb538f0ef1f80590cdd8a3b877c0a27f948c48c9ad49.webp",
+    "width": 640,
+    "height": 360,
+    "sha256": "b870461b3ea81cc05daffb538f0ef1f80590cdd8a3b877c0a27f948c48c9ad49",
+    "bytes": 110918
+  },
+  {
+    "publicPath": "/articles/youtube-2025-09-09.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/82313fe94311410fbabf47046db27089e3fce3c560608dbefe5208a4ef1fdd6a.webp",
+    "width": 520,
+    "height": 297,
+    "sha256": "82313fe94311410fbabf47046db27089e3fce3c560608dbefe5208a4ef1fdd6a",
+    "bytes": 113770
+  },
+  {
+    "publicPath": "/avatars/Kirill-Markin.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/9bd0c013c8b9b35f8eda2f3849f3009412e220603591d1dc8eb3e528c103acc5.webp",
+    "width": 819,
+    "height": 819,
+    "sha256": "9bd0c013c8b9b35f8eda2f3849f3009412e220603591d1dc8eb3e528c103acc5",
+    "bytes": 219446
+  },
+  {
+    "publicPath": "/avatars/kirill-angel.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/6f9ee6b2d13b53a6318e6402fcfa9bdf4b0dabe51b6c563786f304a2e709c965.webp",
+    "width": 800,
+    "height": 800,
+    "sha256": "6f9ee6b2d13b53a6318e6402fcfa9bdf4b0dabe51b6c563786f304a2e709c965",
+    "bytes": 120254
+  },
+  {
+    "publicPath": "/avatars/kirill-devil.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/b99a053ab75a9e301de92a9623c7c2f43bcac0d82dc02ecc05583e6712543757.webp",
+    "width": 600,
+    "height": 600,
+    "sha256": "b99a053ab75a9e301de92a9623c7c2f43bcac0d82dc02ecc05583e6712543757",
+    "bytes": 18996
+  },
+  {
+    "publicPath": "/avatars/kirill.jpg",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/d3429a20040f9d3ee314acb7400b2ea3bc059ffaa10500d6b17eec5cd85660e7.jpg",
+    "width": 819,
+    "height": 819,
+    "sha256": "d3429a20040f9d3ee314acb7400b2ea3bc059ffaa10500d6b17eec5cd85660e7",
+    "bytes": 227816
+  },
+  {
+    "publicPath": "/data/cv-kirill-markin-cto.pdf",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/79cd3455c24cba66418ed058a9432d3ad98ee501f4d018b84ddf64fc9d1b278f.pdf",
+    "sha256": "79cd3455c24cba66418ed058a9432d3ad98ee501f4d018b84ddf64fc9d1b278f",
+    "bytes": 79256
+  },
+  {
+    "publicPath": "/data/cv-kirill-markin-staff-software-engineer.pdf",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/2f4d674a84badde0b8e2d51b55d56e3236cc5bea6267438b6e6e572cdc242733.pdf",
+    "sha256": "2f4d674a84badde0b8e2d51b55d56e3236cc5bea6267438b6e6e572cdc242733",
+    "bytes": 79270
+  },
+  {
+    "publicPath": "/data/kirill-200x200.jpg",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/a4d14912f4ecaa4883bbfc37b4dba67ccac1390d7ad1992f5635c972d45034f5.jpg",
+    "width": 200,
+    "height": 200,
+    "sha256": "a4d14912f4ecaa4883bbfc37b4dba67ccac1390d7ad1992f5635c972d45034f5",
+    "bytes": 21747
+  },
+  {
+    "publicPath": "/data/portfolio-kirill-markin.pdf",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/bbde1c0ed77470f4c5cb123f4080d0de17327842e29e08f8dd8f12960709cabe.pdf",
+    "sha256": "bbde1c0ed77470f4c5cb123f4080d0de17327842e29e08f8dd8f12960709cabe",
+    "bytes": 141152
+  },
+  {
+    "publicPath": "/images/meeting-booking.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/047ff5eec332cbb903183978e6cd87215dc5db9913efe3426e9e12f3111d4933.webp",
+    "width": 945,
+    "height": 630,
+    "sha256": "047ff5eec332cbb903183978e6cd87215dc5db9913efe3426e9e12f3111d4933",
+    "bytes": 26642
+  },
+  {
+    "publicPath": "/images/stripe-payment.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/d9f44e3640d8bae5b19a69f06d17ac03420e5c0a7b6e7be2f07a2d23dd4b053c.webp",
+    "width": 945,
+    "height": 630,
+    "sha256": "d9f44e3640d8bae5b19a69f06d17ac03420e5c0a7b6e7be2f07a2d23dd4b053c",
+    "bytes": 30946
+  },
+  {
+    "publicPath": "/samo-danni-eood/google-play-developer/header-google-play-v2.jpg",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/0e68ab692a5edc3d98dacfb1c7530273abd7cdeef8fe16810ef0d28898a09c9a.jpg",
+    "width": 4096,
+    "height": 2304,
+    "sha256": "0e68ab692a5edc3d98dacfb1c7530273abd7cdeef8fe16810ef0d28898a09c9a",
+    "bytes": 239362
+  },
+  {
+    "publicPath": "/samo-danni-eood/google-play-developer/logo.png",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/d61b7740096b78423fee2cebbefc71e5dd8ebad288a897a1b325c47e1f78b57c.png",
+    "width": 150,
+    "height": 150,
+    "sha256": "d61b7740096b78423fee2cebbefc71e5dd8ebad288a897a1b325c47e1f78b57c",
+    "bytes": 20870
+  },
+  {
+    "publicPath": "/services/article.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/09d8ce21de5e39ed8eafc54a4b3699f96f20e0383d53d13f3a3cc25c89738b96.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "09d8ce21de5e39ed8eafc54a4b3699f96f20e0383d53d13f3a3cc25c89738b96",
+    "bytes": 28036
+  },
+  {
+    "publicPath": "/services/career-consulting.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/d65742673b4af9bb16b48d662f2bf59330e5d0df0f3b0a4d7aba5de8e58a1b03.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "d65742673b4af9bb16b48d662f2bf59330e5d0df0f3b0a4d7aba5de8e58a1b03",
+    "bytes": 16588
+  },
+  {
+    "publicPath": "/services/conference.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/253f5f3c6442ec6ad7bd62ad82e7738841e08f565c17d2a9cb883d2f88f2db2f.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "253f5f3c6442ec6ad7bd62ad82e7738841e08f565c17d2a9cb883d2f88f2db2f",
+    "bytes": 13394
+  },
+  {
+    "publicPath": "/services/default.png",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/02648eb081f341cda156f1f7c17f0302dc42031a752473269f6dc72f1a1a2e61.png",
+    "width": 640,
+    "height": 360,
+    "sha256": "02648eb081f341cda156f1f7c17f0302dc42031a752473269f6dc72f1a1a2e61",
+    "bytes": 183693
+  },
+  {
+    "publicPath": "/services/expense-budget-tracker.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/fb54713c1eee46d0366adc7c292bdd5f31e872dbdb2d53a04ba51af58d1edc93.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "fb54713c1eee46d0366adc7c292bdd5f31e872dbdb2d53a04ba51af58d1edc93",
+    "bytes": 22286
+  },
+  {
+    "publicPath": "/services/flashcards-open-source-app.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/4a2cd9bd1fd022113b8421d84309d03a950c3f231521458070673d64b18b6fbb.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "4a2cd9bd1fd022113b8421d84309d03a950c3f231521458070673d64b18b6fbb",
+    "bytes": 12354
+  },
+  {
+    "publicPath": "/services/fractional-ai-cto-meta.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/6ff576bda982d703d7f459b063fbb5e3e7cfa94b124a5d5147678434e2b4ce31.webp",
+    "width": 1200,
+    "height": 630,
+    "sha256": "6ff576bda982d703d7f459b063fbb5e3e7cfa94b124a5d5147678434e2b4ce31",
+    "bytes": 20570
+  },
+  {
+    "publicPath": "/services/fractional-ai-cto.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/fc84fdb747a9d57c2ef6df437ff45f7a9d0bd014785c395e00df0bb26cd782ed.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "fc84fdb747a9d57c2ef6df437ff45f7a9d0bd014785c395e00df0bb26cd782ed",
+    "bytes": 17738
+  },
+  {
+    "publicPath": "/services/police.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/fc84fdb747a9d57c2ef6df437ff45f7a9d0bd014785c395e00df0bb26cd782ed.webp",
+    "width": 600,
+    "height": 400,
+    "sha256": "fc84fdb747a9d57c2ef6df437ff45f7a9d0bd014785c395e00df0bb26cd782ed",
+    "bytes": 17738
+  },
+  {
+    "publicPath": "/services/startup.png",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/63cc05329d0c0a2015d9f33beaa64c1d66f3b2acffaeb773352e98a0cfc6680b.png",
+    "width": 690,
+    "height": 436,
+    "sha256": "63cc05329d0c0a2015d9f33beaa64c1d66f3b2acffaeb773352e98a0cfc6680b",
+    "bytes": 284764
+  },
+  {
+    "publicPath": "/services/welcome.png",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/d886572cd46d32f2fbff3230834695e8dad33322cc5d282fd5995f4381932843.png",
+    "width": 690,
+    "height": 436,
+    "sha256": "d886572cd46d32f2fbff3230834695e8dad33322cc5d282fd5995f4381932843",
+    "bytes": 281360
+  }
+]
