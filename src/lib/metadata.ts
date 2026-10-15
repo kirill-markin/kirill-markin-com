@@ -1,3 +1,4 @@
+import { mediaImageMetadata, resolveMediaUrl } from '@/lib/mediaUrls';
 import { Metadata } from 'next';
 import { getLocaleForLanguage, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE, getPathSegmentByLanguage, getTranslation, getSubPathSegmentByLanguage } from '@/lib/localization';
 import { SITE_URL, VCARD_DATA } from '@/data/contacts';
@@ -111,9 +112,7 @@ export function generateHomePageMetadata(language: string): Metadata {
             url: canonicalUrl,
             images: [
                 {
-                    url: '/articles/preview-main.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/articles/preview-main.webp', { width: 1200, height: 630 }),
                     alt: metaTitle,
                 }
             ],
@@ -122,7 +121,7 @@ export function generateHomePageMetadata(language: string): Metadata {
             ...baseMetadata.twitter,
             title: metaTitle,
             description: metaDescription,
-            images: ['/articles/preview-main.webp'],
+            images: [resolveMediaUrl('/articles/preview-main.webp')],
         },
         alternates: {
             canonical: canonicalUrl,
@@ -202,9 +201,7 @@ export function generateArticlesPageMetadata(
             url: canonicalUrl,
             images: [
                 {
-                    url: '/articles/articles-hero.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/articles/articles-hero.webp', { width: 1200, height: 630 }),
                     alt: `${VCARD_DATA.fullName} Articles`,
                 }
             ],
@@ -213,7 +210,7 @@ export function generateArticlesPageMetadata(
             ...baseMetadata.twitter,
             title,
             description,
-            images: ['/articles/articles-hero.webp'],
+            images: [resolveMediaUrl('/articles/articles-hero.webp')],
         },
         alternates: {
             canonical: canonicalUrl,
@@ -339,9 +336,7 @@ export function generateServicesPageMetadata(
             url: canonicalUrl,
             images: [
                 {
-                    url: '/services/services-hero.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/services/services-hero.webp', { width: 1200, height: 630 }),
                     alt: `${VCARD_DATA.fullName} Services`,
                 }
             ],
@@ -350,7 +345,7 @@ export function generateServicesPageMetadata(
             ...baseMetadata.twitter,
             title,
             description,
-            images: ['/services/services-hero.webp'],
+            images: [resolveMediaUrl('/services/services-hero.webp')],
         },
         alternates: {
             canonical: canonicalUrl,
@@ -379,7 +374,7 @@ export function generateMeetPageMetadata(
     // Strictly use the exact values from translations when possible
     let title: string;
     let description: string;
-    const imagePath: string = '/images/meeting-booking.webp';
+    const imagePath: string = resolveMediaUrl('/images/meeting-booking.webp');
     let canonicalPath: string;
 
     if (type === 'short') {
@@ -500,9 +495,7 @@ export function generateMeetPageMetadata(
             url: canonicalUrl,
             images: [
                 {
-                    url: imagePath,
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata(imagePath, { width: 1200, height: 630 }),
                     alt: title,
                 }
             ],
@@ -540,7 +533,7 @@ export function generatePayPageMetadata(
     // Strictly use the exact values from translations when possible
     let title: string;
     let description: string;
-    const imagePath: string = '/images/payment.webp';
+    const imagePath: string = resolveMediaUrl('/images/payment.webp');
     let canonicalPath: string;
 
     if (type === 'stripe') {
@@ -616,9 +609,7 @@ export function generatePayPageMetadata(
             url: canonicalUrl,
             images: [
                 {
-                    url: imagePath,
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata(imagePath, { width: 1200, height: 630 }),
                     alt: title,
                 }
             ],
@@ -657,9 +648,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             siteName: VCARD_DATA.fullName,
             images: [
                 {
-                    url: '/services/fractional-ai-cto-meta.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/services/fractional-ai-cto-meta.webp', { width: 1200, height: 630 }),
                     alt: `Fractional CTO Services by ${VCARD_DATA.fullName}`,
                 }
             ],
@@ -668,7 +657,7 @@ export function generateFractionalAICTOPageMetadata(): Metadata {
             card: 'summary_large_image',
             title,
             description,
-            images: ['/services/fractional-ai-cto-meta.webp'],
+            images: [resolveMediaUrl('/services/fractional-ai-cto-meta.webp')],
         },
         alternates: {
             canonical: '/services/fractional-ai-cto-kirill-markin/',
@@ -715,9 +704,7 @@ export function generateMentorshipPageMetadata(): Metadata {
             siteName: VCARD_DATA.fullName,
             images: [
                 {
-                    url: '/services/fractional-ai-cto-meta.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/services/fractional-ai-cto-meta.webp', { width: 1200, height: 630 }),
                     alt: `AI Technical Mentorship by ${VCARD_DATA.fullName}`,
                 }
             ],
@@ -726,7 +713,7 @@ export function generateMentorshipPageMetadata(): Metadata {
             card: 'summary_large_image',
             title,
             description,
-            images: ['/services/fractional-ai-cto-meta.webp'],
+            images: [resolveMediaUrl('/services/fractional-ai-cto-meta.webp')],
         },
         alternates: {
             canonical: '/services/mentorship/',
@@ -765,9 +752,7 @@ export function generatePolicePageMetadata(): Metadata {
             siteName: VCARD_DATA.fullName,
             images: [
                 {
-                    url: '/services/police.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/services/police.webp', { width: 1200, height: 630 }),
                     alt: `Police Consulting Services by ${VCARD_DATA.fullName}`,
                 }
             ],
@@ -776,7 +761,7 @@ export function generatePolicePageMetadata(): Metadata {
             card: 'summary_large_image',
             title,
             description,
-            images: ['/services/police.webp'],
+            images: [resolveMediaUrl('/services/police.webp')],
         },
         alternates: {
             canonical: '/services/police/',
@@ -805,9 +790,7 @@ export function generateSamoDanniEoodPageMetadata(): Metadata {
     const description = `${samoDanniEood.name} is a Bulgarian software company founded by ${VCARD_DATA.fullName}: legal details, UIC, VAT number, registered address, and open-source apps it builds.`;
     const images = [
         {
-            url: samoDanniEood.schemaLogoUrl,
-            width: 150,
-            height: 150,
+            ...mediaImageMetadata(samoDanniEood.schemaLogoUrl, { width: 150, height: 150 }),
             alt: `${samoDanniEood.name} logo`,
         }
     ];
@@ -860,9 +843,7 @@ export function generateSubscribePageMetadata(): Metadata {
             url: canonicalUrl,
             images: [
                 {
-                    url: '/articles/preview-main.webp',
-                    width: 1200,
-                    height: 630,
+                    ...mediaImageMetadata('/articles/preview-main.webp', { width: 1200, height: 630 }),
                     alt: title,
                 }
             ],
@@ -871,7 +852,7 @@ export function generateSubscribePageMetadata(): Metadata {
             ...baseMetadata.twitter,
             title,
             description,
-            images: ['/articles/preview-main.webp'],
+            images: [resolveMediaUrl('/articles/preview-main.webp')],
         },
         alternates: {
             canonical: canonicalUrl,

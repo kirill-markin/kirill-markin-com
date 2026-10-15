@@ -1,3 +1,4 @@
+import { mediaImageMetadata, resolveMediaUrl } from '@/lib/mediaUrls';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getAllArticleSlugs, getArticleBySlug, getRelatedArticlesByTags } from '@/lib/articles';
@@ -40,9 +41,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       url: canonicalUrl,
       images: [
         {
-          url: article.metadata.thumbnailUrl || '/articles/placeholder.webp',
-          width: 1200,
-          height: 630,
+          ...mediaImageMetadata(article.metadata.thumbnailUrl || '/articles/placeholder.webp', { width: 1200, height: 630 }),
           alt: article.metadata.title,
         }
       ],
@@ -56,7 +55,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       card: 'summary_large_image',
       title: article.metadata.title,
       description: article.metadata.description || '',
-      images: [article.metadata.thumbnailUrl || '/articles/placeholder.webp'],
+      images: [resolveMediaUrl(article.metadata.thumbnailUrl || '/articles/placeholder.webp')],
     },
     alternates: {
       canonical: canonicalUrl,

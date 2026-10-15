@@ -1,3 +1,4 @@
+import { resolveMediaUrl } from '@/lib/mediaUrls';
 import { SITE_URL } from './contacts';
 
 export interface CompanyApp {
@@ -47,7 +48,7 @@ export const samoDanniEood: Company = {
   foundingDate: '2023-05-26',
   email: 'kirill@kirill-markin.com',
   logoPath: `${COMPANY_PATH}logo.svg`,
-  schemaLogoUrl: `${SITE_URL}${COMPANY_PATH}google-play-developer/logo.png`,
+  schemaLogoUrl: resolveMediaUrl(`${SITE_URL}${COMPANY_PATH}google-play-developer/logo.png`),
   address: {
     streetAddress: 'bul. Maritsa 154, entr. D, fl. 6, apt. 14',
     addressLocality: 'Plovdiv',

@@ -1,3 +1,4 @@
+import { resolveMediaUrl } from '@/lib/mediaUrls';
 import { NextResponse } from 'next/server';
 import {
     PHONE_NUMBER,
@@ -54,7 +55,7 @@ function generateVCard(): string {
         'item10.X-ABLabel:Telegram',
         `item11.URL:${escapeUrl(`https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}`)}`,
         'item11.X-ABLabel:WhatsApp',
-        `PHOTO:${VCARD_DATA.photoUrl}`,
+        `PHOTO:${resolveMediaUrl(VCARD_DATA.photoUrl)}`,
         'CATEGORIES:myContacts',
         'END:VCARD',
     ];

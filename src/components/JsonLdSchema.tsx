@@ -1,5 +1,4 @@
-'use client';
-
+import { absoluteMediaUrl } from '@/lib/mediaUrls';
 import { personalInfo } from '@/data/personalInfo';
 import { servicesOtherData } from '@/data/servicesOther';
 import { SITE_URL, SOCIAL_URLS, getTelegramUrl } from '@/data/contacts';
@@ -45,7 +44,7 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     'url': `${SITE_URL}/`,
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
-    'image': `${SITE_URL}/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
+    'image': absoluteMediaUrl(personalInfo.image),
     'sameAs': sameAs,
     'knowsAbout': [
       'AI Engineering',
@@ -100,7 +99,7 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     'name': `${personalInfo.name} - Professional Services`,
     'description': 'Professional services including AI consulting, analytics department audit, startup guidance, and more',
     'url': `${SITE_URL}/services/`,
-    'logo': `${SITE_URL}/${personalInfo.image.startsWith('/') ? personalInfo.image.substring(1) : personalInfo.image}`,
+    'logo': absoluteMediaUrl(personalInfo.image),
     'email': personalInfo.email,
     'telephone': personalInfo.phone,
     'address': {
