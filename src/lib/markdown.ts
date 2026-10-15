@@ -1,3 +1,4 @@
+import { remarkMediaLinks } from './markdownMedia';
 import { remark } from 'remark';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
@@ -35,7 +36,8 @@ export function getFirstMarkdownHeading(markdown: string): FirstMarkdownHeading 
 export async function markdownToHtml(markdown: string, options: MarkdownToHtmlOptions): Promise<string> {
   let processor = remark()
     .use(remarkGfm)
-    .use(remarkExternalLinks);
+    .use(remarkExternalLinks)
+    .use(remarkMediaLinks);
 
   if (options.stripFirstHeading) {
     processor = processor.use(remarkStripFirstHeading);

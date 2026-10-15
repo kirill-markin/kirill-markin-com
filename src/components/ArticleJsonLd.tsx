@@ -1,5 +1,4 @@
-'use client';
-
+import { absoluteMediaUrl } from '@/lib/mediaUrls';
 import { Article } from '@/lib/articles';
 import { personalInfo } from '@/data/personalInfo';
 import { SITE_URL } from '@/data/contacts';
@@ -57,24 +56,8 @@ interface ArticleSchema {
   sameAs?: string[];
 }
 
-function toAbsoluteUrl(pathOrUrl: string): string {
-  if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {
-    return pathOrUrl;
-  }
-
-  if (pathOrUrl.startsWith('/')) {
-    return `${SITE_URL}${pathOrUrl}`;
-  }
-
-  return `${SITE_URL}/${pathOrUrl}`;
-}
-
-/**
- * Component that renders JSON-LD structured data specifically for articles
- * Implements Schema.org Article type for better SEO
- */
 export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
-  const imageUrl = toAbsoluteUrl(article.metadata.thumbnailUrl || DEFAULT_ARTICLE_IMAGE_PATH);
+  const imageUrl = absoluteMediaUrl(article.metadata.thumbnailUrl || DEFAULT_ARTICLE_IMAGE_PATH);
   const schema: ArticleSchema = {
     '@context': 'https://schema.org',
     '@type': article.metadata.type === 'Video' ? 'VideoObject' : 'Article',
@@ -93,7 +76,7 @@ export default function ArticleJsonLd({ article, url }: ArticleJsonLdProps) {
       'url': `${SITE_URL}/`,
       'logo': {
         '@type': 'ImageObject',
-        'url': toAbsoluteUrl(PUBLISHER_LOGO_PATH)
+        'url': absoluteMediaUrl(PUBLISHER_LOGO_PATH)
       }
     },
     'mainEntityOfPage': {

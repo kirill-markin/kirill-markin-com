@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from '@/components/MediaImage';
 import Link from 'next/link';
 import { bigMediaMentions, smallMediaMentions, buildWallItems } from '@/data/mediaMentions';
 import { getPublishedMarkdownArticles } from '@/lib/articleIndex';

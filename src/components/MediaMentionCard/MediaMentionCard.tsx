@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/MediaImage';
 import { MediaMention } from '@/data/mediaMentions';
 import { trackEvent } from '@/lib/analytics';
 import styles from '@/app/page.module.css';
