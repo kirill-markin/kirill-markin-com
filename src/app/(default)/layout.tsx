@@ -1,3 +1,4 @@
+import { mediaImageMetadata, resolveMediaUrl } from '@/lib/mediaUrls';
 import type { Metadata } from "next";
 import { Source_Serif_4 } from "next/font/google";
 import "../globals.css";
@@ -33,9 +34,7 @@ export const metadata: Metadata = {
         description: `Professional services by ${VCARD_DATA.fullName} - Software Architecture, Tech Consulting, and more`,
         images: [
             {
-                url: '/avatars/Kirill-Markin.webp',
-                width: 300,
-                height: 300,
+                ...mediaImageMetadata('/avatars/Kirill-Markin.webp', { width: 300, height: 300 }),
                 alt: VCARD_DATA.fullName,
             }
         ],
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: `${VCARD_DATA.fullName} - Consultant and Software Architect`,
         description: `Professional services by ${VCARD_DATA.fullName} - Software Architecture, Tech Consulting, and more`,
-        images: ['/avatars/Kirill-Markin.webp'],
+        images: [resolveMediaUrl('/avatars/Kirill-Markin.webp')],
         creator: '@kirill_markin_',
         site: '@kirill_markin_',
     },

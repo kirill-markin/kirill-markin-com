@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import Image from 'next/image';
+import Image from '@/components/MediaImage';
 import styles from './PersonalInfo.module.css';
 import { personalInfo } from '../../data/personalInfo';
 import { additionalFacts, fillAdditionalFactTemplate } from '../../data/additionalFacts';
