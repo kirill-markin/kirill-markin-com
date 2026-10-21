@@ -12,6 +12,7 @@ import {
   getTranslation
 } from '@/lib/localization';
 import type { Language } from '@/lib/localization';
+import { buildNibomoUrl } from '@/lib/nibomo';
 import { Translation } from '@/types/article';
 
 interface FooterProps {
@@ -49,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({
 
   const productLinks: FooterProductLink[] = [
     {
-      href: 'https://nibomo.com/',
+      href: buildNibomoUrl('footer', `${language}_footer`),
       label: 'Nibomo',
       openInNewTab: true
     },

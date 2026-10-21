@@ -11,6 +11,7 @@ import {
   getTranslation
 } from '@/lib/localization';
 import { trackEvent } from '@/lib/analytics';
+import { buildNibomoUrl } from '@/lib/nibomo';
 import { useSecretMode } from '@/lib/secretModeContext';
 
 interface HeaderProps {
@@ -32,7 +33,9 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
     ? '/articles/'
     : `/${language}/${getPathSegmentByLanguage('articles', language)}/`;
 
-  const mainServicePath = '/services/mentorship/';
+  const nibomoDesktopHref = buildNibomoUrl('header_cta', `${language}_desktop`);
+  const nibomoMobileBarHref = buildNibomoUrl('header_cta', `${language}_mobile_bar`);
+  const nibomoMobileMenuHref = buildNibomoUrl('header_cta', `${language}_mobile_menu`);
 
   // Get localized home path
   const homePath = language === DEFAULT_LANGUAGE ? '/' : `/${language}/`;
@@ -49,8 +52,8 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
     trackEvent('header_dashboards_click');
   };
 
-  const handleMainServiceClick = (): void => {
-    trackEvent('header_main_service_click');
+  const handleNibomoClick = (): void => {
+    trackEvent('header_nibomo_click');
   };
 
   return (
@@ -78,13 +81,15 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             >
               {navigationTranslations.articles}
             </Link>
-            <Link
+            <a
               className={`${styles.headerDesktopButton} ${styles.headerBookAMeeting}`}
-              href={mainServicePath}
-              onClick={handleMainServiceClick}
+              href={nibomoDesktopHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleNibomoClick}
             >
-              {navigationTranslations.mainService}
-            </Link>
+              {navigationTranslations.tryNibomo}
+            </a>
           </nav>
         </div>
       </div>
@@ -122,13 +127,15 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
               </Link>
             </div>
             <div className={styles.mobileButton}>
-              <Link
-                href={mainServicePath}
+              <a
+                href={nibomoMobileBarHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={styles.headerMobileBookAMeetingButton}
-                onClick={handleMainServiceClick}
+                onClick={handleNibomoClick}
               >
-                {navigationTranslations.mainService}
-              </Link>
+                {navigationTranslations.tryNibomo}
+              </a>
             </div>
           </div>
         </div>
@@ -149,16 +156,18 @@ const Header: React.FC<HeaderProps> = ({ language = DEFAULT_LANGUAGE }) => {
             </Link>
           </div>
           <div className={styles.headerMobileMenuSection}>
-            <Link
+            <a
               className={styles.headerMobileBookAMeeting}
-              href={mainServicePath}
-              onClick={() => { handleMainServiceClick(); closeMobileMenu(); }}
+              href={nibomoMobileMenuHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => { handleNibomoClick(); closeMobileMenu(); }}
             >
-              {navigationTranslations.mainService}
+              {navigationTranslations.tryNibomo}
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M4.22559 20L20 4M20 4V17M20 4H7" stroke="#353C2A" strokeWidth="2" />
               </svg>
-            </Link>
+            </a>
           </div>
         </nav>
       </div>
