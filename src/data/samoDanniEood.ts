@@ -73,6 +73,12 @@ export const samoDanniEood: Company = {
       url: 'https://expense-budget-tracker.com/',
       description: 'Open-source expense and budget tracker.',
     },
+    {
+      schemaId: 'https://louppe.eu/#software',
+      name: 'Louppe',
+      url: 'https://louppe.eu/',
+      description: 'Open-source photo and media sorter app for Mac.',
+    },
   ],
 };
 
