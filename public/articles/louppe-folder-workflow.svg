@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">A folder-based photo workflow with Louppe</title>
+  <desc id="desc">Open a folder, choose keepers, and copy selected photo files</desc>
+  <rect width="1200" height="630" fill="#111113"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="95" fill="#c691d2" font-size="24" letter-spacing="3">LOUPPE · MAC PHOTO CULLING</text>
+    <text x="64" y="180" fill="#f3f3f3" font-size="54" font-weight="700">Your photos stay ordinary files</text>
+    <text x="64" y="232" fill="#b6b6bd" font-size="26">A local workflow from the shoot to the shortlist</text>
+    <g fill="none" stroke="#c691d2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M88 344h64l21 20h103v103H88z"/>
+      <path d="M504 354h142v113H504zM523 439l33-38 25 24 17-20 30 34"/>
+      <circle cx="614" cy="382" r="8"/>
+      <path d="M912 344h64l21 20h103v103H912zM974 414l20 20 40-42"/>
+    </g>
+    <g stroke="#73737c" stroke-width="3" fill="none">
+      <path d="M337 411h96m-14-12 14 12-14 12M707 411h134m-14-12 14 12-14 12"/>
+    </g>
+    <g fill="#f3f3f3" font-size="25" font-weight="600">
+      <text x="88" y="524">Open a folder</text>
+      <text x="492" y="524">Choose keepers</text>
+      <text x="912" y="524">Copy the files</text>
+    </g>
+    <text x="64" y="592" fill="#92929b" font-size="20">JPEG or RAW · Manual decisions · No catalog import</text>
+  </g>
+</svg>
