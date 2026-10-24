@@ -3,7 +3,7 @@ import { access } from 'node:fs/promises';
 import test from 'node:test';
 import { JSDOM } from 'jsdom';
 import { getImgProps } from 'next/dist/shared/lib/get-img-props';
-import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
+import { imageConfigDefault, prepareImageConfig } from 'next/dist/shared/lib/image-config';
 import defaultLoader from 'next/dist/shared/lib/image-loader';
 import { hasRemoteMatch } from 'next/dist/shared/lib/match-remote-pattern';
 import MediaImage from '../src/components/MediaImage';
@@ -46,7 +46,7 @@ test('Next Image thumbnails, services and avatars use immutable sources in src a
     const element = MediaImage({ src: publicPath, width: 640, height: 360, alt: 'Media' });
     const { props } = getImgProps(element.props, {
       defaultLoader,
-      imgConf: { ...imageConfigDefault, remotePatterns: mediaRemotePatterns },
+      imgConf: prepareImageConfig({ ...imageConfigDefault, remotePatterns: mediaRemotePatterns }),
     });
     assert.equal(optimizedSource(props.src), media.url);
     assert.ok(props.srcSet);
