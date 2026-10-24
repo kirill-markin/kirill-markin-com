@@ -28,13 +28,13 @@
     "test:media-git": "node --test scripts/checkMediaGit.test.mjs"
   },
   "dependencies": {
-    "@sentry/nextjs": "^10.70.0",
+    "@sentry/nextjs": "^10.75.2",
     "@tailwindcss/typography": "^0.5.20",
     "@vercel/speed-insights": "^2.0.0",
     "d3": "^7.9.0",
     "gray-matter": "^4.0.3",
     "image-size": "^2.0.2",
-    "next": "16.3.0",
+    "next": "16.4.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "rehype-autolink-headings": "^7.1.0",
@@ -62,7 +62,7 @@
     "autoprefixer": "^10.5.4",
     "chalk": "^6.0.0",
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.3.0",
+    "eslint-config-next": "16.4.2",
     "jsdom": "^30.0.1",
     "node-fetch": "^3.3.2",
     "postcss": "^8.5.26",
@@ -70,7 +70,7 @@
     "tsx": "^4.23.12",
     "typescript": "^6.0.3",
     "@vercel/blob": "2.8.2",
-    "sharp": "0.35.3"
+    "sharp": "0.35.5"
   },
   "engines": {
     "node": "24.x"
@@ -93,7 +93,7 @@
   "overrides": {
     "next": {
       "postcss": "$postcss",
-      "sharp": "0.35.3"
+      "sharp": "$sharp"
     }
   },
   "allowScripts": {
@@ -101,6 +101,6 @@
     "esbuild@0.28.1": true,
     "fsevents@2.3.3": true,
     "unrs-resolver@1.12.2": true,
-    "sharp@0.35.3": true
+    "sharp@0.35.5": true
   }
 }
