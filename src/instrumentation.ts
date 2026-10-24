@@ -2,7 +2,10 @@ import * as Sentry from "@sentry/nextjs";
 
 export async function register() {
   if (process.env.NEXT_RUNTIME === "nodejs") {
-    await import("./lib/verifyNodeRuntime");
+    process.stdout.write(`${JSON.stringify({
+      event: "node_runtime_observed",
+      version: process.version,
+    })}\n`);
     await import("../sentry.server.config");
   }
 
