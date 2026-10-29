@@ -605,15 +605,15 @@
   },
   {
     "publicPath": "/data/cv-kirill-markin-cto.pdf",
-    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/79cd3455c24cba66418ed058a9432d3ad98ee501f4d018b84ddf64fc9d1b278f.pdf",
-    "sha256": "79cd3455c24cba66418ed058a9432d3ad98ee501f4d018b84ddf64fc9d1b278f",
-    "bytes": 79256
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/f03bb626fecf95d20910cc35b2e5348816d5c8787fbff95afff64db6fec95756.pdf",
+    "sha256": "f03bb626fecf95d20910cc35b2e5348816d5c8787fbff95afff64db6fec95756",
+    "bytes": 79333
   },
   {
     "publicPath": "/data/cv-kirill-markin-staff-software-engineer.pdf",
-    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/2f4d674a84badde0b8e2d51b55d56e3236cc5bea6267438b6e6e572cdc242733.pdf",
-    "sha256": "2f4d674a84badde0b8e2d51b55d56e3236cc5bea6267438b6e6e572cdc242733",
-    "bytes": 79270
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/e2717087fa8140e6e53f7ed6c99b3d746925f42fd679217666472814031f9f99.pdf",
+    "sha256": "e2717087fa8140e6e53f7ed6c99b3d746925f42fd679217666472814031f9f99",
+    "bytes": 79354
   },
   {
     "publicPath": "/data/kirill-200x200.jpg",
