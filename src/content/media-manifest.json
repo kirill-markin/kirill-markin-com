@@ -364,6 +364,21 @@
     "bytes": 55130
   },
   {
+    "publicPath": "/articles/mac-freezes-cursor-moves-airpods.webp",
+    "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/32406863e1d52a2cd0d18f27445bb3ff38f53354832b236b06fc4b5aa8cf8b58.webp",
+    "width": 1706,
+    "height": 922,
+    "sha256": "32406863e1d52a2cd0d18f27445bb3ff38f53354832b236b06fc4b5aa8cf8b58",
+    "bytes": 283934,
+    "original": {
+      "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/1deb47d1b613170263f30e2a441913b93ca0ac1d5fe789ff9c0704536ae47689.png",
+      "width": 1706,
+      "height": 922,
+      "sha256": "1deb47d1b613170263f30e2a441913b93ca0ac1d5fe789ff9c0704536ae47689",
+      "bytes": 3054285
+    }
+  },
+  {
     "publicPath": "/articles/medium-2023-06-08.webp",
     "url": "https://hjg7utvb61vbii2b.public.blob.vercel-storage.com/marketing/e3445d0308d241c8dea03f966a33972c4fbd1cc47745f21f050f84141a303c97.webp",
     "width": 520,
