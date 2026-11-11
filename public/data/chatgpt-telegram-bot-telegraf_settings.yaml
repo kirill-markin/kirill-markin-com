@@ -1,6 +1,6 @@
 # Settings for https://github.com/kirill-markin/chatgpt-telegram-bot-telegraf
-gpt_model: "gpt-5-mini"
-gpt_model_for_image_url: "gpt-5-mini"
+gpt_model: "gpt-5.6-terra"
+gpt_model_for_image_url: "gpt-5.6-terra"
 strings:
   help_string: "Bot chatGPT in telegram  — an assistant that understands voice and text messages in any language. \n\nThe answer can take some time. \n\nLet's start! Please ask me something by voice message 🎙 or by text 💬."
   error_string: "An error occurred while processing the message. Tell Kirill - let him fix it. Kirill's Telegram: @kirmark. \n\nOr ChatGPT might be down globally, you can check here: https://status.openai.com/"
