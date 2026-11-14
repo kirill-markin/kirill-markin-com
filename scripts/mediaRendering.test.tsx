@@ -14,7 +14,7 @@ import { markdownToHtml } from '../src/lib/markdown';
 import { resolveMarkdownMedia } from '../src/lib/markdownMedia';
 import { generateHomePageMetadata } from '../src/lib/metadata';
 import { absoluteMediaUrl, mediaImageMetadata, resolveMediaUrl } from '../src/lib/mediaUrls';
-import { mediaHeaders, mediaRedirects, mediaRemotePatterns } from '../src/lib/mediaRouting';
+import { mediaHeaders, mediaRedirects, mediaRemotePatterns, mediaRewrites } from '../src/lib/mediaRouting';
 
 function optimizedSource(value: string): string | null {
   return new URL(value, 'https://kirill-markin.com').searchParams.get('url');
@@ -61,14 +61,29 @@ test('Next Image thumbnails, services and avatars use immutable sources in src a
   assert.equal(resolveMediaUrl('https://example.com/photo.jpg'), 'https://example.com/photo.jpg');
 });
 
-test('old URLs redirect temporarily with browser revalidation and original bytes when present', () => {
-  assert.equal(mediaRedirects.length, marketingMediaManifest.length);
+test('CV URLs rewrite to Blob while all other media aliases redirect temporarily', () => {
+  const cvPaths = [
+    '/data/cv-kirill-markin-cto.pdf',
+    '/data/cv-kirill-markin-staff-software-engineer.pdf',
+  ];
+  assert.deepEqual(mediaRewrites.map(({ source }) => source).sort(), cvPaths);
+  assert.equal(mediaRedirects.length, marketingMediaManifest.length - cvPaths.length);
   for (const [index, media] of marketingMediaManifest.entries()) {
-    assert.deepEqual(mediaRedirects[index], {
-      source: media.publicPath, destination: (media.original ?? media).url, permanent: false,
-    });
+    const route = { source: media.publicPath, destination: (media.original ?? media).url };
+    const redirect = mediaRedirects.find(({ source }) => source === media.publicPath);
+    const isCv = cvPaths.includes(media.publicPath);
+    if (isCv) {
+      assert.deepEqual(mediaRewrites.find(({ source }) => source === media.publicPath), route);
+      assert.equal(redirect, undefined);
+    } else {
+      assert.deepEqual(redirect, { ...route, permanent: false });
+    }
     assert.deepEqual(mediaHeaders[index], {
-      source: media.publicPath, headers: [{ key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' }],
+      source: media.publicPath,
+      headers: [
+        { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+        ...(isCv ? [{ key: 'x-vercel-enable-rewrite-caching', value: '0' }] : []),
+      ],
     });
   }
 });

@@ -1,6 +1,6 @@
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from "next";
-import { mediaHeaders, mediaRedirects, mediaRemotePatterns } from './src/lib/mediaRouting';
+import { mediaHeaders, mediaRedirects, mediaRemotePatterns, mediaRewrites } from './src/lib/mediaRouting';
 import { GENOME_MANIFEST_PUBLIC_PATH, GENOME_RAW_PUBLIC_PATH } from './src/lib/genomeUrls';
 
 type ResponseHeader = {
@@ -116,9 +116,9 @@ const nextConfig: NextConfig = {
 
     return headers;
   },
-  // Add rewrites for IndexNow to avoid conflict with language routes
   async rewrites() {
     return [
+      ...mediaRewrites,
       // Rewrite for IndexNow key file to internal route
       {
         source: '/:key(\\w+[.]txt$)',

@@ -31,7 +31,7 @@ Import recursively publishes raster images and PDFs from the managed roots byte-
 
 ## Delivery and compatibility
 
-Each managed logical path issues an exact 307 redirect to its original Blob object (`original.url` when present, otherwise `url`), preserving the original bytes and file type at existing URLs. These aliases use `Cache-Control: public, max-age=0, must-revalidate`; PDFs retain PDF bytes and content type. Replacement updates the alias after deploying the changed manifest while previous immutable objects remain available.
+Managed logical paths serve the original Blob object (`original.url` when present, otherwise `url`). The Staff and CTO CV paths use rewrites so the website URL stays visible when opening either PDF. Other aliases use 307 redirects. Aliases use `Cache-Control: public, max-age=0, must-revalidate`, and Vercel rewrite caching is disabled for the CV paths so they follow the deployed manifest. Previous immutable objects remain available.
 
 Rendered HTML, article metadata, JSON-LD, Markdown media links and image optimization resolve managed sources to the immutable delivery URL through `src/lib/mediaUrls.ts`. Use `resolveMediaUrl` for a new managed image consumer so replacements also change optimized image URLs; manifest dimensions replace local-file reads. Builds require neither local managed media nor upload credentials. The Blob CDN serves immutable objects with a one-year cache lifetime. Compatibility routing leaves localized routes and HTML/Markdown negotiation intact.
 
