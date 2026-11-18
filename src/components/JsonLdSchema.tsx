@@ -37,10 +37,7 @@ export default function JsonLdSchema({ language = DEFAULT_LANGUAGE }: JsonLdSche
     '@type': 'Person',
     '@id': personId,
     'name': personalInfo.name,
-    'jobTitle': [
-      personalInfoTranslations.jobTitle,
-      personalInfoTranslations.secondaryTitle
-    ].filter(Boolean).join(', '),
+    'jobTitle': personalInfoTranslations.jobTitle,
     'url': `${SITE_URL}/`,
     'email': personalInfo.email,
     'telephone': personalInfo.phone,

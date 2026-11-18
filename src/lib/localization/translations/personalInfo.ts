@@ -1,7 +1,7 @@
 export const personalInfo = {
     en: {
         jobTitle: 'Staff Software Engineer',
-        secondaryTitle: 'Founder',
+        secondaryTitle: 'Ex-founder',
         additionalFactsTitle: 'Additional facts',
         additionalFactTemplates: {
             founder: 'Founder of {links}',
@@ -14,7 +14,7 @@ export const personalInfo = {
     },
     es: {
         jobTitle: 'Ingeniero de Software Staff',
-        secondaryTitle: 'Fundador',
+        secondaryTitle: 'Exfundador',
         additionalFactsTitle: 'Datos adicionales',
         additionalFactTemplates: {
             founder: 'Fundador de {links}',
@@ -27,7 +27,7 @@ export const personalInfo = {
     },
     zh: {
         jobTitle: 'Staff 软件工程师',
-        secondaryTitle: '创始人',
+        secondaryTitle: '前创始人',
         additionalFactsTitle: '更多信息',
         additionalFactTemplates: {
             founder: '{links} 创始人',
@@ -40,7 +40,7 @@ export const personalInfo = {
     },
     ar: {
         jobTitle: 'مهندس برمجيات Staff',
-        secondaryTitle: 'مؤسس',
+        secondaryTitle: 'مؤسس سابق',
         additionalFactsTitle: 'حقائق إضافية',
         additionalFactTemplates: {
             founder: 'مؤسس {links}',
@@ -53,7 +53,7 @@ export const personalInfo = {
     },
     hi: {
         jobTitle: 'स्टाफ सॉफ्टवेयर इंजीनियर',
-        secondaryTitle: 'संस्थापक',
+        secondaryTitle: 'पूर्व संस्थापक',
         additionalFactsTitle: 'अतिरिक्त तथ्य',
         additionalFactTemplates: {
             founder: '{links} के संस्थापक',
