@@ -15,5 +15,5 @@ export const personalInfo: PersonalInfo = {
   phone: PHONE_NUMBER,
   image: "/avatars/Kirill-Markin.webp",
   jobTitle: "Staff Software Engineer",
-  secondaryTitle: "Founder"
+  secondaryTitle: "Ex-founder"
 }; 
